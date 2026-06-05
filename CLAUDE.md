@@ -198,3 +198,30 @@ The project root is **not a git repo**; deletion is not recoverable. The 2026-06
 - **Kept untouched**: `openclaw_core6_team_sync/` (114M, current Core-6 sync source), `runs/reddust_live_openclaw_20260601_013937/`, `runs/reddust_live_openclaw_v2_modified_20260601/`, `runs/reddust_lan_sessions/`, all 60 `tasks/rd_*`, `openclaw/reddust/`, `tests/`, `scripts/`, `docs/`, `red_dust_readable_task_conversion.html`, `tasks/_archive_openclaw_core6/`.
 - **Result**: project root went from ≈810M to ≈430M (≈380M freed); `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` still 117 passed.
 - **Note for downstream**: `RedDust/` no longer contains `node_modules`/`dist`/`tsconfig.tsbuildinfo`; rebuild with `npm install && npm run build` in that sub-directory.
+
+## 2026-06-05 · Git Init + RedDust Submodule
+
+The project root was initialized as a git repository and the first commits were pushed to GitHub on 2026-06-05.
+
+- **Parent remote**: `https://github.com/SteveLIN0101/Agent_Game.git` (private, default branch `main`).
+- **First commit `f4b7bed`**: "Initial import: OpenClaw Agent Game / Red Dust benchmark" — 2698 files, `.git` 130M (transmitted as ≈116M pack).
+- **Submodule pointer commit `fb9bb1c`**: "Add RedDust as git submodule (pinned to agent-game-integration @ c49f17d)".
+- **RedDust submodule**: `https://github.com/peter-cui-yi/RedDust.git` at `RedDust/`, pinned to `c49f17d` on the `agent-game-integration` branch.
+  - The `agent-game-integration` branch exists **only locally** in this checkout; it carries the local campaign integration changes (README, App, AgentControlBar, global styles + new `campaignClient.ts` / `campaignAdapter.ts`) that were uncommitted on `main` before this session.
+  - Per the user's decision, the RedDust origin (`peter-cui-yi/RedDust.git`) is **untouched** — the new branch is not pushed.
+- **`.gitignore`**: pre-existing 145-line file already excludes `RedDust/`, `runs/`, `workspaces/`, `openclaw_core6_team_sync/`, `素材/`, `*.zip`, `*.tar.gz`, `node_modules/`, `__pycache__/`, `.godot/`, `*.tsbuildinfo` and many more. Unchanged in this round.
+- **Push note**: first push failed with `curl 55 Recv failure: Connection reset by peer` because of the 130M pack; retry with `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` succeeded.
+
+### Clone commands
+
+```bash
+git clone https://github.com/SteveLIN0101/Agent_Game.git
+cd Agent_Game
+git submodule update --init --recursive
+```
+
+### Future work (submodule-related)
+
+- Decide whether to push `agent-game-integration` to a SteveLIN0101 fork of RedDust and update the submodule pointer to a public commit.
+- Consider Git LFS for the large PNG assets under `agent-survival-game/data/`.
+- Add CI for RedDust + the parent benchmark separately.

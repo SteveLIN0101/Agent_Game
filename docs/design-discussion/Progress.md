@@ -311,6 +311,7 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 | 2026-06-01 | V2 修订任务 live 复测 | HTML 映射改为已落地状态；`openclaw agent` 完整跑 15 个修订任务；15/15 submitted，5/15 passed_all，平均分 67.44，报告见 `runs/reddust_live_openclaw_v2_modified_20260601/report.html` |
 | 2026-06-02 | Red Dust LAN Server v0 | 新增局域网 HTTP 远程 agent 接入服务；支持 REST、debug UI、skill.md、OpenAPI-like schema、session trace/report；本机 curl smoke 和回归测试通过 |
 | 2026-06-05 | 缓存与可重建产物清理 | Tier 1 全部 + Tier 2 已确认可删 zip 已删除；3 个不可重建大件备份到 `~/Downloads/Agent_Game_Backup/`；项目根约 810M → 约 430M；117 Red Dust focused 测试通过 |
+| 2026-06-05 | 父仓库 git 初始化 + RedDust submodule 化 | 父仓库 git init 推送至 `https://github.com/SteveLIN0101/Agent_Game.git`（2 commits, default branch `main`）；RedDust 转 submodule 固定到 `c49f17d` (agent-game-integration 分支本地未 push) |
 
 ---
 
@@ -335,6 +336,41 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 - 项目根目前 **不是 git 仓库**（无 `.git/`），删除不可恢复；本次只删除了可重建或已外部备份的产物。
 - RedDust 现在不包含 `node_modules` / `dist` / `tsconfig.tsbuildinfo`，下游若要构建需执行 `npm install && npm run build`。
 - 备份目录建议在确认无需再恢复后由用户自行清理（不在本次删除范围）。
+
+---
+
+## 2026-06-05 · 父仓库 git 初始化 + RedDust submodule 化
+
+### 已完成
+- [x] 核对 RedDust 子仓库 git 状态：origin=`peter-cui-yi/RedDust.git`，分支 `main`，4 个已修改 + 2 个未跟踪文件未提交
+- [x] RedDust 内部：`git switch -c agent-game-integration` → `git add .` → commit `c49f17d`（6 files / +847 / -6）；**不 push**（按用户要求 RedDust origin 保持不动）
+- [x] 父仓库 `git init -b main`，原 2698 个未跟踪文件全部入首次 commit `f4b7bed`（含 130M .git 内部，传输层未压缩包约 116M）
+- [x] `git submodule add https://github.com/peter-cui-yi/RedDust.git RedDust` → commit `fb9bb1c`，submodule 指针固定到 `c49f17d`
+- [x] 父仓库 `git remote add origin https://github.com/SteveLIN0101/Agent_Game.git`
+- [x] 第一次 push 失败：`curl 55 Recv failure: Connection reset by peer`（大包传输被远端连接重置）
+- [x] 第二次 push 加 `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` keepalive 后成功，HEAD 推送到 `https://github.com/SteveLIN0101/Agent_Game`
+- [x] 验证：远端 main = `fb9bb1c`，`.gitmodules` 内容 `[submodule "RedDust"] path=RedDust url=https://github.com/peter-cui-yi/RedDust.git`
+
+### 仓库 / Remote 状态
+- `Agent_Game` 父仓库：https://github.com/SteveLIN0101/Agent_Game.git （private，default branch `main`，2 commits）
+- `RedDust` 子仓库：本地 `agent-game-integration` 分支 commit `c49f17d`；origin 仍为 `peter-cui-yi/RedDust.git` 未动
+
+### 验证
+- 远端 `gh api repos/SteveLIN0101/Agent_Game/commits/main` 可见 `fb9bb1c` 的 `.gitmodules` + RedDust 子项目指针
+- `git submodule status` 输出 `c49f17d RedDust (heads/agent-game-integration)`
+- `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` 仍 117 passed
+
+### 同事 clone 后的命令
+```bash
+git clone https://github.com/SteveLIN0101/Agent_Game.git
+cd Agent_Game
+git submodule update --init --recursive
+```
+
+### 后续可选
+- [ ] 决定是否把 `agent-game-integration` 分支推到 SteveLIN0101 自己的 fork；推送后父仓库可更新 submodule 指针
+- [ ] 给大型 PNG 资源考虑 Git LFS
+- [ ] 给 RedDust 加 CI 验证
 
 ---
 

@@ -280,6 +280,23 @@ curl http://<开发机IP>:7000/tasks
 - **回归**：`tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` 仍 117 passed。
 - **约束**：本轮未动 `openclaw_core6_team_sync/` 整目录与 `runs/reddust_lan_sessions/`（107+ session JSON）。如需进一步瘦身，可走 Tier 3（gzip 化 session JSON、删除 2 个 script_smoke run）；本轮未执行。
 
+### D-011 · 父仓库初始化与 RedDust 子代理化 (2026-06-05)
+
+父仓库 `OpenClaw Agent Game / Red Dust` 在 2026-06-05 之前不是 git 仓库，没有版本历史。本轮初始化了 git 仓库并把 `RedDust/` 转为 submodule。
+
+- **父仓库 remote**：`https://github.com/SteveLIN0101/Agent_Game.git`（private 仓库，最初于 2026-06-05 15:23 创建，但完全为空，由本会话完成首次 push）
+- **首次 commit**：`f4b7bed` "Initial import: OpenClaw Agent Game / Red Dust benchmark" — 2698 个文件，`.git` 130M
+- **Submodule 指针 commit**：`fb9bb1c` "Add RedDust as git submodule (pinned to agent-game-integration @ c49f17d)"
+- **RedDust 子仓库**：
+  - `origin` 保持 `https://github.com/peter-cui-yi/RedDust.git`，**未被改动**（按用户要求 RedDust 远程不动）
+  - 本地新建 `agent-game-integration` 分支保存了之前未提交的 6 个文件修改（README, App.tsx, AgentControlBar.tsx, global.css + 新文件 campaignClient.ts / campaignAdapter.ts）
+  - `agent-game-integration` 处于本地，**未被推送到任何远程**
+  - 父仓库 submodule 固定在该分支的 `c49f17d` commit
+- **父仓库 `.gitignore`**：已存在（145 行）并完整覆盖 `RedDust/`、`runs/`、`workspaces/`、`openclaw_core6_team_sync/`、`素材/`、`*.zip`、`*.tar.gz`、`node_modules/`、`__pycache__`、`.godot/`、`*.tsbuildinfo` 等；本轮未修改。
+- **首次 push 经验**：第一次 push 因大包传输（130M pack）触发 `curl 55 Recv failure: Connection reset by peer` 中途失败；第二次加 `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` keepalive 后稳定完成。
+- **其他同事 clone 后的恢复命令**：`git submodule update --init --recursive`（否则 RedDust 目录会保持空）
+- **后续可选**：(1) 等用户决定把 `agent-game-integration` 推到自己 fork 后更新 submodule 指针；(2) 给大型 PNG 资源引入 Git LFS；(3) 给 RedDust 设 CI。
+
 ---
 
 ## 开放问题 / 下一步
