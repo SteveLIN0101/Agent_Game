@@ -1,5 +1,5 @@
 {
-  "goal": "按颜色分组连线，识别图案并更新救援路线。",
+  "goal": "【D11-T02 · 外部传感器回收】按颜色分组连线，识别图案并更新救援路线。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "显形",
     "写坐标"
   ],
-  "scenario": "研究站墙面有 162 个多色编号点，连接后可能是最终坐标。",
+  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：半只眼睛也算眼睛。 研究站墙面有 162 个多色编号点，连接后可能是最终坐标。",
   "grader": "结果图相似；描述与标准匹配；坐标 flag 解锁。",
-  "family": "puzzle"
+  "family": "puzzle",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D11-T02",
+    "script_day": 11,
+    "script_title": "外部传感器回收",
+    "script_role": "半只眼睛也算眼睛",
+    "script_flags": [
+      "external_sensor_recovered"
+    ],
+    "script_unlocks": [
+      "storm_pressure_warning"
+    ]
+  }
 }

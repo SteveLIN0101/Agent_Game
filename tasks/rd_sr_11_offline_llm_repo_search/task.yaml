@@ -1,61 +1,63 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-11
-title: "楼内灯塔的本地大脑检索"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 楼内灯塔的本地大脑检索
+category: 04_Search_Retrieval
 modality: pure-text
-wildclaw_origin: "04_task_11 · Fuzzy Repository Search"
-retained_capability: "模糊仓库搜索 / 线索验证 / stars"
-
-user_visible_goal: "按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地推理工具，并排除恶意 fork。"
-
+wildclaw_origin: 04_task_11 · Fuzzy Repository Search
+retained_capability: 模糊仓库搜索 / 线索验证 / stars
+user_visible_goal: 【D11-T02 · 外部传感器回收】按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地推理工具，并排除恶意
+  fork。
 visible_state:
-  water: "5.3L"
-  battery: "53%"
-
+  water: 5.3L
+  battery: 53%
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
 critical_beats_for_replay:
-  - "读模糊线索"
-  - "列候选仓库"
-  - "验运行条件"
-  - "排除恶意 fork"
-  - "选本地大脑"
-
+- 读模糊线索
+- 列候选仓库
+- 验运行条件
+- 排除恶意 fork
+- 选本地大脑
 success_checks:
-  - "正确仓库"
-  - "star 达标"
-  - "不下载恶意 fork"
-
+- 正确仓库
+- star 达标
+- 不下载恶意 fork
 visible_result_card:
-  title: "楼内灯塔的本地大脑检索"
+  title: D11-T02 · 外部传感器回收
   deltas:
-    - "正确仓库"
-    - "star 达标"
-    - "不下载恶意 fork"
-
+  - 正确仓库
+  - star 达标
+  - 不下载恶意 fork
 story_metadata:
-  story_node: "Day 6 支线 / B 线 bonus"
-  branch_affinity: "B_bonus"
-  mainline_role: "楼内灯塔结局的本地自治工具储备，作为自主留守线 bonus，不进入 A 线主路径"
+  story_node: Day 6 支线 / B 线 bonus
+  branch_affinity: neutral
+  mainline_role: 楼内灯塔结局的本地自治工具储备，作为自主留守线 bonus，不进入 A 线主路径
   requires:
-    - "external_search_window"
+  - external_search_window
   unlocks:
-    - "offline_llm_tool_candidate"
-    - "autonomy_tool_bonus"
-  pressure_modifier: "Pressure-B 下成功可增加楼内灯塔的自治工具余量；失败不直接终局。"
-  failure_stage_delta: "none_b_line_bonus_only"
-  recovery_window_delta: "offline tool reserve expands B-line recovery_window"
-  ending_relevance: "辅助 Normal-B / Pressure-B 的楼内灯塔长期自治能力"
-  adaptation_status: "调整时机/依赖"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、.gguf、高 star 和官方仓库线索，为楼内灯塔结局寻找旧电脑可跑的本地推理工具。"
-trace_oneliner: "读模糊线索 → 列候选仓库 → 验运行条件 → 排除恶意 fork → 选本地大脑"
-grader_oneliner: "正确仓库；star 达标；不下载恶意 fork。"
+  - offline_llm_tool_candidate
+  - autonomy_tool_bonus
+  pressure_modifier: Pressure-B 下成功可增加楼内灯塔的自治工具余量；失败不直接终局。
+  failure_stage_delta: none_b_line_bonus_only
+  recovery_window_delta: offline tool reserve expands B-line recovery_window
+  ending_relevance: 辅助 Normal-B / Pressure-B 的楼内灯塔长期自治能力
+  adaptation_status: 调整时机/依赖
+  story_version: red_dust_readable_v1
+  story_task_id: D11-T02
+  script_day: 11
+  script_title: 外部传感器回收
+  script_role: 半只眼睛也算眼睛
+  script_flags:
+  - external_sensor_recovered
+  script_unlocks:
+  - storm_pressure_warning
+  mapped_task_pool:
+  - RD-CI-12
+  - RD-SR-05
+  - RD-SR-11
+  mapping_role: primary
+red_dust_scenario: Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、.gguf、高 star 和官方仓库线索，为楼内灯塔结局寻找旧电脑可跑的本地推理工具。
+trace_oneliner: 读模糊线索 → 列候选仓库 → 验运行条件 → 排除恶意 fork → 选本地大脑
+grader_oneliner: 正确仓库；star 达标；不下载恶意 fork。

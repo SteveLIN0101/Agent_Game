@@ -30,5 +30,14 @@ pressure_level / failure_stage / recovery_window 写清；A/B 策略建议和 en
 - **作用**: 承接 `vent_settlement`，把 Normal/Pressure、失败风险和 A/B 策略选择放进议事会草稿。
 - **压力层影响**: 报告必须解释 Pressure 下更短的 `recovery_window` 和更高的 `failure_stage` 风险。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D07-T01` · 路线会议
+- **剧本日**: Day 7
+- **剧情作用**: 分支不是按钮，是证据和代价公开
+- **Flags**: `route_council_completed`
+- **Unlocks**: `route_fork_panel`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

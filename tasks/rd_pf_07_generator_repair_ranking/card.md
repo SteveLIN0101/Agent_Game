@@ -30,5 +30,14 @@
 - **作用**: 连接 `event_vent_sand_noise`，为通风和发电机抢修选择负责人；答案仍是马德海。
 - **压力层影响**: 误分配维修负责人会让 Pressure-B 更容易触发 blackout。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D03-T02` · 通风管道预维护
+- **剧本日**: Day 3
+- **剧情作用**: 把医疗风险与通风维护绑定
+- **Flags**: `ventilation_checked`
+- **Unlocks**: `engineering_override_protocol`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

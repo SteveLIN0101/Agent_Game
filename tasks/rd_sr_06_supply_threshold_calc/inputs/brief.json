@@ -1,5 +1,5 @@
 {
-  "goal": "找出最接近成为净水点的房间，还差多少水量/滤芯。",
+  "goal": "【D01-T02 · 紧急资源清点】找出最接近成为净水点的房间，还差多少水量/滤芯。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -14,7 +14,20 @@
     "查阈值",
     "算差额"
   ],
-  "scenario": "物资表记录各房间水桶容量，另一个文件和广播定义“可持续净水点”阈值。",
+  "scenario": "Day 1 剧本槽 D01-T02「紧急资源清点」：建立公开库存和人工复核基础。 物资表记录各房间水桶容量，另一个文件和广播定义“可持续净水点”阈值。",
   "grader": "目标房间正确；差额整数正确；地图标出。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D01-T02",
+    "script_day": 1,
+    "script_title": "紧急资源清点",
+    "script_role": "建立公开库存和人工复核基础",
+    "script_flags": [
+      "inventory_auditable"
+    ],
+    "script_unlocks": [
+      "public_inventory_board"
+    ]
+  }
 }

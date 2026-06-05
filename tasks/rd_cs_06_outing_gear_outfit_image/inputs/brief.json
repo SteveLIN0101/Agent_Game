@@ -1,5 +1,5 @@
 {
-  "goal": "生成一张外出装备示意图，并列出缺少的防护件。",
+  "goal": "【D02-T03 · 生活区卫生分区】生成一张外出装备示意图，并列出缺少的防护件。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -15,7 +15,20 @@
     "标缺口",
     "锁定清单"
   ],
-  "scenario": "仓库里有护目镜、雨衣、手套、鞋套，谁穿什么不清楚。",
+  "scenario": "Day 2 剧本槽 D02-T03「生活区卫生分区」：把卫生规则做成可见秩序。 仓库里有护目镜、雨衣、手套、鞋套，谁穿什么不清楚。",
   "grader": "关键防护全覆盖；图片不误导；缺口写明。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D02-T03",
+    "script_day": 2,
+    "script_title": "生活区卫生分区",
+    "script_role": "把卫生规则做成可见秩序",
+    "script_flags": [
+      "hygiene_zones_marked"
+    ],
+    "script_unlocks": [
+      "medical_corner_stable"
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "goal": "按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地推理工具，并排除恶意 fork。",
+  "goal": "【D11-T02 · 外部传感器回收】按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地推理工具，并排除恶意 fork。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -13,7 +13,20 @@
     "排除恶意 fork",
     "选本地大脑"
   ],
-  "scenario": "Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、.gguf、高 star 和官方仓库线索，为楼内灯塔结局寻找旧电脑可跑的本地推理工具；成功增加 Normal-B / Pressure-B 的自治工具余量。",
+  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：半只眼睛也算眼睛。 Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、.gguf、高 star 和官方仓库线索，为楼内灯塔结局寻找旧电脑可跑的本地推理工具；成功增加 Normal-B / Pressure-B 的自治工具余量。",
   "grader": "正确仓库；star 达标；不下载恶意 fork。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D11-T02",
+    "script_day": 11,
+    "script_title": "外部传感器回收",
+    "script_role": "半只眼睛也算眼睛",
+    "script_flags": [
+      "external_sensor_recovered"
+    ],
+    "script_unlocks": [
+      "storm_pressure_warning"
+    ]
+  }
 }

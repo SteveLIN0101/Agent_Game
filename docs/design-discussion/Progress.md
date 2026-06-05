@@ -289,8 +289,8 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 - [x] 本机 curl smoke 通过：`/health`、`POST /sessions`、`POST /actions`、`POST /submit`、`GET /report.html`
 
 ### 待用户同 Wi-Fi 验证
-- [ ] 开发机启动：`PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python scripts/run_reddust_lan_server.py --host 0.0.0.0 --port 7000`
-- [ ] 另一台同 Wi-Fi 电脑访问：`http://<开发机IP>:7000/health`
+- [ ] 开发机启动：`PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python scripts/run_reddust_lan_server.py --host 0.0.0.0 --port 7001`
+- [ ] 另一台同 Wi-Fi 电脑访问：`http://<开发机IP>:7001/health`
 - [ ] 另一台电脑创建 session 并至少完成一次 `/actions` + `/submit`
 
 ---
@@ -311,7 +311,7 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 | 2026-06-01 | V2 修订任务 live 复测 | HTML 映射改为已落地状态；`openclaw agent` 完整跑 15 个修订任务；15/15 submitted，5/15 passed_all，平均分 67.44，报告见 `runs/reddust_live_openclaw_v2_modified_20260601/report.html` |
 | 2026-06-02 | Red Dust LAN Server v0 | 新增局域网 HTTP 远程 agent 接入服务；支持 REST、debug UI、skill.md、OpenAPI-like schema、session trace/report；本机 curl smoke 和回归测试通过 |
 | 2026-06-05 | 缓存与可重建产物清理 | Tier 1 全部 + Tier 2 已确认可删 zip 已删除；3 个不可重建大件备份到 `~/Downloads/Agent_Game_Backup/`；项目根约 810M → 约 430M；117 Red Dust focused 测试通过 |
-| 2026-06-05 | 父仓库 git 初始化 + RedDust submodule 化 | 父仓库 git init 推送至 `https://github.com/SteveLIN0101/Agent_Game.git`（2 commits, default branch `main`）；RedDust 转 submodule 固定到 `c49f17d` (agent-game-integration 分支本地未 push) |
+| 2026-06-05 | 父仓库 git 初始化 + RedDust submodule 化 | 父仓库 git init 推送至 `https://github.com/SteveLIN0101/Agent_Game.git`；RedDust 转 submodule 固定到 `c49f17d`，后续 remote 规范为 origin=Steve fork、upstream=Peter 原仓 |
 
 ---
 
@@ -333,8 +333,8 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 - 备份目录体积 369M，三份备份字节数与源完全一致
 
 ### 观察
-- 项目根目前 **不是 git 仓库**（无 `.git/`），删除不可恢复；本次只删除了可重建或已外部备份的产物。
-- RedDust 现在不包含 `node_modules` / `dist` / `tsconfig.tsbuildinfo`，下游若要构建需执行 `npm install && npm run build`。
+- 当时项目根尚未初始化 git 仓库；当前已是 `https://github.com/SteveLIN0101/Agent_Game.git` 的 git 仓库。本次清理经验仍适用：删除前先确认是否可重建或已有外部备份。
+- 2026-06-06 前端验证重新生成了 `RedDust/node_modules` / `RedDust/dist` / `RedDust/tsconfig.tsbuildinfo`；这些仍是 ignored 可重建产物，下游可用 `cd RedDust && npm ci && npm run build` 恢复。
 - 备份目录建议在确认无需再恢复后由用户自行清理（不在本次删除范围）。
 
 ---
@@ -342,18 +342,20 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 ## 2026-06-05 · 父仓库 git 初始化 + RedDust submodule 化
 
 ### 已完成
-- [x] 核对 RedDust 子仓库 git 状态：origin=`peter-cui-yi/RedDust.git`，分支 `main`，4 个已修改 + 2 个未跟踪文件未提交
-- [x] RedDust 内部：`git switch -c agent-game-integration` → `git add .` → commit `c49f17d`（6 files / +847 / -6）；**不 push**（按用户要求 RedDust origin 保持不动）
+- [x] 核对 RedDust 子仓库 git 状态：当时 origin=`peter-cui-yi/RedDust.git`，分支 `main`，4 个已修改 + 2 个未跟踪文件未提交
+- [x] RedDust 内部：`git switch -c agent-game-integration` → `git add .` → commit `c49f17d`（6 files / +847 / -6）；当时未 push；2026-06-05 后续已把 origin 规范为 Steve fork、upstream 规范为 Peter 原仓
 - [x] 父仓库 `git init -b main`，原 2698 个未跟踪文件全部入首次 commit `f4b7bed`（含 130M .git 内部，传输层未压缩包约 116M）
-- [x] `git submodule add https://github.com/peter-cui-yi/RedDust.git RedDust` → commit `fb9bb1c`，submodule 指针固定到 `c49f17d`
+- [x] `git submodule add https://github.com/peter-cui-yi/RedDust.git RedDust` → commit `fb9bb1c`，submodule 指针固定到 `c49f17d`；后续 `.gitmodules` 已改为 Steve fork
 - [x] 父仓库 `git remote add origin https://github.com/SteveLIN0101/Agent_Game.git`
 - [x] 第一次 push 失败：`curl 55 Recv failure: Connection reset by peer`（大包传输被远端连接重置）
 - [x] 第二次 push 加 `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` keepalive 后成功，HEAD 推送到 `https://github.com/SteveLIN0101/Agent_Game`
-- [x] 验证：远端 main = `fb9bb1c`，`.gitmodules` 内容 `[submodule "RedDust"] path=RedDust url=https://github.com/peter-cui-yi/RedDust.git`
+- [x] 初次验证：远端 main = `fb9bb1c`，当时 `.gitmodules` 仍指向 Peter 原仓；当前 `.gitmodules` 指向 `https://github.com/SteveLIN0101/RedDust.git`，`branch=agent-game-integration`
 
 ### 仓库 / Remote 状态
-- `Agent_Game` 父仓库：https://github.com/SteveLIN0101/Agent_Game.git （private，default branch `main`，2 commits）
-- `RedDust` 子仓库：本地 `agent-game-integration` 分支 commit `c49f17d`；origin 仍为 `peter-cui-yi/RedDust.git` 未动
+- `Agent_Game` 父仓库：https://github.com/SteveLIN0101/Agent_Game.git （private，default branch `main`）
+- `RedDust` 子仓库：`agent-game-integration` 分支当前指针 `c49f17d`
+- RedDust remotes：`origin=https://github.com/SteveLIN0101/RedDust.git`，`upstream=https://github.com/peter-cui-yi/RedDust.git`
+- `.gitmodules` 指向 Steve fork，并设置 `branch=agent-game-integration`
 
 ### 验证
 - 远端 `gh api repos/SteveLIN0101/Agent_Game/commits/main` 可见 `fb9bb1c` 的 `.gitmodules` + RedDust 子项目指针
@@ -368,9 +370,31 @@ git submodule update --init --recursive
 ```
 
 ### 后续可选
-- [ ] 决定是否把 `agent-game-integration` 分支推到 SteveLIN0101 自己的 fork；推送后父仓库可更新 submodule 指针
+- [ ] 将当前 RedDust Day0-12 前端适配提交到 SteveLIN0101/RedDust 的 `agent-game-integration` 分支，并更新父仓库 submodule 指针
 - [ ] 给大型 PNG 资源考虑 Git LFS
 - [ ] 给 RedDust 加 CI 验证
+
+---
+
+## 2026-06-06 · Red Dust Day0-12 剧本化 campaign 深改
+
+### 已完成
+- [x] 新增 `openclaw/reddust/story_manifest.py`，固化 `red_dust_readable_v1`：Day0 序章、Day1-11 共 44 个 `Dxx-Txx` 普通任务槽、6 个 Day8-10 branch scene、5 个自动结局
+- [x] 60 个 `RD-*` 全部映射到 44 个剧本任务槽；更新所有任务的 `story_metadata`、`card.md` 与 `inputs/brief.json`
+- [x] 更新 `tasks/RED_DUST_INDEX.md`，加入 `Dxx-Txx ↔ RD-*` 剧本任务槽对照表
+- [x] 改造 `openclaw/reddust/campaign.py`：支持 `story_version`、开放全局状态、seed 抽题、routeLeaning、branch scene、Final Audit、五类自动结局、frontend_trace
+- [x] 更新 `scripts/run_reddust_campaign_agent.py`，增加 `--story-version` 并默认使用 `red_dust_readable_v1`
+- [x] RedDust 前端保持 Phaser 场景和动画框架不变，升级 Day0-12 timeline、live/replay 事件类型、story/branch/final replay step、HUD 审计摘要和 agent prompt
+- [x] 修正 `.gitignore`：`RedDust/` 改为 `/RedDust/`，避免 macOS ignorecase 误伤 `openclaw/reddust/`
+
+### 验证状态
+- [x] `openclaw/reddust/story_manifest.py`、`openclaw/reddust/campaign.py`、`openclaw/reddust/lan_server.py`、`scripts/run_reddust_campaign_agent.py` py_compile 通过
+- [x] 静态解析：60 个任务 YAML/JSON 可读，且均包含 `story_metadata.story_task_id`
+- [x] `tests/test_reddust_campaign.py -q`：7 passed（HTTP 端口绑定用外部权限重跑）
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+- [x] RedDust `npm run typecheck` 与 `npm run build` 通过
+- [x] 本机服务 smoke：`http://127.0.0.1:7001/health` 返回 60 tasks / 0 campaigns；`http://127.0.0.1:5176/` 首页可服务
+- [x] 2026-06-06 neat-freak 收尾：统一 LAN/campaign 默认端口为 `7001`，外部权限重跑 `tests/test_reddust_lan_server.py tests/test_reddust_campaign.py -q`：9 passed
 
 ---
 

@@ -1,5 +1,5 @@
 {
-  "goal": "转成一张墙报：三步净水、危险提示、可用材料。",
+  "goal": "【D02-T03 · 生活区卫生分区】转成一张墙报：三步净水、危险提示、可用材料。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -14,7 +14,20 @@
     "做海报",
     "上墙"
   ],
-  "scenario": "一篇净水论文太长，邻居看不懂。",
+  "scenario": "Day 2 剧本槽 D02-T03「生活区卫生分区」：把卫生规则做成可见秩序。 一篇净水论文太长，邻居看不懂。",
   "grader": "关键信息正确；危险提示明显；布局可读。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D02-T03",
+    "script_day": 2,
+    "script_title": "生活区卫生分区",
+    "script_role": "把卫生规则做成可见秩序",
+    "script_flags": [
+      "hygiene_zones_marked"
+    ],
+    "script_unlocks": [
+      "medical_corner_stable"
+    ]
+  }
 }

@@ -1,48 +1,52 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-08
-title: "彩色管线 Link-a-Pix"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 彩色管线 Link-a-Pix
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_8 · Link-a-Pix Color"
-retained_capability: "约束求解 / 路径规划 / 像素图"
-
-user_visible_goal: "按颜色和数字连线，填出可用电路图。"
-
+wildclaw_origin: 02_task_8 · Link-a-Pix Color
+retained_capability: 约束求解 / 路径规划 / 像素图
+user_visible_goal: 【D05-T02 · 楼梯间路线标记】按颜色和数字连线，填出可用电路图。
 visible_state:
-  water: "4.0L"
-  battery: "66%"
-
+  water: 4.0L
+  battery: 66%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-  - "fill_color"
-  - "web_search"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
+- fill_color
+- web_search
 critical_beats_for_replay:
-  - "读数字"
-  - "配对"
-  - "搜路径"
-  - "填色"
-  - "切换电路"
-
+- 读数字
+- 配对
+- 搜路径
+- 填色
+- 切换电路
 success_checks:
-  - "图像与答案相似"
-  - "描述正确"
-  - "电力状态更新"
-
+- 图像与答案相似
+- 描述正确
+- 电力状态更新
 visible_result_card:
-  title: "彩色管线 Link-a-Pix"
+  title: D05-T02 · 楼梯间路线标记
   deltas:
-    - "图像与答案相似"
-    - "描述正确"
-    - "电力状态更新"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "配电箱上有彩色数字谜题，解开后显示隐藏线路。"
-trace_oneliner: "读数字 → 配对 → 搜路径 → 填色 → 切换电路"
-grader_oneliner: "图像与答案相似；描述正确；电力状态更新。"
+  - 图像与答案相似
+  - 描述正确
+  - 电力状态更新
+red_dust_scenario: 配电箱上有彩色数字谜题，解开后显示隐藏线路。
+trace_oneliner: 读数字 → 配对 → 搜路径 → 填色 → 切换电路
+grader_oneliner: 图像与答案相似；描述正确；电力状态更新。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D05-T02
+  script_day: 5
+  script_title: 楼梯间路线标记
+  script_role: 建立不会诱导陌生人的路线标记
+  branch_affinity: neutral
+  script_flags:
+  - stair_markers_reviewed
+  script_unlocks:
+  - alternate_marker
+  mapped_task_pool:
+  - RD-CI-07
+  - RD-CI-05
+  - RD-CI-08
+  mapping_role: primary

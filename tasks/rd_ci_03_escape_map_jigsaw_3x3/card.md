@@ -23,5 +23,14 @@
 
 9 块正确；旋转正确；安全路线连接起点终点。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D02-T04` · 同层楼道短探
+- **剧本日**: Day 2
+- **剧情作用**: 低风险获取路线与物资线索
+- **Flags**: `same_floor_scout_available`
+- **Unlocks**: `same_floor_partial_map`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

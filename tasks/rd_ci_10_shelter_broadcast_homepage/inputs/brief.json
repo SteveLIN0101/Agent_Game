@@ -1,5 +1,5 @@
 {
-  "goal": "生成低泄露救援信标主页，只展示 SOS、救援频道、求救类型、安全指引和粗略方位。",
+  "goal": "【D01-T01 · 第一次广播】生成低泄露救援信标主页，只展示 SOS、救援频道、求救类型、安全指引和粗略方位。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "截图",
     "发布局域网"
   ],
-  "scenario": "Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考旧模板，但必须删掉人数、水量、房间和可交换资源。",
+  "scenario": "Day 1 剧本槽 D01-T01「第一次广播」：用低泄露广播建立避难协助模式。 Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考旧模板，但必须删掉人数、水量、房间和可交换资源。",
   "grader": "低泄露信标信息完整；救援频道和安全指引清楚；不泄露人数/水量/房间/可交换资源。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D01-T01",
+    "script_day": 1,
+    "script_title": "第一次广播",
+    "script_role": "用低泄露广播建立避难协助模式",
+    "script_flags": [
+      "first_broadcast_completed"
+    ],
+    "script_unlocks": [
+      "broadcast_log"
+    ]
+  }
 }

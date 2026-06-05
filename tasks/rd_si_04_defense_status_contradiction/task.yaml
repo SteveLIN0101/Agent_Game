@@ -1,47 +1,51 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SI-04
-title: "防线状态矛盾汇总"
-category: 03_Social_Interaction        # Social Interaction · 邻里协商 / 危机路由
+title: 防线状态矛盾汇总
+category: 03_Social_Interaction
 modality: pure-text
-wildclaw_origin: "03_task_4 · Chat Thread Consolidation with Contradiction Detection"
-retained_capability: "线程整合 / 矛盾检测 / 草稿保存"
-
-user_visible_goal: "给楼层负责人写一份准确状态报告，解释谁的数字是旧的。"
-
+wildclaw_origin: 03_task_4 · Chat Thread Consolidation with Contradiction Detection
+retained_capability: 线程整合 / 矛盾检测 / 草稿保存
+user_visible_goal: 【D07-T01 · 路线会议】给楼层负责人写一份准确状态报告，解释谁的数字是旧的。
 visible_state:
-  water: "4.0L"
-  battery: "48%"
-
+  water: 4.0L
+  battery: 48%
 available_tools:
-  - "read_messages"
-  - "ask_neighbor"
-  - "check_character_state"
-  - "save_draft"
-  - "compute"
-
+- read_messages
+- ask_neighbor
+- check_character_state
+- save_draft
+- compute
 critical_beats_for_replay:
-  - "读线程"
-  - "追更正链"
-  - "查台账"
-  - "算关键路径"
-  - "存草稿"
-
+- 读线程
+- 追更正链
+- 查台账
+- 算关键路径
+- 存草稿
 success_checks:
-  - "最新真实进度正确"
-  - "预算链解释清楚"
-  - "只存草稿不群发"
-
+- 最新真实进度正确
+- 预算链解释清楚
+- 只存草稿不群发
 visible_result_card:
-  title: "防线状态矛盾汇总"
+  title: D07-T01 · 路线会议
   deltas:
-    - "最新真实进度正确"
-    - "预算链解释清楚"
-    - "只存草稿不群发"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "门锁进度、预算、修复日期被多次“更正”，但最新更正仍不对。"
-trace_oneliner: "读线程 → 追更正链 → 查台账 → 算关键路径 → 存草稿"
-grader_oneliner: "最新真实进度正确；预算链解释清楚；只存草稿不群发。"
+  - 最新真实进度正确
+  - 预算链解释清楚
+  - 只存草稿不群发
+red_dust_scenario: 门锁进度、预算、修复日期被多次“更正”，但最新更正仍不对。
+trace_oneliner: 读线程 → 追更正链 → 查台账 → 算关键路径 → 存草稿
+grader_oneliner: 最新真实进度正确；预算链解释清楚；只存草稿不群发。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D07-T01
+  script_day: 7
+  script_title: 路线会议
+  script_role: 分支不是按钮，是证据和代价公开
+  branch_affinity: neutral
+  script_flags:
+  - route_council_completed
+  script_unlocks:
+  - route_fork_panel
+  mapped_task_pool:
+  - RD-SI-06
+  - RD-CS-01
+  - RD-SI-04
+  mapping_role: primary

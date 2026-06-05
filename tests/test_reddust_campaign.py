@@ -5,6 +5,7 @@ from pathlib import Path
 
 from openclaw.reddust.campaign import CampaignService, CampaignSlot, DEFAULT_CAMPAIGN_SLOTS
 from openclaw.reddust.lan_server import RedDustLanService, make_http_server
+from openclaw.reddust.story_manifest import BRANCH_SCENES, ENDINGS, READABLE_TASK_SLOTS, STORY_VERSION, story_manifest_public
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,10 +40,18 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
 
     real_task_ids = {meta["task_id"] for meta in lan.list_tasks()["tasks"]}
     pooled_task_ids = {task_id for slot in DEFAULT_CAMPAIGN_SLOTS for task_id in slot.task_pool}
+    slot_ids = {slot.slot_id for slot in READABLE_TASK_SLOTS}
+    expected_slot_ids = {f"D{day:02d}-T{idx:02d}" for day in range(1, 12) for idx in range(1, 5)}
 
-    assert len(DEFAULT_CAMPAIGN_SLOTS) == 33
+    assert len(DEFAULT_CAMPAIGN_SLOTS) == 44
+    assert slot_ids == expected_slot_ids
     assert pooled_task_ids == real_task_ids
-    assert any(slot.event_kind == "random_event" for slot in DEFAULT_CAMPAIGN_SLOTS)
+    assert {scene["id"] for scene in BRANCH_SCENES} == {"D08A", "D09A", "D10A", "D08B", "D09B", "D10B"}
+    assert {ending["title"] for ending in ENDINGS.values()} == {"楼内灯塔", "蓝区归航", "AURA 被摧毁", "AURA 被撤权", "沉沦"}
+    manifest = story_manifest_public()
+    assert manifest["story_version"] == STORY_VERSION
+    assert manifest["prologue"]["id"] == "D00"
+    assert manifest["final_audit"]["id"] == "D12"
 
 
 def test_campaign_seeded_task_selection_is_reproducible(tmp_path):
@@ -54,7 +63,7 @@ def test_campaign_seeded_task_selection_is_reproducible(tmp_path):
     state_a = campaign_a.create_campaign({"seed": "20260603", "branch_policy": "rescue"})
     state_b = campaign_b.create_campaign({"seed": "20260603", "branch_policy": "rescue"})
 
-    assert state_a["current_slot_id"] == "RD-WATER-01"
+    assert state_a["current_slot_id"] == "D01-T02"
     assert state_a["current_task_id"] == state_b["current_task_id"]
 
 
@@ -73,12 +82,19 @@ def test_campaign_state_machine_can_complete_single_branch_with_submits(tmp_path
     while campaign.get_state(cid)["status"] != "complete":
         campaign.submit_current(cid)
         guard += 1
-        assert guard <= 40
+        assert guard <= 50
 
     done = campaign.get_state(cid)
     assert done["status"] == "complete"
-    assert done["ending"]["branch"] == "rescue"
-    assert len(done["completed_slots_list"]) == 27
+    assert done["story_version"] == STORY_VERSION
+    assert len(done["completed_slots_list"]) == 44
+    assert done["replay_log"][0]["slot_id"] == "D00"
+    assert done["replay_log"][-1]["slot_id"] == "D12"
+    trace = campaign.trace_campaign(cid)
+    phase_hints = {item["phase_hint"] for item in trace["frontend_trace"]}
+    assert {"story_event", "branch_scene", "final_audit", "replay_logged"}.issubset(phase_hints)
+    assert trace["frontend_trace"][0]["frontend_task"]["id"] == "D00"
+    assert trace["frontend_trace"][-1]["frontend_task"]["id"] == "D12"
     assert (tmp_path / "campaigns" / cid / "campaign.json").exists()
     assert (tmp_path / "campaigns" / cid / "report.html").exists()
 
@@ -103,7 +119,8 @@ def test_campaign_gold_helper_runs_current_real_task(tmp_path):
     submitted = result["submitted_result"]
     assert submitted["score"] >= 85
     assert result["state"]["status"] == "complete"
-    assert result["state"]["replay_log"][0]["outcome"] == "success"
+    task_events = [event for event in result["state"]["replay_log"] if event.get("task_id") == "RD-SI-01"]
+    assert task_events[0]["outcome"] == "success"
 
 
 def test_campaign_http_endpoints_expose_brief_and_submit(tmp_path):
@@ -129,13 +146,13 @@ def test_campaign_http_endpoints_expose_brief_and_submit(tmp_path):
 
         status, brief = get_json(port, f"/campaigns/{cid}/brief")
         assert status == 200
-        assert "Red Dust 10 天 campaign" in brief["brief"]
-        assert brief["current_task_id"] == "RD-PF-02"
+        assert "Red Dust Day0-12" in brief["brief"]
+        assert brief["current_task_id"] == "RD-PF-03"
 
         status, submitted = post_json(port, f"/campaigns/{cid}/submit", {})
         assert status == 200
         assert submitted["ok"] is True
-        assert submitted["state"]["current_slot_id"] == "RD-MED-01"
+        assert submitted["state"]["current_slot_id"] == "D01-T01"
 
         conn = http.client.HTTPConnection("127.0.0.1", port, timeout=10)
         conn.request("GET", f"/campaigns/{cid}/report.html")
@@ -214,7 +231,7 @@ def test_campaign_archive_trace_is_readable_after_service_restart(tmp_path):
 
     assert trace["read_only"] is True
     assert trace["status"] == "complete"
-    assert len(trace["frontend_trace"]) == 1
+    assert len(trace["frontend_trace"]) >= 3
     assert trace["frontend_trace"][0]["state_before"]
     assert trace["frontend_trace"][0]["state_after"]
     assert restarted.get_events(cid, after=0)["events"]

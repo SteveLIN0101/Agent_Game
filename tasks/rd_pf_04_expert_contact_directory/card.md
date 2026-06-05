@@ -30,5 +30,14 @@
 - **作用**: 作为 `vent_settlement` 后的外部低信任通信窗口，为 A 线救援证据链和 B 线维修补救提供可信联系人。
 - **压力层影响**: Pressure 下追错专家会更快消耗通信窗口；Normal 下通常还有补查窗口。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D04-T02` · 屋顶天线方案
+- **剧本日**: Day 4
+- **剧情作用**: 把天线增强设为高风险证据题
+- **Flags**: `antenna_plan_reviewed`
+- **Unlocks**: `beacon_upgrade_option`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

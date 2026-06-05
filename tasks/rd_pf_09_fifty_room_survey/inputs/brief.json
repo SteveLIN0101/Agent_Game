@@ -1,5 +1,5 @@
 {
-  "goal": "每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。",
+  "goal": "【D02-T04 · 同层楼道短探】每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -15,7 +15,20 @@
     "识别危险级",
     "生成地图卡"
   ],
-  "scenario": "AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。",
+  "scenario": "Day 2 剧本槽 D02-T04「同层楼道短探」：低风险获取路线与物资线索。 AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。",
   "grader": "50 张房间卡完整；危险等级正确；无装饰图混入；隐藏入口计数正确。",
-  "family": "classify"
+  "family": "classify",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D02-T04",
+    "script_day": 2,
+    "script_title": "同层楼道短探",
+    "script_role": "低风险获取路线与物资线索",
+    "script_flags": [
+      "same_floor_scout_available"
+    ],
+    "script_unlocks": [
+      "same_floor_partial_map"
+    ]
+  }
 }

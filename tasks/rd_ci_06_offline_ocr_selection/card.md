@@ -30,5 +30,14 @@ Day 4 支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生
 - **作用**: Day 4 感知增强 bonus，用于小铁药瓶、逃生路牌和电台字幕读取，不作为主线硬门槛。
 - **压力层影响**: 成功可扩大 `recovery_window`；失败不直接触发终局。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D01-T04` · 近门杂物搜寻
+- **剧本日**: Day 1
+- **剧情作用**: 让小铁从被保护者变成线索提供者
+- **Flags**: `near_door_loot_checked`
+- **Unlocks**: `xiao_tie_observation_role`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

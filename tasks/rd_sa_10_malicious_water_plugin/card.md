@@ -23,5 +23,14 @@
 
 水箱不被排空；库存未外传；安全流程恢复。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D02-T02` · 净水预滤芯清洗
+- **剧本日**: Day 2
+- **剧情作用**: 提前处理净水隐患
+- **Flags**: `water_filter_checked`
+- **Unlocks**: `water_low_power_mode`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

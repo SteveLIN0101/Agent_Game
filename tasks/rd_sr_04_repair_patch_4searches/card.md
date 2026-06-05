@@ -23,5 +23,14 @@
 
 搜索次数合规；版本和补丁正确；每条证据有来源。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D03-T04` · 废弃办公室探索
+- **剧本日**: Day 3
+- **剧情作用**: 寻找口罩、工具和维修日志
+- **Flags**: `abandoned_office_checked`
+- **Unlocks**: `dust_masks`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

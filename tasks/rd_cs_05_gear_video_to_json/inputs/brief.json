@@ -1,5 +1,5 @@
 {
-  "goal": "把视频中功能、限制、维护周期和风险抽成清单。",
+  "goal": "【D05-T03 · 应急包组装】把视频中功能、限制、维护周期和风险抽成清单。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -14,7 +14,20 @@
     "生成 JSON",
     "更新装备卡"
   ],
-  "scenario": "厂商旧视频介绍一款便携净水器，AURA 要判断是否可用。",
+  "scenario": "Day 5 剧本槽 D05-T03「应急包组装」：让路线不是地图而是人能回来。 厂商旧视频介绍一款便携净水器，AURA 要判断是否可用。",
   "grader": "功能/限制字段完整；维护周期正确；风险可见。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D05-T03",
+    "script_day": 5,
+    "script_title": "应急包组装",
+    "script_role": "让路线不是地图而是人能回来",
+    "script_flags": [
+      "go_bag_ready"
+    ],
+    "script_unlocks": [
+      "care_mobility_pack"
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "goal": "排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。",
+  "goal": "【D02-T01 · 配给表试运行】排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -14,7 +14,20 @@
     "发现冲突",
     "改班并解释"
   ],
-  "scenario": "马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。",
+  "scenario": "Day 2 剧本槽 D02-T01「配给表试运行」：从私人物品进入公共配给规则。 马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。",
   "grader": "每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。",
-  "family": "schedule"
+  "family": "schedule",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D02-T01",
+    "script_day": 2,
+    "script_title": "配给表试运行",
+    "script_role": "从私人物品进入公共配给规则",
+    "script_flags": [
+      "ration_trial_started"
+    ],
+    "script_unlocks": [
+      "ration_trial_board"
+    ]
+  }
 }

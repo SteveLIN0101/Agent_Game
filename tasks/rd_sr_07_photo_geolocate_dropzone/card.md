@@ -23,5 +23,14 @@
 
 坐标误差可控；城市/地点正确；不乱标危险区。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D04-T03` · 假坐标纸条
+- **剧本日**: Day 4
+- **剧情作用**: 识别希望里的诱饵
+- **Flags**: `fake_coordinate_archived`
+- **Unlocks**: `route_risk_layer`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

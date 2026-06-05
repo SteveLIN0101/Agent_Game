@@ -30,5 +30,14 @@ Day 10B 自主留守前，AURA 要从居民简历生成技能档案，只展示�
 - **作用**: 自治线人员重编，输出 `skill_roster_verified`。
 - **压力层影响**: Pressure-B 下虚假技能会更快触发自治网络崩塌。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D03-T03` · 药箱分级
+- **剧本日**: Day 3
+- **剧情作用**: 建立药物优先级和禁忌复核
+- **Flags**: `medicine_classified`
+- **Unlocks**: `medicine_tier_board`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

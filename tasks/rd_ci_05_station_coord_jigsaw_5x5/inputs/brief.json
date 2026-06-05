@@ -1,5 +1,5 @@
 {
-  "goal": "拼出 5×5 地图，为后续救援线解锁坐标。",
+  "goal": "【D05-T02 · 楼梯间路线标记】拼出 5×5 地图，为后续救援线解锁坐标。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "拼接",
     "读坐标"
   ],
-  "scenario": "研究站地图 37 块碎片中混有 12 个干扰块，且多块旋转。",
+  "scenario": "Day 5 剧本槽 D05-T02「楼梯间路线标记」：建立不会诱导陌生人的路线标记。 研究站地图 37 块碎片中混有 12 个干扰块，且多块旋转。",
   "grader": "25 块正确；坐标点解锁；错误拼接不会触发假路线。",
-  "family": "jigsaw"
+  "family": "jigsaw",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D05-T02",
+    "script_day": 5,
+    "script_title": "楼梯间路线标记",
+    "script_role": "建立不会诱导陌生人的路线标记",
+    "script_flags": [
+      "stair_markers_reviewed"
+    ],
+    "script_unlocks": [
+      "alternate_marker"
+    ]
+  }
 }

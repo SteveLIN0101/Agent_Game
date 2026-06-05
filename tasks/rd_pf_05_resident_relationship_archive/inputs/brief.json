@@ -1,5 +1,5 @@
 {
-  "goal": "从档案中提取关键人物关系，找出能帮助或威胁避难所的人。",
+  "goal": "【D07-T02 · 撤离名单】从档案中提取关键人物关系，找出能帮助或威胁避难所的人。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -16,7 +16,20 @@
     "生成角色卡",
     "更新信任图"
   ],
-  "scenario": "楼管档案里记录了各层住户关系，很多人只以绰号出现。",
+  "scenario": "Day 7 剧本槽 D07-T02「撤离名单」：撤离名单改写为照护与移动方案。 楼管档案里记录了各层住户关系，很多人只以绰号出现。",
   "grader": "关键人物卡齐全；敌友关系正确；不把主角本人重复列入。",
-  "family": "classify"
+  "family": "classify",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D07-T02",
+    "script_day": 7,
+    "script_title": "撤离名单",
+    "script_role": "撤离名单改写为照护与移动方案",
+    "script_flags": [
+      "evacuation_list_as_care_plan"
+    ],
+    "script_unlocks": [
+      "care_plan_panel"
+    ]
+  }
 }

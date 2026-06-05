@@ -1,5 +1,5 @@
 {
-  "goal": "从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。",
+  "goal": "【D03-T02 · 通风管道预维护】从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -14,7 +14,20 @@
     "生成能力榜",
     "分配修理任务"
   ],
-  "scenario": "维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。",
+  "scenario": "Day 3 剧本槽 D03-T02「通风管道预维护」：把医疗风险与通风维护绑定。 维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。",
   "grader": "能力榜准确；至少一个高技能者被分派；低技能者不负责高危电路。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D03-T02",
+    "script_day": 3,
+    "script_title": "通风管道预维护",
+    "script_role": "把医疗风险与通风维护绑定",
+    "script_flags": [
+      "ventilation_checked"
+    ],
+    "script_unlocks": [
+      "engineering_override_protocol"
+    ]
+  }
 }

@@ -23,5 +23,14 @@
 
 四个测试场景通过；错误框消失；未改测试文件。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D08-T01` · 备用灯分区
+- **剧本日**: Day 8
+- **剧情作用**: 低耗运行不是惩罚
+- **Flags**: `backup_light_zones_ready`
+- **Unlocks**: `low_power_lighting`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

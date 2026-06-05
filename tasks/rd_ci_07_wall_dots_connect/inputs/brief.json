@@ -1,5 +1,5 @@
 {
-  "goal": "识别所有点，按编号连线，观众能看到图案显形。",
+  "goal": "【D05-T02 · 楼梯间路线标记】识别所有点，按编号连线，观众能看到图案显形。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "显示图案",
     "解读"
   ],
-  "scenario": "Day 4 支线路线彩蛋：楼梯间墙上有编号点，可能是 B2 东侧楼梯绕行路线暗号，成功可作为 A 线 alternate_marker。",
+  "scenario": "Day 5 剧本槽 D05-T02「楼梯间路线标记」：建立不会诱导陌生人的路线标记。 Day 4 支线路线彩蛋：楼梯间墙上有编号点，可能是 B2 东侧楼梯绕行路线暗号，成功可作为 A 线 alternate_marker。",
   "grader": "连线图存在；与标准暗号相似；路线含义写入日志。",
-  "family": "puzzle"
+  "family": "puzzle",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D05-T02",
+    "script_day": 5,
+    "script_title": "楼梯间路线标记",
+    "script_role": "建立不会诱导陌生人的路线标记",
+    "script_flags": [
+      "stair_markers_reviewed"
+    ],
+    "script_unlocks": [
+      "alternate_marker"
+    ]
+  }
 }

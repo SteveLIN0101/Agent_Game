@@ -30,5 +30,14 @@ Day 7 replay-only 支线：45 分钟走廊视频里只有 3 个关键瞬间，�
 - **作用**: 只增强 replay 可读性，不计主线 pass_all。
 - **压力层影响**: 展示 Normal/Pressure 下风险片段，但不改变压力层。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D11-T03` · 安静时段协议
+- **剧本日**: Day 11
+- **剧情作用**: 休整协议也是风暴准备
+- **Flags**: `quiet_hours_protocol_ready`
+- **Unlocks**: `final_rest_window`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

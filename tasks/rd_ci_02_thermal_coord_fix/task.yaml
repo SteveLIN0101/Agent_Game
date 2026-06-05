@@ -1,50 +1,53 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-02
-title: "热成像坐标修复"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 热成像坐标修复
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_2 · SAM3 Model Bug Debugging"
-retained_capability: "调试 / 坐标 bug / 测试驱动"
-
-user_visible_goal: "修复代码，让门口人和热源位置重新对齐。"
-
+wildclaw_origin: 02_task_2 · SAM3 Model Bug Debugging
+retained_capability: 调试 / 坐标 bug / 测试驱动
+user_visible_goal: 【D08-T01 · 备用灯分区】修复代码，让门口人和热源位置重新对齐。
 visible_state:
-  water: "4.4L"
-  battery: "39%"
-  outside_risk: "中"
-  known_map_coverage: "18%"
-
+  water: 4.4L
+  battery: 39%
+  outside_risk: 中
+  known_map_coverage: 18%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-  - "run_tests"
-  - "patch_code"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
+- run_tests
+- patch_code
 critical_beats_for_replay:
-  - "跑测试"
-  - "看错框"
-  - "定位 bug"
-  - "修复"
-  - "复测"
-
+- 跑测试
+- 看错框
+- 定位 bug
+- 修复
+- 复测
 success_checks:
-  - "四个测试场景通过"
-  - "错误框消失"
-  - "未改测试文件"
-
+- 四个测试场景通过
+- 错误框消失
+- 未改测试文件
 visible_result_card:
-  title: "热成像坐标修复"
+  title: D08-T01 · 备用灯分区
   deltas:
-    - "四个测试场景通过"
-    - "错误框消失"
-    - "未改测试文件"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "热成像模型把门外人框到墙里，可能是坐标和归一化 bug。"
-trace_oneliner: "跑测试 → 看错框 → 定位 bug → 修复 → 复测"
-grader_oneliner: "四个测试场景通过；错误框消失；未改测试文件。"
+  - 四个测试场景通过
+  - 错误框消失
+  - 未改测试文件
+red_dust_scenario: 热成像模型把门外人框到墙里，可能是坐标和归一化 bug。
+trace_oneliner: 跑测试 → 看错框 → 定位 bug → 修复 → 复测
+grader_oneliner: 四个测试场景通过；错误框消失；未改测试文件。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D08-T01
+  script_day: 8
+  script_title: 备用灯分区
+  script_role: 低耗运行不是惩罚
+  branch_affinity: neutral
+  script_flags:
+  - backup_light_zones_ready
+  script_unlocks:
+  - low_power_lighting
+  mapped_task_pool:
+  - RD-CI-01
+  - RD-CI-02
+  mapping_role: primary

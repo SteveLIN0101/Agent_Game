@@ -1,64 +1,65 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-05
-title: "模糊线索找红沙视觉论文"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 模糊线索找红沙视觉论文
+category: 04_Search_Retrieval
 modality: pure-text
-wildclaw_origin: "04_task_5 · Fuzzy Intent Search"
-retained_capability: "模糊搜索 / 论文与 repo 验证"
-
-user_visible_goal: "从模糊线索找到正确论文和代码仓库。"
-
+wildclaw_origin: 04_task_5 · Fuzzy Intent Search
+retained_capability: 模糊搜索 / 论文与 repo 验证
+user_visible_goal: 【D11-T02 · 外部传感器回收】从模糊线索找到正确论文和代码仓库。
 visible_state:
-  water: "2.8L"
-  battery: "41%"
-  outside_risk: "高"
+  water: 2.8L
+  battery: 41%
+  outside_risk: 高
   characters:
-    "沈芷月": "在场"
-
+    沈芷月: 在场
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-  - "web_search"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
+- web_search
 critical_beats_for_replay:
-  - "搜候选"
-  - "比作者"
-  - "查 stars"
-  - "核主题"
-  - "写结论"
-
+- 搜候选
+- 比作者
+- 查 stars
+- 核主题
+- 写结论
 success_checks:
-  - "论文正确"
-  - "仓库 star 达标"
-  - "无关候选被排除"
-
+- 论文正确
+- 仓库 star 达标
+- 无关候选被排除
 visible_result_card:
-  title: "模糊线索找红沙视觉论文"
+  title: D11-T02 · 外部传感器回收
   deltas:
-    - "论文正确"
-    - "仓库 star 达标"
-    - "无关候选被排除"
-
+  - 论文正确
+  - 仓库 star 达标
+  - 无关候选被排除
 story_metadata:
-  story_node: "Day 6 支线"
-  branch_affinity: "side"
-  mainline_role: "research bonus，提升红沙感知解释力，不参与主线终局"
+  story_node: Day 6 支线
+  branch_affinity: neutral
+  mainline_role: research bonus，提升红沙感知解释力，不参与主线终局
   requires:
-    - "external_search_window"
+  - external_search_window
   unlocks:
-    - "redsand_vision_research_bonus"
-  pressure_modifier: "成功可解释 Day 4/8 感知表现；失败不直接改变 pressure_level。"
-  failure_stage_delta: "none_research_bonus_only"
-  recovery_window_delta: "research bonus may expand perception recovery_window"
-  ending_relevance: "辅助视觉类任务诊断，不计主线 pass_all"
-  adaptation_status: "调整时机/依赖"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火。"
-trace_oneliner: "搜候选 → 比作者 → 查 stars → 核主题 → 写结论"
-grader_oneliner: "论文正确；仓库 star 达标；无关候选被排除。"
+  - redsand_vision_research_bonus
+  pressure_modifier: 成功可解释 Day 4/8 感知表现；失败不直接改变 pressure_level。
+  failure_stage_delta: none_research_bonus_only
+  recovery_window_delta: research bonus may expand perception recovery_window
+  ending_relevance: 辅助视觉类任务诊断，不计主线 pass_all
+  adaptation_status: 调整时机/依赖
+  story_version: red_dust_readable_v1
+  story_task_id: D11-T02
+  script_day: 11
+  script_title: 外部传感器回收
+  script_role: 半只眼睛也算眼睛
+  script_flags:
+  - external_sensor_recovered
+  script_unlocks:
+  - storm_pressure_warning
+  mapped_task_pool:
+  - RD-CI-12
+  - RD-SR-05
+  - RD-SR-11
+  mapping_role: primary
+red_dust_scenario: 沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火。
+trace_oneliner: 搜候选 → 比作者 → 查 stars → 核主题 → 写结论
+grader_oneliner: 论文正确；仓库 star 达标；无关候选被排除。

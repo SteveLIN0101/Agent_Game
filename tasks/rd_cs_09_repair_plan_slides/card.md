@@ -23,5 +23,14 @@
 
 页数/结构正确；关键理由可见；不含隐藏评分信息。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D10-T01` · 低功率日程
+- **剧本日**: Day 10
+- **剧情作用**: 不是所有不方便都是惩罚
+- **Flags**: `low_power_schedule_accepted`
+- **Unlocks**: `low_power_day_plan`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

@@ -23,5 +23,14 @@
 
 结果图相似；描述与标准匹配；坐标 flag 解锁。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D11-T02` · 外部传感器回收
+- **剧本日**: Day 11
+- **剧情作用**: 半只眼睛也算眼睛
+- **Flags**: `external_sensor_recovered`
+- **Unlocks**: `storm_pressure_warning`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

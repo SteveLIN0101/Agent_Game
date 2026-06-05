@@ -23,5 +23,14 @@
 
 关键信息正确；危险提示明显；布局可读。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D02-T03` · 生活区卫生分区
+- **剧本日**: Day 2
+- **剧情作用**: 把卫生规则做成可见秩序
+- **Flags**: `hygiene_zones_marked`
+- **Unlocks**: `medical_corner_stable`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

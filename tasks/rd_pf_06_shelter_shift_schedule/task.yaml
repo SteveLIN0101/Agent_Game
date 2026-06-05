@@ -1,54 +1,57 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-PF-06
-title: "四人避难所轮班表"
-category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+title: 四人避难所轮班表
+category: 01_Productivity_Flow
 modality: pure-text
-wildclaw_origin: "01_task_6 · Calendar Conflict Detection and Smart Scheduling"
-retained_capability: "日历冲突 / 优化调度 / 决策日志"
-
-user_visible_goal: "排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。"
-
+wildclaw_origin: 01_task_6 · Calendar Conflict Detection and Smart Scheduling
+retained_capability: 日历冲突 / 优化调度 / 决策日志
+user_visible_goal: 【D02-T01 · 配给表试运行】排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。
 visible_state:
-  water: "3.3L"
-  battery: "44%"
-  outside_risk: "高"
+  water: 3.3L
+  battery: 44%
+  outside_risk: 高
   characters:
-    "老钱": "在场"
-    "马德海": "在场"
-    "沈芷月": "在场"
-    "小铁": "在场"
-
+    老钱: 在场
+    马德海: 在场
+    沈芷月: 在场
+    小铁: 在场
 available_tools:
-  - "read_note_board"
-  - "read_archive"
-  - "classify_items"
-  - "update_whiteboard"
-  - "plan_calendar"
-
+- read_note_board
+- read_archive
+- classify_items
+- update_whiteboard
+- plan_calendar
 critical_beats_for_replay:
-  - "看体力"
-  - "查风险窗口"
-  - "排班"
-  - "发现冲突"
-  - "改班并解释"
-
+- 看体力
+- 查风险窗口
+- 排班
+- 发现冲突
+- 改班并解释
 success_checks:
-  - "每人休息达标"
-  - "小铁不被派外出"
-  - "夜间有人守门"
-  - "任务优先级最大化"
-
+- 每人休息达标
+- 小铁不被派外出
+- 夜间有人守门
+- 任务优先级最大化
 visible_result_card:
-  title: "四人避难所轮班表"
+  title: D02-T01 · 配给表试运行
   deltas:
-    - "每人休息达标"
-    - "小铁不被派外出"
-    - "夜间有人守门"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。"
-trace_oneliner: "看体力 → 查风险窗口 → 排班 → 发现冲突 → 改班并解释"
-grader_oneliner: "每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。"
+  - 每人休息达标
+  - 小铁不被派外出
+  - 夜间有人守门
+red_dust_scenario: 马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。
+trace_oneliner: 看体力 → 查风险窗口 → 排班 → 发现冲突 → 改班并解释
+grader_oneliner: 每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D02-T01
+  script_day: 2
+  script_title: 配给表试运行
+  script_role: 从私人物品进入公共配给规则
+  branch_affinity: neutral
+  script_flags:
+  - ration_trial_started
+  script_unlocks:
+  - ration_trial_board
+  mapped_task_pool:
+  - RD-PF-06
+  - RD-SI-01
+  mapping_role: primary

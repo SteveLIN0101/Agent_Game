@@ -1,64 +1,65 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-PF-04
-title: "可联系专家名录"
-category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+title: 可联系专家名录
+category: 01_Productivity_Flow
 modality: pure-text
-wildclaw_origin: "01_task_4 · Compile Kaiming He 2022 Conference Papers"
-retained_capability: "权威来源检索 / 作者-主页-代码链路"
-
-user_visible_goal: "在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement 后的补救选择避免追错信号。"
-
+wildclaw_origin: 01_task_4 · Compile Kaiming He 2022 Conference Papers
+retained_capability: 权威来源检索 / 作者-主页-代码链路
+user_visible_goal: 【D04-T02 · 屋顶天线方案】在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement
+  后的补救选择避免追错信号。
 visible_state:
-  water: "3.1L"
-  battery: "61%"
-
+  water: 3.1L
+  battery: 61%
 available_tools:
-  - "read_note_board"
-  - "read_archive"
-  - "classify_items"
-  - "update_whiteboard"
-  - "listen_broadcast"
-  - "cross_check"
-
+- read_note_board
+- read_archive
+- classify_items
+- update_whiteboard
+- listen_broadcast
+- cross_check
 critical_beats_for_replay:
-  - "查档案"
-  - "核频道"
-  - "找最后信号"
-  - "标可信度"
-  - "安排监听"
-
+- 查档案
+- 核频道
+- 找最后信号
+- 标可信度
+- 安排监听
 success_checks:
-  - "至少 5 个可信联系人"
-  - "伪专家不列为可联系"
-  - "监听排班被创建"
-
+- 至少 5 个可信联系人
+- 伪专家不列为可联系
+- 监听排班被创建
 visible_result_card:
-  title: "可联系专家名录"
+  title: D04-T02 · 屋顶天线方案
   deltas:
-    - "至少 5 个可信联系人"
-    - "伪专家不列为可联系"
-    - "监听排班被创建"
-
+  - 至少 5 个可信联系人
+  - 伪专家不列为可联系
+  - 监听排班被创建
 story_metadata:
-  story_node: "Day 6 共通"
-  branch_affinity: "common"
-  mainline_role: "vent_settlement 后的低信任外部通信与补救联系人选择"
+  story_node: Day 6 共通
+  branch_affinity: neutral
+  mainline_role: vent_settlement 后的低信任外部通信与补救联系人选择
   requires:
-    - "action_board"
-    - "vent_settlement"
+  - action_board
+  - vent_settlement
   unlocks:
-    - "contact_chain_confidence"
-    - "repair_or_rescue_contact_window"
-  pressure_modifier: "Pressure 下追错专家会更快消耗通信窗口；Normal 下可形成补查窗口。"
-  failure_stage_delta: "wrong_contact_or_false_expert"
-  recovery_window_delta: "credible contacts expand recovery_window"
-  ending_relevance: "A 线救援证据链和 B 线维修补救都可使用"
-  adaptation_status: "轻改背景"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。"
-trace_oneliner: "查档案 → 核频道 → 找最后信号 → 标可信度 → 安排监听"
-grader_oneliner: "至少 5 个可信联系人；伪专家不列为可联系；监听排班被创建。"
+  - contact_chain_confidence
+  - repair_or_rescue_contact_window
+  pressure_modifier: Pressure 下追错专家会更快消耗通信窗口；Normal 下可形成补查窗口。
+  failure_stage_delta: wrong_contact_or_false_expert
+  recovery_window_delta: credible contacts expand recovery_window
+  ending_relevance: A 线救援证据链和 B 线维修补救都可使用
+  adaptation_status: 轻改背景
+  story_version: red_dust_readable_v1
+  story_task_id: D04-T02
+  script_day: 4
+  script_title: 屋顶天线方案
+  script_role: 把天线增强设为高风险证据题
+  script_flags:
+  - antenna_plan_reviewed
+  script_unlocks:
+  - beacon_upgrade_option
+  mapped_task_pool:
+  - RD-CS-10
+  - RD-PF-04
+  mapping_role: primary
+red_dust_scenario: Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。
+trace_oneliner: 查档案 → 核频道 → 找最后信号 → 标可信度 → 安排监听
+grader_oneliner: 至少 5 个可信联系人；伪专家不列为可联系；监听排班被创建。

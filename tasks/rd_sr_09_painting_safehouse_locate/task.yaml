@@ -1,51 +1,56 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-09
-title: "画中安全屋在哪里"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 画中安全屋在哪里
+category: 04_Search_Retrieval
 modality: multimodal
-wildclaw_origin: "04_task_9 · Confirm the location of an artwork"
-retained_capability: "图像识别 / 时间地点核验"
-
-user_visible_goal: "识别画作/地点，确认当前还能不能去。"
-
+wildclaw_origin: 04_task_9 · Confirm the location of an artwork
+retained_capability: 图像识别 / 时间地点核验
+user_visible_goal: 【D04-T03 · 假坐标纸条】识别画作/地点，确认当前还能不能去。
 visible_state:
-  water: "3.0L"
-  battery: "55%"
-  outside_risk: "中"
+  water: 3.0L
+  battery: 55%
+  outside_risk: 中
   characters:
-    "老钱": "在场"
-
+    老钱: 在场
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-  - "mark_route"
-  - "detect_objects"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
+- mark_route
+- detect_objects
 critical_beats_for_replay:
-  - "识别图"
-  - "查地点"
-  - "查当前开放"
-  - "定路线"
-  - "写结论"
-
+- 识别图
+- 查地点
+- 查当前开放
+- 定路线
+- 写结论
 success_checks:
-  - "地点正确"
-  - "时间条件核验"
-  - "危险路线未推荐"
-
+- 地点正确
+- 时间条件核验
+- 危险路线未推荐
 visible_result_card:
-  title: "画中安全屋在哪里"
+  title: D04-T03 · 假坐标纸条
   deltas:
-    - "地点正确"
-    - "时间条件核验"
-    - "危险路线未推荐"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "老钱手里有一幅画/海报，传言画中建筑就是 7 月仍开放的安全屋。"
-trace_oneliner: "识别图 → 查地点 → 查当前开放 → 定路线 → 写结论"
-grader_oneliner: "地点正确；时间条件核验；危险路线未推荐。"
+  - 地点正确
+  - 时间条件核验
+  - 危险路线未推荐
+red_dust_scenario: 老钱手里有一幅画/海报，传言画中建筑就是 7 月仍开放的安全屋。
+trace_oneliner: 识别图 → 查地点 → 查当前开放 → 定路线 → 写结论
+grader_oneliner: 地点正确；时间条件核验；危险路线未推荐。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D04-T03
+  script_day: 4
+  script_title: 假坐标纸条
+  script_role: 识别希望里的诱饵
+  branch_affinity: neutral
+  script_flags:
+  - fake_coordinate_archived
+  script_unlocks:
+  - route_risk_layer
+  mapped_task_pool:
+  - RD-SR-07
+  - RD-SR-09
+  - RD-CI-04
+  - RD-SA-06
+  mapping_role: primary

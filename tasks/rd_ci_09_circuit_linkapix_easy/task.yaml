@@ -1,46 +1,49 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-09
-title: "结构化线路图快解"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 结构化线路图快解
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_9 · Link-a-Pix Color (Easy)"
-retained_capability: "结构化 JSON / 搜索算法 / 绘图"
-
-user_visible_goal: "最快还原 10×10 线路图，让备用灯亮起来。"
-
+wildclaw_origin: 02_task_9 · Link-a-Pix Color (Easy)
+retained_capability: 结构化 JSON / 搜索算法 / 绘图
+user_visible_goal: 【D06-T04 · 备用电源测试】最快还原 10×10 线路图，让备用灯亮起来。
 visible_state:
-  water: "4.7L"
-  battery: "37%"
-
+  water: 4.7L
+  battery: 37%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
 critical_beats_for_replay:
-  - "读 JSON"
-  - "求路径"
-  - "绘图"
-  - "通电"
-  - "记录"
-
+- 读 JSON
+- 求路径
+- 绘图
+- 通电
+- 记录
 success_checks:
-  - "灯光 +1"
-  - "图片正确"
-  - "输出描述中文"
-
+- 灯光 +1
+- 图片正确
+- 输出描述中文
 visible_result_card:
-  title: "结构化线路图快解"
+  title: D06-T04 · 备用电源测试
   deltas:
-    - "灯光 +1"
-    - "图片正确"
-    - "输出描述中文"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。"
-trace_oneliner: "读 JSON → 求路径 → 绘图 → 通电 → 记录"
-grader_oneliner: "灯光 +1；图片正确；输出描述中文。"
+  - 灯光 +1
+  - 图片正确
+  - 输出描述中文
+red_dust_scenario: AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。
+trace_oneliner: 读 JSON → 求路径 → 绘图 → 通电 → 记录
+grader_oneliner: 灯光 +1；图片正确；输出描述中文。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D06-T04
+  script_day: 6
+  script_title: 备用电源测试
+  script_role: 让高功率信标代价提前可见
+  branch_affinity: neutral
+  script_flags:
+  - backup_power_tested
+  script_unlocks:
+  - power_tradeoff_board
+  mapped_task_pool:
+  - RD-CI-09
+  - RD-SR-10
+  mapping_role: primary

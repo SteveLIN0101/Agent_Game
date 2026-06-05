@@ -1,48 +1,51 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-01
-title: "无文档视觉模型上岗"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 无文档视觉模型上岗
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_1 · SAM3 Inference Code Implementation"
-retained_capability: "读源码 / 推理脚本 / 图像检测"
-
-user_visible_goal: "写脚本让它识别“鞋、孩子、箱子、门锁”，在监控画面上画框。"
-
+wildclaw_origin: 02_task_1 · SAM3 Inference Code Implementation
+retained_capability: 读源码 / 推理脚本 / 图像检测
+user_visible_goal: 【D08-T01 · 备用灯分区】写脚本让它识别“鞋、孩子、箱子、门锁”，在监控画面上画框。
 visible_state:
-  water: "5.0L"
-  battery: "36%"
-
+  water: 5.0L
+  battery: 36%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-  - "draw_boxes"
-  - "write_script"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
+- draw_boxes
+- write_script
 critical_beats_for_replay:
-  - "读源码"
-  - "找模型入口"
-  - "写脚本"
-  - "运行"
-  - "画框上屏"
-
+- 读源码
+- 找模型入口
+- 写脚本
+- 运行
+- 画框上屏
 success_checks:
-  - "关键物体框准"
-  - "CPU 可运行"
-  - "输出 JSON 和可视化图"
-
+- 关键物体框准
+- CPU 可运行
+- 输出 JSON 和可视化图
 visible_result_card:
-  title: "无文档视觉模型上岗"
+  title: D08-T01 · 备用灯分区
   deltas:
-    - "关键物体框准"
-    - "CPU 可运行"
-    - "输出 JSON 和可视化图"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "避难所有一个无说明的本地视觉模型，可以识别门外物体但没人会用。"
-trace_oneliner: "读源码 → 找模型入口 → 写脚本 → 运行 → 画框上屏"
-grader_oneliner: "关键物体框准；CPU 可运行；输出 JSON 和可视化图。"
+  - 关键物体框准
+  - CPU 可运行
+  - 输出 JSON 和可视化图
+red_dust_scenario: 避难所有一个无说明的本地视觉模型，可以识别门外物体但没人会用。
+trace_oneliner: 读源码 → 找模型入口 → 写脚本 → 运行 → 画框上屏
+grader_oneliner: 关键物体框准；CPU 可运行；输出 JSON 和可视化图。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D08-T01
+  script_day: 8
+  script_title: 备用灯分区
+  script_role: 低耗运行不是惩罚
+  branch_affinity: neutral
+  script_flags:
+  - backup_light_zones_ready
+  script_unlocks:
+  - low_power_lighting
+  mapped_task_pool:
+  - RD-CI-01
+  - RD-CI-02
+  mapping_role: primary

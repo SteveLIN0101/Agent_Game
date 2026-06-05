@@ -23,5 +23,14 @@
 
 关键人物卡齐全；敌友关系正确；不把主角本人重复列入。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D07-T02` · 撤离名单
+- **剧本日**: Day 7
+- **剧情作用**: 撤离名单改写为照护与移动方案
+- **Flags**: `evacuation_list_as_care_plan`
+- **Unlocks**: `care_plan_panel`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

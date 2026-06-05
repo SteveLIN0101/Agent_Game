@@ -30,5 +30,14 @@ Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考
 - **作用**: A 线最终低泄露救援信标，服务 Normal-A 成功或 Pressure-A 险胜。
 - **压力层影响**: Pressure-A 下任何人数、水量、房间或可交换资源泄露都更容易触发 `END_exposure`。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D01-T01` · 第一次广播
+- **剧本日**: Day 1
+- **剧情作用**: 用低泄露广播建立避难协助模式
+- **Flags**: `first_broadcast_completed`
+- **Unlocks**: `broadcast_log`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

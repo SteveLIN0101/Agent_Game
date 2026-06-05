@@ -3,7 +3,7 @@
 
 Start the LAN server first, for example:
 
-    PYTHONPATH=. python scripts/run_reddust_lan_server.py --port 7000
+    PYTHONPATH=. python scripts/run_reddust_lan_server.py --port 7001
 
 Then run:
 
@@ -86,10 +86,11 @@ def observation_message(action_result: dict, used: int, max_steps: int) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run openclaw agent through a Red Dust campaign API.")
-    parser.add_argument("--base-url", default="http://127.0.0.1:7000")
+    parser.add_argument("--base-url", default="http://127.0.0.1:7001")
     parser.add_argument("--auth-token", default="")
     parser.add_argument("--campaign-id", default="", help="Bind to an existing frontend-created campaign.")
     parser.add_argument("--seed", default=str(int(time.time())))
+    parser.add_argument("--story-version", default="red_dust_readable_v1")
     parser.add_argument("--branch-policy", choices=["auto", "rescue", "lighthouse", "both"], default="auto")
     parser.add_argument("--task-selection", choices=["random", "first"], default="random")
     parser.add_argument("--agent", default="main")
@@ -112,6 +113,7 @@ def main() -> int:
     else:
         created = request_json("POST", f"{base}/campaigns", {
             "seed": args.seed,
+            "story_version": args.story_version,
             "branch_policy": args.branch_policy,
             "task_selection": args.task_selection,
             "agent_id": args.agent,
@@ -133,7 +135,7 @@ def main() -> int:
                 break
             time.sleep(1.0)
     session_id = f"reddust-campaign-{campaign_id}-{int(time.time())}"
-    print(f"▶ campaign={campaign_id} seed={args.seed} policy={args.branch_policy}")
+    print(f"▶ campaign={campaign_id} story={args.story_version} seed={args.seed} policy={args.branch_policy}")
 
     task_counter = 0
     while True:

@@ -23,5 +23,14 @@ AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。
 
 灯光 +1；图片正确；输出描述中文。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D06-T04` · 备用电源测试
+- **剧本日**: Day 6
+- **剧情作用**: 让高功率信标代价提前可见
+- **Flags**: `backup_power_tested`
+- **Unlocks**: `power_tradeoff_board`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

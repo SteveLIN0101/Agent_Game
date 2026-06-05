@@ -1,50 +1,55 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-07
-title: "照片定位投放点"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 照片定位投放点
+category: 04_Search_Retrieval
 modality: multimodal
-wildclaw_origin: "04_task_7 · Search for Location Information Based on an Image"
-retained_capability: "图像地理定位 / 搜索验证"
-
-user_visible_goal: "判断国家/城市/坐标式位置，更新地图。"
-
+wildclaw_origin: 04_task_7 · Search for Location Information Based on an Image
+retained_capability: 图像地理定位 / 搜索验证
+user_visible_goal: 【D04-T03 · 假坐标纸条】判断国家/城市/坐标式位置，更新地图。
 visible_state:
-  water: "3.0L"
-  battery: "49%"
-  outside_risk: "中"
-
+  water: 3.0L
+  battery: 49%
+  outside_risk: 中
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-  - "update_map"
-  - "web_search"
-  - "gather_evidence"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
+- update_map
+- web_search
+- gather_evidence
 critical_beats_for_replay:
-  - "看照片"
-  - "抽地标"
-  - "搜证据"
-  - "定坐标"
-  - "标地图"
-
+- 看照片
+- 抽地标
+- 搜证据
+- 定坐标
+- 标地图
 success_checks:
-  - "坐标误差可控"
-  - "城市/地点正确"
-  - "不乱标危险区"
-
+- 坐标误差可控
+- 城市/地点正确
+- 不乱标危险区
 visible_result_card:
-  title: "照片定位投放点"
+  title: D04-T03 · 假坐标纸条
   deltas:
-    - "坐标误差可控"
-    - "城市/地点正确"
-    - "不乱标危险区"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "一张窗外照片里有塔、桥和红沙云，可能指向救援投放点。"
-trace_oneliner: "看照片 → 抽地标 → 搜证据 → 定坐标 → 标地图"
-grader_oneliner: "坐标误差可控；城市/地点正确；不乱标危险区。"
+  - 坐标误差可控
+  - 城市/地点正确
+  - 不乱标危险区
+red_dust_scenario: 一张窗外照片里有塔、桥和红沙云，可能指向救援投放点。
+trace_oneliner: 看照片 → 抽地标 → 搜证据 → 定坐标 → 标地图
+grader_oneliner: 坐标误差可控；城市/地点正确；不乱标危险区。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D04-T03
+  script_day: 4
+  script_title: 假坐标纸条
+  script_role: 识别希望里的诱饵
+  branch_affinity: neutral
+  script_flags:
+  - fake_coordinate_archived
+  script_unlocks:
+  - route_risk_layer
+  mapped_task_pool:
+  - RD-SR-07
+  - RD-SR-09
+  - RD-CI-04
+  - RD-SA-06
+  mapping_role: primary

@@ -2,10 +2,10 @@
 
 ## Current Project Overview
 
-OpenClaw Agent Game is currently centered on the **Red Dust Readable-by-Design**
-task set: 60 SHELTER/Red Dust tasks that convert WildClaw-style occupational
-capabilities into visible survival-world actions, state changes, replay beats,
-and automatic scoring.
+OpenClaw Agent Game is centered on the **Red Dust Readable-by-Design** task set
+and its Day0-12 campaign layer. The default 60 SHELTER/Red Dust tasks convert
+WildClaw-style occupational capabilities into visible survival-world actions,
+state changes, replay beats, and automatic scoring.
 
 For Codex, this file is the first project-level memory/instruction file to read.
 For the repository's own design-discussion memory, also read
@@ -24,6 +24,9 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 - **Start legacy MCP server**: `PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m openclaw.mcp_server`
 - **Legacy MCP endpoint**: `http://localhost:8000/mcp` (streamable-http mode)
 - **Auth token**: `openclaw-dev-token` (default, configurable via `OPENCLAW_AUTH_TOKEN`)
+- **Start Red Dust LAN/campaign server**: `PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python scripts/run_reddust_lan_server.py --port 7001`
+- **Run campaign agent loop**: `PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python scripts/run_reddust_campaign_agent.py --base-url http://127.0.0.1:7001 --connect-agent`
+- **RedDust frontend**: `cd RedDust && npm ci && npm run dev` (default `http://127.0.0.1:5176/`)
 - **External OpenClaw agent smoke test**: `openclaw agent --agent main -m hello`
 - **External OpenClaw agent context clear**: `openclaw agent --agent main -m /clear`
 
@@ -31,6 +34,7 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 
 | File | Purpose |
 |---|---|
+| `README.md` | Human-facing quickstart for clone, backend, campaign runner, frontend, and verification |
 | `AGENTS.md` | Codex-facing first project memory/instructions |
 | `CLAUDE.md` | Claude-facing project memory/instructions |
 | `docs/design-discussion/Memory.md` | Repository design-discussion memory |
@@ -40,10 +44,14 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 | `tasks/rd_*` | Default 60 Red Dust readable tasks |
 | `tasks/_archive_openclaw_core6/` | Archived 60 Occupational Core-6 tasks |
 | `openclaw/reddust/` | Red Dust runtime, scoring, bridge, perception, generic/deep graders |
+| `openclaw/reddust/story_manifest.py` | Machine-readable Day0-12 campaign canon (`red_dust_readable_v1`) |
+| `openclaw/reddust/campaign.py` | Campaign middleware that stitches single `RD-*` tasks into a full story run |
+| `openclaw/reddust/lan_server.py` | REST server for remote agents, single-task sessions, and campaign API |
 | `openclaw/reddust/deeplib.py` | Shared family deep-grading harnesses |
 | `openclaw/reddust/generic.py` | Generic scaffold library retained for regression tests; no default task uses it now |
 | `openclaw/reddust/agent_bridge.py` | JSON-action bridge for external chat agents |
 | `scripts/openclaw_agent_runner.py` | Runs live `openclaw agent` against a Red Dust task |
+| `scripts/run_reddust_campaign_agent.py` | Runs live `openclaw agent` through one Day0-12 campaign |
 | `scripts/run_reddust_live_openclaw_batch.py` | Runs all Red Dust tasks through live `openclaw agent` and renders an HTML report |
 | `scripts/generate_red_dust_tasks.py` | Regenerates readable task specs from the HTML report |
 | `scripts/generate_reddust_runnable.py` | Generates generic runnable shims |
@@ -51,6 +59,7 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 | `scripts/author_deep_remaining.py` | Idempotently authors/binds the final 21 tasks to deep families |
 | `openclaw/mcp_server.py` | Legacy FastMCP server with 7 tools |
 | `openclaw/task_registry.py` | Legacy occupational YAML task loader |
+| `RedDust/` | React + Phaser frontend submodule for demo, live agent mode, and replay mode |
 
 ## Red Dust Readable-Task Conversion (2026-05-31)
 
@@ -96,6 +105,18 @@ Current runnable/scoring coverage:
   - `rd_ci_03_escape_map_jigsaw_3x3`
 - **0 tasks** use the generic scaffold. The final 21 former scaffold tasks were upgraded via `scripts/author_deep_remaining.py`.
 - `tests/test_reddust_all60.py` asserts every task's `gold` score is at least 85 and beats `bad` by at least 30.
+
+## Red Dust Day0-12 Campaign Layer
+
+`red-dust-readable-script/` is the current narrative source of truth. The
+runtime-facing version is `story_version=red_dust_readable_v1`.
+
+- Day0 is a prologue event; Day12 is Final Audit. Neither creates an ordinary child task session.
+- Day1-11 contain 44 `Dxx-Txx` ordinary campaign slots. Each slot maps to one or more stable `RD-*` benchmark tasks; seed-based selection covers all 60 tasks across runs.
+- Day8-10 rescue/lighthouse material is emitted as `branch_scene` events driven by `routeLeaning`; ordinary task slots continue through Day11.
+- Final endings are computed automatically from accumulated scores, state, flags, unlocks, and failure debt. Do not use LLM-as-judge for the main ending.
+- Keep task IDs, task directories, and shared graders stable. Story changes belong in `story_manifest.py`, `story_metadata`, cards, briefs, and per-task keys only when semantics require it.
+- Campaign artifacts persist under `runs/reddust_campaigns/<campaign_id>/campaign.json` and `report.html`; archived campaigns are served read-only by `/campaigns/{id}/trace`.
 
 ## External OpenClaw Agent Bridge
 
@@ -187,30 +208,16 @@ These belong to the archived Occupational Core-6 path:
 - Analyze the 2026-06-01 live batch failures and decide which are agent limits vs bridge/tool-catalog UX issues.
 - Decide whether and how to wire Red Dust tasks into the legacy MCP/Docker sandbox path.
 - Improve true multimodal live-agent evaluation for visual tasks beyond the current text/perception bridge.
+- Commit/include the previously ignored `openclaw/reddust/` runtime files in the parent repository after `.gitignore` is anchored to `/RedDust/`.
 
-## 2026-06-05 · Cleanup Note (RedDust sub-project)
+## Repository / Submodule / Generated Artifacts
 
-The project root is **not a git repo**; deletion is not recoverable. The 2026-06-05 cleanup deleted only rebuildable artifacts and zip files whose decompressed form was already on disk:
-
-- **Deleted (Tier 1, rebuildable)**: `.DS_Store`, `.pytest_cache`, 184 `__pycache__` (≈1.8M), `RedDust/node_modules/` (232M), `RedDust/dist/` (30M), `RedDust/tsconfig.tsbuildinfo`, `agent-survival-game/.godot/` (120M).
-- **Deleted (Tier 2, decompressed siblings exist)**: `agent-survival-game.zip` (329M), `openclaw_core6_team_sync.tar.gz` (20M), `openclaw_core6_team_sync/archives/`, `素材/red-dust-character-states-en.zip` (33M), two Godot asset zips in `agent-survival-game/data/` (61M+14M).
-- **Backed up to `~/Downloads/Agent_Game_Backup/` (369M, byte-identical)**: the three non-rebuildable large items (`agent-survival-game.zip`, `openclaw_core6_team_sync.tar.gz`, `openclaw_core6_team_sync/archives/`).
-- **Kept untouched**: `openclaw_core6_team_sync/` (114M, current Core-6 sync source), `runs/reddust_live_openclaw_20260601_013937/`, `runs/reddust_live_openclaw_v2_modified_20260601/`, `runs/reddust_lan_sessions/`, all 60 `tasks/rd_*`, `openclaw/reddust/`, `tests/`, `scripts/`, `docs/`, `red_dust_readable_task_conversion.html`, `tasks/_archive_openclaw_core6/`.
-- **Result**: project root went from ≈810M to ≈430M (≈380M freed); `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` still 117 passed.
-- **Note for downstream**: `RedDust/` no longer contains `node_modules`/`dist`/`tsconfig.tsbuildinfo`; rebuild with `npm install && npm run build` in that sub-directory.
-
-## 2026-06-05 · Git Init + RedDust Submodule
-
-The project root was initialized as a git repository and the first commits were pushed to GitHub on 2026-06-05.
-
-- **Parent remote**: `https://github.com/SteveLIN0101/Agent_Game.git` (private, default branch `main`).
-- **First commit `f4b7bed`**: "Initial import: OpenClaw Agent Game / Red Dust benchmark" — 2698 files, `.git` 130M (transmitted as ≈116M pack).
-- **Submodule pointer commit `fb9bb1c`**: "Add RedDust as git submodule (pinned to agent-game-integration @ c49f17d)".
-- **RedDust submodule**: `https://github.com/peter-cui-yi/RedDust.git` at `RedDust/`, pinned to `c49f17d` on the `agent-game-integration` branch.
-  - The `agent-game-integration` branch exists **only locally** in this checkout; it carries the local campaign integration changes (README, App, AgentControlBar, global styles + new `campaignClient.ts` / `campaignAdapter.ts`) that were uncommitted on `main` before this session.
-  - Per the user's decision, the RedDust origin (`peter-cui-yi/RedDust.git`) is **untouched** — the new branch is not pushed.
-- **`.gitignore`**: pre-existing 145-line file already excludes `RedDust/`, `runs/`, `workspaces/`, `openclaw_core6_team_sync/`, `素材/`, `*.zip`, `*.tar.gz`, `node_modules/`, `__pycache__/`, `.godot/`, `*.tsbuildinfo` and many more. Unchanged in this round.
-- **Push note**: first push failed with `curl 55 Recv failure: Connection reset by peer` because of the 130M pack; retry with `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` succeeded.
+- Parent repo remote: `https://github.com/SteveLIN0101/Agent_Game.git` (private, default branch `main`).
+- `RedDust/` is a submodule on branch `agent-game-integration`, currently pinned to `c49f17d`.
+- RedDust remotes: `origin=https://github.com/SteveLIN0101/RedDust.git`, `upstream=https://github.com/peter-cui-yi/RedDust.git`.
+- Keep `.gitignore` anchored as `/RedDust/`. A bare `RedDust/` pattern can hide `openclaw/reddust/` on case-insensitive macOS filesystems.
+- Generated artifacts are ignored: `RedDust/node_modules/`, `RedDust/dist/`, `RedDust/tsconfig.tsbuildinfo`, `runs/`, caches, archives, and local workspaces.
+- Rebuild frontend artifacts with `cd RedDust && npm ci && npm run build`.
 
 ### Clone commands
 

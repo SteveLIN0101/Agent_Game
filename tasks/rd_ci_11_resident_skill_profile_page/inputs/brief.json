@@ -1,5 +1,5 @@
 {
-  "goal": "把简历转成可读档案页，只展示正式可用技能和经历。",
+  "goal": "【D03-T03 · 药箱分级】把简历转成可读档案页，只展示正式可用技能和经历。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -16,7 +16,20 @@
     "截图",
     "分配任务"
   ],
-  "scenario": "Day 10B 自主留守前，AURA 要从居民简历生成技能档案，只展示正式可验证技能，给修电、净水和护理分配人手。",
+  "scenario": "Day 3 剧本槽 D03-T03「药箱分级」：建立药物优先级和禁忌复核。 Day 10B 自主留守前，AURA 要从居民简历生成技能档案，只展示正式可验证技能，给修电、净水和护理分配人手。",
   "grader": "技能筛选正确；人物卡更新；未展示无关/虚假经历。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D03-T03",
+    "script_day": 3,
+    "script_title": "药箱分级",
+    "script_role": "建立药物优先级和禁忌复核",
+    "script_flags": [
+      "medicine_classified"
+    ],
+    "script_unlocks": [
+      "medicine_tier_board"
+    ]
+  }
 }

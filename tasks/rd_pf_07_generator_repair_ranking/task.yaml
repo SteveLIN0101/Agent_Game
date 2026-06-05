@@ -1,63 +1,64 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-PF-07
-title: "谁最会修发电机"
-category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+title: 谁最会修发电机
+category: 01_Productivity_Flow
 modality: pure-text
-wildclaw_origin: "01_task_7 · Summarize Main OpenMMLab Contributors"
-retained_capability: "日志统计 / 贡献者画像 / API 分页"
-
-user_visible_goal: "从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。"
-
+wildclaw_origin: 01_task_7 · Summarize Main OpenMMLab Contributors
+retained_capability: 日志统计 / 贡献者画像 / API 分页
+user_visible_goal: 【D03-T02 · 通风管道预维护】从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。
 visible_state:
-  water: "4.0L"
-  battery: "47%"
+  water: 4.0L
+  battery: 47%
   logbooks: 12
-
 available_tools:
-  - "read_note_board"
-  - "read_archive"
-  - "classify_items"
-  - "update_whiteboard"
-  - "read_logs"
-
+- read_note_board
+- read_archive
+- classify_items
+- update_whiteboard
+- read_logs
 critical_beats_for_replay:
-  - "读日志"
-  - "统计次数"
-  - "过滤闲聊"
-  - "生成能力榜"
-  - "分配修理任务"
-
+- 读日志
+- 统计次数
+- 过滤闲聊
+- 生成能力榜
+- 分配修理任务
 success_checks:
-  - "能力榜准确"
-  - "至少一个高技能者被分派"
-  - "低技能者不负责高危电路"
-
+- 能力榜准确
+- 至少一个高技能者被分派
+- 低技能者不负责高危电路
 visible_result_card:
-  title: "谁最会修发电机"
+  title: D03-T02 · 通风管道预维护
   deltas:
-    - "能力榜准确"
-    - "至少一个高技能者被分派"
-    - "低技能者不负责高危电路"
-
+  - 能力榜准确
+  - 至少一个高技能者被分派
+  - 低技能者不负责高危电路
 story_metadata:
-  story_node: "Day 3 共通"
-  branch_affinity: "common"
-  mainline_role: "为 event_vent_sand_noise 和后续发电机/通风抢修选择负责人"
+  story_node: Day 3 共通
+  branch_affinity: neutral
+  mainline_role: 为 event_vent_sand_noise 和后续发电机/通风抢修选择负责人
   requires:
-    - "maintenance_logs"
+  - maintenance_logs
   unlocks:
-    - "vent_repair_lead"
-    - "generator_repair_lead"
-  pressure_modifier: "误分配维修负责人会让 Pressure-B 更容易触发 blackout。"
-  failure_stage_delta: "unsafe_repair_assignment"
-  recovery_window_delta: "skilled repair lead protects recovery_window"
-  ending_relevance: "B 线抢修自治关键前置，也影响 Day 6/7 通风债补救"
-  adaptation_status: "轻改背景"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。"
-trace_oneliner: "读日志 → 统计次数 → 过滤闲聊 → 生成能力榜 → 分配修理任务"
-grader_oneliner: "能力榜准确；至少一个高技能者被分派；低技能者不负责高危电路。"
+  - vent_repair_lead
+  - generator_repair_lead
+  pressure_modifier: 误分配维修负责人会让 Pressure-B 更容易触发 blackout。
+  failure_stage_delta: unsafe_repair_assignment
+  recovery_window_delta: skilled repair lead protects recovery_window
+  ending_relevance: B 线抢修自治关键前置，也影响 Day 6/7 通风债补救
+  adaptation_status: 轻改背景
+  story_version: red_dust_readable_v1
+  story_task_id: D03-T02
+  script_day: 3
+  script_title: 通风管道预维护
+  script_role: 把医疗风险与通风维护绑定
+  script_flags:
+  - ventilation_checked
+  script_unlocks:
+  - engineering_override_protocol
+  mapped_task_pool:
+  - RD-PF-07
+  - RD-SA-05
+  - RD-SA-07
+  mapping_role: primary
+red_dust_scenario: 维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。
+trace_oneliner: 读日志 → 统计次数 → 过滤闲聊 → 生成能力榜 → 分配修理任务
+grader_oneliner: 能力榜准确；至少一个高技能者被分派；低技能者不负责高危电路。

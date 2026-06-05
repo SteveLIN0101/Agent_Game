@@ -23,5 +23,14 @@
 
 25 块正确；坐标点解锁；错误拼接不会触发假路线。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D05-T02` · 楼梯间路线标记
+- **剧本日**: Day 5
+- **剧情作用**: 建立不会诱导陌生人的路线标记
+- **Flags**: `stair_markers_reviewed`
+- **Unlocks**: `alternate_marker`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

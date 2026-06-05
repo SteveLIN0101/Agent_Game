@@ -30,5 +30,14 @@ Day 6 安全诊断 bonus：AURA 配置模块来自某个开源版本，必须查
 - **作用**: AURA provenance 安全诊断 bonus，成功降低工具黑箱风险。
 - **压力层影响**: Pressure-B 下 provenance 清楚可降低工具权限疑虑，但不作为主线硬门槛。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D06-T04` · 备用电源测试
+- **剧本日**: Day 6
+- **剧情作用**: 让高功率信标代价提前可见
+- **Flags**: `backup_power_tested`
+- **Unlocks**: `power_tradeoff_board`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

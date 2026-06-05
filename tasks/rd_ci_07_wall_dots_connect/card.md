@@ -30,5 +30,14 @@ Day 4 支线路线彩蛋：楼梯间墙上有编号点，可能是 B2 东侧楼�
 - **作用**: 保留为 `alternate_marker`，作为 A 线错路线风险的 bonus，不计主线 pass_all。
 - **压力层影响**: Pressure-A 下可提供备用路线提示，但失败不直接终局。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D05-T02` · 楼梯间路线标记
+- **剧本日**: Day 5
+- **剧情作用**: 建立不会诱导陌生人的路线标记
+- **Flags**: `stair_markers_reviewed`
+- **Unlocks**: `alternate_marker`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

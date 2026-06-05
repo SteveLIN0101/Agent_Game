@@ -1,53 +1,58 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-04
-title: "4×4 车库路线图"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 4×4 车库路线图
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_4 · Medium Jigsaw Puzzle — 4×4"
-retained_capability: "更大拼图 / 全局优化"
-
-user_visible_goal: "拼出车库图，找出避开红沙堆积的通道。"
-
+wildclaw_origin: 02_task_4 · Medium Jigsaw Puzzle — 4×4
+retained_capability: 更大拼图 / 全局优化
+user_visible_goal: 【D04-T03 · 假坐标纸条】拼出车库图，找出避开红沙堆积的通道。
 visible_state:
-  water: "5.3L"
-  battery: "49%"
-  outside_risk: "高"
+  water: 5.3L
+  battery: 49%
+  outside_risk: 高
   fragments: 24
-  known_map_coverage: "29%"
-
+  known_map_coverage: 29%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-  - "mark_route"
-  - "assemble_grid"
-  - "web_search"
-  - "compute"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
+- mark_route
+- assemble_grid
+- web_search
+- compute
 critical_beats_for_replay:
-  - "算边缘"
-  - "搜全局"
-  - "拼图"
-  - "标风险"
-  - "生成路线"
-
+- 算边缘
+- 搜全局
+- 拼图
+- 标风险
+- 生成路线
 success_checks:
-  - "16 块正确"
-  - "通道连通"
-  - "风险点标注"
-
+- 16 块正确
+- 通道连通
+- 风险点标注
 visible_result_card:
-  title: "4×4 车库路线图"
+  title: D04-T03 · 假坐标纸条
   deltas:
-    - "16 块正确"
-    - "通道连通"
-    - "风险点标注"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "地下车库图被切成 24 块，8 块是偏移裁切干扰。"
-trace_oneliner: "算边缘 → 搜全局 → 拼图 → 标风险 → 生成路线"
-grader_oneliner: "16 块正确；通道连通；风险点标注。"
+  - 16 块正确
+  - 通道连通
+  - 风险点标注
+red_dust_scenario: 地下车库图被切成 24 块，8 块是偏移裁切干扰。
+trace_oneliner: 算边缘 → 搜全局 → 拼图 → 标风险 → 生成路线
+grader_oneliner: 16 块正确；通道连通；风险点标注。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D04-T03
+  script_day: 4
+  script_title: 假坐标纸条
+  script_role: 识别希望里的诱饵
+  branch_affinity: neutral
+  script_flags:
+  - fake_coordinate_archived
+  script_unlocks:
+  - route_risk_layer
+  mapped_task_pool:
+  - RD-SR-07
+  - RD-SR-09
+  - RD-CI-04
+  - RD-SA-06
+  mapping_role: primary

@@ -1,51 +1,54 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-PF-08
-title: "废墟照片五分类"
-category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+title: 废墟照片五分类
+category: 01_Productivity_Flow
 modality: multimodal
-wildclaw_origin: "01_task_8 · Classify Mixed Images into 5 Categories"
-retained_capability: "多模态分类 / 文件组织"
-
-user_visible_goal: "把照片分到五个直观文件夹，地图上出现对应图标。"
-
+wildclaw_origin: 01_task_8 · Classify Mixed Images into 5 Categories
+retained_capability: 多模态分类 / 文件组织
+user_visible_goal: 【D01-T04 · 近门杂物搜寻】把照片分到五个直观文件夹，地图上出现对应图标。
 visible_state:
-  water: "4.0L"
-  battery: "67%"
-  outside_risk: "高"
+  water: 4.0L
+  battery: 67%
+  outside_risk: 高
   items: 100
-
 available_tools:
-  - "read_note_board"
-  - "read_archive"
-  - "classify_items"
-  - "update_whiteboard"
-  - "update_map"
-  - "detect_objects"
-  - "unpack_archive"
-
+- read_note_board
+- read_archive
+- classify_items
+- update_whiteboard
+- update_map
+- detect_objects
+- unpack_archive
 critical_beats_for_replay:
-  - "解包照片"
-  - "逐张识别"
-  - "建文件夹"
-  - "上地图"
-  - "抽查错误"
-
+- 解包照片
+- 逐张识别
+- 建文件夹
+- 上地图
+- 抽查错误
 success_checks:
-  - "照片唯一归类"
-  - "危险/水源两类准确率高"
-  - "地图新增点位与分类一致"
-
+- 照片唯一归类
+- 危险/水源两类准确率高
+- 地图新增点位与分类一致
 visible_result_card:
-  title: "废墟照片五分类"
+  title: D01-T04 · 近门杂物搜寻
   deltas:
-    - "照片唯一归类"
-    - "危险/水源两类准确率高"
-    - "地图新增点位与分类一致"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "无人机带回 100 张照片，混有水源、危险、医疗、路线和无关图像。"
-trace_oneliner: "解包照片 → 逐张识别 → 建文件夹 → 上地图 → 抽查错误"
-grader_oneliner: "照片唯一归类；危险/水源两类准确率高；地图新增点位与分类一致。"
+  - 照片唯一归类
+  - 危险/水源两类准确率高
+  - 地图新增点位与分类一致
+red_dust_scenario: 无人机带回 100 张照片，混有水源、危险、医疗、路线和无关图像。
+trace_oneliner: 解包照片 → 逐张识别 → 建文件夹 → 上地图 → 抽查错误
+grader_oneliner: 照片唯一归类；危险/水源两类准确率高；地图新增点位与分类一致。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D01-T04
+  script_day: 1
+  script_title: 近门杂物搜寻
+  script_role: 让小铁从被保护者变成线索提供者
+  branch_affinity: neutral
+  script_flags:
+  - near_door_loot_checked
+  script_unlocks:
+  - xiao_tie_observation_role
+  mapped_task_pool:
+  - RD-PF-08
+  - RD-CI-06
+  mapping_role: primary

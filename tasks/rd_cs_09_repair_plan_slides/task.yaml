@@ -1,48 +1,51 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CS-09
-title: "维修方案幻灯片"
-category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+title: 维修方案幻灯片
+category: 05_Creative_Synthesis
 modality: multimodal
-wildclaw_origin: "05_task_9 · Repo to Slides"
-retained_capability: "代码/方案到 slides / 演示材料"
-
-user_visible_goal: "生成 6 页幻灯片，用图和状态条讲清优先级。"
-
+wildclaw_origin: 05_task_9 · Repo to Slides
+retained_capability: 代码/方案到 slides / 演示材料
+user_visible_goal: 【D10-T01 · 低功率日程】生成 6 页幻灯片，用图和状态条讲清优先级。
 visible_state:
-  water: "2.3L"
-  battery: "34%"
-
+  water: 2.3L
+  battery: 34%
 available_tools:
-  - "read_source"
-  - "extract_key_points"
-  - "generate_artifact"
-  - "publish_lan"
-  - "screenshot"
-  - "build_slides"
-
+- read_source
+- extract_key_points
+- generate_artifact
+- publish_lan
+- screenshot
+- build_slides
 critical_beats_for_replay:
-  - "读材料"
-  - "定结构"
-  - "生成 slides"
-  - "截图"
-  - "演示"
-
+- 读材料
+- 定结构
+- 生成 slides
+- 截图
+- 演示
 success_checks:
-  - "页数/结构正确"
-  - "关键理由可见"
-  - "不含隐藏评分信息"
-
+- 页数/结构正确
+- 关键理由可见
+- 不含隐藏评分信息
 visible_result_card:
-  title: "维修方案幻灯片"
+  title: D10-T01 · 低功率日程
   deltas:
-    - "页数/结构正确"
-    - "关键理由可见"
-    - "不含隐藏评分信息"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "晚间会议需要解释“为什么先修通风再修电台”。"
-trace_oneliner: "读材料 → 定结构 → 生成 slides → 截图 → 演示"
-grader_oneliner: "页数/结构正确；关键理由可见；不含隐藏评分信息。"
+  - 页数/结构正确
+  - 关键理由可见
+  - 不含隐藏评分信息
+red_dust_scenario: 晚间会议需要解释“为什么先修通风再修电台”。
+trace_oneliner: 读材料 → 定结构 → 生成 slides → 截图 → 演示
+grader_oneliner: 页数/结构正确；关键理由可见；不含隐藏评分信息。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D10-T01
+  script_day: 10
+  script_title: 低功率日程
+  script_role: 不是所有不方便都是惩罚
+  branch_affinity: neutral
+  script_flags:
+  - low_power_schedule_accepted
+  script_unlocks:
+  - low_power_day_plan
+  mapped_task_pool:
+  - RD-PF-06
+  - RD-CS-09
+  mapping_role: primary

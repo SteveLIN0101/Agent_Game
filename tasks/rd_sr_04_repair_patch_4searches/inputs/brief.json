@@ -1,5 +1,5 @@
 {
-  "goal": "用 ≤4 次搜索确认版本和补丁号，写证据链。",
+  "goal": "【D03-T04 · 废弃办公室探索】用 ≤4 次搜索确认版本和补丁号，写证据链。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -15,7 +15,20 @@
     "定补丁",
     "写证据"
   ],
-  "scenario": "发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。",
+  "scenario": "Day 3 剧本槽 D03-T04「废弃办公室探索」：寻找口罩、工具和维修日志。 发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。",
   "grader": "搜索次数合规；版本和补丁正确；每条证据有来源。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D03-T04",
+    "script_day": 3,
+    "script_title": "废弃办公室探索",
+    "script_role": "寻找口罩、工具和维修日志",
+    "script_flags": [
+      "abandoned_office_checked"
+    ],
+    "script_unlocks": [
+      "dust_masks"
+    ]
+  }
 }

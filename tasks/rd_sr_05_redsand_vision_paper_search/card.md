@@ -30,5 +30,14 @@ Day 6 research bonus：沈芷月只记得某篇 2025 视觉感知论文可帮助
 - **作用**: research bonus，提升红沙感知解释力。
 - **压力层影响**: 可解释 Day 4/8 感知表现；失败不直接改变 `pressure_level`。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D11-T02` · 外部传感器回收
+- **剧本日**: Day 11
+- **剧情作用**: 半只眼睛也算眼睛
+- **Flags**: `external_sensor_recovered`
+- **Unlocks**: `storm_pressure_warning`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

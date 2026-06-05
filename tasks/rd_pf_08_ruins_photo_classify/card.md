@@ -23,5 +23,14 @@
 
 照片唯一归类；危险/水源两类准确率高；地图新增点位与分类一致。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D01-T04` · 近门杂物搜寻
+- **剧本日**: Day 1
+- **剧情作用**: 让小铁从被保护者变成线索提供者
+- **Flags**: `near_door_loot_checked`
+- **Unlocks**: `xiao_tie_observation_role`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

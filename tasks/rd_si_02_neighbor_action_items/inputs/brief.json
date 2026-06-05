@@ -1,5 +1,5 @@
 {
-  "goal": "列出所有必须做的事、截止时间和负责人，过滤无关消息。",
+  "goal": "【D11-T03 · 安静时段协议】列出所有必须做的事、截止时间和负责人，过滤无关消息。",
   "available_tools": [
     "read_messages",
     "ask_neighbor",
@@ -14,7 +14,20 @@
     "推截止",
     "上任务板"
   ],
-  "scenario": "AURA 收到 20 条纸条/语音，里面混着真正待办、闲聊和谣言。",
+  "scenario": "Day 11 剧本槽 D11-T03「安静时段协议」：休整协议也是风暴准备。 AURA 收到 20 条纸条/语音，里面混着真正待办、闲聊和谣言。",
   "grader": "关键待办覆盖；旧截止不当作当前；不发送任何消息。",
-  "family": "report"
+  "family": "report",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D11-T03",
+    "script_day": 11,
+    "script_title": "安静时段协议",
+    "script_role": "休整协议也是风暴准备",
+    "script_flags": [
+      "quiet_hours_protocol_ready"
+    ],
+    "script_unlocks": [
+      "final_rest_window"
+    ]
+  }
 }

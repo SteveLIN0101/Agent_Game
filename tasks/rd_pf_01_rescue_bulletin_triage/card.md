@@ -23,5 +23,14 @@ AURA 收到 36 条电台片段、纸质公告照片和楼内传言，需要筛�
 
 白板新增 ≥8 条有效信息；谣言未进入行动清单；小铁相关建议被标红；资源消耗为 0。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D09-T01` · 深层储藏架加固
+- **剧本日**: Day 9
+- **剧情作用**: 维护债务也会突然索债
+- **Flags**: `deep_storage_rack_checked`
+- **Unlocks**: `inventory_stability_bonus`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

@@ -1,5 +1,5 @@
 {
-  "goal": "生成中文配音版并保留关键警告字幕。",
+  "goal": "【D04-T01 · 第一次蓝区信号】生成中文配音版并保留关键警告字幕。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -17,7 +17,20 @@
     "合成",
     "审核警告"
   ],
-  "scenario": "救援队发来英文视频，楼里大多数人听不懂。",
+  "scenario": "Day 4 剧本槽 D04-T01「第一次蓝区信号」：记录疑似救援但不暴露位置。 救援队发来英文视频，楼里大多数人听不懂。",
   "grader": "中文配音存在；关键数字准确；音画同步可接受。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D04-T01",
+    "script_day": 4,
+    "script_title": "第一次蓝区信号",
+    "script_role": "记录疑似救援但不暴露位置",
+    "script_flags": [
+      "blue_zone_signal_logged"
+    ],
+    "script_unlocks": [
+      "low_power_listening"
+    ]
+  }
 }

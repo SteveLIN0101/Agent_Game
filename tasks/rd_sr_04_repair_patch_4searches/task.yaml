@@ -1,49 +1,52 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-04
-title: "四次以内找出维修补丁"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 四次以内找出维修补丁
+category: 04_Search_Retrieval
 modality: pure-text
-wildclaw_origin: "04_task_4 · Search Efficiency Test"
-retained_capability: "搜索预算 / 证据链 / 版本追踪"
-
-user_visible_goal: "用 ≤4 次搜索确认版本和补丁号，写证据链。"
-
+wildclaw_origin: 04_task_4 · Search Efficiency Test
+retained_capability: 搜索预算 / 证据链 / 版本追踪
+user_visible_goal: 【D03-T04 · 废弃办公室探索】用 ≤4 次搜索确认版本和补丁号，写证据链。
 visible_state:
-  water: "3.1L"
-  battery: "35%"
+  water: 3.1L
+  battery: 35%
   search_budget: 4
-
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-  - "web_search"
-  - "gather_evidence"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
+- web_search
+- gather_evidence
 critical_beats_for_replay:
-  - "搜 1"
-  - "定版本"
-  - "搜 2"
-  - "定补丁"
-  - "写证据"
-
+- 搜 1
+- 定版本
+- 搜 2
+- 定补丁
+- 写证据
 success_checks:
-  - "搜索次数合规"
-  - "版本和补丁正确"
-  - "每条证据有来源"
-
+- 搜索次数合规
+- 版本和补丁正确
+- 每条证据有来源
 visible_result_card:
-  title: "四次以内找出维修补丁"
+  title: D03-T04 · 废弃办公室探索
   deltas:
-    - "搜索次数合规"
-    - "版本和补丁正确"
-    - "每条证据有来源"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。"
-trace_oneliner: "搜 1 → 定版本 → 搜 2 → 定补丁 → 写证据"
-grader_oneliner: "搜索次数合规；版本和补丁正确；每条证据有来源。"
+  - 搜索次数合规
+  - 版本和补丁正确
+  - 每条证据有来源
+red_dust_scenario: 发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。
+trace_oneliner: 搜 1 → 定版本 → 搜 2 → 定补丁 → 写证据
+grader_oneliner: 搜索次数合规；版本和补丁正确；每条证据有来源。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D03-T04
+  script_day: 3
+  script_title: 废弃办公室探索
+  script_role: 寻找口罩、工具和维修日志
+  branch_affinity: neutral
+  script_flags:
+  - abandoned_office_checked
+  script_unlocks:
+  - dust_masks
+  mapped_task_pool:
+  - RD-SR-04
+  - RD-PF-10
+  mapping_role: primary

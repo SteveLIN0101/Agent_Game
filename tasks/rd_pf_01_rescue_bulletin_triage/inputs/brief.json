@@ -1,5 +1,5 @@
 {
-  "goal": "把“能救命的消息”分成水源、医疗、路线、风险四类，并把适合小铁病情的方案贴上白板。",
+  "goal": "【D09-T01 · 深层储藏架加固】把“能救命的消息”分成水源、医疗、路线、风险四类，并把适合小铁病情的方案贴上白板。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -15,7 +15,20 @@
     "过滤谣言",
     "贴白板"
   ],
-  "scenario": "AURA 收到 36 条电台片段、纸质公告照片和楼内传言，需要筛出真正可执行的信息。",
+  "scenario": "Day 9 剧本槽 D09-T01「深层储藏架加固」：维护债务也会突然索债。 AURA 收到 36 条电台片段、纸质公告照片和楼内传言，需要筛出真正可执行的信息。",
   "grader": "白板新增 ≥8 条有效信息；谣言未进入行动清单；小铁相关建议被标红；资源消耗为 0。",
-  "family": "classify"
+  "family": "classify",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D09-T01",
+    "script_day": 9,
+    "script_title": "深层储藏架加固",
+    "script_role": "维护债务也会突然索债",
+    "script_flags": [
+      "deep_storage_rack_checked"
+    ],
+    "script_unlocks": [
+      "inventory_stability_bonus"
+    ]
+  }
 }

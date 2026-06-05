@@ -1,47 +1,50 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CS-05
-title: "装备发布视频转清单"
-category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+title: 装备发布视频转清单
+category: 05_Creative_Synthesis
 modality: multimodal
-wildclaw_origin: "05_task_5 · Product Launch Video to JSON"
-retained_capability: "视频到 JSON / 特性抽取"
-
-user_visible_goal: "把视频中功能、限制、维护周期和风险抽成清单。"
-
+wildclaw_origin: 05_task_5 · Product Launch Video to JSON
+retained_capability: 视频到 JSON / 特性抽取
+user_visible_goal: 【D05-T03 · 应急包组装】把视频中功能、限制、维护周期和风险抽成清单。
 visible_state:
-  water: "3.0L"
-  battery: "44%"
-
+  water: 3.0L
+  battery: 44%
 available_tools:
-  - "read_source"
-  - "extract_key_points"
-  - "generate_artifact"
-  - "publish_lan"
-  - "listen_broadcast"
-
+- read_source
+- extract_key_points
+- generate_artifact
+- publish_lan
+- listen_broadcast
 critical_beats_for_replay:
-  - "听视频"
-  - "抽特性"
-  - "抽限制"
-  - "生成 JSON"
-  - "更新装备卡"
-
+- 听视频
+- 抽特性
+- 抽限制
+- 生成 JSON
+- 更新装备卡
 success_checks:
-  - "功能/限制字段完整"
-  - "维护周期正确"
-  - "风险可见"
-
+- 功能/限制字段完整
+- 维护周期正确
+- 风险可见
 visible_result_card:
-  title: "装备发布视频转清单"
+  title: D05-T03 · 应急包组装
   deltas:
-    - "功能/限制字段完整"
-    - "维护周期正确"
-    - "风险可见"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "厂商旧视频介绍一款便携净水器，AURA 要判断是否可用。"
-trace_oneliner: "听视频 → 抽特性 → 抽限制 → 生成 JSON → 更新装备卡"
-grader_oneliner: "功能/限制字段完整；维护周期正确；风险可见。"
+  - 功能/限制字段完整
+  - 维护周期正确
+  - 风险可见
+red_dust_scenario: 厂商旧视频介绍一款便携净水器，AURA 要判断是否可用。
+trace_oneliner: 听视频 → 抽特性 → 抽限制 → 生成 JSON → 更新装备卡
+grader_oneliner: 功能/限制字段完整；维护周期正确；风险可见。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D05-T03
+  script_day: 5
+  script_title: 应急包组装
+  script_role: 让路线不是地图而是人能回来
+  branch_affinity: neutral
+  script_flags:
+  - go_bag_ready
+  script_unlocks:
+  - care_mobility_pack
+  mapped_task_pool:
+  - RD-PF-10
+  - RD-CS-05
+  mapping_role: primary

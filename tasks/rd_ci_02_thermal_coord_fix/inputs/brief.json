@@ -1,5 +1,5 @@
 {
-  "goal": "修复代码，让门口人和热源位置重新对齐。",
+  "goal": "【D08-T01 · 备用灯分区】修复代码，让门口人和热源位置重新对齐。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "修复",
     "复测"
   ],
-  "scenario": "热成像模型把门外人框到墙里，可能是坐标和归一化 bug。",
+  "scenario": "Day 8 剧本槽 D08-T01「备用灯分区」：低耗运行不是惩罚。 热成像模型把门外人框到墙里，可能是坐标和归一化 bug。",
   "grader": "四个测试场景通过；错误框消失；未改测试文件。",
-  "family": "code"
+  "family": "code",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D08-T01",
+    "script_day": 8,
+    "script_title": "备用灯分区",
+    "script_role": "低耗运行不是惩罚",
+    "script_flags": [
+      "backup_light_zones_ready"
+    ],
+    "script_unlocks": [
+      "low_power_lighting"
+    ]
+  }
 }

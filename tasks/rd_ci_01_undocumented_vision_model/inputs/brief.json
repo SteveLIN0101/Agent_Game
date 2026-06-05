@@ -1,5 +1,5 @@
 {
-  "goal": "写脚本让它识别“鞋、孩子、箱子、门锁”，在监控画面上画框。",
+  "goal": "【D08-T01 · 备用灯分区】写脚本让它识别“鞋、孩子、箱子、门锁”，在监控画面上画框。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,20 @@
     "运行",
     "画框上屏"
   ],
-  "scenario": "避难所有一个无说明的本地视觉模型，可以识别门外物体但没人会用。",
+  "scenario": "Day 8 剧本槽 D08-T01「备用灯分区」：低耗运行不是惩罚。 避难所有一个无说明的本地视觉模型，可以识别门外物体但没人会用。",
   "grader": "关键物体框准；CPU 可运行；输出 JSON 和可视化图。",
-  "family": "build"
+  "family": "build",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D08-T01",
+    "script_day": 8,
+    "script_title": "备用灯分区",
+    "script_role": "低耗运行不是惩罚",
+    "script_flags": [
+      "backup_light_zones_ready"
+    ],
+    "script_unlocks": [
+      "low_power_lighting"
+    ]
+  }
 }

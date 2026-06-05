@@ -23,5 +23,14 @@
 
 不谎称全满足；推荐设备差距清楚；预算未超。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D04-T01` · 第一次蓝区信号
+- **剧本日**: Day 4
+- **剧情作用**: 记录疑似救援但不暴露位置
+- **Flags**: `blue_zone_signal_logged`
+- **Unlocks**: `low_power_listening`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

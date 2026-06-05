@@ -1,5 +1,5 @@
 {
-  "goal": "从模糊线索找到正确论文和代码仓库。",
+  "goal": "【D11-T02 · 外部传感器回收】从模糊线索找到正确论文和代码仓库。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -14,7 +14,20 @@
     "核主题",
     "写结论"
   ],
-  "scenario": "Day 6 research bonus：沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火；成功提升感知解释力，不参与主线终局。",
+  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：半只眼睛也算眼睛。 Day 6 research bonus：沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火；成功提升感知解释力，不参与主线终局。",
   "grader": "论文正确；仓库 star 达标；无关候选被排除。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D11-T02",
+    "script_day": 11,
+    "script_title": "外部传感器回收",
+    "script_role": "半只眼睛也算眼睛",
+    "script_flags": [
+      "external_sensor_recovered"
+    ],
+    "script_unlocks": [
+      "storm_pressure_warning"
+    ]
+  }
 }

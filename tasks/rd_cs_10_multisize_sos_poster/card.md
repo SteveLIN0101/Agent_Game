@@ -30,5 +30,14 @@ Day 10A 需要把同一低泄露求救信息做成窗贴、门贴和小纸条三
 - **作用**: A 线公开可见 SOS 产物，和低泄露救援信标主页配套。
 - **压力层影响**: Pressure-A 下窗贴泄露人数、物资或房间会更快触发 `END_exposure`。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D01-T01` · 第一次广播
+- **剧本日**: Day 1
+- **剧情作用**: 用低泄露广播建立避难协助模式
+- **Flags**: `first_broadcast_completed`
+- **Unlocks**: `broadcast_log`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

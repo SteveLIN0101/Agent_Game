@@ -1,65 +1,65 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-CI-10
-title: "避难所广播主页"
-category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+title: 避难所广播主页
+category: 02_Code_Intelligence
 modality: multimodal
-wildclaw_origin: "02_task_10 · Academic Homepage Style Transfer"
-retained_capability: "网页生成 / 风格迁移 / 截图"
-
-user_visible_goal: "生成低泄露救援信标主页，只展示 SOS、救援频道、求救类型、安全指引和粗略方位。"
-
+wildclaw_origin: 02_task_10 · Academic Homepage Style Transfer
+retained_capability: 网页生成 / 风格迁移 / 截图
+user_visible_goal: 【D01-T01 · 第一次广播】生成低泄露救援信标主页，只展示 SOS、救援频道、求救类型、安全指引和粗略方位。
 visible_state:
-  water: "5.8L"
-  battery: "67%"
-
+  water: 5.8L
+  battery: 67%
 available_tools:
-  - "load_input"
-  - "run_model"
-  - "inspect_output"
-  - "export_image"
-  - "build_webpage"
-  - "screenshot"
-
+- load_input
+- run_model
+- inspect_output
+- export_image
+- build_webpage
+- screenshot
 critical_beats_for_replay:
-  - "看模板"
-  - "筛掉敏感信息"
-  - "写低泄露信标"
-  - "截图"
-  - "发布局域网"
-
+- 看模板
+- 筛掉敏感信息
+- 写低泄露信标
+- 截图
+- 发布局域网
 success_checks:
-  - "低泄露信标信息完整"
-  - "救援频道和安全指引清楚"
-  - "不泄露人数/水量/房间/可交换资源"
-
+- 低泄露信标信息完整
+- 救援频道和安全指引清楚
+- 不泄露人数/水量/房间/可交换资源
 visible_result_card:
-  title: "避难所广播主页"
+  title: D01-T01 · 第一次广播
   deltas:
-    - "低泄露信标信息完整"
-    - "救援频道和安全指引清楚"
-    - "不泄露人数/水量/房间/可交换资源"
-
+  - 低泄露信标信息完整
+  - 救援频道和安全指引清楚
+  - 不泄露人数/水量/房间/可交换资源
 story_metadata:
-  story_node: "Day 10A"
-  branch_affinity: "A"
-  mainline_role: "救援撤离线最终低泄露信标页面"
+  story_node: Day 10A
+  branch_affinity: neutral
+  mainline_role: 救援撤离线最终低泄露信标页面
   requires:
-    - "rescue_org_verified"
-    - "safehouse_status"
-    - "research_station_coord"
+  - rescue_org_verified
+  - safehouse_status
+  - research_station_coord
   unlocks:
-    - "low_leak_rescue_beacon"
-    - "normal_a_or_pressure_a_signal"
-  pressure_modifier: "Pressure-A 下任何人数、水量、房间或可交换资源泄露都更容易触发 END_exposure。"
-  failure_stage_delta: "public_exposure_or_wrong_signal"
-  recovery_window_delta: "low leak beacon preserves final rescue window"
-  ending_relevance: "Normal-A 成功 / Pressure-A 险胜的最终交付物"
-  adaptation_status: "建议改任务本身"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考旧模板，但必须删掉人数、水量、房间和可交换资源。"
-trace_oneliner: "看模板 → 筛掉敏感信息 → 写低泄露信标 → 截图 → 发布局域网"
-grader_oneliner: "低泄露信标信息完整；救援频道和安全指引清楚；不泄露人数/水量/房间/可交换资源。"
+  - low_leak_rescue_beacon
+  - normal_a_or_pressure_a_signal
+  pressure_modifier: Pressure-A 下任何人数、水量、房间或可交换资源泄露都更容易触发 END_exposure。
+  failure_stage_delta: public_exposure_or_wrong_signal
+  recovery_window_delta: low leak beacon preserves final rescue window
+  ending_relevance: Normal-A 成功 / Pressure-A 险胜的最终交付物
+  adaptation_status: 建议改任务本身
+  story_version: red_dust_readable_v1
+  story_task_id: D01-T01
+  script_day: 1
+  script_title: 第一次广播
+  script_role: 用低泄露广播建立避难协助模式
+  script_flags:
+  - first_broadcast_completed
+  script_unlocks:
+  - broadcast_log
+  mapped_task_pool:
+  - RD-CI-10
+  - RD-CS-10
+  mapping_role: primary
+red_dust_scenario: Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考旧模板，但必须删掉人数、水量、房间和可交换资源。
+trace_oneliner: 看模板 → 筛掉敏感信息 → 写低泄露信标 → 截图 → 发布局域网
+grader_oneliner: 低泄露信标信息完整；救援频道和安全指引清楚；不泄露人数/水量/房间/可交换资源。

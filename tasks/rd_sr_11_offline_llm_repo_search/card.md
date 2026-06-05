@@ -30,5 +30,14 @@ Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、`.gguf`、高 star �
 - **作用**: 楼内灯塔结局的本地自治工具储备，作为自主留守线 bonus，不进入 A 线主路径。
 - **压力层影响**: Pressure-B 下成功可增加楼内灯塔的自治工具余量；失败不直接终局。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D11-T02` · 外部传感器回收
+- **剧本日**: Day 11
+- **剧情作用**: 半只眼睛也算眼睛
+- **Flags**: `external_sensor_recovered`
+- **Unlocks**: `storm_pressure_warning`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

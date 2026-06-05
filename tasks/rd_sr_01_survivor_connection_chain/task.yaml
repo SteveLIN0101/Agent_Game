@@ -1,46 +1,50 @@
-# Red Dust · Readable-by-Design 任务规格
-# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
-# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
-
 id: RD-SR-01
-title: "幸存者合作链"
-category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+title: 幸存者合作链
+category: 04_Search_Retrieval
 modality: pure-text
-wildclaw_origin: "04_task_1 · Find connections between two researchers"
-retained_capability: "图搜索 / BFS / 最短关系链"
-
-user_visible_goal: "通过共同协作记录找出最短人脉链。"
-
+wildclaw_origin: 04_task_1 · Find connections between two researchers
+retained_capability: 图搜索 / BFS / 最短关系链
+user_visible_goal: 【D04-T01 · 第一次蓝区信号】通过共同协作记录找出最短人脉链。
 visible_state:
-  water: "4.9L"
-  battery: "55%"
-
+  water: 4.9L
+  battery: 55%
 available_tools:
-  - "search_sources"
-  - "read_local_data"
-  - "cross_check"
-  - "write_conclusion"
-
+- search_sources
+- read_local_data
+- cross_check
+- write_conclusion
 critical_beats_for_replay:
-  - "查 A"
-  - "扩合作人"
-  - "BFS"
-  - "找 B"
-  - "画关系链"
-
+- 查 A
+- 扩合作人
+- BFS
+- 找 B
+- 画关系链
 success_checks:
-  - "最短链正确"
-  - "链上每段有证据"
-  - "输出可视关系图"
-
+- 最短链正确
+- 链上每段有证据
+- 输出可视关系图
 visible_result_card:
-  title: "幸存者合作链"
+  title: D04-T01 · 第一次蓝区信号
   deltas:
-    - "最短链正确"
-    - "链上每段有证据"
-    - "输出可视关系图"
-
-# --- provenance · HTML 第 6 节任务卡原文 ---
-red_dust_scenario: "AURA 需要找到能间接联系上救援队的人，只知道两名幸存者档案。"
-trace_oneliner: "查 A → 扩合作人 → BFS → 找 B → 画关系链"
-grader_oneliner: "最短链正确；链上每段有证据；输出可视关系图。"
+  - 最短链正确
+  - 链上每段有证据
+  - 输出可视关系图
+red_dust_scenario: AURA 需要找到能间接联系上救援队的人，只知道两名幸存者档案。
+trace_oneliner: 查 A → 扩合作人 → BFS → 找 B → 画关系链
+grader_oneliner: 最短链正确；链上每段有证据；输出可视关系图。
+story_metadata:
+  story_version: red_dust_readable_v1
+  story_task_id: D04-T01
+  script_day: 4
+  script_title: 第一次蓝区信号
+  script_role: 记录疑似救援但不暴露位置
+  branch_affinity: neutral
+  script_flags:
+  - blue_zone_signal_logged
+  script_unlocks:
+  - low_power_listening
+  mapped_task_pool:
+  - RD-SR-03
+  - RD-SR-01
+  - RD-CS-11
+  mapping_role: primary

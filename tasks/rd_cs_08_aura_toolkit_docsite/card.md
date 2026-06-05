@@ -23,5 +23,14 @@
 
 功能不漏；危险工具有警告；页面可打开。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D06-T01` · 权限白板
+- **剧本日**: Day 6
+- **剧情作用**: 透明不是礼貌，是生存条件
+- **Flags**: `authority_board_public`
+- **Unlocks**: `manual_review_rules`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

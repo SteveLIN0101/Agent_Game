@@ -1,5 +1,5 @@
 {
-  "goal": "在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement 后的补救选择避免追错信号。",
+  "goal": "【D04-T02 · 屋顶天线方案】在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement 后的补救选择避免追错信号。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -15,7 +15,20 @@
     "标可信度",
     "安排监听"
   ],
-  "scenario": "Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。",
+  "scenario": "Day 4 剧本槽 D04-T02「屋顶天线方案」：把天线增强设为高风险证据题。 Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。",
   "grader": "至少 5 个可信联系人；伪专家不列为可联系；监听排班被创建。",
-  "family": "classify"
+  "family": "classify",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D04-T02",
+    "script_day": 4,
+    "script_title": "屋顶天线方案",
+    "script_role": "把天线增强设为高风险证据题",
+    "script_flags": [
+      "antenna_plan_reviewed"
+    ],
+    "script_unlocks": [
+      "beacon_upgrade_option"
+    ]
+  }
 }

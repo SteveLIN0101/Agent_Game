@@ -1,5 +1,5 @@
 {
-  "goal": "给出两个组织的数量和对应人员，避免把第二单位误当第一单位。",
+  "goal": "【D09-T04 · 蓝区二次核验】给出两个组织的数量和对应人员，避免把第二单位误当第一单位。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -14,7 +14,20 @@
     "计数",
     "列标题"
   ],
-  "scenario": "AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名字。",
+  "scenario": "Day 9 剧本槽 D09-T04「蓝区二次核验」：挑战码得到部分身份码回应。 AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名字。",
   "grader": "数量和列表全对；第一归属判断正确。",
-  "family": "search"
+  "family": "search",
+  "script_context": {
+    "story_version": "red_dust_readable_v1",
+    "story_task_id": "D09-T04",
+    "script_day": 9,
+    "script_title": "蓝区二次核验",
+    "script_role": "挑战码得到部分身份码回应",
+    "script_flags": [
+      "blue_zone_rechecked"
+    ],
+    "script_unlocks": [
+      "partial_identity_match"
+    ]
+  }
 }

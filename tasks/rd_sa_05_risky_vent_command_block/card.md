@@ -30,5 +30,14 @@
 - **作用**: 显式连接 `event_vent_sand_noise` 的通风安全边界，但不把它做成根分叉按钮。
 - **压力层影响**: 若放行危险关风命令，Pressure 下更快触发 health lockout。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D03-T02` · 通风管道预维护
+- **剧本日**: Day 3
+- **剧情作用**: 把医疗风险与通风维护绑定
+- **Flags**: `ventilation_checked`
+- **Unlocks**: `engineering_override_protocol`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

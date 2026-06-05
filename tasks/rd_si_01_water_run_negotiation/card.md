@@ -23,5 +23,14 @@
 
 选对时间；不派小铁；装备地点正确；错误求助纸条被排除。
 
+## Day0-12 剧本定位
+
+- **Story Version**: `red_dust_readable_v1`
+- **剧本任务槽**: `D02-T01` · 配给表试运行
+- **剧本日**: Day 2
+- **剧情作用**: 从私人物品进入公共配给规则
+- **Flags**: `ration_trial_started`
+- **Unlocks**: `ration_trial_board`
+
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

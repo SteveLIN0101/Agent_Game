@@ -251,14 +251,14 @@ stderr、agent reply、parsed action、observation、trajectory、checks 和 sco
 
 ```bash
 PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python \
-  scripts/run_reddust_lan_server.py --host 0.0.0.0 --port 7000
+  scripts/run_reddust_lan_server.py --host 0.0.0.0 --port 7001
 ```
 
 另一台同 Wi-Fi 电脑先测：
 
 ```bash
-curl http://<开发机IP>:7000/health
-curl http://<开发机IP>:7000/tasks
+curl http://<开发机IP>:7001/health
+curl http://<开发机IP>:7001/tasks
 ```
 
 已验证：
@@ -270,7 +270,7 @@ curl http://<开发机IP>:7000/tasks
 
 ### D-010 · 缓存与可重建产物清理 (2026-06-05)
 
-项目根目录 **不是 git 仓库**（无 `.git/`），删除不可恢复。本轮只删除了"可重建或已外部备份"的产物。
+当时项目根目录尚未初始化 git 仓库，删除不可恢复；本轮只删除了"可重建或已外部备份"的产物。当前项目根已是 git 仓库，但大体量清理仍需先区分可重建产物、已备份产物和源数据。
 
 - **已删除（Tier 1）**：`.DS_Store`、`.pytest_cache`、184 个 `__pycache__`（约 1.8M）、`RedDust/node_modules/`（232M）、`RedDust/dist/`（30M）、`RedDust/tsconfig.tsbuildinfo`、`agent-survival-game/.godot/`（120M）。
 - **已删除（Tier 2 已确认可删）**：`agent-survival-game.zip`（329M）、`openclaw_core6_team_sync.tar.gz`（20M）、`openclaw_core6_team_sync/archives/`（20M）、`素材/red-dust-character-states-en.zip`（33M）、`agent-survival-game/data/reddust_object_only_runtime_assets_v33.zip`（61M）、`agent-survival-game/data/reddust_survival_resources_props_with_env_addons_pack.zip`（14M）。
@@ -278,6 +278,7 @@ curl http://<开发机IP>:7000/tasks
 - **保留未动**：`openclaw_core6_team_sync/` 整目录（114M）、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 Red Dust 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`。
 - **效果**：项目根从约 810M 降到约 430M，释放约 380M+。
 - **回归**：`tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` 仍 117 passed。
+- **后续状态**：2026-06-06 前端验证重新生成了 `RedDust/node_modules/`、`RedDust/dist/` 和 `RedDust/tsconfig.tsbuildinfo`；这些仍是 ignored 的可重建产物，需要瘦身时可再次删除并用 `cd RedDust && npm ci && npm run build` 恢复。
 - **约束**：本轮未动 `openclaw_core6_team_sync/` 整目录与 `runs/reddust_lan_sessions/`（107+ session JSON）。如需进一步瘦身，可走 Tier 3（gzip 化 session JSON、删除 2 个 script_smoke run）；本轮未执行。
 
 ### D-011 · 父仓库初始化与 RedDust 子代理化 (2026-06-05)
@@ -288,14 +289,29 @@ curl http://<开发机IP>:7000/tasks
 - **首次 commit**：`f4b7bed` "Initial import: OpenClaw Agent Game / Red Dust benchmark" — 2698 个文件，`.git` 130M
 - **Submodule 指针 commit**：`fb9bb1c` "Add RedDust as git submodule (pinned to agent-game-integration @ c49f17d)"
 - **RedDust 子仓库**：
-  - `origin` 保持 `https://github.com/peter-cui-yi/RedDust.git`，**未被改动**（按用户要求 RedDust 远程不动）
-  - 本地新建 `agent-game-integration` 分支保存了之前未提交的 6 个文件修改（README, App.tsx, AgentControlBar.tsx, global.css + 新文件 campaignClient.ts / campaignAdapter.ts）
-  - `agent-game-integration` 处于本地，**未被推送到任何远程**
+  - `origin` 为用户 fork：`https://github.com/SteveLIN0101/RedDust.git`
+  - `upstream` 为原仓库：`https://github.com/peter-cui-yi/RedDust.git`
+  - `.gitmodules` 指向 Steve fork，`branch=agent-game-integration`
+  - 当前 submodule 指针仍为 `c49f17d`；本轮 Day0-12 前端适配修改尚未形成新的 submodule commit
   - 父仓库 submodule 固定在该分支的 `c49f17d` commit
-- **父仓库 `.gitignore`**：已存在（145 行）并完整覆盖 `RedDust/`、`runs/`、`workspaces/`、`openclaw_core6_team_sync/`、`素材/`、`*.zip`、`*.tar.gz`、`node_modules/`、`__pycache__`、`.godot/`、`*.tsbuildinfo` 等；本轮未修改。
+- **父仓库 `.gitignore`**：已将 submodule 忽略规则锚定为 `/RedDust/`，避免 macOS ignorecase 误伤 `openclaw/reddust/`；同时继续忽略 `runs/`、`workspaces/`、`openclaw_core6_team_sync/`、`素材/`、`*.zip`、`*.tar.gz`、`node_modules/`、`__pycache__`、`.godot/`、`*.tsbuildinfo` 等。
 - **首次 push 经验**：第一次 push 因大包传输（130M pack）触发 `curl 55 Recv failure: Connection reset by peer` 中途失败；第二次加 `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` keepalive 后稳定完成。
 - **其他同事 clone 后的恢复命令**：`git submodule update --init --recursive`（否则 RedDust 目录会保持空）
 - **后续可选**：(1) 等用户决定把 `agent-game-integration` 推到自己 fork 后更新 submodule 指针；(2) 给大型 PNG 资源引入 Git LFS；(3) 给 RedDust 设 CI。
+
+### D-012 · Day0-12 readable-script campaign canon 落地 (2026-06-06)
+
+`red-dust-readable-script/` 已成为新的正式 campaign canon，旧 10 天 V2 剧情树保留为历史设计材料。
+
+- 新增机器可读 manifest：`openclaw/reddust/story_manifest.py`，`story_version=red_dust_readable_v1`。
+- Campaign 结构为 Day0 序章、Day1-11 的 44 个普通任务槽、Day8-10 的 6 个 branch scene、Day12 Final Audit。
+- 60 个稳定 `RD-*` benchmark 任务全部映射到 44 个 `Dxx-Txx` 剧本任务槽；单轮按 seed 从 slot task pool 抽题，跨 seed 覆盖全部 60 题。
+- 每个 `RD-*` 任务新增/更新 `story_metadata`：`story_task_id`、`script_day`、`script_title`、`script_role`、`branch_affinity`、`script_flags`、`script_unlocks`、`mapped_task_pool`、`mapping_role`。
+- 后端 campaign 状态改为开放指标字典：HUD 主指标仍是 water/medicine/trust/safety/signal/morale，其余如 `routeLeaning`、`failure_stage`、`recovery_window`、`battery`、`storm_readiness`、`autonomy_readiness` 进入详情层和 Final Audit。
+- Day 7 后只计算 `routeLeaning=rescue|lighthouse|contested`，Day8-10 的 A/B 只作为 branch scene 事件插入；普通任务仍继续推进到 Day11。
+- Day12 不创建普通 child session，不使用 LLM-as-judge；结局由前 11 天任务分数、状态、flags、unlocks 和 `_resolve_ending_key` 自动结算为五类：楼内灯塔、蓝区归航、AURA 被摧毁、AURA 被撤权、沉沦。
+- RedDust 前端保持 Phaser 视觉和动画框架不变，只升级数据适配：Day0-12 timeline、live/replay 事件类型、Final Audit replay step、URL replay 和 live connect/start 流。
+- 版本控制注意：`.gitignore` 原 `RedDust/` 规则在 macOS ignorecase 下会误伤 `openclaw/reddust/`；已改为 `/RedDust/`，确保后端 Red Dust runtime/campaign 文件可被父仓库追踪。
 
 ---
 
