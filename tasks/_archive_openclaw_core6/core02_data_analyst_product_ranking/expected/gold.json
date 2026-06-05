@@ -1,0 +1,19 @@
+{
+  "top_3": [
+    {
+      "rank": 1,
+      "product": "Enterprise Suite",
+      "revenue": 89500.0
+    },
+    {
+      "rank": 2,
+      "product": "Pro License",
+      "revenue": 67200.0
+    },
+    {
+      "rank": 3,
+      "product": "Starter Pack",
+      "revenue": 45100.0
+    }
+  ]
+}

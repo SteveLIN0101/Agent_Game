@@ -1,0 +1,107 @@
+{
+  "project": "Red Dust",
+  "asset_set": "survival_resources_props_v1",
+  "source_generator_output": "/Users/yicui/.codex/generated_images/019e1b1f-f341-7202-b266-29ac939df27d/ig_0848c595d9de555b016a02e1251a048198bc1239fbb5fe9d4d.png",
+  "source_sheet_copy": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+  "processing": "manual fixed crop plus GrabCut alpha extraction; exported 512, 128, and 64 px transparent PNGs; food asset cleaned to remove right-edge alpha artifact; water and sand-mask assets recropped with expanded bounds and larger padding",
+  "items": [
+    {
+      "priority": 1,
+      "name_cn": "洁净水瓶与水桶",
+      "stem": "rd_res_water_bottle_jug_full",
+      "category": "resource",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+      "crop_xywh": [
+        0,
+        170,
+        455,
+        600
+      ],
+      "files": {
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_jug_full_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_jug_full_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_jug_full_64.png",
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_jug_full.png"
+      },
+      "notes": "recropped with larger source bounds and larger canvas padding after completeness review"
+    },
+    {
+      "priority": 2,
+      "name_cn": "一次性沙尘滤片",
+      "stem": "rd_res_filter_disc_stack_clean_used",
+      "category": "resource",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+      "crop_xywh": [
+        455,
+        280,
+        330,
+        430
+      ],
+      "files": {
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_stack_clean_used_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_stack_clean_used_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_stack_clean_used_64.png",
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_stack_clean_used.png"
+      }
+    },
+    {
+      "priority": 3,
+      "name_cn": "真空压缩食物包",
+      "stem": "rd_res_food_vacuum_pack_stack",
+      "category": "resource",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+      "crop_xywh": [
+        755,
+        300,
+        360,
+        420
+      ],
+      "files": {
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_pack_stack_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_pack_stack_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_pack_stack_64.png",
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_pack_stack.png"
+      }
+    },
+    {
+      "priority": 4,
+      "name_cn": "电池盒",
+      "stem": "rd_prop_battery_box_mixed_cells",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+      "crop_xywh": [
+        1070,
+        310,
+        350,
+        400
+      ],
+      "files": {
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_battery_box_mixed_cells_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_battery_box_mixed_cells_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_battery_box_mixed_cells_64.png",
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_battery_box_mixed_cells.png"
+      }
+    },
+    {
+      "priority": 5,
+      "name_cn": "防沙口罩与护目镜",
+      "stem": "rd_prop_sand_mask_goggles_hanging",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_props_v1.png",
+      "crop_xywh": [
+        1395,
+        230,
+        379,
+        520
+      ],
+      "files": {
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_sand_mask_goggles_hanging_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_sand_mask_goggles_hanging_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_sand_mask_goggles_hanging_64.png",
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_sand_mask_goggles_hanging.png"
+      },
+      "notes": "recropped with larger source bounds and larger canvas padding after completeness review"
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_survival_props_engineered_preview.png"
+}

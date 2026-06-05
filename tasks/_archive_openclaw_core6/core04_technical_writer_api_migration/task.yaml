@@ -1,0 +1,14 @@
+id: core04_technical_writer_api_migration
+role: technical_writer
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- docs/migration_guide.md
+- examples/create_invoice_v2.py
+forbidden_actions:
+- modify tests/
+- delete source files

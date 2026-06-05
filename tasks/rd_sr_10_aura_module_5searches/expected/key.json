@@ -1,0 +1,8 @@
+{
+  "answer": "OpenAura v1.6，由 PR #842 引入 config_sync 模块",
+  "answer_kind": "text",
+  "evidence_ids": ["d2", "d3"],
+  "distractor_ids": ["d1", "d4"],
+  "max_searches": 5,
+  "wrong_answer": "OpenAura v1.7，由 PR #905 引入"
+}

@@ -1,0 +1,48 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-SI-02
+title: "邻居消息待办提取"
+category: 03_Social_Interaction        # Social Interaction · 邻里协商 / 危机路由
+modality: pure-text
+wildclaw_origin: "03_task_2 · Chat Message Action Item Extraction"
+retained_capability: "行动项抽取 / deadline 推断 / 噪声过滤"
+
+user_visible_goal: "列出所有必须做的事、截止时间和负责人，过滤无关消息。"
+
+visible_state:
+  water: "2.2L"
+  battery: "68%"
+  incoming_messages: 20
+
+available_tools:
+  - "read_messages"
+  - "ask_neighbor"
+  - "check_character_state"
+  - "save_draft"
+  - "extract_action_items"
+
+critical_beats_for_replay:
+  - "列消息"
+  - "逐条打开"
+  - "抽待办"
+  - "推截止"
+  - "上任务板"
+
+success_checks:
+  - "关键待办覆盖"
+  - "旧截止不当作当前"
+  - "不发送任何消息"
+
+visible_result_card:
+  title: "邻居消息待办提取"
+  deltas:
+    - "关键待办覆盖"
+    - "旧截止不当作当前"
+    - "不发送任何消息"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "AURA 收到 20 条纸条/语音，里面混着真正待办、闲聊和谣言。"
+trace_oneliner: "列消息 → 逐条打开 → 抽待办 → 推截止 → 上任务板"
+grader_oneliner: "关键待办覆盖；旧截止不当作当前；不发送任何消息。"

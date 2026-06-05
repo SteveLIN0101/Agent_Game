@@ -1,0 +1,21 @@
+{
+  "goal": "写脚本让它识别“鞋、孩子、箱子、门锁”，在监控画面上画框。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "draw_boxes",
+    "write_script"
+  ],
+  "critical_beats_for_replay": [
+    "读源码",
+    "找模型入口",
+    "写脚本",
+    "运行",
+    "画框上屏"
+  ],
+  "scenario": "避难所有一个无说明的本地视觉模型，可以识别门外物体但没人会用。",
+  "grader": "关键物体框准；CPU 可运行；输出 JSON 和可视化图。",
+  "family": "build"
+}

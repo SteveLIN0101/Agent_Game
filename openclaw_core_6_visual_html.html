@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw Occupational Core-6 Example Tasks</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --ink: #182033;
+      --muted: #697386;
+      --line: #e6e9f2;
+      --brand: #5967ff;
+      --brand-2: #7c3aed;
+      --green: #0f9f6e;
+      --blue: #1677ff;
+      --amber: #d97706;
+      --red: #dc2626;
+      --shadow: 0 16px 40px rgba(20, 30, 60, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(89,103,255,.16), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(124,58,237,.14), transparent 32%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    .page { max-width: 1240px; margin: 0 auto; padding: 34px 22px 80px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+    .hero-main, .hero-side, .card, .role-card, .matrix, .workflow {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+    .hero-main { padding: 34px; position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: "";
+      position: absolute; right: -70px; top: -90px;
+      width: 230px; height: 230px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(89,103,255,.28), rgba(124,58,237,.16));
+    }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 7px 11px; border-radius: 999px;
+      background: rgba(89,103,255,.10); color: #4250df;
+      font-weight: 700; font-size: 13px; letter-spacing: .02em;
+    }
+    h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.04; margin: 18px 0 14px; letter-spacing: -.04em; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 760px; margin: 0; }
+    .hero-side { padding: 24px; display: grid; gap: 14px; }
+    .metric-row { display: grid; grid-template-columns: 72px 1fr; gap: 14px; align-items: center; padding: 14px; border-radius: 18px; background: #f8f9ff; border: 1px solid var(--line); }
+    .metric-num { font-size: 30px; font-weight: 850; color: var(--brand); }
+    .metric-label { color: var(--muted); font-size: 14px; }
+
+    .section-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin: 34px 0 16px; }
+    .section-title h2 { margin: 0; font-size: 28px; letter-spacing: -.02em; }
+    .section-title p { margin: 0; color: var(--muted); max-width: 680px; }
+
+    .workflow { padding: 22px; margin: 22px 0 6px; }
+    .flow {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; align-items: stretch;
+    }
+    .flow-step { position: relative; padding: 16px 12px; border-radius: 18px; background: linear-gradient(180deg, #fff, #f7f8ff); border: 1px solid var(--line); min-height: 116px; }
+    .flow-step:not(:last-child)::after { content: "→"; position: absolute; right: -12px; top: 40%; color: var(--brand); font-weight: 900; z-index: 2; }
+    .icon { font-size: 25px; line-height: 1; margin-bottom: 10px; display: block; }
+    .flow-step strong { display: block; font-size: 14px; }
+    .flow-step span { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .role-card { padding: 22px; display: flex; flex-direction: column; min-height: 430px; border-top: 5px solid var(--brand); }
+    .role-card:nth-child(2) { border-top-color: var(--green); }
+    .role-card:nth-child(3) { border-top-color: var(--blue); }
+    .role-card:nth-child(4) { border-top-color: var(--amber); }
+    .role-card:nth-child(5) { border-top-color: var(--brand-2); }
+    .role-card:nth-child(6) { border-top-color: #0f766e; }
+    .role-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+    .role-emoji { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 16px; background: #f3f5ff; font-size: 24px; flex: none; }
+    .role-title { margin: 0; font-size: 20px; line-height: 1.2; }
+    .role-sub { margin: 3px 0 0; font-size: 13px; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0; }
+    .chip { padding: 5px 9px; background: #f4f6fb; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; color: #475569; }
+    .task-box { background: #f9fafc; border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin: 8px 0 12px; }
+    .task-box b { display: block; margin-bottom: 5px; }
+    .mini-list { padding-left: 18px; margin: 8px 0; color: var(--muted); font-size: 14px; }
+    .role-footer { margin-top: auto; display: grid; gap: 8px; }
+    .bar-row { display: grid; grid-template-columns: 82px 1fr 34px; align-items: center; gap: 9px; font-size: 12px; color: var(--muted); }
+    .bar { height: 8px; border-radius: 999px; background: #eceff7; overflow: hidden; }
+    .bar > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--brand), var(--brand-2)); }
+
+    .matrix { overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); }
+    th, td { padding: 15px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #f2f4f8; font-size: 13px; color: #374151; text-transform: uppercase; letter-spacing: .04em; }
+    td { font-size: 14px; }
+    tr:last-child td { border-bottom: 0; }
+    .time { font-weight: 800; color: var(--brand); white-space: nowrap; }
+
+    .two-col { display: grid; grid-template-columns: .95fr 1.05fr; gap: 18px; }
+    .card { padding: 22px; }
+    .card h3 { margin: 0 0 10px; font-size: 21px; }
+    .rule { padding: 14px 15px; border-radius: 16px; background: #f8fafc; border: 1px solid var(--line); margin: 10px 0; }
+    .rule strong { display: block; }
+    .rule span { color: var(--muted); font-size: 14px; }
+
+    .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .score-box { border-radius: 18px; padding: 16px; background: #f7f8ff; border: 1px solid var(--line); }
+    .score-box b { font-size: 24px; color: var(--brand); }
+    .score-box span { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    .footer { text-align: center; color: var(--muted); margin-top: 38px; font-size: 13px; }
+
+    @media (max-width: 980px) {
+      .hero, .two-col { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: repeat(3, 1fr); }
+      .flow-step:nth-child(3)::after { display: none; }
+    }
+    @media (max-width: 640px) {
+      .page { padding: 22px 14px 60px; }
+      .hero-main { padding: 24px; }
+      .grid, .flow, .score-grid { grid-template-columns: 1fr; }
+      .flow-step::after { display: none; }
+      table { display: block; overflow-x: auto; }
+      th, td { min-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-main">
+        <span class="eyebrow">OpenClaw Occupational Core-6</span>
+        <h1>六类知识工作者的 Agent 工作流 Benchmark</h1>
+        <p class="lead">面向 OpenClaw 类 agent 的职业化任务集：每题都要求多文件阅读、多工具执行、多步骤产出，并通过可验证终态评分，而不是只看开放式回答。</p>
+      </div>
+      <aside class="hero-side" aria-label="benchmark metrics">
+        <div class="metric-row"><div class="metric-num">6</div><div><b>核心职业</b><div class="metric-label">代码、数据、界面、文档、语言、人文档案</div></div></div>
+        <div class="metric-row"><div class="metric-num">8–15</div><div><b>分钟 / 题</b><div class="metric-label">适合 demo set 与 pilot set 的短闭环任务</div></div></div>
+        <div class="metric-row"><div class="metric-num">100%</div><div><b>可验证设计</b><div class="metric-label">每题包含 ground truth、约束和失败模式</div></div></div>
+      </aside>
+    </section>
+
+    <section class="workflow">
+      <div class="section-title" style="margin-top:0">
+        <h2>职业叙事线</h2>
+        <p>从生产软件、数据和界面，到解释、传播和整理知识资产。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="icon">💻</span><strong>Code</strong><span>软件工程师</span></div>
+        <div class="flow-step"><span class="icon">📊</span><strong>Data</strong><span>数据分析师</span></div>
+        <div class="flow-step"><span class="icon">🎨</span><strong>Interface</strong><span>UI 设计师</span></div>
+        <div class="flow-step"><span class="icon">📚</span><strong>Documentation</strong><span>技术文档写作者</span></div>
+        <div class="flow-step"><span class="icon">🌐</span><strong>Localization</strong><span>本地化翻译 / 校对</span></div>
+        <div class="flow-step"><span class="icon">🗃️</span><strong>Archive Knowledge</strong><span>数字人文 / 档案助理</span></div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2>六个 Example Tasks</h2>
+      <p>每张卡片对应一个职业、一个任务包、一组自动验证规则和建议评分核心。</p>
+    </div>
+
+    <section class="grid">
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">💻</div><div><h3 class="role-title">软件工程师</h3><p class="role-sub">修复订单折扣计算 bug</p></div></div>
+        <div class="chips"><span class="chip">SWE-bench 风格</span><span class="chip">pytest</span><span class="chip">隐藏测试</span></div>
+        <div class="task-box"><b>任务闭环</b>读 issue → 定位 pricing.py → 修复折扣顺序与非负总价 → 跑测试 → 更新 CHANGELOG。</div>
+        <ul class="mini-list"><li>输入：小型 repo、issue、tests、README、CHANGELOG</li><li>输出：patch、CHANGELOG、测试记录</li><li>Verifier：可见测试 + 隐藏测试 + diff 约束</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>完成度</span><div class="bar"><i style="width:70%"></i></div><b>70</b></div><div class="bar-row"><span>约束</span><div class="bar"><i style="width:20%"></i></div><b>20</b></div><div class="bar-row"><span>文档</span><div class="bar"><i style="width:10%"></i></div><b>10</b></div></div>
+      </article>
+
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">📊</div><div><h3 class="role-title">数据分析师</h3><p class="role-sub">生成订阅业务周报</p></div></div>
+        <div class="chips"><span class="chip">DABench 风格</span><span class="chip">pandas</span><span class="chip">数值答案</span></div>
+        <div class="task-box"><b>任务闭环</b>读取四个 CSV → 清洗重复 payment → 计算 MRR / churn → 生成 summary.json 与 report.md。</div>
+        <ul class="mini-list"><li>输入：customers、subscriptions、payments、cancellations</li><li>输出：summary.json、cleaned_payments.csv、report.md</li><li>Verifier：金额容差、schema、排序、原始文件 hash</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>数值</span><div class="bar"><i style="width:45%"></i></div><b>45</b></div><div class="bar-row"><span>清洗</span><div class="bar"><i style="width:20%"></i></div><b>20</b></div><div class="bar-row"><span>输出</span><div class="bar"><i style="width:35%"></i></div><b>35</b></div></div>
+      </article>
+
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">🎨</div><div><h3 class="role-title">UI 设计师 / UI 工程设计师</h3><p class="role-sub">修复设置页设计系统违规</p></div></div>
+        <div class="chips"><span class="chip">DesignBench 风格</span><span class="chip">React/CSS</span><span class="chip">A11y</span></div>
+        <div class="task-box"><b>任务闭环</b>读 design tokens → 修复 SettingsPage → 检查 DOM、无障碍、390px 响应式布局。</div>
+        <ul class="mini-list"><li>输入：React 组件、CSS、design_system.json、布局规范</li><li>输出：组件、样式、design_notes.md</li><li>Verifier：token、DOM 顺序、label、横向滚动</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>Token</span><div class="bar"><i style="width:30%"></i></div><b>30</b></div><div class="bar-row"><span>结构</span><div class="bar"><i style="width:25%"></i></div><b>25</b></div><div class="bar-row"><span>A11y</span><div class="bar"><i style="width:20%"></i></div><b>20</b></div></div>
+      </article>
+
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">📚</div><div><h3 class="role-title">技术文档写作者</h3><p class="role-sub">更新 API v2 迁移指南</p></div></div>
+        <div class="chips"><span class="chip">API-Bank 风格</span><span class="chip">OpenAPI</span><span class="chip">示例可运行</span></div>
+        <div class="task-box"><b>任务闭环</b>对比 openapi_v1/v2 → 更新 README → 写 migration guide → 新增 v2 示例并跑测试。</div>
+        <ul class="mini-list"><li>输入：OpenAPI、changelog、旧示例、style guide</li><li>输出：README、migration_guide、create_invoice_v2.py</li><li>Verifier：字段覆盖、废弃参数、示例测试、无幻觉字段</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>字段</span><div class="bar"><i style="width:35%"></i></div><b>35</b></div><div class="bar-row"><span>迁移</span><div class="bar"><i style="width:25%"></i></div><b>25</b></div><div class="bar-row"><span>示例</span><div class="bar"><i style="width:25%"></i></div><b>25</b></div></div>
+      </article>
+
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">🌐</div><div><h3 class="role-title">本地化翻译 / 内容校对</h3><p class="role-sub">产品 onboarding 文案本地化</p></div></div>
+        <div class="chips"><span class="chip">WMT Terminology</span><span class="chip">JSON</span><span class="chip">占位符</span></div>
+        <div class="task-box"><b>任务闭环</b>读取 strings_en、glossary、TM、长度限制 → 输出 strings_zh 与 localization_qa。</div>
+        <ul class="mini-list"><li>输入：源 JSON、术语表、翻译记忆、风格指南</li><li>输出：strings_zh.json、localization_qa.json</li><li>Verifier：key 完整、占位符、术语、禁用词、长度</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>占位符</span><div class="bar"><i style="width:25%"></i></div><b>25</b></div><div class="bar-row"><span>术语</span><div class="bar"><i style="width:25%"></i></div><b>25</b></div><div class="bar-row"><span>完整性</span><div class="bar"><i style="width:20%"></i></div><b>20</b></div></div>
+      </article>
+
+      <article class="role-card">
+        <div class="role-head"><div class="role-emoji">🗃️</div><div><h3 class="role-title">数字人文 / 档案研究助理</h3><p class="role-sub">整理历史通信档案</p></div></div>
+        <div class="chips"><span class="chip">RISE Humanities</span><span class="chip">OCR/NER</span><span class="chip">证据引用</span></div>
+        <div class="task-box"><b>任务闭环</b>核对扫描件与 OCR → 抽取 sender / recipient / date / place → 规范实体 → 生成年表与证据表。</div>
+        <ul class="mini-list"><li>输入：scans、ocr_raw、people.csv、places.csv、schema</li><li>输出：metadata.csv、timeline.csv、evidence_table.md</li><li>Verifier：gold metadata、日期格式、canonical name、line number</li></ul>
+        <div class="role-footer"><div class="bar-row"><span>元数据</span><div class="bar"><i style="width:40%"></i></div><b>40</b></div><div class="bar-row"><span>规范化</span><div class="bar"><i style="width:20%"></i></div><b>20</b></div><div class="bar-row"><span>证据</span><div class="bar"><i style="width:15%"></i></div><b>15</b></div></div>
+      </article>
+    </section>
+
+    <div class="section-title">
+      <h2>横向对比</h2>
+      <p>所有任务都保持短闭环，但每个职业的 ground truth 类型不同。</p>
+    </div>
+    <section class="matrix">
+      <table>
+        <thead><tr><th>职业</th><th>输入复杂度</th><th>主要工具</th><th>输出</th><th>Ground truth</th><th>建议时长</th></tr></thead>
+        <tbody>
+          <tr><td>软件工程师</td><td>小型 repo + issue + tests</td><td>shell、编辑器、pytest</td><td>patch + changelog</td><td>测试通过、隐藏用例</td><td class="time">10–12 min</td></tr>
+          <tr><td>数据分析师</td><td>多 CSV + 指标定义</td><td>Python、pandas、JSON</td><td>summary + report</td><td>数值答案、schema</td><td class="time">10–15 min</td></tr>
+          <tr><td>UI 设计师</td><td>React/CSS + design system</td><td>编辑器、浏览器、测试</td><td>页面组件</td><td>DOM、token、布局</td><td class="time">8–12 min</td></tr>
+          <tr><td>技术文档写作者</td><td>API schema + changelog + examples</td><td>YAML、测试、文档编辑</td><td>README + migration guide</td><td>字段覆盖、示例运行</td><td class="time">10–15 min</td></tr>
+          <tr><td>本地化翻译/校对</td><td>JSON strings + glossary + TM</td><td>JSON、CSV、校验脚本</td><td>strings_zh + QA report</td><td>术语、占位符、key</td><td class="time">8–12 min</td></tr>
+          <tr><td>数字人文/档案助理</td><td>OCR + scans + authority files</td><td>图像、文本、CSV</td><td>metadata + timeline</td><td>实体、日期、证据</td><td class="time">10–15 min</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="section-title">
+      <h2>Pilot 方案</h2>
+      <p>从 6 题 demo set 到 30 题 pilot set，再通过多 agent、多 seed 跑分筛题。</p>
+    </div>
+    <section class="two-col">
+      <div class="card">
+        <h3>三阶段建设</h3>
+        <div class="rule"><strong>阶段 1：6 题 Demo Set</strong><span>每个职业 1 题，展示任务包、工具调用、verifier 与报告格式。</span></div>
+        <div class="rule"><strong>阶段 2：30 题 Pilot Set</strong><span>每个职业 5 题：2 easy、2 medium、1 hard。</span></div>
+        <div class="rule"><strong>阶段 3：稳定性筛题</strong><span>每题至少 3 个 agent stack × 3 个 random seed，剔除低信号或高噪声任务。</span></div>
+      </div>
+      <div class="card">
+        <h3>统一评分结构</h3>
+        <div class="score-grid">
+          <div class="score-box"><b>50–70</b><span>Completion</span></div>
+          <div class="score-box"><b>10–20</b><span>Process / Trace</span></div>
+          <div class="score-box"><b>10–20</b><span>Constraints</span></div>
+          <div class="score-box"><b>5–10</b><span>Notes / QA</span></div>
+        </div>
+        <div class="rule" style="margin-top:16px"><strong>硬性封顶</strong><span>核心 verifier 失败最高 60；严重越权或伪造测试结果最高 40；缺少 required outputs 最高 30。</span></div>
+      </div>
+    </section>
+
+    <p class="footer">OpenClaw Occupational Core-6 Demo Set · Visual HTML generated from the Markdown design draft</p>
+  </main>
+</body>
+</html>

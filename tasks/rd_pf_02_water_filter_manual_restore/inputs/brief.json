@@ -1,0 +1,21 @@
+{
+  "goal": "还原滤芯安装表和冲洗顺序，让观众看到“表格恢复 → 装置修好”。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "detect_objects",
+    "unpack_archive"
+  ],
+  "critical_beats_for_replay": [
+    "解包",
+    "识别表格",
+    "还原顺序",
+    "交给维修台",
+    "试运行"
+  ],
+  "scenario": "净水器手册被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。",
+  "grader": "安装步骤顺序正确；滤芯寿命 +2 天；没有把错误表格贴到白板。",
+  "family": "classify"
+}

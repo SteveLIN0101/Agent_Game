@@ -1,0 +1,61 @@
+{
+  "project": "Red Dust",
+  "asset_set": "wall_exhaust_fan_no_cover_split_v14",
+  "created_at": "2026-05-14T14:32:50",
+  "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_exhaust_fan_no_cover_v14.png",
+  "replacement_for": "rd_env_fan_ventilation_set split layers where user rejected caged fan style",
+  "style_reference": "User-provided no-cover wall exhaust fan image",
+  "render_order": "Draw rd_env_wall_exhaust_fan_blades_rotor first, then rd_env_wall_exhaust_fan_body_static above it.",
+  "pivot_512_xy": [
+    256,
+    256
+  ],
+  "notes": "No grille/cage/mesh. Rotor is intentionally smaller than the square frame opening for clean rotation.",
+  "body": {
+    "stem": "rd_env_wall_exhaust_fan_body_static",
+    "files": {
+      "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static.png",
+      "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_512.png",
+      "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_128.png",
+      "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_64.png"
+    },
+    "source_crop_xyxy": [
+      83,
+      140,
+      792,
+      820
+    ],
+    "bbox_512": [
+      33,
+      45,
+      479,
+      467
+    ],
+    "edge_alpha": 0
+  },
+  "blades": {
+    "stem": "rd_env_wall_exhaust_fan_blades_rotor",
+    "files": {
+      "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor.png",
+      "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png",
+      "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png",
+      "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png"
+    },
+    "source_crop_xyxy": [
+      865,
+      200,
+      1437,
+      769
+    ],
+    "bbox_512": [
+      110,
+      111,
+      402,
+      401
+    ],
+    "edge_alpha": 0
+  },
+  "composite_check": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wall_exhaust_fan_split_composite_check.png",
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_wall_exhaust_fan_split_v14_preview.png",
+  "rotation_preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_wall_exhaust_fan_rotation_check_v14_preview.png"
+}

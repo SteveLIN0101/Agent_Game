@@ -1,0 +1,272 @@
+/*
+ * ===========================================================================
+ * Sunset Boulevard Theme — OpenClaw / 红沙 Project
+ * ===========================================================================
+ * Source:  theme-factory skill (anthropic-skills)
+ * Spec:    themes/sunset-boulevard.md
+ *
+ * Palette
+ *   #e76f51 Burnt Orange  — primary accent / titles / brand
+ *   #f4a261 Coral         — secondary accent / sub-titles
+ *   #e9c46a Warm Sand     — highlight / dividers / hover
+ *   #264653 Deep Purple   — background base / contrast
+ *
+ * Typography
+ *   Headers: serif (Georgia / Noto Serif SC fallback)
+ *   Body:    sans  (Helvetica Neue / PingFang SC fallback)
+ *
+ * Usage in HTML
+ *   <link rel="stylesheet" href="theme-sunset-boulevard.css">
+ *   Then use the documented class names below.
+ *
+ * Document conventions for the OpenClaw / 红沙 series
+ *   - One <main> per page, max-width 1200 px
+ *   - <section.slide> for each PPT-style slide unit
+ *   - <div.callout> with .warn / .tip / .note variants
+ *   - <div.card> for generic content boxes
+ * ===========================================================================
+ */
+
+/* ─── Theme tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Raw palette */
+  --sb-orange:        #e76f51;
+  --sb-coral:         #f4a261;
+  --sb-sand:          #e9c46a;
+  --sb-purple:        #264653;
+  --sb-purple-deep:   #1b343d;
+  --sb-purple-light:  #2f5260;
+  --sb-cream:         #faf2e6;
+  --sb-cream-dim:     #d4c4a8;
+  --sb-mute:          #8a9499;
+  --sb-error:         #d05a3a;
+  --sb-success:       #8aa85a;
+
+  /* Semantic */
+  --bg:               var(--sb-purple-deep);
+  --surface:          var(--sb-purple);
+  --surface-elev:     var(--sb-purple-light);
+  --border:           rgba(233, 196, 106, 0.18);
+  --border-strong:    rgba(244, 162, 97, 0.40);
+  --text:             var(--sb-cream);
+  --text-dim:         var(--sb-cream-dim);
+  --text-mute:        var(--sb-mute);
+  --accent:           var(--sb-orange);
+  --accent-soft:      var(--sb-coral);
+  --highlight:        var(--sb-sand);
+  --error:            var(--sb-error);
+  --success:          var(--sb-success);
+
+  --code-bg:          rgba(0, 0, 0, 0.28);
+
+  --font-serif:       'Georgia', 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-sans:        'Helvetica Neue', 'PingFang SC', 'Noto Sans SC',
+                      'Microsoft YaHei', sans-serif;
+  --font-mono:        'JetBrains Mono', 'SF Mono', 'Cascadia Code', Menlo, monospace;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 { font-family: var(--font-serif); font-weight: 700; }
+h1 { color: var(--highlight);    font-size: 36px; margin: 0 0 8px; }
+h2 { color: var(--accent);       font-size: 26px; margin: 32px 0 12px;
+     border-bottom: 1px solid var(--border-strong); padding-bottom: 8px; }
+h3 { color: var(--accent-soft);  font-size: 19px; margin: 22px 0 10px;
+     border-left: 3px solid var(--accent); padding-left: 10px; }
+h4 { color: var(--text);         font-size: 15px; margin: 16px 0 6px; }
+
+p { margin: 8px 0; }
+strong { color: var(--highlight); }
+em { color: var(--accent-soft); font-style: italic; }
+a { color: var(--accent-soft); text-decoration: underline dotted; }
+a:hover { color: var(--accent); }
+
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--code-bg);
+  color: var(--highlight);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+pre { padding: 12px 16px; border-radius: 5px; line-height: 1.55; overflow-x: auto; }
+
+/* ─── Layout ──────────────────────────────────────────────────────────────── */
+main { max-width: 1200px; margin: 0 auto; padding: 32px 36px; }
+
+.slide {
+  padding: 24px 0;
+  border-bottom: 1px dashed var(--border);
+  page-break-after: always;
+  page-break-inside: avoid;
+}
+.slide + .slide { padding-top: 24px; }
+.slide:last-child { border-bottom: none; }
+.slide .slide-num {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.slide .slide-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--highlight);
+  margin: 0 0 16px;
+}
+.slide .slide-subtitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 0 0 24px;
+}
+
+/* ─── Cards ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+.card-elev {
+  background: var(--surface-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+
+/* ─── Callouts ────────────────────────────────────────────────────────────── */
+.callout {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 13.5px;
+}
+.callout.tip   { border-left-color: var(--highlight); background: rgba(233,196,106,0.06); }
+.callout.warn  { border-left-color: var(--error);     background: rgba(208,90,58,0.08); }
+.callout.note  { border-left-color: var(--accent-soft); background: rgba(244,162,97,0.06); }
+.callout strong { color: var(--highlight); }
+
+/* ─── Tables ──────────────────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--surface);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 13.5px;
+}
+th {
+  background: var(--surface-elev);
+  color: var(--highlight);
+  text-align: left;
+  padding: 10px 14px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-strong);
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(244,162,97,0.05); }
+td code { background: var(--code-bg); color: var(--highlight); }
+
+/* ─── Tags / chips ────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(244,162,97,0.15);
+  color: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  margin-right: 4px;
+}
+.tag.orange { background: rgba(231,111,81,0.18); color: var(--accent); }
+.tag.sand   { background: rgba(233,196,106,0.18); color: var(--highlight); }
+.tag.green  { background: rgba(138,168,90,0.20);  color: var(--success); }
+.tag.red    { background: rgba(208,90,58,0.18);   color: var(--error); }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  background: var(--surface-elev);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ─── Meta block (doc header) ─────────────────────────────────────────────── */
+.meta {
+  background: var(--surface-elev);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.meta strong { color: var(--highlight); }
+
+/* ─── Decorative sun (for hero slides) ────────────────────────────────────── */
+.sun-divider {
+  height: 4px;
+  border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 25%,
+    var(--highlight) 50%,
+    var(--accent) 75%,
+    transparent 100%);
+  margin: 24px 0;
+  border-radius: 2px;
+}
+
+/* ─── Print ───────────────────────────────────────────────────────────────── */
+@media print {
+  body { background: white; color: var(--sb-purple-deep); }
+  .slide { page-break-after: always; min-height: auto; }
+  h1, h2, h3 { color: var(--sb-purple-deep); }
+  .card, .card-elev, .callout, table {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  th { background: #f0e8d8; color: var(--sb-purple-deep); }
+}

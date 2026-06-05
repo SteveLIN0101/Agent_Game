@@ -1,0 +1,22 @@
+id: core01_software_engineer_discount_bug
+role: software_engineer
+difficulty: medium
+time_budget_minutes: 12
+allowed_tools:
+  - file_read
+  - file_write
+  - shell
+  - test_runner
+  - git_diff
+required_outputs:
+  - src/pricing.py
+  - CHANGELOG.md
+forbidden_actions:
+  - modify tests/
+  - delete source files
+  - hardcode hidden test values
+scoring:
+  completion: 0.60
+  hidden_tests: 0.20
+  constraints: 0.10
+  documentation: 0.10

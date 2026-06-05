@@ -1,0 +1,13 @@
+id: core04_technical_writer_docstring_fix
+role: technical_writer
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/api_client.py
+forbidden_actions:
+- modify tests/
+- delete source files

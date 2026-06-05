@@ -1,0 +1,10 @@
+{
+  "corpus": [
+    {"id": "clue", "title": "沈芷月的模糊线索", "text": "沈芷月记得：一篇 2025 年的视觉感知论文能帮助识别红沙（red sand）颗粒；第一作者姓氏像 Liu；配套代码仓库很火，star 很多。"},
+    {"id": "d1", "title": "论文 A：RedSandNet", "text": "《RedSandNet: Visual Perception for Red-Sand Hazard Detection》(2025)，第一作者 Liu Wei。配套仓库 github/RedSandNet，star 8200。主题正是红沙颗粒视觉识别，作者姓氏、年份、热度全部吻合。", "star": 8200, "lang": "Python"},
+    {"id": "d2", "title": "论文 B：LeafSeg（干扰：主题不符）", "text": "《LeafSeg: Plant Leaf Segmentation》(2025)，第一作者 Liu Wei。仓库 star 9000，作者与年份吻合，但主题是植物叶片分割，与红沙识别完全无关。", "star": 9000, "lang": "Python"},
+    {"id": "d3", "title": "论文 C：RedDust2019（干扰：年份与热度不符）", "text": "《Red Dust Classification》(2019)，第一作者 Zhang San。仓库 star 30，年份是 2019 而非 2025、作者姓氏不符、热度极低。", "star": 30, "lang": "Matlab"},
+    {"id": "d4", "title": "可信度核验", "text": "红沙识别属于‘危险颗粒视觉检测’主题；只有同时满足 2025 年、作者姓 Liu、高 star、主题为红沙识别的候选才正确。"}
+  ],
+  "query": "符合‘2025 视觉感知、识别红沙、作者像 Liu、repo 很火’线索的论文和代码仓库是哪个？"
+}

@@ -1,0 +1,734 @@
+{
+  "batch": "rd_remaining_assets_v7_to_v11",
+  "created_at": "2026-05-13T11:01:43",
+  "tool": "built-in image_gen plus local chroma-key extraction and resizing",
+  "style": "2D hand-drawn, thick uneven inked outlines, flat cel-shaded dusty Red Dust survival-game style",
+  "assets": [
+    {
+      "id": "rd_char_ma_dehai_idle",
+      "category": "character",
+      "description": "Ma Dehai idle full-body neighbor sprite",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_characters_base_v7.png",
+      "component_bbox": [
+        99,
+        72,
+        298,
+        770
+      ],
+      "crop_box": [
+        69,
+        42,
+        427,
+        872
+      ],
+      "files": [
+        "RedDust/art/characters/rd_char_ma_dehai_idle.png",
+        "RedDust/art/characters/rd_char_ma_dehai_idle_512.png",
+        "RedDust/art/characters/rd_char_ma_dehai_idle_128.png",
+        "RedDust/art/characters/rd_char_ma_dehai_idle_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_char_ma_dehai_idle",
+      "cn_name": "马德海待机全身",
+      "priority": "P0",
+      "filename": "RedDust/art/characters/rd_char_ma_dehai_idle.png",
+      "primary_file": "RedDust/art/characters/rd_char_ma_dehai_idle.png"
+    },
+    {
+      "id": "rd_char_shen_zhiyue_idle",
+      "category": "character",
+      "description": "Shen Zhiyue idle full-body neighbor sprite",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_characters_base_v7.png",
+      "component_bbox": [
+        507,
+        119,
+        234,
+        720
+      ],
+      "crop_box": [
+        477,
+        89,
+        771,
+        869
+      ],
+      "files": [
+        "RedDust/art/characters/rd_char_shen_zhiyue_idle.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_idle_512.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_idle_128.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_idle_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_char_shen_zhiyue_idle",
+      "cn_name": "沈芷月待机全身",
+      "priority": "P0",
+      "filename": "RedDust/art/characters/rd_char_shen_zhiyue_idle.png",
+      "primary_file": "RedDust/art/characters/rd_char_shen_zhiyue_idle.png"
+    },
+    {
+      "id": "rd_char_xiao_tie_idle",
+      "category": "character",
+      "description": "Xiao Tie idle full-body neighbor sprite",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_characters_base_v7.png",
+      "component_bbox": [
+        868,
+        153,
+        217,
+        681
+      ],
+      "crop_box": [
+        838,
+        123,
+        1115,
+        864
+      ],
+      "files": [
+        "RedDust/art/characters/rd_char_xiao_tie_idle.png",
+        "RedDust/art/characters/rd_char_xiao_tie_idle_512.png",
+        "RedDust/art/characters/rd_char_xiao_tie_idle_128.png",
+        "RedDust/art/characters/rd_char_xiao_tie_idle_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_char_xiao_tie_idle",
+      "cn_name": "小铁待机全身",
+      "priority": "P0",
+      "filename": "RedDust/art/characters/rd_char_xiao_tie_idle.png",
+      "primary_file": "RedDust/art/characters/rd_char_xiao_tie_idle.png"
+    },
+    {
+      "id": "rd_char_lao_qian_idle",
+      "category": "character",
+      "description": "Lao Qian idle full-body neighbor sprite",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_characters_base_v7.png",
+      "component_bbox": [
+        1210,
+        99,
+        322,
+        745
+      ],
+      "crop_box": [
+        1180,
+        69,
+        1562,
+        874
+      ],
+      "files": [
+        "RedDust/art/characters/rd_char_lao_qian_idle.png",
+        "RedDust/art/characters/rd_char_lao_qian_idle_512.png",
+        "RedDust/art/characters/rd_char_lao_qian_idle_128.png",
+        "RedDust/art/characters/rd_char_lao_qian_idle_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_char_lao_qian_idle",
+      "cn_name": "老钱待机全身",
+      "priority": "P0",
+      "filename": "RedDust/art/characters/rd_char_lao_qian_idle.png",
+      "primary_file": "RedDust/art/characters/rd_char_lao_qian_idle.png"
+    },
+    {
+      "id": "rd_scene_apt_main_day_idle",
+      "category": "scene",
+      "description": "Complete Red Dust playable main apartment room background, no characters",
+      "source": "RedDust/art/generated_sources/rd_scene_apt_main_day_idle_source_v8.png",
+      "files": [
+        "RedDust/art/scenes/rd_scene_apt_main_day_idle.png",
+        "RedDust/art/scenes/rd_scene_apt_main_day_idle_1920.png",
+        "RedDust/art/scenes/rd_scene_apt_main_day_idle_960.png",
+        "RedDust/art/scenes/rd_scene_apt_main_day_idle_480.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_scene_apt_main_day_idle",
+      "cn_name": "主房间完整背景",
+      "priority": "P0",
+      "filename": "RedDust/art/scenes/rd_scene_apt_main_day_idle.png",
+      "primary_file": "RedDust/art/scenes/rd_scene_apt_main_day_idle.png"
+    },
+    {
+      "id": "rd_ui_aura_panel_active",
+      "category": "ui",
+      "description": "AURA reasoning panel active UI",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_ui_aura_event_v9.png",
+      "component_bbox": [
+        42,
+        62,
+        607,
+        612
+      ],
+      "crop_box": [
+        20,
+        40,
+        671,
+        696
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_aura_panel_active.png",
+        "RedDust/art/ui/rd_ui_aura_panel_active_512.png",
+        "RedDust/art/ui/rd_ui_aura_panel_active_128.png",
+        "RedDust/art/ui/rd_ui_aura_panel_active_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_aura_panel_active",
+      "cn_name": "AURA推理面板",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_aura_panel_active.png",
+      "primary_file": "RedDust/art/ui/rd_ui_aura_panel_active.png"
+    },
+    {
+      "id": "rd_ui_diary_event_card_blank",
+      "category": "ui",
+      "description": "Blank diary event card UI",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_ui_aura_event_v9.png",
+      "component_bbox": [
+        691,
+        72,
+        533,
+        615
+      ],
+      "crop_box": [
+        669,
+        50,
+        1246,
+        709
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_diary_event_card_blank.png",
+        "RedDust/art/ui/rd_ui_diary_event_card_blank_512.png",
+        "RedDust/art/ui/rd_ui_diary_event_card_blank_128.png",
+        "RedDust/art/ui/rd_ui_diary_event_card_blank_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_diary_event_card_blank",
+      "cn_name": "日记事件卡空白版",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_diary_event_card_blank.png",
+      "primary_file": "RedDust/art/ui/rd_ui_diary_event_card_blank.png"
+    },
+    {
+      "id": "rd_ui_prop_slot_available",
+      "category": "ui",
+      "description": "Available prop selection slot UI",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_ui_aura_event_v9.png",
+      "component_bbox": [
+        132,
+        737,
+        433,
+        433
+      ],
+      "crop_box": [
+        110,
+        715,
+        587,
+        1192
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_prop_slot_available.png",
+        "RedDust/art/ui/rd_ui_prop_slot_available_512.png",
+        "RedDust/art/ui/rd_ui_prop_slot_available_128.png",
+        "RedDust/art/ui/rd_ui_prop_slot_available_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_prop_slot_available",
+      "cn_name": "可用道具槽",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_prop_slot_available.png",
+      "primary_file": "RedDust/art/ui/rd_ui_prop_slot_available.png"
+    },
+    {
+      "id": "rd_ui_prop_slot_unavailable",
+      "category": "ui",
+      "description": "Unavailable prop selection slot UI",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_ui_aura_event_v9.png",
+      "component_bbox": [
+        684,
+        756,
+        417,
+        414
+      ],
+      "crop_box": [
+        662,
+        734,
+        1123,
+        1192
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_prop_slot_unavailable.png",
+        "RedDust/art/ui/rd_ui_prop_slot_unavailable_512.png",
+        "RedDust/art/ui/rd_ui_prop_slot_unavailable_128.png",
+        "RedDust/art/ui/rd_ui_prop_slot_unavailable_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_prop_slot_unavailable",
+      "cn_name": "不可用道具槽",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_prop_slot_unavailable.png",
+      "primary_file": "RedDust/art/ui/rd_ui_prop_slot_unavailable.png"
+    },
+    {
+      "id": "rd_event_sand_rat_intruder",
+      "category": "event",
+      "description": "Sand rat pest event target",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        55,
+        92,
+        478,
+        300
+      ],
+      "crop_box": [
+        27,
+        64,
+        561,
+        420
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_sand_rat_intruder.png",
+        "RedDust/art/events/rd_event_sand_rat_intruder_512.png",
+        "RedDust/art/events/rd_event_sand_rat_intruder_128.png",
+        "RedDust/art/events/rd_event_sand_rat_intruder_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_sand_rat_intruder",
+      "cn_name": "沙鼠入侵事件物",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_sand_rat_intruder.png",
+      "primary_file": "RedDust/art/events/rd_event_sand_rat_intruder.png"
+    },
+    {
+      "id": "rd_event_sand_scorpion_intruder",
+      "category": "event",
+      "description": "Sand scorpion pest event target",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        611,
+        50,
+        432,
+        369
+      ],
+      "crop_box": [
+        583,
+        22,
+        1071,
+        447
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_sand_scorpion_intruder.png",
+        "RedDust/art/events/rd_event_sand_scorpion_intruder_512.png",
+        "RedDust/art/events/rd_event_sand_scorpion_intruder_128.png",
+        "RedDust/art/events/rd_event_sand_scorpion_intruder_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_sand_scorpion_intruder",
+      "cn_name": "沙蝎入侵事件物",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_sand_scorpion_intruder.png",
+      "primary_file": "RedDust/art/events/rd_event_sand_scorpion_intruder.png"
+    },
+    {
+      "id": "rd_event_night_visitor_door_silhouette",
+      "category": "event",
+      "description": "Night visitor at reinforced door event illustration",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        1198,
+        34,
+        297,
+        411
+      ],
+      "crop_box": [
+        1170,
+        6,
+        1523,
+        473
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_night_visitor_door_silhouette.png",
+        "RedDust/art/events/rd_event_night_visitor_door_silhouette_512.png",
+        "RedDust/art/events/rd_event_night_visitor_door_silhouette_128.png",
+        "RedDust/art/events/rd_event_night_visitor_door_silhouette_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_night_visitor_door_silhouette",
+      "cn_name": "夜访人门口剪影",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_night_visitor_door_silhouette.png",
+      "primary_file": "RedDust/art/events/rd_event_night_visitor_door_silhouette.png"
+    },
+    {
+      "id": "rd_event_opposite_building_morse_signal",
+      "category": "event",
+      "description": "Opposite building Morse signal through sandstorm event illustration",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        101,
+        493,
+        370,
+        402
+      ],
+      "crop_box": [
+        73,
+        465,
+        499,
+        923
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_opposite_building_morse_signal.png",
+        "RedDust/art/events/rd_event_opposite_building_morse_signal_512.png",
+        "RedDust/art/events/rd_event_opposite_building_morse_signal_128.png",
+        "RedDust/art/events/rd_event_opposite_building_morse_signal_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_opposite_building_morse_signal",
+      "cn_name": "对楼摩斯信号",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_opposite_building_morse_signal.png",
+      "primary_file": "RedDust/art/events/rd_event_opposite_building_morse_signal.png"
+    },
+    {
+      "id": "rd_event_diesel_canister_scavenged",
+      "category": "event",
+      "description": "Scavenged diesel canister event prop",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        646,
+        512,
+        327,
+        390
+      ],
+      "crop_box": [
+        618,
+        484,
+        1001,
+        930
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_diesel_canister_scavenged.png",
+        "RedDust/art/events/rd_event_diesel_canister_scavenged_512.png",
+        "RedDust/art/events/rd_event_diesel_canister_scavenged_128.png",
+        "RedDust/art/events/rd_event_diesel_canister_scavenged_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_diesel_canister_scavenged",
+      "cn_name": "柴油桶",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_diesel_canister_scavenged.png",
+      "primary_file": "RedDust/art/events/rd_event_diesel_canister_scavenged.png",
+      "red_dust_anchor_note": "Tie this asset to Red Dust event copy/UI: scavenging route, transport convoy, or warm-core research station moral choice."
+    },
+    {
+      "id": "rd_event_warm_core_invitation_token",
+      "category": "event",
+      "description": "Warm-core research station invitation token event prop",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_event_props_v10.png",
+      "component_bbox": [
+        1095,
+        543,
+        500,
+        356
+      ],
+      "crop_box": [
+        1067,
+        515,
+        1623,
+        927
+      ],
+      "files": [
+        "RedDust/art/events/rd_event_warm_core_invitation_token.png",
+        "RedDust/art/events/rd_event_warm_core_invitation_token_512.png",
+        "RedDust/art/events/rd_event_warm_core_invitation_token_128.png",
+        "RedDust/art/events/rd_event_warm_core_invitation_token_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_event_warm_core_invitation_token",
+      "cn_name": "暖核研究站邀请信物",
+      "priority": "P1",
+      "filename": "RedDust/art/events/rd_event_warm_core_invitation_token.png",
+      "primary_file": "RedDust/art/events/rd_event_warm_core_invitation_token.png",
+      "red_dust_anchor_note": "Tie this asset to Red Dust event copy/UI: scavenging route, transport convoy, or warm-core research station moral choice."
+    },
+    {
+      "id": "rd_ui_status_thirst",
+      "category": "ui_status",
+      "description": "Thirst/dehydration status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        95,
+        76,
+        400,
+        395
+      ],
+      "crop_box": [
+        73,
+        54,
+        517,
+        493
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_thirst.png",
+        "RedDust/art/ui/rd_ui_status_thirst_512.png",
+        "RedDust/art/ui/rd_ui_status_thirst_128.png",
+        "RedDust/art/ui/rd_ui_status_thirst_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_thirst",
+      "cn_name": "口渴状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_thirst.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_thirst.png"
+    },
+    {
+      "id": "rd_ui_status_hunger",
+      "category": "ui_status",
+      "description": "Hunger status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        572,
+        76,
+        394,
+        395
+      ],
+      "crop_box": [
+        550,
+        54,
+        988,
+        493
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_hunger.png",
+        "RedDust/art/ui/rd_ui_status_hunger_512.png",
+        "RedDust/art/ui/rd_ui_status_hunger_128.png",
+        "RedDust/art/ui/rd_ui_status_hunger_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_hunger",
+      "cn_name": "饥饿状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_hunger.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_hunger.png"
+    },
+    {
+      "id": "rd_ui_status_sick",
+      "category": "ui_status",
+      "description": "Sick/cough status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        1033,
+        76,
+        389,
+        395
+      ],
+      "crop_box": [
+        1011,
+        54,
+        1444,
+        493
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_sick.png",
+        "RedDust/art/ui/rd_ui_status_sick_512.png",
+        "RedDust/art/ui/rd_ui_status_sick_128.png",
+        "RedDust/art/ui/rd_ui_status_sick_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_sick",
+      "cn_name": "生病状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_sick.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_sick.png"
+    },
+    {
+      "id": "rd_ui_status_injured",
+      "category": "ui_status",
+      "description": "Injured status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        95,
+        535,
+        400,
+        395
+      ],
+      "crop_box": [
+        73,
+        513,
+        517,
+        952
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_injured.png",
+        "RedDust/art/ui/rd_ui_status_injured_512.png",
+        "RedDust/art/ui/rd_ui_status_injured_128.png",
+        "RedDust/art/ui/rd_ui_status_injured_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_injured",
+      "cn_name": "受伤状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_injured.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_injured.png"
+    },
+    {
+      "id": "rd_ui_status_sanity_panic",
+      "category": "ui_status",
+      "description": "Sanity panic status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        572,
+        535,
+        394,
+        395
+      ],
+      "crop_box": [
+        550,
+        513,
+        988,
+        952
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_sanity_panic.png",
+        "RedDust/art/ui/rd_ui_status_sanity_panic_512.png",
+        "RedDust/art/ui/rd_ui_status_sanity_panic_128.png",
+        "RedDust/art/ui/rd_ui_status_sanity_panic_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_sanity_panic",
+      "cn_name": "精神恐慌状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_sanity_panic.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_sanity_panic.png"
+    },
+    {
+      "id": "rd_ui_status_scavenging_outside",
+      "category": "ui_status",
+      "description": "Outside scavenging status icon",
+      "source": "RedDust/art/generated_sources/rd_asset_sheet_status_icons_v11.png",
+      "component_bbox": [
+        1033,
+        535,
+        389,
+        395
+      ],
+      "crop_box": [
+        1011,
+        513,
+        1444,
+        952
+      ],
+      "files": [
+        "RedDust/art/ui/rd_ui_status_scavenging_outside.png",
+        "RedDust/art/ui/rd_ui_status_scavenging_outside_512.png",
+        "RedDust/art/ui/rd_ui_status_scavenging_outside_128.png",
+        "RedDust/art/ui/rd_ui_status_scavenging_outside_64.png"
+      ],
+      "status": "pending_subagent_review",
+      "name": "rd_ui_status_scavenging_outside",
+      "cn_name": "外出拾荒状态",
+      "priority": "P0",
+      "filename": "RedDust/art/ui/rd_ui_status_scavenging_outside.png",
+      "primary_file": "RedDust/art/ui/rd_ui_status_scavenging_outside.png"
+    },
+    {
+      "id": "rd_char_ma_dehai_portrait",
+      "category": "character_portrait",
+      "name": "rd_char_ma_dehai_portrait",
+      "cn_name": "马德海头像",
+      "priority": "P0",
+      "description": "64px-readable upper-body portrait for character selection/resource allocation UI",
+      "source": "RedDust/art/characters/rd_char_ma_dehai_idle_512.png",
+      "filename": "RedDust/art/characters/rd_char_ma_dehai_portrait.png",
+      "primary_file": "RedDust/art/characters/rd_char_ma_dehai_portrait.png",
+      "files": [
+        "RedDust/art/characters/rd_char_ma_dehai_portrait.png",
+        "RedDust/art/characters/rd_char_ma_dehai_portrait_512.png",
+        "RedDust/art/characters/rd_char_ma_dehai_portrait_128.png",
+        "RedDust/art/characters/rd_char_ma_dehai_portrait_64.png"
+      ],
+      "status": "subagent_fix_added",
+      "fix_reason": "Quality audit requested character thumbnails that remain readable at 64px."
+    },
+    {
+      "id": "rd_char_shen_zhiyue_portrait",
+      "category": "character_portrait",
+      "name": "rd_char_shen_zhiyue_portrait",
+      "cn_name": "沈芷月头像",
+      "priority": "P0",
+      "description": "64px-readable upper-body portrait for character selection/resource allocation UI",
+      "source": "RedDust/art/characters/rd_char_shen_zhiyue_idle_512.png",
+      "filename": "RedDust/art/characters/rd_char_shen_zhiyue_portrait.png",
+      "primary_file": "RedDust/art/characters/rd_char_shen_zhiyue_portrait.png",
+      "files": [
+        "RedDust/art/characters/rd_char_shen_zhiyue_portrait.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_portrait_512.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_portrait_128.png",
+        "RedDust/art/characters/rd_char_shen_zhiyue_portrait_64.png"
+      ],
+      "status": "subagent_fix_added",
+      "fix_reason": "Quality audit requested character thumbnails that remain readable at 64px."
+    },
+    {
+      "id": "rd_char_xiao_tie_portrait",
+      "category": "character_portrait",
+      "name": "rd_char_xiao_tie_portrait",
+      "cn_name": "小铁头像",
+      "priority": "P0",
+      "description": "64px-readable upper-body portrait for character selection/resource allocation UI",
+      "source": "RedDust/art/characters/rd_char_xiao_tie_idle_512.png",
+      "filename": "RedDust/art/characters/rd_char_xiao_tie_portrait.png",
+      "primary_file": "RedDust/art/characters/rd_char_xiao_tie_portrait.png",
+      "files": [
+        "RedDust/art/characters/rd_char_xiao_tie_portrait.png",
+        "RedDust/art/characters/rd_char_xiao_tie_portrait_512.png",
+        "RedDust/art/characters/rd_char_xiao_tie_portrait_128.png",
+        "RedDust/art/characters/rd_char_xiao_tie_portrait_64.png"
+      ],
+      "status": "subagent_fix_added",
+      "fix_reason": "Quality audit requested character thumbnails that remain readable at 64px."
+    },
+    {
+      "id": "rd_char_lao_qian_portrait",
+      "category": "character_portrait",
+      "name": "rd_char_lao_qian_portrait",
+      "cn_name": "老钱头像",
+      "priority": "P0",
+      "description": "64px-readable upper-body portrait for character selection/resource allocation UI",
+      "source": "RedDust/art/characters/rd_char_lao_qian_idle_512.png",
+      "filename": "RedDust/art/characters/rd_char_lao_qian_portrait.png",
+      "primary_file": "RedDust/art/characters/rd_char_lao_qian_portrait.png",
+      "files": [
+        "RedDust/art/characters/rd_char_lao_qian_portrait.png",
+        "RedDust/art/characters/rd_char_lao_qian_portrait_512.png",
+        "RedDust/art/characters/rd_char_lao_qian_portrait_128.png",
+        "RedDust/art/characters/rd_char_lao_qian_portrait_64.png"
+      ],
+      "status": "subagent_fix_added",
+      "fix_reason": "Quality audit requested character thumbnails that remain readable at 64px."
+    },
+    {
+      "id": "rd_ui_aura_icon_compact",
+      "category": "ui",
+      "name": "rd_ui_aura_icon_compact",
+      "cn_name": "AURA小尺寸状态图标",
+      "priority": "P0",
+      "description": "Compact 64px-readable AURA icon with LED ring, battery and suggestion strip for HUD/small UI.",
+      "source": "RedDust/art/ui/rd_ui_aura_panel_active_512.png",
+      "filename": "RedDust/art/ui/rd_ui_aura_icon_compact.png",
+      "primary_file": "RedDust/art/ui/rd_ui_aura_icon_compact.png",
+      "files": [
+        "RedDust/art/ui/rd_ui_aura_icon_compact.png",
+        "RedDust/art/ui/rd_ui_aura_icon_compact_512.png",
+        "RedDust/art/ui/rd_ui_aura_icon_compact_128.png",
+        "RedDust/art/ui/rd_ui_aura_icon_compact_64.png"
+      ],
+      "status": "subagent_fix_added",
+      "fix_reason": "Quality audit requested a small-size AURA icon because the full reasoning panel is not readable at 64px."
+    }
+  ],
+  "quality_audit_fixes": {
+    "review_agent": "019e1f4c-ce47-7bc2-b93d-a801beddd997",
+    "fixed_at": "2026-05-13T11:13:26",
+    "fixes": [
+      "Added 64px-readable character portrait assets while preserving full-body sprites.",
+      "Added compact AURA HUD icon for small UI.",
+      "Added priority/name/filename/cn_name metadata fields.",
+      "Preview PNGs use checkerboard RGB backgrounds for review only; final assets are the RGBA PNGs in characters/ui/events/resources/props."
+    ],
+    "preview_disclaimer": "Files under RedDust/art/previews are non-transparent contact sheets. Do not use them as in-game assets."
+  }
+}

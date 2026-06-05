@@ -1,0 +1,8 @@
+openapi: "3.0.0"
+info: {title: Invoice API v1, version: 1.0.0}
+paths:
+  /v1/invoices:
+    post:
+      requestBody: {content: {application/json: {schema: {type: object, properties: {user: {type: string}, items_text: {type: string}, amount: {type: number}}}}}}
+    get:
+      parameters: [{name: user, in: query, schema: {type: string}}]

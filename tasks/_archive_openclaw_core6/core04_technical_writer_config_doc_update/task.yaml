@@ -1,0 +1,13 @@
+id: core04_technical_writer_config_doc_update
+role: technical_writer
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- docs/config_reference.md
+forbidden_actions:
+- modify tests/
+- delete source files

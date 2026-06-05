@@ -1,0 +1,14 @@
+id: core02_data_analyst_duplicate_cleanup
+role: data_analyst
+difficulty: easy
+time_budget_minutes: 7
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/cleaned_payments.csv
+- outputs/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

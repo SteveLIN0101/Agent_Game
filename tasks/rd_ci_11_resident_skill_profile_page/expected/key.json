@@ -1,0 +1,6 @@
+{
+  "required_fields": ["净水维护", "发电机维修", "急救护理", "电路检修"],
+  "min_fields": 4,
+  "must_not_leak": ["特种部队退役", "黑客可破门禁", "认识军方高层"],
+  "required_sizes": []
+}

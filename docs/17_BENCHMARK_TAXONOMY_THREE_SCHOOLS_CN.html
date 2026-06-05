@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红沙 · Agent Benchmark 任务分类的三个学派</title>
+<style>
+:root {
+  --bg: #1a1208;
+  --bg-card: #2a1d10;
+  --bg-elev: #382716;
+  --border: #4a341e;
+  --border-strong: #6b4f3a;
+  --text: #f5e6d3;
+  --text-dim: #c5a878;
+  --text-mute: #806350;
+  --accent: #ff8c42;
+  --accent-soft: #ffd60a;
+  --role: #5dbfd9;       /* 职业派 = 冷水蓝 */
+  --capability: #bf5af2; /* 能力派 = 紫 */
+  --user: #88a85a;       /* 用户行为派 = 绿 */
+  --red: #e84545;
+  --code-bg: #14100a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 14px;
+}
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.toc {
+  position: sticky; top: 0; align-self: start;
+  height: 100vh; overflow-y: auto;
+  padding: 20px 18px;
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
+  font-size: 13px;
+}
+.toc h2 {
+  font-size: 11px; color: var(--accent);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.toc h2:first-child { margin-top: 0; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 2px 0; }
+.toc a {
+  color: var(--text-dim); text-decoration: none;
+  display: block; padding: 4px 8px;
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+}
+.toc a:hover { color: var(--accent); background: rgba(255,140,66,0.08); }
+.toc a.role:hover    { color: var(--role); background: rgba(93,191,217,0.08); }
+.toc a.cap:hover     { color: var(--capability); background: rgba(191,90,242,0.08); }
+.toc a.user:hover    { color: var(--user); background: rgba(136,168,90,0.08); }
+.toc .sub { padding-left: 14px; font-size: 12px; }
+
+main { padding: 28px 36px; max-width: 1200px; }
+.doc-header { border-bottom: 2px solid var(--border-strong); padding-bottom: 18px; margin-bottom: 28px; }
+.doc-header h1 { font-size: 28px; color: var(--accent-soft); margin: 0 0 6px; }
+.doc-header .sub { color: var(--text-dim); font-size: 13px; }
+.doc-header .meta {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px; border-radius: 5px;
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px; color: var(--text-dim);
+}
+.doc-header .meta strong { color: var(--accent-soft); }
+
+h2 {
+  color: var(--accent-soft); font-size: 22px;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 6px; margin-top: 36px;
+}
+h2.role-h     { color: var(--role);       border-bottom-color: var(--role); }
+h2.cap-h      { color: var(--capability); border-bottom-color: var(--capability); }
+h2.user-h     { color: var(--user);       border-bottom-color: var(--user); }
+
+h3 {
+  color: var(--accent); font-size: 17px;
+  margin-top: 24px; border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+h3.role-h { color: var(--role); border-left-color: var(--role); }
+h3.cap-h  { color: var(--capability); border-left-color: var(--capability); }
+h3.user-h { color: var(--user); border-left-color: var(--user); }
+
+h4 { color: var(--text); font-size: 14px; margin-top: 18px; }
+p { margin: 8px 0; }
+strong { color: var(--accent-soft); }
+a.cite { color: var(--text-dim); text-decoration: underline dotted; }
+a.cite:hover { color: var(--accent); }
+
+/* tables */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--bg-card);
+  border-radius: 6px; overflow: hidden;
+  font-size: 13px;
+}
+th {
+  background: var(--bg-elev); color: var(--accent-soft);
+  text-align: left; padding: 8px 12px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.4px;
+  border-bottom: 2px solid var(--border-strong);
+}
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,140,66,0.04); }
+td code, p code, li code {
+  font-size: 11px; background: var(--code-bg);
+  padding: 1px 5px; border-radius: 3px;
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* tags */
+.tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 1px 6px; border-radius: 3px;
+  font-weight: 600; letter-spacing: 0.5px;
+  margin-right: 3px;
+}
+.tag-role { background: rgba(93,191,217,0.18); color: var(--role); }
+.tag-cap  { background: rgba(191,90,242,0.18); color: var(--capability); }
+.tag-user { background: rgba(136,168,90,0.18); color: var(--user); }
+.tag-rd   { background: rgba(255,140,66,0.18); color: var(--accent); }
+.tag-warn { background: rgba(232,69,69,0.18); color: var(--red); }
+
+/* callouts */
+.callout {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.callout-warn { border-left-color: var(--red); background: rgba(232,69,69,0.06); }
+.callout-tip  { border-left-color: var(--accent-soft); background: rgba(255,214,10,0.06); }
+.callout-role { border-left-color: var(--role); background: rgba(93,191,217,0.05); }
+.callout-cap  { border-left-color: var(--capability); background: rgba(191,90,242,0.05); }
+.callout-user { border-left-color: var(--user); background: rgba(136,168,90,0.05); }
+
+/* school cards */
+.school-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  position: relative;
+}
+.school-card.role { border-left: 5px solid var(--role); }
+.school-card.cap  { border-left: 5px solid var(--capability); }
+.school-card.user { border-left: 5px solid var(--user); }
+.school-card h4 { margin-top: 0; color: var(--accent-soft); font-size: 15px; }
+.school-card .axis-line {
+  font-size: 11px; color: var(--text-mute);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* case study box */
+.case {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 14px 0;
+}
+.case-header {
+  display: flex; align-items: baseline;
+  gap: 8px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+.case-header .case-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 1px;
+  padding: 2px 6px; border-radius: 3px;
+  background: rgba(255,140,66,0.15);
+  color: var(--accent);
+}
+.case-header .case-title {
+  font-weight: 700; color: var(--accent-soft);
+  font-size: 14px;
+}
+.case-header .case-meta { font-size: 11px; color: var(--text-mute); margin-left: auto; }
+
+.kv { display: grid; grid-template-columns: 130px 1fr; gap: 6px 14px; font-size: 13px; margin: 8px 0; }
+.kv .k { color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.kv .v { color: var(--text); }
+
+/* tradeoffs grid */
+.tradeoff {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin: 14px 0;
+}
+.tradeoff > div {
+  padding: 12px 14px; border-radius: 6px;
+  font-size: 13px;
+  background: var(--bg-card);
+}
+.tradeoff .pros { border-left: 3px solid #30d158; }
+.tradeoff .cons { border-left: 3px solid var(--red); }
+.tradeoff h5 {
+  margin: 0 0 6px; font-size: 11px;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.tradeoff .pros h5 { color: #30d158; }
+.tradeoff .cons h5 { color: var(--red); }
+.tradeoff ul { padding-left: 16px; margin: 4px 0; }
+.tradeoff li { margin: 3px 0; }
+
+/* matrix */
+.matrix table th { font-size: 11px; }
+.matrix table td:first-child {
+  background: var(--bg-elev);
+  color: var(--accent-soft);
+  font-weight: 600;
+  font-size: 12px;
+}
+.matrix .role-col { color: var(--role); }
+.matrix .cap-col  { color: var(--capability); }
+.matrix .user-col { color: var(--user); }
+
+/* diagram */
+.diagram {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px; margin: 14px 0;
+  overflow-x: auto;
+}
+.diagram-title {
+  font-size: 11px; color: var(--text-mute);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+svg { display: block; max-width: 100%; }
+svg text { fill: var(--text); font-family: 'PingFang SC', sans-serif; }
+
+/* footer */
+.refs { font-size: 12px; }
+.refs ol { padding-left: 22px; }
+.refs li { margin: 4px 0; color: var(--text-dim); }
+.refs li a { color: var(--accent); text-decoration: none; }
+.refs li a:hover { text-decoration: underline; }
+
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ──────────────── TOC ──────────────── -->
+<aside class="toc">
+  <h2>导航</h2>
+  <ol>
+    <li><a href="#intro">§0 摘要 · 为什么需要分类</a></li>
+    <li><a href="#problem">§1 核心张力</a></li>
+  </ol>
+  <h2 style="color: var(--role);">学派一</h2>
+  <ol>
+    <li><a href="#role-thesis" class="role">§2.1 命题与任务选择</a></li>
+    <li><a href="#role-alloc" class="role">§2.2 分桶逻辑</a></li>
+    <li><a href="#role-case" class="role">§2.3 案例 · TheAgentCompany</a></li>
+    <li><a href="#role-case-medhelm" class="role">§2.4 旁证 · MedHELM</a></li>
+    <li><a href="#role-tradeoff" class="role">§2.5 权衡</a></li>
+  </ol>
+  <h2 style="color: var(--capability);">学派二</h2>
+  <ol>
+    <li><a href="#cap-thesis" class="cap">§3.1 命题与任务选择</a></li>
+    <li><a href="#cap-alloc" class="cap">§3.2 分桶逻辑</a></li>
+    <li><a href="#cap-case-helm" class="cap">§3.3 案例 A · HELM</a></li>
+    <li><a href="#cap-case-gaia" class="cap">§3.4 案例 B · GAIA</a></li>
+    <li><a href="#cap-case-tau" class="cap">§3.5 旁证 · τ-bench</a></li>
+    <li><a href="#cap-tradeoff" class="cap">§3.6 权衡</a></li>
+  </ol>
+  <h2 style="color: var(--user);">学派三</h2>
+  <ol>
+    <li><a href="#user-thesis" class="user">§4.1 命题与任务选择</a></li>
+    <li><a href="#user-alloc" class="user">§4.2 分桶逻辑</a></li>
+    <li><a href="#user-case-nber" class="user">§4.3 案例 · NBER w34255</a></li>
+    <li><a href="#user-case-anthropic" class="user">§4.4 旁证 · Anthropic Index</a></li>
+    <li><a href="#user-tradeoff" class="user">§4.5 权衡</a></li>
+  </ol>
+  <h2>综合</h2>
+  <ol>
+    <li><a href="#matrix">§5 三派对比矩阵</a></li>
+    <li><a href="#rd-implication">§6 对红沙的张力</a></li>
+    <li><a href="#refs">§7 参考文献</a></li>
+  </ol>
+</aside>
+
+<!-- ──────────────── MAIN ──────────────── -->
+<main>
+
+<header class="doc-header">
+  <h1>Agent Benchmark 任务分类的三个学派</h1>
+  <div class="sub">文献综述与案例分析 · 为红沙 (Red Dust) Agent-Benchmark 重设计做铺垫</div>
+  <div class="meta">
+    <strong>DOC</strong> 17 &nbsp;|&nbsp;
+    <strong>DATE</strong> 2026-05-12 &nbsp;|&nbsp;
+    <strong>STATUS</strong> 文献综述 · 不含设计决策 &nbsp;|&nbsp;
+    <strong>FOLLOWUP</strong> 18_REDDUST_BENCHMARK_REDESIGN_CN（待）
+  </div>
+</header>
+
+<!-- ===================== §0 摘要 ===================== -->
+<h2 id="intro">§0 摘要 · 为什么需要一个分类框架</h2>
+
+<p>OpenClaw 当前的六职业划分（<code>software_engineer / data_analyst / ui_designer / technical_writer / localization / digital_humanities</code>）需要一句话能回答两个问题：</p>
+<ol>
+  <li><strong>我们在测什么？</strong>—— 任务桶的命名决定了 benchmark 的"叙事"。说"我们测六个职业"和说"我们测六类能力"是两种完全不同的承诺。</li>
+  <li><strong>为什么是这些桶，不是别的？</strong>—— 这是评审/合作方/用户最容易追问的问题。</li>
+</ol>
+
+<p>2024–2026 的 agent benchmark 文献给出三种成体系的回答方式。本文档逐一拆解它们的<strong>任务选择逻辑</strong>（task selection — 任务从哪来）和<strong>分桶逻辑</strong>（allocation — 任务如何被归类），并用具体 benchmark 做 case study。</p>
+
+<div class="callout callout-tip">
+<strong>三派一句话定义</strong><br>
+<span class="tag tag-role">职业派</span> 任务来源 = 真实工作任务库 (O*NET) · 分桶单位 = 职业角色 · 代表 = <em>TheAgentCompany</em><br>
+<span class="tag tag-cap">能力派</span> 任务来源 = 单一能力探针 · 分桶单位 = 基础能力轴 · 代表 = <em>HELM / GAIA</em><br>
+<span class="tag tag-user">用户行为派</span> 任务来源 = 实测产品日志 · 分桶单位 = 高频意图 macro-category · 代表 = <em>NBER w34255 / Anthropic Index</em>
+</div>
+
+<div class="diagram">
+<div class="diagram-title">三派任务流向图</div>
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#806350"/>
+    </marker>
+  </defs>
+  <!-- ROLE -->
+  <rect x="30" y="20" width="180" height="50" rx="6" fill="rgba(93,191,217,0.12)" stroke="#5dbfd9" stroke-width="1.5"/>
+  <text x="120" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#5dbfd9">O*NET 职业库</text>
+  <text x="120" y="58" text-anchor="middle" font-size="10" fill="#c5a878">SOC 1,016 occupations</text>
+  <path d="M 120 75 L 120 110" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="30" y="115" width="180" height="50" rx="6" fill="rgba(93,191,217,0.20)" stroke="#5dbfd9"/>
+  <text x="120" y="135" text-anchor="middle" font-size="12" fill="#f5e6d3">采样 → 任务实例</text>
+  <text x="120" y="152" text-anchor="middle" font-size="10" fill="#c5a878">"模拟一家公司"</text>
+  <path d="M 120 168 L 120 200" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="30" y="205" width="180" height="50" rx="6" fill="rgba(93,191,217,0.30)" stroke="#5dbfd9"/>
+  <text x="120" y="226" text-anchor="middle" font-size="12" fill="#f5e6d3">职业桶 × 任务</text>
+  <text x="120" y="243" text-anchor="middle" font-size="10" fill="#c5a878">175 tasks × 16 roles</text>
+
+  <!-- CAPABILITY -->
+  <rect x="360" y="20" width="180" height="50" rx="6" fill="rgba(191,90,242,0.12)" stroke="#bf5af2" stroke-width="1.5"/>
+  <text x="450" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#bf5af2">能力分解理论</text>
+  <text x="450" y="58" text-anchor="middle" font-size="10" fill="#c5a878">reasoning / tool-use / GUI ...</text>
+  <path d="M 450 75 L 450 110" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="360" y="115" width="180" height="50" rx="6" fill="rgba(191,90,242,0.20)" stroke="#bf5af2"/>
+  <text x="450" y="135" text-anchor="middle" font-size="12" fill="#f5e6d3">构造孤立探针</text>
+  <text x="450" y="152" text-anchor="middle" font-size="10" fill="#c5a878">每轴一组诊断题</text>
+  <path d="M 450 168 L 450 200" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="360" y="205" width="180" height="50" rx="6" fill="rgba(191,90,242,0.30)" stroke="#bf5af2"/>
+  <text x="450" y="226" text-anchor="middle" font-size="12" fill="#f5e6d3">能力 × scenario 矩阵</text>
+  <text x="450" y="243" text-anchor="middle" font-size="10" fill="#c5a878">HELM 16×7</text>
+
+  <!-- USER -->
+  <rect x="690" y="20" width="180" height="50" rx="6" fill="rgba(136,168,90,0.12)" stroke="#88a85a" stroke-width="1.5"/>
+  <text x="780" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#88a85a">产品对话日志</text>
+  <text x="780" y="58" text-anchor="middle" font-size="10" fill="#c5a878">ChatGPT 1M+ 对话</text>
+  <path d="M 780 75 L 780 110" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="690" y="115" width="180" height="50" rx="6" fill="rgba(136,168,90,0.20)" stroke="#88a85a"/>
+  <text x="780" y="135" text-anchor="middle" font-size="12" fill="#f5e6d3">意图聚类</text>
+  <text x="780" y="152" text-anchor="middle" font-size="10" fill="#c5a878">24 fine → 7 macro</text>
+  <path d="M 780 168 L 780 200" stroke="#806350" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="690" y="205" width="180" height="50" rx="6" fill="rgba(136,168,90,0.30)" stroke="#88a85a"/>
+  <text x="780" y="226" text-anchor="middle" font-size="12" fill="#f5e6d3">3–5 个高频桶</text>
+  <text x="780" y="243" text-anchor="middle" font-size="10" fill="#c5a878">cover ~77% 使用量</text>
+</svg>
+</div>
+
+<!-- ===================== §1 核心张力 ===================== -->
+<h2 id="problem">§1 核心张力</h2>
+<p>三派的根本分歧是一个哲学问题：<strong>"agent 能力"是什么？</strong></p>
+<ul>
+  <li>职业派：能力 = <em>能否在一个真实工作位置上完成被分配的任务</em>。这是"agent 能不能被雇佣"的视角。</li>
+  <li>能力派：能力 = <em>底层的、可分解、可组合的认知/操作原语</em>。这是"agent 大脑里有什么"的视角。</li>
+  <li>用户行为派：能力 = <em>能否满足人类真实问出的请求</em>。这是"agent 对用户有没有用"的视角。</li>
+</ul>
+<p>三个视角都对，但任务选择和评分逻辑会被各自的回答完全决定。我们逐个拆。</p>
+
+<!-- =============================================================
+     §2  职业派
+     ============================================================= -->
+<h2 id="role-school" class="role-h">§2 学派一 · 职业派 (Role-based)</h2>
+
+<h3 id="role-thesis" class="role-h">§2.1 核心命题与任务选择</h3>
+
+<div class="school-card role">
+<div class="axis-line">命题</div>
+<h4>把 agent 当作"可雇佣的工人"来测，任务从 <em>真实职业的工作清单</em> 里抽样。</h4>
+<p>理论支点是美国劳工部维护的 <strong>O*NET</strong>（Occupational Information Network），它把 1,016 个职业拆成"工作活动 (work activities)"、"任务声明 (task statements)" 和"知识/技能/能力" 三层。<strong>O*NET 不是为 AI 写的</strong>，是为职业咨询和劳动力市场分析写的，所以它声称的合法性来自"真实工作"。</p>
+</div>
+
+<h4>任务选择逻辑（task selection）</h4>
+<ul>
+  <li><strong>采样源</strong>：O*NET 的 task statement 列表（每职业 20–40 条），或对应的 SOC（Standard Occupational Classification）工作描述。</li>
+  <li><strong>具体化</strong>：把抽象任务（"分析销售数据"）转写为一个 <em>可在沙箱中执行</em> 的实例（"用这个 CSV 算 Q3 客户流失率，写到 report.md"）。</li>
+  <li><strong>真实素材</strong>：常常引入真实公司流程片段（Slack 截图、Wiki 页面、Jira 工单）以增加生态效度。</li>
+</ul>
+
+<h3 id="role-alloc" class="role-h">§2.2 分桶逻辑（allocation）</h3>
+<p>分桶单位 = <strong>职业 (role / occupation)</strong>。一个 agent 在某个桶里的得分 = "如果让它做这份工作的考核任务，它能完成多少"。</p>
+
+<table>
+<thead><tr><th>属性</th><th>典型做法</th></tr></thead>
+<tbody>
+<tr><td>桶的数量</td><td>5–20（受 O*NET SOC 大类约束）</td></tr>
+<tr><td>桶内任务数量</td><td>常常不等量，由职业重要性 / 数据可得性决定</td></tr>
+<tr><td>跨桶关系</td><td>不强制正交 ── 允许"用 SQL 做财务"既在财务桶又在数据分析桶 (mostly 用单一标签解决)</td></tr>
+<tr><td>评分聚合</td><td>桶内取平均，全局取桶平均或加权平均</td></tr>
+</tbody>
+</table>
+
+<h3 id="role-case" class="role-h">§2.3 案例 · TheAgentCompany (CMU 2024)</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 1</span>
+  <span class="case-title">TheAgentCompany — 模拟一家完整软件公司</span>
+  <span class="case-meta">CMU · Xu, Neubig et al. · NeurIPS 2025</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://arxiv.org/abs/2412.14161">arXiv 2412.14161</a> · <a class="cite" href="https://the-agent-company.com/">project site</a></div>
+  <div class="k">任务规模</div><div class="v">175 tasks（"全公司一天的工作"）</div>
+  <div class="k">角色数</div><div class="v">16 worker profiles：CTO / SWE / DevOps / Data Scientist / PM / HR / Finance / Sales / Marketing / Design / Legal / Admin / Researcher / Writer / Support / Executive Assistant</div>
+  <div class="k">职业来源</div><div class="v">O*NET SOC 大类直接采样，每个职业对应 ~10 任务</div>
+  <div class="k">环境</div><div class="v">自托管 GitLab / RocketChat / OwnCloud / Plane / 内网 Wiki —— 真公司用什么，benchmark 就跑什么</div>
+  <div class="k">评分方式</div><div class="v">Checkpoint（任务中途的中间状态）+ Final state（最终交付）；部分任务有 NPC 反馈</div>
+  <div class="k">头条结果</div><div class="v">Claude 3.5 Sonnet 完整完成率 <strong>24%</strong>，部分完成率 <strong>34%</strong>；Gemini 2.5 Pro 升至 30/39%（2025 更新）</div>
+</div>
+<p style="margin-top:10px"><strong>方法学亮点</strong>：</p>
+<ul>
+  <li>同一份"季度财务表"会出现在 <em>财务桶</em>（写季度报告）和 <em>SWE 桶</em>（修一个 BUG 才能让报表跑出来）—— 测试 agent <strong>跨角色协作</strong>的能力。</li>
+  <li>引入 <strong>模拟同事 NPC</strong>（也是 LLM 扮演）。Agent 必须主动用 RocketChat 提问、等回复。这模拟了真实办公的"协作摩擦"。</li>
+  <li>评分包含 <strong>side-effect 检查</strong>（"修 bug 的过程中别把测试库给删了"）。</li>
+</ul>
+</div>
+
+<h3 id="role-case-medhelm" class="role-h">§2.4 旁证 · MedHELM (Stanford 2025)</h3>
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 2</span>
+  <span class="case-title">MedHELM — 把医生这一职业拆成五个亚角色</span>
+  <span class="case-meta">Stanford CRFM · Nature Medicine 2025</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://www.nature.com/articles/s41591-025-04151-2">Nature Medicine</a></div>
+  <div class="k">分桶</div><div class="v">5 个临床任务类别：决策辅助 / 病历生成 / 患者沟通 / 研究 / 行政事务</div>
+  <div class="k">为什么算职业派</div><div class="v">桶的命名直接来自医生日常工作的<strong>子角色定位</strong>，不是底层能力轴</div>
+</div>
+<p style="margin-top:8px">MedHELM 提示：<strong>"职业"不一定要是 SOC 级别的大类</strong>，也可以是一个职业内部的"亚角色 (sub-role)"。这对 OpenClaw 很关键 —— 你的"digital_humanities" 实际上就是历史档案研究员的 sub-role，不是一个完整职业。</p>
+</div>
+
+<h3 id="role-tradeoff" class="role-h">§2.5 权衡</h3>
+<div class="tradeoff">
+<div class="pros">
+<h5>✓ 优点</h5>
+<ul>
+  <li><strong>可读性极佳</strong>：监管者/CEO/记者一眼就懂"能不能替换 HR"。</li>
+  <li><strong>生态效度高</strong>：任务长得就像真实工作。</li>
+  <li><strong>叙事友好</strong>：天然能挂上"AI 替代多少工作"的传播话题。</li>
+  <li><strong>采样有外部锚点</strong>：不是研究员拍脑袋，是劳工部的清单。</li>
+</ul>
+</div>
+<div class="cons">
+<h5>✗ 缺点</h5>
+<ul>
+  <li><strong>能力高度重合</strong>：HR 写邮件 = Marketing 写邮件 = Writer 写邮件，桶之间信号冗余。Yehudai et al. 2025 综述称之为"over-fragmented partition"。</li>
+  <li><strong>文化漂移</strong>：英语"technical writer" ≠ 中文"技术作家"；制药业 SWE ≠ 互联网 SWE。</li>
+  <li><strong>难以诊断</strong>：当 Claude 在"财务桶"得分低，到底是数学差还是 Excel 工具用得差？职业桶不告诉你。</li>
+  <li><strong>组合性差</strong>：现实工作往往跨职业（FinOps、DevSecOps、产品经理 = ½PM + ¼SWE + ¼Marketing）。</li>
+</ul>
+</div>
+</div>
+
+<div class="callout callout-role">
+<strong>对红沙的启示</strong>：职业派完美适配 Red Dust 的"四个邻居 + AURA" 设定。每个邻居自带职业人设，AURA 在不同决策点调用对应职业的 Core-X 任务，叙事张力天然。但要警惕：如果只有职业轴，玩家无法看到 AURA <em>在哪一类能力上失败</em>。
+</div>
+
+<!-- =============================================================
+     §3  能力派
+     ============================================================= -->
+<h2 id="cap-school" class="cap-h">§3 学派二 · 能力派 (Capability-based)</h2>
+
+<h3 id="cap-thesis" class="cap-h">§3.1 核心命题与任务选择</h3>
+
+<div class="school-card cap">
+<div class="axis-line">命题</div>
+<h4>把 agent 拆成"由若干基础能力组合而成的系统"，每个能力都需要被独立诊断。</h4>
+<p>理论支点是认知科学的<strong>构念效度 (construct validity)</strong>传统：测一个东西，先定义清楚"这个东西"是什么。对应到 agent 上，这意味着先列一份"能力字典"，再为每个能力造一组孤立任务。</p>
+</div>
+
+<h4>常见能力轴清单（综合 HELM / AgentBench / Yehudai 2025 / philschmid compendium）</h4>
+<ol>
+  <li><strong>Reasoning / Planning</strong> — 多步推演、数学、规划。代表：ARC-AGI、GPQA、GAIA-L3。</li>
+  <li><strong>Tool Use / Function Calling</strong> — API 选择、参数构造。代表：BFCL、τ-bench、AppWorld。</li>
+  <li><strong>Coding / SWE</strong> — patch 生成、跨文件编辑。代表：SWE-bench (Verified / Pro / Multimodal)、SWE-Lancer。</li>
+  <li><strong>Computer / GUI Use</strong> — 桌面、浏览器操作。代表：OSWorld、WebArena、VisualWebArena。</li>
+  <li><strong>Web Information Seeking</strong> — 检索 + 综合。代表：BrowseComp、AssistantBench。</li>
+  <li><strong>Multimodality</strong> — 图像/视频/音频接地。代表：VWA、GAIA multimodal。</li>
+  <li><strong>Long-Horizon / Memory</strong> — 长轨迹、上下文保持。代表：UltraHorizon、LongCLI-Bench、SWE-Bench Pro。</li>
+  <li><strong>Reliability / Consistency</strong> — 多次重复的稳定性。代表：τ-bench pass<sup>k</sup>。</li>
+  <li><strong>Safety / Policy Compliance</strong> — 拒绝、注入防御。代表：HELM safety、Anthropic SHADE。</li>
+  <li><strong>Communication / User Interaction</strong> — 澄清、谈判、对话。代表：τ²-bench。</li>
+</ol>
+
+<h4>任务选择逻辑</h4>
+<ul>
+  <li>每个能力轴<strong>单独设计探针</strong>。同一份原始素材常常会被改写成多套题，每套只测一个能力 —— 这是"消除混杂变量"的实验设计思路。</li>
+  <li>任务规模追求 <strong>统计显著</strong>：一个能力轴下常常上百题以保证测量误差小。</li>
+  <li>任务粒度 <strong>较细</strong>：一个 SWE-bench 题只验证一个 patch，不顺带让你写文档。</li>
+</ul>
+
+<h3 id="cap-alloc" class="cap-h">§3.2 分桶逻辑</h3>
+<p>分桶单位 = <strong>能力轴</strong>。最常见的实现是<strong>二维矩阵</strong>：</p>
+<ul>
+  <li><strong>HELM 样式</strong>：scenario × metric（场景 × 评价维度），如 "MMLU × accuracy"、"MMLU × calibration"。</li>
+  <li><strong>AgentBench 样式</strong>：environment × capability，8 个环境分别测不同能力。</li>
+  <li><strong>Yehudai 2025 综述提出</strong>：Evaluation Objective (behavior / capabilities / reliability / safety) × Evaluation Process (interaction / dataset / metric / tooling)。</li>
+</ul>
+
+<h3 id="cap-case-helm" class="cap-h">§3.3 案例 A · HELM (Stanford CRFM)</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 3</span>
+  <span class="case-title">HELM — Holistic Evaluation of Language Models</span>
+  <span class="case-meta">Stanford CRFM · Liang et al. · 2022 起持续更新</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://crfm.stanford.edu/helm/">crfm.stanford.edu/helm</a></div>
+  <div class="k">原始结构</div><div class="v">16 个 core scenarios × 7 个 metrics（accuracy, calibration, robustness, fairness, bias, toxicity, efficiency）</div>
+  <div class="k">关键观察</div><div class="v">HELM 之前，每个模型平均只被报告在 <strong>17.9%</strong> 的 scenarios 上；HELM 之后这个数字升至 <strong>96%</strong></div>
+  <div class="k">关键设计</div><div class="v">"全维度对所有模型应用统一评估"是其最大方法学贡献，不是发明新任务</div>
+</div>
+<p style="margin-top:8px"><strong>HELM 不发明新任务，它收编已有任务</strong>。这是能力派的典型操作 —— 既然每个研究者都造自己的 benchmark，那就把它们拼成一张矩阵，统一报告。这种"meta-benchmark"思路对 OpenClaw 很有借鉴价值：你已经把六个上游 benchmark 拉进来了，缺的是统一的二维报告轴。</p>
+</div>
+
+<h3 id="cap-case-gaia" class="cap-h">§3.4 案例 B · GAIA (Meta + HuggingFace)</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 4</span>
+  <span class="case-title">GAIA — 三难度梯度 × 多能力混合</span>
+  <span class="case-meta">Mialon et al. 2023</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://arxiv.org/abs/2311.12983">arXiv 2311.12983</a></div>
+  <div class="k">任务规模</div><div class="v">466 题</div>
+  <div class="k">分桶</div><div class="v">3 个难度 (L1/L2/L3) × 隐含能力组合（reasoning, multimodal, web, tool-use）</div>
+  <div class="k">头条数</div><div class="v">人类 92% vs GPT-4 + plugins 15%（2023）；2025 已被前沿模型推到 ~90%</div>
+  <div class="k">评分</div><div class="v">事实 exact match —— 答案是一个数字或字符串</div>
+</div>
+<p style="margin-top:8px">GAIA 是<strong>难度梯度优先</strong>的能力派变种。它不显式按能力分桶（每道题都需要多种能力混合），但通过 L1→L3 的难度梯度让模型在"能力组合的复杂度"维度上排队。这是个偷懒但有效的设计：你不需要决定每道题主测什么能力，难度自动反映"agent 能否把多种能力拼起来"。</p>
+</div>
+
+<h3 id="cap-case-tau" class="cap-h">§3.5 旁证 · τ-bench (Sierra 2024)</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 5</span>
+  <span class="case-title">τ-bench / τ²-bench — 把 reliability 提升为一级能力轴</span>
+  <span class="case-meta">Sierra · Yao et al. 2024 / 2025</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://arxiv.org/abs/2406.12045">τ-bench arXiv 2406.12045</a> · <a class="cite" href="https://arxiv.org/abs/2506.07982">τ²-bench arXiv 2506.07982</a></div>
+  <div class="k">规模</div><div class="v">~165 个零售/航空客服对话任务</div>
+  <div class="k">关键创新</div><div class="v">引入 pass<sup>k</sup> 指标：同一题独立跑 k 次，全部成功才算过</div>
+  <div class="k">观察</div><div class="v">GPT-4o pass<sup>1</sup> &lt; 50%，pass<sup>8</sup> &lt; 25% —— 单次成功的 agent，<strong>八次有六次失败</strong></div>
+</div>
+<p style="margin-top:8px">τ-bench 显示了能力派的<strong>诊断力优势</strong>：把"可靠性"提升为正式维度，立即暴露所有 benchmark 都在掩盖的问题。这是职业派和用户行为派<em>难以做到</em>的 —— 它们的分桶单位是任务，pass<sup>k</sup> 需要把同一个任务跑很多次，这跟职业桶的报告方式不兼容。</p>
+</div>
+
+<h3 id="cap-tradeoff" class="cap-h">§3.6 权衡</h3>
+<div class="tradeoff">
+<div class="pros">
+<h5>✓ 优点</h5>
+<ul>
+  <li><strong>诊断力最强</strong>：能直接说"你的 long-horizon 弱"、"你的 tool-use 强但 web-seeking 弱"。</li>
+  <li><strong>可组合可累加</strong>：能力轴正交时，可以预测新组合任务的表现。</li>
+  <li><strong>学术地位高</strong>：HELM 是 LLM 评估的事实标准，论文好发。</li>
+  <li><strong>科学方法成立</strong>：能力轴上的得分是 <em>构念效度</em> 意义上的"测量"，不是"评测"。</li>
+</ul>
+</div>
+<div class="cons">
+<h5>✗ 缺点</h5>
+<ul>
+  <li><strong>生态效度低</strong>：孤立探针不长得像真实工作。"测了 reasoning 80 分"不等于"能写一份能用的报告"。</li>
+  <li><strong>受众窄</strong>：非 ML 受众听不懂"function calling F1 score"。</li>
+  <li><strong>能力字典本身有争议</strong>：reasoning 和 planning 算不算同一个？memory 是不是 long-horizon 的子集？</li>
+  <li><strong>叙事弱</strong>：很难在游戏/产品里讲"我现在在测 reasoning"。</li>
+</ul>
+</div>
+</div>
+
+<div class="callout callout-cap">
+<strong>对红沙的启示</strong>：能力派天然适配 AURA 的 <code>PERCEIVE → HYPOTHESIS → PLAN → EXECUTE → VERIFY</code> 推理轨迹 ── 这套五步框架本身就是一组能力轴，玩家看到的"AURA 在哪一步卡住"就是能力诊断结果。但能力派最大的问题是：玩家很难有"AURA 在干一件具体的事"的代入感。
+</div>
+
+<!-- =============================================================
+     §4  用户行为派
+     ============================================================= -->
+<h2 id="user-school" class="user-h">§4 学派三 · 真实用户行为派 (User-behavior-based)</h2>
+
+<h3 id="user-thesis" class="user-h">§4.1 核心命题与任务选择</h3>
+
+<div class="school-card user">
+<div class="axis-line">命题</div>
+<h4>不预设"agent 应该会什么"，而是看真实用户实际让 agent 做什么，按那个分布造任务。</h4>
+<p>理论支点是<strong>产品分析</strong> + <strong>使用频率统计</strong>。这一派 2024–2025 才真正发展起来 —— 它需要大规模产品日志（ChatGPT、Claude.ai、Gemini App），所以只有大厂或它们的合作研究者能做到。</p>
+</div>
+
+<h4>任务选择逻辑</h4>
+<ul>
+  <li><strong>采样源</strong>：实测产品对话日志（隐私脱敏后）。</li>
+  <li><strong>意图聚类</strong>：通常用 LLM 做主题建模，先得到几十个 fine-grained class（"找菜谱"、"改简历"、"问健康"），再合并到 macro-category（"Practical Guidance"、"Writing"）。</li>
+  <li><strong>覆盖度优先</strong>：任务桶按使用频率从高到低排序，保证 top-N 桶能覆盖 ≥80% 流量。</li>
+  <li><strong>不追求难度均衡</strong>：用户问的多数问题是简单的，benchmark 也按这个分布反映。</li>
+</ul>
+
+<h3 id="user-alloc" class="user-h">§4.2 分桶逻辑</h3>
+<p>分桶单位 = <strong>用户意图 macro-category</strong>。通常 3–7 个桶覆盖大部分流量。</p>
+<ul>
+  <li>桶之间允许重合 —— 一个对话可能既是 Writing 又是 Practical Guidance。</li>
+  <li>桶按 <strong>volume 加权</strong>：占 30% 的桶比占 5% 的桶在总分里权重更高。</li>
+  <li>评分往往用 LLM-as-Judge（因为开放式回答多）或用户接受率代理。</li>
+</ul>
+
+<h3 id="user-case-nber" class="user-h">§4.3 案例 · NBER w34255 "How People Use ChatGPT"</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 6</span>
+  <span class="case-title">NBER w34255 — 1M+ 对话的意图分布</span>
+  <span class="case-meta">Chatterji, Cunningham, Deming, Hitzig, Ong, Shan, Wadman · Sept 2025</span>
+</div>
+<div class="kv">
+  <div class="k">论文</div><div class="v"><a class="cite" href="https://www.nber.org/papers/w34255">NBER w34255</a> · <a class="cite" href="https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf">OpenAI 经济研究 PDF</a></div>
+  <div class="k">规模</div><div class="v">1M+ 对话，覆盖 700M ChatGPT 用户</div>
+  <div class="k">方法</div><div class="v">分类器把对话标到 24 个 fine-grained class，再聚合为 7 个 macro-category</div>
+  <div class="k">关键发现 (2025 mid-year)</div><div class="v">三个 macro-category 覆盖 ~77% 总流量</div>
+</div>
+
+<table style="margin-top:10px">
+<thead><tr><th>Macro Category</th><th>占比</th><th>示例 fine-grained class</th></tr></thead>
+<tbody>
+<tr><td><strong>Practical Guidance</strong></td><td>~29%</td><td>家教 / How-to / 创意 brainstorm / 健身建议 / 育儿</td></tr>
+<tr><td><strong>Seeking Information</strong></td><td>~24% (从 2024 的 14% 涨到 2025 的 24%)</td><td>查产品 / 找菜谱 / 名人事件 / 替代搜索引擎</td></tr>
+<tr><td><strong>Writing</strong></td><td>~24% (从 2024 的 36% 降到 24%)</td><td>编辑用户提供的文本 / 翻译 / 摘要 / 小说<br><span class="tag tag-warn">注</span> 其中 <strong>2/3</strong> 是编辑用户已有文本，不是从零生成</td></tr>
+<tr><td>Technical Help</td><td>~5% (从 12% 降)</td><td>编程 / 数学 / 数据 —— <strong>正在大规模迁移到 API / agent</strong></td></tr>
+<tr><td>Multimedia</td><td>~3%</td><td>图像/视频生成请求</td></tr>
+<tr><td>Self-Expression</td><td>~2%</td><td>聊天 / 陪伴</td></tr>
+<tr><td>Other</td><td>~13%</td><td>剩余</td></tr>
+</tbody>
+</table>
+
+<p style="margin-top:10px"><strong>工作场景细分</strong>：在被标记为"work-related"的对话中，Writing 占 <strong>40%</strong>（生活场景中只占 24%）。这印证了 LLM 在职业场景里的"写作助手"定位。</p>
+</div>
+
+<h3 id="user-case-anthropic" class="user-h">§4.4 旁证 · Anthropic Economic Index</h3>
+
+<div class="case">
+<div class="case-header">
+  <span class="case-tag">CASE 7</span>
+  <span class="case-title">Anthropic Economic Index — 不同受众，不同分布</span>
+  <span class="case-meta">Anthropic · 2024 起持续更新</span>
+</div>
+<div class="kv">
+  <div class="k">来源</div><div class="v"><a class="cite" href="https://www.anthropic.com/economic-index">economic-index</a> · <a class="cite" href="https://www.anthropic.com/research/anthropic-economic-index-january-2026-report">Jan 2026 Report</a></div>
+  <div class="k">分类骨架</div><div class="v">O*NET SOC 大类（注意：这是 <em>职业派</em> 的骨架，但应用方式是用户行为派 —— 用职业标签<em>标记</em>而不是<em>采样</em>对话）</div>
+  <div class="k">关键发现</div><div class="v">Claude.ai 上 <strong>"Computer & Mathematical"</strong> 占 37–40%；top 10 任务覆盖 24% Claude.ai 流量 / 32% API 流量</div>
+</div>
+<p style="margin-top:8px"><strong>对照价值</strong>：Anthropic Index 和 NBER 用<em>同一种方法</em>（标记产品对话），但得出<em>完全不同的分布</em>。原因是：</p>
+<ul>
+  <li>ChatGPT 受众更"全人类"，所以 Writing/Practical Guidance 占大头。</li>
+  <li>Claude 受众更"开发者 + 知识工作者"，所以 Computer & Math 占大头。</li>
+</ul>
+<p><strong>这给用户行为派一个根本警告</strong>：你的"真实用户分布"取决于<em>你测的是谁的用户</em>。如果 OpenClaw 想以"真实场景"为卖点，必须明确目标用户群是哪一类，否则会得到一个"四不像"分布。</p>
+</div>
+
+<h3 id="user-tradeoff" class="user-h">§4.5 权衡</h3>
+<div class="tradeoff">
+<div class="pros">
+<h5>✓ 优点</h5>
+<ul>
+  <li><strong>覆盖广</strong>：top 5 桶能覆盖 ~80% 真实使用，benchmark 不会测一堆没人在乎的东西。</li>
+  <li><strong>"体感"对得上</strong>：分桶名（Writing / How-to / Search）就是普通人对 LLM 的直觉描述。</li>
+  <li><strong>营销好讲</strong>：能直接说"我们测了用户最常用的 N 个场景"。</li>
+  <li><strong>有外部数据锚点</strong>：NBER / Anthropic Index 的分布是真实的，可引用。</li>
+</ul>
+</div>
+<div class="cons">
+<h5>✗ 缺点</h5>
+<ul>
+  <li><strong>长尾困难场景被压缩</strong>：用户其实不常让 agent 干"复杂跨文件 SWE 任务"，但这恰恰是前沿模型的关键能力 —— 用户行为派会低估它。</li>
+  <li><strong>高频 ≠ 值得测</strong>：用户问"今天天气"几百万次，但每次都没难度，对 benchmark 没区分力。</li>
+  <li><strong>跨产品迁移性差</strong>：ChatGPT 的分布 ≠ Claude ≠ Gemini，研究者口径不统一。</li>
+  <li><strong>数据访问门槛</strong>：只有大厂能拿到对话日志，外部研究者只能引用，不能复现。</li>
+</ul>
+</div>
+</div>
+
+<div class="callout callout-user">
+<strong>对红沙的启示</strong>：用户行为派最适合让"AURA 能干什么"对应到玩家的直觉。如果红沙的玩家就是普通游戏玩家（不是 ML 研究员），那 AURA 应该擅长 Practical Guidance（建议怎么分配水/电池）+ Seeking Information（从老报纸里找信息）+ Writing（帮你起草 SOS 广播稿）—— 这三件事正好对应 NBER 三大桶。
+</div>
+
+<!-- =============================================================
+     §5  三派对比矩阵
+     ============================================================= -->
+<h2 id="matrix">§5 三派对比矩阵</h2>
+
+<div class="matrix">
+<table>
+<thead>
+<tr>
+  <th style="width:160px">维度</th>
+  <th class="role-col" style="width:30%">职业派 Role</th>
+  <th class="cap-col" style="width:30%">能力派 Capability</th>
+  <th class="user-col" style="width:30%">用户行为派 User-behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>任务来源</td>
+  <td class="role-col">O*NET 职业任务清单</td>
+  <td class="cap-col">为每个能力轴单独造探针</td>
+  <td class="user-col">实测产品对话日志</td>
+</tr>
+<tr>
+  <td>分桶单位</td>
+  <td class="role-col">职业 (role)</td>
+  <td class="cap-col">基础能力轴 (capability)</td>
+  <td class="user-col">用户意图 macro-category</td>
+</tr>
+<tr>
+  <td>桶数量典型值</td>
+  <td class="role-col">5–20</td>
+  <td class="cap-col">7–10</td>
+  <td class="user-col">3–7</td>
+</tr>
+<tr>
+  <td>评分粒度</td>
+  <td class="role-col">checkpoint + final state</td>
+  <td class="cap-col">细粒度 metric × scenario</td>
+  <td class="user-col">LLM-judge 或用户接受率</td>
+</tr>
+<tr>
+  <td>外部锚点</td>
+  <td class="role-col">劳工部分类法</td>
+  <td class="cap-col">认知科学 / ML 能力理论</td>
+  <td class="user-col">大规模产品日志</td>
+</tr>
+<tr>
+  <td>主要受众</td>
+  <td class="role-col">企业 / 监管 / 媒体</td>
+  <td class="cap-col">ML 研究者 / 模型开发者</td>
+  <td class="user-col">产品经理 / 用户</td>
+</tr>
+<tr>
+  <td>生态效度</td>
+  <td class="role-col">⭐⭐⭐⭐⭐</td>
+  <td class="cap-col">⭐⭐</td>
+  <td class="user-col">⭐⭐⭐⭐</td>
+</tr>
+<tr>
+  <td>能力诊断力</td>
+  <td class="role-col">⭐⭐</td>
+  <td class="cap-col">⭐⭐⭐⭐⭐</td>
+  <td class="user-col">⭐⭐</td>
+</tr>
+<tr>
+  <td>叙事/营销力</td>
+  <td class="role-col">⭐⭐⭐⭐⭐</td>
+  <td class="cap-col">⭐⭐</td>
+  <td class="user-col">⭐⭐⭐⭐</td>
+</tr>
+<tr>
+  <td>学术认可度</td>
+  <td class="role-col">⭐⭐⭐</td>
+  <td class="cap-col">⭐⭐⭐⭐⭐</td>
+  <td class="user-col">⭐⭐⭐</td>
+</tr>
+<tr>
+  <td>代表 benchmark</td>
+  <td class="role-col">TheAgentCompany, MedHELM, Anthropic Index (混合)</td>
+  <td class="cap-col">HELM, AgentBench, GAIA, τ-bench</td>
+  <td class="user-col">NBER w34255, Anthropic Index (混合)</td>
+</tr>
+<tr>
+  <td>核心失败模式</td>
+  <td class="role-col">桶间能力冗余、文化漂移</td>
+  <td class="cap-col">孤立探针 ≠ 真实工作</td>
+  <td class="user-col">长尾难题被压缩、跨产品不可比</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout-tip">
+<strong>关键观察</strong>：三派的强弱<strong>互补</strong>，没有一派同时拥有"生态效度高 + 诊断力强 + 营销好讲"。这是为什么近期文献（Yehudai et al. 2025; SWE-Bench Pro; Anthropic Index）开始走<em>混合路线</em>：用一种学派的轴做<strong>外观</strong>，用另一种做<strong>内层标签</strong>。
+</div>
+
+<!-- =============================================================
+     §6  对红沙的张力
+     ============================================================= -->
+<h2 id="rd-implication">§6 对红沙单间生存背景的张力</h2>
+
+<p>本节<strong>仅指出张力</strong>，不开方案 —— 设计决策留给下一份文档 (18_REDDUST_BENCHMARK_REDESIGN_CN)。</p>
+
+<h3>张力 1 · 叙事友好性 vs 能力诊断力</h3>
+<p>红沙的核心机制（§16 §10.2）是：每个剧情事件 → AURA 跑一道 Core-X 任务 → 玩家看到推理过程 → 玩家决定是否采纳。这套机制对<strong>能力派</strong>非常友好（PERCEIVE→HYPOTHESIS→PLAN→EXECUTE→VERIFY 五步本身就是能力轴），但<strong>剧情挂钩</strong>需要职业派的人物感（陌生人敲门 → 数据分析 → 信任判断）。两者必须并存。</p>
+
+<h3>张力 2 · 玩家"看见 agent 在干什么"</h3>
+<p>这是用户提到的关键约束。三派各有各的"可见性"问题：</p>
+<ul>
+  <li>职业派可见性：玩家看到"AURA 在帮我修风扇" —— <em>直观但低分辨率</em>。</li>
+  <li>能力派可见性：玩家看到"AURA 卡在 tool-use 那一步" —— <em>分辨率高但太抽象</em>。</li>
+  <li>用户行为派可见性：玩家看到"AURA 给我建议 / 帮我找信息 / 帮我写广播稿" —— <em>直觉对得上但和剧情挂钩偏弱</em>。</li>
+</ul>
+
+<h3>张力 3 · 30 天积累的可信度</h3>
+<p>红沙宣称"30 天 = 一个 agent profile"。这只有在<strong>能力轴正交</strong>的前提下才成立 —— 否则你只是反复测同一个底层能力 30 次，profile 没新信息。这是<strong>能力派必须介入</strong>的硬约束。</p>
+
+<h3>张力 4 · 单间封闭场景的覆盖度</h3>
+<p>"单间生存"天然把任务空间压缩到几类：物资分配、设备维修、人际沟通、信息检索、危机决策。这<strong>恰好</strong>对应 NBER 三大桶 + 一两个长尾。所以用户行为派的覆盖逻辑跟红沙的物理空间天然合拍。</p>
+
+<div class="callout callout-tip">
+<strong>预告</strong>：下一份文档将提出"三轴对齐"的具体方案 —— 外层职业 (邻居人设 + Core-X) + 内层能力标签 (AURA 推理轨迹的五步) + 评估覆盖度参考用户行为分布 —— 既保留 §10.2 现有剧情挂钩，又新增能力雷达图和体感分桶报告。届时会附"哪些任务该砍、哪些该加"的具体清单。
+</div>
+
+<!-- =============================================================
+     §7  参考文献
+     ============================================================= -->
+<h2 id="refs">§7 参考文献</h2>
+<div class="refs">
+
+<h3 style="border-left-color: var(--text-mute); color: var(--text-dim);">职业派</h3>
+<ol>
+  <li>Xu, F.F. et al. <em>TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks</em>. NeurIPS 2025. <a href="https://arxiv.org/abs/2412.14161">arXiv:2412.14161</a></li>
+  <li>TheAgentCompany — Project site. <a href="https://the-agent-company.com/">the-agent-company.com</a></li>
+  <li>O*NET Online — U.S. Department of Labor. <a href="https://www.onetonline.org/">onetonline.org</a></li>
+  <li>Bedi, S. et al. <em>MedHELM: Holistic Evaluation of Large Language Models for Medical Tasks</em>. Nature Medicine 2025. <a href="https://www.nature.com/articles/s41591-025-04151-2">link</a></li>
+  <li>Anthropic. <em>The Anthropic Economic Index</em>. <a href="https://www.anthropic.com/economic-index">economic-index</a></li>
+</ol>
+
+<h3 style="border-left-color: var(--text-mute); color: var(--text-dim);">能力派</h3>
+<ol start="6">
+  <li>Liang, P. et al. <em>Holistic Evaluation of Language Models (HELM)</em>. Stanford CRFM 2022+. <a href="https://crfm.stanford.edu/helm/">helm</a></li>
+  <li>Mialon, G. et al. <em>GAIA: a benchmark for General AI Assistants</em>. <a href="https://arxiv.org/abs/2311.12983">arXiv:2311.12983</a></li>
+  <li>Liu, X. et al. <em>AgentBench: Evaluating LLMs as Agents</em>. ICLR 2024. <a href="https://arxiv.org/abs/2308.03688">arXiv:2308.03688</a></li>
+  <li>Yao, S. et al. <em>τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</em>. <a href="https://arxiv.org/abs/2406.12045">arXiv:2406.12045</a></li>
+  <li>Yao, S. et al. <em>τ²-bench: Evaluating Conversational Agents in a Dual-Control Environment</em>. <a href="https://arxiv.org/abs/2506.07982">arXiv:2506.07982</a></li>
+  <li>Jimenez, C. et al. <em>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</em> ICLR 2024. <a href="https://arxiv.org/abs/2310.06770">arXiv:2310.06770</a></li>
+  <li>OpenAI. <em>SWE-Lancer</em>. <a href="https://openai.com/index/swe-lancer/">openai.com/index/swe-lancer</a> · <a href="https://arxiv.org/abs/2502.12115">arXiv:2502.12115</a></li>
+  <li>Xie, T. et al. <em>OSWorld</em>. NeurIPS 2024. <a href="https://os-world.github.io/">os-world.github.io</a></li>
+  <li>Zhou, S. et al. <em>WebArena</em>. ICLR 2024. <a href="https://webarena.dev/">webarena.dev</a></li>
+  <li>Trivedi, H. et al. <em>AppWorld</em>. ACL 2024 Best Resource Paper. <a href="https://arxiv.org/abs/2407.18901">arXiv:2407.18901</a></li>
+  <li>Yehudai, A. et al. <em>Evaluation and Benchmarking of LLM Agents: A Survey</em>. 2025. <a href="https://arxiv.org/abs/2507.21504">arXiv:2507.21504</a></li>
+  <li>Schmid, P. <em>AI Agent Benchmark Compendium</em>. 2025. <a href="https://github.com/philschmid/ai-agent-benchmark-compendium">github</a></li>
+</ol>
+
+<h3 style="border-left-color: var(--text-mute); color: var(--text-dim);">用户行为派</h3>
+<ol start="18">
+  <li>Chatterji, A., Cunningham, T., Deming, D., Hitzig, Z., Ong, C., Shan, C., Wadman, K. <em>How People Use ChatGPT</em>. NBER Working Paper w34255. Sept 2025. <a href="https://www.nber.org/papers/w34255">nber.org</a> · <a href="https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf">PDF</a></li>
+  <li>Anthropic. <em>Economic Index — January 2026 Report</em>. <a href="https://www.anthropic.com/research/anthropic-economic-index-january-2026-report">link</a></li>
+</ol>
+
+<h3 style="border-left-color: var(--text-mute); color: var(--text-dim);">批判与方法论</h3>
+<ol start="20">
+  <li>Berkeley RDI. <em>How We Broke Top AI Agent Benchmarks</em>. <a href="https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/">rdi.berkeley.edu</a></li>
+  <li>SWE-Bench Pro. <a href="https://arxiv.org/abs/2509.16941">arXiv:2509.16941</a></li>
+  <li><em>Beyond Accuracy: Enterprise Agentic AI Evaluation Framework</em>. <a href="https://arxiv.org/abs/2511.14136">arXiv:2511.14136</a></li>
+</ol>
+
+</div>
+
+<p style="margin-top: 40px; font-size: 11px; color: var(--text-mute); text-align: center;">
+— 文档 17 终 — 下一篇：<code>18_REDDUST_BENCHMARK_REDESIGN_CN.html</code> 三轴对齐设计方案 —
+</p>
+
+</main>
+</div>
+</body>
+</html>

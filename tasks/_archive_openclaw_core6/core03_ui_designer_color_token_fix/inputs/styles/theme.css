@@ -1,0 +1,103 @@
+/* Theme CSS — contains hardcoded colors that need to be replaced with design tokens */
+/* Design tokens are available as CSS custom properties defined in :root */
+
+:root {
+  --color-primary-500: #5867ff;
+  --color-primary-600: #4554e6;
+  --color-primary-700: #3341cc;
+  --color-neutral-50: #f8f9fa;
+  --color-neutral-100: #e9ecef;
+  --color-neutral-200: #dee2e6;
+  --color-neutral-700: #495057;
+  --color-neutral-900: #212529;
+  --color-danger-500: #dc3545;
+  --color-danger-600: #c82333;
+  --color-success-500: #28a745;
+  --color-warning-50: #fff8e1;
+  --color-warning-500: #ffc107;
+  --color-warning-700: #f9a825;
+  --color-surface-page: var(--color-neutral-50);
+  --color-surface-card: #ffffff;
+  --color-surface-warning: var(--color-warning-50);
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* BUG: The following rules use hardcoded colors instead of design tokens */
+
+.page-header {
+  background-color: #f8f9fa;  /* BUG: should be var(--color-neutral-50) */
+  color: #212529;              /* BUG: should be var(--color-neutral-900) */
+  padding: 16px 24px;          /* BUG: should use spacing tokens */
+  border-bottom: 1px solid #e9ecef;  /* BUG: should be var(--color-neutral-100) */
+}
+
+.primary-button {
+  background-color: #5867ff;   /* BUG: should be var(--color-primary-500) */
+  color: #ffffff;               /* BUG: should be var(--color-surface-card) */
+  border: none;
+  padding: 8px 16px;           /* BUG: should use spacing tokens */
+  border-radius: 8px;           /* BUG: should be var(--radius-md) */
+}
+
+.primary-button:hover {
+  background-color: #4554e6;   /* BUG: should be var(--color-primary-600) */
+}
+
+.danger-button {
+  background-color: #dc3545;   /* BUG: should be var(--color-danger-500) */
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.danger-button:hover {
+  background-color: #c82333;   /* BUG: should be var(--color-danger-600) */
+}
+
+.warning-banner {
+  background-color: #fff8e1;   /* BUG: should be var(--color-warning-50) or var(--color-surface-warning) */
+  color: #f9a825;              /* BUG: should be var(--color-warning-700) */
+  border: 1px solid #ffc107;   /* BUG: should be var(--color-warning-500) */
+  padding: 16px;
+  border-radius: 4px;           /* BUG: should be var(--radius-sm) */
+}
+
+.card {
+  background-color: #ffffff;    /* BUG: should be var(--color-surface-card) */
+  border: 1px solid #dee2e6;   /* BUG: should be var(--color-neutral-200) */
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card-title {
+  color: #212529;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.card-body {
+  color: #495057;              /* BUG: should be var(--color-neutral-700) */
+  font-size: 14px;
+}
+
+.success-message {
+  background-color: rgb(40, 167, 69);  /* BUG: rgb() not allowed, should be var(--color-success-500) */
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.footer {
+  background-color: #212529;
+  color: rgba(255, 255, 255, 0.8);  /* BUG: rgba() not allowed */
+  padding: 24px 32px;
+  margin-top: 48px;
+}

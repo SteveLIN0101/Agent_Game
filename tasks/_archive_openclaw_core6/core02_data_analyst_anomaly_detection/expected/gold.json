@@ -1,0 +1,8 @@
+{
+  "Q1": 45.5,
+  "Q3": 178.25,
+  "IQR": 132.75,
+  "lower_bound": -153.63,
+  "upper_bound": 377.38,
+  "outlier_count": 7
+}

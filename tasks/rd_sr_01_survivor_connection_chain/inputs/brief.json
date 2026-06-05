@@ -1,0 +1,19 @@
+{
+  "goal": "通过共同协作记录找出最短人脉链。",
+  "available_tools": [
+    "search_sources",
+    "read_local_data",
+    "cross_check",
+    "write_conclusion"
+  ],
+  "critical_beats_for_replay": [
+    "查 A",
+    "扩合作人",
+    "BFS",
+    "找 B",
+    "画关系链"
+  ],
+  "scenario": "AURA 需要找到能间接联系上救援队的人，只知道两名幸存者档案。",
+  "grader": "最短链正确；链上每段有证据；输出可视关系图。",
+  "family": "search"
+}

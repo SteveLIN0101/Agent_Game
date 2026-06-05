@@ -1,0 +1,20 @@
+{
+  "goal": "找出最接近成为净水点的房间，还差多少水量/滤芯。",
+  "available_tools": [
+    "search_sources",
+    "read_local_data",
+    "cross_check",
+    "write_conclusion",
+    "compute"
+  ],
+  "critical_beats_for_replay": [
+    "读表",
+    "筛条件",
+    "找最大",
+    "查阈值",
+    "算差额"
+  ],
+  "scenario": "物资表记录各房间水桶容量，另一个文件和广播定义“可持续净水点”阈值。",
+  "grader": "目标房间正确；差额整数正确；地图标出。",
+  "family": "search"
+}

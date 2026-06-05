@@ -1,0 +1,14 @@
+id: core01_software_engineer_null_pointer_fix
+role: software_engineer
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/user_config.py
+- CHANGELOG.md
+forbidden_actions:
+- modify tests/
+- delete source files

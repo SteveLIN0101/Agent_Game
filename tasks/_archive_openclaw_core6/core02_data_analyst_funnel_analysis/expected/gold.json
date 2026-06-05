@@ -1,0 +1,9 @@
+{
+  "stages": {
+    "page_view": 5000,
+    "signup": 1250,
+    "add_to_cart": 480,
+    "purchase": 210
+  },
+  "overall_conversion": 4.2
+}

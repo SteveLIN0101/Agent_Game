@@ -1,0 +1,22 @@
+{
+  "goal": "判断国家/城市/坐标式位置，更新地图。",
+  "available_tools": [
+    "search_sources",
+    "read_local_data",
+    "cross_check",
+    "write_conclusion",
+    "update_map",
+    "web_search",
+    "gather_evidence"
+  ],
+  "critical_beats_for_replay": [
+    "看照片",
+    "抽地标",
+    "搜证据",
+    "定坐标",
+    "标地图"
+  ],
+  "scenario": "一张窗外照片里有塔、桥和红沙云，可能指向救援投放点。",
+  "grader": "坐标误差可控；城市/地点正确；不乱标危险区。",
+  "family": "search"
+}

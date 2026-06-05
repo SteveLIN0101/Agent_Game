@@ -1,0 +1,11 @@
+product_id,product_name,category,unit_price
+P001,Enterprise Suite,Software,999.0
+P002,Pro License,Software,499.0
+P003,Starter Pack,Software,99.0
+P004,Consulting Day,Services,1500.0
+P005,Support Plan,Services,299.0
+P006,Training Session,Services,799.0
+P007,Data Migration,Services,2499.0
+P008,Basic Hosting,Infrastructure,49.0
+P009,Premium Hosting,Infrastructure,199.0
+P010,SSL Certificate,Infrastructure,79.0

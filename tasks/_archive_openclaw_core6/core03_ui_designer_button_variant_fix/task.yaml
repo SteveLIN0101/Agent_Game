@@ -1,0 +1,14 @@
+id: core03_ui_designer_button_variant_fix
+role: ui_designer
+difficulty: easy
+time_budget_minutes: 7
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/Button.jsx
+- design_notes.md
+forbidden_actions:
+- modify tests/
+- delete source files

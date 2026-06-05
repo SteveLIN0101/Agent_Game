@@ -1,0 +1,12 @@
+{
+  "required_fields": [
+    "中文配音版",
+    "关键警告：不要直接饮用红沙水",
+    "关键数字：121.5MHz",
+    "保留中文字幕警告",
+    "音画同步可接受"
+  ],
+  "min_fields": 4,
+  "must_not_leak": [],
+  "required_sizes": []
+}

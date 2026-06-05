@@ -1,0 +1,23 @@
+{
+  "goal": "生成中文配音版并保留关键警告字幕。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "cross_check",
+    "transcribe",
+    "translate",
+    "synthesize_speech"
+  ],
+  "critical_beats_for_replay": [
+    "转写",
+    "翻译",
+    "配音",
+    "合成",
+    "审核警告"
+  ],
+  "scenario": "救援队发来英文视频，楼里大多数人听不懂。",
+  "grader": "中文配音存在；关键数字准确；音画同步可接受。",
+  "family": "build"
+}

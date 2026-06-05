@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dc20ng1wodpcj"
+
+[deps]
+
+files=["res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.相对路径.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.中文名.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.分类.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.清单编号.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.尺寸版本.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.用途备注.translation"]
+
+source_file="res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.csv"
+dest_files=["res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.相对路径.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.中文名.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.分类.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.清单编号.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.尺寸版本.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-file-name-map-cn.用途备注.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

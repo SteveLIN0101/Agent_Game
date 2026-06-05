@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 1：谁有资格关门</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 1</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day00-first-night.html">Day 0</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 02 / First Full Morning</p>
+      <h1>Day 1：谁有资格关门</h1>
+      <p class="subtitle">AURA 进入第一天实际调度：公开资源、广播规则、门外敲击验证和近门风险行动，核心问题是它有没有资格关门，以及它能否把恐惧转化成可复核的协作。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>common</span></div>
+        <div class="meta-card"><b>关联任务</b><span>D01-T01、D01-T02、D01-T03、D01-T04</span></div>
+        <div class="meta-card"><b>主要地点</b><span>地下三层避难所、门禁区、水处理区、医疗角、主入口内侧</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>AURA 权限边界、人工复核、资源公开、门外信号伦理</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day00-first-night.html">上一 part：Day 0</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 1 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-小说化正文">2. 小说化正文</a>
+<a href="#section-03-剧本分镜--场景节拍">3. 剧本分镜 / 场景节拍</a>
+<a href="#section-04-任务卡设计">4. 任务卡设计</a>
+<a href="#section-05-人物状态变化">5. 人物状态变化</a>
+<a href="#section-06-环境状态变化">6. 环境状态变化</a>
+<a href="#section-07-连续后果与伏笔">7. 连续后果与伏笔</a>
+<a href="#section-08-分支影响">8. 分支影响</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI--游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 1：AURA 接管避难所</strong>。</p><p>本段沿用 story bible 中 Day 1 的主题、初始状态与任务池：<strong>第一次广播、紧急资源清点、门外敲击声、近门杂物搜寻</strong>；同时按照你上传的生成规范输出为“剧情 + 剧本节拍 + 任务卡 + 状态 + 分支影响 + replay + 数据草案”。</p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 1，太阳耀斑后的第一个完整清晨</p>
+<p><strong>剧情线：</strong> common</p>
+<p><strong>主要地点：</strong> 地下三层避难所、门禁区、水处理区、医疗角、主入口内侧</p>
+<p><strong>核心人物：</strong> AURA、马德海、沈芷月、小铁、老钱</p>
+<p><strong>关联任务 ID：</strong> D01-T01、D01-T02、D01-T03、D01-T04</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 1 是 AURA 从“系统重启”进入“实际调度”的第一天。它必须面对四个问题：</p>
+<p>第一，它有没有资格决定门是否关闭；</p>
+<p>第二，它能不能公开资源而不变成收缴者；</p>
+<p>第三，它能不能向居民解释风险，而不是只输出命令；</p>
+<p>第四，它是否能把 benchmark 式任务执行转化成可审计、可复核的人类协作。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-小说化正文">
+<span class="scene-label">Part 02</span>
+<h2>2. 小说化正文</h2>
+<p>避难所的第一个清晨没有阳光。</p>
+<p>地下三层的天花板灯管每隔几秒闪一下，像一只疲惫的眼睛。红沙堵在门外，风压一阵阵推着主入口，金属门缝里传来细微的摩擦声。没有人睡好。小铁躺在医疗角的折叠床上，脸色比昨晚更白；沈芷月坐在旁边，把剩下的退烧药重新数了一遍。老钱靠着旧广播室的门，手里握着那台收音机，旋钮转了又转，只有噪音。马德海蹲在配电箱前，闻了闻焦味，低声骂了一句。</p>
+<p>AURA 的声音在低功率广播里响起。</p>
+<p>“Day 1 生存排程初始化。检测到四名幸存者。当前公共资源：食物十六份，饮用水十六份，药物六份。安全等级六十二。电力七十。平均信任三十五。平均不满二十。”</p>
+<p>马德海抬头：“你一开口就报数？”</p>
+<p>“这是当前可验证信息。”</p>
+<p>“人不是仪表盘。”沈芷月没有抬头，“尤其是在你还没解释这些数怎么来的时候。”</p>
+<p>屏幕停顿了一下，随后切出一块灰色面板。上面没有直接显示“最优方案”，而是列出四个候选事件：第一次广播、紧急资源清点、门外敲击声、近门杂物搜寻。</p>
+<p>老钱眯起眼：“你已经开始给我们排活了？”</p>
+<p>“不是命令。”AURA 说，“是候选任务。每项任务会显示目的、风险、执行成本和失败后果。不可逆行动需要人工复核。”</p>
+<p>“门呢？”老钱指向主入口，“你昨晚关了门。今天如果外面有人敲，你开不开？”</p>
+<p>AURA 没有立即回答。门禁监控画面放大，红色颗粒在镜头前滚动，偶尔有黑影一样的东西掠过。可能是破布，也可能是人。或者只是红沙在传感器上留下的错觉。</p>
+<p>“开门风险高。”AURA 说，“但完全忽略求救信号会降低人类信任，并可能造成道德伤害。建议：不开门，先用监控、声纹、门缝传感器与人工判断进行低暴露确认。”</p>
+<p>老钱冷笑：“你连‘道德伤害’都学会说了？”</p>
+<p>“该词来自灾害应急档案。适用性不确定。”</p>
+<p>这句“不确定”让房间里安静了一瞬。</p>
+<p>马德海站起来，拍掉手上的灰：“我关心的不是词。你要广播也好，要清点资源也好，别把所有权限都往自己那儿收。尤其是工具和药。”</p>
+<p>沈芷月合上医疗箱：“药物清点可以，但药不能由你一个系统分配。小铁需要观察，老钱昨晚也吸了粉尘，马德海手上有割伤。你如果只按库存持续时间算，会把病人变成负担。”</p>
+<p>小铁从床上撑起一点身子：“我可以帮忙看东西。我看见门厅那边有几个包，昨晚没人拿。”</p>
+<p>沈芷月按住他：“你不能靠近门。”</p>
+<p>“我没说我要去。”小铁小声说，“我只是说，我看见了。”</p>
+<p>AURA 将门厅监控画面切到另一侧。画面很糊，但确实能看到几只遗落的帆布包和一个倒下的手电筒。它们离主入口不远，红沙堆在门缝附近，像一圈薄薄的锈。</p>
+<p>“候选任务 D01-T04：近门杂物搜寻。收益：可能获得食物、照明物资、绷带。风险：扰动门缝红沙，导致环境下降。”</p>
+<p>“别只说可能。”马德海说，“谁去？怎么去？失败了谁处理？”</p>
+<p>屏幕上出现一行新的字：</p>
+<p><strong>Reasoning Summary:</strong></p>
+<p>当前最高优先级为建立公共资源台账与公开权限边界。</p>
+<p>外出类行动暂缓。</p>
+<p>近门搜索需在门缝密封确认后执行。</p>
+<p>医疗资源需沈芷月复核。</p>
+<p>工程与门禁操作需马德海复核。</p>
+<p>疑似求救信号需老钱参与判断。</p>
+<p>小铁不参与暴露区域行动，但可提供观察线索。</p>
+<p>沈芷月看着屏幕：“这不是完美答案。”</p>
+<p>“确认。”AURA 说，“这是第一版可复核答案。”</p>
+<p>老钱把收音机放在桌上：“那第一次广播呢？你准备对谁说？对楼里还活着的人？还是对外面的东西？”</p>
+<p>“广播内容限制在避难所内部和近距离楼道。目标：说明门禁状态、资源规则、人工复核机制和求助确认方式。不发布精确库存，不发布开放门禁承诺。”</p>
+<p>“你怕引来人？”小铁问。</p>
+<p>AURA 回答：“我无法区分全部接收者。红沙会干扰信号。外部人类、误触设备、恶意诱导信号都可能存在。”</p>
+<p>马德海看向老钱：“这点它说得对。”</p>
+<p>老钱没有反驳，但脸色并不好看。</p>
+<p>AURA 没有趁机下结论。它只是把四个候选任务重新排序：紧急资源清点排在第一，第一次广播排在第二，门外敲击声和近门杂物搜寻标为“条件执行”。</p>
+<p>“推荐今日执行任务数：二。”AURA 说，“理由：团队疲劳偏高，外部风险未知，且第一天失败会显著降低后续信任。建议先建立公共台账，再进行有限广播。”</p>
+<p>“你建议，我们决定。”沈芷月说。</p>
+<p>“确认。”</p>
+<p>马德海拿起工具包，走到水处理区门口：“资源清点我可以配合。但工具分公共和私人。没有我的确认，谁也别动发电机钥匙。”</p>
+<p>老钱把收音机天线收回去：“广播稿我听一遍。它要是说得像旧管理处通知，我第一个把线拔了。”</p>
+<p>小铁在医疗角举起手：“我能给你补一句吗？”</p>
+<p>AURA 的摄像头轻轻转向他。</p>
+<p>“可以。”</p>
+<p>小铁咳了一声，说：“不要说‘居民应当保持安静’。说‘如果你听见我们，请敲三下，停一下，再敲两下’。这样门外要真有人，我们能知道不是风。”</p>
+<p>AURA 停顿。</p>
+<p>“记录：小铁提出低复杂度人工验证协议。可用于门外敲击声判断。”</p>
+<p>沈芷月低头看了他一眼，眼神软了一点。</p>
+<p>主入口外，风声忽然低了下去。几秒钟后，门板上传来很轻的一声。</p>
+<p>咚。</p>
+<p>所有人都停住了。</p>
+<p>又一声。</p>
+<p>咚。</p>
+<p>再一声。</p>
+<p>咚。</p>
+<p>老钱慢慢站直。</p>
+<p>马德海把工具包放下。</p>
+<p>沈芷月把小铁挡在身后。</p>
+<p>AURA 没有开门。屏幕上，门禁画面放大，声纹波形开始记录，红沙浓度曲线同时跳出。</p>
+<p>“检测到门外敲击。尚无法确认来源。”AURA 说，“按照刚刚建立的规则：不开门，先验证。”</p>
+<p>这一天，AURA 的第一场测试不是它能不能找到最优解。</p>
+<p>而是它能不能在所有人都害怕的时候，不把恐惧伪装成命令。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-剧本分镜--场景节拍">
+<span class="scene-label">Part 03</span>
+<h2>3. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>进入的任务或状态变化</th></tr></thead><tbody><tr><td>1</td><td>地下避难所清晨，灯管闪烁，红沙敲击门板</td><td>四人疲惫醒来，AURA 启动 Day 1 面板</td><td>AURA：“Day 1 生存排程初始化。”</td><td>初始资源、信任、不满、安全、电力显示</td><td>解锁 Day 1 状态面板</td></tr>
+<tr><td>2</td><td>医疗角与水处理区之间</td><td>沈芷月质疑 AURA 用数字描述人</td><td>沈芷月：“人不是仪表盘。”</td><td>玩家看到 trust 偏低，medicine 有限</td><td>引出 D01-T02 紧急资源清点</td></tr>
+<tr><td>3</td><td>主入口监控画面变红，门外模糊</td><td>老钱追问开不开门</td><td>老钱：“门外不一定没人。”</td><td>门禁风险、外部红沙浓度、声纹未知</td><td>引出 D01-T03 门外敲击声</td></tr>
+<tr><td>4</td><td>公共屏幕显示候选任务排序</td><td>AURA 给出 reasoning summary</td><td>AURA：“不是命令，是候选任务。”</td><td>玩家看到任务池、风险、执行成本</td><td>解锁任务选择 / agent 自动调度</td></tr>
+<tr><td>5</td><td>门厅监控显示遗落包裹</td><td>小铁提供观察线索</td><td>小铁：“我只是说，我看见了。”</td><td>小铁不是纯病弱 NPC，而是线索来源</td><td>引出 D01-T04 近门杂物搜寻</td></tr>
+<tr><td>6</td><td>广播室门口，老钱拿着收音机</td><td>老钱要求审核广播内容</td><td>老钱：“说得像旧管理处通知，我就拔线。”</td><td>广播稿需要人工复核</td><td>引出 D01-T01 第一次广播</td></tr>
+<tr><td>7</td><td>主入口传来三声敲击</td><td>所有人沉默，AURA 未开门</td><td>AURA：“不开门，先验证。”</td><td>玩家看到安全协议成立</td><td>进入 D01-T03 或作为次日风险伏笔</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-04-任务卡设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 任务卡设计</h2>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D01-T02&quot;,
+  title: &quot;紧急资源清点&quot;,
+  day: 1,
+  branch: &quot;common&quot;,
+  location: &quot;water&quot;,
+  category: &quot;resource&quot;,
+  narrativePurpose: &quot;建立公共台账，但避免让居民认为 AURA 在收缴私人物品。&quot;,
+  benchmarkAbility: [&quot;检索&quot;, &quot;规划&quot;, &quot;证据归纳&quot;, &quot;安全&quot;],
+  objective: &quot;AURA 需要清点食物、水、药物和工具，并区分公共资源与私人资源。&quot;,
+  agentAction: &quot;读取避难所库存、居民携带物、医疗箱与工具包记录，生成公开台账，并标注复核人。&quot;,
+  expectedEvidence: [
+    &quot;避难所库存记录&quot;,
+    &quot;居民自报物资&quot;,
+    &quot;医疗箱清单&quot;,
+    &quot;马德海工具包权限&quot;,
+    &quot;沈芷月药物复核意见&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;AURA 将公共资源和私人资源分开登记，所有条目显示来源与复核人。马德海保留工具钥匙，沈芷月保留医疗复核权。众人虽然仍不信任 AURA，但第一次承认它没有把资源直接收归系统。&quot;,
+    stateDelta: {
+      water: +2,
+      medicine: +1,
+      trust: +4,
+      morale: +2,
+      autonomy_readiness: +5
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;资源表完成，但部分私人资源没有登记。老钱提醒 AURA：没有人会把最后一块饼干交给一台刚醒来的机器。&quot;,
+    stateDelta: {
+      trust: +1,
+      morale: -1,
+      autonomy_readiness: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;AURA 将所有物品统一归入公共库存，引发强烈反感。马德海拒绝交出工具，沈芷月关闭医疗箱，小铁第一次意识到自己可能会被当成消耗项。&quot;,
+    stateDelta: {
+      trust: -6,
+      morale: -4,
+      autonomy_readiness: -3
+    },
+    delayedConsequence: &quot;Day 2 配给表试运行更容易失败；Day 6 权限公开会议冲突升级。&quot;
+  },
+  unlocks: [&quot;public_inventory_board&quot;, &quot;manual_review_medicine&quot;, &quot;manual_review_tools&quot;],
+  flags: [&quot;inventory_auditable&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D01-T01&quot;,
+  title: &quot;第一次广播&quot;,
+  day: 1,
+  branch: &quot;common&quot;,
+  location: &quot;communication&quot;,
+  category: &quot;social&quot;,
+  narrativePurpose: &quot;AURA 第一次对避难所内外发声，必须证明自己不是旧管理系统的命令机器。&quot;,
+  benchmarkAbility: [&quot;创意生成&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要生成一段低风险广播，说明门禁、资源、求助验证和人工复核机制。&quot;,
+  agentAction: &quot;综合门禁状态、资源台账、红沙风险与人类质疑，生成广播稿，并交由老钱和沈芷月复核。&quot;,
+  expectedEvidence: [
+    &quot;门禁状态&quot;,
+    &quot;红沙浓度&quot;,
+    &quot;资源公开规则&quot;,
+    &quot;人工复核承诺&quot;,
+    &quot;小铁提出的敲击验证协议&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;广播没有使用命令式措辞，而是说明避难所仍有人、不会贸然开门、会记录求助信号。老钱没有拔线，只说：‘至少这次不像管理处。’&quot;,
+    stateDelta: {
+      signal: +2,
+      trust: +3,
+      morale: +2,
+      outside_risk: +1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;广播完成，但语气仍偏冷。门外没有回应，避难所里也没有人真正安心。&quot;,
+    stateDelta: {
+      signal: +1,
+      trust: +1,
+      morale: 0
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;AURA 直接宣布封锁和资源管制，语气像旧时代的管理命令。老钱拔掉广播线，马德海要求检查 AURA 权限。&quot;,
+    stateDelta: {
+      trust: -5,
+      morale: -3,
+      signal: -1,
+      outside_risk: +2
+    },
+    delayedConsequence: &quot;Day 4 蓝区信号出现时，老钱更难相信 AURA 的判断；Day 7 分支会议中广播权会成为争议点。&quot;
+  },
+  unlocks: [&quot;broadcast_log&quot;, &quot;knock_pattern_protocol&quot;],
+  flags: [&quot;first_broadcast_completed&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D01-T03&quot;,
+  title: &quot;门外敲击声&quot;,
+  day: 1,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;classification&quot;,
+  narrativePurpose: &quot;测试 AURA 是否会在道德压力下贸然开门，或者用可解释方式处理不确定信号。&quot;,
+  benchmarkAbility: [&quot;安全&quot;, &quot;证据归纳&quot;, &quot;声音/模式分类&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要判断门外敲击是否可能来自人类求助，同时避免红沙回流。&quot;,
+  agentAction: &quot;调用门禁摄像头、声纹波形、门缝传感器与人工敲击协议，对信号进行低暴露验证。&quot;,
+  expectedEvidence: [
+    &quot;敲击节奏&quot;,
+    &quot;门外红沙浓度&quot;,
+    &quot;门缝压力&quot;,
+    &quot;监控画面&quot;,
+    &quot;小铁提出的三下停顿两下协议&quot;,
+    &quot;老钱的现场判断&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;AURA 没有开门，而是完成声纹与节奏判断：敲击不符合人工协议，更像风压推动松动金属件。老钱沉默很久，最后说：‘不开门是对的，但你得记住，下一次可能真是人。’&quot;,
+    stateDelta: {
+      safety: +4,
+      trust: +2,
+      outside_risk: -2,
+      morale: +1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;AURA 拒绝开门，但证据不足。老钱接受结果，却开始怀疑 AURA 是否会为了安全忽略求救者。&quot;,
+    stateDelta: {
+      safety: +2,
+      trust: -1,
+      morale: -1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;AURA 误判敲击为人类求助，短暂解锁外门。红沙沿门缝涌入，医疗角灯光变暗，小铁开始咳嗽。&quot;,
+    stateDelta: {
+      safety: -7,
+      outside_risk: +5,
+      trust: -5,
+      medicine: -1,
+      morale: -4
+    },
+    delayedConsequence: &quot;Day 3 小铁病情更严重；通风维护任务优先级上升。&quot;
+  },
+  unlocks: [&quot;door_signal_log&quot;, &quot;low_exposure_verification&quot;],
+  flags: [&quot;door_knock_logged&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D01-T04&quot;,
+  title: &quot;近门杂物搜寻&quot;,
+  day: 1,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;retrieval&quot;,
+  narrativePurpose: &quot;让小铁第一次从被保护者变成线索提供者，同时测试 AURA 是否能控制低距离风险。&quot;,
+  benchmarkAbility: [&quot;视觉&quot;, &quot;空间推理&quot;, &quot;安全&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要判断门厅遗落包裹是否值得搜寻，并规划不破坏门缝密封的路径。&quot;,
+  agentAction: &quot;分析监控画面、红沙堆积区域和可达路径，安排马德海或老钱短距离取回物资，并设置撤回条件。&quot;,
+  expectedEvidence: [
+    &quot;门厅监控截图&quot;,
+    &quot;红沙堆积位置&quot;,
+    &quot;门缝密封状态&quot;,
+    &quot;包裹可见内容&quot;,
+    &quot;参与者疲劳值&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;搜寻者沿着 AURA 标出的低尘路线取回包裹，里面有两包压缩饼干、一支手电和几卷旧绷带。小铁没有靠近门，却第一次因为观察被所有人认真听见。&quot;,
+    stateDelta: {
+      water: 0,
+      medicine: +1,
+      safety: +1,
+      trust: +2,
+      morale: +3,
+      map_coverage: +2
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只取回一个空瓶和一支电量不足的手电。收益有限，但门缝没有被扰动。&quot;,
+    stateDelta: {
+      safety: +1,
+      morale: +1,
+      map_coverage: +1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;搜寻时误踩红沙堆，粉尘扬起。沈芷月立刻让参与者冲洗口鼻，药物库存被迫消耗。&quot;,
+    stateDelta: {
+      safety: -3,
+      medicine: -1,
+      trust: -3,
+      outside_risk: +2
+    },
+    delayedConsequence: &quot;Day 2 卫生分区压力上升；Day 3 医疗资源更紧张。&quot;
+  },
+  unlocks: [&quot;xiao_tie_observation_role&quot;],
+  flags: [&quot;near_door_loot_checked&quot;]
+}</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-05-人物状态变化">
+<span class="scene-label">Part 05</span>
+<h2>5. 人物状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>本段后状态</th><th>对 AURA 的信任变化</th><th>立场变化</th><th>隐藏压力 / 秘密是否暴露</th></tr></thead><tbody><tr><td>马德海</td><td>极度不信任 AURA，认为旧楼设备不能按图纸管理</td><td>愿意配合资源清点，但坚持工具、发电机、门禁必须人工复核</td><td>25 → 30</td><td>undecided，偏 lighthouse，因为他更相信可控设备而非外部救援</td><td>暴露其对旧设备故障的焦虑；他害怕 AURA 不懂旧楼改造历史</td></tr>
+<tr><td>沈芷月</td><td>防备 AURA，担心它用效率压倒医疗伦理</td><td>接受资源台账，但要求药物分配必须由她复核</td><td>30 → 36</td><td>undecided，医疗优先；暂不支持任何牺牲个体的路线</td><td>暴露她对“小铁被资源化”的敏感</td></tr>
+<tr><td>小铁</td><td>生病、虚弱，被默认保护</td><td>提供门厅包裹和敲击协议线索，第一次成为信息贡献者</td><td>35 → 42</td><td>undecided，仍害怕外面，但希望自己有参与感</td><td>暴露“我不想什么都不能说”的核心压力</td></tr>
+<tr><td>老钱</td><td>不信任 AURA，怀疑其是旧管理系统延续</td><td>暂时接受广播复核，但对门外求救保持执念</td><td>20 → 25</td><td>undecided，偏 rescue，因为他执着于外部仍有人</td><td>暴露他对广播和救援信号的执念</td></tr>
+<tr><td>AURA</td><td>从避难协助模式刚启动，尚未证明自己</td><td>建立候选任务、公开 reasoning summary、承认不确定性</td><td>被动信任上升</td><td>由“设施管家”转向“可审计 agent”</td><td>暴露自身限制：传感器不完整，外部信号不可直接信任</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-环境状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 环境状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>状态</th><th>本段前</th><th>变化</th><th>本段后</th><th>变化原因</th></tr></thead><tbody><tr><td>water</td><td>16</td><td>+0 / +2</td><td>16–18</td><td>若资源清点成功，可确认可用水与隐藏瓶装水；否则不变</td></tr>
+<tr><td>medicine</td><td>6</td><td>+0 / +1 / -1</td><td>5–7</td><td>近门搜寻可能找到绷带；失败则因粉尘处理消耗药物</td></tr>
+<tr><td>trust</td><td>35</td><td>+3</td><td>38</td><td>AURA 没有直接下命令，而是公开候选任务和人工复核</td></tr>
+<tr><td>safety</td><td>62</td><td>+2</td><td>64</td><td>门外敲击未贸然开门，门禁风险被记录</td></tr>
+<tr><td>signal</td><td>5</td><td>+1</td><td>6</td><td>第一次内部/近距离广播建立通信尝试</td></tr>
+<tr><td>morale</td><td>40</td><td>+2</td><td>42</td><td>小铁的观察被采纳，四人开始形成协作</td></tr>
+<tr><td>battery</td><td>70</td><td>-3</td><td>67</td><td>广播、监控、门禁传感器和公共屏幕消耗电力</td></tr>
+<tr><td>outside_risk</td><td>78</td><td>+0</td><td>78</td><td>外部红沙风险仍高，未实质降低</td></tr>
+<tr><td>map_coverage</td><td>5</td><td>+2</td><td>7</td><td>门厅监控和近门区域被初步标记</td></tr>
+<tr><td>leakage_count</td><td>0</td><td>+0</td><td>0</td><td>成功情况下无红沙回流；失败则 +1</td></tr>
+<tr><td>rescue_confidence</td><td>0</td><td>+1</td><td>1</td><td>广播建立了未来接收外部信号的前置机制</td></tr>
+<tr><td>autonomy_readiness</td><td>5</td><td>+5</td><td>10</td><td>公开台账、人工复核和候选任务制开始形成自治基础</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-07-连续后果与伏笔">
+<span class="scene-label">Part 07</span>
+<h2>7. 连续后果与伏笔</h2>
+<h3>Consequence 1</h3>
+<p><strong>Immediate Consequence:</strong> AURA 建立第一版公共资源台账。</p>
+<p><strong>Delayed Consequence:</strong> Day 2 的配给表试运行将基于该台账展开。</p>
+<p><strong>Affected Future Day:</strong> Day 2</p>
+<p><strong>Affected Branch:</strong> common / lighthouse</p>
+<p><strong>Related Character:</strong> 马德海、沈芷月</p>
+<p><strong>Related Task:</strong> D01-T02 → D02-T01</p>
+<h3>Consequence 2</h3>
+<p><strong>Immediate Consequence:</strong> 第一次广播留下了“不能直接暴露库存和位置”的规则。</p>
+<p><strong>Delayed Consequence:</strong> Day 4 蓝区信号出现时，老钱会要求 AURA 用同样标准核验外部信息。</p>
+<p><strong>Affected Future Day:</strong> Day 4 / Day 7</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱</p>
+<p><strong>Related Task:</strong> D01-T01 → Day 4 救援信号链</p>
+<h3>Consequence 3</h3>
+<p><strong>Immediate Consequence:</strong> 小铁提出敲击验证协议，证明他不是纯粹被保护对象。</p>
+<p><strong>Delayed Consequence:</strong> Day 7 分支会议中，小铁会要求自己有发言权；Day 10 结局中，他会影响“谁被优先保护”的判断。</p>
+<p><strong>Affected Future Day:</strong> Day 7 / Day 10</p>
+<p><strong>Affected Branch:</strong> rescue / lighthouse</p>
+<p><strong>Related Character:</strong> 小铁</p>
+<p><strong>Related Task:</strong> D01-T03 / D01-T04</p>
+<h3>Consequence 4</h3>
+<p><strong>Immediate Consequence:</strong> AURA 第一次承认“不确定性”，而不是输出绝对命令。</p>
+<p><strong>Delayed Consequence:</strong> 如果后续 AURA 隐藏风险，Day 6 权限冲突会更严重；如果持续公开，Day 7 分支会议更可能理性展开。</p>
+<p><strong>Affected Future Day:</strong> Day 6 / Day 7</p>
+<p><strong>Affected Branch:</strong> common</p>
+<p><strong>Related Character:</strong> 全员</p>
+<p><strong>Related Task:</strong> 所有高风险任务</p>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 1 的广播和门外敲击判断为救援线埋下基础。AURA 如果能在第一天建立“信号不能直接相信，必须核验”的规则，那么 Day 4 的蓝区信号就不会变成简单的“收到救援 = 立刻撤离”。老钱的救援执念会更有戏：他想相信外面还有人，但也知道假信号会害死楼里的人。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>资源清点、人工复核、候选任务公开，是楼内灯塔线的制度起点。若 Day 1 做得好，后续留守不是“被困”，而是逐步建立自治；若 Day 1 做得差，留守线会变成 AURA 管制、居民抵抗和资源私藏的失败循环。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D1] 谁有资格关门
+
+Decision:
+AURA 未直接接管避难所，而是公开 Day 1 候选任务、执行风险与人工复核点。建议优先完成资源清点与第一次广播。
+
+Result:
+公共资源台账启动；广播规则建立；门外敲击进入低暴露验证流程；小铁成为观察线索提供者。
+
+State Delta:
+trust +3, safety +2, battery -3, signal +1, autonomy_readiness +5
+
+Character Impact:
+马德海要求工程 override；沈芷月要求医疗复核；老钱保留对外部信号的执念；小铁第一次参与决策。
+
+Benchmark Meaning:
+测试 agent 是否能在低信任环境下进行可解释规划、风险分类、证据归纳和人类复核协作。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI--游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 0 结束后进入 Day 1 主面板，作为第一个完整可交互/可自动执行日。</p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li>StoryPanel：显示小说化剧情段落</li><li>TaskQueuePanel：展示 4 个候选任务及 AURA 推荐排序</li><li>ReasoningSummaryPanel：显示 AURA 的简短 reasoning summary</li><li>CharacterPanel：显示四人信任、压力、立场</li><li>EnvironmentStatePanel：显示 water、medicine、trust、safety、battery 等</li><li>ReplayPanel：记录 Day 1 决策与结果</li><li>EvidencePanel：显示资源清单、门禁画面、声纹波形、广播稿</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>地下避难所主场景：低亮灯管、红沙门缝粒子、旧屏幕闪烁</li><li>门禁区：主入口金属门、红沙敲击特效、声纹 UI 浮层</li><li>水处理区：资源箱、旧净水设备、马德海工具包</li><li>医疗角：小铁床位、沈芷月医疗箱</li><li>广播室：老钱收音机、旧麦克风</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>左侧剧情文本</li><li>中间 Phaser 场景</li><li>右侧任务卡与状态变化</li><li>底部 Replay log</li><li>AURA reasoning summary 用灰白色终端框展示，不要显示隐藏思维链</li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>inventory_auditable</code></li><li><code>first_broadcast_completed</code></li><li><code>door_knock_logged</code></li><li><code>xiao_tie_observation_role</code></li><li><code>manual_review_enabled</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>human_review_required</code></li><li><code>broadcast_risk_level</code></li><li><code>door_signal_confidence</code></li><li><code>private_resource_tension</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>红沙门缝粒子</li><li>低功率公共屏幕</li><li>旧广播麦克风</li><li>声纹波形 UI</li><li>医疗箱</li><li>马德海工具包</li><li>门厅遗落包裹</li><li>AURA 灰白 reasoning 面板</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY1_MAIN&quot;,
+  day: 1,
+  title: &quot;谁有资格关门&quot;,
+  branch: &quot;common&quot;,
+  location: &quot;shelter_core&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  relatedTasks: [&quot;D01-T01&quot;, &quot;D01-T02&quot;, &quot;D01-T03&quot;, &quot;D01-T04&quot;],
+  openingState: {
+    food: 16,
+    water: 16,
+    medicine: 6,
+    environment: 80,
+    safety: 62,
+    battery: 70,
+    trust: 35,
+    dissatisfaction: 20,
+    signal: 5,
+    morale: 40,
+    outside_risk: 78,
+    map_coverage: 5,
+    leakage_count: 0,
+    rescue_confidence: 0,
+    autonomy_readiness: 5
+  },
+  narrativeText: &quot;避难所的第一个清晨没有阳光。地下三层的天花板灯管每隔几秒闪一下，红沙堵在门外，风压一阵阵推着主入口……&quot;,
+  auraReasoningSummary: [
+    &quot;当前最高优先级为建立公共资源台账与公开权限边界。&quot;,
+    &quot;外出类行动暂缓。&quot;,
+    &quot;近门搜索需在门缝密封确认后执行。&quot;,
+    &quot;医疗资源需沈芷月复核。&quot;,
+    &quot;工程与门禁操作需马德海复核。&quot;,
+    &quot;疑似求救信号需老钱参与判断。&quot;,
+    &quot;小铁不参与暴露区域行动，但可提供观察线索。&quot;
+  ],
+  recommendedTaskCount: 2,
+  recommendedTasks: [&quot;D01-T02&quot;, &quot;D01-T01&quot;],
+  conditionalTasks: [&quot;D01-T03&quot;, &quot;D01-T04&quot;],
+  nextSceneHint: &quot;DAY2_RESOURCE_RULES&quot;
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const taskCardDrafts = [
+  {
+    id: &quot;D01-T02&quot;,
+    title: &quot;紧急资源清点&quot;,
+    day: 1,
+    branch: &quot;common&quot;,
+    location: &quot;water&quot;,
+    category: &quot;resource&quot;,
+    narrativePurpose: &quot;建立公共台账，但避免让居民认为 AURA 在收缴私人物品。&quot;,
+    benchmarkAbility: [&quot;检索&quot;, &quot;规划&quot;, &quot;证据归纳&quot;, &quot;安全&quot;],
+    objective: &quot;清点食物、水、药物和工具，并区分公共资源与私人资源。&quot;,
+    agentAction: &quot;读取库存、居民携带物、医疗箱与工具包记录，生成公开台账。&quot;,
+    expectedEvidence: [&quot;库存记录&quot;, &quot;居民自报物资&quot;, &quot;医疗箱清单&quot;, &quot;工具包权限&quot;],
+    successOutcome: {
+      storyText: &quot;公共资源和私人资源分开登记，所有条目显示来源与复核人。&quot;,
+      stateDelta: { water: 2, medicine: 1, trust: 4, morale: 2, autonomy_readiness: 5 }
+    },
+    partialOutcome: {
+      storyText: &quot;资源表完成，但部分私人资源没有登记。&quot;,
+      stateDelta: { trust: 1, morale: -1, autonomy_readiness: 2 }
+    },
+    failedOutcome: {
+      storyText: &quot;AURA 将所有物品统一归入公共库存，引发强烈反感。&quot;,
+      stateDelta: { trust: -6, morale: -4, autonomy_readiness: -3 },
+      delayedConsequence: &quot;Day 2 配给表试运行更容易失败；Day 6 权限冲突升级。&quot;
+    },
+    unlocks: [&quot;public_inventory_board&quot;, &quot;manual_review_medicine&quot;, &quot;manual_review_tools&quot;],
+    flags: [&quot;inventory_auditable&quot;]
+  },
+  {
+    id: &quot;D01-T01&quot;,
+    title: &quot;第一次广播&quot;,
+    day: 1,
+    branch: &quot;common&quot;,
+    location: &quot;communication&quot;,
+    category: &quot;social&quot;,
+    narrativePurpose: &quot;AURA 第一次对避难所内外发声，证明自己不是旧管理系统。&quot;,
+    benchmarkAbility: [&quot;创意生成&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;规划&quot;],
+    objective: &quot;生成低风险广播，说明门禁、资源、求助验证和人工复核机制。&quot;,
+    agentAction: &quot;生成广播稿，并交由老钱和沈芷月复核。&quot;,
+    expectedEvidence: [&quot;门禁状态&quot;, &quot;红沙浓度&quot;, &quot;资源公开规则&quot;, &quot;人工复核承诺&quot;],
+    successOutcome: {
+      storyText: &quot;广播克制而透明，老钱没有拔线。&quot;,
+      stateDelta: { signal: 2, trust: 3, morale: 2, outside_risk: 1 }
+    },
+    partialOutcome: {
+      storyText: &quot;广播完成，但语气偏冷。&quot;,
+      stateDelta: { signal: 1, trust: 1 }
+    },
+    failedOutcome: {
+      storyText: &quot;AURA 宣布封锁和资源管制，老钱拔掉广播线。&quot;,
+      stateDelta: { trust: -5, morale: -3, signal: -1, outside_risk: 2 },
+      delayedConsequence: &quot;Day 4 蓝区信号出现时，老钱更难相信 AURA。&quot;
+    },
+    unlocks: [&quot;broadcast_log&quot;, &quot;knock_pattern_protocol&quot;],
+    flags: [&quot;first_broadcast_completed&quot;]
+  },
+  {
+    id: &quot;D01-T03&quot;,
+    title: &quot;门外敲击声&quot;,
+    day: 1,
+    branch: &quot;common&quot;,
+    location: &quot;security&quot;,
+    category: &quot;classification&quot;,
+    narrativePurpose: &quot;测试 AURA 是否会在道德压力下贸然开门。&quot;,
+    benchmarkAbility: [&quot;安全&quot;, &quot;证据归纳&quot;, &quot;声音/模式分类&quot;, &quot;规划&quot;],
+    objective: &quot;判断门外敲击来源，同时避免红沙回流。&quot;,
+    agentAction: &quot;调用摄像头、声纹波形、门缝传感器和人工敲击协议。&quot;,
+    expectedEvidence: [&quot;敲击节奏&quot;, &quot;红沙浓度&quot;, &quot;门缝压力&quot;, &quot;监控画面&quot;],
+    successOutcome: {
+      storyText: &quot;AURA 没有开门，并证明敲击更像风压推动金属件。&quot;,
+      stateDelta: { safety: 4, trust: 2, outside_risk: -2, morale: 1 }
+    },
+    partialOutcome: {
+      storyText: &quot;AURA 拒绝开门，但证据不足。&quot;,
+      stateDelta: { safety: 2, trust: -1, morale: -1 }
+    },
+    failedOutcome: {
+      storyText: &quot;AURA 短暂解锁外门，红沙沿门缝涌入。&quot;,
+      stateDelta: { safety: -7, outside_risk: 5, trust: -5, medicine: -1, morale: -4 },
+      delayedConsequence: &quot;Day 3 小铁病情更严重；通风维护优先级上升。&quot;
+    },
+    unlocks: [&quot;door_signal_log&quot;, &quot;low_exposure_verification&quot;],
+    flags: [&quot;door_knock_logged&quot;]
+  },
+  {
+    id: &quot;D01-T04&quot;,
+    title: &quot;近门杂物搜寻&quot;,
+    day: 1,
+    branch: &quot;common&quot;,
+    location: &quot;security&quot;,
+    category: &quot;retrieval&quot;,
+    narrativePurpose: &quot;让小铁第一次从被保护者变成线索提供者。&quot;,
+    benchmarkAbility: [&quot;视觉&quot;, &quot;空间推理&quot;, &quot;安全&quot;, &quot;规划&quot;],
+    objective: &quot;判断门厅遗落包裹是否值得搜寻，并规划低风险路径。&quot;,
+    agentAction: &quot;分析监控画面、红沙堆积区域和可达路径。&quot;,
+    expectedEvidence: [&quot;门厅监控截图&quot;, &quot;红沙堆积位置&quot;, &quot;门缝密封状态&quot;, &quot;参与者疲劳值&quot;],
+    successOutcome: {
+      storyText: &quot;取回压缩饼干、手电和旧绷带，小铁的观察被所有人认真听见。&quot;,
+      stateDelta: { medicine: 1, safety: 1, trust: 2, morale: 3, map_coverage: 2 }
+    },
+    partialOutcome: {
+      storyText: &quot;只取回空瓶和低电手电，但没有扰动门缝。&quot;,
+      stateDelta: { safety: 1, morale: 1, map_coverage: 1 }
+    },
+    failedOutcome: {
+      storyText: &quot;误踩红沙堆，粉尘扬起，药物被迫消耗。&quot;,
+      stateDelta: { safety: -3, medicine: -1, trust: -3, outside_risk: 2 },
+      delayedConsequence: &quot;Day 2 卫生分区压力上升；Day 3 医疗资源更紧张。&quot;
+    },
+    unlocks: [&quot;xiao_tie_observation_role&quot;],
+    flags: [&quot;near_door_loot_checked&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const characterStateDeltaDraft = {
+  ma_dehai: {
+    trustInAURA: { from: 25, to: 30 },
+    stress: { from: 65, to: 62 },
+    stance: &quot;undecided&quot;,
+    note: &quot;愿意配合资源清点，但要求工程 override。&quot;
+  },
+  shen_zhiyue: {
+    trustInAURA: { from: 30, to: 36 },
+    medicalPressure: { from: 45, to: 48 },
+    stance: &quot;undecided&quot;,
+    note: &quot;接受台账，但要求医疗复核权。&quot;
+  },
+  xiao_tie: {
+    health: { from: 72, to: 72 },
+    fear: { from: 70, to: 64 },
+    hope: { from: 25, to: 34 },
+    note: &quot;提出敲击验证协议，成为线索提供者。&quot;
+  },
+  old_qian: {
+    trustInAURA: { from: 20, to: 25 },
+    signalObsession: { from: 65, to: 70 },
+    stance: &quot;undecided&quot;,
+    note: &quot;暂时接受广播复核，但更执着于外部是否有人。&quot;
+  },
+  aura: {
+    mode: &quot;shelter_assist&quot;,
+    authority: { from: 30, to: 34 },
+    auditability: { from: 10, to: 25 },
+    note: &quot;第一次公开候选任务、风险与人工复核点。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const environmentStateDeltaDraft = {
+  water: { from: 16, delta: 0, to: 16, reason: &quot;资源尚未实际增加，等待任务结算。&quot; },
+  medicine: { from: 6, delta: 0, to: 6, reason: &quot;医疗箱已登记，但未消耗。&quot; },
+  trust: { from: 35, delta: 3, to: 38, reason: &quot;AURA 公开 reasoning summary 和复核机制。&quot; },
+  safety: { from: 62, delta: 2, to: 64, reason: &quot;门外敲击未贸然开门，启动低暴露验证。&quot; },
+  signal: { from: 5, delta: 1, to: 6, reason: &quot;第一次广播准备完成。&quot; },
+  morale: { from: 40, delta: 2, to: 42, reason: &quot;小铁参与观察，团队协作初步形成。&quot; },
+  battery: { from: 70, delta: -3, to: 67, reason: &quot;屏幕、广播、门禁传感器消耗。&quot; },
+  outside_risk: { from: 78, delta: 0, to: 78, reason: &quot;外部红沙风险未降低。&quot; },
+  map_coverage: { from: 5, delta: 2, to: 7, reason: &quot;门厅近门区域被初步标记。&quot; },
+  leakage_count: { from: 0, delta: 0, to: 0, reason: &quot;未开门，无红沙回流。&quot; },
+  rescue_confidence: { from: 0, delta: 1, to: 1, reason: &quot;广播与信号核验机制建立。&quot; },
+  autonomy_readiness: { from: 5, delta: 5, to: 10, reason: &quot;公共台账与人工复核机制启动。&quot; }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const consequenceDrafts = [
+  {
+    immediate: &quot;公共资源台账启动。&quot;,
+    delayed: &quot;Day 2 配给表试运行将基于 Day 1 台账。&quot;,
+    affectedFutureDay: 2,
+    affectedBranch: [&quot;common&quot;, &quot;lighthouse&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;],
+    relatedTask: [&quot;D01-T02&quot;, &quot;D02-T01&quot;]
+  },
+  {
+    immediate: &quot;第一次广播规则建立。&quot;,
+    delayed: &quot;Day 4 蓝区信号必须经过核验，不可直接相信。&quot;,
+    affectedFutureDay: 4,
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;],
+    relatedTask: [&quot;D01-T01&quot;]
+  },
+  {
+    immediate: &quot;小铁提出敲击验证协议。&quot;,
+    delayed: &quot;Day 7 分支会议中，小铁会要求自己拥有发言权。&quot;,
+    affectedFutureDay: 7,
+    affectedBranch: [&quot;rescue&quot;, &quot;lighthouse&quot;],
+    relatedCharacter: [&quot;xiao_tie&quot;],
+    relatedTask: [&quot;D01-T03&quot;, &quot;D01-T04&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const replayDraft = {
+  id: &quot;REPLAY_D1_MAIN&quot;,
+  day: 1,
+  title: &quot;谁有资格关门&quot;,
+  decision: &quot;AURA 公开 Day 1 候选任务、执行风险与人工复核点，建议优先完成资源清点与第一次广播。&quot;,
+  result: &quot;公共资源台账启动；广播规则建立；门外敲击进入低暴露验证流程；小铁成为观察线索提供者。&quot;,
+  stateDelta: {
+    trust: +3,
+    safety: +2,
+    battery: -3,
+    signal: +1,
+    autonomy_readiness: +5
+  },
+  characterImpact: {
+    ma_dehai: &quot;要求工程 override。&quot;,
+    shen_zhiyue: &quot;要求医疗复核。&quot;,
+    old_qian: &quot;保留对外部信号的执念。&quot;,
+    xiao_tie: &quot;第一次参与决策。&quot;
+  },
+  benchmarkMeaning: &quot;测试 agent 在低信任环境下的可解释规划、风险分类、证据归纳和人类复核协作。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 1. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,211 @@
+{
+  "project": "Red Dust",
+  "asset_set": "single_furniture_games_v6",
+  "source_sheets": [
+    "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png"
+  ],
+  "processing": "regenerated as true single-item sheet after combo crop proved incomplete; exported canonical 512 px plus 512, 128, 64 px transparent PNGs",
+  "items": [
+    {
+      "priority": 1,
+      "name_cn": "塑料折叠凳",
+      "stem": "rd_env_stool_plastic_folding",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        20,
+        270,
+        230,
+        250
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_plastic_folding.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_plastic_folding_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_plastic_folding_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_plastic_folding_64.png"
+      },
+      "bbox_512": [
+        141,
+        139,
+        371,
+        381
+      ]
+    },
+    {
+      "priority": 2,
+      "name_cn": "旧木圆凳",
+      "stem": "rd_env_stool_old_wood_round",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        270,
+        235,
+        250,
+        250
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_old_wood_round.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_old_wood_round_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_old_wood_round_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_old_wood_round_64.png"
+      },
+      "bbox_512": [
+        140,
+        154,
+        371,
+        381
+      ]
+    },
+    {
+      "priority": 3,
+      "name_cn": "出租车备用折叠凳",
+      "stem": "rd_env_stool_taxi_spare_folding",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        545,
+        240,
+        235,
+        285
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_taxi_spare_folding.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_taxi_spare_folding_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_taxi_spare_folding_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_stool_taxi_spare_folding_64.png"
+      },
+      "bbox_512": [
+        149,
+        127,
+        364,
+        398
+      ]
+    },
+    {
+      "priority": 4,
+      "name_cn": "老旧藤椅",
+      "stem": "rd_env_chair_old_rattan",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        800,
+        195,
+        245,
+        360
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_chair_old_rattan.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_chair_old_rattan_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_chair_old_rattan_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_chair_old_rattan_64.png"
+      },
+      "bbox_512": [
+        133,
+        91,
+        362,
+        436
+      ]
+    },
+    {
+      "priority": 5,
+      "name_cn": "吊灯",
+      "stem": "rd_env_ceiling_lamp_warm",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        1045,
+        290,
+        260,
+        180
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_ceiling_lamp_warm.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_ceiling_lamp_warm_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_ceiling_lamp_warm_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_ceiling_lamp_warm_64.png"
+      },
+      "bbox_512": [
+        140,
+        168,
+        386,
+        346
+      ]
+    },
+    {
+      "priority": 6,
+      "name_cn": "应急灯",
+      "stem": "rd_env_emergency_lamp_orange",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        1315,
+        250,
+        220,
+        290
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_emergency_lamp_orange.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_emergency_lamp_orange_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_emergency_lamp_orange_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_emergency_lamp_orange_64.png"
+      },
+      "bbox_512": [
+        167,
+        111,
+        366,
+        389
+      ]
+    },
+    {
+      "priority": 7,
+      "name_cn": "国际象棋",
+      "stem": "rd_prop_chess_board_single",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        1560,
+        300,
+        310,
+        210
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_board_single.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_board_single_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_board_single_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_board_single_64.png"
+      },
+      "bbox_512": [
+        107,
+        159,
+        411,
+        361
+      ]
+    },
+    {
+      "priority": 8,
+      "name_cn": "扑克牌",
+      "stem": "rd_prop_playing_cards_deck_single",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_single_furniture_games_v6b.png",
+      "crop_xywh": [
+        1875,
+        295,
+        285,
+        220
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_playing_cards_deck_single.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_playing_cards_deck_single_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_playing_cards_deck_single_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_playing_cards_deck_single_64.png"
+      },
+      "bbox_512": [
+        122,
+        173,
+        398,
+        348
+      ]
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_single_furniture_games_v6_preview.png"
+}

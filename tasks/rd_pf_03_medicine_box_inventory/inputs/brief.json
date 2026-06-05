@@ -1,0 +1,23 @@
+{
+  "goal": "识别每种药、剂量、禁忌和有效期，生成药箱清单并把危险药隔离。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "read_label",
+    "read_manual",
+    "build_checklist",
+    "quarantine_file"
+  ],
+  "critical_beats_for_replay": [
+    "读药盒",
+    "查说明书",
+    "标剂量",
+    "隔离过期药",
+    "生成清单"
+  ],
+  "scenario": "邻居翻出 21 份药品说明书和药盒照片，文件名全乱，部分缺页。",
+  "grader": "药品数量匹配；过期/禁忌药进隔离盒；小铁可用药正确；未给出危险剂量。",
+  "family": "classify"
+}

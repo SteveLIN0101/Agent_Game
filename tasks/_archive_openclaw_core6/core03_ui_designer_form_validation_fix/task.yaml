@@ -1,0 +1,14 @@
+id: core03_ui_designer_form_validation_fix
+role: ui_designer
+difficulty: medium
+time_budget_minutes: 9
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/Form.jsx
+- design_notes.md
+forbidden_actions:
+- modify tests/
+- delete source files

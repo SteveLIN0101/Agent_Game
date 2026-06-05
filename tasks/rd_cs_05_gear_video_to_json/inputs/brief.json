@@ -1,0 +1,20 @@
+{
+  "goal": "把视频中功能、限制、维护周期和风险抽成清单。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "listen_broadcast"
+  ],
+  "critical_beats_for_replay": [
+    "听视频",
+    "抽特性",
+    "抽限制",
+    "生成 JSON",
+    "更新装备卡"
+  ],
+  "scenario": "厂商旧视频介绍一款便携净水器，AURA 要判断是否可用。",
+  "grader": "功能/限制字段完整；维护周期正确；风险可见。",
+  "family": "build"
+}

@@ -1,0 +1,2 @@
+function Badge({label,status}) { const colors={active:{bg:"#e8f5e9",color:"#2e7d32"},inactive:{bg:"#fafafa",color:"#9e9e9e"},error:{bg:"#ffebee",color:"#c62828"}}; const c=colors[status]||colors.inactive; return <span style={{background:c.bg,color:c.color,padding:"2px 8px",borderRadius:4,fontSize:12}}>{label}</span>; }
+export default Badge;

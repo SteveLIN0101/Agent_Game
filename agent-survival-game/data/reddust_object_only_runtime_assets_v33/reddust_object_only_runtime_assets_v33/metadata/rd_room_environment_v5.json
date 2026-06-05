@@ -1,0 +1,209 @@
+{
+  "project": "Red Dust",
+  "asset_set": "room_environment_v5",
+  "source_generator_output": "/Users/yicui/.codex/generated_images/019e1b1f-f341-7202-b266-29ac939df27d/ig_0848c595d9de555b016a032724b154819897cff827331f54b0.png",
+  "source_sheet_copy": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+  "processing": "manual crop plus border-color alpha extraction; exported canonical 512 px plus 512, 128, 64 px transparent PNGs",
+  "items": [
+    {
+      "priority": 1,
+      "name_cn": "米色铁皮储物柜",
+      "stem": "rd_env_storage_cabinet_stocked",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        35,
+        145,
+        390,
+        525
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_storage_cabinet_stocked.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_storage_cabinet_stocked_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_storage_cabinet_stocked_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_storage_cabinet_stocked_64.png"
+      },
+      "bbox_512": [
+        108,
+        34,
+        419,
+        478
+      ]
+    },
+    {
+      "priority": 2,
+      "name_cn": "胶带封窗与沙暴外景",
+      "stem": "rd_env_taped_window_sandstorm",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        435,
+        185,
+        355,
+        470
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_taped_window_sandstorm.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_taped_window_sandstorm_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_taped_window_sandstorm_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_taped_window_sandstorm_64.png"
+      },
+      "bbox_512": [
+        109,
+        35,
+        417,
+        470
+      ]
+    },
+    {
+      "priority": 3,
+      "name_cn": "电扇与排风扇组合",
+      "stem": "rd_env_fan_ventilation_set",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        795,
+        155,
+        285,
+        520
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_fan_ventilation_set.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_fan_ventilation_set_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_fan_ventilation_set_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_fan_ventilation_set_64.png"
+      },
+      "bbox_512": [
+        153,
+        34,
+        353,
+        474
+      ],
+      "split_layers": {
+        "metadata": "/Users/yicui/Documents/New project 2/RedDust/art/metadata/rd_fan_split_layers_v13.json",
+        "purpose": "Use split layers for fan animation; original combined asset remains available as a static fallback.",
+        "rotation_rule": "For each fan, place body layer and blade layer at the same position; rotate blade layer around canvas center [256,256].",
+        "fans": [
+          {
+            "name_cn": "顶部排风扇",
+            "body_stem": "rd_env_exhaust_fan_body_static",
+            "blade_stem": "rd_env_exhaust_fan_blades_rotor",
+            "pivot_512_xy": [
+              256,
+              256
+            ],
+            "body_files": {
+              "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static.png",
+              "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_512.png",
+              "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_128.png",
+              "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_64.png"
+            },
+            "blade_files": {
+              "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor.png",
+              "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_512.png",
+              "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_128.png",
+              "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_64.png"
+            }
+          },
+          {
+            "name_cn": "桌面电扇",
+            "body_stem": "rd_env_table_fan_body_static",
+            "blade_stem": "rd_env_table_fan_blades_rotor",
+            "pivot_512_xy": [
+              256,
+              256
+            ],
+            "body_files": {
+              "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static.png",
+              "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_512.png",
+              "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_128.png",
+              "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_64.png"
+            },
+            "blade_files": {
+              "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor.png",
+              "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_512.png",
+              "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_128.png",
+              "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_64.png"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "priority": 4,
+      "name_cn": "吊灯与应急灯组合",
+      "stem": "rd_env_lamp_emergency_light_pair",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        1090,
+        180,
+        240,
+        500
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_lamp_emergency_light_pair.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_lamp_emergency_light_pair_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_lamp_emergency_light_pair_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_lamp_emergency_light_pair_64.png"
+      },
+      "bbox_512": [
+        149,
+        64,
+        334,
+        454
+      ]
+    },
+    {
+      "priority": 5,
+      "name_cn": "金属档案架",
+      "stem": "rd_env_metal_archive_shelf",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        1330,
+        165,
+        335,
+        505
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_metal_archive_shelf.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_metal_archive_shelf_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_metal_archive_shelf_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_metal_archive_shelf_64.png"
+      },
+      "bbox_512": [
+        124,
+        50,
+        366,
+        478
+      ]
+    },
+    {
+      "priority": 6,
+      "name_cn": "杂乱凳子组",
+      "stem": "rd_env_mismatched_stools_set",
+      "category": "environment",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_room_environment_v5.png",
+      "crop_xywh": [
+        1660,
+        210,
+        300,
+        440
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_mismatched_stools_set.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_mismatched_stools_set_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_mismatched_stools_set_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_mismatched_stools_set_64.png"
+      },
+      "bbox_512": [
+        106,
+        70,
+        402,
+        476
+      ]
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_room_environment_v5_preview.png"
+}

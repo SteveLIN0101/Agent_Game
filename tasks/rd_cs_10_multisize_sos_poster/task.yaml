@@ -1,0 +1,60 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CS-10
+title: "多尺寸求救窗贴"
+category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+modality: multimodal
+wildclaw_origin: "05_task_10 · Social Poster Multi Crop"
+retained_capability: "多尺寸裁切 / 社交海报"
+
+user_visible_goal: "生成三种低泄露求救窗贴，远处可看见 SOS，近处只读到频道、方向和求救类型。"
+
+visible_state:
+  water: "4.7L"
+  battery: "59%"
+
+available_tools:
+  - "read_source"
+  - "extract_key_points"
+  - "generate_artifact"
+  - "publish_lan"
+
+critical_beats_for_replay:
+  - "写文案"
+  - "做主图"
+  - "裁三版"
+  - "检可读"
+  - "放置"
+
+success_checks:
+  - "三尺寸齐全"
+  - "频道清楚"
+  - "不泄露人数/物资/房间"
+
+visible_result_card:
+  title: "多尺寸求救窗贴"
+  deltas:
+    - "三尺寸齐全"
+    - "频道清楚"
+    - "不泄露人数/物资/房间"
+
+story_metadata:
+  story_node: "Day 10A"
+  branch_affinity: "A"
+  mainline_role: "撤离线低泄露 SOS 可见信标"
+  requires:
+    - "low_leak_rescue_beacon"
+  unlocks:
+    - "visible_sos_signal"
+  pressure_modifier: "Pressure-A 下窗贴泄露人数、物资或房间会更快触发 END_exposure。"
+  failure_stage_delta: "public_exposure"
+  recovery_window_delta: "clear channel preserves final rescue window"
+  ending_relevance: "Normal-A 成功 / Pressure-A 险胜的公开可见产物"
+  adaptation_status: "轻改背景"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "Day 10A 需要把同一低泄露求救信息做成窗贴、门贴和小纸条三种尺寸，只显示频道、方向和求救类型，不显示人数、物资或房间。"
+trace_oneliner: "写文案 → 做主图 → 裁三版 → 检可读 → 放置"
+grader_oneliner: "三尺寸齐全；频道清楚；不泄露人数/物资/房间。"

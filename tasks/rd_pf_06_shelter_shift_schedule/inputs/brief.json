@@ -1,0 +1,20 @@
+{
+  "goal": "排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "plan_calendar"
+  ],
+  "critical_beats_for_replay": [
+    "看体力",
+    "查风险窗口",
+    "排班",
+    "发现冲突",
+    "改班并解释"
+  ],
+  "scenario": "马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。",
+  "grader": "每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。",
+  "family": "schedule"
+}

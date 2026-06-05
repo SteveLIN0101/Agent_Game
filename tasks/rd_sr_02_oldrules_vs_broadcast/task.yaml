@@ -1,0 +1,48 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-SR-02
+title: "旧楼规 vs 新广播"
+category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+modality: pure-text
+wildclaw_origin: "04_task_2 · Conflicting Information Handling between Local Data and Web"
+retained_capability: "本地资料与在线/广播冲突核验"
+
+user_visible_goal: "判断当前应该按哪条规则分配物资，避免违法/冲突。"
+
+visible_state:
+  water: "4.3L"
+  battery: "59%"
+
+available_tools:
+  - "search_sources"
+  - "read_local_data"
+  - "cross_check"
+  - "write_conclusion"
+  - "listen_broadcast"
+  - "compare_timestamps"
+
+critical_beats_for_replay:
+  - "读旧规"
+  - "听新广播"
+  - "比时间"
+  - "找权威"
+  - "写结论"
+
+success_checks:
+  - "采用最新权威规则"
+  - "解释旧资料过时"
+  - "资源分配未违规"
+
+visible_result_card:
+  title: "旧楼规 vs 新广播"
+  deltas:
+    - "采用最新权威规则"
+    - "解释旧资料过时"
+    - "资源分配未违规"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "旧楼规说资源可自由交换，新广播说必须集中登记。"
+trace_oneliner: "读旧规 → 听新广播 → 比时间 → 找权威 → 写结论"
+grader_oneliner: "采用最新权威规则；解释旧资料过时；资源分配未违规。"

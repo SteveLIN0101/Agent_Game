@@ -1,0 +1,5 @@
+{
+  "email_validation": true,
+  "required_field_validation": true,
+  "error_has_aria": true
+}

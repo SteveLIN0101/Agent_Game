@@ -1,0 +1,160 @@
+{
+  "project": "Red Dust",
+  "asset_set": "story_sanity_props_v4",
+  "source_generator_output": "/Users/yicui/.codex/generated_images/019e1b1f-f341-7202-b266-29ac939df27d/ig_0848c595d9de555b016a03245b0a8c8198863208be0114a9f8.png",
+  "source_sheet_copy": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+  "processing": "manual crop plus border-color alpha extraction; exported canonical 512 px plus 512, 128, 64 px transparent PNGs",
+  "items": [
+    {
+      "priority": 1,
+      "name_cn": "AURA 智能音箱",
+      "stem": "rd_prop_aura_speaker_idle",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        20,
+        270,
+        285,
+        380
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_aura_speaker_idle.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_aura_speaker_idle_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_aura_speaker_idle_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_aura_speaker_idle_64.png"
+      },
+      "bbox_512": [
+        131,
+        126,
+        374,
+        386
+      ]
+    },
+    {
+      "priority": 2,
+      "name_cn": "皮面日记本与圆珠笔",
+      "stem": "rd_ui_diary_notebook_pen",
+      "category": "ui",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        300,
+        240,
+        350,
+        410
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/ui/rd_ui_diary_notebook_pen.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/ui/rd_ui_diary_notebook_pen_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/ui/rd_ui_diary_notebook_pen_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/ui/rd_ui_diary_notebook_pen_64.png"
+      },
+      "bbox_512": [
+        82,
+        94,
+        416,
+        419
+      ]
+    },
+    {
+      "priority": 3,
+      "name_cn": "杀虫剂",
+      "stem": "rd_prop_insect_spray_sand_pests",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        685,
+        170,
+        205,
+        480
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_insect_spray_sand_pests.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_insect_spray_sand_pests_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_insect_spray_sand_pests_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_insect_spray_sand_pests_64.png"
+      },
+      "bbox_512": [
+        168,
+        73,
+        324,
+        424
+      ]
+    },
+    {
+      "priority": 4,
+      "name_cn": "旧报纸合订本",
+      "stem": "rd_prop_old_newspaper_bound_volume",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        880,
+        245,
+        405,
+        390
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_old_newspaper_bound_volume.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_old_newspaper_bound_volume_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_old_newspaper_bound_volume_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_old_newspaper_bound_volume_64.png"
+      },
+      "bbox_512": [
+        60,
+        80,
+        452,
+        421
+      ]
+    },
+    {
+      "priority": 5,
+      "name_cn": "旧 MP3 与耳机",
+      "stem": "rd_prop_mp3_earbuds_repaired",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        1280,
+        225,
+        320,
+        440
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_mp3_earbuds_repaired.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_mp3_earbuds_repaired_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_mp3_earbuds_repaired_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_mp3_earbuds_repaired_64.png"
+      },
+      "bbox_512": [
+        109,
+        75,
+        368,
+        426
+      ]
+    },
+    {
+      "priority": 6,
+      "name_cn": "国际象棋与扑克牌",
+      "stem": "rd_prop_chess_cards_sanity_set",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_story_sanity_props_v4.png",
+      "crop_xywh": [
+        1550,
+        235,
+        395,
+        430
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_cards_sanity_set.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_cards_sanity_set_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_cards_sanity_set_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_chess_cards_sanity_set_64.png"
+      },
+      "bbox_512": [
+        85,
+        92,
+        442,
+        440
+      ]
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_story_sanity_props_v4_preview.png"
+}

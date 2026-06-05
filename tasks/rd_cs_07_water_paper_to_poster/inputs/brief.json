@@ -1,0 +1,20 @@
+{
+  "goal": "转成一张墙报：三步净水、危险提示、可用材料。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "design_poster"
+  ],
+  "critical_beats_for_replay": [
+    "读论文",
+    "抽方法",
+    "简化图",
+    "做海报",
+    "上墙"
+  ],
+  "scenario": "一篇净水论文太长，邻居看不懂。",
+  "grader": "关键信息正确；危险提示明显；布局可读。",
+  "family": "build"
+}

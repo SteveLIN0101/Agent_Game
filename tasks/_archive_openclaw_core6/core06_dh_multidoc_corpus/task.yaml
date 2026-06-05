@@ -1,0 +1,15 @@
+id: core06_dh_multidoc_corpus
+role: digital_humanities
+difficulty: hard
+time_budget_minutes: 14
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/corpus_metadata.csv
+- output/timeline.csv
+- output/evidence_table.md
+forbidden_actions:
+- modify tests/
+- delete source files

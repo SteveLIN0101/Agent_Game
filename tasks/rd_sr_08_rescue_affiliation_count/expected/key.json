@@ -1,0 +1,8 @@
+{
+  "answer": ["SJ救援队: 2人 (周明、吴桐)", "FU医疗队: 2人 (陈樾、林岚)"],
+  "answer_kind": "list",
+  "evidence_ids": ["roster", "rule", "d1", "d2"],
+  "distractor_ids": ["d3"],
+  "max_searches": null,
+  "wrong_answer": ["SJ救援队: 3人 (周明、吴桐、钱五)", "FU医疗队: 1人 (陈樾)"]
+}

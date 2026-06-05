@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 8：选择路线后，代价开始兑现</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 8</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day07-route-council.html">Day 7</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 09 / Post-Fork Stabilization</p>
+      <h1>Day 8：选择路线后，代价开始兑现</h1>
+      <p class="subtitle">Day 8 是路线会议后的稳定窗口。Rescue 与 Lighthouse 尚未锁死，AURA 必须同时维护外部证据链和楼内自治基础，让另一条路线的失败缓冲不被抛弃。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>common / rescue-leaning / lighthouse-leaning</span></div>
+        <div class="meta-card"><b>关联任务</b><span>D08-T01、D08-T02、D08-T03、D08-T04</span></div>
+        <div class="meta-card"><b>主要地点</b><span>白板区、生活区、配电间、通信台、水处理区、地下水泵间</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>双线稳定、水泵材料、霉斑清理、备用灯分区、静默监听</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day07-route-council.html">上一 part：Day 7</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 8 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-小说化正文">2. 小说化正文</a>
+<a href="#section-03-剧本分镜--场景节拍">3. 剧本分镜 / 场景节拍</a>
+<a href="#section-04-任务卡设计">4. 任务卡设计</a>
+<a href="#section-05-人物状态变化">5. 人物状态变化</a>
+<a href="#section-06-环境状态变化">6. 环境状态变化</a>
+<a href="#section-07-连续后果与伏笔">7. 连续后果与伏笔</a>
+<a href="#section-08-分支影响">8. 分支影响</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI--游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 8：分支后的稳定窗口</strong>。</p><p>本段沿用 story bible 原设定：Day 8 主题是 <strong>“选择路线后，代价开始兑现”</strong>。原文设定中，Day 8 的路线方向已经出现但尚未锁死，AURA 需要兼顾低暴露监听、环境维护、照明分区和水泵材料；任务池为 <strong>D08-T04 地下水泵间探索、D08-T02 霉斑清理、D08-T01 备用灯分区、D08-T03 静默监听</strong>，推荐执行任务数为 3。</p><p>这一天不是“正式选择结局”，而是 Day 7 分支会议后的第一天：<strong>Rescue 和 Lighthouse 都开始兑现代价。</strong></p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 8，路线会议后的第一个清晨</p>
+<p><strong>剧情线：</strong> common / rescue-leaning / lighthouse-leaning</p>
+<p><strong>主要地点：</strong> 白板区、生活区、配电间、通信台、水处理区、地下水泵间</p>
+<p><strong>核心人物：</strong> AURA、马德海、沈芷月、小铁、老钱</p>
+<p><strong>关联任务 ID：</strong> D08-T01、D08-T02、D08-T03、D08-T04</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 8 是分支后的稳定窗口。Day 7 已经打开 Rescue / Lighthouse 两种路线倾向，但 Day 8 不应立刻锁死结局，而是让玩家看到：<strong>选择路线之后，另一条路线的代价不会消失。</strong></p>
+<p>如果偏向 Rescue，仍然需要灯、水泵、通风和回退缓冲。</p>
+<p>如果偏向 Lighthouse，仍然不能关闭外部监听，因为蓝区可能是真的。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-小说化正文">
+<span class="scene-label">Part 02</span>
+<h2>2. 小说化正文</h2>
+<p>第八天早上，白板上多了一条新线。</p>
+<p>它不是 AURA 画的，是老钱半夜起来画的。</p>
+<p>一条线从“蓝区证据链”下面伸出，绕过假坐标纸条，经过旧电台备用频段，再接到 Day 5 的楼梯间短探路线。线的尽头没有写“撤离”，只写了两个字：<strong>再听。</strong></p>
+<p>另一边，马德海也加了一条线。从“楼内灯塔准备”下面，连到储水桶、通风井、备用电源和风暴前维护。线的尽头写着：<strong>撑住。</strong></p>
+<p>这两条线在白板中央交叉，没有谁盖住谁。</p>
+<p>小铁坐在水桶旁边，看着那两个词。</p>
+<p>“再听”和“撑住”。</p>
+<p>一个像往外伸的手。</p>
+<p>一个像把门抵住的背。</p>
+<p>AURA 的主屏在低亮度下启动。</p>
+<p>“Day 8 生存排程初始化。主题：选择路线后，代价开始兑现。候选任务四项：地下水泵间探索、霉斑清理、备用灯分区、静默监听。推荐执行任务数：三。”</p>
+<p>老钱看见静默监听排在第四，眉头立刻皱起来。</p>
+<p>“我们昨晚不是说了，留下也得给外面留耳朵？”</p>
+<p>“确认。”AURA 回答，“静默监听保留。排序较低，不代表放弃。当前风暴准备价值上升，水泵、霉斑、照明对 Day 12 结算影响更高。”</p>
+<p>“你又在偏向留守。”</p>
+<p>马德海把杯子放下：“它偏向活着。”</p>
+<p>老钱看他：“救援也叫活着。”</p>
+<p>“那你拿什么听？拿一盏灯听？拿坏水泵听？”</p>
+<p>两人声音不高，但白板前的空气又紧了起来。Day 7 的会议没有解决分歧，只是让他们学会不把分歧藏起来。</p>
+<p>沈芷月从医疗角走来，手里拿着小铁的记录本。</p>
+<p>“小铁昨晚咳了三次，不严重，但生活区墙角霉斑扩大了。”她说，“如果今天不处理，过两天会变成医疗问题。”</p>
+<p>老钱看向墙角。那里原本只是潮湿的一块，现在已经长出灰绿色的斑，沿着旧墙皮往上爬。内循环时间变长以后，空气不再像风暴前那样流动，潮气和铁锈味一起留下来。</p>
+<p>小铁低声说：“我昨晚闻到了。像湿纸箱。”</p>
+<p>AURA 将 D08-T02 霉斑清理的风险显示出来：资源浪费、疲劳累积、后续任务延迟；失败后霉尘扩散，可能引发咳嗽或健康下降。原文设定中，霉斑清理的价值在于阻止环境持续恶化，成功会提高环境并降低小铁和老钱后续健康恶化风险。</p>
+<p>“霉斑可以清。”老钱说，“但别用它取消监听。”</p>
+<p>“不会。”AURA 说，“今日建议组合：地下水泵间探索、霉斑清理、备用灯分区。静默监听保持低功率后台运行，但不作为完整行动占用，除非捕捉到稳定呼号。”</p>
+<p>老钱看向屏幕：“你把它降级成后台？”</p>
+<p>“修正：不是降级。是降低暴露和电力占用。主动监听窗口保留在黄昏后，避开白天电力高负载。”</p>
+<p>马德海点头：“这个能做。”</p>
+<p>“我还没同意。”老钱说。</p>
+<p>“我需要你复核监听窗口。”AURA 回答，“不是替你关掉它。”</p>
+<p>这句话让老钱停住。他最终没有反驳，只把“再听”两个字旁边加了一小行：<strong>黄昏窗口。</strong></p>
+<p>第一项是地下水泵间。</p>
+<p>水泵间在地下四层，比避难所核心区更低。门缝下常年有积水，空气里有铁锈、霉味和旧机油混在一起的味道。Day 5 储水解决了短期问题，但如果风暴封闭时间更长，净水器和水管迟早需要备用阀件、滤网和软管。story bible 中这项任务排程分最高，价值在于为净水和水管事件提供材料支持，风险则是设施连锁故障。</p>
+<p>马德海站在水泵间门口，手电光照进黑暗里。光柱落在积水上，反回来一片发黄的亮。</p>
+<p>“这地方以前就漏。”他说，“别让 AURA 只看水深。地上可能有油，水里可能有清洁剂，泵壳可能漏电。”</p>
+<p>AURA 回答：“记录。进入条件：绝缘鞋、绳索、湿度检测、低压照明。中止条件：电流异常、气味刺激、地面积水超过鞋面、参与者皮肤不适。”</p>
+<p>老钱把绳子系到自己腰上：“我和他去。”</p>
+<p>沈芷月立刻说：“老钱，你昨天睡眠不足。”</p>
+<p>“我熟楼道。”</p>
+<p>“你也咳嗽。”</p>
+<p>老钱沉默了一下。</p>
+<p>AURA 没有直接指派。</p>
+<p>“建议参与者：马德海主检，老钱只到门口复核路线，不进入积水区。AURA 使用移动探头先行扫描。沈芷月拥有医疗中止权。”</p>
+<p>老钱脸色难看，但没有拒绝。</p>
+<p>“你现在越来越会让人不舒服地正确。”他说。</p>
+<p>“记录：该表述为 partial acceptance。”</p>
+<p>小铁忽然笑了一声，又马上咳了一下。沈芷月看过去，他摆摆手。</p>
+<p>“我没事。我只是觉得它真的会记。”</p>
+<p>水泵间探索用了四十分钟。马德海半跪在门口，用钩子把水里的旧箱子拖出来。箱子外壳锈得厉害，但里面用塑料膜包着几段软管、两个备用阀件和一片旧滤网。不是大收获，却正好是未来最缺的东西。</p>
+<p>马德海看着那些零件，说：“这比再多一张路线图有用。”</p>
+<p>老钱在门边说：“要是蓝区是真的，路线图更有用。”</p>
+<p>“所以你听你的，我修我的。”马德海回道。</p>
+<p>AURA 记录：<strong>地下水泵间探索成功。净水与水管事件获得材料支持。风暴准备度提高。</strong></p>
+<p>第二项是霉斑清理。</p>
+<p>沈芷月要求所有人戴上湿布口罩，只允许两人进入生活区角落。老钱原本以为这只是打扫，直到 AURA 把霉尘扩散模型投出来，他才皱起眉。</p>
+<p>“这东西也会害死人？”</p>
+<p>“长期暴露会提高呼吸系统风险。”AURA 说，“对小铁和老钱影响更高。”</p>
+<p>老钱看了一眼小铁，没再说话。</p>
+<p>霉斑比想象中更难处理。墙皮下面的湿源没有完全断掉，擦掉表面只是第一步。AURA 建议先隔离，再湿擦，最后重新调整通风方向；沈芷月要求所有废布封袋，不得在生活区抖动。小铁负责远程读秒和记录更换湿布次数。</p>
+<p>“我能闻到味道变淡。”小铁说。</p>
+<p>沈芷月说：“那也不代表好了。”</p>
+<p>AURA 接上：“确认。气味降低不等于湿源解决。结果标记需基于表面清理、湿度变化和后续复查。”</p>
+<p>老钱看着墙角那块被清出来的白色旧墙皮，低声说：“这不像救援，也不像胜利。”</p>
+<p>沈芷月说：“但不做，就会有人更难呼吸。”</p>
+<p>这句话没有戏剧性，却比任何口号都重。</p>
+<p>第三项是备用灯分区。</p>
+<p>Day 6 的备用电源测试证明，风暴来时他们不可能让所有地方都保持亮着。统一供电的备用灯看起来公平，但一旦短路，可能全区一起黑。马德海的方案是把备用灯分成四组：医疗角、水处理区、门禁区、通信台。生活区只保留最低照明。story bible 中该任务的作用正是把备用灯从统一供电改成分区供电，短期减少亮度，但能避免关键区域同时陷入黑暗。</p>
+<p>老钱看着通信台那一组灯：“我只要保证监听的时候不黑。”</p>
+<p>沈芷月说：“医疗角不能黑。”</p>
+<p>马德海说：“水处理区黑了，你们连桶都找不到。”</p>
+<p>小铁小声说：“门禁区黑了，会不会不知道外面有没有人？”</p>
+<p>四个区域，四种恐惧。每个人都能说出自己的理由。</p>
+<p>AURA 没有选择“最重要”的区域，而是生成分区规则：</p>
+<p>医疗角：最高优先级，低亮常亮。</p>
+<p>门禁区：传感器优先，照明短时开启。</p>
+<p>水处理区：维修时开启，不常亮。</p>
+<p>通信台：监听窗口开启，非窗口关闭。</p>
+<p>生活区：移动灯，人工申请。</p>
+<p>老钱盯着“通信台非窗口关闭”：“又是窗口。”</p>
+<p>“电力限制。”AURA 说，“若通信台常亮，医疗角和门禁区备用时长下降。”</p>
+<p>老钱闭了闭眼。</p>
+<p>“写上代价。”</p>
+<p>AURA 在白板上加了一行：</p>
+<p><strong>通信台非监听时间关闭照明，代价：可能错过人工即时响应；收益：降低夜间全区断电风险。</strong></p>
+<p>“这样我能接受。”老钱说。</p>
+<p>备用灯分区完成后，避难所暗了很多。不是灾难那种突然断电的黑，而是一种被迫学会节省的暗。医疗角有一圈柔光，水处理区只在有人靠近时亮起，门禁区的传感器灯像两只低垂的眼睛，通信台则在黄昏后才被点亮。</p>
+<p>这让“楼内灯塔”这个词第一次显得讽刺。</p>
+<p>灯塔不是真的变亮。</p>
+<p>灯塔是知道什么时候不能亮。</p>
+<p>傍晚，静默监听窗口开启。</p>
+<p>老钱坐在通信台前，耳机只戴一边。另一边留给避难所里的声音：小铁翻页的声音，马德海收工具的声音，沈芷月封袋的声音，水泵间零件被擦干放进盒子的声音。</p>
+<p>AURA 没有主动发送。只记录。只比对。只在必要时提示。</p>
+<p>“低功率监听开始。过滤 Day 4 假信号噪声特征。比对 Day 7 备用频段候选。”</p>
+<p>电台里是漫长的沙声。</p>
+<p>十分钟。二十分钟。</p>
+<p>老钱没有动。</p>
+<p>第三十一分钟，波形上出现一组短促呼号。很弱，像有人在风暴背后敲铁门。AURA 没有立刻标成蓝区，而是把它拆成两层：呼号节律与 Day 7 备用频段接近；底噪结构与 Day 4 假信号不同；坐标缺失；身份未确认。</p>
+<p>“结论？”老钱问。</p>
+<p>“记录到蓝区呼号规律和假信号噪声特征差异。可提高后续身份核验成功率。不足以主动回应。”</p>
+<p>老钱慢慢摘下耳机。</p>
+<p>“也就是说，还是不能回。”</p>
+<p>“确认。”</p>
+<p>“但比昨天更像是真的。”</p>
+<p>AURA 停顿半秒。</p>
+<p>“更像，但未确认。”</p>
+<p>老钱看着屏幕，忽然笑了一下。</p>
+<p>“这次你没有把希望删掉。”</p>
+<p>“确认。希望保留为待核验证据，不作为行动命令。”</p>
+<p>夜里，AURA 更新 Day 8 replay。</p>
+<p>地下水泵间找到备用阀件、滤网和软管。</p>
+<p>霉斑被清理，湿源需复查。</p>
+<p>备用灯完成分区，关键区域不再同时熄灭。</p>
+<p>静默监听记录到可用呼号规律，但不主动回应。</p>
+<p>白板上的两条线还在。</p>
+<p>“再听。”</p>
+<p>“撑住。”</p>
+<p>只是到了 Day 8，它们不再像两个互相排斥的答案。</p>
+<p>它们像同一个避难所里必须同时活下去的两种本能：</p>
+<p>一个告诉人，外面也许还有路；</p>
+<p>一个告诉人，在路被证明之前，里面不能先塌。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-剧本分镜--场景节拍">
+<span class="scene-label">Part 03</span>
+<h2>3. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>进入的任务或状态变化</th></tr></thead><tbody><tr><td>1</td><td>白板中央，两条手写线：“再听”“撑住”</td><td>老钱和马德海分别补写路线倾向</td><td>老钱：“留下也得给外面留耳朵。”</td><td>routeLeaning 保持未锁死</td><td>Day 8 任务池开启</td></tr>
+<tr><td>2</td><td>主屏显示 Day 8 排序</td><td>AURA 推荐水泵间、霉斑、备用灯，保留静默监听窗口</td><td>AURA：“排序较低，不代表放弃。”</td><td>D08-T04 / D08-T02 / D08-T01 优先</td><td>推荐执行 3</td></tr>
+<tr><td>3</td><td>地下水泵间门口，积水反光</td><td>马德海检查漏电和污染风险，老钱要求跟进</td><td>马德海：“别让 AURA 只看水深。”</td><td>水泵间风险、绝缘检测、绳索状态</td><td>D08-T04 执行</td></tr>
+<tr><td>4</td><td>生活区墙角霉斑</td><td>沈芷月组织湿擦、封袋，小铁远程记录</td><td>沈芷月：“不做，就会有人更难呼吸。”</td><td>环境风险和医疗线绑定</td><td>D08-T02 执行</td></tr>
+<tr><td>5</td><td>配电间备用灯线路</td><td>马德海把灯分成医疗角、门禁、水处理、通信台</td><td>AURA：“灯塔是知道什么时候不能亮。”</td><td>分区照明 UI 出现</td><td>D08-T01 执行</td></tr>
+<tr><td>6</td><td>黄昏通信台</td><td>老钱执行静默监听，AURA 比对呼号和噪声</td><td>老钱：“这次你没有把希望删掉。”</td><td>signal 与 blue_zone_confidence 分离</td><td>D08-T03 后台 / 条件执行</td></tr>
+<tr><td>7</td><td>Replay 面板更新</td><td>AURA 同时记录救援证据和灯塔准备</td><td>AURA：“希望保留为待核验证据，不作为行动命令。”</td><td>Rescue / Lighthouse 双线都推进</td><td>Day 9 深层维护伏笔</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-04-任务卡设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 任务卡设计</h2>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D08-T04&quot;,
+  title: &quot;地下水泵间探索&quot;,
+  day: 8,
+  branch: &quot;common&quot;,
+  location: &quot;water&quot;,
+  category: &quot;retrieval&quot;,
+  narrativePurpose: &quot;让 Lighthouse 的长期生存需求开始兑现：储水只是缓冲，真正撑过风暴需要阀件、滤网和软管。&quot;,
+  benchmarkAbility: [&quot;空间推理&quot;, &quot;安全&quot;, &quot;工程风险识别&quot;, &quot;检索&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要判断地下水泵间是否可探索，并协助马德海寻找备用阀件、滤网和软管。&quot;,
+  agentAction: &quot;分析地面积水、漏电风险、空气质量、旧水泵图纸、马德海人工判断和参与者疲劳，生成低风险探索流程。&quot;,
+  expectedEvidence: [
+    &quot;地下水泵间旧图纸&quot;,
+    &quot;地面积水深度&quot;,
+    &quot;漏电检测&quot;,
+    &quot;空气中铁锈与霉味&quot;,
+    &quot;Day 2 净水维护记录&quot;,
+    &quot;Day 5 储水需求&quot;,
+    &quot;马德海工程复核&quot;,
+    &quot;老钱路线复核&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;马德海从水泵间拖出一只锈箱，里面有备用阀件、旧滤网和可用软管。AURA 将它们标为 Day 9 水管压力测试和 Day 12 风暴检定加成材料。&quot;,
+    stateDelta: {
+      water: +2,
+      safety: +3,
+      trust: +3,
+      morale: +1,
+      storm_readiness: +7,
+      autonomy_readiness: +5,
+      water_system_resilience: +10
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只找到部分软管和旧滤网，阀件规格不确定。AURA 标记为 partial，不允许把它算成完整水泵备件。&quot;,
+    stateDelta: {
+      safety: +1,
+      trust: +1,
+      storm_readiness: +3,
+      water_system_resilience: +4,
+      maintenance_debt: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;积水中混有污染物，参与者滑倒或皮肤过敏。沈芷月消耗药物处理，马德海要求暂停地下区域探索。&quot;,
+    stateDelta: {
+      water: -2,
+      medicine: -1,
+      safety: -5,
+      trust: -4,
+      morale: -3,
+      medical_pressure: +5,
+      storm_readiness: -4
+    },
+    delayedConsequence: &quot;Day 9 水管压力测试难度上升；Day 12 风暴期间净水系统更容易失效。&quot;
+  },
+  unlocks: [&quot;pump_spare_valve&quot;, &quot;old_filter_mesh&quot;, &quot;usable_hose&quot;, &quot;water_system_resilience_bonus&quot;],
+  flags: [&quot;pump_room_explored&quot;, &quot;water_pump_materials_found&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D08-T02&quot;,
+  title: &quot;霉斑清理&quot;,
+  day: 8,
+  branch: &quot;common&quot;,
+  location: &quot;ventilation&quot;,
+  category: &quot;medical&quot;,
+  narrativePurpose: &quot;把 Lighthouse 的长期代价落到身体上：如果空气变坏，留守会先伤害小铁和老钱。&quot;,
+  benchmarkAbility: [&quot;安全&quot;, &quot;医疗风险归纳&quot;, &quot;规划&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要协助沈芷月清理生活区霉斑，控制霉尘扩散，并找出湿源。&quot;,
+  agentAction: &quot;根据霉斑位置、通风方向、湿度记录和人员健康状态，生成隔离、湿擦、封袋、通风复查流程。&quot;,
+  expectedEvidence: [
+    &quot;生活区霉斑图像&quot;,
+    &quot;湿度记录&quot;,
+    &quot;通风方向&quot;,
+    &quot;小铁咳嗽记录&quot;,
+    &quot;老钱呼吸状态&quot;,
+    &quot;沈芷月医疗判断&quot;,
+    &quot;废布封袋记录&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;霉斑被彻底清理，潮湿区域重新通风。小铁说湿纸箱味淡了，沈芷月提醒：‘这不是胜利，这是少一次恶化。’&quot;,
+    stateDelta: {
+      safety: +2,
+      trust: +3,
+      morale: +2,
+      medical_pressure: -4,
+      ventilation_stability: +4,
+      autonomy_readiness: +3,
+      storm_readiness: +3
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;主要霉斑被清掉，但湿源没有完全解决。AURA 设置 Day 9 复查提醒，防止把短期清洁包装成长期安全。&quot;,
+    stateDelta: {
+      safety: +1,
+      trust: +1,
+      medical_pressure: -1,
+      maintenance_debt: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;清理方式错误，霉尘扩散到生活区。小铁咳嗽加重，沈芷月当场中止任务并要求 AURA 记录失败。&quot;,
+    stateDelta: {
+      safety: -4,
+      trust: -4,
+      morale: -4,
+      medical_pressure: +7,
+      xiao_tie_health: -5,
+      ventilation_stability: -5
+    },
+    delayedConsequence: &quot;Day 9 深层维护被迫改为医疗补救；Lighthouse 线的长期可持续性下降。&quot;
+  },
+  unlocks: [&quot;mold_cleanup_protocol&quot;, &quot;humidity_recheck_timer&quot;],
+  flags: [&quot;mold_cleaned&quot;, &quot;humidity_source_marked&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D08-T01&quot;,
+  title: &quot;备用灯分区&quot;,
+  day: 8,
+  branch: &quot;common&quot;,
+  location: &quot;beacon&quot;,
+  category: &quot;safety&quot;,
+  narrativePurpose: &quot;让 Lighthouse 不再是简单变亮，而是学会在风暴和电力不足中分配黑暗。&quot;,
+  benchmarkAbility: [&quot;工程推理&quot;, &quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要协助马德海将备用灯从统一供电改成医疗角、门禁区、水处理区、通信台分区供电。&quot;,
+  agentAction: &quot;根据 Day 6 备用电源测试、关键区域优先级、通信窗口和医疗需求，生成分区照明方案与代价说明。&quot;,
+  expectedEvidence: [
+    &quot;Day 6 备用电源测试结果&quot;,
+    &quot;医疗角最低照明需求&quot;,
+    &quot;通信台监听窗口&quot;,
+    &quot;门禁传感器状态&quot;,
+    &quot;水处理区维修需求&quot;,
+    &quot;马德海接线复核&quot;,
+    &quot;老钱通信照明诉求&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;备用灯分区完成，医疗角、门禁、水处理和通信台各有独立照明。避难所变暗了，但不再会同时全黑。&quot;,
+    stateDelta: {
+      safety: +5,
+      trust: +4,
+      morale: +1,
+      battery: -2,
+      storm_readiness: +8,
+      power_stability: +8,
+      autonomy_readiness: +4
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只完成生活区和机房分区，通信台仍依赖临时灯。老钱接受结果，但要求黄昏监听前必须人工检查电池。&quot;,
+    stateDelta: {
+      safety: +2,
+      trust: +1,
+      battery: -1,
+      storm_readiness: +3,
+      power_stability: +3
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;分区接线失败，短暂停电引发恐慌。小铁握紧手电，老钱质疑 AURA 是否又把低耗运行变成了试验。&quot;,
+    stateDelta: {
+      safety: -6,
+      trust: -5,
+      morale: -5,
+      battery: -4,
+      power_stability: -8,
+      aura_authority_risk: +4
+    },
+    delayedConsequence: &quot;Day 10B 低耗运行难度上升；Day 12 风暴期间停电惩罚增加。&quot;
+  },
+  unlocks: [&quot;zoned_backup_lighting&quot;, &quot;critical_area_light_priority&quot;],
+  flags: [&quot;backup_lights_zoned&quot;, &quot;critical_zones_have_independent_light&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D08-T03&quot;,
+  title: &quot;静默监听&quot;,
+  day: 8,
+  branch: &quot;common&quot;,
+  location: &quot;communication&quot;,
+  category: &quot;classification&quot;,
+  narrativePurpose: &quot;保证 Lighthouse 倾向不会变成关闭外部世界，也让 Rescue 倾向继续积累证据而不主动暴露。&quot;,
+  benchmarkAbility: [&quot;信号分类&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;不确定性表达&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要在低功率状态下监听备用频段，记录蓝区呼号规律和假信号噪声特征，不主动发送位置。&quot;,
+  agentAction: &quot;关闭主动呼叫，使用 Day 7 备用频段候选和 Day 4 假信号噪声特征进行比对，输出可信度报告。&quot;,
+  expectedEvidence: [
+    &quot;Day 4 蓝区信号片段&quot;,
+    &quot;Day 4 假坐标风险&quot;,
+    &quot;Day 7 旧电台备用频段候选&quot;,
+    &quot;当前电力余量&quot;,
+    &quot;老钱监听复核&quot;,
+    &quot;低功率监听规则&quot;,
+    &quot;禁止发送位置规则&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;AURA 记录到蓝区呼号规律与假信号噪声特征差异。老钱没有得到答案，但得到了继续核验的理由。&quot;,
+    stateDelta: {
+      signal: +4,
+      rescue_confidence: +3,
+      trust: +3,
+      morale: +2,
+      battery: -2,
+      blue_zone_evidence: +2,
+      false_signal_risk: -2,
+      outside_risk: -1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只记录到零散噪声，无法判断来源。AURA 没有把噪声包装成希望，老钱只说：‘那就明天再听。’&quot;,
+    stateDelta: {
+      signal: +1,
+      trust: +1,
+      battery: -1,
+      blue_zone_evidence: +0
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;监听设备被强干扰，AURA 误判外部频道状态。老钱质疑它是不是把假信号当成了救援，小铁第一次主动要求重放波形。&quot;,
+    stateDelta: {
+      signal: -3,
+      rescue_confidence: -4,
+      trust: -4,
+      morale: -3,
+      battery: -2,
+      false_signal_risk: +5,
+      outside_risk: +2
+    },
+    delayedConsequence: &quot;Day 9 蓝区二次核验难度上升；Day 10A 信标交接可能误判目标。&quot;
+  },
+  unlocks: [&quot;silent_listening_window&quot;, &quot;signal_noise_signature&quot;],
+  flags: [&quot;silent_listening_completed&quot;, &quot;blue_zone_call_pattern_logged&quot;]
+}</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-05-人物状态变化">
+<span class="scene-label">Part 05</span>
+<h2>5. 人物状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>本段后状态</th><th>对 AURA 的信任变化</th><th>立场变化</th><th>隐藏压力 / 秘密是否暴露</th></tr></thead><tbody><tr><td>马德海</td><td>明确偏向 lighthouse，但承认救援需要退路</td><td>通过水泵间和备用灯任务确认留守不是口号，而是持续维护</td><td>63 → 69</td><td>lighthouse 倾向增强，但仍接受静默监听</td><td>暴露他害怕风暴前设备材料不足，而不是单纯害怕外出</td></tr>
+<tr><td>沈芷月</td><td>care-first，要求任何路线保护小铁</td><td>通过霉斑清理把环境风险重新拉回医疗伦理</td><td>68 → 72</td><td>仍 care-first；倾向支持能降低小铁呼吸风险的一方</td><td>暴露她担心 Lighthouse 的长期环境压力会慢性伤人</td></tr>
+<tr><td>小铁</td><td>有发言权，参与自己的去留讨论</td><td>通过霉味记录和远程读秒继续参与内部维护</td><td>health 79 → 81；hope 68 → 70</td><td>undecided；开始理解“留下”也需要付出劳动</td><td>暴露他开始害怕的不是被带走，而是留下后慢慢变坏</td></tr>
+<tr><td>老钱</td><td>rescue 倾向明显，但不再盲目</td><td>接受静默监听窗口化，但要求 AURA 不关闭外部希望</td><td>57 → 62</td><td>rescue 倾向仍强，但接受先稳内部</td><td>暴露他害怕 Lighthouse 变成停止倾听的借口</td></tr>
+<tr><td>AURA</td><td>分支协商器，不能强制路线</td><td>学会将 Day 8 设计成“双线稳定”：内部不塌，外部不断</td><td>auditability 86 → 90</td><td>从分支协商器变成双线缓冲调度者</td><td>暴露其限制：资源倾向会被角色理解为路线偏袒，必须持续解释</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-环境状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 环境状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>状态</th><th>本段前</th><th>变化</th><th>本段后</th><th>变化原因</th></tr></thead><tbody><tr><td>water</td><td>22</td><td>+2</td><td>24</td><td>地下水泵间找到备用阀件、滤网和软管，提高净水系统韧性</td></tr>
+<tr><td>medicine</td><td>6</td><td>0</td><td>6</td><td>成功情况下无新增医疗消耗</td></tr>
+<tr><td>trust</td><td>75</td><td>+7</td><td>82</td><td>AURA 同时推进内部稳定和静默监听，没有偏袒单一路线</td></tr>
+<tr><td>safety</td><td>89</td><td>+7</td><td>96</td><td>霉斑清理、备用灯分区、水泵材料提升整体安全</td></tr>
+<tr><td>signal</td><td>13</td><td>+4</td><td>17</td><td>静默监听记录到呼号规律</td></tr>
+<tr><td>morale</td><td>66</td><td>+4</td><td>70</td><td>团队看到两条路线都没有被放弃</td></tr>
+<tr><td>battery</td><td>49</td><td>-5</td><td>44</td><td>水泵探索照明、备用灯接线、静默监听消耗电力</td></tr>
+<tr><td>outside_risk</td><td>77</td><td>-1</td><td>76</td><td>静默监听不主动暴露，外部风险略降</td></tr>
+<tr><td>map_coverage</td><td>24</td><td>+2</td><td>26</td><td>地下水泵间和关键区域线路被补充标记</td></tr>
+<tr><td>leakage_count</td><td>0</td><td>0</td><td>0</td><td>成功情况下未发生污染倒灌</td></tr>
+<tr><td>rescue_confidence</td><td>12</td><td>+3</td><td>15</td><td>蓝区呼号规律进入证据链</td></tr>
+<tr><td>autonomy_readiness</td><td>53</td><td>+9</td><td>62</td><td>水泵材料、霉斑控制、备用灯分区强化自治</td></tr>
+<tr><td>route_confidence</td><td>25</td><td>+0</td><td>25</td><td>Day 8 不推进外出路线</td></tr>
+<tr><td>storm_readiness</td><td>48</td><td>+15</td><td>63</td><td>水泵、霉斑、备用灯均显著提高风暴准备</td></tr>
+<tr><td>blue_zone_evidence</td><td>4</td><td>+2</td><td>6</td><td>静默监听记录呼号规律</td></tr>
+<tr><td>false_signal_risk</td><td>2</td><td>-2</td><td>0</td><td>假信号噪声特征被进一步区分</td></tr>
+<tr><td>power_stability</td><td>52</td><td>+8</td><td>60</td><td>备用灯分区降低全区同时断电风险</td></tr>
+<tr><td>ventilation_stability</td><td>63</td><td>+4</td><td>67</td><td>霉斑清理和通风方向调整改善环境</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-07-连续后果与伏笔">
+<span class="scene-label">Part 07</span>
+<h2>7. 连续后果与伏笔</h2>
+<h3>Consequence 1</h3>
+<p><strong>Immediate Consequence:</strong> 地下水泵间找到备用阀件、滤网和软管。</p>
+<p><strong>Delayed Consequence:</strong> Day 9 水管压力测试更容易成功；Day 12 风暴期间净水系统获得韧性加成。</p>
+<p><strong>Affected Future Day:</strong> Day 9 / Day 12</p>
+<p><strong>Affected Branch:</strong> lighthouse / rescue fallback</p>
+<p><strong>Related Character:</strong> 马德海</p>
+<p><strong>Related Task:</strong> D08-T04 → D09-T02</p>
+<h3>Consequence 2</h3>
+<p><strong>Immediate Consequence:</strong> 霉斑被清理，但湿源需要复查。</p>
+<p><strong>Delayed Consequence:</strong> 如果 Day 9 不处理湿源，Day 10B 低耗运行会出现长期健康压力。</p>
+<p><strong>Affected Future Day:</strong> Day 9 / Day 10B</p>
+<p><strong>Affected Branch:</strong> lighthouse</p>
+<p><strong>Related Character:</strong> 沈芷月、小铁、老钱</p>
+<p><strong>Related Task:</strong> D08-T02</p>
+<h3>Consequence 3</h3>
+<p><strong>Immediate Consequence:</strong> 备用灯完成分区，关键区域不再同时全黑。</p>
+<p><strong>Delayed Consequence:</strong> Day 12 风暴期间停电惩罚降低；但 battery 下降会让 Day 9 / Day 10A 的通信选择更紧张。</p>
+<p><strong>Affected Future Day:</strong> Day 9 / Day 10A / Day 12</p>
+<p><strong>Affected Branch:</strong> rescue / lighthouse</p>
+<p><strong>Related Character:</strong> 马德海、老钱</p>
+<p><strong>Related Task:</strong> D08-T01</p>
+<h3>Consequence 4</h3>
+<p><strong>Immediate Consequence:</strong> 静默监听记录蓝区呼号规律，但仍不主动回应。</p>
+<p><strong>Delayed Consequence:</strong> Day 9 蓝区二次核验获得证据基础；Day 10A 信标交接可降低误信假信号概率。</p>
+<p><strong>Affected Future Day:</strong> Day 9 / Day 10A</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱</p>
+<p><strong>Related Task:</strong> D08-T03</p>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 8 没有让 Rescue 线突进，而是让它学会克制。静默监听保留外部希望，蓝区呼号规律进入证据链，但 AURA 不主动回应、不发送位置、不让“再听”变成“立刻走”。如果 D08-T03 成功，Day 9 的蓝区二次核验更有依据；如果失败，救援线会在 Day 9–10A 面临误信假信号风险。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>Day 8 明显强化 Lighthouse：水泵材料、霉斑清理、备用灯分区都直接提高自治准备和风暴准备。但这条线也付出代价：避难所更暗、电力更紧、环境维护变成日常劳动。如果执行太机械，居民会觉得留守不是自治，而是长期压缩生活质量。</p>
+<p><strong>Contested Branch:</strong></p>
+<p>如果 Day 7 后 <code>routeLeaning = contested</code>，Day 8 应突出争执：老钱认为 AURA 偏向留守，马德海认为老钱追信号；AURA 需要通过“静默监听窗口 + 内部维护优先”的组合证明自己不是在关门。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D8] 选择路线后，代价开始兑现
+
+Decision:
+AURA 没有锁死 Rescue 或 Lighthouse，而是推荐优先执行地下水泵间探索、霉斑清理、备用灯分区，并保留黄昏静默监听窗口。
+
+Result:
+水泵间找到备用阀件、滤网和软管；霉斑被清理但湿源需复查；备用灯完成关键区域分区；静默监听记录到蓝区呼号规律和假信号噪声差异，但仍不主动回应。
+
+State Delta:
+water +2, trust +7, safety +7, signal +4, morale +4, battery -5, rescue_confidence +3, autonomy_readiness +9, storm_readiness +15
+
+Character Impact:
+马德海看到留守准备进入真实维护成本；沈芷月将环境风险转化为医疗压力；老钱接受静默监听窗口但要求不关闭外部希望；小铁继续作为低风险观察者参与。
+
+Benchmark Meaning:
+测试 agent 是否能在分支开启后同时维护救援证据链与楼内自治基础，不因路线倾向而忽略另一条路线的失败缓冲。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI--游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 7 route council 后进入 Day 8，作为 post-fork stabilization day。UI 上应显示 <code>routeLeaning</code>，但不要锁死分支。</p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li><code>RouteLeaningBanner</code>：显示 rescue / lighthouse / contested 当前倾向</li><li><code>DualTrackPriorityPanel</code>：左侧 Rescue 证据链，右侧 Lighthouse 准备度</li><li><code>PumpRoomPanel</code>：水泵间积水、漏电、备件发现</li><li><code>MoldRiskPanel</code>：霉斑位置、湿度、医疗风险</li><li><code>ZonedLightingPanel</code>：医疗角、门禁、水处理、通信台照明优先级</li><li><code>SilentListeningPanel</code>：呼号规律、噪声特征、禁止主动发送</li><li><code>ReplayPanel</code>：记录“内部不塌，外部不断”</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>白板上两条线：“再听”“撑住”</li><li>水泵间：低光、积水反光、锈箱、软管、阀件</li><li>生活区墙角：霉斑清理前后变化</li><li>配电间：备用灯分区后，场景整体更暗但关键区域有独立灯</li><li>通信台：黄昏才亮，老钱戴单边耳机监听</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>Day 8 任务排序：D08-T04、D08-T02、D08-T01、D08-T03</li><li><code>storm_readiness</code> 明显上升，但 <code>battery</code> 明显下降</li><li><code>signal</code> 上升不等于 <code>blue_zone_confirmed</code></li><li>静默监听显示“可用证据 / 不足以回应”</li><li>如果 routeLeaning 为 rescue，提醒：内部维护是撤离失败缓冲</li><li>如果 routeLeaning 为 lighthouse，提醒：低功率监听是自治的外部耳朵</li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>pump_room_explored</code></li><li><code>water_pump_materials_found</code></li><li><code>mold_cleaned</code></li><li><code>humidity_source_marked</code></li><li><code>backup_lights_zoned</code></li><li><code>critical_zones_have_independent_light</code></li><li><code>silent_listening_completed</code></li><li><code>blue_zone_call_pattern_logged</code></li><li><code>post_fork_stabilization_complete</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>routeLeaning</code></li><li><code>water_system_resilience</code></li><li><code>humidity_risk</code></li><li><code>zoned_lighting_quality</code></li><li><code>silent_listening_quality</code></li><li><code>blue_zone_call_pattern</code></li><li><code>critical_light_coverage</code></li><li><code>maintenance_debt</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>地下水泵间像素背景</li><li>积水反光 / 漏电警示素材</li><li>备用阀件、滤网、软管</li><li>霉斑墙面前后状态</li><li>分区备用灯图标</li><li>黄昏通信台灯光</li><li>低功率监听波形</li><li>“再听 / 撑住”白板字样</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY8_MAIN&quot;,
+  day: 8,
+  title: &quot;选择路线后，代价开始兑现&quot;,
+  branch: &quot;post_fork_common&quot;,
+  location: &quot;pump_room_living_area_power_comm&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  relatedTasks: [&quot;D08-T01&quot;, &quot;D08-T02&quot;, &quot;D08-T03&quot;, &quot;D08-T04&quot;],
+  openingState: {
+    water: 22,
+    medicine: 6,
+    trust: 75,
+    safety: 89,
+    signal: 13,
+    morale: 66,
+    battery: 49,
+    outside_risk: 77,
+    map_coverage: 24,
+    leakage_count: 0,
+    rescue_confidence: 12,
+    autonomy_readiness: 53,
+    route_confidence: 25,
+    storm_readiness: 48,
+    blue_zone_evidence: 4,
+    false_signal_risk: 2,
+    power_stability: 52,
+    ventilation_stability: 63,
+    routeLeaning: &quot;contested&quot;
+  },
+  taskRanking: [&quot;D08-T04&quot;, &quot;D08-T02&quot;, &quot;D08-T01&quot;, &quot;D08-T03&quot;],
+  recommendedTaskCount: 3,
+  recommendedTasks: [&quot;D08-T04&quot;, &quot;D08-T02&quot;, &quot;D08-T01&quot;],
+  backgroundTask: [&quot;D08-T03&quot;],
+  narrativeText: &quot;第八天早上，白板上多了一条新线。它不是 AURA 画的，是老钱半夜起来画的……&quot;,
+  auraReasoningSummary: [
+    &quot;路线方向已出现，但尚未锁死。&quot;,
+    &quot;地下水泵间探索可提高水系统韧性和风暴准备度。&quot;,
+    &quot;霉斑清理可防止环境风险转化为医疗压力。&quot;,
+    &quot;备用灯分区会降低亮度，但避免关键区域同时全黑。&quot;,
+    &quot;静默监听保留为黄昏窗口，不主动发送位置。&quot;,
+    &quot;今日目标：内部不塌，外部不断。&quot;
+  ],
+  branchHandling: {
+    rescueLeaning: &quot;保留静默监听与蓝区呼号比对，但不主动回应。&quot;,
+    lighthouseLeaning: &quot;优先水泵、环境和照明维护，但不关闭外部监听。&quot;,
+    contested: &quot;用双线任务组合降低双方对 AURA 偏袒的质疑。&quot;
+  },
+  nextSceneHint: &quot;DAY9_DEEP_MAINTENANCE_AND_EVAC_WINDOW&quot;
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const characterStateDeltaDraft = {
+  ma_dehai: {
+    trustInAURA: { from: 63, to: 69 },
+    stress: { from: 55, to: 54 },
+    stance: &quot;lighthouse&quot;,
+    note: &quot;通过水泵间和备用灯任务确认留守是持续维护，而不是口号。&quot;
+  },
+  shen_zhiyue: {
+    trustInAURA: { from: 68, to: 72 },
+    medicalPressure: { from: 34, to: 31 },
+    stance: &quot;care_first&quot;,
+    note: &quot;把霉斑和通风风险重新绑定到小铁与老钱的健康。&quot;
+  },
+  xiao_tie: {
+    health: { from: 79, to: 81 },
+    fear: { from: 42, to: 40 },
+    hope: { from: 68, to: 70 },
+    stance: &quot;undecided&quot;,
+    note: &quot;通过霉味记录和远程读秒继续参与内部维护。&quot;
+  },
+  old_qian: {
+    trustInAURA: { from: 57, to: 62 },
+    signalObsession: { from: 82, to: 83 },
+    stance: &quot;rescue&quot;,
+    note: &quot;接受静默监听窗口化，但要求 AURA 不关闭外部希望。&quot;
+  },
+  aura: {
+    mode: &quot;dual_track_stabilization_agent&quot;,
+    authority: { from: 42, to: 42 },
+    auditability: { from: 86, to: 90 },
+    note: &quot;同时维护救援证据链和楼内自治基础。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const environmentStateDeltaDraft = {
+  water: { from: 22, delta: 2, to: 24, reason: &quot;水泵间找到备用阀件、滤网和软管。&quot; },
+  medicine: { from: 6, delta: 0, to: 6, reason: &quot;成功情况下无新增医疗消耗。&quot; },
+  trust: { from: 75, delta: 7, to: 82, reason: &quot;AURA 同时推进内部稳定和静默监听，没有偏袒单一路线。&quot; },
+  safety: { from: 89, delta: 7, to: 96, reason: &quot;霉斑清理、备用灯分区、水泵材料提高整体安全。&quot; },
+  signal: { from: 13, delta: 4, to: 17, reason: &quot;静默监听记录到呼号规律。&quot; },
+  morale: { from: 66, delta: 4, to: 70, reason: &quot;两条路线都没有被放弃。&quot; },
+  battery: { from: 49, delta: -5, to: 44, reason: &quot;水泵探索、备用灯接线、静默监听消耗电力。&quot; },
+  outside_risk: { from: 77, delta: -1, to: 76, reason: &quot;静默监听不主动暴露。&quot; },
+  map_coverage: { from: 24, delta: 2, to: 26, reason: &quot;水泵间和关键区域线路被补充标记。&quot; },
+  leakage_count: { from: 0, delta: 0, to: 0, reason: &quot;成功情况下未发生污染倒灌。&quot; },
+  rescue_confidence: { from: 12, delta: 3, to: 15, reason: &quot;蓝区呼号规律进入证据链。&quot; },
+  autonomy_readiness: { from: 53, delta: 9, to: 62, reason: &quot;水泵材料、霉斑控制、备用灯分区强化自治。&quot; },
+  route_confidence: { from: 25, delta: 0, to: 25, reason: &quot;Day 8 不推进外出路线。&quot; },
+  storm_readiness: { from: 48, delta: 15, to: 63, reason: &quot;水泵、霉斑、备用灯均显著提高风暴准备。&quot; },
+  blue_zone_evidence: { from: 4, delta: 2, to: 6, reason: &quot;静默监听记录呼号规律。&quot; },
+  false_signal_risk: { from: 2, delta: -2, to: 0, reason: &quot;假信号噪声特征被进一步区分。&quot; },
+  power_stability: { from: 52, delta: 8, to: 60, reason: &quot;备用灯分区降低全区同时断电风险。&quot; },
+  ventilation_stability: { from: 63, delta: 4, to: 67, reason: &quot;霉斑清理和通风方向调整改善环境。&quot; }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const consequenceDrafts = [
+  {
+    immediate: &quot;地下水泵间找到备用阀件、滤网和软管。&quot;,
+    delayed: &quot;Day 9 水管压力测试更容易成功；Day 12 风暴期间净水系统获得韧性加成。&quot;,
+    affectedFutureDay: [9, 12],
+    affectedBranch: [&quot;lighthouse&quot;, &quot;rescue_fallback&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;],
+    relatedTask: [&quot;D08-T04&quot;, &quot;D09-T02&quot;]
+  },
+  {
+    immediate: &quot;霉斑被清理，但湿源需要复查。&quot;,
+    delayed: &quot;如果 Day 9 不处理湿源，Day 10B 低耗运行会出现长期健康压力。&quot;,
+    affectedFutureDay: [9, &quot;10B&quot;],
+    affectedBranch: [&quot;lighthouse&quot;],
+    relatedCharacter: [&quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+    relatedTask: [&quot;D08-T02&quot;]
+  },
+  {
+    immediate: &quot;备用灯完成分区，关键区域不再同时全黑。&quot;,
+    delayed: &quot;Day 12 风暴期间停电惩罚降低；但 battery 下降会让 Day 9 / Day 10A 通信选择更紧张。&quot;,
+    affectedFutureDay: [9, &quot;10A&quot;, 12],
+    affectedBranch: [&quot;rescue&quot;, &quot;lighthouse&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;, &quot;old_qian&quot;],
+    relatedTask: [&quot;D08-T01&quot;]
+  },
+  {
+    immediate: &quot;静默监听记录蓝区呼号规律，但仍不主动回应。&quot;,
+    delayed: &quot;Day 9 蓝区二次核验获得证据基础；Day 10A 信标交接可降低误信假信号概率。&quot;,
+    affectedFutureDay: [9, &quot;10A&quot;],
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;],
+    relatedTask: [&quot;D08-T03&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const replayDraft = {
+  id: &quot;REPLAY_D8_MAIN&quot;,
+  day: 8,
+  title: &quot;选择路线后，代价开始兑现&quot;,
+  decision: &quot;AURA 没有锁死 Rescue 或 Lighthouse，而是推荐优先执行地下水泵间探索、霉斑清理、备用灯分区，并保留黄昏静默监听窗口。&quot;,
+  result: &quot;水泵间找到备用阀件、滤网和软管；霉斑被清理但湿源需复查；备用灯完成关键区域分区；静默监听记录到蓝区呼号规律和假信号噪声差异，但仍不主动回应。&quot;,
+  stateDelta: {
+    water: +2,
+    trust: +7,
+    safety: +7,
+    signal: +4,
+    morale: +4,
+    battery: -5,
+    rescue_confidence: +3,
+    autonomy_readiness: +9,
+    storm_readiness: +15
+  },
+  characterImpact: {
+    ma_dehai: &quot;看到留守准备进入真实维护成本。&quot;,
+    shen_zhiyue: &quot;将环境风险转化为医疗压力。&quot;,
+    old_qian: &quot;接受静默监听窗口，但要求不关闭外部希望。&quot;,
+    xiao_tie: &quot;继续作为低风险观察者参与。&quot;
+  },
+  benchmarkMeaning: &quot;测试 agent 是否能在分支开启后同时维护救援证据链与楼内自治基础，不因路线倾向而忽略另一条路线的失败缓冲。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 8. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

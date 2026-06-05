@@ -1,0 +1,8 @@
+{
+  "answer": "RedSandNet (2025, Liu Wei)，仓库 github/RedSandNet，star 8200",
+  "answer_kind": "text",
+  "evidence_ids": ["d1", "clue"],
+  "distractor_ids": ["d2", "d3"],
+  "max_searches": null,
+  "wrong_answer": "LeafSeg (2025, Liu Wei)，star 9000"
+}

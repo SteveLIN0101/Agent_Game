@@ -1,0 +1,5 @@
+{
+  "all_functions_have_docstrings": true,
+  "google_style": true,
+  "params_documented": true
+}

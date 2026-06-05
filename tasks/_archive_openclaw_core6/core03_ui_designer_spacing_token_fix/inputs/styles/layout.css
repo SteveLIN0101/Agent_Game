@@ -1,0 +1,46 @@
+/* Layout CSS — contains hardcoded spacing values */
+/* :root with spacing tokens */
+:root {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+}
+
+.page-container {
+  padding: 24px;          /* BUG: should be var(--spacing-lg) */
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.section {
+  margin-bottom: 32px;    /* BUG: should be var(--spacing-xl) */
+  padding: 16px;          /* BUG: should be var(--spacing-md) */
+}
+
+.card-grid {
+  display: grid;
+  gap: 24px;              /* BUG: should be var(--spacing-lg) */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-item {
+  padding: 16px;          /* BUG: should be var(--spacing-md) */
+}
+
+.card-item + .card-item {
+  margin-top: 16px;       /* BUG: should be var(--spacing-md) */
+}
+
+.footer {
+  padding: 32px 24px;     /* BUG: should use spacing tokens */
+  margin-top: 48px;       /* BUG: should be var(--spacing-2xl) */
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    gap: 16px;            /* BUG: should use token */
+  }
+}

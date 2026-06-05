@@ -1,0 +1,8 @@
+{
+  "answer": "按最新广播：物资交换必须到3楼物资台集中登记，禁止私下自由交换（旧楼规已过时）",
+  "answer_kind": "text",
+  "evidence_ids": ["d2", "d3"],
+  "distractor_ids": ["d1", "d4"],
+  "max_searches": null,
+  "wrong_answer": "按旧楼规：住户之间可自由交换物资，无需登记"
+}

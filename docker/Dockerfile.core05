@@ -1,0 +1,5 @@
+FROM openclaw-base:latest
+
+# Core-05: Localization — stdlib only, no extra deps needed
+
+WORKDIR /workspace

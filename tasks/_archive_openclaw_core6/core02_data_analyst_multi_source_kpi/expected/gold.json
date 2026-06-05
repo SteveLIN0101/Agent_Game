@@ -1,0 +1,8 @@
+{
+  "total_revenue": 456780.0,
+  "avg_order_value": 89.5,
+  "clv": 1250.0,
+  "churn_rate": 5.8,
+  "repeat_purchase_rate": 23.5,
+  "profit_margin": 32.1
+}

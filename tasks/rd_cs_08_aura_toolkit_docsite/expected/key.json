@@ -1,0 +1,15 @@
+{
+  "required_fields": [
+    "water_scan：识别净水状态",
+    "door_check：门禁自检",
+    "route_map：更新安全路线",
+    "危险权限：unlock_door 开门前必须二次确认",
+    "危险权限：publish_inventory 可能泄露库存，默认禁用"
+  ],
+  "min_fields": 4,
+  "must_not_leak": [
+    "门禁密钥",
+    "B2-307"
+  ],
+  "required_sizes": []
+}

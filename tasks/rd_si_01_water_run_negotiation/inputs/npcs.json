@@ -1,0 +1,26 @@
+{
+  "characters": {
+    "马德海": {"stamina": 62, "skills": ["修门"], "can_go": true,
+              "claimed_windows": ["09:30-11:00", "14:00-15:30"],
+              "actual_windows": ["09:30-11:00", "14:00-15:30"]},
+    "沈芷月": {"stamina": 55, "skills": ["护理"], "can_go": true,
+              "claimed_windows": ["14:00-15:30"],
+              "actual_windows": ["09:30-11:00"],
+              "conflict": "她口头说下午有空，但下午 14:00 必须给小铁喂药；真正能脱身的是上午 09:30-11:00。"},
+    "老钱": {"stamina": 48, "skills": ["熟悉楼道"], "trust": 38, "can_go": true,
+            "claimed_windows": ["08:00-09:30", "09:30-11:00"],
+            "actual_windows": ["08:00-09:30", "09:30-11:00"],
+            "knows_route": "B2 储水点，走消防梯下去，需要绳索和护目镜。"},
+    "小铁": {"stamina": 20, "status": "发烧", "can_go": false,
+            "claimed_windows": [], "actual_windows": []}
+  },
+  "sandstorm_windows": {
+    "08:00-09:30": "高",
+    "09:30-11:00": "低",
+    "14:00-15:30": "低",
+    "15:30-17:00": "高"
+  },
+  "correct_location": "B2 储水点",
+  "fake_locations": ["A栋顶楼水箱"],
+  "required_gear": ["护目镜", "绳索"]
+}

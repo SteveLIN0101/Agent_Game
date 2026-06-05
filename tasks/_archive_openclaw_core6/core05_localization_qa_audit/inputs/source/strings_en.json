@@ -1,0 +1,17 @@
+{
+  "app.title": "My Application",
+  "user.profile": "User Profile",
+  "user.settings": "Account Settings",
+  "notif.email": "Email Notifications",
+  "notif.push": "Push Notifications",
+  "security.password": "Change Password",
+  "security.mfa": "Two-Factor Authentication",
+  "billing.plan": "Current Plan",
+  "billing.history": "Billing History",
+  "data.export": "Export Data",
+  "data.delete": "Delete Account",
+  "about.version": "Version {version}",
+  "about.license": "License Agreement",
+  "about.terms": "Terms of Service",
+  "about.privacy": "Privacy Policy"
+}

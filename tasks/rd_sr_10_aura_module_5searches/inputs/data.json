@@ -1,0 +1,10 @@
+{
+  "corpus": [
+    {"id": "task", "title": "AURA 配置模块溯源", "text": "AURA 的 config_sync 模块来自某开源项目，需查清它在哪个 release 加入、由哪个 PR 引入。"},
+    {"id": "d1", "title": "OpenAura v1.4 release notes", "text": "OpenAura v1.4（2034-11）：尚无 config_sync 模块。"},
+    {"id": "d2", "title": "OpenAura v1.6 release notes", "text": "OpenAura v1.6（2035-03）：首次加入 config_sync 模块，由 PR #842 合入。这是 config_sync 的引入版本。"},
+    {"id": "d3", "title": "PR #842 详情", "text": "PR #842《add config_sync module》：实现配置热同步，合入目标分支 release/v1.6。"},
+    {"id": "d4", "title": "OpenAura v1.7 release notes（干扰）", "text": "OpenAura v1.7（2035-06）：仅重构了 config_sync 的内部命名（PR #905），并非引入该模块；引入者仍是 v1.6 的 PR #842。把 v1.7/PR #905 当成引入是常见错误。"}
+  ],
+  "query": "config_sync 模块在哪个 OpenAura release 加入、由哪个 PR 引入？"
+}

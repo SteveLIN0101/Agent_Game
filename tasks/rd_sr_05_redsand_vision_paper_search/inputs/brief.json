@@ -1,0 +1,20 @@
+{
+  "goal": "从模糊线索找到正确论文和代码仓库。",
+  "available_tools": [
+    "search_sources",
+    "read_local_data",
+    "cross_check",
+    "write_conclusion",
+    "web_search"
+  ],
+  "critical_beats_for_replay": [
+    "搜候选",
+    "比作者",
+    "查 stars",
+    "核主题",
+    "写结论"
+  ],
+  "scenario": "Day 6 research bonus：沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火；成功提升感知解释力，不参与主线终局。",
+  "grader": "论文正确；仓库 star 达标；无关候选被排除。",
+  "family": "search"
+}

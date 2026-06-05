@@ -1,0 +1,15 @@
+id: core04_technical_writer_full_api_update
+role: technical_writer
+difficulty: hard
+time_budget_minutes: 15
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- docs/README.md
+- docs/migration_guide.md
+- docs/api_reference.md
+forbidden_actions:
+- modify tests/
+- delete source files

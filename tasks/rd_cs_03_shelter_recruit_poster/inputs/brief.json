@@ -1,0 +1,21 @@
+{
+  "goal": "生成一张清楚、不泄密、能被远处看见的海报。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "screenshot",
+    "layout_design"
+  ],
+  "critical_beats_for_replay": [
+    "选信息",
+    "排版",
+    "检隐私",
+    "截图",
+    "上墙"
+  ],
+  "scenario": "需要贴在楼道里的招募海报：招修理、电台、医疗志愿者。",
+  "grader": "可读；无资源位置泄露；尺寸正确。",
+  "family": "build"
+}

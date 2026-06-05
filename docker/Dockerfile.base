@@ -1,0 +1,16 @@
+FROM python:3.12-slim
+
+# Common dependencies for all task types
+RUN pip install --no-cache-dir \
+    pytest>=8.0 \
+    pyyaml>=6.0 \
+    pandas>=2.0 \
+    numpy>=1.24 \
+    beautifulsoup4>=4.12 \
+    lxml>=5.0
+
+# Standard workspace
+WORKDIR /workspace
+
+# Hidden verifier
+RUN mkdir -p /opt/verifier

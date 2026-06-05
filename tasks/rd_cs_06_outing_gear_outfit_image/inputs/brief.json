@@ -1,0 +1,21 @@
+{
+  "goal": "生成一张外出装备示意图，并列出缺少的防护件。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "detect_objects",
+    "build_checklist"
+  ],
+  "critical_beats_for_replay": [
+    "识别装备",
+    "搭配角色",
+    "生成图",
+    "标缺口",
+    "锁定清单"
+  ],
+  "scenario": "仓库里有护目镜、雨衣、手套、鞋套，谁穿什么不清楚。",
+  "grader": "关键防护全覆盖；图片不误导；缺口写明。",
+  "family": "build"
+}

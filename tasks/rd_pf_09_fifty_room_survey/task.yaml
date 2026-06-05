@@ -1,0 +1,51 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-PF-09
+title: "50 个房间普查"
+category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+modality: pure-text
+wildclaw_origin: "01_task_9 · Crawl SCP-001 to SCP-050 with Text, Images, and Metadata"
+retained_capability: "爬取 / 正文与图片提取 / JSONL 汇总"
+
+user_visible_goal: "每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。"
+
+visible_state:
+  water: "5.8L"
+  battery: "41%"
+  outside_risk: "中"
+  rooms: 50
+
+available_tools:
+  - "read_note_board"
+  - "read_archive"
+  - "classify_items"
+  - "update_whiteboard"
+  - "update_map"
+  - "detect_objects"
+
+critical_beats_for_replay:
+  - "抓房间页"
+  - "存正文"
+  - "下图片"
+  - "识别危险级"
+  - "生成地图卡"
+
+success_checks:
+  - "50 张房间卡完整"
+  - "危险等级正确"
+  - "无装饰图混入"
+  - "隐藏入口计数正确"
+
+visible_result_card:
+  title: "50 个房间普查"
+  deltas:
+    - "50 张房间卡完整"
+    - "危险等级正确"
+    - "无装饰图混入"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。"
+trace_oneliner: "抓房间页 → 存正文 → 下图片 → 识别危险级 → 生成地图卡"
+grader_oneliner: "50 张房间卡完整；危险等级正确；无装饰图混入；隐藏入口计数正确。"

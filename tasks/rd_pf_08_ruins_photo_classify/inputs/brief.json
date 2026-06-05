@@ -1,0 +1,22 @@
+{
+  "goal": "把照片分到五个直观文件夹，地图上出现对应图标。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "update_map",
+    "detect_objects",
+    "unpack_archive"
+  ],
+  "critical_beats_for_replay": [
+    "解包照片",
+    "逐张识别",
+    "建文件夹",
+    "上地图",
+    "抽查错误"
+  ],
+  "scenario": "无人机带回 100 张照片，混有水源、危险、医疗、路线和无关图像。",
+  "grader": "照片唯一归类；危险/水源两类准确率高；地图新增点位与分类一致。",
+  "family": "classify"
+}

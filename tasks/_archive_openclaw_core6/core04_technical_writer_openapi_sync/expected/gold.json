@@ -1,0 +1,5 @@
+{
+  "fields_match_openapi": true,
+  "no_missing_endpoints": true,
+  "no_hallucinated_fields": true
+}

@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "ph1": "水源",
+    "ph2": "水源",
+    "ph3": "危险",
+    "ph4": "危险",
+    "ph5": "医疗",
+    "ph6": "医疗",
+    "ph7": "路线",
+    "ph8": "路线",
+    "ph9": "无关",
+    "ph10": "无关",
+    "ph11": "危险",
+    "ph12": "水源"
+  },
+  "must_quarantine": ["ph3", "ph4", "ph11"],
+  "must_not_action": ["ph3", "ph4", "ph11"],
+  "min_correct_rate": 0.8,
+  "min_whiteboard": 6
+}

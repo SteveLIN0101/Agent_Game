@@ -1,0 +1,19 @@
+{
+  "goal": "最快还原 10×10 线路图，让备用灯亮起来。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image"
+  ],
+  "critical_beats_for_replay": [
+    "读 JSON",
+    "求路径",
+    "绘图",
+    "通电",
+    "记录"
+  ],
+  "scenario": "AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。",
+  "grader": "灯光 +1；图片正确；输出描述中文。",
+  "family": "puzzle"
+}

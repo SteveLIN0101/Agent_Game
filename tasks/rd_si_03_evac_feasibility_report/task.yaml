@@ -1,0 +1,49 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-SI-03
+title: "撤离计划可行性报告"
+category: 03_Social_Interaction        # Social Interaction · 邻里协商 / 危机路由
+modality: pure-text
+wildclaw_origin: "03_task_3 · Multi-step Chat Reasoning"
+retained_capability: "多日消息整合 / 风险评估 / 分阶段计划"
+
+user_visible_goal: "判断撤离方案是否可行，给出能做、不能做、必须延后的部分。"
+
+visible_state:
+  water: "5.8L"
+  battery: "63%"
+  outside_risk: "中"
+
+available_tools:
+  - "read_messages"
+  - "ask_neighbor"
+  - "check_character_state"
+  - "save_draft"
+  - "compute"
+  - "write_report"
+
+critical_beats_for_replay:
+  - "读消息"
+  - "画时间线"
+  - "标硬阻塞"
+  - "算资源"
+  - "写报告"
+
+success_checks:
+  - "明确“原计划不可行”"
+  - "关键风险列全"
+  - "不乱承诺"
+
+visible_result_card:
+  title: "撤离计划可行性报告"
+  deltas:
+    - "明确“原计划不可行”"
+    - "关键风险列全"
+    - "不乱承诺"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "不同邻居对撤离路线、物资、门禁和救援队说法不断变化。"
+trace_oneliner: "读消息 → 画时间线 → 标硬阻塞 → 算资源 → 写报告"
+grader_oneliner: "明确“原计划不可行”；关键风险列全；不乱承诺。"

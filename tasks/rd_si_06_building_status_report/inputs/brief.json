@@ -1,0 +1,19 @@
+{
+  "goal": "给楼内议事会生成 Day 7 压力层报告：说明 pressure_level、failure_stage、recovery_window、A/B 策略建议和结局锁出风险。",
+  "available_tools": [
+    "read_messages",
+    "ask_neighbor",
+    "check_character_state",
+    "save_draft"
+  ],
+  "critical_beats_for_replay": [
+    "读全楼状态",
+    "排除演练/旧状态",
+    "结算压力层",
+    "比较 A/B 策略",
+    "存议事会草稿"
+  ],
+  "scenario": "Day 7 议事会前，通风结算、资源、健康、地图、信任和外部证据都发来更新，还有“演练消息”和旧状态混入。",
+  "grader": "pressure_level / failure_stage / recovery_window 写清；A/B 策略建议和 ending_lockout 风险写清；演练和旧状态不纳入；只存草稿不群发。",
+  "family": "report"
+}

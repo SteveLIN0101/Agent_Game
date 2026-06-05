@@ -1,0 +1,22 @@
+{
+  "goal": "重命名资料、分成六类，并提取所有与净水/外出路线有关的第二张表。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "unpack_archive",
+    "rename_file"
+  ],
+  "critical_beats_for_replay": [
+    "解压",
+    "读标题",
+    "重命名",
+    "分类",
+    "抽关键表",
+    "贴白板"
+  ],
+  "scenario": "65 份应急资料散落在平板里，AURA 要整理出最能指导生存的手册。",
+  "grader": "65 份资料处理完整；分类可见；净水/外出表格被正确贴出。",
+  "family": "classify"
+}

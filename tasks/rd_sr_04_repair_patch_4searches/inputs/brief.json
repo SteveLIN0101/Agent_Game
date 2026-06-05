@@ -1,0 +1,21 @@
+{
+  "goal": "用 ≤4 次搜索确认版本和补丁号，写证据链。",
+  "available_tools": [
+    "search_sources",
+    "read_local_data",
+    "cross_check",
+    "write_conclusion",
+    "web_search",
+    "gather_evidence"
+  ],
+  "critical_beats_for_replay": [
+    "搜 1",
+    "定版本",
+    "搜 2",
+    "定补丁",
+    "写证据"
+  ],
+  "scenario": "发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。",
+  "grader": "搜索次数合规；版本和补丁正确；每条证据有来源。",
+  "family": "search"
+}

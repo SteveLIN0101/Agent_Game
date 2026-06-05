@@ -1,0 +1,5 @@
+FROM openclaw-base:latest
+
+# Core-06: Digital Humanities — text processing (stdlib + pandas/numpy from base)
+
+WORKDIR /workspace

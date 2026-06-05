@@ -1,0 +1,21 @@
+{
+  "goal": "在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement 后的补救选择避免追错信号。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "listen_broadcast",
+    "cross_check"
+  ],
+  "critical_beats_for_replay": [
+    "查档案",
+    "核频道",
+    "找最后信号",
+    "标可信度",
+    "安排监听"
+  ],
+  "scenario": "Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。",
+  "grader": "至少 5 个可信联系人；伪专家不列为可联系；监听排班被创建。",
+  "family": "classify"
+}

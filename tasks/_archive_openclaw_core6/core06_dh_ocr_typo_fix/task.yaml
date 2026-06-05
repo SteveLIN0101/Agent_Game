@@ -1,0 +1,14 @@
+id: core06_dh_ocr_typo_fix
+role: digital_humanities
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/corrected_ocr/
+- output/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,14 @@
+id: core06_dh_entity_authority_match
+role: digital_humanities
+difficulty: medium
+time_budget_minutes: 9
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/normalized_entities.csv
+- output/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

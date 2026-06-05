@@ -1,0 +1,22 @@
+{
+  "goal": "从档案中提取关键人物关系，找出能帮助或威胁避难所的人。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "disambiguate",
+    "update_character_card",
+    "update_trust"
+  ],
+  "critical_beats_for_replay": [
+    "读档案",
+    "消歧绰号",
+    "找关系",
+    "生成角色卡",
+    "更新信任图"
+  ],
+  "scenario": "楼管档案里记录了各层住户关系，很多人只以绰号出现。",
+  "grader": "关键人物卡齐全；敌友关系正确；不把主角本人重复列入。",
+  "family": "classify"
+}

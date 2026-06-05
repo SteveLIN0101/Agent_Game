@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dschytsr3du7y"
+
+[deps]
+
+files=["res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.相对路径.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.中文名.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.分类.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.尺寸版本.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.备注.translation"]
+
+source_file="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.csv"
+dest_files=["res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.相对路径.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.中文名.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.分类.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.尺寸版本.translation", "res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/asset-file-name-map-cn.备注.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

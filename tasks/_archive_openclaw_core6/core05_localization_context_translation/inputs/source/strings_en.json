@@ -1,0 +1,12 @@
+{
+  "app.board": "Board",
+  "card.title": "Card Title",
+  "card.description": "Card Description",
+  "channel.general": "General Channel",
+  "channel.announce": "Announcement Channel",
+  "workspace.menu": "Workspace Menu",
+  "board.archive": "Archive Board",
+  "card.move": "Move Card",
+  "channel.create": "Create Channel",
+  "workspace.invite": "Invite to Workspace"
+}

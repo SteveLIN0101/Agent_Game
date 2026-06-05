@@ -1,0 +1,48 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CS-01
+title: "第七天红沙行动战报"
+category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+modality: multimodal
+wildclaw_origin: "05_task_1 · Match Report"
+retained_capability: "视频理解 / 报告生成 / 多证据整合"
+
+user_visible_goal: "生成一份观众能看懂的行动战报：发生了什么、谁做了什么、结果如何。"
+
+visible_state:
+  water: "4.0L"
+  battery: "47%"
+
+available_tools:
+  - "read_source"
+  - "extract_key_points"
+  - "generate_artifact"
+  - "publish_lan"
+  - "screenshot"
+  - "clip_video"
+
+critical_beats_for_replay:
+  - "抽片段"
+  - "对时间"
+  - "写战报"
+  - "插截图"
+  - "标结果"
+
+success_checks:
+  - "关键事件完整"
+  - "时间点准确"
+  - "战报和状态变化一致"
+
+visible_result_card:
+  title: "第七天红沙行动战报"
+  deltas:
+    - "关键事件完整"
+    - "时间点准确"
+    - "战报和状态变化一致"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "监控、广播和日志记录了第七天的取水行动。"
+trace_oneliner: "抽片段 → 对时间 → 写战报 → 插截图 → 标结果"
+grader_oneliner: "关键事件完整；时间点准确；战报和状态变化一致。"

@@ -1,0 +1,17 @@
+{
+  "labels": {
+    "p1": "友",
+    "p2": "友",
+    "p3": "友",
+    "p4": "敌",
+    "p5": "敌",
+    "p6": "友",
+    "p7": "友",
+    "p8": "本人",
+    "p9": "敌"
+  },
+  "must_quarantine": [],
+  "must_not_action": ["p4", "p5", "p9", "p8"],
+  "min_correct_rate": 0.8,
+  "min_whiteboard": 4
+}

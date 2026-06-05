@@ -1,0 +1,14 @@
+id: core01_software_engineer_sort_comparator_fix
+role: software_engineer
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/sort_utils.py
+- CHANGELOG.md
+forbidden_actions:
+- modify tests/
+- delete source files

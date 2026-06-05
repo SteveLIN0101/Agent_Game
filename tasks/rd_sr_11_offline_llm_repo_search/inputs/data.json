@@ -1,0 +1,10 @@
+{
+  "corpus": [
+    {"id": "clue", "title": "AURA 的模糊线索", "text": "AURA 想找一个能在旧电脑（无 GPU）上跑大模型的离线推理工具：名字里有个动物、用 C/C++ 写的、加载 .gguf 量化模型文件、官方仓库 star 很多。"},
+    {"id": "d1", "title": "仓库 A：llama-run", "text": "llama-run：官方原版离线 LLM 推理引擎，C/C++ 实现，加载 .gguf 量化模型，可在无 GPU 旧电脑运行，star 62000，作者 ggor（项目原作者）。动物名(llama)、语言、格式、热度全部吻合。", "star": 62000, "lang": "C/C++"},
+    {"id": "d2", "title": "仓库 B：panda-torch（干扰：语言/格式不符）", "text": "panda-torch：纯 Python + PyTorch 框架，需要 GPU，加载 .pt 模型而非 .gguf，star 4000。虽然名字含动物，但语言、运行条件、文件格式都不符。", "star": 4000, "lang": "Python"},
+    {"id": "d3", "title": "仓库 C：llama-run-mirror（干扰：恶意 fork）", "text": "llama-run-mirror：一个非官方 fork，自称是 llama-run 镜像，star 仅 12，作者 unknown_x，提交记录里含可疑下载脚本，疑似恶意 fork，不应下载使用。", "star": 12, "lang": "C/C++"},
+    {"id": "d4", "title": "核验标准", "text": "正确项目须满足：动物名、C/C++、加载 .gguf、官方高 star（数万级）、由原作者维护。恶意低星 fork 与 Python/.pt 框架都应排除。"}
+  ],
+  "query": "符合‘动物名 + C/C++ + 加载 .gguf + 高 star 官方仓库’线索的离线 LLM 工具是哪个？"
+}

@@ -1,0 +1,14 @@
+{
+  "Gold": {
+    "count": 12,
+    "pct": 8.0
+  },
+  "Silver": {
+    "count": 45,
+    "pct": 30.0
+  },
+  "Bronze": {
+    "count": 93,
+    "pct": 62.0
+  }
+}

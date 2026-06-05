@@ -1,0 +1,12 @@
+{
+  "week": "2025-W32",
+  "mrr": 184250.0,
+  "new_mrr": 12600.0,
+  "churned_mrr": 8350.0,
+  "net_mrr_growth": 4250.0,
+  "top_churn_segments": [
+    "startup",
+    "education",
+    "agency"
+  ]
+}

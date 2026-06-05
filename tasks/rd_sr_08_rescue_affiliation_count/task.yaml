@@ -1,0 +1,45 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-SR-08
+title: "救援名单归属统计"
+category: 04_Search_Retrieval        # Search & Retrieval · 可见证据链检索
+modality: pure-text
+wildclaw_origin: "04_task_8 · Academic Paper and Affiliation Search"
+retained_capability: "名单编译 / affiliation 解析 / 精确计数"
+
+user_visible_goal: "给出两个组织的数量和对应人员，避免把第二单位误当第一单位。"
+
+visible_state:
+  water: "2.4L"
+  battery: "41%"
+
+available_tools:
+  - "search_sources"
+  - "read_local_data"
+  - "cross_check"
+  - "write_conclusion"
+  - "count_items"
+
+critical_beats_for_replay:
+  - "找名单"
+  - "读第一归属"
+  - "分 SJ/FU"
+  - "计数"
+  - "列标题"
+
+success_checks:
+  - "数量和列表全对"
+  - "第一归属判断正确"
+
+visible_result_card:
+  title: "救援名单归属统计"
+  deltas:
+    - "数量和列表全对"
+    - "第一归属判断正确"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名字。"
+trace_oneliner: "找名单 → 读第一归属 → 分 SJ/FU → 计数 → 列标题"
+grader_oneliner: "数量和列表全对；第一归属判断正确。"

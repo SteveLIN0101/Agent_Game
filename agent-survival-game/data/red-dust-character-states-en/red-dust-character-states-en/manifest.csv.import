@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dcu4olwseuqir"
+
+[deps]
+
+files=["res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.state.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.type.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.filename.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.width.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.height.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.mode.translation"]
+
+source_file="res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.csv"
+dest_files=["res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.state.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.type.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.filename.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.width.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.height.translation", "res://data/red-dust-character-states-en/red-dust-character-states-en/manifest.mode.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

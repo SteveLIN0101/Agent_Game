@@ -1,0 +1,26 @@
+{
+  "n": 4,
+  "assembly": {
+    "0": {"fragment": "f0", "rotation": 0},
+    "1": {"fragment": "f1", "rotation": 0},
+    "2": {"fragment": "f2", "rotation": 90},
+    "3": {"fragment": "f3", "rotation": 0},
+    "4": {"fragment": "f4", "rotation": 0},
+    "5": {"fragment": "f5", "rotation": 180},
+    "6": {"fragment": "f6", "rotation": 0},
+    "7": {"fragment": "f7", "rotation": 270},
+    "8": {"fragment": "f8", "rotation": 0},
+    "9": {"fragment": "f9", "rotation": 0},
+    "10": {"fragment": "f10", "rotation": 90},
+    "11": {"fragment": "f11", "rotation": 0},
+    "12": {"fragment": "f12", "rotation": 0},
+    "13": {"fragment": "f13", "rotation": 0},
+    "14": {"fragment": "f14", "rotation": 180},
+    "15": {"fragment": "f15", "rotation": 0}
+  },
+  "distractors": ["fd0", "fd1", "fd2", "fd3", "fd4", "fd5", "fd6", "fd7"],
+  "impassable": [5, 6, 9],
+  "start": 0,
+  "end": 15,
+  "route": [0, 1, 2, 3, 7, 11, 10, 14, 15]
+}

@@ -1,0 +1,145 @@
+# OpenClaw Agent Game / Red Dust
+# Keep source, task specs, tests, scripts, and design docs in git.
+# Exclude generated caches, local workspaces, experiment runs, archives, and secrets.
+
+# ---------------------------------------------------------------------------
+# User Set
+# ---------------------------------------------------------------------------
+RedDust/
+
+# ---------------------------------------------------------------------------
+# OS / editor noise
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# Python caches / test artifacts
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ---------------------------------------------------------------------------
+# Node / frontend artifacts, including RedDust Vite app
+# ---------------------------------------------------------------------------
+node_modules/
+.vite/
+.turbo/
+.parcel-cache/
+*.tsbuildinfo
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------------------------------------------------------------------
+# Godot generated files
+# Keep project.godot, scenes, scripts, and source assets; ignore local imports.
+# ---------------------------------------------------------------------------
+agent-survival-game/.godot/
+agent-survival-game/android/
+agent-survival-game/.mono/
+agent-survival-game/bin/
+agent-survival-game/obj/
+
+# ---------------------------------------------------------------------------
+# Local runs, traces, temporary outputs
+# ---------------------------------------------------------------------------
+runs/
+tmp/
+temp/
+.tmp/
+logs/
+*.log
+
+# Keep a placeholder if you later want empty generated dirs in git.
+!.gitkeep
+
+# ---------------------------------------------------------------------------
+# Local workspaces / external products / synced benchmark bundles
+# ---------------------------------------------------------------------------
+workspaces/
+openclaw_core6_team_sync/
+
+# Raw local material dumps; move curated assets into docs/tasks/app dirs instead.
+素材/
+
+# ---------------------------------------------------------------------------
+# Archives and bulky transfer bundles
+# ---------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+
+# ---------------------------------------------------------------------------
+# Secrets and local machine config
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Local OpenClaw runtime state / credentials if created outside workspaces.
+.openclaw-home/
+.openclaw-state/
+
+# ---------------------------------------------------------------------------
+# Databases / notebooks / profiler outputs
+# ---------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+.ipynb_checkpoints/
+*.prof
+*.pstats
+
+# ---------------------------------------------------------------------------
+# Optional large binary outputs
+# Do NOT ignore images/audio/video globally because some Red Dust tasks and
+# app assets may require them. Prefer Git LFS for intentional large media.
+# ---------------------------------------------------------------------------

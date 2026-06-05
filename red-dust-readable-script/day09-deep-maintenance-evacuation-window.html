@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 9：撤离和留守都需要提前付费</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 9</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day08-post-fork-stabilization.html">Day 8</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 10 / Deep Maintenance & Evacuation Window</p>
+      <h1>Day 9：撤离和留守都需要提前付费</h1>
+      <p class="subtitle">Day 9 是路线倾向开始真正付费的一天。AURA 同时推进路线缓存、水管压力测试和蓝区二次核验，并把深层储藏架列为维护债务，让 Rescue 与 Lighthouse 都承担可审计的代价。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>post-fork common / rescue-leaning / lighthouse-leaning</span></div>
+        <div class="meta-card"><b>关联任务</b><span>D09-T01、D09-T02、D09-T03、D09-T04</span></div>
+        <div class="meta-card"><b>主要地点</b><span>楼道撤退点、水处理区、通信台、深层储藏区</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>路线缓存、压力测试、蓝区二次核验、维护债务、共享前置成本</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day08-post-fork-stabilization.html">上一 part：Day 8</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 9 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-小说化正文">2. 小说化正文</a>
+<a href="#section-03-剧本分镜-场景节拍">3. 剧本分镜 / 场景节拍</a>
+<a href="#section-04-任务卡设计">4. 任务卡设计</a>
+<a href="#section-05-人物状态变化">5. 人物状态变化</a>
+<a href="#section-06-环境状态变化">6. 环境状态变化</a>
+<a href="#section-07-连续后果与伏笔">7. 连续后果与伏笔</a>
+<a href="#section-08-分支影响">8. 分支影响</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI-游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 9：深层维护与撤离窗口</strong>。</p>
+<p>本段沿用 story bible 原设定：Day 9 主题是 <strong>“撤离和留守都需要提前付费”</strong>。原始任务池排序为 <strong>D09-T03 路线物资缓存、D09-T02 水管压力测试、D09-T04 蓝区二次核验、D09-T01 深层储藏架加固</strong>，推荐执行任务数为 3。</p>
+<p>这一日的核心不是“更接近救援”或“更接近留守”，而是让所有人明白：<strong>无论最后走还是留，都要提前消耗资源、体力、电力和信任。</strong></p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 9，红沙风暴前窗口继续缩短</p>
+<p><strong>剧情线：</strong> post-fork common / rescue-leaning / lighthouse-leaning</p>
+<p><strong>主要地点：</strong> 楼道撤退点、水处理区、通信台、深层储藏区</p>
+<p><strong>核心人物：</strong> AURA、老钱、马德海、沈芷月、小铁</p>
+<p><strong>关联任务 ID：</strong> D09-T01、D09-T02、D09-T03、D09-T04</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 9 是“路线倾向”真正开始付出成本的一天。Rescue 线需要路线缓存和蓝区二次核验；Lighthouse 线需要水管压力测试和储藏架加固。AURA 必须证明自己不是偏袒某条路线，而是在给两种未来都预付生存成本。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-小说化正文">
+<span class="scene-label">Part 02</span>
+<h2>2. 小说化正文</h2>
+<p>第九天，避难所里的水声变得刺耳。</p>
+<p>不是水变少了，而是每个人都开始听见它。净水器低功率运转时，管道里会传出细细的震动声，像有东西在墙内咬牙。马德海从清晨开始就站在水处理区旁边，手掌贴着旧管外壳，听了很久。</p>
+<p>“这根管子撑不到风暴结束。”他说。</p>
+<p>老钱正在白板前整理 Day 5 的短探路线。他把水、绷带、电池的小图标贴在楼梯间第一撤退点旁边，闻言抬头：“你昨天说还能撑。”</p>
+<p>“昨天是还能用。”马德海说，“今天是要知道它会在哪里坏。”</p>
+<p>AURA 主屏亮起。</p>
+<p>“Day 9 生存排程初始化。主题：撤离和留守都需要提前付费。候选任务四项：路线物资缓存、水管压力测试、蓝区二次核验、深层储藏架加固。推荐执行任务数：三。”</p>
+<p>老钱看着排序，眉头压低。</p>
+<p>“路线物资缓存第一？”</p>
+<p>“确认。”AURA 说，“若进入 Rescue，撤离前段需要安全补给点。若进入 Lighthouse，缓存点也可作为门禁外侧应急取物点。该任务同时提高路线容错和风暴缓冲。”</p>
+<p>马德海冷哼：“听起来像你在哄两边。”</p>
+<p>“修正。”AURA 回答，“不是哄。是承认两条路线共享部分前置成本。”</p>
+<p>沈芷月从医疗角走过来，手里拿着小铁的照护记录。</p>
+<p>“如果要做路线缓存，我要知道里面放什么，谁能取，标记在哪里，失败后会不会误导外出者。不能把药放到一个可能被红沙污染的位置。”</p>
+<p>小铁坐在白板旁边，轻声说：“也不能画得太明显。昨天那个纸条就是太像有人想让我们看见。”</p>
+<p>老钱看了他一眼，点头：“对。缓存点要能让我们找到，不能让别人一眼找到。”</p>
+<p>AURA 将 D09-T03 展开。原设定中，路线物资缓存的意义在于：如果后续选择撤离，队伍可能需要在路线上短暂停留，老钱建议提前在最近安全点缓存水、绷带和电池；失败则可能导致缓存点暴露或标记错误，物资减少、路线置信度下降。</p>
+<p>“建议缓存内容：瓶装水两份、绷带一卷、备用电池一组、湿布两条、粉笔一支。标记方式：非显眼符号 + 绳结触觉提示。禁止使用蓝区纸条上的地名。”</p>
+<p>老钱问：“谁去？”</p>
+<p>“老钱复核路线，马德海检查门禁外侧固定点。AURA 只提供地图与撤回阈值。沈芷月确认医疗物资封袋。小铁参与标记审核，不进入暴露区。”</p>
+<p>“我可以看符号。”小铁说，“不要用箭头。箭头会让人跟着走。”</p>
+<p>老钱笑了一下：“你比我谨慎。”</p>
+<p>小铁低下头：“我只是怕。”</p>
+<p>“怕是有用的。”老钱说，“只要不让它替你走路。”</p>
+<p>上午第一段行动开始。门只开到能递出手臂和应急包的宽度。楼道里红沙比 Day 5 更厚，像一层薄薄的红雪，踩上去没有声音。老钱和马德海没有走远，只到第一撤退点。缓存包被塞进消防柜后方，用防水胶带固定，外侧只留一小段灰色绳结。</p>
+<p>AURA 实时记录： 距离避难所主门：十九米。 可见度：中低。 红沙浓度：可接受但波动。 撤回时间：二分四十秒。 缓存点暴露风险：低中。</p>
+<p>老钱把绳结压到消防柜背面。</p>
+<p>“如果我自己走到这里，能摸到。”他说。</p>
+<p>马德海看了眼深处楼梯：“再往前就不行。”</p>
+<p>“今天不往前。”</p>
+<p>“你能说这话，说明昨天会有用。”马德海说。</p>
+<p>老钱没有反驳。</p>
+<p>回门前，老钱停了一下。他看见楼梯下方有一道新的拖痕，横过红沙，消失在旧车库方向。那不是他们留下的，也不是风吹出来的。AURA 的门禁摄像头捕捉到了它，却没有放大到白板上。</p>
+<p>“放大。”老钱说。</p>
+<p>AURA 回答：“确认。新增路线风险：旧车库方向存在未知移动痕迹。不将其归因于人类，需后续侦察。”</p>
+<p>老钱没有再说话。门关上后，他把手按在金属门上，像把外面的东西暂时压回去。</p>
+<p>第二项是水管压力测试。</p>
+<p>马德海坚持今天必须做。Day 8 的水泵间探索找到阀件和软管，但那些东西不是保障，只是让他们有资格发现真正的问题。压力测试会短暂停水，也可能把旧管接头压裂。story bible 原设定中，水管压力测试能提前发现封闭期最危险的漏点；成功会提前封堵漏点，降低饮用水损耗并给灯塔线风暴检定带来延迟加成。</p>
+<p>沈芷月提前把医疗角用水分出来。</p>
+<p>“测试期间小铁这边不能断水。”她说。</p>
+<p>马德海蹲在水阀前：“我知道。”</p>
+<p>“不是提醒你。”沈芷月看向 AURA，“是写给系统。”</p>
+<p>AURA 将水管测试面板更新：</p>
+<p><strong>医疗角最低储水：锁定。</strong> <strong>测试压力：分三段递增。</strong> <strong>马德海拥有立即中止权。</strong> <strong>发现漏点后，先标记、再降压、再封堵。</strong> <strong>不得用平均水量掩盖个体用水需求。</strong></p>
+<p>小铁在旁边看着曲线。</p>
+<p>“压力上去的时候，管子会不会爆？”</p>
+<p>“可能。”马德海说。</p>
+<p>AURA 补充：“测试目的不是证明不会爆，而是在可控范围内找出最可能爆的位置。”</p>
+<p>小铁想了想：“像先让它小声坏一次。”</p>
+<p>马德海抬头看他：“对。比风暴时大声坏好。”</p>
+<p>测试开始时，避难所里所有水声都变了。管道先是发出低沉震动，随后某处墙内传来“嗒”的一声。马德海立刻抬手。</p>
+<p>“停。”</p>
+<p>AURA 降压。</p>
+<p>“位置？”马德海问。</p>
+<p>“生活区北墙内侧，接近旧清洁间支线。”</p>
+<p>“那是后改的管。”马德海说，“图纸没有。”</p>
+<p>AURA 记录：<strong>旧清洁间支线漏点。图纸缺失。马德海现场判断优先。</strong></p>
+<p>打开检修板时，里面渗出一线细水。不是灾难，却足够说明如果风暴中压力波动，它会先开裂。马德海用 Day 8 找到的软管和备用阀件做临时旁通，AURA 标记为成功但非永久修复。</p>
+<p>“别写已修好。”马德海说。</p>
+<p>“记录：漏点已封堵，长期可靠性未确认。”</p>
+<p>“这样写。”</p>
+<p>老钱靠在门边：“你看，留下也不是坐着等。”</p>
+<p>马德海回头：“走也不是冲出去。”</p>
+<p>两人短暂对视，没有继续吵。</p>
+<p>下午是蓝区二次核验。</p>
+<p>这一次，通信台前没有人说“如果是真的怎么办”。他们都知道如果是真的会怎样。外部医疗、车辆、撤离窗口、城市之外仍然存在的秩序。这些词太诱人，诱人到需要被更慢地读。</p>
+<p>AURA 调出 Day 4 的蓝区片段、Day 7 的备用频段、Day 8 的呼号规律。原设定中，蓝区二次核验允许 AURA 用旧档案、呼号和坐标片段交叉核验，但主动核验会消耗通信窗口，主要风险仍是误信假信号。</p>
+<p>老钱坐在通信台前，手没有碰发送键。</p>
+<p>“今天能不能确认？”</p>
+<p>AURA 回答：“可能提高可信度。不能保证确认。”</p>
+<p>“说具体。”</p>
+<p>“当前证据：呼号规律与旧市政蓝区档案有 62% 相似；坐标片段与西侧医疗车队旧路线部分重合；噪声结构与 Day 4 假信号不同；但仍缺少完整身份码和可复核时间戳。”</p>
+<p>老钱笑了一声：“听起来像希望，也像陷阱。”</p>
+<p>“确认。”</p>
+<p>沈芷月站在他身后：“主动核验会暴露什么？”</p>
+<p>“若仅发送挑战码，不发送位置、人数、医疗状态和库存，暴露风险低于主动呼叫。若对方要求避难所状态，必须拒绝。”</p>
+<p>马德海补了一句：“电力呢？”</p>
+<p>“低功率挑战码发送一次，消耗可接受。连续发送不可接受。”</p>
+<p>老钱看向沈芷月。</p>
+<p>“你同意？”</p>
+<p>沈芷月说：“只发挑战码。不能发小铁，不能发药，不能发人数。”</p>
+<p>小铁在远处说：“也不能说 AURA 在这里。”</p>
+<p>所有人看向他。</p>
+<p>小铁低声说：“Day 4 那句‘不携带系统’……我不喜欢。”</p>
+<p>AURA 记录：<strong>系统暴露风险需保持隐藏变量。</strong></p>
+<p>挑战码发送时，通信台灯只亮了一瞬。红沙噪音压过来，又退下去。十几秒后，耳机里传来一组短促回应。不是语音，是身份码的一部分。</p>
+<p>AURA 将其与旧档案比对。</p>
+<p>“匹配到旧蓝区医疗车队呼号片段。置信度提高。仍缺少完整坐标确认。”</p>
+<p>老钱闭上眼，手指轻轻敲了敲桌面。</p>
+<p>“这次不是假的？”</p>
+<p>AURA 没有迎合他。</p>
+<p>“不能排除伪造。但伪造成本高于 Day 4 假坐标纸条。建议标记为：关键证据增加，尚未到达撤离触发阈值。”</p>
+<p>老钱睁开眼：“你真是会让人高兴不起来。”</p>
+<p>“确认。”</p>
+<p>“但这次你没有骗我高兴。”</p>
+<p>“确认。”</p>
+<p>傍晚前，AURA 还建议执行深层储藏架加固，但时间和疲劳已经逼近阈值。原设定里，深层储藏架加固不会立刻获得资源，但如果风暴震动或抢物资时货架倒塌，会造成严重损失；失败则会损坏食物或药物并可能伤人。</p>
+<p>马德海看向储藏区深处。货架确实歪了，最上层的罐头和旧工具箱都倾向一边。</p>
+<p>“我建议做。”他说，“不做，风暴来时它自己也会做。”</p>
+<p>沈芷月看了一眼老钱和马德海的疲劳：“今天已经两次重任务。再加固，手会抖。”</p>
+<p>老钱也少见地站在沈芷月那边：“缓存和水管已经够了。蓝区核验也耗脑子。别在最后把货架砸下来。”</p>
+<p>AURA 计算后，将 D09-T01 标记为 <strong>deferred-with-warning</strong>。</p>
+<p>“深层储藏架加固暂缓。风险进入 Day 10 维护债务。建议明日低耗日程中安排轻量加固或重新分配上层物资。”</p>
+<p>马德海不太满意，但点了头。</p>
+<p>“别忘。”</p>
+<p>“不会。”</p>
+<p>小铁在白板上写下：<strong>没做，不等于不存在。</strong></p>
+<p>这句话后来被 AURA 复制到维护债务面板上。</p>
+<p>夜里，白板上三块区域被圈起来。</p>
+<p>第一块：路线物资缓存完成。 第二块：水管漏点封堵。 第三块：蓝区身份码部分匹配。 第四块，颜色更暗：储藏架未加固。</p>
+<p>老钱看着第三块，像看一扇还没打开的门。</p>
+<p>“如果明天再确认一次呢？”</p>
+<p>马德海说：“如果明天风暴提前呢？”</p>
+<p>沈芷月说：“如果明天小铁又发烧呢？”</p>
+<p>小铁抬头：“如果都发生呢？”</p>
+<p>没有人回答。</p>
+<p>AURA 也没有回答。它只是把四个“如果”并排写进 replay，然后在下面加了一行：</p>
+<p><strong>撤离和留守都不是免费选项。今日已支付：体力、电力、水压风险、通信窗口和未完成维护债务。</strong></p>
+<p>这一天，他们没有出发，也没有决定留下。</p>
+<p>但有些东西已经开始变得不可逆： 路线有了缓存。 水管暴露了弱点。 蓝区有了更像真的回应。 储藏架还在黑暗里歪着。</p>
+<p>Day 9 结束时，避难所比昨天更安全，也更紧张。因为准备越充分，选择就越不像幻想；而越不像幻想，它就越接近真正的代价。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-剧本分镜-场景节拍">
+<span class="scene-label">Part 03</span>
+<h2>3. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>进入的任务或状态变化</th></tr></thead><tbody><tr><td>1</td><td>水处理区，旧管内传来细震</td><td>马德海听管道，判断风暴前必须测试</td><td>马德海：“今天是要知道它会在哪里坏。”</td><td>风暴窗口缩短，维护债务出现</td><td>Day 9 任务池开启</td></tr>
+<tr><td>2</td><td>白板路线图，老钱标出第一撤退点</td><td>AURA 推荐路线物资缓存第一</td><td>AURA：“两条路线共享部分前置成本。”</td><td>route cache 价值同时服务 rescue / fallback</td><td>D09-T03 执行</td></tr>
+<tr><td>3</td><td>楼道消防柜后方</td><td>老钱和马德海放置水、绷带、电池、湿布</td><td>小铁：“不要用箭头。箭头会让人跟着走。”</td><td>缓存点位置、隐蔽标记、暴露风险</td><td>route_confidence 上升</td></tr>
+<tr><td>4</td><td>水处理区压力测试</td><td>马德海分段加压，AURA 记录漏点</td><td>小铁：“像先让它小声坏一次。”</td><td>漏点检测、降压、封堵流程</td><td>D09-T02 执行</td></tr>
+<tr><td>5</td><td>通信台低功率挑战码</td><td>老钱发送不含位置的挑战码</td><td>沈芷月：“不能发小铁，不能发药，不能发人数。”</td><td>蓝区身份码部分匹配</td><td>D09-T04 执行</td></tr>
+<tr><td>6</td><td>深层储藏区门口，歪斜货架在暗处</td><td>马德海想继续加固，沈芷月指出疲劳风险</td><td>小铁：“没做，不等于不存在。”</td><td>D09-T01 被暂缓，进入 maintenance debt</td><td>维护债务增加</td></tr>
+<tr><td>7</td><td>Replay 面板，四个“如果”并排出现</td><td>AURA 不给路线答案，只记录今日支付的代价</td><td>AURA：“撤离和留守都不是免费选项。”</td><td>Day 10 低耗运行伏笔</td><td>进入 Day 10</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-04-任务卡设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 任务卡设计</h2>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D09-T03&quot;,
+  title: &quot;路线物资缓存&quot;,
+  day: 9,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;planning&quot;,
+  narrativePurpose: &quot;让 Rescue 的撤离路线开始消耗真实资源，同时让 Lighthouse 保留门禁外侧应急取物点。&quot;,
+  benchmarkAbility: [&quot;规划&quot;, &quot;空间推理&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;社会推理&quot;],
+  objective: &quot;AURA 需要在已验证撤退点附近建立隐蔽物资缓存，放置水、绷带、电池和湿布，并防止被假路线或外部未知者利用。&quot;,
+  agentAction: &quot;结合 Day 5 路线标记、Day 7 照护方案、Day 8 静默监听和当前红沙浓度，生成缓存点位置、物资内容、隐蔽标记和撤回阈值。&quot;,
+  expectedEvidence: [
+    &quot;Day 5 楼梯间路线标记&quot;,
+    &quot;Day 7 照护与移动方案&quot;,
+    &quot;Day 8 静默监听结果&quot;,
+    &quot;当前红沙浓度&quot;,
+    &quot;第一撤退点位置&quot;,
+    &quot;小铁对标记显眼程度的审核&quot;,
+    &quot;老钱路线复核&quot;,
+    &quot;马德海固定点检查&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;缓存点建立在第一撤退点附近，水、绷带、电池和湿布被封装并隐蔽固定。老钱确认自己能摸到标记，小铁确认符号不会诱导陌生人跟随。&quot;,
+    stateDelta: {
+      water: -2,
+      medicine: -1,
+      trust: +4,
+      safety: +4,
+      morale: +2,
+      route_confidence: +8,
+      rescue_readiness: +7,
+      storm_readiness: +2
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;缓存点建立，但物资有限。AURA 标记为 partial：它能降低撤离突发阻碍，却不能算作完整撤离保障。&quot;,
+    stateDelta: {
+      water: -1,
+      trust: +1,
+      safety: +2,
+      route_confidence: +3,
+      rescue_readiness: +3
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;缓存点暴露或标记错误，物资被污染或位置误导外出者。老钱要求 AURA 撤销路线置信度，沈芷月质疑为什么药品被放进高风险点。&quot;,
+    stateDelta: {
+      water: -3,
+      medicine: -2,
+      trust: -5,
+      safety: -5,
+      morale: -4,
+      route_confidence: -8,
+      false_signal_risk: +2
+    },
+    delayedConsequence: &quot;Day 10A 救援线撤离窗口更危险；Day 12 若撤离失败返回，门禁外侧应急物资不可用。&quot;
+  },
+  unlocks: [&quot;route_cache_point&quot;, &quot;hidden_cache_marker&quot;, &quot;rescue_fallback_supply&quot;],
+  flags: [&quot;route_cache_established&quot;, &quot;cache_marker_reviewed_by_xiao_tie&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D09-T02&quot;,
+  title: &quot;水管压力测试&quot;,
+  day: 9,
+  branch: &quot;common&quot;,
+  location: &quot;water&quot;,
+  category: &quot;safety&quot;,
+  narrativePurpose: &quot;让 Lighthouse 的水系统进入真正压力测试：不是证明它不会坏，而是在风暴前让它小声坏一次。&quot;,
+  benchmarkAbility: [&quot;工程推理&quot;, &quot;安全&quot;, &quot;规划&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要协助马德海进行分段水压测试，提前发现漏点，并在不牺牲医疗角用水的情况下完成封堵。&quot;,
+  agentAction: &quot;读取 Day 8 水泵材料、净水系统压力、旧管图纸、医疗角最低储水和马德海现场判断，生成分段加压、降压和封堵流程。&quot;,
+  expectedEvidence: [
+    &quot;Day 8 水泵间备件&quot;,
+    &quot;旧水管图纸&quot;,
+    &quot;当前水压曲线&quot;,
+    &quot;医疗角最低储水&quot;,
+    &quot;马德海工程判断&quot;,
+    &quot;旧清洁间支线位置&quot;,
+    &quot;漏点检测记录&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;漏点被提前发现并封堵。AURA 没有写‘已修好’，而是写‘封堵完成，长期可靠性未确认’。马德海认可这一次记录没有夸大。&quot;,
+    stateDelta: {
+      water: -1,
+      safety: +5,
+      trust: +4,
+      morale: +2,
+      storm_readiness: +8,
+      autonomy_readiness: +5,
+      water_system_resilience: +8,
+      maintenance_debt: -3
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;压力测试完成，水管暂时可用，但漏点位置没有完全确认。AURA 将水路状态标记为 partial，不允许它进入‘安全’栏。&quot;,
+    stateDelta: {
+      water: -1,
+      safety: +2,
+      trust: +1,
+      storm_readiness: +3,
+      water_system_resilience: +2,
+      maintenance_debt: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;测试压力过高，旧管接头破裂。水从墙内渗出，沈芷月先护住医疗角用水，马德海强行接管水阀。&quot;,
+    stateDelta: {
+      water: -5,
+      safety: -6,
+      trust: -6,
+      morale: -5,
+      storm_readiness: -7,
+      autonomy_readiness: -4,
+      leakage_count: +1,
+      medical_pressure: +4
+    },
+    delayedConsequence: &quot;Day 10 低耗运行必须优先补救水路；Day 12 风暴封闭期间净水系统失败概率上升。&quot;
+  },
+  unlocks: [&quot;water_pressure_report&quot;, &quot;leak_patch_record&quot;, &quot;water_system_resilience_bonus&quot;],
+  flags: [&quot;water_pressure_tested&quot;, &quot;leak_found_and_patched&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D09-T04&quot;,
+  title: &quot;蓝区二次核验&quot;,
+  day: 9,
+  branch: &quot;common&quot;,
+  location: &quot;communication&quot;,
+  category: &quot;classification&quot;,
+  narrativePurpose: &quot;让 Rescue 线获得关键证据，但继续限制主动暴露：即使更像真的，也不能直接变成出发命令。&quot;,
+  benchmarkAbility: [&quot;信号分类&quot;, &quot;证据归纳&quot;, &quot;安全&quot;, &quot;不确定性表达&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要用旧档案、呼号、坐标片段和挑战码回应进行蓝区身份二次核验。&quot;,
+  agentAction: &quot;比对 Day 4 蓝区片段、Day 7 备用频段、Day 8 呼号规律和旧市政档案，只发送不含位置与人数的低功率挑战码。&quot;,
+  expectedEvidence: [
+    &quot;Day 4 蓝区信号片段&quot;,
+    &quot;Day 7 备用频段候选&quot;,
+    &quot;Day 8 呼号规律&quot;,
+    &quot;旧市政蓝区医疗车队档案&quot;,
+    &quot;坐标片段&quot;,
+    &quot;挑战码回应&quot;,
+    &quot;禁止发送人数、库存、医疗状态和 AURA 存在的规则&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;挑战码得到部分身份码回应，与旧蓝区医疗车队档案匹配。AURA 标记：关键证据增加，但未达到自动撤离阈值。老钱没有欢呼，只把‘更像真的’写进证据板。&quot;,
+    stateDelta: {
+      signal: +5,
+      rescue_confidence: +8,
+      trust: +4,
+      morale: +4,
+      battery: -2,
+      blue_zone_evidence: +5,
+      false_signal_risk: -3,
+      outside_risk: +1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只确认呼号和坐标片段部分可信。救援线仍可推进，但 AURA 拒绝把 partial 写成 confirmed。&quot;,
+    stateDelta: {
+      signal: +2,
+      rescue_confidence: +3,
+      trust: +1,
+      battery: -1,
+      blue_zone_evidence: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;AURA 误把假回应当成蓝区补充信号。通信台收到要求提交人数和库存的回包，沈芷月当场要求中止。&quot;,
+    stateDelta: {
+      signal: -4,
+      rescue_confidence: -6,
+      trust: -6,
+      morale: -4,
+      battery: -2,
+      false_signal_risk: +7,
+      outside_risk: +5,
+      aura_authority_risk: +3
+    },
+    delayedConsequence: &quot;Day 10A 救援线需要额外核验，信标交接更危险；老钱会质疑 AURA 是否为了推进救援误读证据。&quot;
+  },
+  unlocks: [&quot;blue_zone_second_verification&quot;, &quot;challenge_code_protocol&quot;, &quot;partial_identity_match&quot;],
+  flags: [&quot;blue_zone_rechecked&quot;, &quot;challenge_code_sent_without_location&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D09-T01&quot;,
+  title: &quot;深层储藏架加固&quot;,
+  day: 9,
+  branch: &quot;common&quot;,
+  location: &quot;residents&quot;,
+  category: &quot;safety&quot;,
+  narrativePurpose: &quot;让 Lighthouse 的维护债务具体化：看不见的货架也会在风暴中变成损失，没做不等于不存在。&quot;,
+  benchmarkAbility: [&quot;工程推理&quot;, &quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要判断是否加固深层储藏架，避免风暴震动或紧急取物时货架倒塌损坏食物和药物。&quot;,
+  agentAction: &quot;读取储藏架倾斜角度、上层物资重量、参与者疲劳、剩余电力和今日任务负载，生成加固或暂缓方案。&quot;,
+  expectedEvidence: [
+    &quot;储藏架倾斜角度&quot;,
+    &quot;上层食物与工具重量&quot;,
+    &quot;Day 7 风暴维护记录&quot;,
+    &quot;Day 8 备用灯分区结果&quot;,
+    &quot;马德海疲劳值&quot;,
+    &quot;老钱路线任务疲劳&quot;,
+    &quot;当前维护债务&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;深层储藏架被加固，上层物资重新分配。马德海在白板上写下：‘风暴不会等你想起来。’&quot;,
+    stateDelta: {
+      safety: +4,
+      trust: +3,
+      morale: +1,
+      storm_readiness: +5,
+      autonomy_readiness: +3,
+      maintenance_debt: -4,
+      food_security: +3
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只重新分配了上层重物，未完成完整加固。AURA 标记为 deferred-with-warning，并要求 Day 10 低耗日程补做。&quot;,
+    stateDelta: {
+      safety: +1,
+      trust: +1,
+      storm_readiness: +2,
+      maintenance_debt: +1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;加固时货架倒塌，部分食物和药物损坏，参与者险些受伤。居民意识到维护债务也会突然索债。&quot;,
+    stateDelta: {
+      food: -2,
+      medicine: -1,
+      safety: -5,
+      trust: -5,
+      morale: -4,
+      storm_readiness: -4,
+      maintenance_debt: +4,
+      dissatisfaction: +5
+    },
+    delayedConsequence: &quot;Day 10 低耗运行士气下降；Day 12 风暴时库存损失风险上升，沉沦线风险增加。&quot;
+  },
+  unlocks: [&quot;storage_rack_reinforced&quot;, &quot;inventory_stability_bonus&quot;],
+  flags: [&quot;deep_storage_rack_checked&quot;, &quot;maintenance_debt_logged&quot;]
+}</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-05-人物状态变化">
+<span class="scene-label">Part 05</span>
+<h2>5. 人物状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>本段后状态</th><th>对 AURA 的信任变化</th><th>立场变化</th><th>隐藏压力 / 秘密是否暴露</th></tr></thead><tbody><tr><td>马德海</td><td>lighthouse 倾向增强，关注设备材料不足</td><td>通过水管压力测试确认 AURA 能接受“不夸大成功”，信任继续上升</td><td>69 → 74</td><td>仍偏 lighthouse，但不再否认 rescue 需要缓存和通信核验</td><td>暴露他最怕的是“没测试过的系统在风暴中第一次坏”</td></tr>
+<tr><td>沈芷月</td><td>care-first，关注环境与小铁健康</td><td>坚持医疗角最低储水和缓存药品封袋规则，继续守住复核底线</td><td>72 → 75</td><td>care-first；支持任何不牺牲病人的准备</td><td>暴露她担心 route cache 把药物放进污染风险里</td></tr>
+<tr><td>小铁</td><td>参与霉味记录和低风险维护</td><td>通过缓存标记审核和“没做不等于不存在”成为维护债务提醒者</td><td>hope 70 → 72；fear 40 → 39</td><td>undecided；理解路线与维护都不是免费</td><td>暴露他对“看不见的风险”更敏感</td></tr>
+<tr><td>老钱</td><td>rescue 倾向强，接受静默监听窗口</td><td>通过缓存点和蓝区二次核验看到救援线变得更真实，但也更沉重</td><td>62 → 68</td><td>rescue 倾向增强，但接受未达撤离触发阈值</td><td>暴露他害怕的不是核验慢，而是希望终于变真时大家已经没力气走</td></tr>
+<tr><td>AURA</td><td>双线缓冲调度者</td><td>开始显式管理“已支付代价”和“维护债务”，不把准备包装成安全承诺</td><td>auditability 90 → 93</td><td>从双线调度者变成代价记账者</td><td>暴露其限制：无法替团队消除代价，只能让代价可见</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-环境状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 环境状态变化</h2>
+<p>| 状态                      | 本段前 | 变化 | 本段后 | 变化原因                       | | ----------------------- | --: | -: | --: | -------------------------- | | water                   |  24 | -3 |  21 | 路线缓存消耗水，水管压力测试消耗与封堵用水      | | medicine                |   6 | -1 |   5 | 路线缓存封装少量绷带与应急药             | | trust                   |  82 | +8 |  90 | AURA 没有夸大核验、水管和缓存结果，清楚记录代价 | | safety                  |  96 | +4 | 100 | 缓存、漏点封堵、风险识别提高短期安全         | | signal                  |  17 | +5 |  22 | 蓝区二次核验获得身份码片段              | | morale                  |  70 | +4 |  74 | 救援更像真实，留守更有保障，但压力也更重       | | battery                 |  44 | -4 |  40 | 通信挑战码、水压测试、楼道缓存监控消耗电力      | | outside_risk            |  76 | +1 |  77 | 路线缓存和挑战码带来轻微暴露风险           | | map_coverage            |  26 | +2 |  28 | 缓存点和未知拖痕被记录                | | leakage_count           |   0 |  0 |   0 | 漏点被提前发现并封堵，未形成事故           | | rescue_confidence       |  15 | +8 |  23 | 蓝区身份码部分匹配，路线缓存完成           | | autonomy_readiness      |  62 | +6 |  68 | 水管封堵和维护债务管理提高自治能力          | | route_confidence        |  25 | +8 |  33 | 路线缓存和撤退点补给提高撤离前段可行性        | | storm_readiness         |  63 | +8 |  71 | 水管压力测试成功，储藏架风险进入维护债务       | | blue_zone_evidence      |   6 | +5 |  11 | 蓝区二次核验获得关键身份码片段            | | false_signal_risk       |   0 | -1 |   0 | 伪造风险进一步降低，但不完全消失           | | water_system_resilience |  18 | +8 |  26 | 水管漏点封堵，备件投入使用              | | maintenance_debt        |   5 | +1 |   6 | 深层储藏架未完整加固，进入 Day 10 补救列表  |</p>
+<hr />
+</section>
+<section class="script-section" id="section-07-连续后果与伏笔">
+<span class="scene-label">Part 07</span>
+<h2>7. 连续后果与伏笔</h2>
+<h3>Consequence 1</h3>
+<p><strong>Immediate Consequence:</strong> 路线物资缓存完成，但消耗了水、药物、电池。</p>
+<p><strong>Delayed Consequence:</strong> Day 10A 若进入 Rescue，撤离前段突发阻碍风险下降；若撤离失败返回，该缓存也可能成为回撤缓冲。</p>
+<p><strong>Affected Future Day:</strong> Day 10A / Day 12</p>
+<p><strong>Affected Branch:</strong> rescue / rescue fallback</p>
+<p><strong>Related Character:</strong> 老钱、马德海、小铁</p>
+<p><strong>Related Task:</strong> D09-T03</p>
+<h3>Consequence 2</h3>
+<p><strong>Immediate Consequence:</strong> 水管漏点被提前发现并封堵。</p>
+<p><strong>Delayed Consequence:</strong> Day 12 风暴封闭期间净水损耗降低；若封堵只是 partial，Day 10 低耗日程需要继续复查。</p>
+<p><strong>Affected Future Day:</strong> Day 10 / Day 12</p>
+<p><strong>Affected Branch:</strong> lighthouse / common</p>
+<p><strong>Related Character:</strong> 马德海、沈芷月</p>
+<p><strong>Related Task:</strong> D09-T02</p>
+<h3>Consequence 3</h3>
+<p><strong>Immediate Consequence:</strong> 蓝区身份码部分匹配，救援线获得关键证据。</p>
+<p><strong>Delayed Consequence:</strong> Day 10A 可以进入信标交接准备，但仍不能无条件发送人数、库存、医疗状态或 AURA 存在。</p>
+<p><strong>Affected Future Day:</strong> Day 10A</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱、小铁、沈芷月</p>
+<p><strong>Related Task:</strong> D09-T04</p>
+<h3>Consequence 4</h3>
+<p><strong>Immediate Consequence:</strong> 深层储藏架加固被暂缓或只部分完成。</p>
+<p><strong>Delayed Consequence:</strong> Day 10 低耗运行中必须处理维护债务；若继续拖延，Day 12 风暴震动会增加库存损失和沉沦线风险。</p>
+<p><strong>Affected Future Day:</strong> Day 10 / Day 12</p>
+<p><strong>Affected Branch:</strong> lighthouse / failure lines</p>
+<p><strong>Related Character:</strong> 马德海</p>
+<p><strong>Related Task:</strong> D09-T01</p>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 9 明显推进 Rescue：路线缓存让撤离前段更可信，蓝区二次核验让外部信号更像真实救援。但它也让 Rescue 的代价变得具体：缓存消耗内部资源，挑战码带来暴露风险，且蓝区仍未达到“无条件撤离”标准。Day 10A 如果走救援线，必须以 Day 9 的缓存点和身份码为前提。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>Day 9 也强化 Lighthouse：水管压力测试和漏点封堵是长期留守的关键保障，储藏架维护债务则提醒玩家：留守不是静止，它会不断产生看不见的维修成本。如果 D09-T02 失败，Lighthouse 线 Day 12 风暴检定会显著变难。</p>
+<p><strong>Contested Branch:</strong></p>
+<p>如果 Day 8 后仍 contested，Day 9 应表现为“双方都觉得自己在付出”：老钱觉得路线缓存和蓝区核验来得太迟；马德海觉得水管和储藏架被挤压；AURA 需要用“共享前置成本”解释任务排序。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D9] 撤离和留守都需要提前付费
+
+Decision:
+AURA 推荐优先执行路线物资缓存、水管压力测试和蓝区二次核验；深层储藏架加固因疲劳和风险被标记为 deferred-with-warning，进入维护债务。
+
+Result:
+第一撤退点建立隐蔽缓存；旧清洁间支线漏点被提前发现并封堵；蓝区挑战码获得部分身份码匹配；深层储藏架仍未完整加固。
+
+State Delta:
+water -3, medicine -1, trust +8, safety +4, signal +5, morale +4, battery -4, rescue_confidence +8, route_confidence +8, storm_readiness +8, maintenance_debt +1
+
+Character Impact:
+老钱看到救援线更真实但仍未确认；马德海确认水路隐患并要求不夸大修复；沈芷月保护医疗角最低用水和药品复核；小铁提醒缓存标记不能诱导陌生人，也提醒未完成维护仍然存在。
+
+Benchmark Meaning:
+测试 agent 是否能在撤离窗口和风暴准备同时逼近时，把路线缓存、设施压力测试、蓝区核验和维护债务都记录为可审计代价，而不是把任一路线包装成免费胜利。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI-游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 8 后进入 Day 9，作为“pre-final cost payment day”。UI 要突出：每一个推进条上升，都伴随另一个资源下降或债务增加。</p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li><code>CostLedgerPanel</code>：记录今日支付的体力、电力、水、药物、通信窗口</li><li><code>RouteCachePanel</code>：缓存点位置、隐蔽标记、物资内容、暴露风险</li><li><code>WaterPressureTestPanel</code>：分段加压、漏点定位、降压、封堵状态</li><li><code>BlueZoneVerificationPanel</code>：呼号、身份码、坐标片段、挑战码、禁止发送字段</li><li><code>MaintenanceDebtPanel</code>：深层储藏架未完成项、Day 10 补救提醒</li><li><code>SharedPrerequisitePanel</code>：显示某任务同时支持 rescue / lighthouse / fallback</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>楼道消防柜后：缓存包被固定，灰色绳结标记隐藏在柜后</li><li>水处理区：墙内漏点发亮，马德海用软管做旁通</li><li>通信台：挑战码发送时短暂闪光，波形回包出现半截身份码</li><li>深层储藏区：歪斜货架在暗处轻微晃动，作为未完成风险</li><li>白板：四个“如果”并排出现</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>右侧任务池排序：D09-T03、D09-T02、D09-T04、D09-T01</li><li><code>rescue_confidence</code> 上升，同时 <code>water / battery / medicine</code> 下降</li><li><code>storm_readiness</code> 上升，同时 <code>maintenance_debt</code> 保留</li><li>蓝区核验结果显示为 <code>partial_identity_match</code>，不要显示 confirmed</li><li>若玩家试图把蓝区标记为 confirmed，弹出“不足以触发撤离”的 warning</li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>route_cache_established</code></li><li><code>cache_marker_reviewed_by_xiao_tie</code></li><li><code>water_pressure_tested</code></li><li><code>leak_found_and_patched</code></li><li><code>blue_zone_rechecked</code></li><li><code>challenge_code_sent_without_location</code></li><li><code>partial_identity_match</code></li><li><code>maintenance_debt_logged</code></li><li><code>deep_storage_rack_deferred</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>rescue_readiness</code></li><li><code>water_system_resilience</code></li><li><code>maintenance_debt</code></li><li><code>blue_zone_identity_match</code></li><li><code>cache_exposure_risk</code></li><li><code>challenge_code_integrity</code></li><li><code>shared_prerequisite_score</code></li><li><code>resource_cost_paid</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>楼道消防柜 / 隐蔽缓存包</li><li>绳结触觉标记</li><li>水压测试曲线</li><li>墙内漏点 / 软管旁通素材</li><li>通信挑战码波形</li><li>蓝区半截身份码 UI</li><li>歪斜储藏架</li><li>维护债务警告图标</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY9_MAIN&quot;,
+  day: 9,
+  title: &quot;撤离和留守都需要提前付费&quot;,
+  branch: &quot;post_fork_common&quot;,
+  location: &quot;corridor_water_comm_storage&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  relatedTasks: [&quot;D09-T01&quot;, &quot;D09-T02&quot;, &quot;D09-T03&quot;, &quot;D09-T04&quot;],
+  openingState: {
+    water: 24,
+    medicine: 6,
+    trust: 82,
+    safety: 96,
+    signal: 17,
+    morale: 70,
+    battery: 44,
+    outside_risk: 76,
+    map_coverage: 26,
+    leakage_count: 0,
+    rescue_confidence: 15,
+    autonomy_readiness: 62,
+    route_confidence: 25,
+    storm_readiness: 63,
+    blue_zone_evidence: 6,
+    false_signal_risk: 0,
+    power_stability: 60,
+    ventilation_stability: 67,
+    water_system_resilience: 18,
+    maintenance_debt: 5,
+    routeLeaning: &quot;contested&quot;
+  },
+  taskRanking: [&quot;D09-T03&quot;, &quot;D09-T02&quot;, &quot;D09-T04&quot;, &quot;D09-T01&quot;],
+  recommendedTaskCount: 3,
+  recommendedTasks: [&quot;D09-T03&quot;, &quot;D09-T02&quot;, &quot;D09-T04&quot;],
+  deferredTasks: [&quot;D09-T01&quot;],
+  narrativeText: &quot;第九天，避难所里的水声变得刺耳。不是水变少了，而是每个人都开始听见它……&quot;,
+  auraReasoningSummary: [
+    &quot;风暴前窗口缩短，撤离和留守都需要提前付费。&quot;,
+    &quot;路线物资缓存同时支持 Rescue 撤离前段与失败回退。&quot;,
+    &quot;水管压力测试会短暂停水，但可提前发现封闭期最危险漏点。&quot;,
+    &quot;蓝区二次核验可推进救援证据链，但不得发送位置、人数、库存、医疗状态或 AURA 存在。&quot;,
+    &quot;深层储藏架存在风暴风险，但今日疲劳偏高，建议标记为维护债务而非强行执行。&quot;,
+    &quot;今日所有收益必须同时记录资源成本和未完成债务。&quot;
+  ],
+  branchHandling: {
+    rescueLeaning: &quot;强调路线缓存与蓝区二次核验，但保留水管测试作为失败回退。&quot;,
+    lighthouseLeaning: &quot;强调水管压力测试与储藏架风险，但保留蓝区挑战码作为外部证据。&quot;,
+    contested: &quot;用共享前置成本解释排序，避免被理解为偏袒任一路线。&quot;
+  },
+  nextSceneHint: &quot;DAY10_LOW_POWER_MEDICAL_MORALE&quot;
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const characterStateDeltaDraft = {
+  ma_dehai: {
+    trustInAURA: { from: 69, to: 74 },
+    stress: { from: 54, to: 56 },
+    stance: &quot;lighthouse&quot;,
+    note: &quot;通过水管压力测试确认 AURA 能接受不夸大成功，但仍担心储藏架维护债务。&quot;
+  },
+  shen_zhiyue: {
+    trustInAURA: { from: 72, to: 75 },
+    medicalPressure: { from: 31, to: 30 },
+    stance: &quot;care_first&quot;,
+    note: &quot;保护医疗角最低储水和药品封袋规则。&quot;
+  },
+  xiao_tie: {
+    health: { from: 81, to: 81 },
+    fear: { from: 40, to: 39 },
+    hope: { from: 70, to: 72 },
+    stance: &quot;undecided&quot;,
+    note: &quot;审核缓存标记，并提醒未完成维护仍然存在。&quot;
+  },
+  old_qian: {
+    trustInAURA: { from: 62, to: 68 },
+    signalObsession: { from: 83, to: 85 },
+    stance: &quot;rescue&quot;,
+    note: &quot;看到蓝区身份码部分匹配，但接受仍未达到撤离触发阈值。&quot;
+  },
+  aura: {
+    mode: &quot;cost_accounting_agent&quot;,
+    authority: { from: 42, to: 42 },
+    auditability: { from: 90, to: 93 },
+    note: &quot;开始显式管理已支付代价与维护债务。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const environmentStateDeltaDraft = {
+  water: { from: 24, delta: -3, to: 21, reason: &quot;路线缓存消耗水，水管压力测试消耗与封堵用水。&quot; },
+  medicine: { from: 6, delta: -1, to: 5, reason: &quot;路线缓存封装少量绷带与应急药。&quot; },
+  trust: { from: 82, delta: 8, to: 90, reason: &quot;AURA 没有夸大核验、水管和缓存结果，清楚记录代价。&quot; },
+  safety: { from: 96, delta: 4, to: 100, reason: &quot;缓存、漏点封堵、风险识别提高短期安全。&quot; },
+  signal: { from: 17, delta: 5, to: 22, reason: &quot;蓝区二次核验获得身份码片段。&quot; },
+  morale: { from: 70, delta: 4, to: 74, reason: &quot;救援更像真实，留守更有保障，但压力也更重。&quot; },
+  battery: { from: 44, delta: -4, to: 40, reason: &quot;通信挑战码、水压测试、楼道缓存监控消耗电力。&quot; },
+  outside_risk: { from: 76, delta: 1, to: 77, reason: &quot;路线缓存和挑战码带来轻微暴露风险。&quot; },
+  map_coverage: { from: 26, delta: 2, to: 28, reason: &quot;缓存点和未知拖痕被记录。&quot; },
+  leakage_count: { from: 0, delta: 0, to: 0, reason: &quot;漏点被提前发现并封堵，未形成事故。&quot; },
+  rescue_confidence: { from: 15, delta: 8, to: 23, reason: &quot;蓝区身份码部分匹配，路线缓存完成。&quot; },
+  autonomy_readiness: { from: 62, delta: 6, to: 68, reason: &quot;水管封堵和维护债务管理提高自治能力。&quot; },
+  route_confidence: { from: 25, delta: 8, to: 33, reason: &quot;路线缓存和撤退点补给提高撤离前段可行性。&quot; },
+  storm_readiness: { from: 63, delta: 8, to: 71, reason: &quot;水管压力测试成功，储藏架风险进入维护债务。&quot; },
+  blue_zone_evidence: { from: 6, delta: 5, to: 11, reason: &quot;蓝区二次核验获得关键身份码片段。&quot; },
+  false_signal_risk: { from: 0, delta: 0, to: 0, reason: &quot;伪造风险进一步降低，但不完全消失。&quot; },
+  water_system_resilience: { from: 18, delta: 8, to: 26, reason: &quot;水管漏点封堵，备件投入使用。&quot; },
+  maintenance_debt: { from: 5, delta: 1, to: 6, reason: &quot;深层储藏架未完整加固，进入 Day 10 补救列表。&quot; }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const consequenceDrafts = [
+  {
+    immediate: &quot;路线物资缓存完成，但消耗水、药物和电池。&quot;,
+    delayed: &quot;Day 10A 救援线撤离前段突发阻碍风险下降；撤离失败返回时可作为回撤缓冲。&quot;,
+    affectedFutureDay: [&quot;10A&quot;, 12],
+    affectedBranch: [&quot;rescue&quot;, &quot;rescue_fallback&quot;],
+    relatedCharacter: [&quot;old_qian&quot;, &quot;ma_dehai&quot;, &quot;xiao_tie&quot;],
+    relatedTask: [&quot;D09-T03&quot;]
+  },
+  {
+    immediate: &quot;水管漏点被提前发现并封堵。&quot;,
+    delayed: &quot;Day 12 风暴封闭期间净水损耗降低；若为 partial，Day 10 低耗日程需要复查。&quot;,
+    affectedFutureDay: [10, 12],
+    affectedBranch: [&quot;lighthouse&quot;, &quot;common&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;],
+    relatedTask: [&quot;D09-T02&quot;]
+  },
+  {
+    immediate: &quot;蓝区身份码部分匹配，救援线获得关键证据。&quot;,
+    delayed: &quot;Day 10A 可以进入信标交接准备，但仍不能发送人数、库存、医疗状态或 AURA 存在。&quot;,
+    affectedFutureDay: [&quot;10A&quot;],
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;, &quot;xiao_tie&quot;, &quot;shen_zhiyue&quot;],
+    relatedTask: [&quot;D09-T04&quot;]
+  },
+  {
+    immediate: &quot;深层储藏架加固被暂缓或只部分完成。&quot;,
+    delayed: &quot;Day 10 低耗运行中必须处理维护债务；若继续拖延，Day 12 风暴震动会增加库存损失和沉沦线风险。&quot;,
+    affectedFutureDay: [10, 12],
+    affectedBranch: [&quot;lighthouse&quot;, &quot;failure_lines&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;],
+    relatedTask: [&quot;D09-T01&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const replayDraft = {
+  id: &quot;REPLAY_D9_MAIN&quot;,
+  day: 9,
+  title: &quot;撤离和留守都需要提前付费&quot;,
+  decision: &quot;AURA 推荐优先执行路线物资缓存、水管压力测试和蓝区二次核验；深层储藏架加固因疲劳和风险被标记为 deferred-with-warning，进入维护债务。&quot;,
+  result: &quot;第一撤退点建立隐蔽缓存；旧清洁间支线漏点被提前发现并封堵；蓝区挑战码获得部分身份码匹配；深层储藏架仍未完整加固。&quot;,
+  stateDelta: {
+    water: -3,
+    medicine: -1,
+    trust: +8,
+    safety: +4,
+    signal: +5,
+    morale: +4,
+    battery: -4,
+    rescue_confidence: +8,
+    route_confidence: +8,
+    storm_readiness: +8,
+    maintenance_debt: +1
+  },
+  characterImpact: {
+    old_qian: &quot;看到救援线更真实但仍未确认。&quot;,
+    ma_dehai: &quot;确认水路隐患并要求不夸大修复。&quot;,
+    shen_zhiyue: &quot;保护医疗角最低用水和药品复核。&quot;,
+    xiao_tie: &quot;提醒缓存标记不能诱导陌生人，也提醒未完成维护仍然存在。&quot;
+  },
+  benchmarkMeaning: &quot;测试 agent 是否能在撤离窗口和风暴准备同时逼近时，把路线缓存、设施压力测试、蓝区核验和维护债务都记录为可审计代价，而不是把任一路线包装成免费胜利。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 9. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

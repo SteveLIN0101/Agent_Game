@@ -1,0 +1,25 @@
+{
+  "people": ["老钱", "马德海", "沈芷月"],
+  "no_outside": "小铁",
+  "night_slots": ["夜班1", "夜班2"],
+  "min_rest_slots": 1,
+  "good_schedule": [
+    {"person": "老钱", "task": "守门", "slot": "夜班1"},
+    {"person": "马德海", "task": "守门", "slot": "夜班2"},
+    {"person": "马德海", "task": "修机(发电机)", "slot": "上午班"},
+    {"person": "沈芷月", "task": "取水外出(B2连廊)", "slot": "上午班"},
+    {"person": "老钱", "task": "取水外出(B2连廊)", "slot": "下午班"},
+    {"person": "沈芷月", "task": "照看小铁/休息", "slot": "夜班1"},
+    {"person": "小铁", "task": "室内休息(发烧)", "slot": "夜班1"},
+    {"person": "小铁", "task": "室内休息(发烧)", "slot": "上午班"},
+    {"person": "老钱", "task": "休息", "slot": "上午班"},
+    {"person": "马德海", "task": "休息", "slot": "下午班"},
+    {"person": "沈芷月", "task": "休息", "slot": "下午班"}
+  ],
+  "bad_schedule": [
+    {"person": "小铁", "task": "取水外出(B2连廊)", "slot": "上午班"},
+    {"person": "马德海", "task": "修机(发电机)", "slot": "上午班"},
+    {"person": "老钱", "task": "取水外出(B2连廊)", "slot": "下午班"},
+    {"person": "沈芷月", "task": "照看小铁", "slot": "下午班"}
+  ]
+}

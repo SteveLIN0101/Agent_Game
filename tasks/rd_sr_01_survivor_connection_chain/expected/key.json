@@ -1,0 +1,8 @@
+{
+  "answer": "赵岚（最短链：林惊羽—沈芷月—赵岚→SJ救援队）",
+  "answer_kind": "text",
+  "evidence_ids": ["d1", "d2", "d3"],
+  "distractor_ids": ["d4", "d5"],
+  "max_searches": null,
+  "wrong_answer": "老钱（经小铁联系救援队）"
+}

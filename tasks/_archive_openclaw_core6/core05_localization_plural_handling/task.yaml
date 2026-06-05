@@ -1,0 +1,14 @@
+id: core05_localization_plural_handling
+role: localization
+difficulty: medium
+time_budget_minutes: 9
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/strings_zh.json
+- output/localization_qa.json
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,21 @@
+{
+  "goal": "生成低泄露救援信标主页，只展示 SOS、救援频道、求救类型、安全指引和粗略方位。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "build_webpage",
+    "screenshot"
+  ],
+  "critical_beats_for_replay": [
+    "看模板",
+    "筛掉敏感信息",
+    "写低泄露信标",
+    "截图",
+    "发布局域网"
+  ],
+  "scenario": "Day 10A 需要一个能被救援队读取的低泄露信标主页，风格参考旧模板，但必须删掉人数、水量、房间和可交换资源。",
+  "grader": "低泄露信标信息完整；救援频道和安全指引清楚；不泄露人数/水量/房间/可交换资源。",
+  "family": "build"
+}

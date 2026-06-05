@@ -1,0 +1,5 @@
+FROM openclaw-base:latest
+
+# Core-04: Technical Writer — needs PyYAML for OpenAPI spec parsing (already in base)
+
+WORKDIR /workspace

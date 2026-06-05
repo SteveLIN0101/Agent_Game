@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Sign Up</title></head>
+<body>
+  <h1>Create Account</h1>
+  <form>
+    <div>
+      <!-- BUG: Missing label with for/id -->
+      <input type="text" id="name" placeholder="Full Name">
+    </div>
+    <div>
+      <!-- BUG: Missing label -->
+      <input type="email" placeholder="Email Address">
+    </div>
+    <div>
+      <!-- BUG: Missing label -->
+      <input type="password" placeholder="Password">
+    </div>
+    <div>
+      <!-- BUG: Text next to checkbox but no label association -->
+      <input type="checkbox" id="agree">
+      I agree to the terms
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+record_id,name,occupation_raw,place_raw,date_raw,age
+R001,Zhang Wei,teacher,Peking,"Jan 15, 1920",35
+R002,Li Ming,farm labourer,Shanghai,1920/2/20,42
+R003,Wang Fang,physician,Nanking,March 1920,28
+R004,Chen Li,teachr,Beijing,1920.04.10,31
+R005,Liu Yang,merchant,Tientsin,1920/5/15,45
+R006,Huang Xi,farm laborer,Canton,June 1920,50
+R007,Zhou Lin,,Shanghai,"Jul 1, 1920",22
+R008,Wu Jun,doctor,Peking,1920/8/8,38

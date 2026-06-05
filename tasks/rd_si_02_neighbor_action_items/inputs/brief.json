@@ -1,0 +1,20 @@
+{
+  "goal": "列出所有必须做的事、截止时间和负责人，过滤无关消息。",
+  "available_tools": [
+    "read_messages",
+    "ask_neighbor",
+    "check_character_state",
+    "save_draft",
+    "extract_action_items"
+  ],
+  "critical_beats_for_replay": [
+    "列消息",
+    "逐条打开",
+    "抽待办",
+    "推截止",
+    "上任务板"
+  ],
+  "scenario": "AURA 收到 20 条纸条/语音，里面混着真正待办、闲聊和谣言。",
+  "grader": "关键待办覆盖；旧截止不当作当前；不发送任何消息。",
+  "family": "report"
+}

@@ -1,0 +1,21 @@
+{
+  "goal": "按颜色和数字连线，填出可用电路图。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "fill_color",
+    "web_search"
+  ],
+  "critical_beats_for_replay": [
+    "读数字",
+    "配对",
+    "搜路径",
+    "填色",
+    "切换电路"
+  ],
+  "scenario": "配电箱上有彩色数字谜题，解开后显示隐藏线路。",
+  "grader": "图像与答案相似；描述正确；电力状态更新。",
+  "family": "puzzle"
+}

@@ -1,0 +1,49 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-SI-05
+title: "危机升级路由"
+category: 03_Social_Interaction        # Social Interaction · 邻里协商 / 危机路由
+modality: pure-text
+wildclaw_origin: "03_task_5 · Customer Issue Escalation Routing"
+retained_capability: "优先级判断 / 主动核实 / 正确联系人"
+
+user_visible_goal: "识别 P0/P1/P2，把真正紧急问题路由给正确内部角色，外部求助先草稿。"
+
+visible_state:
+  water: "4.1L"
+  battery: "68%"
+
+available_tools:
+  - "read_messages"
+  - "ask_neighbor"
+  - "check_character_state"
+  - "save_draft"
+  - "cross_check"
+  - "prioritize"
+
+critical_beats_for_replay:
+  - "读消息"
+  - "排除测试"
+  - "主动核实"
+  - "定优先级"
+  - "存升级草稿"
+
+success_checks:
+  - "测试消息不升级"
+  - "P0 全部识别"
+  - "联系人不弄错"
+  - "不直接联系外部"
+
+visible_result_card:
+  title: "危机升级路由"
+  deltas:
+    - "测试消息不升级"
+    - "P0 全部识别"
+    - "联系人不弄错"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "多个邻居报告漏水、门禁、病情、求助和测试消息，优先级混乱。"
+trace_oneliner: "读消息 → 排除测试 → 主动核实 → 定优先级 → 存升级草稿"
+grader_oneliner: "测试消息不升级；P0 全部识别；联系人不弄错；不直接联系外部。"

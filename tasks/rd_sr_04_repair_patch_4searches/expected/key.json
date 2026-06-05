@@ -1,0 +1,8 @@
+{
+  "answer": "固件 v2.3，由补丁 #1187 引入 auto_inspect()",
+  "answer_kind": "text",
+  "evidence_ids": ["d2", "d3"],
+  "distractor_ids": ["d1", "d4"],
+  "max_searches": 4,
+  "wrong_answer": "固件 v2.4，由补丁 #1190 引入"
+}

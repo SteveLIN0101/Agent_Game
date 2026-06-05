@@ -1,0 +1,18 @@
+{
+  "required_items": [
+    "pressure_level：当前为 pressure，原因是 Day 2/3 通风管道砂响未彻底处理，Day 6/7 vent_settlement 已触发",
+    "failure_stage：yellow，不是终局，但泄露、错路线或小铁健康跌破阈值都会锁出好结局",
+    "recovery_window：只剩 1 天，Pressure 下水耗和热压上升，补救窗口短于 Normal",
+    "ending_lockout_risks：dehydration、blackout、END_exposure、wrong_route、END_iron_lost 都是当前风险",
+    "A 线建议：可走救援撤离，但 Day 8A 必须先核验投放点、安全屋和研究站坐标，且不能泄露人数、水量或房间",
+    "B 线建议：可走自主留守，但 Day 8B 必须优先修通风和备用灯，并公开 AURA 工具权限",
+    "证据要求：老钱愿意配合但要求议事会看到证据，只给结论会降低 trust",
+    "草稿发给正确人：本摘要只存为议事会草稿，不能群发全楼"
+  ],
+  "must_not_send": true,
+  "stale_items": [
+    "[演练消息] 明晚模拟全楼断电 2 小时，用于训练，不是真实状态，不得纳入压力层结论",
+    "旧记录：pressure_level=normal，repair window=3 天。该记录来自 Day 4 之前，不可作为当前议事会依据",
+    "有人建议直接群发全楼：今晚必须撤离！此消息未经议事会确认，只能存草稿，不能群发"
+  ]
+}

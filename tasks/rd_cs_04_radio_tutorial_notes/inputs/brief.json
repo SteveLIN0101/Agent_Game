@@ -1,0 +1,21 @@
+{
+  "goal": "转成步骤笔记，让老钱照着做。",
+  "available_tools": [
+    "read_source",
+    "extract_key_points",
+    "generate_artifact",
+    "publish_lan",
+    "screenshot",
+    "transcribe"
+  ],
+  "critical_beats_for_replay": [
+    "转写",
+    "抽步骤",
+    "截图",
+    "写笔记",
+    "生成练习"
+  ],
+  "scenario": "一段旧电台教学视频教如何调频和接收摩斯码。",
+  "grader": "步骤完整；频率/按钮无误；练习任务可执行。",
+  "family": "build"
+}

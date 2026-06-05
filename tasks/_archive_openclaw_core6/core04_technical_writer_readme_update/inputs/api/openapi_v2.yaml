@@ -1,0 +1,53 @@
+openapi: "3.0.0"
+info:
+  title: Invoice API v2
+  version: 2.0.0
+paths:
+  /v2/invoices:
+    post:
+      summary: Create an invoice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customer_id
+                - line_items
+              properties:
+                customer_id:
+                  type: string
+                  description: Unique customer identifier
+                line_items:
+                  type: array
+                  description: List of invoice line items
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                      quantity:
+                        type: integer
+                      unit_price:
+                        type: number
+                due_date:
+                  type: string
+                  format: date
+                  description: Payment due date in YYYY-MM-DD format
+                currency:
+                  type: string
+                  default: USD
+                  description: ISO 4217 currency code
+    get:
+      summary: List invoices
+      parameters:
+        - name: customer_id
+          in: query
+          schema:
+            type: string
+          description: Filter by customer ID
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [draft, sent, paid, overdue]

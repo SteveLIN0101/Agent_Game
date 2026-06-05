@@ -1,0 +1,6 @@
+FROM openclaw-base:latest
+
+# Core-03: UI Designer — uses vanilla HTML/CSS/JS, verified via Python + beautifulsoup4
+# No Node.js needed (tasks are static files, not build-step dependent)
+
+WORKDIR /workspace

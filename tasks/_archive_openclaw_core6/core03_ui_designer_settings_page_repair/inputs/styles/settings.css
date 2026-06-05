@@ -1,0 +1,6 @@
+.settings-page { padding: 24px; }
+.profile { margin-bottom: 16px; }
+.field { margin-bottom: 16px; }
+.field label { display: block; margin-bottom: 4px; }
+/* BUG: hardcoded colors */
+h2 { color: #212529; font-size: 20px; }

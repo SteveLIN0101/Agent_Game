@@ -1,0 +1,9 @@
+cancellation_id,customer_id,subscription_id,cancel_date,reason
+CAN-0001,C001,SUB-0001,2025-08-01,too expensive
+CAN-0002,C003,SUB-0004,2025-08-04,not using
+CAN-0003,C005,SUB-0007,2025-08-07,switched competitor
+CAN-0004,C007,SUB-0010,2025-08-10,budget cut
+CAN-0005,C009,SUB-0013,2025-08-13,feature missing
+CAN-0006,C011,SUB-0016,2025-08-16,too expensive
+CAN-0007,C013,SUB-0019,2025-08-19,not using
+CAN-0008,C015,SUB-0022,2025-08-22,switched competitor

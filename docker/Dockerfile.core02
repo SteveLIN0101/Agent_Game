@@ -1,0 +1,6 @@
+FROM openclaw-base:latest
+
+# Core-02: Data Analyst — needs openpyxl for Excel support
+RUN pip install --no-cache-dir openpyxl>=3.1
+
+WORKDIR /workspace

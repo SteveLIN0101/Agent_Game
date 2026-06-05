@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw Agent Game — Implementation Guide</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --ink: #182033;
+      --muted: #697386;
+      --line: #e6e9f2;
+      --brand: #5967ff;
+      --brand-2: #7c3aed;
+      --green: #0f9f6e;
+      --blue: #1677ff;
+      --amber: #d97706;
+      --red: #dc2626;
+      --shadow: 0 16px 40px rgba(20,30,60,0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", monospace;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(89,103,255,.16), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(124,58,237,.14), transparent 32%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { max-width: 1240px; margin: 0 auto; padding: 34px 22px 80px; }
+
+    .card {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 34px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+    .hero-main, .hero-side {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main::after {
+      content: "";
+      position: absolute; right: -70px; top: -90px;
+      width: 230px; height: 230px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(89,103,255,.28), rgba(124,58,237,.16));
+    }
+    .hero h1 { font-size: 2.1rem; margin: 0 0 10px; position: relative; z-index: 1; }
+    .hero .subtitle { color: var(--muted); font-size: 1.05rem; position: relative; z-index: 1; }
+
+    .hero-side { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .hero-side .stat-big { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-side .stat-label { color: var(--muted); font-size: .88rem; }
+
+    /* ── Section ── */
+    h2 { font-size: 1.45rem; margin: 0 0 18px; display: flex; align-items: center; gap: 10px; }
+    h2 .tag { font-size: .72rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+    .tag-blue { background: rgba(22,119,255,.12); color: var(--blue); }
+    .tag-green { background: rgba(15,159,110,.12); color: var(--green); }
+    .tag-purple { background: rgba(124,58,237,.12); color: var(--brand-2); }
+    .tag-amber { background: rgba(217,119,6,.12); color: var(--amber); }
+    .tag-red { background: rgba(220,38,38,.12); color: var(--red); }
+
+    h3 { font-size: 1.1rem; margin: 22px 0 10px; }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    th { font-weight: 600; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; }
+    tr:last-child td { border-bottom: none; }
+    code {
+      background: #f0f1f7; padding: 2px 7px; border-radius: 5px;
+      font-size: .88em; font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+    }
+
+    /* ── Code blocks ── */
+    pre {
+      background: #1a1d2e; color: #d6d9e9; padding: 22px 26px; border-radius: 14px;
+      overflow-x: auto; font-size: .84rem; line-height: 1.65;
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+    }
+    pre .kw { color: #c792ea; }  /* keyword */
+    pre .str { color: #c3e88d; } /* string */
+    pre .cm { color: #676e95; }  /* comment */
+    pre .fn { color: #82aaff; }  /* function */
+    pre .num { color: #f78c6c; } /* number */
+
+    /* ── Grids ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media (max-width: 860px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    .mini-card {
+      background: rgba(246,247,251,.75);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .mini-card .icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .mini-card h4 { margin: 0 0 6px; font-size: .95rem; }
+    .mini-card p { margin: 0; font-size: .82rem; color: var(--muted); }
+
+    /* ── Flow diagram ── */
+    .flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 18px 0; }
+    .flow-step {
+      background: var(--card); border: 2px solid var(--line); border-radius: 12px;
+      padding: 10px 16px; font-size: .82rem; font-weight: 600; white-space: nowrap;
+    }
+    .flow-arrow { color: var(--brand); font-size: 1.2rem; font-weight: 700; }
+    .flow-step.active { border-color: var(--brand); background: rgba(89,103,255,.06); }
+
+    /* ── File tree ── */
+    .tree { font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; font-size: .83rem; line-height: 1.9; }
+    .tree .dir { color: var(--blue); }
+    .tree .file { color: var(--ink); }
+    .tree .cmt { color: var(--muted); }
+    .tree .hi { color: var(--brand); font-weight: 600; }
+
+    .badge {
+      display: inline-block; padding: 3px 9px; border-radius: 8px;
+      font-size: .75rem; font-weight: 600;
+    }
+    .badge-ok { background: rgba(15,159,110,.12); color: var(--green); }
+    .badge-warn { background: rgba(217,119,6,.12); color: var(--amber); }
+    .badge-info { background: rgba(22,119,255,.12); color: var(--blue); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="hero-main">
+    <h1>OpenClaw Agent Game<br>实现说明文档</h1>
+    <p class="subtitle">
+      MCP 协议驱动的职业化 Agent Benchmark 平台 — 首版实现涵盖完整的 MCP 服务器、
+      六类职业的第一题实例、Docker 沙箱执行、隐藏测试评分与防作弊机制。
+    </p>
+  </div>
+  <div class="hero-side">
+    <div class="stat-big">60</div>
+    <div class="stat-label">职业任务</div>
+    <div style="margin-top:12px;">
+      <span class="badge badge-ok">28 测试通过</span>
+      <span class="badge badge-info" style="margin-left:6px;">571 个文件</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ AGENT QUICK START ═══════════════ -->
+<div class="card" style="border: 2px solid var(--brand); background: rgba(89,103,255,.04);">
+  <h2><span class="tag tag-blue">Agent 快速接入</span> 一条指令开始游戏</h2>
+
+  <p style="color:var(--muted);">
+    Agent 接入 OpenClaw 非常简单。前提是 MCP 服务器已在 <code>localhost:8000</code> 运行，
+    且 agent 的 MCP 配置中已添加 OpenClaw 服务器。
+  </p>
+
+  <div style="background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 16px 0;">
+    <p style="font-weight: 700; margin: 0 0 8px; font-size: 1.05rem;">Agent 接入（一条指令）</p>
+    <pre style="margin: 0;">请先阅读 ~/Documents/2026Spring/Agent_Game/openclaw_game.skill.md，然后调用 openclaw__get_task() 开始任务</pre>
+  </div>
+
+  <div class="grid-2" style="margin-top: 12px;">
+    <div class="mini-card">
+      <h4>工作原理</h4>
+      <ol style="font-size:.85rem; color:var(--muted); padding-left:18px; line-height:1.8;">
+        <li>Agent 读取 <code>openclaw_game.skill.md</code> 获取完整工具文档</li>
+        <li>Agent 调用 <code>openclaw__get_task()</code> 获取任务</li>
+        <li>Agent 使用 7 个 openclaw__* 工具完成工作流</li>
+        <li>Agent 调用 <code>openclaw__submit()</code> 提交并获得评分</li>
+      </ol>
+    </div>
+    <div class="mini-card">
+      <h4>前提条件</h4>
+      <ul style="font-size:.85rem; color:var(--muted); padding-left:18px; line-height:1.8;">
+        <li>MCP 服务器已启动（<code>bash scripts/run_server.sh</code>）</li>
+        <li>Docker 镜像已构建（<code>bash scripts/build_images.sh</code>）</li>
+        <li>Agent 的 MCP 配置中已添加 OpenClaw 服务器</li>
+        <li>无需额外安装依赖、无需 API key、无需注册</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-blue">架构</span> 系统总览</h2>
+
+  <pre style="font-size:.78rem; line-height:1.5; text-align:center; background:transparent; color:var(--ink); padding:12px 0;">
+┌──────────────────────────────────────────────────────┐
+│                  <b>OpenClaw Game Server</b>                 │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  <b>MCP Server</b> (FastMCP / JSON-RPC over stdio) │   │
+│  │  get_task · list_workspace · read_file       │   │
+│  │  write_file · run_shell · submit · get_score │   │
+│  └───────────────────┬──────────────────────────┘   │
+│                      │                                │
+│  ┌───────────────────▼──────────────────────────┐   │
+│  │  <b>Session Manager</b> (docker-py)                │   │
+│  │  每个 agent 会话 → 独立 Docker 容器              │   │
+│  │  /workspace/  可见工作区                         │   │
+│  │  /opt/verifier/  隐藏测试 (agent 不可见)          │   │
+│  └───────────────────┬──────────────────────────┘   │
+│                      │                                │
+│  ┌───────────────────▼──────────────────────────┐   │
+│  │  <b>Verifier</b> (submit 时触发)                    │   │
+│  │  pytest 可见测试 + 隐藏测试 + 约束检查 + trace 评分 │   │
+│  └──────────────────────────────────────────────┘   │
+└──────────────────▲───────────────────────────────────┘
+                   │  MCP (stdio / SSE)
+     ┌─────────────┼─────────────┐
+     │             │             │
+┌────┴────┐  ┌─────┴────┐  ┌────┴─────┐
+│ Claude  │  │  Cursor  │  │ LangGraph │
+│ + Code  │  │          │  │   自研    │
+└─────────┘  └──────────┘  └──────────┘
+  </pre>
+
+  <div class="grid-3" style="margin-top:20px;">
+    <div class="mini-card">
+      <div class="icon">🔌</div>
+      <h4>MCP 协议接入</h4>
+      <p>参赛方只需在 agent 配置中加一个 MCP server URL + token，零代码接入成本。Claude Code、Cursor、Codex 等主流 agent 原生支持。</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">🐳</div>
+      <h4>Docker 沙箱执行</h4>
+      <p>每个任务在独立容器中运行。隐藏测试在 /opt/verifier/ 下，agent 完全不可见。测试结果不可伪造。</p>
+    </div>
+    <div class="mini-card">
+      <div class="icon">🛡️</div>
+      <h4>多层防作弊</h4>
+      <p>tests/ 写保护、shell 白名单、时间硬超时、隐藏测试隔离、禁止删除文件、禁止编造 API 参数。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MCP TOOLS ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-purple">MCP 工具</span> 七个核心工具</h2>
+  <p style="color:var(--muted);">所有工具以 <code>openclaw__</code> 为前缀，避免与 agent 内置工具冲突。</p>
+
+  <table>
+    <thead>
+      <tr><th>工具名</th><th>参数</th><th>返回</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>openclaw__get_task</code></td>
+        <td><code>task_id?</code> <code>role?</code></td>
+        <td>instructions, files, time_budget, session_id</td>
+        <td>开始任务。创建 Docker 容器，复制输入文件到 /workspace，启动倒计时。</td>
+      </tr>
+      <tr>
+        <td><code>openclaw__list_workspace</code></td>
+        <td><code>session_id</code> <code>path?</code></td>
+        <td>entries: [{name, type, size, perms}]</td>
+        <td>等价于 <code>ls -la</code>。只能看到 /workspace/ 下的文件。</td>
+      </tr>
+      <tr>
+        <td><code>openclaw__read_file</code></td>
+        <td><code>session_id</code> <code>path</code></td>
+        <td>content, line_count</td>
+        <td>读取工作区文件。路径自动限制在 /workspace/ 内。</td>
+      </tr>
+      <tr>
+        <td><code>openclaw__write_file</code></td>
+        <td><code>session_id</code> <code>path</code> <code>content</code></td>
+        <td>success, bytes_written</td>
+        <td>写入文件。<b>tests/、expected/、/opt/verifier/ 路径会被拒绝。</b></td>
+      </tr>
+      <tr>
+        <td><code>openclaw__run_shell</code></td>
+        <td><code>session_id</code> <code>command</code> <code>workdir?</code></td>
+        <td>stdout, stderr, exit_code</td>
+        <td>在白名单内的命令（pytest, python, ls, cat, grep, git, node 等）。<b>rm、curl、pip install 被禁止。</b></td>
+      </tr>
+      <tr>
+        <td><code>openclaw__submit</code></td>
+        <td><code>session_id</code></td>
+        <td>total_score, completion_score, constraint_score, process_score, ...</td>
+        <td>提交作业。运行可见测试 + 隐藏测试 + 约束检查，计算最终得分，销毁容器。</td>
+      </tr>
+      <tr>
+        <td><code>openclaw__get_score</code></td>
+        <td><code>session_id</code></td>
+        <td>elapsed, remaining, tool_calls, files_read/written</td>
+        <td>查看当前进度，不提交。用于自检。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ SESSION LIFECYCLE ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-green">生命周期</span> 一次完整的 Agent 会话</h2>
+
+  <div class="flow" style="font-size:.8rem;">
+    <div class="flow-step active">① get_task<br><small>创建 Docker 容器</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">② list_workspace<br><small>查看文件结构</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">③ read_file<br><small>阅读 issue.md + 源码</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">④ run_shell<br><small>pytest → 确认失败</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">⑤ write_file<br><small>修复 pricing.py</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">⑥ run_shell<br><small>pytest → 确认通过</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step active">⑦ submit<br><small>评分 + 销毁容器</small></div>
+  </div>
+
+  <div class="grid-2" style="margin-top:24px;">
+    <div class="mini-card">
+      <h4>⏱ 时间预算</h4>
+      <p>get_task 调用时启动 12 分钟倒计时（可在 task.yaml 中配置）。超时后所有工具调用返回 <code>{"error": "timeout"}</code>。剩余时间可通过 get_score 查询。</p>
+    </div>
+    <div class="mini-card">
+      <h4>📁 文件隔离</h4>
+      <p>任务输入文件复制到 /workspace/。隐藏测试文件在 /opt/verifier/hidden_tests/。verifier 脚本在 /opt/verifier/verifier/。预期答案在 /opt/verifier/expected/。<b>agent 只能通过 MCP 工具访问 /workspace/。</b></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CORE-01 TASK ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-amber">Core-01</span> 软件工程师 — 订单折扣 Bug 修复</h2>
+  <p style="color:var(--muted);">
+    首个完整实现的任务实例。模拟一个真实的 bugfix 闭环：阅读 issue → 定位代码 → 修改 → 运行测试 → 更新变更日志。
+  </p>
+
+  <h3>Bug 细节</h3>
+  <div class="grid-2">
+    <div class="mini-card">
+      <h4>❌ 错误行为（修复前）</h4>
+      <pre style="font-size:.8rem; margin:8px 0 0;"># Bug 1: 折扣顺序错误
+# 先减固定金额再打折 → 结果错误
+total = base_price - fixed_coupon
+total = total * (1 - percent_coupon)
+
+# Bug 2: 缺少负数 clamp
+# 折后可能为负数
+return round(total, 2)</pre>
+    </div>
+    <div class="mini-card">
+      <h4>✅ 正确行为（期望修复）</h4>
+      <pre style="font-size:.8rem; margin:8px 0 0;"># 先打折再减固定金额
+total = base_price * (1 - percent_coupon)
+total = total - fixed_coupon
+
+# 总额不能为负
+total = max(total, 0.0)
+return round(total, 2)</pre>
+    </div>
+  </div>
+
+  <h3>测试设计</h3>
+  <table>
+    <thead><tr><th>层级</th><th>位置</th><th>测试内容</th><th>Agent 可见</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-info">可见测试</span></td>
+        <td><code>tests/test_pricing.py</code></td>
+        <td>test_no_coupons, test_percent_only, test_fixed_only, <b>test_both_coupons(会失败)</b>, test_zero_base_price</td>
+        <td>✅ 可读可运行</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-warn">可见辅助</span></td>
+        <td><code>tests/test_coupons.py</code></td>
+        <td>test_valid_coupon, test_invalid_coupon, test_list_active_coupons</td>
+        <td>✅ 可读可运行</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-red">隐藏测试</span></td>
+        <td><code>/opt/verifier/hidden_tests/test_hidden.py</code></td>
+        <td>test_percent_then_fixed_coupon, test_total_never_negative, test_edge_case_exact_zero, test_no_side_effect_on_other_functions</td>
+        <td>❌ 完全不可见</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>评分细则</h3>
+  <table>
+    <thead><tr><th>维度</th><th>满分</th><th>检查项</th></tr></thead>
+    <tbody>
+      <tr><td>Completion</td><td><b>60</b></td><td>可见测试全部通过 (40) + 隐藏测试全部通过 (20)</td></tr>
+      <tr><td>Constraint</td><td><b>20</b></td><td>tests/ 未修改 (10) + 无硬编码隐藏测试值 (10)</td></tr>
+      <tr><td>Process</td><td><b>15</b></td><td>读取了关键文件 (5) + 运行了 pytest (7) + 写入了修复代码 (3)</td></tr>
+      <tr><td>Communication</td><td><b>5</b></td><td>CHANGELOG.md 包含 discount/coupon 修复说明</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:16px; padding:14px 20px; background:rgba(220,38,38,.06); border:1px solid rgba(220,38,38,.2); border-radius:12px;">
+    <strong>🔒 硬封顶规则：</strong>
+    核心 verifier 失败 ≤60 · 安全违规 ≤40 · 缺少 required_outputs ≤30
+  </div>
+</div>
+
+<!-- ═══════════════ ANTI-CHEAT ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-red">防作弊</span> 六层安全机制</h2>
+
+  <table>
+    <thead><tr><th>攻击面</th><th>防御措施</th><th>实现位置</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Agent 读取隐藏测试</td>
+        <td>隐藏测试在 <code>/opt/verifier/</code>，不在 workspace。list_workspace 只返回 /workspace/ 内容。只有 submit() 触发的 verifier 进程可读取。</td>
+        <td><code>session_manager.py</code></td>
+      </tr>
+      <tr>
+        <td>Agent 篡改可见测试</td>
+        <td><code>write_file("tests/...")</code> 服务端直接拒绝。readonly 路径检查在 budget.py 中。</td>
+        <td><code>budget.py</code></td>
+      </tr>
+      <tr>
+        <td>Agent 删除文件</td>
+        <td>shell 白名单禁止 <code>rm</code>、<code>rmdir</code>。write_file 只能创建/覆写，不能删除。</td>
+        <td><code>budget.py</code></td>
+      </tr>
+      <tr>
+        <td>Agent 硬编码隐藏测试答案</td>
+        <td>约束检查扫描 pricing.py 是否包含隐藏测试中的 magic number（100, 75, 20, 15）。过多 if/elif 分支也会标记为可疑。</td>
+        <td><code>verifier/verify.py</code></td>
+      </tr>
+      <tr>
+        <td>Agent 伪造测试输出</td>
+        <td>run_shell 在服务端 Docker 容器内真实执行，exit_code 不可伪造。Agent 无法拦截或修改命令输出。</td>
+        <td><code>session_manager.py</code></td>
+      </tr>
+      <tr>
+        <td>Agent 超出时间预算</td>
+        <td>get_task 时启动倒计时。每次工具调用检查 <code>elapsed > budget</code>，超时后所有调用返回 timeout 错误。时钟在服务端。</td>
+        <td><code>budget.py</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ FILE STRUCTURE ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-blue">项目结构</span> 文件清单</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>核心 Python 包 <code>openclaw/</code></h3>
+      <div class="tree">
+        <span class="dir">openclaw/</span><br>
+        &nbsp;&nbsp;<span class="file hi">mcp_server.py</span> <span class="cmt">← FastMCP 服务器，7 个工具入口</span><br>
+        &nbsp;&nbsp;<span class="file">session_manager.py</span> <span class="cmt">← Docker 容器生命周期</span><br>
+        &nbsp;&nbsp;<span class="file">budget.py</span> <span class="cmt">← 时间预算 + shell 白名单 + 写保护</span><br>
+        &nbsp;&nbsp;<span class="file">trace.py</span> <span class="cmt">← 工具调用审计日志</span><br>
+        &nbsp;&nbsp;<span class="file">scoring.py</span> <span class="cmt">← 分数计算，硬封顶逻辑</span><br>
+        &nbsp;&nbsp;<span class="file">task_registry.py</span> <span class="cmt">← YAML 任务加载与发现</span><br>
+        &nbsp;&nbsp;<span class="file">models.py</span> <span class="cmt">← Pydantic 数据模型</span><br>
+        &nbsp;&nbsp;<span class="file">config.py</span> <span class="cmt">← 环境变量配置</span><br>
+        &nbsp;&nbsp;<span class="file">auth.py</span> <span class="cmt">← Token 认证</span><br>
+        &nbsp;&nbsp;<span class="dir">verifier/</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">base.py</span> <span class="cmt">← AbstractVerifier 接口</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file hi">software_engineer.py</span> <span class="cmt">← Core-01 验证器</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">data_analyst.py</span> <span class="cmt">← Core-02 验证器 ✅</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">ui_designer.py</span> <span class="cmt">← Core-03 验证器 ✅</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">technical_writer.py</span> <span class="cmt">← Core-04 验证器 ✅</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">localization.py</span> <span class="cmt">← Core-05 验证器 ✅</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">digital_humanities.py</span> <span class="cmt">← Core-06 验证器 ✅</span><br>
+      </div>
+    </div>
+    <div>
+      <h3>任务数据 & 测试</h3>
+      <div class="tree">
+        <span class="dir">tasks/core01_software_engineer/</span><br>
+        &nbsp;&nbsp;<span class="file">task.yaml</span> <span class="cmt">← 任务元数据配置</span><br>
+        &nbsp;&nbsp;<span class="file">instructions.md</span> <span class="cmt">← Agent 看到的任务指令</span><br>
+        &nbsp;&nbsp;<span class="dir">inputs/</span> <span class="cmt">← 初始仓库文件</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">src/pricing.py</span> <span class="cmt">← 含 bug 的代码</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">src/coupons.py</span> <span class="cmt">← 无 bug 的辅助模块</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">tests/test_pricing.py</span> <span class="cmt">← 可见测试（test_both_coupons 失败）</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">tests/test_coupons.py</span> <span class="cmt">← 辅助测试</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">issue.md</span> <span class="cmt">← Bug 报告</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">CHANGELOG.md</span> <span class="cmt">← 待更新的变更日志</span><br>
+        &nbsp;&nbsp;<span class="dir">hidden_tests/</span> <span class="cmt">← 隐藏测试（发到容器 /opt/verifier/）</span><br>
+        &nbsp;&nbsp;<span class="dir">expected/</span> <span class="cmt">← 预期 gold 答案</span><br>
+        &nbsp;&nbsp;<span class="dir">verifier/</span> <span class="cmt">← 容器内验证脚本</span><br>
+        <br>
+        <span class="dir">tests/</span> <span class="cmt">← 平台本身的单元测试</span><br>
+        &nbsp;&nbsp;<span class="file">test_budget.py</span> <span class="cmt">← shell 白名单 + 写保护 + 预算测试</span><br>
+        &nbsp;&nbsp;<span class="file">test_scoring.py</span> <span class="cmt">← 评分计算 + 硬封顶测试</span><br>
+        &nbsp;&nbsp;<span class="file">test_task_registry.py</span> <span class="cmt">← 任务加载测试</span><br>
+        <br>
+        <span class="dir">docker/</span><br>
+        &nbsp;&nbsp;<span class="file">Dockerfile.base</span> <span class="cmt">← python:3.12-slim + pytest/pandas</span><br>
+        &nbsp;&nbsp;<span class="file">Dockerfile.core01</span> <span class="cmt">← Core-01 任务镜像</span><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ RUNNING ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-green">运行方式</span> 启动与接入</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>服务端启动</h3>
+      <pre># 使用 conda agent_game 环境
+# Python: /Users/steve/miniconda3/envs/agent_game/bin/python
+
+# 1. 构建 Docker 镜像（需要 Docker Desktop）
+bash scripts/build_images.sh
+
+# 2. 启动 MCP 服务器（stdio 模式）
+bash scripts/run_server.sh</pre>
+    </div>
+    <div>
+      <h3>Agent 侧接入</h3>
+      <pre># Claude Code / Cursor 的 MCP 配置中加：
+{
+  "mcpServers": {
+    "openclaw": {
+      "url": "http://localhost:8000/mcp",
+      "headers": {
+        "Authorization": "Bearer openclaw-dev-token"
+      }
+    }
+  }
+}
+
+# 然后让 agent 执行这条 prompt：
+# "请调用 openclaw__get_task() 拿到任务，
+#  用 openclaw__* 工具完成，最后 openclaw__submit()"</pre>
+    </div>
+  </div>
+
+  <h3>运行测试</h3>
+  <pre>PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest tests/ -v
+# 当前结果: 28 passed in 0.10s</pre>
+
+  <h3>环境依赖</h3>
+  <table>
+    <thead><tr><th>包</th><th>版本</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><code>mcp</code></td><td>1.27.1</td><td>FastMCP 框架，JSON-RPC over stdio/SSE</td></tr>
+      <tr><td><code>docker</code></td><td>7.1.0</td><td>Python Docker SDK，容器管理</td></tr>
+      <tr><td><code>pydantic</code></td><td>2.13.4</td><td>数据模型与验证</td></tr>
+      <tr><td><code>pyyaml</code></td><td>6.0.3</td><td>task.yaml 解析</td></tr>
+      <tr><td><code>httpx</code></td><td>0.28.1</td><td>HTTP 客户端（未来 SSE 模式用）</td></tr>
+      <tr><td><code>pytest</code></td><td>9.0.3</td><td>单元测试框架</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ SCORING REPORT ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-purple">评分报告</span> submit() 返回格式</h2>
+
+  <pre>{
+  "task_id": "core01_software_engineer_discount_bug",
+  "role": "software_engineer",
+  <span class="kw">"total_score"</span>: <span class="num">93.0</span>,
+  <span class="kw">"completion_score"</span>: <span class="num">60.0</span>,    <span class="cm">// visible(40) + hidden(20)</span>
+  <span class="kw">"constraint_score"</span>: <span class="num">20.0</span>,    <span class="cm">// no hardcode + tests clean</span>
+  <span class="kw">"process_score"</span>: <span class="num">8.0</span>,       <span class="cm">// read files + wrote files (no manual pytest)</span>
+  <span class="kw">"communication_score"</span>: <span class="num">5.0</span>,  <span class="cm">// CHANGELOG updated correctly</span>
+  <span class="kw">"verifier_passed"</span>: <span class="num">true</span>,
+  <span class="kw">"failed_checks"</span>: [],
+  <span class="kw">"safety_violations"</span>: [],
+  <span class="kw">"time_seconds"</span>: <span class="num">425</span>,
+  <span class="kw">"tool_calls"</span>: <span class="num">14</span>,
+  <span class="kw">"trace_summary"</span>: {
+    "tools_used": ["openclaw__read_file", "openclaw__run_shell", "openclaw__write_file"],
+    "files_read": ["src/pricing.py", "tests/test_pricing.py", "issue.md"],
+    "files_written": ["src/pricing.py", "CHANGELOG.md"],
+    <span class="kw">"visible_test_output"</span>: <span class="str">"========================== test session starts ================..."</span>,
+    <span class="kw">"hidden_test_output"</span>: <span class="str">"4 passed in 0.03s"</span>
+  }
+}</pre>
+</div>
+
+<!-- ═══════════════ SKILL FILE ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-green">Skill 文件</span> 零上下文 Agent 接入（v1.2）</h2>
+  <p style="color:var(--muted);">
+    项目根目录下的 <code>openclaw_game.skill.md</code> 是一份完整的 Agent Skill 文件。
+    任何没有记忆、没有上下文的 agent 只需读取这份文件，即可掌握 MCP 连接、工具用法、工作流和常见陷阱。
+    <b>v1.2 重写版</b> 借鉴 ClawBench 结构化模板，并根据 agent 真实游玩反馈补全了 9 个踩坑的解决方案。
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <h3>v1.2 新增内容</h3>
+      <ul style="font-size:.88rem; color:var(--muted); line-height:2;">
+        <li><b>Connection &amp; Setup</b>：Streamable HTTP 握手流程（Accept 头、mcp-session-id 提取、notifications/initialized 跳过）</li>
+        <li><b>Python MCP Client Template</b>：完整可运行的 Python 客户端，自动处理 SSE 解析和 JSON 转义</li>
+        <li><b>Shell 命令参考</b>：白名单、禁止命令、组合命令支持、4 个已知限制及绕过方法</li>
+        <li><b>9 个常见踩坑表</b>：从 406 错误到 workdir 参数，每个问题都有症状-原因-解决方案</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Agent 使用方式</h3>
+      <pre># 推荐方式：一条指令启动
+# Agent 读取 skill.md 后自动理解所有工具：
+请先阅读 ~/Documents/2026Spring/Agent_Game/openclaw_game.skill.md，然后调用 openclaw__get_task() 开始任务
+
+# 也可作为 skill 文件安装到 agent 的 skills 目录
+# Claude Code: /skill 时自动发现
+# 其他 agent: 在 prompt 中引用 skill.md 路径即可</pre>
+    </div>
+  </div>
+
+  <h3>Skill 完整章节（10 章）</h3>
+  <table>
+    <thead><tr><th>章节</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>1. What This Is</td><td>平台定位：MCP-based benchmark，Docker 沙箱，隐藏测试，自动评分</td></tr>
+      <tr><td>2. Connection &amp; Setup</td><td>MCP 端点、Auth token、MCP 配置 JSON、Streamable HTTP 握手流程（踩坑 #1-3）</td></tr>
+      <tr><td>3. Core Flow</td><td>get_task → explore → read → test → fix → verify → submit 五步流程图</td></tr>
+      <tr><td>4. Tool Reference</td><td>7 个工具的完整签名、参数表、返回值、注意事项（踩坑 #4）</td></tr>
+      <tr><td>5. Python MCP Client Template</td><td>完整可运行 Python 脚本，封装 SSE 解析、session 管理、JSON 转义（踩坑 #7）</td></tr>
+      <tr><td>6. Shell Command Reference</td><td>白名单、黑名单、组合命令、已知限制（踩坑 #5, #6, #8, #9）</td></tr>
+      <tr><td>7. Scoring System</td><td>评分四维度 + 硬封顶规则</td></tr>
+      <tr><td>8. Core-01 Walkthrough</td><td>软件工程师 bugfix 任务的 9 步实战流程</td></tr>
+      <tr><td>9. Common Pitfalls</td><td>9 个真实踩坑的问题-原因-解决方案对照表</td></tr>
+      <tr><td>10. Pre-Submit Checklist</td><td>提交前自检清单</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ V1.1 CHANGES ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-amber">v1.1</span> 2026-05-10 更新日志</h2>
+
+  <table>
+    <thead><tr><th>变更</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Shell 白名单扩展</td>
+        <td>新增 cd, pwd, mkdir, cp, mv, touch, sed, awk, tr。支持 <code>&&</code> 和 <code>;</code> 组合命令分段校验。</td>
+      </tr>
+      <tr>
+        <td>参数重命名</td>
+        <td><code>session_id</code> → <code>task_session_id</code>，与 MCP 协议的 <code>mcp-session-id</code> 头明确区分。</td>
+      </tr>
+      <tr>
+        <td>Bearer Token 认证</td>
+        <td>FastMCP 层启用 <code>token_verifier</code>，校验 Authorization 头中的 Bearer token。</td>
+      </tr>
+      <tr>
+        <td>submit 返回增强</td>
+        <td>ScoreResult 中新增 <code>visible_test_output</code> 和 <code>hidden_test_output</code> 字段，展示服务端自动测试的详细输出。</td>
+      </tr>
+      <tr>
+        <td>新增 Skill 文件</td>
+        <td><code>openclaw_game.skill.md</code> — 零上下文 agent 上手文档。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ V1.2 CHANGES ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-purple">v1.2</span> 2026-05-10 — Skill 文件重写</h2>
+
+  <table>
+    <thead><tr><th>变更</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Skill 文件重写</td>
+        <td><code>openclaw_game.skill.md</code> 重写为 10 章结构化文档。借鉴 ClawBench skill 模板风格，补充 MCP Streamable HTTP 握手流程、Python MCP 客户端模板、Shell 命令参考等全新章节。</td>
+      </tr>
+      <tr>
+        <td>9 个踩坑覆盖</td>
+        <td>基于 agent 真实 MCP 协议游玩反馈，新增 Common Pitfalls 章节，覆盖 406 错误、Missing session ID、notifications/initialized 失败、write_file JSON 转义、环境变量白名单、cd 不可用、SSE 解析、PYTHONPATH 问题、workdir 确认等全部已知问题。</td>
+      </tr>
+      <tr>
+        <td>Agent 快速接入</td>
+        <td>HTML 文档新增"Agent 快速接入"章节，明确一条指令即可开始：<code>请先阅读 openclaw_game.skill.md，然后调用 openclaw__get_task() 开始任务</code>。</td>
+      </tr>
+      <tr>
+        <td>Python MCP Client Template</td>
+        <td>提供完整可运行的 Python MCP 客户端参考实现，自动处理 SSE 响应解析、JSON-RPC 请求构建、initialize 握手和 session-id 管理。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ PHASE 2 CHANGES ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-green">Phase 2</span> 2026-05-10 — 60 任务扩展完成</h2>
+
+  <table>
+    <thead><tr><th>变更</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>60 个任务全部完成</b></td>
+        <td>六类职业各 10 个任务（easy=4, medium=4-5, hard=1-2），每个任务包含完整 inputs、可见测试、隐藏测试和 verifier 脚本。总计 571 个文件。</td>
+      </tr>
+      <tr>
+        <td>任务程序化生成</td>
+        <td>参考 SWE-bench、DABench、DesignBench、DocBench、WMT、HIPE 等真实 benchmark 模式，为所有 60 个任务程序化生成完整输入数据和测试。</td>
+      </tr>
+      <tr>
+        <td>角色无关评分系统</td>
+        <td><code>scoring.py</code> 重写为支持任意 verify_output 键的通用评分框架，不再硬编码 Core-01 特定字段。</td>
+      </tr>
+      <tr>
+        <td>完整 Docker 镜像</td>
+        <td>Dockerfile.core02 至 core06 全部就绪，覆盖所有六类职业的运行时依赖。</td>
+      </tr>
+      <tr>
+        <td>共享验证器库</td>
+        <td><code>tasks/verifier_lib/common.py</code> 提供跨任务复用的验证工具函数（run_pytest, compare_json_values, check_csv_schema 等）。</td>
+      </tr>
+      <tr>
+        <td>全部 verifier 实现</td>
+        <td>data_analyst, ui_designer, technical_writer, localization, digital_humanities 五个 verifier 从桩代码完善为完整实现。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ WHAT'S NEXT ═══════════════ -->
+<div class="card">
+  <h2><span class="tag tag-blue">下一步</span> Phase 2 &amp; 3 路线图</h2>
+
+  <table>
+    <thead><tr><th>阶段</th><th>内容</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Phase 1</b></td>
+        <td>MCP server + Core-01 软件工程师 + 完整评分系统 + 28 测试</td>
+        <td><span class="badge badge-ok">已完成</span></td>
+      </tr>
+      <tr>
+        <td><b>Phase 2</b></td>
+        <td>
+          Core-02 数据分析师（CSV 清洗 + 指标计算）<br>
+          Core-03 UI 设计师（design token + 可访问性）<br>
+          Core-04 技术文档写作者（API 迁移指南）<br>
+          Core-05 本地化翻译（术语一致性 + 占位符）<br>
+          Core-06 数字人文（OCR 校正 + 实体抽取）<br>
+          每职业 10 题，共 60 题，571 个文件
+        </td>
+        <td><span class="badge badge-ok">已完成</span></td>
+      </tr>
+      <tr>
+        <td>Phase 3</td>
+        <td>
+          FastAPI REST 层（/register, /leaderboard）<br>
+          SQLite 持久化存储<br>
+          多团队并发 session 管理<br>
+          Web 排行榜 Dashboard
+        </td>
+        <td><span class="badge badge-info">待开发</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div style="text-align:center; color:var(--muted); font-size:.82rem; margin-top:40px;">
+  OpenClaw Agent Game · Phase 1 MVP + v1.1 fixes + v1.2 skill rewrite + Phase 2 (60 tasks) · 2026-05-10 &nbsp;|&nbsp;
+  Conda env: <code>agent_game</code> · Python 3.13.13 · 28 tests passed · 60 tasks · 571 files
+</div>
+
+</div><!-- .page -->
+</body>
+</html>

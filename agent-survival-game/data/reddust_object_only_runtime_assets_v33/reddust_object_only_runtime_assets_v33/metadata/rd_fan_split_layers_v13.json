@@ -1,0 +1,98 @@
+{
+  "project": "Red Dust",
+  "asset_set": "fan_split_layers_v13",
+  "created_at": "2026-05-14T14:23:52",
+  "source": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_fan_ventilation_set.png",
+  "purpose": "Split fan asset into static body and independently rotatable blade layers for in-game fan animation.",
+  "rotation_rule": "For each fan, place body layer and blade layer at the same position; rotate blade layer around canvas center [256,256].",
+  "items": [
+    {
+      "name_cn": "顶部排风扇",
+      "body_stem": "rd_env_exhaust_fan_body_static",
+      "blade_stem": "rd_env_exhaust_fan_blades_rotor",
+      "source_center_xy": [
+        253,
+        126
+      ],
+      "pivot_512_xy": [
+        256,
+        256
+      ],
+      "blade_radius_px": 64,
+      "body_files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_body_static_64.png"
+      },
+      "blade_files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_64.png"
+      },
+      "composite_check": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_exhaust_fan_split_composite_check.png",
+      "body_bbox_512": [
+        159,
+        166,
+        354,
+        355
+      ],
+      "blade_bbox_512": [
+        192,
+        193,
+        321,
+        321
+      ],
+      "edge_alpha_checks": {
+        "body_512": 0,
+        "blade_512": 0
+      }
+    },
+    {
+      "name_cn": "桌面电扇",
+      "body_stem": "rd_env_table_fan_body_static",
+      "blade_stem": "rd_env_table_fan_blades_rotor",
+      "source_center_xy": [
+        253,
+        284
+      ],
+      "pivot_512_xy": [
+        256,
+        256
+      ],
+      "blade_radius_px": 66,
+      "body_files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_body_static_64.png"
+      },
+      "blade_files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_blades_rotor_64.png"
+      },
+      "composite_check": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_table_fan_split_composite_check.png",
+      "body_bbox_512": [
+        158,
+        178,
+        347,
+        444
+      ],
+      "blade_bbox_512": [
+        191,
+        192,
+        322,
+        323
+      ],
+      "edge_alpha_checks": {
+        "body_512": 0,
+        "blade_512": 0
+      }
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_fan_split_layers_v13_preview.png",
+  "rotation_preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_table_fan_rotation_check_v13_preview.png"
+}

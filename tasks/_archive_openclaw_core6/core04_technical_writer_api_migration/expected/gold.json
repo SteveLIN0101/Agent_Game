@@ -1,0 +1,6 @@
+{
+  "migration_guide_exists": true,
+  "endpoint_changes_covered": true,
+  "param_mapping_correct": true,
+  "example_v2_runnable": true
+}

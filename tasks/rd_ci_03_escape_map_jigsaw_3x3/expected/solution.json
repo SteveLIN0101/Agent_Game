@@ -1,0 +1,62 @@
+{
+  "grid_size": "3x3",
+  "correct": {
+    "frag_02": {
+      "cell": 4,
+      "rotation": 0
+    },
+    "frag_03": {
+      "cell": 5,
+      "rotation": 270
+    },
+    "frag_04": {
+      "cell": 2,
+      "rotation": 0
+    },
+    "frag_06": {
+      "cell": 0,
+      "rotation": 0
+    },
+    "frag_07": {
+      "cell": 6,
+      "rotation": 90
+    },
+    "frag_08": {
+      "cell": 7,
+      "rotation": 0
+    },
+    "frag_09": {
+      "cell": 3,
+      "rotation": 180
+    },
+    "frag_10": {
+      "cell": 8,
+      "rotation": 180
+    },
+    "frag_14": {
+      "cell": 1,
+      "rotation": 90
+    }
+  },
+  "distractors": [
+    "frag_00",
+    "frag_01",
+    "frag_05",
+    "frag_11",
+    "frag_12",
+    "frag_13"
+  ],
+  "impassable_cells": [
+    2,
+    4
+  ],
+  "start": 0,
+  "end": 8,
+  "route": [
+    0,
+    3,
+    6,
+    7,
+    8
+  ]
+}

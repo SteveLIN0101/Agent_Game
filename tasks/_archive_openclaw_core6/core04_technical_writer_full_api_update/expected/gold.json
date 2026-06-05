@@ -1,0 +1,7 @@
+{
+  "readme_updated": true,
+  "migration_updated": true,
+  "reference_updated": true,
+  "docs_consistent": true,
+  "no_hallucinated_fields": true
+}

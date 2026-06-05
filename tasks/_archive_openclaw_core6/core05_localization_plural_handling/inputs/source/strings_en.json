@@ -1,0 +1,17 @@
+{
+  "msg.zero": "You have no messages",
+  "msg.one": "You have 1 message",
+  "msg.many": "You have {count} messages",
+  "member.zero": "No members in this workspace",
+  "member.one": "1 member in this workspace",
+  "member.many": "{count} members in this workspace",
+  "file.zero": "No files uploaded",
+  "file.one": "1 file uploaded",
+  "file.many": "{count} files uploaded",
+  "task.zero": "No pending tasks",
+  "task.one": "1 pending task",
+  "task.many": "{count} pending tasks",
+  "day.zero": "Today",
+  "day.one": "Tomorrow",
+  "day.many": "In {count} days"
+}

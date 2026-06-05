@@ -1,0 +1,164 @@
+name: agent_skill_utility_pilot
+version: 1
+seed: "20260527"
+description: >
+  Paired pilot comparing OpenClaw control/no-skill runs against skill runs
+  using openclaw_game.skill.md. Utility is computed by offline analysis, not
+  by changing task verifier scores.
+
+conditions:
+  control:
+    skill_variant: control
+    prompt_policy: "Minimal MCP connection instructions only; do not provide openclaw_game.skill.md."
+  skill:
+    skill_variant: skill
+    prompt_policy: "Provide openclaw_game.skill.md; keep model, tools, and task identical to control."
+
+win_tie_loss:
+  score_threshold: 5.0
+  win: "skill passes when control fails, or equal pass status with score_delta >= 5"
+  loss: "skill fails when control passes, or equal pass status with score_delta <= -5"
+  tie: "all other paired outcomes"
+
+main_tasks:
+  - task_id: core01_software_engineer_encoding_fix
+    role: software_engineer
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core01_software_engineer_null_pointer_fix
+    role: software_engineer
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core01_software_engineer_discount_bug
+    role: software_engineer
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core01_software_engineer_regex_escape_fix
+    role: software_engineer
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core01_software_engineer_data_migration_fix
+    role: software_engineer
+    difficulty: hard
+    order: [control, skill]
+
+  - task_id: core02_data_analyst_customer_tier
+    role: data_analyst
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core02_data_analyst_duplicate_cleanup
+    role: data_analyst
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core02_data_analyst_anomaly_detection
+    role: data_analyst
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core02_data_analyst_cohort_retention
+    role: data_analyst
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core02_data_analyst_funnel_analysis
+    role: data_analyst
+    difficulty: hard
+    order: [skill, control]
+
+  - task_id: core03_ui_designer_button_variant_fix
+    role: ui_designer
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core03_ui_designer_color_token_fix
+    role: ui_designer
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core03_ui_designer_dark_mode_fix
+    role: ui_designer
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core03_ui_designer_focus_ring_fix
+    role: ui_designer
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core03_ui_designer_component_migration
+    role: ui_designer
+    difficulty: hard
+    order: [control, skill]
+
+  - task_id: core04_technical_writer_changelog_tidy
+    role: technical_writer
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core04_technical_writer_docstring_fix
+    role: technical_writer
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core04_technical_writer_api_migration
+    role: technical_writer
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core04_technical_writer_config_doc_update
+    role: technical_writer
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core04_technical_writer_full_api_update
+    role: technical_writer
+    difficulty: hard
+    order: [skill, control]
+
+  - task_id: core05_localization_basic_translate
+    role: localization
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core05_localization_key_check
+    role: localization
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core05_localization_context_translation
+    role: localization
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core05_localization_glossary_compliance
+    role: localization
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core05_localization_onboarding_flow
+    role: localization
+    difficulty: hard
+    order: [control, skill]
+
+  - task_id: core06_dh_date_standardize
+    role: digital_humanities
+    difficulty: easy
+    order: [skill, control]
+  - task_id: core06_dh_entity_extract_basic
+    role: digital_humanities
+    difficulty: easy
+    order: [control, skill]
+  - task_id: core06_dh_archive_metadata
+    role: digital_humanities
+    difficulty: medium
+    order: [skill, control]
+  - task_id: core06_dh_entity_authority_match
+    role: digital_humanities
+    difficulty: medium
+    order: [control, skill]
+  - task_id: core06_dh_census_cleaning
+    role: digital_humanities
+    difficulty: hard
+    order: [skill, control]
+
+reliability_slice:
+  k: 3
+  task_ids:
+    - core01_software_engineer_regex_escape_fix
+    - core01_software_engineer_data_migration_fix
+    - core02_data_analyst_cohort_retention
+    - core02_data_analyst_funnel_analysis
+    - core03_ui_designer_focus_ring_fix
+    - core03_ui_designer_component_migration
+    - core04_technical_writer_config_doc_update
+    - core04_technical_writer_full_api_update
+    - core05_localization_glossary_compliance
+    - core05_localization_onboarding_flow
+    - core06_dh_entity_authority_match
+    - core06_dh_census_cleaning

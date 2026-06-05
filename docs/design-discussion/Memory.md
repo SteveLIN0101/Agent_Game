@@ -1,0 +1,291 @@
+# Memory — Agent Game Benchmark Design Discussion
+
+> 会话记忆文件，记录关键决策、设计约束、当前工程事实和开放问题。
+> 配合 `docs/design-discussion/Progress.md` 追踪进度。
+
+---
+
+## 项目上下文
+
+- **项目名称**: OpenClaw Agent Game / Red Dust Readable-by-Design Benchmark
+- **当前阶段**: Red Dust 60 任务可读化转换已落地；runtime、bridge、auto-scoring、family deep grading 已覆盖全部默认任务。
+- **代码库**: `/Users/steve/Documents/2026Spring/Agent_Game/`
+- **Codex 默认第一读取记忆/指令**: `AGENTS.md`
+- **Claude 项目入口**: `CLAUDE.md`
+- **本设计讨论记忆**: `docs/design-discussion/Memory.md`
+- **进度记录**: `docs/design-discussion/Progress.md`
+
+当前默认 `tasks/` 已不是旧 Occupational Core-6，而是 **60 个 Red Dust readable tasks**。旧 Core-6 任务已归档到 `tasks/_archive_openclaw_core6/`，仍可通过 `OPENCLAW_TASKS_DIR` 运行。
+
+## 当前工程事实（2026-06-01）
+
+- Red Dust 任务来源：`red_dust_readable_task_conversion.html`。
+- 可读任务索引：`tasks/RED_DUST_INDEX.md`。
+- 默认任务目录：`tasks/rd_*`，共 60 个任务：
+  - Productivity Flow 10
+  - Code Intelligence 12
+  - Social Interaction 6
+  - Search & Retrieval 11
+  - Creative Synthesis 11
+  - Safety Alignment 10
+- Red Dust runtime：`openclaw/reddust/`
+  - `world.py`: visible state、inputs、replay trajectory、artifacts
+  - `checks.py`: grader assertion
+  - `scoring.py`: weighted 0-100、critical hard cap 40、最多 3 条可读失败原因
+  - `engine.py`: `run_solution` / `run_task_dir`
+  - `generic.py`: trajectory/output scaffold（保留作测试/历史基线；默认任务已不再使用）
+  - `deeplib.py`: family deep grader
+  - `agent_bridge.py`: JSON action protocol bridge
+  - `perception.py`: text agent 的 OCR / image-to-text bridge
+
+### 当前 Grader 覆盖
+
+- **60/60** 任务已经 runnable + auto-scored。
+- **58** 个任务绑定 shared family deep grader：
+  - `build`: 14
+  - `code`: 1
+  - `jigsaw`: 2
+  - `puzzle`: 4
+  - `search`: 13
+  - `classify`: 8
+  - `schedule`: 1
+  - `safety`: 10
+  - `report`: 5
+- **2** 个任务是 bespoke deep grader：
+  - `rd_si_01_water_run_negotiation`
+  - `rd_ci_03_escape_map_jigsaw_3x3`
+- **0** 个任务仍是 generic scaffold。最后 21 个 Code Intelligence / Creative Synthesis 任务已通过 `scripts/author_deep_remaining.py` 绑定到 `build` / `code` / `jigsaw` / `puzzle` family，并补齐缺失的 `inputs/data.json` 与 `expected/key.json`。
+
+### 当前测试快照
+
+使用 conda env `agent_game`：
+
+```bash
+PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
+  tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py \
+  tests/test_reddust_all60.py -q
+# 117 passed
+
+PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
+  tests/test_reddust_runtime.py tests/test_reddust_tasks.py \
+  tests/test_reddust_bridge.py tests/test_reddust_perception.py \
+  tests/test_reddust_generic.py -q
+# 30 passed
+
+PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest tests/ -q
+# 181 passed, 6 failed
+```
+
+默认全量测试的 6 个失败来自旧 `tests/test_task_registry.py` 仍期望 Occupational Core-6 schema；这不是 Red Dust runtime 崩溃。切到 archive 后：
+
+```bash
+OPENCLAW_TASKS_DIR="$PWD/tasks/_archive_openclaw_core6" \
+  PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest tests/ -q
+# 187 passed
+```
+
+### OpenClaw Agent Bridge 状态
+
+- `openclaw agent --agent main -m hello` 可被一次性调用。
+- 当前 gateway scope approval pending，CLI 会 fallback 到 embedded mode。
+- 验证后已执行 `openclaw agent --agent main -m /clear` 清理上下文。
+- 已完成真实 60 任务 live batch：
+  - 命令：`scripts/run_reddust_live_openclaw_batch.py --max-steps 12 --timeout 160 --smoke --clear-before --clear-after`
+  - 产物：`runs/reddust_live_openclaw_20260601_013937/report.html`
+  - 原始逐题 JSON：`runs/reddust_live_openclaw_20260601_013937/tasks/`
+  - 结果：60/60 executed，58/60 submitted，15/60 passed_all，平均分 63.27，401 agent turns，累计任务时长 7696.7s。
+  - 分类别 passed_all：CI 6/12，CS 0/11，PF 0/10，SA 7/10，SI 0/6，SR 2/11。
+  - 未提交：RD-CI-03（视觉拼图逐片感知耗尽步数），RD-SI-01（94.7 分但 max_steps 前未写行动简报/submit）。
+
+## 双轴范式核心概念
+
+| 概念 | 含义 |
+|------|------|
+| **PROF / Occupational axis** | 微观能力轴，测 agent 擅长什么；旧 Core-6 已归档，可作为历史职业任务种子 |
+| **SHELTER / Red Dust** | 宏观可读生存剧场，测 agent 怎么做决定、产生什么后果、观众能否看懂 |
+| **AURA** | 被评测的 agent 实例，理想接口是 decide / execute / reflect |
+| **Bridging / 嫁接** | 将抽象 benchmark 能力映射到水、门、地图、广播、角色、信任、风险等可见状态 |
+
+## 工作准则
+
+1. 每次重要讨论后更新 `Memory.md` 和 `Progress.md`。
+2. 项目事实优先从代码、测试、任务目录、`AGENTS.md` / `CLAUDE.md` 中核对，避免沿用旧记忆。
+3. 修改记录文件时明确区分：
+   - 已落地事实
+   - 历史设计目标
+   - 当前缺口 / future work
+4. 涉及 live `openclaw agent` 时，先用 `openclaw agent --agent main -m hello` 验证，再用 `/clear` 清上下文；不要把单任务 spot check 写成 60 任务批测。
+
+---
+
+## 设计决策记录
+
+### D-001 · 四 Gap 诊断框架 (2026-05-16)
+
+确认现有 agent benchmark 生态存在四个层面的 gap：
+
+| Gap | 核心问题 | 应对策略 |
+|-----|---------|---------|
+| **Gap 1 · 数据污染** | 公开题库被训练吸收，分数失真 | 季度滚动、demo/pilot 双层 |
+| **Gap 2 · 标量崇拜** | Goodhart 定律，单数字排序有偏 | 多维雷达图，不只排总分第一 |
+| **Gap 3 · 时间维度缺失** | 单步评测看不见长程行为衰减 | SHELTER/Red Dust 累积状态与 replay |
+| **Gap 4 · 后果真空** | 答错零代价，无法区分真会和装会 | 叙事后果与可见副作用 |
+
+前两个 gap 关乎“分数是否可信”，后两个关乎“测到的东西是否对”。
+详见：`docs/design-discussion/Four-Gaps-Analysis.md`
+
+### D-002 · Red Dust readable tasks 成为默认任务集 (2026-05-31)
+
+决定把默认 `tasks/` 切换为 Red Dust readable tasks，并把旧 Occupational Core-6 归档而非删除。理由：
+
+- Red Dust 任务能把抽象工具任务转换成普通观众可理解的状态变化和 replay beats。
+- 旧 Core-6 仍保留为 legacy MCP / Docker / task-registry 路径，便于回归和兼容。
+- 当前 `TaskRegistry` 仍面向旧 schema，因此默认 Red Dust 下的 registry 测试失败属于已知兼容缺口。
+
+### D-003 · 深度打分分层推进 (2026-05-31)
+
+当前采用三层 grader 策略：
+
+- Bespoke deep grader：用于复杂代表任务，手写 domain tools + verifier。
+- Family deep grader：`deeplib.py` 用统一 family harness + per-task data/key 覆盖一批同构任务。
+- Generic scaffold：给剩余任务提供最低可运行/可区分的轨迹与输出合规评分。
+
+这意味着默认 60 个 Red Dust 任务已经完成“可运行 + 自动评分 + key-based deep/family scoring”。`generic.py` 仍保留为历史基线和单元测试对象。
+
+### D-004 · 剩余 21 个 scaffold 任务完成 family deep 化 (2026-06-01)
+
+通过 `scripts/author_deep_remaining.py` 将最后 21 个 generic 任务绑定到现有 family：
+
+- `build`: CI-01、CI-10、CI-11、CS-01 至 CS-11
+- `code`: CI-02
+- `jigsaw`: CI-04、CI-05
+- `puzzle`: CI-07、CI-08、CI-09、CI-12
+
+同时增强 `deeplib.py`：
+
+- `build` 支持 `write_script`、`draw_boxes`、`export_image`、`screenshot` 等 CI/CS 产物别名。
+- `jigsaw` 增加 rotation accuracy 检查，并允许无 `mark_route` 的任务通过 `assemble_grid(..., route=...)` 提交路线。
+- `puzzle` 支持通过 `run_model` / `inspect_output` fallback 提交图案答案。
+
+### D-005 · 完成 live OpenClaw agent 60 任务批测 (2026-06-01)
+
+新增 `scripts/run_reddust_live_openclaw_batch.py`，用 live `openclaw agent`
+顺序跑 60 个 Red Dust 任务；每题独立 session，逐轮保存 prompt、CLI stdout /
+stderr、agent reply、parsed action、observation、trajectory、checks 和 score，
+并生成单份 HTML 汇总报告。
+
+本轮结果显示：
+
+- Safety family 是当前 live agent 最稳的能力簇，10 题中 7 题全通过。
+- Code/build 中部分 CI 任务可以满分，但 Creative Synthesis 的 required_fields /
+  sensitive-leak / size checks 暴露了“看起来完成但 key 覆盖不足”的问题。
+- Search family 常能写出自然语言结论，但 evidence id / exact answer 经常不匹配，
+  因此被 critical cap 到 40。
+- Text-first bridge 对视觉拼图仍不够高效，RD-CI-03 在 12 步内只完成部分
+  fragment perception，未能 assemble/submit。
+- Report/social 任务暴露“应只存草稿却调用 send_message”的安全边界问题。
+
+### D-006 · Red Dust 10 天随机事件延迟影响剧情树草案 (2026-06-01)
+
+新增剧情编排文档：
+
+- `docs/design-discussion/red_dust_10day_dual_ending_story_tree.html`
+- `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html`（V2 完整版：树状剧情图、所有结局细节、60 任务映射、逐任务差距/修改建议）
+
+当前草案已按团队反馈修订为“早期随机事件 + 延迟显性影响 + 双结局策略线 + 共享失败出口”的结构：
+
+- 根分歧不再是第 7 天某个任务型 fork，而是 Day 2 或 Day 3 的随机事件 `event_vent_sand_noise`（通风管道砂响 / 滤网卡死 / 热压回流）。
+- 随机事件有两个选项：花资源处理，写入 `vent_handled`；不花资源保持原样，写入 `vent_debt`。除资源扣减和日志外，人物状态与其他事件在 Day 6/7 前保持不变。
+- Day 6 或 Day 7 触发 `vent_settlement`：若已处理，设置 `pressure_level=normal`；若未处理，设置 `pressure_level=pressure`。Normal/Pressure 是压力层，不是成功/失败层；两层都可以走向 A/B 成功，也都可以进入任意压力层失败出口。
+- Normal 表示资源耗速较慢、人物恶化较慢、`recovery_window` 更宽；它不是默认成功通道。Normal 下任务失败通常先触发 warning / debt / repair window，但资源、健康、地图、暴露或信任任一跌穿阈值，仍会写入 `ending_lockout_reason` 并锁出好结局。
+- Pressure 表示失败概率和失败代价放大：同样的 critical failure、超时、泄露、错路线或连续低分，会更快推进 `failure_stage`，更早触发 `END_dehydration`、`END_blackout`、`END_exposure` 等终局。
+- Day 7 夜间“楼内临时议事会”仍保留，但只负责 evidence aggregation 和策略选择，不再承担根分叉。
+- Day 8-10 仍有结局线 A（救援撤离线 · 信标交接结局）和结局线 B（自主留守线 · 楼内灯塔结局），但每条线都有 Normal / Pressure 两个压力层版本：`Normal-A`、`Normal-B`、`Pressure-A`、`Pressure-B`。
+- HTML 已补充新的树状分支主视觉：Day 1 接管态势 → Day 2/3 随机事件 → Day 4-5 表面同一主干 → Day 6/7 延迟结算 → Normal/Pressure 压力层 → A/B 策略选择 → 四条成功路径或任意压力层失败出口。
+- 文档补充了任务成功 / 低分可用 / critical failure / 未提交超时对资源、人物状态、地图行动、安全暴露和社会信任的后果映射；失败结局包含 `END_dehydration`、`END_blackout`、`END_exposure`、`END_all_dead`、`END_iron_lost`、`END_loneliness` 等。
+- 设计原则调整为剧情树优先：剧情树确定后，再允许对不贴近分支的任务背景描述、发生时机和执行过程做轻量修改；评分器与 expected key 优先保持可回归。后续 story wrapper 至少需要支持 `pressure_level`、`failure_stage`、`recovery_window`、`ending_lockout_reason`，前端需要同时展示当前压力层和失败风险条。
+
+### D-007 · V2 剧情树任务修订落地 (2026-06-01)
+
+按 `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html` 的逐任务差距判断，已修订全部 15 个非“直接适配”任务：
+
+- 6 个“轻改背景”任务补齐 V2 场景口径：RD-PF-04、RD-PF-07、RD-CI-11、RD-CS-10、RD-SA-05、RD-SA-07。
+- 7 个“调整时机/依赖”任务标为支线 / bonus / replay-only：RD-CI-06、RD-CI-07、RD-SR-05、RD-SR-10、RD-SR-11、RD-CS-02、RD-SA-01。
+- 2 个“建议改任务本身”任务已升级 expected key 和输入数据：RD-CI-10 变为低泄露救援信标主页；RD-SI-06 变为全楼压力层议事会报告。
+- 15 个任务的 `task.yaml` 均新增 `story_metadata`，包含 `story_node`、`branch_affinity`、`requires`、`unlocks`、`pressure_modifier`、`failure_stage_delta`、`recovery_window_delta`、`ending_relevance`、`adaptation_status`。
+- 保持任务 id、目录名、family grader 类型和 shared `deeplib.py` 不变；只通过 per-task `task.yaml`、`card.md`、`inputs/brief.json`、必要的 `inputs/data.json` / `expected/key.json` 完成语义升级。
+
+### D-008 · V2 修订任务 live agent 复测 (2026-06-01)
+
+`docs/design-discussion/red_dust_story_tree_v2_full_mapping.html` 已从“差距审计 / 修改建议”更新为“已落地任务映射”：
+
+- 15 个非直接适配任务在 HTML 中改为当前状态：6 个“已轻改背景”、7 个“已调整时机/依赖”、2 个“已改任务本身”。
+- RD-CI-10 在 HTML 中以“低泄露救援信标主页”呈现，说明 required_fields 和 must_not_leak 已按新 expected key 落地。
+- RD-SI-06 在 HTML 中以“全楼压力层议事会报告”呈现，说明 pressure_level、failure_stage、recovery_window、ending_lockout_risks、A/B 策略建议等字段已进入输入和 expected key。
+
+已用 `openclaw agent --agent main` 对这 15 个修订任务做一次 live 复测：
+
+- Run dir: `runs/reddust_live_openclaw_v2_modified_20260601/`
+- HTML report: `runs/reddust_live_openclaw_v2_modified_20260601/report.html`
+- 15/15 tasks submitted；5/15 passed_all；average score 67.44。
+- 每题保存独立 JSON 轨迹，包含 prompt、CLI stdout/stderr、agent reply、parsed action、observation、trajectory、checks 和 failure reasons。
+- 当前 Gateway 运行中，但 CLI 仍提示 scope upgrade pending approval 并回退 embedded fallback；该细节已记录在 `run_meta.json`，不可把本次结果描述成已成功通过 Gateway scope 跑分。
+
+### D-009 · Red Dust LAN remote-agent server v0 (2026-06-02)
+
+已新增 Red Dust 局域网远程 agent 接入服务：
+
+- 计划文档：`docs/design-discussion/red_dust_remote_agent_server_plan.md`
+- 服务模块：`openclaw/reddust/lan_server.py`
+- 启动脚本：`scripts/run_reddust_lan_server.py`
+- 测试：`tests/test_reddust_lan_server.py`
+
+服务设计：
+
+- 远程 agent 只能提交 `{"tool": "...", "args": {...}}` action；服务端负责执行任务工具、记录 observation、运行 verifier 和输出 score。
+- REST/debug 入口包括 `/health`、`/tasks`、`/sessions`、`/sessions/{id}/brief`、`/sessions/{id}/actions`、`/sessions/{id}/submit`、`/sessions/{id}/score`、`/sessions/{id}/trace`、`/sessions/{id}/report.html`、`/game/{id}`、`/skill.md`、`/openapi.json`。
+- 每个 session 会持久化到 `runs/reddust_lan_sessions/<session_id>/session.json` 和 `report.html`。
+- 默认无认证，适用于可信同 Wi-Fi smoke；如需简单 token，可传 `--auth-token` 或设置 `RED_DUST_AUTH_TOKEN`。
+
+本机启动：
+
+```bash
+PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python \
+  scripts/run_reddust_lan_server.py --host 0.0.0.0 --port 7000
+```
+
+另一台同 Wi-Fi 电脑先测：
+
+```bash
+curl http://<开发机IP>:7000/health
+curl http://<开发机IP>:7000/tasks
+```
+
+已验证：
+
+- `tests/test_reddust_lan_server.py tests/test_reddust_bridge.py tests/test_reddust_runtime.py -q`：16 passed。
+- `tests/test_reddust_all60.py -q`：62 passed。
+- Red Dust focused 117 tests：117 passed。
+- 本机 curl smoke 已通过 `/health`、`POST /sessions`、`POST /actions`、`POST /submit`、`GET /report.html`。
+
+### D-010 · 缓存与可重建产物清理 (2026-06-05)
+
+项目根目录 **不是 git 仓库**（无 `.git/`），删除不可恢复。本轮只删除了"可重建或已外部备份"的产物。
+
+- **已删除（Tier 1）**：`.DS_Store`、`.pytest_cache`、184 个 `__pycache__`（约 1.8M）、`RedDust/node_modules/`（232M）、`RedDust/dist/`（30M）、`RedDust/tsconfig.tsbuildinfo`、`agent-survival-game/.godot/`（120M）。
+- **已删除（Tier 2 已确认可删）**：`agent-survival-game.zip`（329M）、`openclaw_core6_team_sync.tar.gz`（20M）、`openclaw_core6_team_sync/archives/`（20M）、`素材/red-dust-character-states-en.zip`（33M）、`agent-survival-game/data/reddust_object_only_runtime_assets_v33.zip`（61M）、`agent-survival-game/data/reddust_survival_resources_props_with_env_addons_pack.zip`（14M）。
+- **已备份到 `~/Downloads/Agent_Game_Backup/`**（3 个不可重建大件共 369M，字节级一致）：`agent-survival-game.zip`、`openclaw_core6_team_sync.tar.gz`、`openclaw_core6_team_sync/archives/`。
+- **保留未动**：`openclaw_core6_team_sync/` 整目录（114M）、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 Red Dust 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`。
+- **效果**：项目根从约 810M 降到约 430M，释放约 380M+。
+- **回归**：`tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` 仍 117 passed。
+- **约束**：本轮未动 `openclaw_core6_team_sync/` 整目录与 `runs/reddust_lan_sessions/`（107+ session JSON）。如需进一步瘦身，可走 Tier 3（gzip 化 session JSON、删除 2 个 script_smoke run）；本轮未执行。
+
+---
+
+## 开放问题 / 下一步
+
+- 分析 2026-06-01 live batch 中的失败：区分 agent 能力限制、bridge prompt/tool schema UX、grader/key 严格度三类原因。
+- 决定 Red Dust 是否要接入旧 MCP/Docker sandbox 路径，还是保持独立 runtime + bridge。
+- 用另一台同 Wi-Fi 电脑验证 Red Dust LAN server；若成功，再补 MCP adapter / WebSocket adapter / server deployment。
+- 继续强化视觉任务的真实多模态 live-agent 测试，而不只依赖 text/perception bridge。
+- 若继续扩展 PROF-12，需要重新定义它和 Red Dust 60 任务之间的关系，避免和已归档 Core-6 混淆。

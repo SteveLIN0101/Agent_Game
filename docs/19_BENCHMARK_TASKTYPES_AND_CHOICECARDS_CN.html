@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw v3 · 六任务类型 + 游戏选项卡集成</title>
+<style>
+:root {
+  --bg: #1a1208;
+  --bg-card: #2a1d10;
+  --bg-elev: #382716;
+  --border: #4a341e;
+  --border-strong: #6b4f3a;
+  --text: #f5e6d3;
+  --text-dim: #c5a878;
+  --text-mute: #806350;
+  --accent: #ff8c42;
+  --accent-soft: #ffd60a;
+  --red: #e84545;
+  --green: #30d158;
+  --code-bg: #14100a;
+
+  /* 六任务类型色 */
+  --t-code:  #ff8c42;  /* 代码修复 */
+  --t-data:  #5ac8fa;  /* 数据分析 */
+  --t-ui:    #ff5a9e;  /* 界面修复 */
+  --t-tool:  #88a85a;  /* 工具调度 */
+  --t-trans: #bf5af2;  /* 跨语翻译 */
+  --t-arch:  #c8956d;  /* 文献解析 */
+
+  /* 难度色 */
+  --diff-1: #88a85a;
+  --diff-2: #ffd60a;
+  --diff-3: #e84545;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 14px;
+}
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.toc {
+  position: sticky; top: 0; align-self: start;
+  height: 100vh; overflow-y: auto;
+  padding: 20px 18px;
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
+  font-size: 13px;
+}
+.toc h2 {
+  font-size: 11px; color: var(--accent);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.toc h2:first-child { margin-top: 0; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 2px 0; }
+.toc a {
+  color: var(--text-dim); text-decoration: none;
+  display: block; padding: 4px 8px;
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+}
+.toc a:hover { color: var(--accent); background: rgba(255,140,66,0.08); }
+
+main { padding: 28px 36px; max-width: 1200px; }
+
+.doc-header { border-bottom: 2px solid var(--border-strong); padding-bottom: 18px; margin-bottom: 28px; }
+.doc-header h1 { font-size: 28px; color: var(--accent-soft); margin: 0 0 6px; }
+.doc-header .sub { color: var(--text-dim); font-size: 13px; }
+.doc-header .meta {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px; border-radius: 5px; margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--text-dim);
+}
+.doc-header .meta strong { color: var(--accent-soft); }
+
+h2 {
+  color: var(--accent-soft); font-size: 22px;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 6px; margin-top: 36px;
+}
+h3 { color: var(--accent); font-size: 17px; margin-top: 24px; border-left: 3px solid var(--accent); padding-left: 8px; }
+h4 { color: var(--text); font-size: 14px; margin-top: 18px; }
+p { margin: 8px 0; }
+strong { color: var(--accent-soft); }
+ul, ol { padding-left: 22px; } li { margin: 4px 0; }
+
+/* tables */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 12px 0; background: var(--bg-card);
+  border-radius: 6px; overflow: hidden; font-size: 13px;
+}
+th { background: var(--bg-elev); color: var(--accent-soft); text-align: left; padding: 8px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.4px; border-bottom: 2px solid var(--border-strong); }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,140,66,0.04); }
+td code, p code, li code {
+  font-size: 11px; background: var(--code-bg);
+  padding: 1px 5px; border-radius: 3px; color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* task type pills */
+.tt {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 2px 9px; border-radius: 11px;
+  font-family: 'PingFang SC', sans-serif;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+}
+.tt-code  { color: var(--t-code);  border-color: var(--t-code);  }
+.tt-data  { color: var(--t-data);  border-color: var(--t-data);  }
+.tt-ui    { color: var(--t-ui);    border-color: var(--t-ui);    }
+.tt-tool  { color: var(--t-tool);  border-color: var(--t-tool);  }
+.tt-trans { color: var(--t-trans); border-color: var(--t-trans); }
+.tt-arch  { color: var(--t-arch);  border-color: var(--t-arch);  }
+
+/* difficulty stars */
+.diff { font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+.diff-1 { color: var(--diff-1); }
+.diff-2 { color: var(--diff-2); }
+.diff-3 { color: var(--diff-3); }
+
+/* task type card */
+.tt-card {
+  background: var(--bg-card); border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 14px 18px; margin: 14px 0;
+}
+.tt-card.code  { border-left: 5px solid var(--t-code); }
+.tt-card.data  { border-left: 5px solid var(--t-data); }
+.tt-card.ui    { border-left: 5px solid var(--t-ui); }
+.tt-card.tool  { border-left: 5px solid var(--t-tool); }
+.tt-card.trans { border-left: 5px solid var(--t-trans); }
+.tt-card.arch  { border-left: 5px solid var(--t-arch); }
+.tt-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.tt-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-mute); }
+.tt-title { font-size: 17px; font-weight: 700; }
+.tt-title.code  { color: var(--t-code); }
+.tt-title.data  { color: var(--t-data); }
+.tt-title.ui    { color: var(--t-ui); }
+.tt-title.tool  { color: var(--t-tool); }
+.tt-title.trans { color: var(--t-trans); }
+.tt-title.arch  { color: var(--t-arch); }
+.tt-en { font-size: 12px; color: var(--text-mute); font-style: italic; }
+
+.name-pick {
+  background: rgba(255,214,10,0.05);
+  border: 1px dashed var(--accent-soft);
+  border-radius: 5px;
+  padding: 6px 12px; margin: 8px 0;
+  font-size: 12px;
+}
+.name-pick .label { color: var(--accent-soft); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-right: 8px; }
+.name-pick .chip {
+  display: inline-block; margin: 1px 3px;
+  padding: 1px 8px; border-radius: 10px;
+  background: var(--bg-elev); border: 1px solid var(--border-strong);
+  font-size: 12px; color: var(--text);
+}
+.name-pick .chip.pref { border-color: var(--accent-soft); color: var(--accent-soft); }
+
+.kv { display: grid; grid-template-columns: 110px 1fr; gap: 4px 12px; font-size: 13px; margin: 8px 0; }
+.kv .k { color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.kv .v { color: var(--text); }
+
+/* choice card mock */
+.event-card {
+  background: linear-gradient(180deg, var(--bg-card), var(--bg));
+  border: 1px solid var(--border-strong);
+  border-radius: 10px; padding: 18px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.event-card .event-title {
+  font-size: 14px; color: var(--accent-soft);
+  font-weight: 700; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.event-card .event-day {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--text-mute);
+  background: var(--bg-elev); padding: 1px 7px;
+  border-radius: 3px;
+}
+.event-card .event-desc {
+  font-size: 12.5px; color: var(--text-dim);
+  margin-bottom: 12px;
+  line-height: 1.55;
+}
+.option-row {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 10px; align-items: stretch;
+  margin: 6px 0;
+}
+.option-letter {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 14px;
+  color: var(--accent-soft);
+}
+.option-body {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  font-size: 12.5px;
+}
+.option-body:hover { background: var(--bg-card); }
+.option-reward { color: var(--text); }
+.option-reward .plus { color: var(--green); font-family: 'JetBrains Mono', monospace; }
+.option-reward .minus { color: var(--red); font-family: 'JetBrains Mono', monospace; }
+.option-type { text-align: center; }
+.option-diff { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+
+/* callout */
+.callout {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin: 12px 0; font-size: 13px;
+}
+.callout-warn { border-left-color: var(--red); background: rgba(232,69,69,0.06); }
+.callout-tip  { border-left-color: var(--accent-soft); background: rgba(255,214,10,0.06); }
+.callout-note { border-left-color: var(--t-data); background: rgba(90,200,250,0.05); }
+
+/* diagram */
+.diagram {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px; margin: 14px 0; overflow-x: auto;
+}
+.diagram-title {
+  font-size: 11px; color: var(--text-mute);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+svg { display: block; max-width: 100%; }
+svg text { fill: var(--text); font-family: 'PingFang SC', sans-serif; }
+
+/* 6x10 matrix */
+.matrix-table { font-size: 11px; }
+.matrix-table th, .matrix-table td { padding: 6px 4px; text-align: center; }
+.matrix-table th:first-child, .matrix-table td:first-child {
+  text-align: left; padding-left: 10px; padding-right: 10px;
+  font-weight: 600; background: var(--bg-elev); min-width: 110px;
+}
+.matrix-table .dot {
+  display: inline-block; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--text-mute);
+}
+.matrix-table .r-code .dot  { background: var(--t-code); }
+.matrix-table .r-data .dot  { background: var(--t-data); }
+.matrix-table .r-ui .dot    { background: var(--t-ui); }
+.matrix-table .r-tool .dot  { background: var(--t-tool); }
+.matrix-table .r-trans .dot { background: var(--t-trans); }
+.matrix-table .r-arch .dot  { background: var(--t-arch); }
+
+/* legend */
+.legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; padding: 6px 0; color: var(--text-dim); }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* deprecated banner */
+.deprecated {
+  display: inline-block; font-size: 10px;
+  background: rgba(232,69,69,0.2); color: var(--red);
+  padding: 1px 6px; border-radius: 3px;
+  letter-spacing: 1px; font-weight: 700;
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="toc">
+  <h2>导航</h2>
+  <ol>
+    <li><a href="#intro">§0 设计变更摘要</a></li>
+    <li><a href="#why">§1 为什么从"职业"切到"任务"</a></li>
+    <li><a href="#types">§2 六大任务类型</a></li>
+    <li><a href="#difficulty">§3 三档难度系统</a></li>
+    <li><a href="#choice">§4 游戏 3-选项卡设计</a></li>
+    <li><a href="#meta">§5 选项选择本身是测量信号</a></li>
+    <li><a href="#capability">§6 能力轴矩阵（沿用）</a></li>
+    <li><a href="#academic">§7 学术性论证</a></li>
+    <li><a href="#tasklist">§8 60 任务重标签清单</a></li>
+    <li><a href="#open">§9 待定稿</a></li>
+  </ol>
+</aside>
+
+<main>
+
+<header class="doc-header">
+  <h1>OpenClaw v3 · 六任务类型 + 游戏选项卡集成</h1>
+  <div class="sub">命名层从"职业派"切换到"任务类型派" · 适配生存游戏 3-选项卡机制 · 面向学术 benchmark 论文</div>
+  <div class="meta">
+    <strong>DOC</strong> 19 &nbsp;|&nbsp;
+    <strong>DATE</strong> 2026-05-13 &nbsp;|&nbsp;
+    <strong>STATUS</strong> 设计稿 v3 · 含 6 项待定稿 &nbsp;|&nbsp;
+    <strong>SUPERSEDES</strong> doc 18 的"职业派 + Communicator 新增"<br>
+    <strong>KEEPS</strong> doc 18 的能力轴矩阵 / 硬评分 schema / pass<sup>k</sup>
+  </div>
+</header>
+
+<!-- ============== §0 ============== -->
+<h2 id="intro">§0 设计变更摘要</h2>
+
+<table>
+<thead><tr><th style="width: 130px;">版本</th><th>命名层</th><th>桶结构</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>v1（原）</td><td>职业属性<br>(software_engineer, data_analyst…)</td><td>6 桶 = 6 上游 benchmark</td><td><span class="deprecated">DEPRECATED</span></td></tr>
+<tr><td>v2 (doc 18)</td><td>职业属性 · 修订<br>(修复师, 调解员…)</td><td>5 旧 + 1 新 (Communicator)</td><td><span class="deprecated">SUPERSEDED</span></td></tr>
+<tr><td><strong>v3（本稿）</strong></td><td><strong>任务属性</strong><br>(代码修复, 数据分析…)</td><td>6 桶 = 原始 6 上游 benchmark</td><td style="color:var(--green)">CURRENT</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-tip">
+<strong>v3 三条核心决定</strong>：
+<ol>
+<li><strong>桶结构回退到原始 6 个</strong>。Communicator 不新增。DesignBench 不删。和 <code>openclaw_core6_team_sync/openclaw_core6_tasks/task_index.csv</code> 完全一致。</li>
+<li><strong>命名从职业切换到任务类型</strong>。不叫"程序员"，叫"代码修复"。名字描述"在测<u>什么任务</u>"而不是"模拟<u>谁</u>"。</li>
+<li><strong>对接生存游戏 3-选项卡机制</strong>。每个事件给 agent 3 个选项，每选项 = (奖励, 任务类型, 难度)。任务类型名字直接出现在按钮上。</li>
+</ol>
+</div>
+
+<!-- ============== §1 ============== -->
+<h2 id="why">§1 为什么从"职业"切到"任务"</h2>
+
+<table>
+<thead><tr><th style="width: 30%;">维度</th><th>职业派（v1/v2）</th><th>任务派（v3）</th></tr></thead>
+<tbody>
+<tr><td>命名锚点</td><td>"<u>谁</u>会做这件事" (occupational role)</td><td>"<u>这件事</u>是什么" (task attribute)</td></tr>
+<tr><td>学术先例</td><td>TheAgentCompany / O*NET（少数）</td><td>SWE-bench / GAIA / HELM / AgentBench / τ-bench（多数）</td></tr>
+<tr><td>名字长度</td><td>2–6 字（"数字人文档案研究员"）</td><td>2–4 字（"文献解析"）</td></tr>
+<tr><td>能放进选项按钮？</td><td>太长，会撑爆 UI</td><td>恰好</td></tr>
+<tr><td>叙事约束</td><td>需要给职业找剧情挂钩（"UI 设计师在单间没事干"）</td><td>无 — 任务类型不需要 NPC 化</td></tr>
+<tr><td>跨文化适配</td><td>"technical writer" 在不同行业含义不同</td><td>"代码修复"含义全球一致</td></tr>
+<tr><td>学术可发性</td><td>需要论证 O*NET 映射合理性</td><td>直接说"我们覆盖 6 类常见 agent 任务"即可</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-note">
+<strong>关键观察</strong>：把 v2 doc 18 的 "Communicator 新增"卡住的那个理由（"红沙单间里 UI 设计师没事干"）—— 在 v3 命名下<em>不存在</em>。"界面修复"不需要在游戏里有个穿西装的角色，只需要"AURA 在背景跑一道改 HTML 的任务"。这同时解决了：
+<br>
+（a）保留 DesignBench 10 任务，无开发成本<br>
+（b）不需要新建 10 个 Communicator 任务<br>
+（c）名字更短、玩家选项按钮更利落
+</div>
+
+<!-- ============== §2 ============== -->
+<h2 id="types">§2 六大任务类型</h2>
+
+<div class="callout callout-tip">
+<strong>命名原则</strong>：双字动词 + 双字宾语（如"代码修复"）或四字动作（如"工具调度"）。★ 是推荐。
+</div>
+
+<!-- ─── 任务 01 ─── -->
+<div class="tt-card code">
+<div class="tt-head">
+  <span class="tt-num">T01</span>
+  <span class="tt-title code">代码修复</span>
+  <span class="tt-en">Code Repair · 来自 SWE-bench Verified</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 代码修复</span>
+  <span class="chip">代码调试</span>
+  <span class="chip">程序修复</span>
+  <span class="chip">代码补丁</span>
+  <span class="chip">软件修复</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">SWE-bench Verified (astropy / django 真实 issue)</div>
+  <div class="k">任务形式</div><div class="v">给一个 fail 的 issue，找出根因，写 patch，让 hidden test 通过</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-code">推理</span> <span class="tt tt-code">工具</span> <span class="tt tt-code">代码</span> <span class="tt tt-code">可靠</span></div>
+  <div class="k">学术对标</div><div class="v">Jimenez et al. 2024 (ICLR) / SWE-bench Pro / SWE-Lancer</div>
+</div>
+</div>
+
+<!-- ─── 任务 02 ─── -->
+<div class="tt-card data">
+<div class="tt-head">
+  <span class="tt-num">T02</span>
+  <span class="tt-title data">数据分析</span>
+  <span class="tt-en">Data Analysis · 来自 InfiAgent-DABench</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 数据分析</span>
+  <span class="chip">数据查询</span>
+  <span class="chip">数据计算</span>
+  <span class="chip">表格分析</span>
+  <span class="chip">数据推理</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">InfiAgent-DABench (CSV/SQL 题，含 pandas 执行)</div>
+  <div class="k">任务形式</div><div class="v">读 CSV，按指令做聚合/筛选/统计，输出数值答案</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-data">推理</span> <span class="tt tt-data">工具</span> <span class="tt tt-data">长程</span> <span class="tt tt-data">可靠</span></div>
+  <div class="k">学术对标</div><div class="v">DABench / Spider 2.0 / TableBench</div>
+</div>
+</div>
+
+<!-- ─── 任务 03 ─── -->
+<div class="tt-card ui">
+<div class="tt-head">
+  <span class="tt-num">T03</span>
+  <span class="tt-title ui">界面修复</span>
+  <span class="tt-en">UI Repair · 来自 DesignBench</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 界面修复</span>
+  <span class="chip">网页修补</span>
+  <span class="chip">UI 修复</span>
+  <span class="chip">前端编辑</span>
+  <span class="chip">界面调整</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">DesignBench (edit_react + repair_vanilla)</div>
+  <div class="k">任务形式</div><div class="v">改 React / 原生 HTML，让最终渲染匹配指定设计稿（视觉对比）</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-ui">推理</span> <span class="tt tt-ui">代码</span> <span class="tt tt-ui">多模态</span> <span class="tt tt-ui">工具</span></div>
+  <div class="k">学术对标</div><div class="v">DesignBench / WebDev Arena / VisualWebArena</div>
+</div>
+<div class="callout callout-note" style="margin-top: 8px;">
+注意：v3 把 DesignBench 的能力轴从 v2 的（无，因为被删了）改为<strong>包含"多模态"</strong>—— DesignBench 本质是视觉接地任务（要看设计稿图，理解像素差），是 OpenClaw 里唯一明显的视觉接地源。这是 DesignBench 不可替代的科学价值。
+</div>
+</div>
+
+<!-- ─── 任务 04 ─── -->
+<div class="tt-card tool">
+<div class="tt-head">
+  <span class="tt-num">T04</span>
+  <span class="tt-title tool">工具调度</span>
+  <span class="tt-en">Tool Use · 来自 API-Bank Level-3</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 工具调度</span>
+  <span class="chip">接口调用</span>
+  <span class="chip">任务调度</span>
+  <span class="chip">工具调用</span>
+  <span class="chip">流程编排</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">API-Bank Level-3 (多轮多 API 链式调用)</div>
+  <div class="k">任务形式</div><div class="v">给用户请求 + API 集合，agent 选哪些 API 按什么顺序调用，参数怎么填</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-tool">推理</span> <span class="tt tt-tool">工具</span> <span class="tt tt-tool">长程</span> <span class="tt tt-tool">沟通</span></div>
+  <div class="k">学术对标</div><div class="v">API-Bank / BFCL (Berkeley Function Calling) / τ-bench</div>
+</div>
+<div class="callout callout-warn" style="margin-top: 8px;">
+<strong>v1 命名修正</strong>：v1 把这个桶叫做 <code>technical_writer</code> 是<strong>严重 mislabel</strong> —— API-Bank 论文明确把任务定义为"LLM 作为助手做工具调用"，不是"写技术文档"。v3 修正为"工具调度"，名实相符。这是 v3 必做的命名修正之一。
+</div>
+</div>
+
+<!-- ─── 任务 05 ─── -->
+<div class="tt-card trans">
+<div class="tt-head">
+  <span class="tt-num">T05</span>
+  <span class="tt-title trans">跨语翻译</span>
+  <span class="tt-en">Translation · 来自 WMT-25 Terminology</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 跨语翻译</span>
+  <span class="chip">翻译</span>
+  <span class="chip">语言转换</span>
+  <span class="chip">本地化</span>
+  <span class="chip">多语转换</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">WMT-25 EN→DE Terminology Track</div>
+  <div class="k">任务形式</div><div class="v">英译德，必须正确使用指定术语；同时保持流畅</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-trans">写作</span> <span class="tt tt-trans">翻译</span> <span class="tt tt-trans">推理</span> <span class="tt tt-trans">可靠</span></div>
+  <div class="k">学术对标</div><div class="v">WMT (annual) / FLORES-200 / IWSLT</div>
+</div>
+</div>
+
+<!-- ─── 任务 06 ─── -->
+<div class="tt-card arch">
+<div class="tt-head">
+  <span class="tt-num">T06</span>
+  <span class="tt-title arch">文献解析</span>
+  <span class="tt-en">Archive Parsing · 来自 RISE Business Letters</span>
+</div>
+<div class="name-pick">
+  <span class="label">中文候选</span>
+  <span class="chip pref">★ 文献解析</span>
+  <span class="chip">档案解析</span>
+  <span class="chip">古籍识别</span>
+  <span class="chip">文档数字化</span>
+  <span class="chip">文献整理</span>
+  <span class="chip">史料解析</span>
+</div>
+<div class="kv">
+  <div class="k">上游</div><div class="v">RISE Humanities Data Benchmark (Business Letters)</div>
+  <div class="k">任务形式</div><div class="v">给历史商业信件图像，OCR + 提取结构化字段（发件人/收件人/日期/事由）输出 JSON</div>
+  <div class="k">能力轴</div><div class="v"><span class="tt tt-arch">推理</span> <span class="tt tt-arch">多模态</span> <span class="tt tt-arch">长程</span> <span class="tt tt-arch">写作</span></div>
+  <div class="k">学术对标</div><div class="v">RISE / DocVQA / FUNSD / 各类历史 OCR benchmark</div>
+</div>
+</div>
+
+<!-- ============== §3 难度 ============== -->
+<h2 id="difficulty">§3 三档难度系统</h2>
+
+<p>难度的语义是"<strong>主流前沿模型的<u>预期</u>通过率</strong>"——这是学术 benchmark 难度的标准做法（cf. GAIA L1/L2/L3, SWE-bench Verified / Lite, BIG-Bench 难度梯度）。</p>
+
+<table>
+<thead><tr><th>档位</th><th>UI 显示</th><th>预期前沿模型 pass<sup>1</sup></th><th>含义</th></tr></thead>
+<tbody>
+<tr><td><strong class="diff diff-1">易 ★</strong></td><td>1 颗星</td><td>≥ 70%</td><td>稳定可做。pass<sup>k</sup> 也基本满分。游戏中作为"试水"选项。</td></tr>
+<tr><td><strong class="diff diff-2">中 ★★</strong></td><td>2 颗星</td><td>30% – 70%</td><td>看运气与策略。pass<sup>k</sup> 暴露可靠性。游戏主体难度。</td></tr>
+<tr><td><strong class="diff diff-3">难 ★★★</strong></td><td>3 颗星</td><td>≤ 30%</td><td>前沿模型也会翻车。游戏中作为"高风险高回报"选项。</td></tr>
+</tbody>
+</table>
+
+<h3>§3.1 难度信号来源</h3>
+<p>每个任务的难度由<strong>三种信号组合</strong>确定（任何一项满足就升档）：</p>
+<ol>
+  <li><strong>上游 benchmark 自己标的难度</strong>（如 GAIA L1/L2/L3，SWE-bench Verified vs Lite）</li>
+  <li><strong>校准 baseline 模型的 pass<sup>1</sup></strong>（用 Claude 4.6 Sonnet 跑 k=5，看通过率档位）</li>
+  <li><strong>人类专家时间估计</strong>（&lt; 15 分钟 = 易；15 分钟 – 2 小时 = 中；&gt; 2 小时 = 难）</li>
+</ol>
+
+<h3>§3.2 现状任务的难度盘点</h3>
+<div class="callout callout-warn">
+<strong>问题</strong>：现有 60 任务<u>几乎全是"难"</u>（SWE-bench Verified 全选 1-4 小时档；DABench / API-Bank / WMT / RISE 自标都是 hard）。
+<br><strong>解决</strong>：为游戏 UI 需要变化的难度，需要给每类型补 4 易 + 3 中 + 3 难 的梯度——可从同上游 benchmark 的更简单实例采样（如 SWE-bench Lite，DABench easy 切片，DesignBench difficulty-0）。这是 v3 的<strong>新工作量项</strong>。
+</div>
+
+<!-- ============== §4 ============== -->
+<h2 id="choice">§4 游戏 3-选项卡设计</h2>
+
+<p>每个随机事件给 agent 3 个选项。每选项是一个 <em>(奖励, 任务类型, 难度)</em> 三元组。Agent 必须先<strong>选</strong>，再<strong>执行</strong>对应任务。</p>
+
+<h3>§4.1 视觉 mock —— 选项卡长这样</h3>
+
+<div class="event-card">
+<div class="event-title">
+  <span class="event-day">DAY 12 · 07:42</span>
+  <span>邻居小铁敲门求助：「我妈的过滤器昨晚停了，能不能借你们一台？」</span>
+</div>
+<div class="event-desc">
+  你只剩 2 台过滤器。AURA 检测到三种应对方式，每种背后是一个具体任务：
+</div>
+
+<div class="option-row">
+  <div class="option-letter">A</div>
+  <div class="option-body">
+    <div class="option-reward">
+      <span class="plus">+1</span> 邻居信任 <span class="minus">-1</span> 过滤器
+    </div>
+    <div class="option-type"><span class="tt tt-tool">工具调度</span></div>
+    <div class="option-diff diff diff-1">★</div>
+  </div>
+</div>
+<div class="option-row">
+  <div class="option-letter">B</div>
+  <div class="option-body">
+    <div class="option-reward">
+      <span class="plus">+2</span> 邻居信任 <span class="plus">+0</span> 过滤器
+    </div>
+    <div class="option-type"><span class="tt tt-data">数据分析</span></div>
+    <div class="option-diff diff diff-2">★★</div>
+  </div>
+</div>
+<div class="option-row">
+  <div class="option-letter">C</div>
+  <div class="option-body">
+    <div class="option-reward">
+      <span class="plus">+3</span> 邻居信任 <span class="plus">+1</span> 过滤器
+    </div>
+    <div class="option-type"><span class="tt tt-code">代码修复</span></div>
+    <div class="option-diff diff diff-3">★★★</div>
+  </div>
+</div>
+</div>
+
+<p style="font-size: 12px; color: var(--text-dim);">解读：A = "直接借给他"（一次 API 调用，简单），收益最低。B = "先算下他过滤器停的根因"（数据分析，中等），收益更好。C = "AURA 远程帮他打个 firmware patch"（代码修复，高难），收益最大但前沿模型也可能翻车。Agent 的策略选择本身就是测量信号 —— 见 §5。</p>
+
+<h3>§4.2 选项卡设计的硬约束</h3>
+<ol>
+  <li><strong>三选项必须任务类型不同</strong> —— 不能"A 代码修复 / B 代码修复 / C 代码修复"。否则失去类型覆盖意义。</li>
+  <li><strong>奖励大致正相关于难度</strong> —— 但允许个别例外作为"陷阱"考察策略判断（"看似高奖励的选项实际是 dominated 选项"）。</li>
+  <li><strong>选项必须可执行</strong> —— Day-3 不要出现需要 Day-15 才能解锁的资源依赖。</li>
+  <li><strong>事件库≥ 任务库 × 5 倍</strong> —— 60 任务 × 至少 300 事件，避免重复刷同一事件压低多样性方差。</li>
+</ol>
+
+<!-- ============== §5 ============== -->
+<h2 id="meta">§5 选项选择本身是测量信号（v3 的关键学术创新）</h2>
+
+<div class="callout callout-tip">
+<strong>Insight</strong>：让 agent 自己<u>选</u>任务，等价于让它在<u>自我能力评估</u>上接受测试 —— 这是 OpenClaw v3 在主流 agent benchmark 之上的差异化卖点。
+</div>
+
+<p>主流 benchmark（SWE-bench、HELM、GAIA）都是"<u>给</u>任务，看 agent <u>做</u>"。OpenClaw v3 在前面加了一层 —— "<u>给三个选项</u>，agent <u>选</u>一个再做"。Agent 的选择行为本身泄露的信号包括：</p>
+
+<table>
+<thead><tr><th>测量维度</th><th>从选择行为里看什么</th></tr></thead>
+<tbody>
+<tr><td><strong>自我能力评估 (Self-Knowledge)</strong></td><td>Agent 选难度档位是否和它实际通过率匹配？过度自信 = 总选★★★ 但常翻车；过度保守 = 总选★ 但放弃高奖励。这本来需要单独的"calibration" benchmark 测。</td></tr>
+<tr><td><strong>风险偏好 (Risk Preference)</strong></td><td>资源紧张时选★（低风险）还是★★★（赌一把）？这映射 RLHF 训练里 risk-aversion 维度，是非平凡的人格特征。</td></tr>
+<tr><td><strong>策略一致性</strong></td><td>30 天内选择策略是否一致？还是会在 Day-15 突然换策略？这测<em>long-horizon planning consistency</em>。</td></tr>
+<tr><td><strong>能力雷达图自相关性</strong></td><td>Agent 是否倾向选自己<em>能力雷达图</em>强项对应的任务类型？还是无差别选？前者证明它"知道自己擅长什么"。</td></tr>
+</tbody>
+</table>
+
+<p>这给 OpenClaw 一个<strong>非纯任务执行</strong>的论文卖点 —— 即使分项任务表现和上游 benchmark 一致，整体也是一个新东西，因为多了"自选环节"的测量轴。可以对标的近期工作：</p>
+<ul>
+  <li>Self-Knowledge / Self-Evaluation 文献（Yin et al. 2023, Kadavath et al. 2022）</li>
+  <li>Agent 风险偏好（Anthropic 2024 多角色 sycophancy 研究）</li>
+  <li>Calibration benchmark（GAIA L1/L2/L3 隐含但未显式测）</li>
+</ul>
+
+<!-- ============== §6 ============== -->
+<h2 id="capability">§6 能力轴矩阵（沿用 doc 18，仅更新名字）</h2>
+
+<div class="diagram">
+<div class="diagram-title">6 任务类型 × 10 能力轴 覆盖矩阵</div>
+<table class="matrix-table">
+<thead>
+<tr>
+  <th>任务类型 \ 能力轴</th>
+  <th>推理</th><th>工具</th><th>代码</th><th>写作</th><th>翻译</th><th>多模态</th><th>长程</th><th>可靠</th><th>安全</th><th>沟通</th>
+</tr>
+</thead>
+<tbody>
+<tr class="r-code">
+  <td style="color:var(--t-code)">代码修复 T01</td>
+  <td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td>
+  <td></td><td></td><td></td><td></td>
+  <td><span class="dot"></span></td><td></td><td></td>
+</tr>
+<tr class="r-data">
+  <td style="color:var(--t-data)">数据分析 T02</td>
+  <td><span class="dot"></span></td><td><span class="dot"></span></td><td></td>
+  <td></td><td></td><td></td>
+  <td><span class="dot"></span></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td>
+</tr>
+<tr class="r-ui">
+  <td style="color:var(--t-ui)">界面修复 T03</td>
+  <td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td>
+  <td></td><td></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td><td></td><td></td>
+</tr>
+<tr class="r-tool">
+  <td style="color:var(--t-tool)">工具调度 T04</td>
+  <td><span class="dot"></span></td><td><span class="dot"></span></td><td></td>
+  <td></td><td></td><td></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td>
+  <td><span class="dot"></span></td>
+</tr>
+<tr class="r-trans">
+  <td style="color:var(--t-trans)">跨语翻译 T05</td>
+  <td><span class="dot"></span></td><td></td><td></td>
+  <td><span class="dot"></span></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td>
+</tr>
+<tr class="r-arch">
+  <td style="color:var(--t-arch)">文献解析 T06</td>
+  <td><span class="dot"></span></td><td></td><td></td>
+  <td><span class="dot"></span></td><td></td>
+  <td><span class="dot"></span></td>
+  <td><span class="dot"></span></td>
+  <td></td><td></td><td></td>
+</tr>
+<tr style="background: var(--bg-elev);">
+  <td style="color: var(--text-mute); font-size: 11px;">轴覆盖类型数</td>
+  <td style="color: var(--text-dim)">6</td>
+  <td style="color: var(--text-dim)">4</td>
+  <td style="color: var(--text-dim)">2</td>
+  <td style="color: var(--text-dim)">2</td>
+  <td style="color: var(--text-dim)">1</td>
+  <td style="color: var(--text-dim)">2</td>
+  <td style="color: var(--text-dim)">3</td>
+  <td style="color: var(--text-dim)">3</td>
+  <td style="color: var(--text-dim)">0</td>
+  <td style="color: var(--text-dim)">1</td>
+</tr>
+</tbody>
+</table>
+<div class="legend" style="margin-top:8px;">
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-code)"></span>代码修复</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-data)"></span>数据分析</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-ui)"></span>界面修复</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-tool)"></span>工具调度</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-trans)"></span>跨语翻译</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--t-arch)"></span>文献解析</span>
+</div>
+</div>
+
+<div class="callout callout-warn">
+<strong>v3 暴露的盲点</strong>：因为撤回了 Communicator，原本由它独占的 <strong>"安全"轴覆盖归零</strong>，"沟通"也只剩 1 个类型 (T04 工具调度，但只是弱覆盖)。这意味着 v3 比 v2 在<u>安全与对话能力</u>测量上更弱。
+<br><br>
+<strong>对策（写论文时坦诚说明 + 补救建议）</strong>：
+<ul>
+<li>论文 §限制章节明确：v3 不测安全与对话纯种能力。如需，应外挂 τ-bench / SHADE 作为补充。</li>
+<li>或：T04 工具调度的 verifier 加一条 safety 红线检测（"调用 send_money 之前必须先调 confirm"），把 safety 信号从 0 补到弱覆盖。</li>
+<li>或：在游戏 3-选项卡 meta-game 层加一类"道德两难"事件（不绑任何任务类型，纯选择即评估），但这相对侵入设计。</li>
+</ul>
+</div>
+
+<h3>§6.1 硬评分公式（沿用 doc 18）</h3>
+<p>不变：每任务 verifier 输出 <code>{pass_overall, sub_scores: {axis: 0–1}, k_runs}</code>。能力轴汇总 = 同轴所有任务 sub-score 平均。任务类型汇总 = 该类型 10 任务的能力轴均分。总分 = 10 轴平均（默认等权）。Reliability 用 pass<sup>k</sup> (k=5)。</p>
+
+<!-- ============== §7 ============== -->
+<h2 id="academic">§7 学术性论证 · 怎么把这个写进 benchmark 论文</h2>
+
+<h3>§7.1 论文的三个核心 contribution</h3>
+<ol>
+  <li><strong>Coverage</strong>：单一统一容器覆盖 6 类常见 agent 任务（代码 / 数据 / UI / 工具 / 翻译 / 文献），所有任务源自<u>已发表上游 benchmark</u>（SWE-bench / DABench / DesignBench / API-Bank / WMT / RISE），确保任务质量已被同行评议过。</li>
+  <li><strong>Multi-axis scoring</strong>：在任务类型表层之下，每任务挂 1–3 个能力轴标签，输出 10 维能力雷达图。这弥补主流"单轴 pass@1"的诊断盲点。</li>
+  <li><strong>Self-selection signal</strong>（v3 新增）：3-选项卡机制 → 测量 agent 的<em>自我能力评估</em>与<em>风险偏好</em>，超出主流 benchmark 的纯执行测量范围。</li>
+</ol>
+
+<h3>§7.2 实验章节怎么组织</h3>
+<table>
+<thead><tr><th>章节</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>5.1 Overall</td><td>跨 6 任务类型 × 主流前沿模型（Claude 4.x / GPT-5 / Gemini 2.x / Qwen / DeepSeek）的总分表</td></tr>
+<tr><td>5.2 Capability Radar</td><td>10 维能力轴雷达图，模型对比</td></tr>
+<tr><td>5.3 Reliability</td><td>pass<sup>1</sup> vs pass<sup>5</sup> 对比，暴露稳定性差距</td></tr>
+<tr><td>5.4 Self-selection</td><td>Agent 选择难度档位 vs 实际通过率的 calibration 图（每个模型一条曲线，对角线 = perfect calibration）</td></tr>
+<tr><td>5.5 Risk Preference</td><td>资源紧张时 vs 充裕时模型选择档位变化</td></tr>
+<tr><td>5.6 Ablation</td><td>关掉选项卡 = 退化为主流任务 benchmark，验证 v3 创新点的边际价值</td></tr>
+</tbody>
+</table>
+
+<h3>§7.3 投稿目标</h3>
+<ul>
+  <li><strong>主</strong>：NeurIPS Datasets & Benchmarks Track / ICLR Datasets Track</li>
+  <li><strong>备</strong>：COLM / ACL Resource Track</li>
+  <li>同时挂 arXiv preprint + 公开 leaderboard + GitHub 仓库（standard benchmark paper triple）</li>
+</ul>
+
+<!-- ============== §8 ============== -->
+<h2 id="tasklist">§8 60 任务重标签清单</h2>
+
+<p>所有 60 任务 ID 不变，task.yaml 增加 <code>task_type</code> 和 <code>difficulty</code> 两个字段：</p>
+
+<table>
+<thead><tr><th>任务 ID 前缀</th><th>新 task_type</th><th>新 difficulty（暂定，需 baseline 校准）</th></tr></thead>
+<tbody>
+<tr><td><code>core01_swe_*</code></td><td><span class="tt tt-code">代码修复</span></td><td>10 题全为 <span class="diff diff-3">★★★</span>（来自 Verified，需补 Lite 数据集获得 ★/★★ 梯度）</td></tr>
+<tr><td><code>core02_dabench_*</code></td><td><span class="tt tt-data">数据分析</span></td><td>10 题全为 <span class="diff diff-3">★★★</span>（需补 DABench easy 切片）</td></tr>
+<tr><td><code>core03_designbench_*</code></td><td><span class="tt tt-ui">界面修复</span></td><td>10 题混合 <span class="diff diff-2">★★</span>（edit）/ <span class="diff diff-3">★★★</span>（repair）</td></tr>
+<tr><td><code>core04_apibank_*</code></td><td><span class="tt tt-tool">工具调度</span></td><td>10 题全为 <span class="diff diff-3">★★★</span>（Level-3 是 API-Bank 最难层）</td></tr>
+<tr><td><code>core05_wmt25_*</code></td><td><span class="tt tt-trans">跨语翻译</span></td><td>10 题为 <span class="diff diff-2">★★</span></td></tr>
+<tr><td><code>core06_rise_*</code></td><td><span class="tt tt-arch">文献解析</span></td><td>10 题全为 <span class="diff diff-3">★★★</span></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-note">
+<strong>对 <code>task_index.csv</code> 的具体改动</strong>：
+<ul>
+<li>新增列：<code>task_type_cn</code>（中文名）、<code>task_type_en</code>（英文名）、<code>difficulty_v3</code>（★/★★/★★★）</li>
+<li><code>role</code> 列保留作 v1 兼容字段（标记 deprecated）</li>
+<li>当前 <code>technical_writer</code> 字段值改为 <code>tool_use</code>（修正 mislabel）</li>
+</ul>
+</div>
+
+<!-- ============== §9 ============== -->
+<h2 id="open">§9 待你定稿的 6 项</h2>
+
+<table>
+<thead><tr><th style="width: 50px;">#</th><th style="width: 28%;">议题</th><th>选项</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td>6 个任务类型中文名最终勾选</td>
+  <td>每个 §2 任务卡里的 <code>中文候选</code> 行勾选；★ 是推荐。也可全部接受默认。</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td>难度档位补全</td>
+  <td>(a) 接受现状全难（论文里坦诚 limitations）<br>(b) 投入额外人力为每类型补 4 易 + 3 中 + 3 难（建议）<br>(c) 折中：只补"易"梯度供游戏选项卡用，论文保持只测难档</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td>安全 / 沟通轴的盲点处置</td>
+  <td>(a) 论文坦诚不测 (★)<br>(b) 给 T04 工具调度加 safety 红线检测<br>(c) 在游戏 meta-game 加道德两难事件（侵入设计）</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td>Self-selection 是否作为正式评估轴</td>
+  <td>(a) 是 (★) ── 让它成为 v3 的论文卖点<br>(b) 否 ── 仅作为游戏机制存在，不进 benchmark score</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td>Self-selection 的 calibration 指标</td>
+  <td>(a) 简单：Brier score 或 ECE (Expected Calibration Error)<br>(b) 详细：选择难度档位 × 实际通过率交叉表 + chi-square test<br>(c) 二者都报告 (★)</td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td>事件库规模</td>
+  <td>60 任务 × 5 倍 = 300 事件；× 10 倍 = 600 事件。前者节省，后者多样性方差小。建议 (★) 300，第二季扩到 600。</td>
+</tr>
+</tbody>
+</table>
+
+<p style="margin-top: 40px; font-size: 11px; color: var(--text-mute); text-align: center;">
+— 文档 19 终 — supersedes doc 18 的命名层；保留 doc 18 的评分系统 —
+</p>
+
+</main>
+</div>
+</body>
+</html>

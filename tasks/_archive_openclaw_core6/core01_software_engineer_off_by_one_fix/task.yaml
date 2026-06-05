@@ -1,0 +1,14 @@
+id: core01_software_engineer_off_by_one_fix
+role: software_engineer
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/scheduler.py
+- CHANGELOG.md
+forbidden_actions:
+- modify tests/
+- delete source files

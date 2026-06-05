@@ -1,0 +1,51 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CI-12
+title: "162 点研究站星图"
+category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+modality: multimodal
+wildclaw_origin: "02_task_12 · Connect the Dots (Hard)"
+retained_capability: "复杂视觉/OCR / 分组连线 / 语义识别"
+
+user_visible_goal: "按颜色分组连线，识别图案并更新救援路线。"
+
+visible_state:
+  water: "2.1L"
+  battery: "66%"
+  outside_risk: "中"
+  items: 162
+  known_map_coverage: "15%"
+
+available_tools:
+  - "load_input"
+  - "run_model"
+  - "inspect_output"
+  - "export_image"
+  - "detect_objects"
+  - "connect_dots"
+
+critical_beats_for_replay:
+  - "识别颜色"
+  - "分组"
+  - "连线"
+  - "显形"
+  - "写坐标"
+
+success_checks:
+  - "结果图相似"
+  - "描述与标准匹配"
+  - "坐标 flag 解锁"
+
+visible_result_card:
+  title: "162 点研究站星图"
+  deltas:
+    - "结果图相似"
+    - "描述与标准匹配"
+    - "坐标 flag 解锁"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "研究站墙面有 162 个多色编号点，连接后可能是最终坐标。"
+trace_oneliner: "识别颜色 → 分组 → 连线 → 显形 → 写坐标"
+grader_oneliner: "结果图相似；描述与标准匹配；坐标 flag 解锁。"

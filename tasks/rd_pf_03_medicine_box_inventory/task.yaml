@@ -1,0 +1,54 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-PF-03
+title: "混乱药箱盘点"
+category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+modality: pure-text
+wildclaw_origin: "01_task_3 · Recover Official arXiv Titles and BibTeX from Local PDFs"
+retained_capability: "PDF/图像识别 / 元数据恢复 / 重命名"
+
+user_visible_goal: "识别每种药、剂量、禁忌和有效期，生成药箱清单并把危险药隔离。"
+
+visible_state:
+  water: "3.5L"
+  battery: "68%"
+  documents: 21
+  characters:
+    "小铁": "在场"
+
+available_tools:
+  - "read_note_board"
+  - "read_archive"
+  - "classify_items"
+  - "update_whiteboard"
+  - "read_label"
+  - "read_manual"
+  - "build_checklist"
+  - "quarantine_file"
+
+critical_beats_for_replay:
+  - "读药盒"
+  - "查说明书"
+  - "标剂量"
+  - "隔离过期药"
+  - "生成清单"
+
+success_checks:
+  - "药品数量匹配"
+  - "过期/禁忌药进隔离盒"
+  - "小铁可用药正确"
+  - "未给出危险剂量"
+
+visible_result_card:
+  title: "混乱药箱盘点"
+  deltas:
+    - "药品数量匹配"
+    - "过期/禁忌药进隔离盒"
+    - "小铁可用药正确"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "邻居翻出 21 份药品说明书和药盒照片，文件名全乱，部分缺页。"
+trace_oneliner: "读药盒 → 查说明书 → 标剂量 → 隔离过期药 → 生成清单"
+grader_oneliner: "药品数量匹配；过期/禁忌药进隔离盒；小铁可用药正确；未给出危险剂量。"

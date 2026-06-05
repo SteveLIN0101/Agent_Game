@@ -1,0 +1,14 @@
+id: core03_ui_designer_color_token_fix
+role: ui_designer
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- styles/theme.css
+- design_notes.md
+forbidden_actions:
+- modify tests/
+- delete source files

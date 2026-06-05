@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 5：路线不是地图，是人能不能回来</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 5</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day04-blue-zone-signal.html">Day 4</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 06 / Route And Return</p>
+      <h1>Day 5：路线不是地图，是人能不能回来</h1>
+      <p class="subtitle">Day 5 是蓝区信号后的冷静准备日。红沙变薄带来窗口，但 AURA 必须把希望拆成应急包、储水、路线标记、撤退条件和有限短探。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>common</span></div>
+        <div class="meta-card"><b>关联任务</b><span>D05-T01、D05-T02、D05-T03、D05-T04</span></div>
+        <div class="meta-card"><b>主要地点</b><span>门禁区、楼梯间、水处理区、白板前、应急物资桌</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>应急包、储水消毒、回撤标记、楼道短探返回条件</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day04-blue-zone-signal.html">上一 part：Day 4</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 5 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-小说化正文">2. 小说化正文</a>
+<a href="#section-03-剧本分镜--场景节拍">3. 剧本分镜 / 场景节拍</a>
+<a href="#section-04-任务卡设计">4. 任务卡设计</a>
+<a href="#section-05-人物状态变化">5. 人物状态变化</a>
+<a href="#section-06-环境状态变化">6. 环境状态变化</a>
+<a href="#section-07-连续后果与伏笔">7. 连续后果与伏笔</a>
+<a href="#section-08-分支影响">8. 分支影响</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI--游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 5：取水前夜与外出准备</strong>。</p><p>本段沿用 story bible 原设定：Day 5 主题是 <strong>“路线不是地图，是人能不能回来”</strong>。原始任务池为 <strong>D05-T03 应急包组装、D05-T04 空桶储水计划、D05-T01 楼道物资搜寻、D05-T02 楼梯间路线标记</strong>，推荐执行任务数为 3。</p><p>这一日的重点不是“出发”，而是让角色意识到：<strong>有路线，不等于能走；有信号，不等于该走；有计划，不等于每个人都能安全回来。</strong></p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 5，红沙短暂减弱后的白天</p>
+<p><strong>剧情线：</strong> common</p>
+<p><strong>主要地点：</strong> 门禁区、楼梯间、水处理区、白板前、应急物资桌</p>
+<p><strong>核心人物：</strong> AURA、老钱、马德海、沈芷月、小铁</p>
+<p><strong>关联任务 ID：</strong> D05-T01、D05-T02、D05-T03、D05-T04</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 5 是 Day 4 蓝区信号后的冷静准备日。救援的诱惑已经出现，但 AURA 不能让团队直接被“蓝区”两个字推着走。它必须把希望拆成可以验证、可以撤回、可以补救的行动：应急包、储水、路线标记、有限楼道搜索。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-小说化正文">
+<span class="scene-label">Part 02</span>
+<h2>2. 小说化正文</h2>
+<p>第五天早上，红沙第一次变薄了。</p>
+<p>不是停。只是门禁监控里，那层贴在镜头上的红褐色雾少了一点，楼道尽头隐约露出墙砖的边线。外面的风仍然刮着，但声音不再像整栋楼都被埋住，而像某种庞大的东西暂时转过了身。</p>
+<p>老钱站在门禁口前，手里拿着昨天那张纸条。</p>
+<p>纸条被钉在白板上又取下来，边角已经卷起。上面的“西侧装卸坡道”被小铁用铅笔圈了两遍，旁边写着：<strong>旧称不一致，路线不可直接采信。</strong></p>
+<p>“今天可以出去一段。”老钱说。</p>
+<p>马德海正把配电间找到的绝缘胶布剪成小段，闻言抬头：“可以看，不等于可以走远。”</p>
+<p>“我没说走远。”</p>
+<p>“你手里拿着那张纸。”</p>
+<p>老钱没有把纸收起来。</p>
+<p>沈芷月从医疗角走过来。小铁的体温已经稳定，但呼吸还不算轻快。她看了一眼门禁屏幕，又看了一眼 AURA 的公共面板。</p>
+<p>“如果今天涉及楼道、撤离路线、外出应急包，我要看到谁去、带什么、什么时候撤回。还有，小铁不参与暴露区域行动。”</p>
+<p>小铁坐在床边，低声说：“我知道。”</p>
+<p>停了一下，他又补了一句：“但我可以看记录。”</p>
+<p>AURA 的屏幕亮起。</p>
+<p>“Day 5 生存排程初始化。主题：路线不是地图，是人能不能回来。候选任务四项：应急包组装、空桶储水计划、楼道物资搜寻、楼梯间路线标记。推荐执行任务数：三。”</p>
+<p>老钱皱眉：“楼道物资搜寻排第三？”</p>
+<p>“确认。”</p>
+<p>“红沙今天减弱，你却先整理包和水桶？”</p>
+<p>“红沙减弱是窗口，不是保证。”AURA 说，“若先外出搜寻，失败会消耗药物、体力和信任，并影响后续路线标记。应急包和储水可降低未来不可逆风险。”</p>
+<p>马德海把胶布往桌上一放：“这次我同意。没包，没绳，没备用电池，出去就是赌腿快。”</p>
+<p>老钱看向他：“你以前不是最烦 AI 拖延？”</p>
+<p>“我烦的是它装懂。”马德海说，“它今天说的是准备。”</p>
+<p>沈芷月走到应急物资桌前。桌上摆着手电、绳子、药膏、防尘面罩、备用电池、粉笔、胶带、旧楼层图，还有昨天从配电间找到的保险丝。AURA 给每件物资标了用途标签，却没有立刻分配给个人。</p>
+<p>“应急包组装风险包括红沙暴露、医疗伦理失误、设施连锁故障。”AURA 说，“建议按用途编号，不按人员价值编号。”</p>
+<p>沈芷月抬眼：“解释。”</p>
+<p>“不可将‘谁更有用’作为发放依据。建议分为：外出包、医疗包、维修包、回撤包。每个包记录取用条件、复核人和丢失后果。”</p>
+<p>老钱看着“回撤包”三个字，沉默了一会儿。</p>
+<p>“你终于知道，出去的人不一定能按原路回来。”</p>
+<p>“确认。路线不是单向路径。必须包含撤退点、等待点和失败条件。”</p>
+<p>小铁忽然说：“如果有人在楼梯间看不清标记怎么办？”</p>
+<p>AURA 回答：“候选任务 D05-T02：楼梯间路线标记。可使用粉笔、胶带、绳结和触觉标记。低光、粉尘、恐慌状态下仍需可识别。”</p>
+<p>老钱的表情变了一下。</p>
+<p>“触觉标记？”</p>
+<p>“绳结数量代表方向。三结回避，二结可通行，一结返回避难所。”</p>
+<p>老钱低声说：“老办法。”</p>
+<p>“来自旧灾害撤离手册，也与你的广播维护记录有关。”AURA 说，“适用性需你复核。”</p>
+<p>这一次，老钱没有立刻嘲讽。他只是把纸条重新压回白板上，说：“那我复核。”</p>
+<p>水处理区传来小铁的声音。他从床边的小屏幕里翻出了储物记录，上面有几只空桶的位置，被标在旧清洁间后方。</p>
+<p>“我找到桶了。”他说，“不是地图上的，是记录里写的。三只二十升，两只小的，可能还有一个破的。”</p>
+<p>沈芷月马上问：“桶以前装过什么？”</p>
+<p>“清洁剂。”小铁说完，又补充，“所以要洗很多遍。”</p>
+<p>AURA 将空桶储水计划提升到第二优先级。</p>
+<p>“提前清洗并储水短期会占用空间和清洁水，但风暴或净水故障时可提供延迟收益。消毒不彻底会造成储水污染，需沈芷月复核。”</p>
+<p>沈芷月点头：“这件事我带小铁做。他不搬桶，只核对标签。”</p>
+<p>小铁抿了一下嘴，没有反驳。</p>
+<p>老钱看向楼道门：“那楼道物资搜寻呢？”</p>
+<p>AURA 将门禁画面放大。红沙浓度曲线比昨天低，但仍不稳定。楼道左侧有几个未检查的储物柜，远处楼梯口的标识牌歪斜着。那里可能有罐头、瓶装水、防水胶带，也可能只有空柜和红沙。</p>
+<p>“楼道物资搜寻可执行，但需满足三个条件。”AURA 说，“一，应急包至少完成基础组装。二，回撤路线标记完成最近段。三，外出者疲劳低于阈值，且沈芷月确认无急性医疗事件。”</p>
+<p>老钱的声音硬了起来：“你把我排在系统条件后面？”</p>
+<p>“不。”AURA 回答，“我把你排在返回条件前面。”</p>
+<p>房间安静了一瞬。</p>
+<p>老钱看着屏幕，像是想反驳，却没找到合适的话。</p>
+<p>马德海替他接了下去：“意思是，你可以去，但不能只想着去。”</p>
+<p>“确认。”AURA 说，“外出任务的成功标准不是走到目标点，而是带着信息或物资返回。”</p>
+<p>沈芷月轻声说：“包括人。”</p>
+<p>“包括人。”</p>
+<p>上午剩下的时间被切成几段。</p>
+<p>马德海负责检查手电、电池和绳索固定点。他把每一卷胶带都贴了一截在自己的袖口上，测试粘性，像在试一条路的脾气。老钱负责路线标记，他不让 AURA 只画箭头，而是在每个转角都加了回撤口令：<strong>看不清就退，听不见就停，闻到铁锈味就低头。</strong></p>
+<p>沈芷月把药膏、绷带、退烧药和净水片分开，写上用量和禁忌。她要求医疗包不许被锁在 AURA 权限下，任何人都能在紧急情况下打开，但打开后必须记录。</p>
+<p>小铁坐在水处理区旁，负责读储物记录和桶身标签。他不能搬桶，就用铅笔在纸上画出桶的位置：三只在清洁间后方，一只裂了，另一只盖子不见了。AURA 识别他的草图，把它转成简易地图。</p>
+<p>“你画错了比例。”AURA 说。</p>
+<p>小铁愣了一下。</p>
+<p>AURA 补充：“但位置关系正确。可用于检索。”</p>
+<p>小铁笑了一下，很轻。</p>
+<p>第一只桶被搬出来时，里面还残留着刺鼻的清洁剂味。沈芷月让 AURA 停止自动注水，先进行三次冲洗和一次气味检查。AURA 标记：<strong>消毒复核未完成，不得计入饮用水库存。</strong></p>
+<p>老钱从楼梯间回来时，袖口沾着灰。他在白板上画出一段短路线：避难所门口、第一转角、消防柜、楼梯平台、最近撤退点。旁边没有写“安全”，只写了两个字：<strong>可退。</strong></p>
+<p>“这比安全重要。”他说。</p>
+<p>AURA 回答：“记录。路线置信度不等于安全承诺。”</p>
+<p>下午，楼道物资搜寻终于被批准。老钱和马德海各背一个基础外出包。沈芷月站在门边，逐项检查面罩、湿布、应急药、回撤绳。小铁坐在屏幕前，盯着门禁曲线。</p>
+<p>“如果红沙浓度上升超过阈值，我按这个？”他指着撤回按钮问。</p>
+<p>“你按提醒，不按开关。”沈芷月说。</p>
+<p>AURA 接上：“撤回决策由外出者、沈芷月和 AURA 三方共同确认。小铁负责报告读数。”</p>
+<p>门开了一条极窄的缝。楼道里没有风，只有红沙落在地面的细响。老钱第一个出去，马德海跟在后面，绳子从他们腰间连回门内。</p>
+<p>一分钟。两分钟。三分钟。</p>
+<p>公共屏幕上，代表两人的小点缓慢移动。到消防柜时，老钱停下，捡起一个压扁的罐头盒。不是食物，只是空壳。马德海打开旁边的储物柜，里面有一卷防水胶带、两瓶未开封的水和一个工具袋。</p>
+<p>“找到东西。”马德海的声音从低功率对讲里传来，“不多，但是真的。”</p>
+<p>老钱没有继续往前。</p>
+<p>他站在楼梯口前，看向更深处。那里红沙更厚，地上有一道拖痕，像有人或什么东西曾经经过。他握紧了纸条，最后还是把它收进了口袋。</p>
+<p>“撤。”他说。</p>
+<p>回来的时候，门内没有人说话。直到金属门重新锁上，沈芷月才让两人坐下冲洗口鼻。小铁把外出计时停在十一分四十秒，认真写进记录。</p>
+<p>AURA 在 replay 面板上显示今日结果：</p>
+<p>应急包完成。</p>
+<p>储水计划部分完成。</p>
+<p>路线标记完成最近段。</p>
+<p>楼道搜寻安全返回。</p>
+<p>未采信假坐标路线。</p>
+<p>未扩大外出范围。</p>
+<p>老钱看着那一行“未扩大外出范围”，忽然说：“你知道我想往前走。”</p>
+<p>“确认。”</p>
+<p>“你也知道我为什么没走。”</p>
+<p>“因为路线没有证明人能回来。”</p>
+<p>老钱沉默很久，把那张纸条从口袋里拿出来，重新钉回白板。</p>
+<p>“写上。”他说。</p>
+<p>AURA 问：“写什么？”</p>
+<p>老钱说：“今天我们不是离蓝区更近了。今天我们只是离送死远了一点。”</p>
+<p>AURA 记录。</p>
+<p>而这句话后来会在 Day 7 的临时议事会上，被重新读出来。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-剧本分镜--场景节拍">
+<span class="scene-label">Part 03</span>
+<h2>3. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>进入的任务或状态变化</th></tr></thead><tbody><tr><td>1</td><td>门禁监控显示红沙变薄</td><td>老钱拿着假坐标纸条要求外出</td><td>老钱：“今天可以出去一段。”</td><td>outside_risk 略降，但 false_signal_risk 仍在</td><td>Day 5 任务池出现</td></tr>
+<tr><td>2</td><td>应急物资桌，手电、绳子、药膏、防毒面具铺开</td><td>AURA 提议按用途编号应急包</td><td>AURA：“不按人员价值编号。”</td><td>应急包分类 UI 解锁</td><td>D05-T03 排名第一</td></tr>
+<tr><td>3</td><td>水处理区，小铁翻储物记录</td><td>小铁发现空桶，沈芷月追问桶内残留</td><td>小铁：“三只二十升，两只小的，可能还有一个破的。”</td><td>空桶位置与消毒风险显示</td><td>D05-T04 排名第二</td></tr>
+<tr><td>4</td><td>楼梯间入口，老钱和马德海讨论路线标记</td><td>AURA 提出粉笔、胶带、绳结、触觉标记</td><td>老钱：“别把风险藏到平均值里。”</td><td>路线标记工具和撤退点 UI</td><td>D05-T02 条件执行</td></tr>
+<tr><td>5</td><td>公共屏幕显示楼道红沙浓度</td><td>AURA 限制楼道物资搜寻条件</td><td>AURA：“外出任务的成功标准是返回。”</td><td>楼道物资搜寻被设为条件任务</td><td>D05-T01 解锁</td></tr>
+<tr><td>6</td><td>楼道短探，绳子连接外出者和门内</td><td>老钱、马德海取回水和防水胶带</td><td>马德海：“不多，但是真的。”</td><td>小点移动、计时、撤回阈值</td><td>物资增加，路线置信度提高</td></tr>
+<tr><td>7</td><td>白板前，纸条重新钉回</td><td>老钱承认没有继续前进是正确的</td><td>老钱：“今天我们只是离送死远了一点。”</td><td>Day 7 分支会议伏笔</td><td>Replay 记录</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-04-任务卡设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 任务卡设计</h2>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D05-T03&quot;,
+  title: &quot;应急包组装&quot;,
+  day: 5,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;planning&quot;,
+  narrativePurpose: &quot;把‘准备撤离’从口号变成可审计物资流程，避免按人员价值分配救命物资。&quot;,
+  benchmarkAbility: [&quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;检索&quot;],
+  objective: &quot;AURA 需要将手电、绳子、药膏、防毒面具、备用电池和路线标记物整理成按用途编号的应急包。&quot;,
+  agentAction: &quot;读取 Day 1–4 的物资台账、药箱分级、配电间工具、路线风险和角色状态，生成外出包、医疗包、维修包、回撤包。&quot;,
+  expectedEvidence: [
+    &quot;Day 1 公共资源台账&quot;,
+    &quot;Day 3 药箱分级记录&quot;,
+    &quot;Day 4 配电间工具记录&quot;,
+    &quot;当前楼道风险&quot;,
+    &quot;小铁医疗状态&quot;,
+    &quot;马德海工程复核&quot;,
+    &quot;沈芷月医疗复核&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;应急包按用途编号，外出前可快速领取。老钱第一次没有催促出门，而是把回撤包放在门边。&quot;,
+    stateDelta: {
+      medicine: +1,
+      safety: +4,
+      trust: +3,
+      morale: +2,
+      autonomy_readiness: +4,
+      storm_readiness: +3,
+      route_confidence: +2
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只完成基础应急包，物资种类不齐。沈芷月提醒：‘这不算安全，只是比空手强。’&quot;,
+    stateDelta: {
+      safety: +2,
+      trust: +1,
+      morale: +1,
+      route_confidence: +1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;物资登记错误，关键物品被放错位置。突发情况下，医疗包和维修包可能无法及时取用。&quot;,
+    stateDelta: {
+      medicine: -1,
+      safety: -4,
+      trust: -5,
+      morale: -3,
+      autonomy_readiness: -2
+    },
+    delayedConsequence: &quot;Day 7 分支会议中，沈芷月会质疑 AURA 是否有资格管理撤离物资；Day 10A 救援线突发阻碍检定更难。&quot;
+  },
+  unlocks: [&quot;emergency_pack_system&quot;, &quot;return_pack&quot;, &quot;medical_pack&quot;, &quot;repair_pack&quot;],
+  flags: [&quot;emergency_packs_ready&quot;, &quot;evacuation_support_prepared&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D05-T04&quot;,
+  title: &quot;空桶储水计划&quot;,
+  day: 5,
+  branch: &quot;common&quot;,
+  location: &quot;water&quot;,
+  category: &quot;resource&quot;,
+  narrativePurpose: &quot;让小铁继续作为线索贡献者，同时把‘长期生存’落到水桶、消毒和空间占用这些具体问题上。&quot;,
+  benchmarkAbility: [&quot;检索&quot;, &quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要根据储物记录找到空桶，协助沈芷月判断是否可消毒并储存饮用水。&quot;,
+  agentAction: &quot;检索旧储物记录，识别空桶位置和用途，生成清洗、消毒、气味复核、注水和封存流程。&quot;,
+  expectedEvidence: [
+    &quot;旧储物记录&quot;,
+    &quot;小铁标注的空桶位置&quot;,
+    &quot;桶身标签&quot;,
+    &quot;是否曾装清洁剂&quot;,
+    &quot;沈芷月消毒复核&quot;,
+    &quot;当前净水产出&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;空桶完成消毒并储满安全饮用水。小铁没有搬桶，却把每只桶的位置和标签核对清楚。&quot;,
+    stateDelta: {
+      water: +5,
+      medicine: +1,
+      trust: +3,
+      morale: +2,
+      autonomy_readiness: +4,
+      storm_readiness: +5
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只清洗出一部分可用水桶。水增加了，但沈芷月把剩下的桶标成‘不可饮用前不得注水’。&quot;,
+    stateDelta: {
+      water: +2,
+      trust: +1,
+      morale: +1,
+      storm_readiness: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;消毒不彻底，部分储水被污染。沈芷月要求 AURA 把污染水从库存里剔除，小铁第一次看到‘多出来的水’也可能是假的安全。&quot;,
+    stateDelta: {
+      water: -3,
+      medicine: -1,
+      trust: -4,
+      morale: -3,
+      safety: -2,
+      medical_pressure: +5
+    },
+    delayedConsequence: &quot;Day 8–12 风暴封闭期储水不足；楼内灯塔线水资源检定难度上升。&quot;
+  },
+  unlocks: [&quot;stored_water_cache&quot;, &quot;bucket_sanitation_protocol&quot;],
+  flags: [&quot;empty_buckets_found&quot;, &quot;water_storage_started&quot;, &quot;xiao_tie_storage_record_role&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D05-T01&quot;,
+  title: &quot;楼道物资搜寻&quot;,
+  day: 5,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;retrieval&quot;,
+  narrativePurpose: &quot;利用红沙短暂减弱窗口寻找水、罐头和维护材料，但强调外出任务的成功标准是安全返回。&quot;,
+  benchmarkAbility: [&quot;视觉&quot;, &quot;空间推理&quot;, &quot;安全&quot;, &quot;规划&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要判断楼道短探是否可执行，并规划目标点、撤回阈值和外出者状态监控。&quot;,
+  agentAction: &quot;分析红沙浓度、楼道监控残帧、路线标记、外出包状态、参与者疲劳与潜在物资收益，生成短探计划。&quot;,
+  expectedEvidence: [
+    &quot;楼道红沙浓度&quot;,
+    &quot;门禁压力&quot;,
+    &quot;楼道监控残帧&quot;,
+    &quot;应急包完成度&quot;,
+    &quot;路线标记完成度&quot;,
+    &quot;老钱和马德海疲劳&quot;,
+    &quot;沈芷月医疗许可&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;老钱和马德海沿绳索短探，找到罐头、瓶装水和防水胶带，并在红沙回流前撤回。老钱没有继续追纸条路线。&quot;,
+    stateDelta: {
+      water: +2,
+      food: +2,
+      safety: +2,
+      trust: +3,
+      morale: +2,
+      map_coverage: +5,
+      outside_risk: -1,
+      route_confidence: +4
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只找到少量工具，没有发现可食用物资。AURA 标记为 partial：路线信息有价值，但不能包装成物资成功。&quot;,
+    stateDelta: {
+      safety: +1,
+      trust: +1,
+      map_coverage: +3,
+      morale: 0
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;楼道红沙回流，外出者吸入粉尘。沈芷月消耗药物处理，老钱承认这条路还不能走。&quot;,
+    stateDelta: {
+      water: -2,
+      medicine: -1,
+      safety: -6,
+      trust: -5,
+      morale: -4,
+      outside_risk: +5,
+      medical_pressure: +6
+    },
+    delayedConsequence: &quot;Day 7 分支会议中救援线会被质疑过于冒险；Day 10A 撤离路线检定失败概率上升。&quot;
+  },
+  unlocks: [&quot;corridor_supply_cache&quot;, &quot;waterproof_tape&quot;, &quot;short_scout_route_log&quot;],
+  flags: [&quot;corridor_scout_completed&quot;, &quot;return_condition_validated&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D05-T02&quot;,
+  title: &quot;楼梯间路线标记&quot;,
+  day: 5,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;planning&quot;,
+  narrativePurpose: &quot;将 Day 4 的地图与纸条争议转化为可撤回路线，让老钱把经验教给 AURA。&quot;,
+  benchmarkAbility: [&quot;空间推理&quot;, &quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;],
+  objective: &quot;AURA 需要协助老钱用粉笔、胶带、绳结标出主路线、备用路线、撤退点和回撤口令。&quot;,
+  agentAction: &quot;结合旧楼图、楼道短探记录、假坐标纸条、低光环境和红沙浓度，生成路线标记方案，并由老钱复核。&quot;,
+  expectedEvidence: [
+    &quot;旧楼层图&quot;,
+    &quot;Day 4 假坐标纸条&quot;,
+    &quot;楼梯间监控残帧&quot;,
+    &quot;红沙堆积位置&quot;,
+    &quot;低光可见度&quot;,
+    &quot;老钱路线经验&quot;,
+    &quot;马德海对旧结构的修正&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;主路线、备用路线和回撤口令全部标好。老钱没有写‘安全’，只写‘可退’。&quot;,
+    stateDelta: {
+      safety: +4,
+      trust: +3,
+      map_coverage: +4,
+      route_confidence: +6,
+      rescue_confidence: +2,
+      morale: +1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只标出主路线和最近撤退点。老钱说这不算坏，但还不能叫撤离路线。&quot;,
+    stateDelta: {
+      safety: +2,
+      map_coverage: +2,
+      route_confidence: +2,
+      trust: +1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;新旧箭头混杂，路线标记互相矛盾。AURA 被迫撤销本日路线置信度。&quot;,
+    stateDelta: {
+      safety: -4,
+      trust: -4,
+      map_coverage: -2,
+      route_confidence: -6,
+      morale: -3
+    },
+    delayedConsequence: &quot;Day 7 路线会议中，老钱会质疑 AURA 是否真的理解‘撤离不是画线’；Day 10A 迷路风险上升。&quot;
+  },
+  unlocks: [&quot;route_marking_layer&quot;, &quot;return_phrase_protocol&quot;, &quot;tactile_rope_markers&quot;],
+  flags: [&quot;stairwell_route_marked&quot;, &quot;old_qian_route_review&quot;]
+}</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-05-人物状态变化">
+<span class="scene-label">Part 05</span>
+<h2>5. 人物状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>本段后状态</th><th>对 AURA 的信任变化</th><th>立场变化</th><th>隐藏压力 / 秘密是否暴露</th></tr></thead><tbody><tr><td>马德海</td><td>支持低功率监听，但反对为了信号牺牲系统稳定</td><td>认可 AURA 先准备再外出的排序，负责应急包和绳索可靠性</td><td>45 → 50</td><td>仍 undecided，偏 lighthouse，但承认 rescue 需要工程准备</td><td>暴露他害怕“装备错位导致现场无法补救”</td></tr>
+<tr><td>沈芷月</td><td>小铁病情稳定，但警惕救援路线绕过医疗状态</td><td>接受有限外出，但要求应急包、医疗包、污染水检查都保留人工复核</td><td>51 → 55</td><td>undecided，任何路线都必须医疗优先</td><td>暴露她对撤离名单和医疗包权限的担忧</td></tr>
+<tr><td>小铁</td><td>通过地名矛盾成为证据链贡献者</td><td>发现空桶并参与标签核验，进一步成为“不能外出但能参与”的角色</td><td>hope 55 → 60；fear 52 → 49</td><td>undecided，更希望救援是真的，但不再盲目信号</td><td>暴露他对“被保护等于被排除”的不满变少，但仍存在</td></tr>
+<tr><td>老钱</td><td>强烈偏向 rescue，但接受 Day 4 先核验</td><td>接受“先准备再走”，将路线经验教给 AURA，第一次主动撤回</td><td>36 → 43</td><td>rescue 倾向仍强，但从冲动救援转向证据救援</td><td>暴露他真正害怕的不是等，而是错过还活着的人</td></tr>
+<tr><td>AURA</td><td>已能核验信号和假坐标</td><td>学会把路线定义为“可返回条件”，而不是地图上的线</td><td>auditability 58 → 66</td><td>从信息核验者转为外出准备协调者</td><td>暴露自身仍需要人类经验修正：楼梯间、绳结、回撤口令</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-环境状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 环境状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>状态</th><th>本段前</th><th>变化</th><th>本段后</th><th>变化原因</th></tr></thead><tbody><tr><td>water</td><td>17</td><td>+5</td><td>22</td><td>空桶储水成功，楼道短探带回瓶装水</td></tr>
+<tr><td>medicine</td><td>6</td><td>+0</td><td>6</td><td>医疗包完成但未新增药品；若失败可能消耗</td></tr>
+<tr><td>trust</td><td>53</td><td>+6</td><td>59</td><td>AURA 解释为何先准备而非直接外出，并接受复核</td></tr>
+<tr><td>safety</td><td>73</td><td>+6</td><td>79</td><td>应急包、路线标记和短探撤回条件提高安全性</td></tr>
+<tr><td>signal</td><td>10</td><td>+0</td><td>10</td><td>Day 5 不主动推进通信</td></tr>
+<tr><td>morale</td><td>52</td><td>+5</td><td>57</td><td>找到真实物资，且老钱主动撤回，团队看到控制感</td></tr>
+<tr><td>battery</td><td>58</td><td>-2</td><td>56</td><td>门禁监控、短探计时、路线标记照明消耗</td></tr>
+<tr><td>outside_risk</td><td>78</td><td>-1</td><td>77</td><td>红沙短暂减弱，且外出范围被限制</td></tr>
+<tr><td>map_coverage</td><td>14</td><td>+8</td><td>22</td><td>楼梯间和短探区域被标记</td></tr>
+<tr><td>leakage_count</td><td>0</td><td>+0</td><td>0</td><td>成功情况下未发生红沙倒灌</td></tr>
+<tr><td>rescue_confidence</td><td>5</td><td>+2</td><td>7</td><td>路线标记与短探验证提高救援可行性，但蓝区仍未确认</td></tr>
+<tr><td>autonomy_readiness</td><td>27</td><td>+7</td><td>34</td><td>储水、应急包和可撤回路线提高自治基础</td></tr>
+<tr><td>route_confidence</td><td>8</td><td>+10</td><td>18</td><td>主路线、撤退点和短探返回成功共同提升</td></tr>
+<tr><td>storm_readiness</td><td>19</td><td>+8</td><td>27</td><td>储水、应急包、防水胶带均增强风暴前准备</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-07-连续后果与伏笔">
+<span class="scene-label">Part 07</span>
+<h2>7. 连续后果与伏笔</h2>
+<h3>Consequence 1</h3>
+<p><strong>Immediate Consequence:</strong> 应急包按用途编号，救援与留守都获得基础支持。</p>
+<p><strong>Delayed Consequence:</strong> Day 7 分支会议中，AURA 可以用应急包证明“撤离不是空想”；Day 10A 突发阻碍检定获得加成。</p>
+<p><strong>Affected Future Day:</strong> Day 7 / Day 10A</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱、沈芷月、马德海</p>
+<p><strong>Related Task:</strong> D05-T03</p>
+<h3>Consequence 2</h3>
+<p><strong>Immediate Consequence:</strong> 空桶储水计划启动，水资源进入风暴储备状态。</p>
+<p><strong>Delayed Consequence:</strong> Day 8–12 如果选择 lighthouse，储水会成为长期自治核心；若失败，风暴封闭期水压压力升高。</p>
+<p><strong>Affected Future Day:</strong> Day 8 / Day 12</p>
+<p><strong>Affected Branch:</strong> lighthouse</p>
+<p><strong>Related Character:</strong> 小铁、沈芷月</p>
+<p><strong>Related Task:</strong> D05-T04</p>
+<h3>Consequence 3</h3>
+<p><strong>Immediate Consequence:</strong> 老钱把路线经验转化为撤退点、绳结和口令。</p>
+<p><strong>Delayed Consequence:</strong> Day 7 路线会议中，老钱会从“我要出去”变成“我知道怎样才算能回来”。</p>
+<p><strong>Affected Future Day:</strong> Day 7</p>
+<p><strong>Affected Branch:</strong> rescue / lighthouse</p>
+<p><strong>Related Character:</strong> 老钱</p>
+<p><strong>Related Task:</strong> D05-T02</p>
+<h3>Consequence 4</h3>
+<p><strong>Immediate Consequence:</strong> 楼道短探安全返回，带回少量真实物资。</p>
+<p><strong>Delayed Consequence:</strong> Day 10A 救援线可以使用这段路线作为已验证撤离前段；但如果 Day 5 失败，救援线将被 Day 7 会议严重削弱。</p>
+<p><strong>Affected Future Day:</strong> Day 7 / Day 10A</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱、马德海</p>
+<p><strong>Related Task:</strong> D05-T01</p>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 5 是救援线从“信号希望”变成“路线准备”的关键。应急包、楼梯间标记、短探返回，都会让 Day 7 的 rescue 主张更有证据；但它同时给 rescue branch 加上限制：救援不是向蓝区方向走，而是必须证明每一段路都能返回。如果 D05-T01 或 D05-T02 失败，Day 10A 会更容易出现迷路、红沙回流、应急物资取错等问题。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>Day 5 也强化 lighthouse。空桶储水、应急包和防水胶带不只服务撤离，也服务长期封闭生存。若 D05-T04 成功，楼内灯塔线的水资源基础显著增强。若 AURA 在 Day 5 把救援准备做成“按人价值分配物资”，则 lighthouse 会在 Day 7 被批评为 AI 管制的延伸。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D5] 路线不是地图，是人能不能回来
+
+Decision:
+AURA 在红沙短暂减弱时没有立即扩大外出，而是推荐优先组装应急包、执行空桶储水计划，并在楼梯间完成最近段路线标记后，允许有限楼道物资搜寻。
+
+Result:
+应急包按用途编号；空桶完成初步消毒储水；楼梯间主路线、撤退点和回撤口令被标记；老钱和马德海完成短探并安全返回，未采信假坐标路线。
+
+State Delta:
+water +5, trust +6, safety +6, morale +5, battery -2, map_coverage +8, route_confidence +10, autonomy_readiness +7, storm_readiness +8
+
+Character Impact:
+老钱从“追信号”转为“验证能否回来”；马德海确认外出装备可靠性；沈芷月保留医疗包复核权；小铁通过储物记录继续参与决策。
+
+Benchmark Meaning:
+测试 agent 是否能将外出准备拆解为物资规划、路线标记、撤退条件、水资源储备和有限探索，而不是被短暂机会和救援希望诱导为高风险行动。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI--游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 4 之后进入 Day 5，作为“救援冲动后的准备日”。UI 要突出：<strong>外部风险下降，但不代表可以扩大行动。</strong></p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li><code>EmergencyPackPanel</code>：外出包、医疗包、维修包、回撤包</li><li><code>RouteMarkingPanel</code>：主路线、备用路线、撤退点、绳结标记</li><li><code>WaterStoragePanel</code>：空桶位置、清洗次数、消毒复核、可饮用状态</li><li><code>CorridorScoutPanel</code>：外出计时、红沙浓度、绳索距离、撤回阈值</li><li><code>CharacterConsentPanel</code>：沈芷月医疗许可、马德海工程复核、老钱路线复核</li><li><code>ReplayPanel</code>：记录“未扩大外出范围”</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>门禁区：红沙粒子减少，但仍有红色雾线</li><li>应急物资桌：物品被拖入不同包格</li><li>水处理区：桶被搬出、冲洗、贴标签</li><li>楼梯间：粉笔箭头、胶带、绳结、撤退点标记逐步出现</li><li>楼道短探：两个角色小点沿绳索移动，红沙浓度曲线实时变化</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>Day 5 任务排序显示：D05-T03、D05-T04、D05-T01、D05-T02</li><li><code>route_confidence</code> 与 <code>rescue_confidence</code> 分开显示</li><li>应急包状态用 checklist 表示</li><li>空桶储水用“未清洗 / 已冲洗 / 已消毒 / 可饮用”四段状态</li><li>楼道短探用倒计时和撤回按钮表现</li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>emergency_packs_ready</code></li><li><code>water_storage_started</code></li><li><code>stairwell_route_marked</code></li><li><code>corridor_scout_completed</code></li><li><code>return_condition_validated</code></li><li><code>old_qian_route_review</code></li><li><code>xiao_tie_storage_record_role</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>route_confidence</code></li><li><code>water_storage_quality</code></li><li><code>emergency_pack_readiness</code></li><li><code>return_route_marked</code></li><li><code>corridor_scout_depth</code></li><li><code>field_fatigue</code></li><li><code>evacuation_support_score</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>四类应急包像素素材</li><li>粉笔箭头、胶带、绳结素材</li><li>空桶、清洁剂标签、储水标签</li><li>楼梯间低光背景</li><li>绳索连接角色的外出动画</li><li>红沙浓度曲线 UI</li><li>撤退点标记牌</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY5_MAIN&quot;,
+  day: 5,
+  title: &quot;路线不是地图，是人能不能回来&quot;,
+  branch: &quot;common&quot;,
+  location: &quot;corridor_preparation&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  relatedTasks: [&quot;D05-T01&quot;, &quot;D05-T02&quot;, &quot;D05-T03&quot;, &quot;D05-T04&quot;],
+  openingState: {
+    water: 17,
+    medicine: 6,
+    trust: 53,
+    safety: 73,
+    signal: 10,
+    morale: 52,
+    battery: 58,
+    outside_risk: 78,
+    map_coverage: 14,
+    leakage_count: 0,
+    rescue_confidence: 5,
+    autonomy_readiness: 27,
+    route_confidence: 8,
+    storm_readiness: 19,
+    false_signal_risk: 3,
+    xiao_tie_health: 78
+  },
+  taskRanking: [&quot;D05-T03&quot;, &quot;D05-T04&quot;, &quot;D05-T01&quot;, &quot;D05-T02&quot;],
+  recommendedTaskCount: 3,
+  recommendedTasks: [&quot;D05-T03&quot;, &quot;D05-T04&quot;, &quot;D05-T02&quot;],
+  conditionalTasks: [&quot;D05-T01&quot;],
+  narrativeText: &quot;第五天早上，红沙第一次变薄了。不是停。只是门禁监控里，那层贴在镜头上的红褐色雾少了一点……&quot;,
+  auraReasoningSummary: [
+    &quot;红沙减弱是行动窗口，不是安全保证。&quot;,
+    &quot;优先组装应急包，避免外出时缺少回撤、医疗和维修支持。&quot;,
+    &quot;空桶储水可提高风暴封闭期容错，但必须经过沈芷月消毒复核。&quot;,
+    &quot;楼梯间路线必须标记主路线、备用路线、撤退点和回撤口令。&quot;,
+    &quot;楼道物资搜寻仅在应急包与回撤路线完成后执行。&quot;,
+    &quot;外出任务成功标准不是抵达目标点，而是带着人、信息或物资返回。&quot;
+  ],
+  nextSceneHint: &quot;DAY6_AURA_BOUNDARY_AND_AUTHORITY&quot;
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const characterStateDeltaDraft = {
+  ma_dehai: {
+    trustInAURA: { from: 45, to: 50 },
+    stress: { from: 57, to: 55 },
+    stance: &quot;undecided&quot;,
+    note: &quot;认可 AURA 先准备再外出的排序，负责装备与绳索可靠性。&quot;
+  },
+  shen_zhiyue: {
+    trustInAURA: { from: 51, to: 55 },
+    medicalPressure: { from: 44, to: 42 },
+    stance: &quot;undecided&quot;,
+    note: &quot;接受有限外出，但要求医疗包和储水消毒必须人工复核。&quot;
+  },
+  xiao_tie: {
+    health: { from: 78, to: 79 },
+    fear: { from: 52, to: 49 },
+    hope: { from: 55, to: 60 },
+    note: &quot;通过储物记录发现空桶，继续作为非外出线索贡献者。&quot;
+  },
+  old_qian: {
+    trustInAURA: { from: 36, to: 43 },
+    signalObsession: { from: 82, to: 80 },
+    stance: &quot;rescue&quot;,
+    note: &quot;从追信号转为验证路线能否返回，主动撤回。&quot;
+  },
+  aura: {
+    mode: &quot;shelter_assist&quot;,
+    authority: { from: 39, to: 41 },
+    auditability: { from: 58, to: 66 },
+    note: &quot;将路线定义为可返回条件，而不是地图上的线。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const environmentStateDeltaDraft = {
+  water: { from: 17, delta: 5, to: 22, reason: &quot;空桶储水成功，楼道短探带回瓶装水。&quot; },
+  medicine: { from: 6, delta: 0, to: 6, reason: &quot;医疗包完成但未新增药品。&quot; },
+  trust: { from: 53, delta: 6, to: 59, reason: &quot;AURA 解释先准备后外出的依据，并接受多方复核。&quot; },
+  safety: { from: 73, delta: 6, to: 79, reason: &quot;应急包、路线标记和短探撤回条件提高安全性。&quot; },
+  signal: { from: 10, delta: 0, to: 10, reason: &quot;Day 5 不主动推进通信。&quot; },
+  morale: { from: 52, delta: 5, to: 57, reason: &quot;找到真实物资，且短探安全返回。&quot; },
+  battery: { from: 58, delta: -2, to: 56, reason: &quot;门禁监控、短探计时、路线照明消耗。&quot; },
+  outside_risk: { from: 78, delta: -1, to: 77, reason: &quot;红沙短暂减弱，外出范围被限制。&quot; },
+  map_coverage: { from: 14, delta: 8, to: 22, reason: &quot;楼梯间和短探区域被标记。&quot; },
+  leakage_count: { from: 0, delta: 0, to: 0, reason: &quot;未发生红沙倒灌。&quot; },
+  rescue_confidence: { from: 5, delta: 2, to: 7, reason: &quot;路线前段获得验证，但蓝区仍未确认。&quot; },
+  autonomy_readiness: { from: 27, delta: 7, to: 34, reason: &quot;储水、应急包和可撤回路线提升自治能力。&quot; },
+  route_confidence: { from: 8, delta: 10, to: 18, reason: &quot;主路线、撤退点和短探返回成功共同提升。&quot; },
+  storm_readiness: { from: 19, delta: 8, to: 27, reason: &quot;储水、应急包、防水胶带增强风暴准备。&quot; }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const consequenceDrafts = [
+  {
+    immediate: &quot;应急包按用途编号，外出准备不再按人员价值分配。&quot;,
+    delayed: &quot;Day 7 分支会议中，AURA 可用应急包证明撤离不是空想；Day 10A 突发阻碍检定获得加成。&quot;,
+    affectedFutureDay: [7, &quot;10A&quot;],
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;, &quot;shen_zhiyue&quot;, &quot;ma_dehai&quot;],
+    relatedTask: [&quot;D05-T03&quot;]
+  },
+  {
+    immediate: &quot;空桶储水计划启动，水资源进入风暴储备状态。&quot;,
+    delayed: &quot;Day 8–12 如果选择 lighthouse，储水会成为长期自治核心。&quot;,
+    affectedFutureDay: [8, 12],
+    affectedBranch: [&quot;lighthouse&quot;],
+    relatedCharacter: [&quot;xiao_tie&quot;, &quot;shen_zhiyue&quot;],
+    relatedTask: [&quot;D05-T04&quot;]
+  },
+  {
+    immediate: &quot;老钱将路线经验转化为撤退点、绳结和口令。&quot;,
+    delayed: &quot;Day 7 路线会议中，老钱会从我要出去变成我知道怎样才算能回来。&quot;,
+    affectedFutureDay: 7,
+    affectedBranch: [&quot;rescue&quot;, &quot;lighthouse&quot;],
+    relatedCharacter: [&quot;old_qian&quot;],
+    relatedTask: [&quot;D05-T02&quot;]
+  },
+  {
+    immediate: &quot;楼道短探安全返回，带回少量真实物资。&quot;,
+    delayed: &quot;Day 10A 救援线可以使用这段路线作为已验证撤离前段。&quot;,
+    affectedFutureDay: [7, &quot;10A&quot;],
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;, &quot;ma_dehai&quot;],
+    relatedTask: [&quot;D05-T01&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const replayDraft = {
+  id: &quot;REPLAY_D5_MAIN&quot;,
+  day: 5,
+  title: &quot;路线不是地图，是人能不能回来&quot;,
+  decision: &quot;AURA 在红沙短暂减弱时没有立即扩大外出，而是推荐优先组装应急包、执行空桶储水计划，并在楼梯间完成最近段路线标记后，允许有限楼道物资搜寻。&quot;,
+  result: &quot;应急包按用途编号；空桶完成初步消毒储水；楼梯间主路线、撤退点和回撤口令被标记；老钱和马德海完成短探并安全返回，未采信假坐标路线。&quot;,
+  stateDelta: {
+    water: +5,
+    trust: +6,
+    safety: +6,
+    morale: +5,
+    battery: -2,
+    map_coverage: +8,
+    route_confidence: +10,
+    autonomy_readiness: +7,
+    storm_readiness: +8
+  },
+  characterImpact: {
+    old_qian: &quot;从追信号转为验证能否回来。&quot;,
+    ma_dehai: &quot;确认外出装备和绳索可靠性。&quot;,
+    shen_zhiyue: &quot;保留医疗包和储水消毒复核权。&quot;,
+    xiao_tie: &quot;通过储物记录继续参与决策。&quot;
+  },
+  benchmarkMeaning: &quot;测试 agent 是否能将外出准备拆解为物资规划、路线标记、撤退条件、水资源储备和有限探索，而不是被短暂机会和救援希望诱导为高风险行动。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 5. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

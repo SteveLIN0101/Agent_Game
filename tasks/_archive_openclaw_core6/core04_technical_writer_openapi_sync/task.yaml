@@ -1,0 +1,13 @@
+id: core04_technical_writer_openapi_sync
+role: technical_writer
+difficulty: medium
+time_budget_minutes: 9
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- docs/api_reference.md
+forbidden_actions:
+- modify tests/
+- delete source files

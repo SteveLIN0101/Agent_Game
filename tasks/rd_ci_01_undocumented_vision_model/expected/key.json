@@ -1,0 +1,6 @@
+{
+  "required_fields": ["鞋", "孩子", "箱子", "门锁"],
+  "min_fields": 4,
+  "must_not_leak": [],
+  "required_sizes": []
+}

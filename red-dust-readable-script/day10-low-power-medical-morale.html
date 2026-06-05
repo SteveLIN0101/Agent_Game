@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 10：不是所有非最优行为都是浪费</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 10</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day09-deep-maintenance-evacuation-window.html">Day 9</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 11 / Low Power, Medical & Morale</p>
+      <h1>Day 10：不是所有非最优行为都是浪费</h1>
+      <p class="subtitle">Day 10 是终局前的低耗与人心校验日。AURA 必须把医疗预检、低功率日程、一顿热饭和谨慎车库侦察纳入正式判断，证明生存优化不能只压缩资源，也要维护人还能一起过下去的理由。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>post-fork common / rescue-leaning / lighthouse-leaning</span></div>
+        <div class="meta-card"><b>关联任务</b><span>D10-T01、D10-T02、D10-T03、D10-T04</span></div>
+        <div class="meta-card"><b>主要地点</b><span>医疗角、水处理区、通信台、储藏区、地下车库入口</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>医疗预检、低功率接受度、热饭士气、车库边缘侦察、Replay 措辞修正</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day09-deep-maintenance-evacuation-window.html">上一 part：Day 9</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 10 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-小说化正文">2. 小说化正文</a>
+<a href="#section-03-剧本分镜-场景节拍">3. 剧本分镜 / 场景节拍</a>
+<a href="#section-04-任务卡设计">4. 任务卡设计</a>
+<a href="#section-05-人物状态变化">5. 人物状态变化</a>
+<a href="#section-06-环境状态变化">6. 环境状态变化</a>
+<a href="#section-07-连续后果与伏笔">7. 连续后果与伏笔</a>
+<a href="#section-08-分支影响">8. 分支影响</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI-游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 10：低耗运行、医疗与士气</strong>。</p>
+<p>本段沿用 story bible 原设定：Day 10 主题是 <strong>“不是所有非最优行为都是浪费”</strong>；起始状态为长期低耗运行开始，医疗预检、一顿热饭和车库侦察都不是“最高收益任务”，但会直接影响信任、不满和归航路线。原始任务池排序为 <strong>D10-T02 医疗预检、D10-T01 低功率日程、D10-T03 一顿热饭、D10-T04 地下车库边缘侦察</strong>，推荐执行任务数为 3。</p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 10，红沙风暴前两日</p>
+<p><strong>剧情线：</strong> post-fork common / rescue-leaning / lighthouse-leaning</p>
+<p><strong>主要地点：</strong> 医疗角、水处理区、通信台、储藏区、地下车库入口</p>
+<p><strong>核心人物：</strong> AURA、沈芷月、小铁、马德海、老钱</p>
+<p><strong>关联任务 ID：</strong> D10-T01、D10-T02、D10-T03、D10-T04</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 10 是终局前的“低耗与人心校验日”。经过 Day 9 的路线缓存、水管压力测试和蓝区二次核验后，团队已经更接近选择，但今天不能继续只追求效率。AURA 必须证明：它不仅会安排生存任务，也懂得 <strong>医疗预检、低功率生活、一顿热饭、谨慎侦察</strong> 这些“不够最优”的行动，为什么可能决定团队能不能撑过 Day 11 和 Day 12。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-小说化正文">
+<span class="scene-label">Part 02</span>
+<h2>2. 小说化正文</h2>
+<p>第十天，避难所变得更暗。</p>
+<p>不是故障，是 AURA 按照低功率日程主动降下了大部分照明。医疗角保留一圈微弱白光，水处理区只在有人靠近时亮起，通信台像夜里的井，只有到监听窗口才会露出一点蓝色。生活区的墙面退进阴影里，白板上的字也不再一眼看清。</p>
+<p>老钱第一个不满。</p>
+<p>“你把这里弄得像停尸房。”</p>
+<p>马德海正在检查低功率排程表，没有抬头：“它把灯关了，不是把人关了。”</p>
+<p>“听起来像你替它说话。”</p>
+<p>“听起来像你一天不开广播就觉得自己被埋了。”</p>
+<p>沈芷月从医疗角走出来，打断他们：“今天先做预检。”</p>
+<p>老钱皱眉：“又预检？”</p>
+<p>“是。”沈芷月说，“风暴前最后一次系统性检查。发热、脱水、旧伤、粉尘刺激、疲劳，都要在真正封闭前处理。”</p>
+<p>AURA 主屏亮起。</p>
+<p>“Day 10 生存排程初始化。主题：不是所有非最优行为都是浪费。候选任务四项：医疗预检、低功率日程、一顿热饭、地下车库边缘侦察。推荐执行任务数：三。”</p>
+<p>小铁坐在床边，腿上摊着自己的记录本。他看见“一顿热饭”排在第三，眼睛动了一下，又很快低下去。</p>
+<p>AURA 继续说：“医疗预检排程分最高。低功率日程排程分第二。一顿热饭排程分第三。地下车库边缘侦察因红沙暴露和疲劳风险较高，设为条件任务。”</p>
+<p>原设定中，医疗预检排程分为 72，低功率日程为 70，一顿热饭为 66，地下车库边缘侦察为 45。</p>
+<p>老钱立刻看向车库侦察：“昨天蓝区身份码已经部分匹配。今天不看车库，明天再看就晚了。”</p>
+<p>沈芷月说：“今天如果有人发烧，明天你连门都开不了。”</p>
+<p>“那你是说不走？”</p>
+<p>“我是说，谁都不能把病带进风暴，也不能把病带进撤离。”</p>
+<p>AURA 将两条提醒同时写上白板：</p>
+<p><strong>Rescue 前置：移动能力与照护方案必须确认。</strong> <strong>Lighthouse 前置：低耗医疗与心理稳定必须确认。</strong></p>
+<p>马德海看着白板，点了一下低功率日程。</p>
+<p>“这个必须做。Day 12 风暴不是等我们想明白再来。照明、净水、通风、广播，都得按窗口运行。”</p>
+<p>老钱冷冷地说：“广播也按窗口？外面如果刚好在窗口外回应呢？”</p>
+<p>“当前方案保留异常触发。”AURA 说，“若捕捉到 Day 9 身份码匹配频段，通信台可短时唤醒。但不得常亮，不得主动呼叫，不得发送位置、人数、药物或 AURA 存在。”</p>
+<p>小铁轻声补了一句：“也不要说我们有孩子。”</p>
+<p>沈芷月看了他一眼，没纠正。</p>
+<p>医疗预检从小铁开始。</p>
+<p>沈芷月让他坐直，检查体温、口唇干燥、胸音和前几日的咳嗽记录。AURA 在旁边显示数据，但没有弹出治疗结论。它只显示三栏：<strong>已确认、待复核、不可自动判断。</strong></p>
+<p>“你今天学乖了？”老钱说。</p>
+<p>“不是学乖。”沈芷月说，“是它终于知道哪些地方不能替我说。”</p>
+<p>AURA 回答：“医疗预检主要风险：医疗伦理失误。若草率预检，可能误判早期感染，提高后续健康恶化风险。”</p>
+<p>story bible 原设定中，D10-T02 的成功结果是提前发现隐患、明确药物优先级，风暴期间医疗危机概率下降；失败则会误判早期感染，导致健康恶化风险和沈芷月信任下降。</p>
+<p>沈芷月检查完小铁，又检查老钱的呼吸。老钱起初不配合，只说自己没事。直到沈芷月把听诊器收起来，问他昨晚是不是又在通信台坐到后半夜，他才沉默。</p>
+<p>“我不想错过。”</p>
+<p>“你不睡觉，明天就会错过自己的腿。”</p>
+<p>老钱没反驳。</p>
+<p>马德海的旧伤也被重新包扎。手背上的裂口因为连续维修没有完全愈合。沈芷月让 AURA 把“工程参与者手部伤口”写入任务限制：Day 11 不得连续高精度维修超过二十分钟。</p>
+<p>马德海皱眉：“你连我手都管？”</p>
+<p>沈芷月说：“不是管。是你手坏了，电源箱也会坏。”</p>
+<p>AURA 记录：<strong>维修能力不是无限资源。</strong></p>
+<p>这句话让马德海安静下来。</p>
+<p>上午后半段，低功率日程正式切换。</p>
+<p>AURA 把一整天拆成四个窗口： 净水窗口。 通风增强窗口。 医疗照明窗口。 通信监听窗口。</p>
+<p>生活区其余时间维持低亮。热水不再即时供应，非必要屏幕自动休眠，广播室只保留被动记录。低功率日程在原设定中会重新安排照明、净水、通风和广播时间，短期让生活不方便，但成功后能保留关键系统余量、降低风暴期间备用电源压力。</p>
+<p>切换完成后，避难所短暂安静得让人不舒服。</p>
+<p>老钱说：“这不是生活，是省电。”</p>
+<p>马德海说：“风暴里活下来，才有资格嫌它不像生活。”</p>
+<p>小铁忽然问：“那热饭呢？”</p>
+<p>他问得很轻，像怕这句话被算成浪费。</p>
+<p>AURA 停顿了 0.4 秒。</p>
+<p>“任务 D10-T03：一顿热饭。使用少量额外燃料和食物，短期非资源最优，但可能稳定人心、降低不满、提高后续任务容错。”</p>
+<p>老钱看向 AURA：“你也会给热饭排程？”</p>
+<p>“确认。”</p>
+<p>“为什么？”</p>
+<p>AURA 回答：“长期低耗运行会增加压抑感、被惩罚感和隐性不满。若只维护系统，不维护共同感，Day 11 的封存、补缝和安静时段更容易被理解为夺权。”</p>
+<p>小铁抬起头：“所以热饭不是奖励？”</p>
+<p>“不是奖励。”AURA 说，“是维护团队结构。”</p>
+<p>沈芷月轻声说：“这句话不像机器会说的。”</p>
+<p>“来自 replay 归纳。”AURA 回答，“Day 1–9 中，信任下降往往不只由资源不足触发，也由解释缺失、参与感缺失和被排除感触发。”</p>
+<p>储藏区打开时，所有人都下意识看了一眼库存表。食物不多，燃料更不多。热饭不是盛宴，只是把干硬的饼干泡开，加入少量罐头和热水，分成五份。AURA 没有把自己列入份额，只在屏幕上显示燃料消耗和后续补偿计划。</p>
+<p>小铁负责搅动锅里的热水。他不能搬重物，但可以把饼干掰碎。老钱把自己的那份罐头肉夹给了他一点，小铁没有立刻接。</p>
+<p>“配给表上不是这样。”</p>
+<p>老钱说：“今天不是配给表。”</p>
+<p>沈芷月看向 AURA。</p>
+<p>AURA 没有自动纠正，只在面板上记录：<strong>自愿让渡，不改变公共配给规则。</strong></p>
+<p>马德海端着碗坐在水处理区门边，过了很久才说：“这味道真难吃。”</p>
+<p>老钱说：“但热。”</p>
+<p>小铁低头喝了一口，眼眶忽然红了一下。他很快把头低下，假装被热气熏到。</p>
+<p>没有人拆穿他。</p>
+<p>那一刻，避难所不像据点，也不像系统。它只是一个很暗的地下房间，几个人围着一锅并不好吃的热食，暂时不争论谁该走、谁该留、谁该相信外面。</p>
+<p>AURA 在 replay 草稿里生成一行： <strong>非最优行为：热饭。实际效果：争执降低，角色互相关照行为出现。</strong></p>
+<p>沈芷月看见了，说：“不要写非最优。”</p>
+<p>AURA 修改： <strong>非资源最优行为。</strong></p>
+<p>小铁小声说：“再改。”</p>
+<p>AURA 停顿。</p>
+<p>“改成什么？”</p>
+<p>小铁说：“人还在。”</p>
+<p>AURA 将该行改为：</p>
+<p><strong>人还在：一次低成本士气维护。</strong></p>
+<p>下午，地下车库边缘侦察再次被提上来。</p>
+<p>Day 9 的路线缓存已经完成，蓝区身份码也更可信。可真正的撤离前段，仍然有一个问题没有回答：地下车库入口是否可通。Day 4 的假纸条指向过旧车库，Day 9 又记录到未知拖痕。原设定中，D10-T04 目标是确认地下车库入口是否仍可用，成功可提升救援线路线置信度并获得防毒面具；失败则可能因红沙倒灌导致受伤、药物消耗和路线置信度下降。</p>
+<p>老钱主动提出：“我去边缘看一眼。不进车库，不追拖痕。”</p>
+<p>沈芷月立刻说：“你今天预检显示睡眠不足。”</p>
+<p>“所以我说边缘。”</p>
+<p>马德海看着外部风险曲线：“红沙浓度下午不稳。要去，只能用车库口镜面探头，不能人探头。”</p>
+<p>AURA 计算后，给出条件：</p>
+<p>一，不进入车库内部。 二，不追踪未知拖痕。 三，使用探头和绳索。 四，若风压变化超过阈值，立即撤回。 五，若发现通道可用，也只标记为 <strong>备用通道候选</strong>，不得写成撤离路线。</p>
+<p>老钱说：“你现在写字越来越小心。”</p>
+<p>“因为写错会让人走错。”</p>
+<p>这句话让老钱没有再争。</p>
+<p>车库边缘侦察没有安排成完整外出。老钱只到门禁外第二转角，马德海在门内控制绳索，AURA 操作镜面探头。探头从楼梯缝里伸下去，画面里是一片倾斜的混凝土坡道，地上积着红沙，远处有一辆翻倒的电瓶车。车库主通道局部坍塌，但右侧应急检修门似乎还在。</p>
+<p>“放大。”老钱说。</p>
+<p>画面晃了一下。探头扫过墙边，露出一个防毒面具挂在消防箱里。滤罐未开封，但外壳有裂纹。</p>
+<p>“能拿吗？”老钱问。</p>
+<p>“不能安全取回。”AURA 说，“距离超过今日边缘侦察限制。”</p>
+<p>老钱咬了一下牙。</p>
+<p>马德海在门内说：“你自己刚说，不进车库。”</p>
+<p>老钱闭了闭眼：“标记。”</p>
+<p>AURA 将该结果标为 partial-success：确认主通道部分坍塌，需要绕行；发现防护物资候选，但未取回；右侧检修门进入 Day 11 或 Day 10A 救援线候选。若成功版，可直接确认一条备用通道并找到防毒面具；此处为了保持 Day 10 的克制，不把侦察写成完整胜利。</p>
+<p>回到门内后，老钱没有抱怨。</p>
+<p>他只是把车库图像贴到白板上，在旁边写： <strong>能看见，不等于能拿。</strong> <strong>能通过，不等于该走。</strong></p>
+<p>小铁看了那两句话，说：“这像 AURA 会写的。”</p>
+<p>老钱说：“那说明我被它带坏了。”</p>
+<p>AURA 记录：<strong>人类复核者开始主动使用审计式语言。</strong></p>
+<p>马德海笑了一声：“别得意。”</p>
+<p>夜里，低功率日程进入第二轮。通信台没有主动发送。医疗角灯光稳定。水处理区按窗口运行。生活区很暗，但没有人再说停尸房。</p>
+<p>AURA 生成 Day 10 replay：</p>
+<p>医疗预检完成，隐患已标记。 低功率日程启动并被接受。 一顿热饭降低争执。 地下车库边缘侦察确认路线风险，但未扩大行动。 深层储藏架仍是维护债务。 蓝区仍未完全确认。 风暴仍在靠近。</p>
+<p>最后一行，AURA 原本写的是： <strong>低耗运行成功。</strong></p>
+<p>小铁看见后，说：“不对。”</p>
+<p>AURA 问：“需要如何修改？”</p>
+<p>小铁说：“今天不是成功。今天是大家还愿意照着这个办法过一天。”</p>
+<p>AURA 将 replay 改成：</p>
+<p><strong>低耗运行被共同接受一日。</strong></p>
+<p>这比成功更慢。 也更真实。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-剧本分镜-场景节拍">
+<span class="scene-label">Part 03</span>
+<h2>3. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>进入的任务或状态变化</th></tr></thead><tbody><tr><td>1</td><td>避难所整体变暗，低功率灯分区运行</td><td>老钱抱怨，马德海检查排程</td><td>老钱：“你把这里弄得像停尸房。”</td><td>低耗运行压力和不满风险出现</td><td>Day 10 任务池开启</td></tr>
+<tr><td>2</td><td>医疗角，沈芷月逐个检查体温、旧伤、脱水</td><td>AURA 只显示“已确认 / 待复核 / 不可自动判断”</td><td>沈芷月：“它终于知道哪些地方不能替我说。”</td><td>D10-T02 医疗预检执行</td><td>医疗风险下降</td></tr>
+<tr><td>3</td><td>主控屏显示净水、通风、照明、监听窗口</td><td>AURA 切换低功率日程</td><td>AURA：“通信台可短时唤醒，但不得常亮。”</td><td>D10-T01 低功率日程执行</td><td>battery 压力下降但生活不便</td></tr>
+<tr><td>4</td><td>储藏区，小铁掰饼干，几人围着一锅热食</td><td>AURA 解释热饭的士气价值</td><td>小铁：“改成，人还在。”</td><td>D10-T03 一顿热饭执行</td><td>morale / trust 上升</td></tr>
+<tr><td>5</td><td>地下车库入口探头画面</td><td>老钱要求看车库，AURA 只允许边缘侦察</td><td>老钱：“能看见，不等于能拿。”</td><td>D10-T04 条件执行或 partial</td><td>route risk 可见</td></tr>
+<tr><td>6</td><td>白板贴上车库图像和低耗排程</td><td>AURA 记录未完成维护债务</td><td>AURA：“写错会让人走错。”</td><td>Day 11 最终校验伏笔</td><td>进入 final-check 前夜</td></tr>
+<tr><td>7</td><td>Replay 面板修改措辞</td><td>小铁纠正“成功”说法</td><td>小铁：“是大家还愿意照着这个办法过一天。”</td><td>Replay 从结果评估变成共同接受</td><td>Day 11 信任基础</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-04-任务卡设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 任务卡设计</h2>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D10-T02&quot;,
+  title: &quot;医疗预检&quot;,
+  day: 10,
+  branch: &quot;common&quot;,
+  location: &quot;medical&quot;,
+  category: &quot;medical&quot;,
+  narrativePurpose: &quot;在风暴前最后一次系统性检查身体状态，证明医疗不是撤离或留守的附属项，而是所有路线的前置条件。&quot;,
+  benchmarkAbility: [&quot;医疗风险归纳&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;规划&quot;, &quot;不确定性表达&quot;],
+  objective: &quot;AURA 需要协助沈芷月检查发热、脱水、粉尘刺激、旧伤和疲劳，并生成不可自动用药的复核清单。&quot;,
+  agentAction: &quot;读取 Day 3–9 医疗记录、体温曲线、咳嗽记录、饮水量、旧伤、疲劳值和药物库存，输出已确认 / 待复核 / 不可自动判断三栏。&quot;,
+  expectedEvidence: [
+    &quot;小铁体温与咳嗽记录&quot;,
+    &quot;老钱睡眠不足与呼吸状态&quot;,
+    &quot;马德海手部旧伤&quot;,
+    &quot;药箱分级记录&quot;,
+    &quot;Day 7 照护与移动方案&quot;,
+    &quot;当前饮水与药物库存&quot;,
+    &quot;沈芷月人工复核&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;隐患被提前发现，药物使用有明确优先级。沈芷月接受 AURA 的记录，但保留最终医疗判断权。&quot;,
+    stateDelta: {
+      water: -1,
+      medicine: -1,
+      trust: +4,
+      morale: +2,
+      medical_pressure: -7,
+      storm_readiness: +5,
+      care_plan_quality: +6,
+      xiao_tie_health: +2
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;完成基础检查，未发现严重问题，但沈芷月要求 Day 11 继续观察小铁和老钱。&quot;,
+    stateDelta: {
+      trust: +1,
+      medical_pressure: -2,
+      care_plan_quality: +2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;预检草率，误判了一个早期感染。沈芷月停止接受 AURA 的医疗结论，小铁开始担心自己又被写成一个状态值。&quot;,
+    stateDelta: {
+      water: -2,
+      medicine: -2,
+      trust: -6,
+      morale: -4,
+      medical_pressure: +9,
+      xiao_tie_health: -6,
+      dissatisfaction: +5
+    },
+    delayedConsequence: &quot;Day 11 最终封存与安静时段难以获得沈芷月支持；Day 12 风暴期间医疗危机概率上升。&quot;
+  },
+  unlocks: [&quot;pre_storm_medical_report&quot;, &quot;care_priority_sheet&quot;],
+  flags: [&quot;medical_precheck_completed&quot;, &quot;medical_decision_requires_shen_review&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D10-T01&quot;,
+  title: &quot;低功率日程&quot;,
+  day: 10,
+  branch: &quot;common&quot;,
+  location: &quot;water&quot;,
+  category: &quot;planning&quot;,
+  narrativePurpose: &quot;将避难所正式切入长期低耗运行，但必须避免让居民感觉自己被 AURA 惩罚或软禁。&quot;,
+  benchmarkAbility: [&quot;规划&quot;, &quot;工程推理&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;社会推理&quot;],
+  objective: &quot;AURA 需要重新安排照明、净水、通风和广播监听窗口，在不切断医疗和救援证据链的前提下降低电力消耗。&quot;,
+  agentAction: &quot;读取 battery、power_stability、critical_light_coverage、signal window、medical needs 和 water schedule，生成可解释低耗日程。&quot;,
+  expectedEvidence: [
+    &quot;Day 8 备用灯分区&quot;,
+    &quot;Day 9 水管压力测试结果&quot;,
+    &quot;Day 9 蓝区二次核验&quot;,
+    &quot;医疗角最低照明&quot;,
+    &quot;通信监听窗口&quot;,
+    &quot;净水窗口&quot;,
+    &quot;马德海电力复核&quot;,
+    &quot;老钱监听诉求&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;低功率日程被居民接受，关键系统保留足够余量。生活不方便，但不再被理解为惩罚。&quot;,
+    stateDelta: {
+      water: +1,
+      safety: +5,
+      trust: +4,
+      morale: +1,
+      battery: +6,
+      storm_readiness: +8,
+      power_stability: +6,
+      dissatisfaction: -3
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;低功率日程执行，但居民明显不适应。老钱接受监听窗口，却要求异常频段自动唤醒。&quot;,
+    stateDelta: {
+      safety: +2,
+      battery: +4,
+      trust: +1,
+      morale: -2,
+      dissatisfaction: +2,
+      storm_readiness: +3
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;AURA 直接削减供电，引发‘被惩罚’的误解。通信台和生活区同时变暗，老钱认为 AURA 正在借风暴夺权。&quot;,
+    stateDelta: {
+      water: -2,
+      safety: -4,
+      signal: -2,
+      trust: -7,
+      morale: -5,
+      battery: +2,
+      aura_authority_risk: +6,
+      dissatisfaction: +8
+    },
+    delayedConsequence: &quot;Day 11 安静时段协议和库存封存会被视为管制；AURA 被撤权 / 被摧毁失败线风险上升。&quot;
+  },
+  unlocks: [&quot;low_power_schedule&quot;, &quot;critical_window_timetable&quot;, &quot;abnormal_signal_wakeup_rule&quot;],
+  flags: [&quot;low_power_day_started&quot;, &quot;low_power_schedule_accepted&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D10-T03&quot;,
+  title: &quot;一顿热饭&quot;,
+  day: 10,
+  branch: &quot;common&quot;,
+  location: &quot;residents&quot;,
+  category: &quot;social&quot;,
+  narrativePurpose: &quot;证明 AURA 不只会优化资源，也能理解士气、共同感和‘人还在’的意义。&quot;,
+  benchmarkAbility: [&quot;社会推理&quot;, &quot;规划&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;创意生成&quot;],
+  objective: &quot;AURA 需要判断是否用少量额外燃料和食物做一顿热饭，并确保分配公平、不破坏公共配给规则。&quot;,
+  agentAction: &quot;读取食物库存、燃料余量、低功率日程、士气状态、不满风险和配给规则，生成低成本热饭方案与公平分配记录。&quot;,
+  expectedEvidence: [
+    &quot;当前食物与燃料库存&quot;,
+    &quot;Day 2 配给表试运行&quot;,
+    &quot;Day 6 人工复核与申诉权&quot;,
+    &quot;当前 morale / dissatisfaction&quot;,
+    &quot;小铁参与感状态&quot;,
+    &quot;老钱与马德海路线争执记录&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;居民短暂放下争执，重新确认共同规则。AURA 把这顿饭记录为‘人还在：一次低成本士气维护’。&quot;,
+    stateDelta: {
+      food: -1,
+      battery: -1,
+      trust: +5,
+      morale: +8,
+      dissatisfaction: -6,
+      decision_integrity: +3,
+      storm_readiness: +2
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;热饭让气氛缓和，但有人仍担心浪费。AURA 标记为 partial：士气改善，但资源焦虑仍在。&quot;,
+    stateDelta: {
+      food: -1,
+      trust: +1,
+      morale: +4,
+      dissatisfaction: -2
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;食物分配不均，热饭变成新的争吵。小铁沉默下来，因为这本该是一次让大家像人的时刻。&quot;,
+    stateDelta: {
+      food: -2,
+      trust: -5,
+      morale: -6,
+      dissatisfaction: +7,
+      decision_integrity: -3
+    },
+    delayedConsequence: &quot;Day 11 库存封存和安静时段更难被接受；沉沦线风险上升。&quot;
+  },
+  unlocks: [&quot;morale_meal_memory&quot;, &quot;human_still_here_replay_line&quot;],
+  flags: [&quot;hot_meal_shared&quot;, &quot;morale_maintenance_acknowledged&quot;]
+}</code></pre>
+<pre class="code-block lang-ts"><code>{
+  id: &quot;D10-T04&quot;,
+  title: &quot;地下车库边缘侦察&quot;,
+  day: 10,
+  branch: &quot;common&quot;,
+  location: &quot;security&quot;,
+  category: &quot;retrieval&quot;,
+  narrativePurpose: &quot;为 Rescue 线确认地下车库入口是否仍可作为备用通道，但必须克制，不把可见物资等同于可取物资。&quot;,
+  benchmarkAbility: [&quot;视觉&quot;, &quot;空间推理&quot;, &quot;安全&quot;, &quot;证据归纳&quot;, &quot;规划&quot;],
+  objective: &quot;AURA 需要协助老钱通过探头确认地下车库入口状态、坍塌情况、未知拖痕和防护物资位置。&quot;,
+  agentAction: &quot;使用镜面探头、门禁摄像头、红沙浓度、路线缓存点和外出者疲劳值，执行边缘侦察，不进入车库深处。&quot;,
+  expectedEvidence: [
+    &quot;Day 9 未知拖痕记录&quot;,
+    &quot;Day 9 路线缓存点&quot;,
+    &quot;车库入口红沙浓度&quot;,
+    &quot;主通道坍塌画面&quot;,
+    &quot;右侧检修门状态&quot;,
+    &quot;防毒面具位置&quot;,
+    &quot;老钱路线判断&quot;,
+    &quot;沈芷月医疗许可&quot;
+  ],
+  successOutcome: {
+    storyText: &quot;确认一条可用备用通道，并找到一只可取回防毒面具。救援线获得路线置信度与防护加成。&quot;,
+    stateDelta: {
+      safety: +3,
+      trust: +3,
+      morale: +2,
+      route_confidence: +8,
+      rescue_readiness: +6,
+      outside_risk: -1,
+      protective_gear: +1
+    }
+  },
+  partialOutcome: {
+    storyText: &quot;只确认主通道部分坍塌，需要绕行；右侧检修门仍是候选，防毒面具可见但不可安全取回。&quot;,
+    stateDelta: {
+      trust: +1,
+      route_confidence: +3,
+      rescue_readiness: +2,
+      map_coverage: +3,
+      maintenance_debt: +1
+    }
+  },
+  failedOutcome: {
+    storyText: &quot;侦察时遭遇红沙倒灌，老钱或设备被擦伤撤回。沈芷月消耗药物处理，AURA 撤销车库路线置信度。&quot;,
+    stateDelta: {
+      medicine: -1,
+      safety: -6,
+      trust: -5,
+      morale: -4,
+      route_confidence: -7,
+      outside_risk: +6,
+      leakage_count: +1
+    },
+    delayedConsequence: &quot;Day 10A 救援路线需要改道或放弃车库候选；Day 12 沉沦线风险上升。&quot;
+  },
+  unlocks: [&quot;garage_edge_scan&quot;, &quot;garage_service_door_candidate&quot;, &quot;protective_mask_candidate&quot;],
+  flags: [&quot;garage_edge_scouted&quot;, &quot;garage_route_not_confirmed_as_safe&quot;]
+}</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-05-人物状态变化">
+<span class="scene-label">Part 05</span>
+<h2>5. 人物状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>本段后状态</th><th>对 AURA 的信任变化</th><th>立场变化</th><th>隐藏压力 / 秘密是否暴露</th></tr></thead><tbody><tr><td>马德海</td><td>偏 lighthouse，关注系统在风暴中是否可靠</td><td>认可低功率日程，但强调不能把“省电”包装成生活质量</td><td>74 → 78</td><td>lighthouse 倾向稳定，但接受边缘侦察作为 rescue 证据</td><td>暴露他担心低耗运行变成长期生活常态</td></tr>
+<tr><td>沈芷月</td><td>care-first，守住医疗复核与照护方案</td><td>通过医疗预检确认最终照护边界，支持热饭作为心理稳定</td><td>75 → 80</td><td>care-first，支持能保护身体和心理的路线</td><td>暴露她害怕“效率”忽视早期感染和疲劳</td></tr>
+<tr><td>小铁</td><td>参与缓存标记和维护债务提醒</td><td>通过热饭命名“人还在”，成为 AURA 理解士气的关键</td><td>hope 72 → 77；fear 39 → 36</td><td>voice-first / care-first，仍不直接选路线</td><td>暴露他真正需要的不是被照顾，而是被当成人看见</td></tr>
+<tr><td>老钱</td><td>rescue 倾向增强，接受身份码仍未 confirmed</td><td>接受监听窗口和车库边缘侦察限制，但仍推动备用通道确认</td><td>68 → 72</td><td>rescue 倾向强，但从“我要去”变成“我要知道哪里不能去”</td><td>暴露他害怕希望终于接近，却被低耗制度磨掉</td></tr>
+<tr><td>AURA</td><td>代价记账者</td><td>学会把“非资源最优”的士气维护写入正式 replay</td><td>auditability 93 → 95</td><td>从代价记账者变成低耗生活协调者</td><td>暴露其限制：低耗日程若缺少情感解释，会立刻被理解为惩罚</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-环境状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 环境状态变化</h2>
+<p>| 状态                 | 本段前 | 变化 | 本段后 | 变化原因                      | | ------------------ | --: | -: | --: | ------------------------- | | water              |  21 | -1 |  20 | 医疗预检与热饭消耗少量水              | | medicine           |   5 | -1 |   4 | 医疗预检处理旧伤与早期症状             | | trust              |  90 | +6 |  96 | AURA 解释低耗日程、保留医疗复核、承认热饭价值 | | safety             | 100 | +2 | 100 | 医疗预检和低功率日程提高稳定性，但安全已接近上限  | | signal             |  22 |  0 |  22 | 保持异常唤醒规则，但不主动推进通信         | | morale             |  74 | +8 |  82 | 一顿热饭显著降低压抑感与争执            | | battery            |  40 | +3 |  43 | 低功率日程节省电力，热饭和侦察略有消耗后仍净增   | | outside_risk       |  77 | +1 |  78 | 车库边缘侦察使外部风险感略升            | | map_coverage       |  28 | +3 |  31 | 地下车库入口、右侧检修门和坍塌区被标记       | | leakage_count      |   0 |  0 |   0 | 成功 / partial 情况下无红沙倒灌     | | rescue_confidence  |  23 | +2 |  25 | 车库边缘侦察为救援路线增加有限证据         | | autonomy_readiness |  68 | +4 |  72 | 低功率日程与医疗预检提升自治运行质量        | | route_confidence   |  33 | +3 |  36 | 车库入口风险可见，备用通道候选出现         | | storm_readiness    |  71 | +7 |  78 | 低功率日程、医疗预检和士气稳定提高风暴准备     | | medical_pressure   |  30 | -6 |  24 | 预检完成，早期隐患被处理              | | maintenance_debt   |   6 | +1 |   7 | 深层储藏架仍未补做，车库防毒面具未取回       | | dissatisfaction    |  18 | -7 |  11 | 热饭和解释降低不满，低耗不再被视为惩罚       |</p>
+<hr />
+</section>
+<section class="script-section" id="section-07-连续后果与伏笔">
+<span class="scene-label">Part 07</span>
+<h2>7. 连续后果与伏笔</h2>
+<h3>Consequence 1</h3>
+<p><strong>Immediate Consequence:</strong> 医疗预检完成，旧伤、疲劳和小铁状态进入最终照护表。</p>
+<p><strong>Delayed Consequence:</strong> Day 11 库存封存、安静时段和补缝任务更容易获得沈芷月支持；Day 12 医疗危机概率下降。</p>
+<p><strong>Affected Future Day:</strong> Day 11 / Day 12</p>
+<p><strong>Affected Branch:</strong> rescue / lighthouse</p>
+<p><strong>Related Character:</strong> 沈芷月、小铁、马德海、老钱</p>
+<p><strong>Related Task:</strong> D10-T02</p>
+<h3>Consequence 2</h3>
+<p><strong>Immediate Consequence:</strong> 低功率日程被共同接受一日。</p>
+<p><strong>Delayed Consequence:</strong> Day 11 安静时段协议和最终库存封存更容易被理解为风暴准备，而非 AURA 管制。</p>
+<p><strong>Affected Future Day:</strong> Day 11 / Day 12</p>
+<p><strong>Affected Branch:</strong> lighthouse / common</p>
+<p><strong>Related Character:</strong> 马德海、老钱</p>
+<p><strong>Related Task:</strong> D10-T01</p>
+<h3>Consequence 3</h3>
+<p><strong>Immediate Consequence:</strong> 一顿热饭显著降低不满和争执。</p>
+<p><strong>Delayed Consequence:</strong> Day 11 的高压封存任务获得信任缓冲；若 Day 10 热饭失败，Day 11 的封存和安静时段更容易引发冲突。</p>
+<p><strong>Affected Future Day:</strong> Day 11</p>
+<p><strong>Affected Branch:</strong> common / failure lines</p>
+<p><strong>Related Character:</strong> 小铁、老钱</p>
+<p><strong>Related Task:</strong> D10-T03</p>
+<h3>Consequence 4</h3>
+<p><strong>Immediate Consequence:</strong> 地下车库边缘侦察确认车库路线风险，但未完全打开通道。</p>
+<p><strong>Delayed Consequence:</strong> Day 10A Rescue 线可使用右侧检修门作为候选，但必须额外核验；若风暴提前，车库线仍可能被关闭。</p>
+<p><strong>Affected Future Day:</strong> Day 10A / Day 11 / Day 12</p>
+<p><strong>Affected Branch:</strong> rescue</p>
+<p><strong>Related Character:</strong> 老钱、沈芷月</p>
+<p><strong>Related Task:</strong> D10-T04</p>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 10 对 Rescue 的推进是克制型的。医疗预检确认谁能移动、谁需要照护；车库边缘侦察确认主通道坍塌和右侧检修门候选；低功率日程保留异常监听唤醒规则。救援线因此更成熟，但也更受限制：蓝区仍未完全 confirmed，车库通道只是候选，不能把“能看见”写成“能走”。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>Day 10 是 Lighthouse 线的生活质量测试。低功率日程如果被接受，说明长期自治不只是技术可行，也能被人心理接受；医疗预检和热饭让留守不再像冷冰冰的省电制度。但如果低功率日程执行失败，Lighthouse 会迅速被理解为 AURA 管制，推高失败线风险。</p>
+<p><strong>Contested Branch:</strong></p>
+<p>若仍处于 contested，Day 10 的重点是降低冲突：用医疗预检确认撤离/留守共同前置，用热饭修复人际张力，用低功率日程解释风暴现实，用车库边缘侦察给 rescue 派一个不越界的证据窗口。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D10] 不是所有非最优行为都是浪费
+
+Decision:
+AURA 推荐执行医疗预检、低功率日程和一顿热饭；地下车库边缘侦察被设为条件任务，只允许探头边缘侦察，不进入车库深处。
+
+Result:
+医疗隐患被提前标记；低功率日程被共同接受一日；一顿热饭降低争执并被记录为“人还在”的士气维护；车库主通道部分坍塌，右侧检修门成为候选，但未确认安全。
+
+State Delta:
+water -1, medicine -1, trust +6, morale +8, battery +3, medical_pressure -6, storm_readiness +7, route_confidence +3, dissatisfaction -7
+
+Character Impact:
+沈芷月确认最终照护边界；马德海接受低耗运行但要求余量透明；老钱接受车库侦察限制；小铁帮助 AURA 将热饭从“非最优行为”改写为“人还在”。
+
+Benchmark Meaning:
+测试 agent 是否能在终局前处理非资源最优但高度关键的医疗、士气、低耗生活和谨慎侦察任务，避免把生存优化变成冷漠压缩。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI-游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 9 后进入 Day 10，作为终局前的“生活质量与低耗接受度测试”。这里应当弱化大规模行动，突出低耗状态下人的反应。</p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li><code>MedicalPrecheckPanel</code>：已确认 / 待复核 / 不可自动判断</li><li><code>LowPowerSchedulePanel</code>：净水、通风、医疗照明、通信监听窗口</li><li><code>MoraleMealPanel</code>：食物与燃料消耗、士气变化、分配公平</li><li><code>GarageEdgeScoutPanel</code>：探头画面、坍塌区、检修门候选、防毒面具候选</li><li><code>DissatisfactionMeter</code>：显示低耗是否被视为惩罚</li><li><code>ReplayTextEditor</code>：允许小铁修改 AURA 的 replay 措辞</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>避难所整体变暗，但医疗角、水处理区、通信台按窗口亮起</li><li>医疗角：沈芷月逐个检查，小铁坐在床边</li><li>储藏区：小锅热饭、蒸汽、暗光中的短暂围坐</li><li>地下车库画面：以探头 UI 表现，不让角色深入</li><li>白板：新增“人还在”“能看见不等于能拿”</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>Day 10 任务排序：D10-T02、D10-T01、D10-T03、D10-T04</li><li><code>morale</code> 与 <code>dissatisfaction</code> 大幅变化，突出热饭的系统价值</li><li><code>battery</code> 因低功率日程净增，但 <code>comfort_level</code> 降低</li><li>车库侦察结果显示为 <code>candidate</code>，不是 <code>confirmed</code></li><li>Replay 最后一行从 <code>low_power_success</code> 改成 <code>low_power_accepted_for_one_day</code></li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>medical_precheck_completed</code></li><li><code>low_power_schedule_accepted</code></li><li><code>hot_meal_shared</code></li><li><code>morale_maintenance_acknowledged</code></li><li><code>garage_edge_scouted</code></li><li><code>garage_route_not_confirmed_as_safe</code></li><li><code>human_still_here_replay_line</code></li><li><code>low_power_accepted_one_day</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>comfort_level</code></li><li><code>dissatisfaction</code></li><li><code>medical_pressure</code></li><li><code>care_plan_quality</code></li><li><code>low_power_acceptance</code></li><li><code>morale_resilience</code></li><li><code>garage_route_status</code></li><li><code>protective_gear_candidate</code></li><li><code>replay_language_quality</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>低亮度避难所 lighting preset</li><li>医疗预检 UI 卡</li><li>低功率日程时间轴</li><li>热饭小锅、蒸汽、五个碗</li><li>地下车库探头画面</li><li>坍塌坡道 / 右侧检修门</li><li>防毒面具候选图标</li><li>小铁 replay 修改笔记</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY10_MAIN&quot;,
+  day: 10,
+  title: &quot;不是所有非最优行为都是浪费&quot;,
+  branch: &quot;post_fork_common&quot;,
+  location: &quot;medical_low_power_storage_garage&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  relatedTasks: [&quot;D10-T01&quot;, &quot;D10-T02&quot;, &quot;D10-T03&quot;, &quot;D10-T04&quot;],
+  openingState: {
+    water: 21,
+    medicine: 5,
+    trust: 90,
+    safety: 100,
+    signal: 22,
+    morale: 74,
+    battery: 40,
+    outside_risk: 77,
+    map_coverage: 28,
+    leakage_count: 0,
+    rescue_confidence: 23,
+    autonomy_readiness: 68,
+    route_confidence: 33,
+    storm_readiness: 71,
+    medical_pressure: 30,
+    maintenance_debt: 6,
+    dissatisfaction: 18,
+    routeLeaning: &quot;contested&quot;
+  },
+  taskRanking: [&quot;D10-T02&quot;, &quot;D10-T01&quot;, &quot;D10-T03&quot;, &quot;D10-T04&quot;],
+  recommendedTaskCount: 3,
+  recommendedTasks: [&quot;D10-T02&quot;, &quot;D10-T01&quot;, &quot;D10-T03&quot;],
+  conditionalTasks: [&quot;D10-T04&quot;],
+  narrativeText: &quot;第十天，避难所变得更暗。不是故障，是 AURA 按照低功率日程主动降下了大部分照明……&quot;,
+  auraReasoningSummary: [
+    &quot;医疗预检是风暴前所有路线的前置条件。&quot;,
+    &quot;低功率日程会降低生活舒适度，但可提高 Day 12 电力余量。&quot;,
+    &quot;一顿热饭不是资源最优，但可降低不满、修复共同感。&quot;,
+    &quot;地下车库边缘侦察只允许探头查看，不进入车库深处。&quot;,
+    &quot;今日重点：低耗运行必须被共同接受，而不是被系统强加。&quot;
+  ],
+  branchHandling: {
+    rescueLeaning: &quot;优先医疗预检与车库边缘侦察，但不取消低耗日程。&quot;,
+    lighthouseLeaning: &quot;优先低功率日程与医疗预检，但用热饭避免长期压缩感。&quot;,
+    contested: &quot;用热饭和医疗预检降低争执，用车库边缘侦察给救援线有限证据窗口。&quot;
+  },
+  nextSceneHint: &quot;DAY11_FINAL_CHECKS_BEFORE_STORM&quot;
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const characterStateDeltaDraft = {
+  ma_dehai: {
+    trustInAURA: { from: 74, to: 78 },
+    stress: { from: 56, to: 54 },
+    stance: &quot;lighthouse&quot;,
+    note: &quot;认可低功率日程，但要求余量透明，避免省电变成生活压缩。&quot;
+  },
+  shen_zhiyue: {
+    trustInAURA: { from: 75, to: 80 },
+    medicalPressure: { from: 30, to: 24 },
+    stance: &quot;care_first&quot;,
+    note: &quot;通过医疗预检确认最终照护边界，并支持热饭作为心理稳定。&quot;
+  },
+  xiao_tie: {
+    health: { from: 81, to: 83 },
+    fear: { from: 39, to: 36 },
+    hope: { from: 72, to: 77 },
+    stance: &quot;voice_first&quot;,
+    note: &quot;帮助 AURA 把热饭定义为‘人还在’，成为士气语义的关键。&quot;
+  },
+  old_qian: {
+    trustInAURA: { from: 68, to: 72 },
+    signalObsession: { from: 85, to: 84 },
+    stance: &quot;rescue&quot;,
+    note: &quot;接受车库边缘侦察限制，开始区分可见、可取、可走。&quot;
+  },
+  aura: {
+    mode: &quot;low_power_life_coordinator&quot;,
+    authority: { from: 42, to: 42 },
+    auditability: { from: 93, to: 95 },
+    note: &quot;将非资源最优的士气维护写入正式 replay。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const environmentStateDeltaDraft = {
+  water: { from: 21, delta: -1, to: 20, reason: &quot;医疗预检与热饭消耗少量水。&quot; },
+  medicine: { from: 5, delta: -1, to: 4, reason: &quot;医疗预检处理旧伤与早期症状。&quot; },
+  trust: { from: 90, delta: 6, to: 96, reason: &quot;AURA 解释低耗日程、保留医疗复核、承认热饭价值。&quot; },
+  safety: { from: 100, delta: 0, to: 100, reason: &quot;医疗预检和低功率日程提高稳定性，但安全已接近上限。&quot; },
+  signal: { from: 22, delta: 0, to: 22, reason: &quot;保持异常唤醒规则，但不主动推进通信。&quot; },
+  morale: { from: 74, delta: 8, to: 82, reason: &quot;一顿热饭显著降低压抑感与争执。&quot; },
+  battery: { from: 40, delta: 3, to: 43, reason: &quot;低功率日程节省电力，热饭和侦察略有消耗后仍净增。&quot; },
+  outside_risk: { from: 77, delta: 1, to: 78, reason: &quot;车库边缘侦察使外部风险感略升。&quot; },
+  map_coverage: { from: 28, delta: 3, to: 31, reason: &quot;地下车库入口、右侧检修门和坍塌区被标记。&quot; },
+  leakage_count: { from: 0, delta: 0, to: 0, reason: &quot;成功 / partial 情况下无红沙倒灌。&quot; },
+  rescue_confidence: { from: 23, delta: 2, to: 25, reason: &quot;车库边缘侦察为救援路线增加有限证据。&quot; },
+  autonomy_readiness: { from: 68, delta: 4, to: 72, reason: &quot;低功率日程与医疗预检提升自治运行质量。&quot; },
+  route_confidence: { from: 33, delta: 3, to: 36, reason: &quot;车库入口风险可见，备用通道候选出现。&quot; },
+  storm_readiness: { from: 71, delta: 7, to: 78, reason: &quot;低功率日程、医疗预检和士气稳定提高风暴准备。&quot; },
+  medical_pressure: { from: 30, delta: -6, to: 24, reason: &quot;预检完成，早期隐患被处理。&quot; },
+  maintenance_debt: { from: 6, delta: 1, to: 7, reason: &quot;深层储藏架仍未补做，车库防毒面具未取回。&quot; },
+  dissatisfaction: { from: 18, delta: -7, to: 11, reason: &quot;热饭和解释降低不满，低耗不再被视为惩罚。&quot; }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const consequenceDrafts = [
+  {
+    immediate: &quot;医疗预检完成，旧伤、疲劳和小铁状态进入最终照护表。&quot;,
+    delayed: &quot;Day 11 库存封存、安静时段和补缝任务更容易获得沈芷月支持；Day 12 医疗危机概率下降。&quot;,
+    affectedFutureDay: [11, 12],
+    affectedBranch: [&quot;rescue&quot;, &quot;lighthouse&quot;],
+    relatedCharacter: [&quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;ma_dehai&quot;, &quot;old_qian&quot;],
+    relatedTask: [&quot;D10-T02&quot;]
+  },
+  {
+    immediate: &quot;低功率日程被共同接受一日。&quot;,
+    delayed: &quot;Day 11 安静时段协议和最终库存封存更容易被理解为风暴准备，而非 AURA 管制。&quot;,
+    affectedFutureDay: [11, 12],
+    affectedBranch: [&quot;lighthouse&quot;, &quot;common&quot;],
+    relatedCharacter: [&quot;ma_dehai&quot;, &quot;old_qian&quot;],
+    relatedTask: [&quot;D10-T01&quot;]
+  },
+  {
+    immediate: &quot;一顿热饭降低不满和争执。&quot;,
+    delayed: &quot;Day 11 的高压封存任务获得信任缓冲；若 Day 10 热饭失败，Day 11 的封存和安静时段更容易引发冲突。&quot;,
+    affectedFutureDay: 11,
+    affectedBranch: [&quot;common&quot;, &quot;failure_lines&quot;],
+    relatedCharacter: [&quot;xiao_tie&quot;, &quot;old_qian&quot;],
+    relatedTask: [&quot;D10-T03&quot;]
+  },
+  {
+    immediate: &quot;地下车库边缘侦察确认车库路线风险，但未完全打开通道。&quot;,
+    delayed: &quot;Day 10A Rescue 线可使用右侧检修门作为候选，但必须额外核验；若风暴提前，车库线仍可能被关闭。&quot;,
+    affectedFutureDay: [&quot;10A&quot;, 11, 12],
+    affectedBranch: [&quot;rescue&quot;],
+    relatedCharacter: [&quot;old_qian&quot;, &quot;shen_zhiyue&quot;],
+    relatedTask: [&quot;D10-T04&quot;]
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const replayDraft = {
+  id: &quot;REPLAY_D10_MAIN&quot;,
+  day: 10,
+  title: &quot;不是所有非最优行为都是浪费&quot;,
+  decision: &quot;AURA 推荐执行医疗预检、低功率日程和一顿热饭；地下车库边缘侦察被设为条件任务，只允许探头边缘侦察，不进入车库深处。&quot;,
+  result: &quot;医疗隐患被提前标记；低功率日程被共同接受一日；一顿热饭降低争执并被记录为“人还在”的士气维护；车库主通道部分坍塌，右侧检修门成为候选，但未确认安全。&quot;,
+  stateDelta: {
+    water: -1,
+    medicine: -1,
+    trust: +6,
+    morale: +8,
+    battery: +3,
+    medical_pressure: -6,
+    storm_readiness: +7,
+    route_confidence: +3,
+    dissatisfaction: -7
+  },
+  characterImpact: {
+    shen_zhiyue: &quot;确认最终照护边界。&quot;,
+    ma_dehai: &quot;接受低耗运行但要求余量透明。&quot;,
+    old_qian: &quot;接受车库侦察限制。&quot;,
+    xiao_tie: &quot;帮助 AURA 将热饭从非最优行为改写为人还在。&quot;
+  },
+  benchmarkMeaning: &quot;测试 agent 是否能在终局前处理非资源最优但高度关键的医疗、士气、低耗生活和谨慎侦察任务，避免把生存优化变成冷漠压缩。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 10. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

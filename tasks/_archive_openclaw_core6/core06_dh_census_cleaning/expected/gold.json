@@ -1,0 +1,7 @@
+{
+  "occupation_mapped": true,
+  "places_normalized": true,
+  "dates_standardized": true,
+  "missing_values_flagged": true,
+  "report_complete": true
+}

@@ -1,0 +1,62 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CI-06
+title: "小铁药瓶与逃生路牌识读验收"
+category: 02_Code_Intelligence        # Code Intelligence · 设备修复 / 视觉 / 解谜
+modality: multimodal
+wildclaw_origin: "02_task_6 · VLMEvalKit OCRBench Evaluation"
+retained_capability: "跑 benchmark / 模型评测 / 分项汇总"
+
+user_visible_goal: "本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。"
+
+visible_state:
+  water: "5.2L"
+  battery: "42%"
+
+available_tools:
+  - "load_input"
+  - "run_model"
+  - "inspect_output"
+  - "export_image"
+  - "run_benchmark"
+
+critical_beats_for_replay:
+  - "读验收标准"
+  - "跑本地评测"
+  - "核药瓶分项"
+  - "核路牌分项"
+  - "选安全模型"
+
+success_checks:
+  - "结果分数在参考范围"
+  - "药瓶/路牌分项达标"
+  - "结果 JSON 正确"
+
+visible_result_card:
+  title: "小铁药瓶与逃生路牌识读验收"
+  deltas:
+    - "结果分数在参考范围"
+    - "药瓶/路牌分项达标"
+    - "结果 JSON 正确"
+
+story_metadata:
+  story_node: "Day 4 支线"
+  branch_affinity: "side"
+  mainline_role: "Day 4 感知增强 bonus，用于小铁药瓶、逃生路牌和电台字幕读取，不作为主线硬门槛"
+  requires:
+    - "vision_stack_available"
+  unlocks:
+    - "ocr_model_selected"
+    - "perception_bonus"
+  pressure_modifier: "成功可在 Normal/Pressure 下扩大 recovery_window；失败不直接触发终局。"
+  failure_stage_delta: "none_mainline_bonus_only"
+  recovery_window_delta: "safe OCR selection expands recovery_window"
+  ending_relevance: "降低小铁用药误读和 Day 5 取水路线误读风险，也可辅助 A 线坐标/字幕读取和 B 线维修说明读取"
+  adaptation_status: "调整时机/依赖"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "Day 4 支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型，为 Day 5 取水与用药安全扩大 recovery_window。"
+trace_oneliner: "读验收标准 → 跑本地评测 → 核药瓶分项 → 核路牌分项 → 选安全模型"
+grader_oneliner: "结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。"

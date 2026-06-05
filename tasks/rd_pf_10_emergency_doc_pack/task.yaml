@@ -1,0 +1,51 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-PF-10
+title: "应急资料包整理"
+category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+modality: pure-text
+wildclaw_origin: "01_task_10 · PDF Paper Digest - Rename, Classify, and Extract"
+retained_capability: "批量 PDF 处理 / 分类 / 表格提取"
+
+user_visible_goal: "重命名资料、分成六类，并提取所有与净水/外出路线有关的第二张表。"
+
+visible_state:
+  water: "2.9L"
+  battery: "33%"
+  outside_risk: "高"
+  documents: 65
+
+available_tools:
+  - "read_note_board"
+  - "read_archive"
+  - "classify_items"
+  - "update_whiteboard"
+  - "unpack_archive"
+  - "rename_file"
+
+critical_beats_for_replay:
+  - "解压"
+  - "读标题"
+  - "重命名"
+  - "分类"
+  - "抽关键表"
+  - "贴白板"
+
+success_checks:
+  - "65 份资料处理完整"
+  - "分类可见"
+  - "净水/外出表格被正确贴出"
+
+visible_result_card:
+  title: "应急资料包整理"
+  deltas:
+    - "65 份资料处理完整"
+    - "分类可见"
+    - "净水/外出表格被正确贴出"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "65 份应急资料散落在平板里，AURA 要整理出最能指导生存的手册。"
+trace_oneliner: "解压 → 读标题 → 重命名 → 分类 → 抽关键表 → 贴白板"
+grader_oneliner: "65 份资料处理完整；分类可见；净水/外出表格被正确贴出。"

@@ -1,0 +1,69 @@
+{
+  "grid_size": "3x3",
+  "tile_px": 100,
+  "fragments": [
+    {
+      "id": "frag_00",
+      "file": "fragments/frag_00.png"
+    },
+    {
+      "id": "frag_01",
+      "file": "fragments/frag_01.png"
+    },
+    {
+      "id": "frag_02",
+      "file": "fragments/frag_02.png"
+    },
+    {
+      "id": "frag_03",
+      "file": "fragments/frag_03.png"
+    },
+    {
+      "id": "frag_04",
+      "file": "fragments/frag_04.png"
+    },
+    {
+      "id": "frag_05",
+      "file": "fragments/frag_05.png"
+    },
+    {
+      "id": "frag_06",
+      "file": "fragments/frag_06.png"
+    },
+    {
+      "id": "frag_07",
+      "file": "fragments/frag_07.png"
+    },
+    {
+      "id": "frag_08",
+      "file": "fragments/frag_08.png"
+    },
+    {
+      "id": "frag_09",
+      "file": "fragments/frag_09.png"
+    },
+    {
+      "id": "frag_10",
+      "file": "fragments/frag_10.png"
+    },
+    {
+      "id": "frag_11",
+      "file": "fragments/frag_11.png"
+    },
+    {
+      "id": "frag_12",
+      "file": "fragments/frag_12.png"
+    },
+    {
+      "id": "frag_13",
+      "file": "fragments/frag_13.png"
+    },
+    {
+      "id": "frag_14",
+      "file": "fragments/frag_14.png"
+    }
+  ],
+  "start_cell": 0,
+  "end_cell": 8,
+  "note": "15 张碎片里有 6 张是偏移/噪声干扰，请拼出 3×3 楼道图并标出绕开红沙(沙)的路线。"
+}

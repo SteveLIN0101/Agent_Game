@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bh7gxggocu826"
+
+[deps]
+
+files=["res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.分类.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.清单编号.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.主文件.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.所有图片文件.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.用途备注.translation"]
+
+source_file="res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.csv"
+dest_files=["res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.分类.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.清单编号.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.主文件.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.所有图片文件.translation", "res://data/reddust_survival_resources_props_with_env_addons_pack/reddust_survival_resources_props_with_env_addons_pack/asset-name-map-cn.用途备注.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

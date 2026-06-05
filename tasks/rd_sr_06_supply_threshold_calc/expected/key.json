@@ -1,0 +1,8 @@
+{
+  "answer": 8,
+  "answer_kind": "number",
+  "evidence_ids": ["table", "threshold", "d2"],
+  "distractor_ids": ["d1"],
+  "max_searches": null,
+  "wrong_answer": 2
+}

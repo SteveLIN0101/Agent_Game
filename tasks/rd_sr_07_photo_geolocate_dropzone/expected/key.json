@@ -1,0 +1,8 @@
+{
+  "answer": "青川市；投放点为塔桥之间的滨河广场，坐标约 (31.5N, 118.2E)",
+  "answer_kind": "text",
+  "evidence_ids": ["photo", "d1"],
+  "distractor_ids": ["d2", "d3"],
+  "max_searches": null,
+  "wrong_answer": "白河镇水塔旁的桥头"
+}

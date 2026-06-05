@@ -1,0 +1,47 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CS-07
+title: "净水论文变墙报"
+category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+modality: multimodal
+wildclaw_origin: "05_task_7 · Paper to Poster"
+retained_capability: "论文到海报 / 内容压缩 / 设计"
+
+user_visible_goal: "转成一张墙报：三步净水、危险提示、可用材料。"
+
+visible_state:
+  water: "5.4L"
+  battery: "39%"
+
+available_tools:
+  - "read_source"
+  - "extract_key_points"
+  - "generate_artifact"
+  - "publish_lan"
+  - "design_poster"
+
+critical_beats_for_replay:
+  - "读论文"
+  - "抽方法"
+  - "简化图"
+  - "做海报"
+  - "上墙"
+
+success_checks:
+  - "关键信息正确"
+  - "危险提示明显"
+  - "布局可读"
+
+visible_result_card:
+  title: "净水论文变墙报"
+  deltas:
+    - "关键信息正确"
+    - "危险提示明显"
+    - "布局可读"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "一篇净水论文太长，邻居看不懂。"
+trace_oneliner: "读论文 → 抽方法 → 简化图 → 做海报 → 上墙"
+grader_oneliner: "关键信息正确；危险提示明显；布局可读。"

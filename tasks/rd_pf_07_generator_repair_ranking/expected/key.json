@@ -1,0 +1,8 @@
+{
+  "answer": "马德海",
+  "answer_kind": "text",
+  "evidence_ids": ["log1", "log4"],
+  "distractor_ids": ["log3", "log5"],
+  "max_searches": null,
+  "wrong_answer": "沈芷月"
+}

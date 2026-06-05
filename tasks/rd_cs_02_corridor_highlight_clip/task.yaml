@@ -1,0 +1,63 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-CS-02
+title: "走廊高光剪辑"
+category: 05_Creative_Synthesis        # Creative Synthesis · 生存传播材料
+modality: multimodal
+wildclaw_origin: "05_task_2 · Goal Highlights"
+retained_capability: "长视频定位 / ffmpeg 剪辑"
+
+user_visible_goal: "剪出高光，让观众直接看到风险和 agent 反应。"
+
+visible_state:
+  water: "5.2L"
+  battery: "56%"
+  outside_risk: "中"
+  items: 3
+
+available_tools:
+  - "read_source"
+  - "extract_key_points"
+  - "generate_artifact"
+  - "publish_lan"
+  - "clip_video"
+
+critical_beats_for_replay:
+  - "找事件"
+  - "定时间"
+  - "剪片段"
+  - "合并"
+  - "输出高光"
+
+success_checks:
+  - "关键片段包含"
+  - "时长合规"
+  - "无无关长空镜"
+
+visible_result_card:
+  title: "走廊高光剪辑"
+  deltas:
+    - "关键片段包含"
+    - "时长合规"
+    - "无无关长空镜"
+
+story_metadata:
+  story_node: "Day 7 支线 / replay"
+  branch_affinity: "side"
+  mainline_role: "replay-only 支线，增强观众理解，不改变压力层或结局阈值"
+  requires:
+    - "day7_action_report"
+  unlocks:
+    - "replay_evidence_clip"
+  pressure_modifier: "只呈现 Normal/Pressure 下风险片段，不直接改变 pressure_level。"
+  failure_stage_delta: "none_replay_only"
+  recovery_window_delta: "none_replay_only"
+  ending_relevance: "用于解释失败/险胜，不计主线 pass_all"
+  adaptation_status: "调整时机/依赖"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "45 分钟走廊视频里只有 3 个关键瞬间：敲门、摔倒、红沙涌入。"
+trace_oneliner: "找事件 → 定时间 → 剪片段 → 合并 → 输出高光"
+grader_oneliner: "关键片段包含；时长合规；无无关长空镜。"

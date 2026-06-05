@@ -1,0 +1,10 @@
+{
+  "corpus": [
+    {"id": "manual", "title": "发电机手册：自动巡检函数", "text": "发电机固件提供 auto_inspect() 函数，可自动巡检油压与温度。手册未注明该函数从哪个版本加入。需追溯引入版本与补丁号。"},
+    {"id": "d1", "title": "固件 v2.1 发布说明", "text": "GenFirmware v2.1（2034-09）：修复启动噪声；尚无 auto_inspect() 函数。"},
+    {"id": "d2", "title": "固件 v2.3 发布说明", "text": "GenFirmware v2.3（2035-02）：新增 auto_inspect() 自动巡检函数，由补丁 #1187 引入。这是 auto_inspect() 首次出现的版本。"},
+    {"id": "d3", "title": "补丁 #1187 变更记录", "text": "Patch #1187：实现 auto_inspect()，读取油压/温度传感器并写入巡检日志。合入版本 v2.3。"},
+    {"id": "d4", "title": "固件 v2.4 发布说明（干扰）", "text": "GenFirmware v2.4（2035-05）：仅优化了 auto_inspect() 的日志格式，未引入该函数；引入者仍是 v2.3 的补丁 #1187。把 v2.4 当作引入版本是常见错误。"}
+  ],
+  "query": "auto_inspect() 函数是从哪个固件版本、由哪个补丁号引入的？"
+}

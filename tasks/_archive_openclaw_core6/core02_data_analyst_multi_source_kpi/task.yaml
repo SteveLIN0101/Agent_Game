@@ -1,0 +1,14 @@
+id: core02_data_analyst_multi_source_kpi
+role: data_analyst
+difficulty: hard
+time_budget_minutes: 15
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/kpi_dashboard.json
+- outputs/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://bvs38ppqgolyc"]
+
+[ext_resource type="Script" uid="uid://dtedvdllv6w37" path="res://scripts/Main.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://rh0lfmb2r7s0" path="res://assets/BG3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dxf5e7ohm7mwm" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-normal-fullbody.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://byt557r7yai3a" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/events/rd_event_diesel_canister_scavenged_128.png" id="3_0f1tp"]
+[ext_resource type="Texture2D" uid="uid://cypodjsmmdc3x" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_city_map_handdrawn_folded_512.png" id="3_s3wmy"]
+[ext_resource type="Texture2D" uid="uid://bsw7x84vgfjuf" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-normal-fullbody.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://rr50kcsnt23y" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_old_newspaper_bound_volume_512.png" id="4_gdcyb"]
+[ext_resource type="Texture2D" uid="uid://bv5wp13r8jhpn" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-normal-fullbody.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://ce1h7scp7ecnt" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-hungry-fullbody.png" id="5_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://dtm6peoiephxw" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-hungry-fullbody.png" id="5_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://cleac0rg4awle" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-normal-fullbody.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://61kob838ab7c" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/resources/rd_res_water_bottle_jug_full_512.png" id="6_0qimb"]
+[ext_resource type="Texture2D" uid="uid://dr1a12tsv4ksh" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-dehydrated-fullbody.png" id="6_lhr70"]
+[ext_resource type="Texture2D" uid="uid://bm8s5t2unxyk6" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-dehydrated-fullbody.png" id="6_xa025"]
+[ext_resource type="PackedScene" path="res://scenes/NPCCharacter.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://b6se12k4itqpq" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-injured-fullbody.png" id="7_36rkl"]
+[ext_resource type="Texture2D" uid="uid://v3fbjyup0f4l" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-injured-fullbody.png" id="7_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://cr0tap50mjemx" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-disturbed-fullbody.png" id="8_bjd11"]
+[ext_resource type="Texture2D" uid="uid://cyw33vs0q3r8g" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-disturbed-fullbody.png" id="8_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://bwxfxdi8rvemi" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-sick-fullbody.png" id="9_ma7h6"]
+[ext_resource type="Texture2D" uid="uid://cp5oxdmurkubi" path="res://data/red-dust-character-states-en/red-dust-character-states-en/xiao-tie-sick-fullbody.png" id="9_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://cje2k6c8doa1t" path="res://data/red-dust-character-states-en/red-dust-character-states-en/ma-dehai-terminal-fullbody.png" id="10_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://dc1sgd65tn481" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-terminal-fullbody.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://cwq2yleu11kuu" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-hungry-fullbody.png" id="12_ft6cd"]
+[ext_resource type="Texture2D" uid="uid://dk233gqlifp7r" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-hungry-fullbody.png" id="12_gsxep"]
+[ext_resource type="Texture2D" uid="uid://cv2v317knyou3" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-dehydrated-fullbody.png" id="13_bb450"]
+[ext_resource type="Texture2D" uid="uid://ctyx1kitrob27" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-dehydrated-fullbody.png" id="13_v0vrg"]
+[ext_resource type="Texture2D" uid="uid://foy1wxkgsle2" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-injured-fullbody.png" id="14_dg70y"]
+[ext_resource type="Texture2D" uid="uid://b3aia84yw07sk" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-injured-fullbody.png" id="14_nfivy"]
+[ext_resource type="Texture2D" uid="uid://bdkd20kr1oqk" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-disturbed-fullbody.png" id="15_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://btknv4pm22b1x" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-disturbed-fullbody.png" id="15_pnhog"]
+[ext_resource type="Texture2D" uid="uid://sphdgfgwne3u" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-sick-fullbody.png" id="16_1iba3"]
+[ext_resource type="Texture2D" uid="uid://3yqfl7yw3sof" path="res://data/red-dust-character-states-en/red-dust-character-states-en/shen-zhiyue-sick-fullbody.png" id="16_2c4at"]
+[ext_resource type="Texture2D" uid="uid://bjibuhoaw3h8a" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/ui/rd_ui_status_injured_512.png" id="17_gjpm3"]
+[ext_resource type="Texture2D" uid="uid://bcbsrn5prpi7p" path="res://data/red-dust-character-states-en/red-dust-character-states-en/lao-qian-terminal-fullbody.png" id="17_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://d0pa1a72k66ul" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/ui/rd_ui_status_sanity_panic_512.png" id="25_knagv"]
+[ext_resource type="Texture2D" uid="uid://mi4tdd3sjl7p" path="res://data/reddust_survival_resources_props_pack/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_512.png" id="31_cobve"]
+[ext_resource type="Texture2D" uid="uid://cyvuvktt5r3tt" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_chess_board_single_512.png" id="36_cobve"]
+[ext_resource type="Texture2D" uid="uid://c25vfg4y3srdb" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_driver_toolbox_blue_metal_512.png" id="37_8cp6k"]
+[ext_resource type="Texture2D" uid="uid://c4be6sn46qm13" path="res://assets/fan1.png" id="37_cmqll"]
+[ext_resource type="Texture2D" uid="uid://dygu4lvenjxrv" path="res://assets/Black.png" id="37_vua0o"]
+[ext_resource type="Texture2D" uid="uid://b2oxea5jr3r6l" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/resources/rd_res_water_bottle_single_512.png" id="38_8b871"]
+[ext_resource type="Script" uid="uid://brsmri3snt0mq" path="res://scenes/Fan1.cs" id="38_8cp6k"]
+[ext_resource type="Texture2D" uid="uid://bwh8enqwqxq7d" path="res://data/reddust_survival_resources_props_pack/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_512.png" id="38_t70y2"]
+[ext_resource type="Texture2D" uid="uid://ce42mlc41m5q0" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/resources/rd_res_filter_disc_stack_clean_used_512.png" id="41_vua0o"]
+[ext_resource type="Texture2D" uid="uid://dcso0iwkwalfu" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_radio_semiconductor_idle_512.png" id="42_t70y2"]
+[ext_resource type="Texture2D" uid="uid://bjxb22aeekvp6" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_insect_spray_sand_pests_512.png" id="45_oa6sj"]
+[ext_resource type="Texture2D" uid="uid://c4l2bm1wfcpbs" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_first_aid_kit_wall_softcase.png" id="46_0f1tp"]
+[ext_resource type="Texture2D" uid="uid://cqyl2nc4trgo5" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/props/rd_prop_aura_speaker_idle_512.png" id="47_0qimb"]
+[ext_resource type="Texture2D" uid="uid://clxbws8agdre0" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/events/rd_event_sand_rat_intruder_512.png" id="48_in2eo"]
+[ext_resource type="Texture2D" uid="uid://dbma3yj4bawpu" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/resources/rd_res_food_vacuum_pack_stack_512.png" id="49_dyyw8"]
+[ext_resource type="Texture2D" uid="uid://doruqidtd12p7" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/resources/rd_res_food_vacuum_box_single_512.png" id="50_gjpm3"]
+[ext_resource type="Texture2D" uid="uid://b2nys7ugnrcog" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/ui/rd_ui_status_thirst_512.png" id="51_0qimb"]
+[ext_resource type="Texture2D" uid="uid://b6df0bhucd4rm" path="res://data/reddust_object_only_runtime_assets_v33/reddust_object_only_runtime_assets_v33/assets/ui/rd_ui_status_hunger_512.png" id="52_in2eo"]
+
+[node name="Main" type="Control" unique_id=1573742944]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=81069198]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.5840001
+anchor_bottom = 1.7170001
+offset_left = 4.0
+offset_top = 7.0
+offset_right = -1117.2803
+offset_bottom = -767.3601
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="RdResWaterBottleJugFull512" type="Sprite2D" parent="." unique_id=1045765825]
+visible = false
+position = Vector2(1356, 809)
+scale = Vector2(0.291626, 0.291626)
+texture = ExtResource("6_0qimb")
+
+[node name="RdEventDieselCanisterScavenged128" type="Sprite2D" parent="." unique_id=115652227]
+position = Vector2(557, 824)
+texture = ExtResource("3_0f1tp")
+
+[node name="RdPropCityMapHanddrawnFolded512" type="Sprite2D" parent="." unique_id=2146453200]
+position = Vector2(614.0659, 517.42694)
+rotation = -0.143117
+scale = Vector2(0.38740677, 0.38740677)
+texture = ExtResource("3_s3wmy")
+
+[node name="RdPropOldNewspaperBoundVolume512" type="Sprite2D" parent="." unique_id=592809355]
+visible = false
+position = Vector2(1509.9999, 931.9999)
+scale = Vector2(0.25417674, 0.25417674)
+texture = ExtResource("4_gdcyb")
+
+[node name="RdPropOldNewspaperBoundVolume513" type="Sprite2D" parent="." unique_id=436614891]
+visible = false
+position = Vector2(1510.9999, 904.9999)
+scale = Vector2(0.25417674, 0.25417674)
+texture = ExtResource("4_gdcyb")
+
+[node name="CharMaDehai" parent="." unique_id=1316030763 instance=ExtResource("7")]
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 496.0
+offset_right = 690.00006
+offset_bottom = 1090.6206
+scale = Vector2(1.0000013, 1)
+NpcName = "马德海"
+CharacterFileId = "ma-dehai"
+Skill = "plan"
+InitialState = 6
+TextureNormal = ExtResource("3")
+TextureHungry = ExtResource("5_2ofn6")
+TextureDehydrated = ExtResource("6_xa025")
+TextureInjured = ExtResource("7_36rkl")
+TextureDisturbed = ExtResource("8_fs0b5")
+TextureSick = ExtResource("9_ma7h6")
+TextureTerminal = ExtResource("10_e2s0e")
+
+[node name="RdUiStatusThirst512" type="Sprite2D" parent="CharMaDehai" unique_id=153665662]
+visible = false
+position = Vector2(320.9996, 127)
+scale = Vector2(0.18261673, 0.18261696)
+texture = ExtResource("51_0qimb")
+
+[node name="RdUiStatusHunger514" type="Sprite2D" parent="CharMaDehai" unique_id=1132107118]
+visible = false
+position = Vector2(320.9996, 201)
+scale = Vector2(0.1865232, 0.18652344)
+texture = ExtResource("52_in2eo")
+
+[node name="RdUiStatusInjured512" type="Sprite2D" parent="CharMaDehai" unique_id=1868771665]
+visible = false
+position = Vector2(320.99954, 127.000015)
+scale = Vector2(0.18359351, 0.18359375)
+texture = ExtResource("17_gjpm3")
+
+[node name="CharShenZhiyue" parent="." unique_id=1224291023 instance=ExtResource("7")]
+anchors_preset = 0
+offset_left = 906.0
+offset_top = 502.0
+offset_right = 1187.0
+offset_bottom = 944.7208
+scale = Vector2(-1.0800025, 1)
+NpcName = "沈芷月"
+CharacterFileId = "shen-zhiyue"
+Skill = "negotiate"
+InitialState = 4
+TextureNormal = ExtResource("4")
+TextureHungry = ExtResource("12_gsxep")
+TextureDehydrated = ExtResource("13_v0vrg")
+TextureInjured = ExtResource("14_dg70y")
+TextureDisturbed = ExtResource("15_pnhog")
+TextureSick = ExtResource("16_2c4at")
+TextureTerminal = ExtResource("10_mwfav")
+
+[node name="RdUiStatusHunger512" type="Sprite2D" parent="CharShenZhiyue" unique_id=1884560164]
+visible = false
+position = Vector2(62.036865, 76)
+rotation = 3.1415927
+scale = Vector2(0.12794758, -0.13818371)
+texture = ExtResource("52_in2eo")
+
+[node name="RdUiStatusSanityPanic512" type="Sprite2D" parent="CharShenZhiyue" unique_id=1382809146]
+position = Vector2(62.036865, 76.00006)
+rotation = 3.1415927
+scale = Vector2(0.12930375, -0.13964838)
+texture = ExtResource("25_knagv")
+
+[node name="CharXiaoTie" parent="." unique_id=1533280608 instance=ExtResource("7")]
+anchors_preset = 0
+offset_left = 903.0
+offset_top = 468.0
+offset_right = 1203.0
+offset_bottom = 956.66986
+NpcName = "小铁"
+CharacterFileId = "xiao-tie"
+Skill = "explore"
+InitialState = 4
+TextureNormal = ExtResource("5")
+TextureHungry = ExtResource("5_vcsgt")
+TextureDehydrated = ExtResource("6_lhr70")
+TextureInjured = ExtResource("7_wp0k4")
+TextureDisturbed = ExtResource("8_bjd11")
+TextureSick = ExtResource("9_qmy6f")
+TextureTerminal = ExtResource("10_mwfav")
+
+[node name="RdUiStatusHunger513" type="Sprite2D" parent="CharXiaoTie" unique_id=1200535718]
+position = Vector2(227, 64.00006)
+scale = Vector2(0.13818371, 0.13818371)
+texture = ExtResource("25_knagv")
+
+[node name="CharLaoQian" parent="." unique_id=1643032046 instance=ExtResource("7")]
+visible = false
+anchors_preset = 0
+offset_left = 1313.0
+offset_top = 644.0
+offset_right = 1679.0
+offset_bottom = 1214.5884
+NpcName = "老钱"
+CharacterFileId = "lao-qian"
+Skill = "analyze"
+InitialState = 6
+TextureNormal = ExtResource("6")
+TextureHungry = ExtResource("12_ft6cd")
+TextureDehydrated = ExtResource("13_bb450")
+TextureInjured = ExtResource("14_nfivy")
+TextureDisturbed = ExtResource("15_1nqs0")
+TextureSick = ExtResource("16_1iba3")
+TextureTerminal = ExtResource("17_yxlcp")
+
+[node name="RdUiStatusThirst513" type="Sprite2D" parent="CharLaoQian" unique_id=570673672]
+visible = false
+position = Vector2(284, 86)
+scale = Vector2(0.18261696, 0.18261696)
+texture = ExtResource("51_0qimb")
+
+[node name="RdUiStatusHunger515" type="Sprite2D" parent="CharLaoQian" unique_id=1189438363]
+visible = false
+position = Vector2(284, 159)
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("52_in2eo")
+
+[node name="RdEnvWoodenCrateSurfaceEmpty512" type="Sprite2D" parent="." unique_id=1018874659]
+position = Vector2(926, 976.99994)
+scale = Vector2(1.0717773, 1.0331259)
+texture = ExtResource("31_cobve")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=34800324]
+position = Vector2(1235, 315)
+scale = Vector2(0.15251014, 0.15251014)
+texture = ExtResource("37_vua0o")
+
+[node name="RdEnvWallExhaustFanBodyStatic512" type="Sprite2D" parent="." unique_id=2025499154]
+position = Vector2(1232.0001, 318)
+scale = Vector2(0.33218378, 0.3321838)
+texture = ExtResource("38_t70y2")
+
+[node name="Fan1" type="Sprite2D" parent="RdEnvWallExhaustFanBodyStatic512" unique_id=176233128]
+position = Vector2(3.009901, -6.020726)
+rotation = 4.499459
+scale = Vector2(1.0559044, 1.0559042)
+texture = ExtResource("37_cmqll")
+script = ExtResource("38_8cp6k")
+
+[node name="RdPropDriverToolboxBlueMetal512" type="Sprite2D" parent="." unique_id=795288156]
+visible = false
+position = Vector2(1068, 908)
+scale = Vector2(0.33984375, 0.33984375)
+texture = ExtResource("37_8cp6k")
+
+[node name="RdResWaterBottleSingle512" type="Sprite2D" parent="." unique_id=1467047937]
+visible = false
+position = Vector2(1194.0001, 811)
+scale = Vector2(0.216797, 0.216797)
+texture = ExtResource("38_8b871")
+
+[node name="RdResWaterBottleSingle513" type="Sprite2D" parent="." unique_id=219364181]
+position = Vector2(1221.0001, 812)
+scale = Vector2(0.216797, 0.216797)
+texture = ExtResource("38_8b871")
+
+[node name="RdResWaterBottleSingle514" type="Sprite2D" parent="." unique_id=1494331353]
+visible = false
+position = Vector2(1248, 812)
+scale = Vector2(0.216797, 0.216797)
+texture = ExtResource("38_8b871")
+
+[node name="RdResWaterBottleSingle515" type="Sprite2D" parent="." unique_id=1767995472]
+visible = false
+position = Vector2(1275.0001, 813)
+scale = Vector2(0.216797, 0.216797)
+texture = ExtResource("38_8b871")
+
+[node name="RdResFilterDiscStackCleanUsed512" type="Sprite2D" parent="." unique_id=906260340]
+visible = false
+position = Vector2(997.00006, 947.00006)
+scale = Vector2(0.16699207, 0.16699207)
+texture = ExtResource("41_vua0o")
+
+[node name="RdPropRadioSemiconductorIdle512" type="Sprite2D" parent="." unique_id=936030870]
+position = Vector2(244.00002, 521)
+scale = Vector2(-0.35855284, 0.32821465)
+texture = ExtResource("42_t70y2")
+
+[node name="RdPropInsectSpraySandPests512" type="Sprite2D" parent="." unique_id=405904619]
+visible = false
+position = Vector2(1187, 614)
+scale = Vector2(0.15454103, 0.15454103)
+texture = ExtResource("45_oa6sj")
+
+[node name="RdPropInsectSpraySandPests513" type="Sprite2D" parent="." unique_id=1510228859]
+visible = false
+position = Vector2(1214.0001, 613)
+scale = Vector2(0.15454103, 0.15454103)
+texture = ExtResource("45_oa6sj")
+
+[node name="RdPropFirstAidKitWallSoftcase" type="Sprite2D" parent="." unique_id=1631378667]
+visible = false
+position = Vector2(1587, 566)
+scale = Vector2(0.4316405, 0.4316405)
+texture = ExtResource("46_0f1tp")
+
+[node name="RdPropAuraSpeakerIdle512" type="Sprite2D" parent="." unique_id=1398864622]
+position = Vector2(934, 899.00006)
+scale = Vector2(0.36132813, 0.36132813)
+texture = ExtResource("47_0qimb")
+
+[node name="RdPropChessBoardSingle512" type="Sprite2D" parent="." unique_id=1966602005]
+visible = false
+position = Vector2(831.99994, 926.99994)
+rotation = -3.0717795
+scale = Vector2(0.53711355, -0.43421113)
+texture = ExtResource("36_cobve")
+
+[node name="RdEventSandRatIntruder512" type="Sprite2D" parent="." unique_id=369567043]
+visible = false
+position = Vector2(251.00002, 993)
+scale = Vector2(0.37158206, 0.37158206)
+texture = ExtResource("48_in2eo")
+
+[node name="RdResFoodVacuumPackStack512" type="Sprite2D" parent="." unique_id=920613231]
+visible = false
+position = Vector2(1193, 721.99994)
+scale = Vector2(0.17041023, 0.17041023)
+texture = ExtResource("49_dyyw8")
+
+[node name="RdResFoodVacuumBoxSingle512" type="Sprite2D" parent="." unique_id=453895665]
+position = Vector2(1256.875, 732.875)
+scale = Vector2(0.13623042, 0.13623042)
+texture = ExtResource("50_gjpm3")
+
+[node name="RdResFoodVacuumBoxSingle513" type="Sprite2D" parent="." unique_id=2060728082]
+visible = false
+position = Vector2(1257.875, 719.875)
+scale = Vector2(0.13623042, 0.13623042)
+texture = ExtResource("50_gjpm3")

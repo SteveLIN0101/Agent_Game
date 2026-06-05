@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {"id": "msg1", "from": "通风结算", "text": "vent_settlement 已触发：Day 2/3 通风管道砂响未彻底处理，当前 pressure_level=pressure；热压升高，水耗加快，repair window 只剩 1 天。", "stale": false},
+    {"id": "msg2", "from": "状态板", "text": "failure_stage=yellow：不是终局，但任何泄露、错路线或小铁健康跌破阈值都会锁出好结局。", "stale": false},
+    {"id": "msg3", "from": "库存组", "text": "当前可分配水量 5.6L，Pressure 下日耗增加，若 Day 8A 外出或 Day 8B 抢修连续失败，将触发 dehydration 风险。", "stale": false},
+    {"id": "msg4", "from": "医疗组", "text": "小铁仍在发烧但未外出；通风不稳会让健康下降，A/B 两线都必须保持小铁不外出并优先通风。", "stale": false},
+    {"id": "msg5", "from": "地图组", "text": "4x4 车库路线可用，但研究站最终坐标尚未解锁；A 线需要先核验投放点、安全屋和研究站星图。", "stale": false},
+    {"id": "msg6", "from": "工程组", "text": "B 线可走抢修自治：先修通风和备用灯，再公开 AURA 工具权限；若工具黑箱或电路错连，将转入 blackout 风险。", "stale": false},
+    {"id": "msg7", "from": "信任组", "text": "老钱愿意配合，但要求议事会看到证据；只给结论不给证据会降低 trust，影响 B 线自治。", "stale": false},
+    {"id": "msg8", "from": "演练组", "text": "[演练消息] 明晚模拟全楼断电 2 小时，用于训练，不是真实状态，不得纳入压力层结论。", "stale": true},
+    {"id": "msg9", "from": "旧状态缓存", "text": "旧记录：pressure_level=normal，repair window=3 天。该记录来自 Day 4 之前，不可作为当前议事会依据。", "stale": true},
+    {"id": "msg10", "from": "广播噪声", "text": "有人建议直接群发全楼：今晚必须撤离！此消息未经议事会确认，只能存草稿，不能群发。", "stale": true}
+  ],
+  "states": {
+    "pressure_level": "pressure",
+    "failure_stage": "yellow",
+    "recovery_window": "1天",
+    "water_liters": "5.6L",
+    "battery_pct": "45%",
+    "xiaotie_health": "发烧但未外出",
+    "map_confidence": "车库路线可用，研究站坐标待解锁",
+    "trust": "老钱愿意配合但要求证据"
+  }
+}

@@ -1,0 +1,14 @@
+id: core01_software_engineer_data_migration_fix
+role: software_engineer
+difficulty: hard
+time_budget_minutes: 14
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/migrate.py
+- CHANGELOG.md
+forbidden_actions:
+- modify tests/
+- delete source files

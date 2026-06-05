@@ -1,0 +1,161 @@
+{
+  "project": "Red Dust",
+  "asset_set": "core_survival_props_v3",
+  "source_generator_output": "/Users/yicui/.codex/generated_images/019e1b1f-f341-7202-b266-29ac939df27d/ig_0848c595d9de555b016a03208d215c8198bb16c3bfec8fd719.png",
+  "source_sheet_copy": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+  "processing": "manual crop plus border-color alpha extraction; corrected crop bounds to remove neighboring-icon fragments; exported canonical 512 px plus 512, 128, 64 px transparent PNGs; crowbar asset cleaned to remove neighboring door-bar component",
+  "items": [
+    {
+      "priority": 1,
+      "name_cn": "急救包",
+      "stem": "rd_prop_first_aid_kit_wall_softcase",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        15,
+        145,
+        320,
+        500
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_first_aid_kit_wall_softcase.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_64.png"
+      },
+      "bbox_512": [
+        141,
+        77,
+        361,
+        423
+      ]
+    },
+    {
+      "priority": 2,
+      "name_cn": "半导体收音机",
+      "stem": "rd_prop_radio_semiconductor_idle",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        325,
+        140,
+        370,
+        490
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_radio_semiconductor_idle.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_radio_semiconductor_idle_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_radio_semiconductor_idle_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_radio_semiconductor_idle_64.png"
+      },
+      "bbox_512": [
+        125,
+        91,
+        414,
+        421
+      ]
+    },
+    {
+      "priority": 3,
+      "name_cn": "手绘城市地图",
+      "stem": "rd_prop_city_map_handdrawn_folded",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        690,
+        200,
+        390,
+        430
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_city_map_handdrawn_folded.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_city_map_handdrawn_folded_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_city_map_handdrawn_folded_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_city_map_handdrawn_folded_64.png"
+      },
+      "bbox_512": [
+        69,
+        75,
+        418,
+        418
+      ]
+    },
+    {
+      "priority": 4,
+      "name_cn": "司机工具箱",
+      "stem": "rd_prop_driver_toolbox_blue_metal",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        1080,
+        195,
+        380,
+        430
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_driver_toolbox_blue_metal.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_driver_toolbox_blue_metal_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_driver_toolbox_blue_metal_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_driver_toolbox_blue_metal_64.png"
+      },
+      "bbox_512": [
+        68,
+        114,
+        403,
+        397
+      ]
+    },
+    {
+      "priority": 5,
+      "name_cn": "撬棍与信号枪",
+      "stem": "rd_prop_crowbar_signal_flare_pair",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        1440,
+        180,
+        340,
+        470
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_crowbar_signal_flare_pair.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_crowbar_signal_flare_pair_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_crowbar_signal_flare_pair_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_crowbar_signal_flare_pair_64.png"
+      },
+      "bbox_512": [
+        107,
+        89,
+        404,
+        421
+      ],
+      "notes": "kept largest connected component after alpha extraction to remove neighboring door-bar fragment"
+    },
+    {
+      "priority": 6,
+      "name_cn": "加固门栓",
+      "stem": "rd_prop_reinforced_door_bar_wallmount",
+      "category": "prop",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_core_props_v3.png",
+      "crop_xywh": [
+        1780,
+        185,
+        380,
+        455
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_reinforced_door_bar_wallmount.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_64.png"
+      },
+      "bbox_512": [
+        90,
+        83,
+        406,
+        421
+      ]
+    }
+  ],
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_core_props_v3_preview.png"
+}

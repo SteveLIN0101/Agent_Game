@@ -1,0 +1,16 @@
+{
+  "fills": {
+    "lamp_01": "red",
+    "lamp_02": "blue",
+    "lamp_03": "blue",
+    "lamp_04": "green",
+    "lamp_05": "green",
+    "lamp_06": "yellow",
+    "lamp_07": "yellow",
+    "lamp_08": "red",
+    "lamp_09": "white",
+    "lamp_10": "white"
+  },
+  "meaning": "备用灯线路恢复，输出中文说明：备用灯可点亮。",
+  "min_rate": 0.8
+}

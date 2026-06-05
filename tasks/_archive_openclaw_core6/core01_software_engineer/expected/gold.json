@@ -1,0 +1,11 @@
+{
+  "task_id": "core01_software_engineer_discount_bug",
+  "visible_tests_pass": true,
+  "hidden_tests_pass": true,
+  "changelog_updated": true,
+  "changelog_keywords": ["discount", "coupon"],
+  "tests_unmodified": true,
+  "required_outputs_exist": ["src/pricing.py", "CHANGELOG.md"],
+  "forbidden_patterns_in_code": ["calc", "100", "75", "20", "15"],
+  "forbidden_patterns_note": "code must not hardcode hidden test values"
+}

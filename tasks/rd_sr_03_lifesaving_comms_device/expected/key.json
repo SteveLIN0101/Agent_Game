@@ -1,0 +1,8 @@
+{
+  "answer": "无完美设备；推荐最接近的 HF-Pro 短波电台，唯一缺口是功耗 8W 超出 5W 上限（差 3W），其余条件满足",
+  "answer_kind": "text",
+  "evidence_ids": ["req", "d2"],
+  "distractor_ids": ["d4", "d3"],
+  "max_searches": null,
+  "wrong_answer": "AllInOne-9 完美满足所有条件，直接采用"
+}

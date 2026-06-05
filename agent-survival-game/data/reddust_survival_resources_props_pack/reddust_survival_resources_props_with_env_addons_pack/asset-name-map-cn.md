@@ -1,0 +1,51 @@
+# RedDust 资产中文名与图片文件名对照
+
+生成时间：2026-05-14 14:49:20 CST
+
+说明：`previews/` 只用于审阅，不作为运行时素材。游戏里优先使用 `assets/` 目录下的 PNG。
+
+## 生存资源
+
+| 中文名 | 清单编号 | 主文件 | 其他尺寸/相关文件 | 用途备注 |
+|---|---|---|---|---|
+| 单片防沙滤芯 | R3 滤芯耗材 | `assets/resources/rd_res_filter_disc_single.png` | assets/resources/rd_res_filter_disc_single_128.png<br>assets/resources/rd_res_filter_disc_single_512.png<br>assets/resources/rd_res_filter_disc_single_64.png | 外出消耗、单件增减 |
+| 防沙滤芯堆叠 | R3 滤芯耗材 | `assets/resources/rd_res_filter_disc_stack_clean_used.png` | assets/resources/rd_res_filter_disc_stack_clean_used_128.png<br>assets/resources/rd_res_filter_disc_stack_clean_used_512.png<br>assets/resources/rd_res_filter_disc_stack_clean_used_64.png | 资源储备显示 |
+| 单个真空压缩食品盒 | R2 食物 | `assets/resources/rd_res_food_vacuum_box_single.png` | assets/resources/rd_res_food_vacuum_box_single_128.png<br>assets/resources/rd_res_food_vacuum_box_single_512.png<br>assets/resources/rd_res_food_vacuum_box_single_64.png | 单件增减、分配 UI |
+| 真空压缩食品盒堆叠 | R2 食物 | `assets/resources/rd_res_food_vacuum_box_stack.png` | assets/resources/rd_res_food_vacuum_box_stack_128.png<br>assets/resources/rd_res_food_vacuum_box_stack_512.png<br>assets/resources/rd_res_food_vacuum_box_stack_64.png | 资源储备显示 |
+| 真空压缩食品堆叠（兼容旧文件名） | R2 食物 | `assets/resources/rd_res_food_vacuum_pack_stack.png` | assets/resources/rd_res_food_vacuum_pack_stack_128.png<br>assets/resources/rd_res_food_vacuum_pack_stack_512.png<br>assets/resources/rd_res_food_vacuum_pack_stack_64.png | 兼容原文件名，视觉为真空盒风格 |
+| 净水水瓶组与大蓝水罐 | R1 净水 | `assets/resources/rd_res_water_bottle_jug_full.png` | assets/resources/rd_res_water_bottle_jug_full_128.png<br>assets/resources/rd_res_water_bottle_jug_full_512.png<br>assets/resources/rd_res_water_bottle_jug_full_64.png | 资源数量/场景储备显示 |
+| 单瓶净水 | R1 净水 | `assets/resources/rd_res_water_bottle_single.png` | assets/resources/rd_res_water_bottle_single_128.png<br>assets/resources/rd_res_water_bottle_single_512.png<br>assets/resources/rd_res_water_bottle_single_64.png | 单件增减、分配 UI |
+
+## 道具
+
+| 中文名 | 清单编号 | 主文件 | 其他尺寸/相关文件 | 用途备注 |
+|---|---|---|---|---|
+| AURA 智能音箱 | P+1 | `assets/props/rd_prop_aura_speaker_idle.png` | assets/props/rd_prop_aura_speaker_idle_128.png<br>assets/props/rd_prop_aura_speaker_idle_512.png<br>assets/props/rd_prop_aura_speaker_idle_64.png | Core-X 推理载体 / 耗电 |
+| 备用电池混装盒 | P9 | `assets/props/rd_prop_battery_box_mixed_cells.png` | assets/props/rd_prop_battery_box_mixed_cells_128.png<br>assets/props/rd_prop_battery_box_mixed_cells_512.png<br>assets/props/rd_prop_battery_box_mixed_cells_64.png | AURA / 风扇 / 收音机 / MP3 供电 |
+| 国际象棋 | P6 | `assets/props/rd_prop_chess_board_single.png` | assets/props/rd_prop_chess_board_single_128.png<br>assets/props/rd_prop_chess_board_single_512.png<br>assets/props/rd_prop_chess_board_single_64.png | 降低焦虑 / 对弈事件 |
+| 象棋与纸牌减压组合 | P6/P8 | `assets/props/rd_prop_chess_cards_sanity_set.png` | assets/props/rd_prop_chess_cards_sanity_set_128.png<br>assets/props/rd_prop_chess_cards_sanity_set_512.png<br>assets/props/rd_prop_chess_cards_sanity_set_64.png | 早期组合素材，可作 sanity 道具组 |
+| 手绘城市地图 | P4 | `assets/props/rd_prop_city_map_handdrawn_folded.png` | assets/props/rd_prop_city_map_handdrawn_folded_128.png<br>assets/props/rd_prop_city_map_handdrawn_folded_512.png<br>assets/props/rd_prop_city_map_handdrawn_folded_64.png | 拾荒减险 / 探路 |
+| 撬棍与信号枪组合 | P5 | `assets/props/rd_prop_crowbar_signal_flare_pair.png` | assets/props/rd_prop_crowbar_signal_flare_pair_128.png<br>assets/props/rd_prop_crowbar_signal_flare_pair_512.png<br>assets/props/rd_prop_crowbar_signal_flare_pair_64.png | 防御土匪 / 破障 / 信号 |
+| 司机工具箱 | P2 | `assets/props/rd_prop_driver_toolbox_blue_metal.png` | assets/props/rd_prop_driver_toolbox_blue_metal_128.png<br>assets/props/rd_prop_driver_toolbox_blue_metal_512.png<br>assets/props/rd_prop_driver_toolbox_blue_metal_64.png | 外出容量 / 修车关键 |
+| 急救包 | P12 | `assets/props/rd_prop_first_aid_kit_wall_softcase.png` | assets/props/rd_prop_first_aid_kit_wall_softcase_128.png<br>assets/props/rd_prop_first_aid_kit_wall_softcase_512.png<br>assets/props/rd_prop_first_aid_kit_wall_softcase_64.png | 治疗伤病 |
+| 杀虫剂 | P10 | `assets/props/rd_prop_insect_spray_sand_pests.png` | assets/props/rd_prop_insect_spray_sand_pests_128.png<br>assets/props/rd_prop_insect_spray_sand_pests_512.png<br>assets/props/rd_prop_insect_spray_sand_pests_64.png | 沙鼠 / 沙蝎事件 |
+| 旧 MP3 与耳机 | P7 | `assets/props/rd_prop_mp3_earbuds_repaired.png` | assets/props/rd_prop_mp3_earbuds_repaired_128.png<br>assets/props/rd_prop_mp3_earbuds_repaired_512.png<br>assets/props/rd_prop_mp3_earbuds_repaired_64.png | 小铁事件 / 个人 sanity |
+| 旧报纸合订本 | P1 | `assets/props/rd_prop_old_newspaper_bound_volume.png` | assets/props/rd_prop_old_newspaper_bound_volume_128.png<br>assets/props/rd_prop_old_newspaper_bound_volume_512.png<br>assets/props/rd_prop_old_newspaper_bound_volume_64.png | 研读过去事件 / 邻里线 gate |
+| 扑克牌 | P8 | `assets/props/rd_prop_playing_cards_deck_single.png` | assets/props/rd_prop_playing_cards_deck_single_128.png<br>assets/props/rd_prop_playing_cards_deck_single_512.png<br>assets/props/rd_prop_playing_cards_deck_single_64.png | 降低焦虑 / 交易事件 |
+| 半导体收音机 | P3 | `assets/props/rd_prop_radio_semiconductor_idle.png` | assets/props/rd_prop_radio_semiconductor_idle_128.png<br>assets/props/rd_prop_radio_semiconductor_idle_512.png<br>assets/props/rd_prop_radio_semiconductor_idle_64.png | 军方广播 / 运输队主线 |
+| 加固门栓 | P13 | `assets/props/rd_prop_reinforced_door_bar_wallmount.png` | assets/props/rd_prop_reinforced_door_bar_wallmount_128.png<br>assets/props/rd_prop_reinforced_door_bar_wallmount_512.png<br>assets/props/rd_prop_reinforced_door_bar_wallmount_64.png | 防御 / 独居跳日 |
+| 防沙面罩与护目镜 | P11 | `assets/props/rd_prop_sand_mask_goggles_hanging.png` | assets/props/rd_prop_sand_mask_goggles_hanging_128.png<br>assets/props/rd_prop_sand_mask_goggles_hanging_512.png<br>assets/props/rd_prop_sand_mask_goggles_hanging_64.png | 外出防护必备 |
+
+## 环境件
+
+| 中文名 | 清单编号 | 主文件 | 其他尺寸/相关文件 | 用途备注 |
+|---|---|---|---|---|
+| 无罩墙面排气扇扇叶 | 环境补充 | `assets/scenes/rd_env_wall_exhaust_fan_blades_rotor.png` | assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png<br>assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png<br>assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png | 旋转层；pivot [256,256] |
+| 无罩墙面排气扇本体 | 环境补充 | `assets/scenes/rd_env_wall_exhaust_fan_body_static.png` | assets/scenes/rd_env_wall_exhaust_fan_body_static_128.png<br>assets/scenes/rd_env_wall_exhaust_fan_body_static_512.png<br>assets/scenes/rd_env_wall_exhaust_fan_body_static_64.png | 静态本体层；先画扇叶再画本体 |
+| 可摆放物品的低矮木箱 | 环境补充 | `assets/scenes/rd_env_wooden_crate_surface_empty.png` | assets/scenes/rd_env_wooden_crate_surface_empty_128.png<br>assets/scenes/rd_env_wooden_crate_surface_empty_512.png<br>assets/scenes/rd_env_wooden_crate_surface_empty_64.png | 上表面可放置道具，详见 metadata 的 placement polygon |
+
+## 校验图
+
+| 中文名 | 清单编号 | 主文件 | 其他尺寸/相关文件 | 用途备注 |
+|---|---|---|---|---|
+| 无罩排气扇合成检查图 | 非运行必需 | `assets/scenes/rd_env_wall_exhaust_fan_split_composite_check.png` | - | 检查 body + blades 合成效果 |

@@ -1,0 +1,7 @@
+{
+  "schema_correct": true,
+  "dates_standardized": true,
+  "entities_normalized": true,
+  "unknown_for_uncertain": true,
+  "evidence_table_complete": true
+}

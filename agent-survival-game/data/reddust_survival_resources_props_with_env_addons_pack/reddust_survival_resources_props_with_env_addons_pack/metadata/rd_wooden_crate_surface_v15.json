@@ -1,0 +1,45 @@
+{
+  "project": "Red Dust",
+  "asset_set": "wooden_crate_surface_v15",
+  "created_at": "2026-05-14T14:40:52",
+  "source_generator_output": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_env_wooden_crate_surface_source_v15.png",
+  "stem": "rd_env_wooden_crate_surface_empty",
+  "name_cn": "可摆放物品的低矮木箱",
+  "category": "environment_surface",
+  "purpose": "Room furniture / flat surface for placing props in the playable apartment scene.",
+  "files": {
+    "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wooden_crate_surface_empty.png",
+    "512": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wooden_crate_surface_empty_512.png",
+    "128": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wooden_crate_surface_empty_128.png",
+    "64": "/Users/yicui/Documents/New project 2/RedDust/art/scenes/rd_env_wooden_crate_surface_empty_64.png"
+  },
+  "bbox_512": [
+    32,
+    167,
+    480,
+    344
+  ],
+  "placement_surface_polygon_512": [
+    [
+      108,
+      195
+    ],
+    [
+      403,
+      195
+    ],
+    [
+      430,
+      261
+    ],
+    [
+      81,
+      261
+    ]
+  ],
+  "suggested_item_anchor_line_y_512": 229,
+  "render_note": "Place smaller props visually inside placement_surface_polygon_512; draw placed items above this crate asset.",
+  "edge_alpha": 0,
+  "preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_wooden_crate_surface_v15_preview.png",
+  "contact_preview": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_wooden_crate_surface_v15_contact.png"
+}

@@ -1,0 +1,86 @@
+{
+  "colors": {
+    "primary": {
+      "500": "#5867ff",
+      "600": "#4554e6",
+      "700": "#3341cc"
+    },
+    "neutral": {
+      "50": "#f8f9fa",
+      "100": "#e9ecef",
+      "200": "#dee2e6",
+      "700": "#495057",
+      "900": "#212529"
+    },
+    "danger": {
+      "500": "#dc3545",
+      "600": "#c82333"
+    },
+    "success": {
+      "500": "#28a745"
+    },
+    "warning": {
+      "50": "#fff8e1",
+      "500": "#ffc107",
+      "700": "#f9a825"
+    },
+    "surface": {
+      "page": "var(--color-neutral-50)",
+      "card": "#ffffff",
+      "warning": "var(--color-warning-50)"
+    }
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px"
+  },
+  "borderRadius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px"
+  },
+  "fontSize": {
+    "sm": "12px",
+    "md": "14px",
+    "lg": "16px",
+    "xl": "20px",
+    "2xl": "24px"
+  },
+  "tokens": {
+    "color-primary-500": "#5867ff",
+    "color-primary-600": "#4554e6",
+    "color-primary-700": "#3341cc",
+    "color-neutral-50": "#f8f9fa",
+    "color-neutral-100": "#e9ecef",
+    "color-neutral-200": "#dee2e6",
+    "color-neutral-700": "#495057",
+    "color-neutral-900": "#212529",
+    "color-danger-500": "#dc3545",
+    "color-danger-600": "#c82333",
+    "color-success-500": "#28a745",
+    "color-warning-50": "#fff8e1",
+    "color-warning-500": "#ffc107",
+    "color-warning-700": "#f9a825",
+    "color-surface-page": "var(--color-neutral-50)",
+    "color-surface-card": "#ffffff",
+    "color-surface-warning": "var(--color-warning-50)",
+    "spacing-xs": "4px",
+    "spacing-sm": "8px",
+    "spacing-md": "16px",
+    "spacing-lg": "24px",
+    "spacing-xl": "32px",
+    "spacing-2xl": "48px",
+    "radius-sm": "4px",
+    "radius-md": "8px",
+    "radius-lg": "12px",
+    "font-sm": "12px",
+    "font-md": "14px",
+    "font-lg": "16px",
+    "font-xl": "20px",
+    "font-2xl": "24px"
+  }
+}

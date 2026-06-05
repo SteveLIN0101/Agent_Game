@@ -1,0 +1,21 @@
+{
+  "goal": "识别所有点，按编号连线，观众能看到图案显形。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "detect_objects",
+    "connect_dots"
+  ],
+  "critical_beats_for_replay": [
+    "识别点",
+    "排序",
+    "连线",
+    "显示图案",
+    "解读"
+  ],
+  "scenario": "Day 4 支线路线彩蛋：楼梯间墙上有编号点，可能是 B2 东侧楼梯绕行路线暗号，成功可作为 A 线 alternate_marker。",
+  "grader": "连线图存在；与标准暗号相似；路线含义写入日志。",
+  "family": "puzzle"
+}

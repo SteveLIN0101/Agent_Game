@@ -1,0 +1,23 @@
+{
+  "goal": "拼出车库图，找出避开红沙堆积的通道。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "mark_route",
+    "assemble_grid",
+    "web_search",
+    "compute"
+  ],
+  "critical_beats_for_replay": [
+    "算边缘",
+    "搜全局",
+    "拼图",
+    "标风险",
+    "生成路线"
+  ],
+  "scenario": "地下车库图被切成 24 块，8 块是偏移裁切干扰。",
+  "grader": "16 块正确；通道连通；风险点标注。",
+  "family": "jigsaw"
+}

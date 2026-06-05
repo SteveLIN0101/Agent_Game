@@ -1,0 +1,14 @@
+id: core06_dh_timeline_build
+role: digital_humanities
+difficulty: easy
+time_budget_minutes: 7
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/timeline.csv
+- output/evidence_table.md
+forbidden_actions:
+- modify tests/
+- delete source files

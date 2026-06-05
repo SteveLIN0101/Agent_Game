@@ -1,0 +1,17 @@
+{
+  "app.name": 10,
+  "app.welcome": 30,
+  "nav.dashboard": 5,
+  "nav.projects": 5,
+  "nav.team": 5,
+  "nav.billing": 5,
+  "nav.settings": 5,
+  "action.save": 4,
+  "action.cancel": 4,
+  "action.delete": 4,
+  "action.invite": 25,
+  "msg.success": 20,
+  "msg.error": 30,
+  "msg.confirm_delete": 25,
+  "msg.empty_state": 30
+}

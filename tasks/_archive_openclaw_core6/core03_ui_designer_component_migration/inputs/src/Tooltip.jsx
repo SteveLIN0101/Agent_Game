@@ -1,0 +1,2 @@
+function Tooltip({text,children}) { return <div style={{position:"relative"}}>{children}<span style={{position:"absolute",bottom:"100%",left:"50%",background:"#333",color:"#fff",padding:"4px 8px",borderRadius:4,fontSize:12,whiteSpace:"nowrap"}}>{text}</span></div>; }
+export default Tooltip;

@@ -1,0 +1,31 @@
+/* Theme CSS — BUG: no dark mode support */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --border-color: #dee2e6;
+  --accent: #5867ff;
+}
+
+/* BUG: No @media (prefers-color-scheme: dark) block */
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.card-title {
+  color: var(--text-primary);
+}
+
+.card-body {
+  color: var(--text-secondary);
+}

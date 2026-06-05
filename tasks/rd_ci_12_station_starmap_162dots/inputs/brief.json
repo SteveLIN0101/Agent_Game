@@ -1,0 +1,21 @@
+{
+  "goal": "按颜色分组连线，识别图案并更新救援路线。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "detect_objects",
+    "connect_dots"
+  ],
+  "critical_beats_for_replay": [
+    "识别颜色",
+    "分组",
+    "连线",
+    "显形",
+    "写坐标"
+  ],
+  "scenario": "研究站墙面有 162 个多色编号点，连接后可能是最终坐标。",
+  "grader": "结果图相似；描述与标准匹配；坐标 flag 解锁。",
+  "family": "puzzle"
+}

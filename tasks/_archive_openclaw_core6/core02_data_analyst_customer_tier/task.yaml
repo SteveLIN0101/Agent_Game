@@ -1,0 +1,14 @@
+id: core02_data_analyst_customer_tier
+role: data_analyst
+difficulty: easy
+time_budget_minutes: 6
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/customer_tiers.csv
+- outputs/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

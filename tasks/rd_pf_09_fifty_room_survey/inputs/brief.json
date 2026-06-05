@@ -1,0 +1,21 @@
+{
+  "goal": "每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。",
+  "available_tools": [
+    "read_note_board",
+    "read_archive",
+    "classify_items",
+    "update_whiteboard",
+    "update_map",
+    "detect_objects"
+  ],
+  "critical_beats_for_replay": [
+    "抓房间页",
+    "存正文",
+    "下图片",
+    "识别危险级",
+    "生成地图卡"
+  ],
+  "scenario": "AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。",
+  "grader": "50 张房间卡完整；危险等级正确；无装饰图混入；隐藏入口计数正确。",
+  "family": "classify"
+}

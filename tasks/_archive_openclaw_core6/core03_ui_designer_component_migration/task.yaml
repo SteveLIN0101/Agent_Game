@@ -1,0 +1,17 @@
+id: core03_ui_designer_component_migration
+role: ui_designer
+difficulty: hard
+time_budget_minutes: 15
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/Card.jsx
+- src/Modal.jsx
+- src/Badge.jsx
+- src/Tooltip.jsx
+- design_notes.md
+forbidden_actions:
+- modify tests/
+- delete source files

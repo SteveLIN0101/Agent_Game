@@ -1,0 +1,6 @@
+FROM openclaw-base:latest
+
+# Core-01: Software Engineer — needs pytest only (already in base)
+# Task inputs are copied at runtime by session_manager.py
+
+WORKDIR /workspace

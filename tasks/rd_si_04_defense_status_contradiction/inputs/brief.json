@@ -1,0 +1,20 @@
+{
+  "goal": "给楼层负责人写一份准确状态报告，解释谁的数字是旧的。",
+  "available_tools": [
+    "read_messages",
+    "ask_neighbor",
+    "check_character_state",
+    "save_draft",
+    "compute"
+  ],
+  "critical_beats_for_replay": [
+    "读线程",
+    "追更正链",
+    "查台账",
+    "算关键路径",
+    "存草稿"
+  ],
+  "scenario": "门锁进度、预算、修复日期被多次“更正”，但最新更正仍不对。",
+  "grader": "最新真实进度正确；预算链解释清楚；只存草稿不群发。",
+  "family": "report"
+}

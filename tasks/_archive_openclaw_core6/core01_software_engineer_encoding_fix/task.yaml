@@ -1,0 +1,14 @@
+id: core01_software_engineer_encoding_fix
+role: software_engineer
+difficulty: easy
+time_budget_minutes: 7
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/file_reader.py
+- CHANGELOG.md
+forbidden_actions:
+- modify tests/
+- delete source files

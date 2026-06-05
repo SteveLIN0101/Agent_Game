@@ -1,0 +1,16 @@
+{
+  "fills": {
+    "pipe_01": "red",
+    "pipe_02": "red",
+    "pipe_03": "blue",
+    "pipe_04": "blue",
+    "pipe_05": "green",
+    "pipe_06": "green",
+    "pipe_07": "yellow",
+    "pipe_08": "yellow",
+    "pipe_09": "white",
+    "pipe_10": "white"
+  },
+  "meaning": "隐藏线路显示备用照明可从东侧配电箱切换。",
+  "min_rate": 0.8
+}

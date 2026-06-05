@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>SHELTER · 美术概念简图</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0e0e1a;
+    color: #e0e0e6;
+    font-family: 'PingFang SC', 'SF Pro Text', sans-serif;
+    padding: 32px 48px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #ff9500, #ff3b3b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+  }
+  .subtitle {
+    color: #6a6a8a;
+    font-size: 13px;
+    margin-bottom: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 2px;
+  }
+  section {
+    margin-bottom: 56px;
+    padding: 24px;
+    background: #15172e;
+    border-radius: 12px;
+    border: 1px solid #1f1f3a;
+  }
+  h2 {
+    font-size: 18px;
+    color: #ff9500;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .desc {
+    color: #aaaacc;
+    font-size: 13px;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+  .ref-note {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #0a0c20;
+    border-left: 3px solid #ff9500;
+    font-size: 12px;
+    color: #aaaacc;
+    line-height: 1.7;
+    border-radius: 4px;
+  }
+  .ref-note strong { color: #ff9500; }
+  svg {
+    background: #07091a;
+    border-radius: 8px;
+    border: 1px solid #1f1f3a;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .grid {
+    display: grid;
+    gap: 12px;
+  }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .palette-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .swatch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #0a0c20;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #aaaacc;
+  }
+  .swatch-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+
+<h1>SHELTER · 美术概念简图</h1>
+<div class="subtitle">CONCEPT SKETCHES FOR ART REFERENCE · 2026-05-09</div>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>0 · 整体视觉风格定位</h2>
+<p class="desc">参考 60 Seconds! Reatomic + WALL-E + 一点 Fallout 废土感。手绘像素风（不是赛博朋克）。</p>
+
+<div class="palette-row">
+  <span class="swatch"><span class="swatch-color" style="background:#0e0e1a"></span>#0e0e1a 主背景</span>
+  <span class="swatch"><span class="swatch-color" style="background:#3a2820"></span>#3a2820 木质暖棕</span>
+  <span class="swatch"><span class="swatch-color" style="background:#5a4530"></span>#5a4530 金属边框</span>
+  <span class="swatch"><span class="swatch-color" style="background:#7a4a35"></span>#7a4a35 床垫/家具</span>
+  <span class="swatch"><span class="swatch-color" style="background:#ffd60a"></span>#ffd60a 灯光暖黄</span>
+  <span class="swatch"><span class="swatch-color" style="background:#5ac8fa"></span>#5ac8fa 屏幕冷蓝</span>
+  <span class="swatch"><span class="swatch-color" style="background:#30d158"></span>#30d158 电池绿</span>
+  <span class="swatch"><span class="swatch-color" style="background:#ff3b3b"></span>#ff3b3b 警告红</span>
+  <span class="swatch"><span class="swatch-color" style="background:#bf5af2"></span>#bf5af2 电磁紫</span>
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>1 · 主场景：避难所内部（横切面视角）</h2>
+<p class="desc">游戏的核心舞台。横切面视角让玩家能看到避难所"剖面"，类似 60 Seconds 的经典构图。</p>
+
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+  <!-- 房间外壳（厚墙体）-->
+  <rect x="20" y="40" width="760" height="400" fill="#3a2820" stroke="#1a0f0a" stroke-width="3"/>
+  <!-- 内部空间 -->
+  <rect x="40" y="60" width="720" height="360" fill="#2a1f1a"/>
+
+  <!-- 顶部通风口 -->
+  <rect x="350" y="60" width="100" height="14" fill="#1a0f0a"/>
+  <line x1="360" y1="60" x2="360" y2="74" stroke="#5a4530" stroke-width="1"/>
+  <line x1="380" y1="60" x2="380" y2="74" stroke="#5a4530" stroke-width="1"/>
+  <line x1="400" y1="60" x2="400" y2="74" stroke="#5a4530" stroke-width="1"/>
+  <line x1="420" y1="60" x2="420" y2="74" stroke="#5a4530" stroke-width="1"/>
+  <line x1="440" y1="60" x2="440" y2="74" stroke="#5a4530" stroke-width="1"/>
+
+  <!-- 煤油灯 / 全息灯 (吊在天花板) -->
+  <line x1="200" y1="60" x2="200" y2="100" stroke="#5a4530" stroke-width="1.5"/>
+  <ellipse cx="200" cy="106" rx="18" ry="12" fill="#ffd60a" opacity="0.3"/>
+  <rect x="194" y="100" width="12" height="6" fill="#5a4530"/>
+
+  <!-- 灯光柔光（在地上）-->
+  <ellipse cx="200" cy="380" rx="80" ry="15" fill="#ffd60a" opacity="0.08"/>
+
+  <!-- ─── 左侧：充电座 ─── -->
+  <rect x="60" y="280" width="80" height="100" fill="#1a1a2a" stroke="#5a4530" stroke-width="2"/>
+  <rect x="65" y="285" width="70" height="10" fill="#5ac8fa" opacity="0.6"/>
+  <rect x="68" y="305" width="64" height="60" fill="#3a2820"/>
+  <!-- 电缆 -->
+  <path d="M 100 280 Q 100 250 130 240" stroke="#1a0f0a" stroke-width="2.5" fill="none"/>
+  <!-- 状态灯 -->
+  <circle cx="75" cy="370" r="3" fill="#30d158"/>
+  <circle cx="125" cy="370" r="3" fill="#ffd60a"/>
+
+  <!-- 充电座标签 -->
+  <text x="100" y="395" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">充电座</text>
+
+  <!-- ─── 床（充电休眠位）─── -->
+  <rect x="60" y="180" width="100" height="50" fill="#5a3a2a" stroke="#3a2010" stroke-width="2"/>
+  <rect x="65" y="175" width="90" height="12" fill="#7a4a35"/>
+  <rect x="65" y="220" width="6" height="10" fill="#3a2010"/>
+  <rect x="149" y="220" width="6" height="10" fill="#3a2010"/>
+  <text x="110" y="248" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">床</text>
+
+  <!-- ─── 中央：工作台 ─── -->
+  <rect x="200" y="280" width="160" height="14" fill="#5a3a2a" stroke="#3a2010" stroke-width="1.5"/>
+  <rect x="208" y="294" width="6" height="86" fill="#3a2010"/>
+  <rect x="346" y="294" width="6" height="86" fill="#3a2010"/>
+  <!-- 桌上的工具 -->
+  <rect x="220" y="270" width="14" height="10" fill="#888" stroke="#444" stroke-width="1"/>  <!-- 扳手 -->
+  <circle cx="260" cy="276" r="6" fill="#5ac8fa" stroke="#0a84ff" stroke-width="1"/>  <!-- 电池 -->
+  <circle cx="278" cy="276" r="6" fill="#5ac8fa" stroke="#0a84ff" stroke-width="1"/>
+  <rect x="300" y="265" width="20" height="14" fill="#ff9500" stroke="#3a1f10" stroke-width="1"/>  <!-- 工具箱 -->
+  <text x="280" y="320" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">工作台</text>
+
+  <!-- ─── 中央：主控终端（屏幕）─── -->
+  <rect x="240" y="180" width="80" height="60" fill="#1a1a2a" stroke="#3a2010" stroke-width="2"/>
+  <rect x="246" y="186" width="68" height="44" fill="#0a1530" stroke="#5ac8fa" stroke-width="1"/>
+  <!-- 屏幕上的"代码"-->
+  <line x1="252" y1="194" x2="290" y2="194" stroke="#30d158" stroke-width="1.5"/>
+  <line x1="252" y1="200" x2="280" y2="200" stroke="#30d158" stroke-width="1.5"/>
+  <line x1="252" y1="206" x2="295" y2="206" stroke="#30d158" stroke-width="1.5"/>
+  <line x1="252" y1="212" x2="270" y2="212" stroke="#30d158" stroke-width="1.5"/>
+  <line x1="252" y1="218" x2="285" y2="218" stroke="#30d158" stroke-width="1.5"/>
+  <text x="280" y="260" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">主控终端</text>
+
+  <!-- ─── 右侧：储物货架 ─── -->
+  <rect x="500" y="170" width="220" height="110" fill="#3a2820" stroke="#1a0f0a" stroke-width="2"/>
+  <line x1="500" y1="200" x2="720" y2="200" stroke="#5a4530" stroke-width="2"/>
+  <line x1="500" y1="230" x2="720" y2="230" stroke="#5a4530" stroke-width="2"/>
+  <line x1="500" y1="260" x2="720" y2="260" stroke="#5a4530" stroke-width="2"/>
+
+  <!-- 第 1 层：电池 -->
+  <g>
+    <rect x="510" y="180" width="14" height="18" fill="#30d158" stroke="#0a4030" stroke-width="0.8"/>
+    <rect x="510" y="180" width="14" height="3" fill="#ffd60a"/>
+    <rect x="528" y="180" width="14" height="18" fill="#30d158" stroke="#0a4030" stroke-width="0.8"/>
+    <rect x="528" y="180" width="14" height="3" fill="#ffd60a"/>
+    <rect x="546" y="180" width="14" height="18" fill="#30d158" stroke="#0a4030" stroke-width="0.8"/>
+    <rect x="546" y="180" width="14" height="3" fill="#ffd60a"/>
+    <rect x="564" y="180" width="14" height="18" fill="#30d158" stroke="#0a4030" stroke-width="0.8"/>
+    <rect x="564" y="180" width="14" height="3" fill="#ffd60a"/>
+    <rect x="582" y="180" width="14" height="18" fill="#30d158" stroke="#0a4030" stroke-width="0.8"/>
+    <rect x="582" y="180" width="14" height="3" fill="#ffd60a"/>
+    <text x="610" y="194" fill="#888" font-size="10" font-family="monospace">× 8</text>
+  </g>
+
+  <!-- 第 2 层：冷却液瓶子 -->
+  <g>
+    <rect x="513" y="208" width="10" height="20" fill="#5ac8fa" opacity="0.7" stroke="#0a84ff" stroke-width="0.8"/>
+    <rect x="515" y="204" width="6" height="4" fill="#0a84ff"/>
+    <rect x="528" y="208" width="10" height="20" fill="#5ac8fa" opacity="0.7" stroke="#0a84ff" stroke-width="0.8"/>
+    <rect x="530" y="204" width="6" height="4" fill="#0a84ff"/>
+    <rect x="543" y="208" width="10" height="20" fill="#5ac8fa" opacity="0.7" stroke="#0a84ff" stroke-width="0.8"/>
+    <rect x="545" y="204" width="6" height="4" fill="#0a84ff"/>
+    <rect x="558" y="208" width="10" height="20" fill="#5ac8fa" opacity="0.7" stroke="#0a84ff" stroke-width="0.8"/>
+    <rect x="560" y="204" width="6" height="4" fill="#0a84ff"/>
+    <text x="610" y="222" fill="#888" font-size="10" font-family="monospace">冷却液 × 6</text>
+  </g>
+
+  <!-- 第 3 层：修理包 -->
+  <g>
+    <rect x="513" y="238" width="20" height="18" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="1"/>
+    <rect x="520" y="240" width="6" height="14" fill="#fff"/>
+    <rect x="514" y="245" width="18" height="4" fill="#fff"/>
+    <rect x="540" y="238" width="20" height="18" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="1"/>
+    <rect x="547" y="240" width="6" height="14" fill="#fff"/>
+    <rect x="541" y="245" width="18" height="4" fill="#fff"/>
+    <rect x="567" y="238" width="20" height="18" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="1"/>
+    <rect x="574" y="240" width="6" height="14" fill="#fff"/>
+    <rect x="568" y="245" width="18" height="4" fill="#fff"/>
+    <text x="610" y="252" fill="#888" font-size="10" font-family="monospace">修理包 × 3</text>
+  </g>
+
+  <!-- 第 4 层：杂物 / 武器 -->
+  <g>
+    <rect x="510" y="265" width="30" height="12" fill="#444" stroke="#222" stroke-width="0.8"/>
+    <rect x="540" y="269" width="14" height="5" fill="#444"/>
+    <text x="540" y="287" fill="#888" font-size="10" font-family="monospace">脉冲枪 × 1</text>
+  </g>
+
+  <text x="610" y="170" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">储物货架</text>
+
+  <!-- ─── 收音机（小桌上）─── -->
+  <rect x="380" y="305" width="60" height="36" fill="#3a2a20" stroke="#5a4530" stroke-width="1.5"/>
+  <rect x="385" y="312" width="50" height="20" fill="#1a1010"/>
+  <circle cx="395" cy="322" r="3" fill="#ff3b3b"/>
+  <circle cx="425" cy="322" r="3" fill="#30d158"/>
+  <line x1="408" y1="305" x2="408" y2="290" stroke="#5a4530" stroke-width="1.5"/>
+  <text x="410" y="356" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">收音机</text>
+
+  <!-- ─── 防护门（右侧）─── -->
+  <rect x="700" y="220" width="50" height="200" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+  <circle cx="715" cy="320" r="4" fill="#ffd60a"/>
+  <line x1="708" y1="240" x2="745" y2="240" stroke="#5a4530" stroke-width="1.5"/>
+  <line x1="708" y1="260" x2="745" y2="260" stroke="#5a4530" stroke-width="1.5"/>
+  <!-- 门上的把手 -->
+  <rect x="730" y="318" width="14" height="6" fill="#888" stroke="#444" stroke-width="0.8"/>
+  <text x="725" y="438" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">防护门</text>
+
+  <!-- ─── 监控屏幕（门旁）─── -->
+  <rect x="630" y="290" width="60" height="40" fill="#1a1a2a" stroke="#5a4530" stroke-width="2"/>
+  <rect x="635" y="295" width="50" height="30" fill="#0a1a2a"/>
+  <!-- 屏幕显示外面的扭曲画面 -->
+  <line x1="638" y1="310" x2="682" y2="310" stroke="#5ac8fa" stroke-width="0.8" opacity="0.7"/>
+  <path d="M 640 305 Q 660 308 680 305" stroke="#bf5af2" stroke-width="1" fill="none" opacity="0.5"/>
+  <text x="660" y="345" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">监控屏</text>
+
+  <!-- ─── 角色机器人 (中央) ─── -->
+  <g transform="translate(420, 340)">
+    <!-- 阴影 -->
+    <ellipse cx="0" cy="38" rx="22" ry="5" fill="#000" opacity="0.4"/>
+    <!-- 身体 -->
+    <rect x="-15" y="-10" width="30" height="35" fill="#5ac8fa" stroke="#0a4060" stroke-width="2" rx="3"/>
+    <rect x="-9" y="10" width="3" height="15" fill="#0a4060"/>
+    <rect x="6" y="10" width="3" height="15" fill="#0a4060"/>
+    <!-- 头 -->
+    <rect x="-12" y="-30" width="24" height="20" fill="#5ac8fa" stroke="#0a4060" stroke-width="2" rx="2"/>
+    <!-- LED 眼 -->
+    <rect x="-9" y="-22" width="6" height="6" fill="#ffd60a"/>
+    <rect x="3" y="-22" width="6" height="6" fill="#ffd60a"/>
+    <!-- 头顶天线 -->
+    <line x1="0" y1="-30" x2="0" y2="-38" stroke="#5a4530" stroke-width="1.5"/>
+    <circle cx="0" cy="-40" r="2" fill="#ff3b3b"/>
+  </g>
+  <text x="420" y="395" text-anchor="middle" fill="#ffd60a" font-size="11" font-family="monospace">玩家 (机器人)</text>
+
+  <!-- 地砖纹理 -->
+  <g stroke="#1a0f0a" stroke-width="0.5" opacity="0.5">
+    <line x1="40" y1="420" x2="760" y2="420"/>
+    <line x1="100" y1="395" x2="100" y2="420"/>
+    <line x1="180" y1="395" x2="180" y2="420"/>
+    <line x1="260" y1="395" x2="260" y2="420"/>
+    <line x1="340" y1="395" x2="340" y2="420"/>
+    <line x1="420" y1="395" x2="420" y2="420"/>
+    <line x1="500" y1="395" x2="500" y2="420"/>
+    <line x1="580" y1="395" x2="580" y2="420"/>
+    <line x1="660" y1="395" x2="660" y2="420"/>
+  </g>
+
+  <!-- 标题文字 -->
+  <text x="400" y="30" text-anchor="middle" fill="#ff9500" font-size="14" font-weight="800" letter-spacing="2">SHELTER · 横切面参考</text>
+</svg>
+
+<div class="ref-note">
+<strong>美术要点：</strong>
+横切面视角（不是 3D 也不是俯视图）· 一个房间被"剖开"展示给观众 ·
+家具/物资保留 60 秒原版风格但贴上机器人主题 ·
+温暖偏暖的房间 vs 外面的冷蓝色 = 视觉对比 ·
+墙体加 EMP 屏蔽纹理（可加细的 + 字格子图案做 Faraday 笼暗示）。
+
+<br><br>
+
+<strong>找素材关键词：</strong>
+"60 seconds bunker", "fallout vault interior pixel", "post apocalyptic shelter cross section",
+"WALL-E warehouse interior style", "robot workshop pixel art", "Stardew Valley interior".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>2 · 8 个 Hero 机器人形象</h2>
+<p class="desc">每个 agent 用机型 + 颜色区分。统一头部圆/方 + 身体方框，但通过装饰元素体现人格。</p>
+
+<svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- R-01 守望者 -->
+  <g transform="translate(70, 50)">
+    <ellipse cx="0" cy="160" rx="32" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 盾牌（背在身后）-->
+    <path d="M -32 80 L -32 130 Q -28 145 -22 142 L -22 80 Z" fill="#888" stroke="#444" stroke-width="1.5"/>
+    <!-- 厚重身体 -->
+    <rect x="-22" y="60" width="44" height="80" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="2.5" rx="2"/>
+    <rect x="-15" y="120" width="6" height="30" fill="#5a0a0a"/>
+    <rect x="9" y="120" width="6" height="30" fill="#5a0a0a"/>
+    <!-- 方头 -->
+    <rect x="-18" y="20" width="36" height="40" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="2.5"/>
+    <!-- 单条 LED -->
+    <rect x="-12" y="34" width="24" height="6" fill="#ffd60a"/>
+    <!-- 头盔顶 -->
+    <rect x="-12" y="14" width="24" height="6" fill="#5a0a0a"/>
+    <text x="0" y="184" text-anchor="middle" fill="#ff3b3b" font-size="10" font-weight="700">R-01 守望者</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">军用 · 防御型</text>
+  </g>
+
+  <!-- R-02 速行者 -->
+  <g transform="translate(180, 50)">
+    <ellipse cx="0" cy="160" rx="28" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 流线型身体 -->
+    <rect x="-16" y="60" width="32" height="70" fill="#0a84ff" stroke="#03365e" stroke-width="2" rx="14"/>
+    <!-- 腿 (轮子状) -->
+    <circle cx="-10" cy="142" r="10" fill="#222" stroke="#0a84ff" stroke-width="2"/>
+    <circle cx="10" cy="142" r="10" fill="#222" stroke="#0a84ff" stroke-width="2"/>
+    <circle cx="-10" cy="142" r="3" fill="#0a84ff"/>
+    <circle cx="10" cy="142" r="3" fill="#0a84ff"/>
+    <!-- 圆头 -->
+    <circle cx="0" cy="40" r="20" fill="#0a84ff" stroke="#03365e" stroke-width="2"/>
+    <!-- LED 长条眼 -->
+    <rect x="-12" y="36" width="24" height="4" fill="#ffd60a"/>
+    <!-- 快递包挂在身侧 -->
+    <rect x="14" y="80" width="14" height="20" fill="#ff9f0a" stroke="#5a3a05" stroke-width="1"/>
+    <text x="0" y="184" text-anchor="middle" fill="#0a84ff" font-size="10" font-weight="700">R-02 速行者</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">快递 · 反应快</text>
+  </g>
+
+  <!-- R-03 织梦者 -->
+  <g transform="translate(290, 50)">
+    <ellipse cx="0" cy="160" rx="24" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 高瘦身体 -->
+    <rect x="-14" y="58" width="28" height="80" fill="#30d158" stroke="#0e3a18" stroke-width="2" rx="2"/>
+    <rect x="-9" y="128" width="4" height="22" fill="#0e3a18"/>
+    <rect x="5" y="128" width="4" height="22" fill="#0e3a18"/>
+    <!-- 球头 + 大屏 -->
+    <circle cx="0" cy="38" r="22" fill="#30d158" stroke="#0e3a18" stroke-width="2"/>
+    <rect x="-14" y="30" width="28" height="14" fill="#0a1a14" stroke="#0e3a18" stroke-width="1"/>
+    <line x1="-12" y1="36" x2="12" y2="36" stroke="#5ac8fa" stroke-width="1.5"/>
+    <line x1="-10" y1="40" x2="8" y2="40" stroke="#5ac8fa" stroke-width="1"/>
+    <!-- 思考浮标 -->
+    <circle cx="22" cy="20" r="4" fill="#ffd60a" opacity="0.5"/>
+    <circle cx="30" cy="14" r="3" fill="#ffd60a" opacity="0.7"/>
+    <text x="0" y="184" text-anchor="middle" fill="#30d158" font-size="10" font-weight="700">R-03 织梦者</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">实验室 · 推理</text>
+  </g>
+
+  <!-- R-04 断锋 -->
+  <g transform="translate(400, 50)">
+    <ellipse cx="0" cy="160" rx="32" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 棱角分明的身体 -->
+    <polygon points="-22,60 22,60 26,135 -26,135" fill="#bf5af2" stroke="#3a0a5a" stroke-width="2.5"/>
+    <rect x="-15" y="125" width="6" height="25" fill="#3a0a5a"/>
+    <rect x="9" y="125" width="6" height="25" fill="#3a0a5a"/>
+    <!-- 尖角头 -->
+    <polygon points="-18,20 18,20 14,55 -14,55" fill="#bf5af2" stroke="#3a0a5a" stroke-width="2.5"/>
+    <!-- LED 红眼 -->
+    <rect x="-10" y="30" width="6" height="6" fill="#ff3b3b"/>
+    <rect x="4" y="30" width="6" height="6" fill="#ff3b3b"/>
+    <!-- 武器挂腰间 -->
+    <rect x="20" y="80" width="22" height="8" fill="#444" stroke="#222" stroke-width="1"/>
+    <rect x="38" y="82" width="6" height="4" fill="#444"/>
+    <text x="0" y="184" text-anchor="middle" fill="#bf5af2" font-size="10" font-weight="700">R-04 断锋</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">军用 · 激进</text>
+  </g>
+
+  <!-- R-05 和声 -->
+  <g transform="translate(510, 50)">
+    <ellipse cx="0" cy="160" rx="28" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 圆润身体 -->
+    <rect x="-18" y="62" width="36" height="74" fill="#ffd60a" stroke="#5a4505" stroke-width="2" rx="14"/>
+    <rect x="-12" y="128" width="6" height="22" fill="#5a4505"/>
+    <rect x="6" y="128" width="6" height="22" fill="#5a4505"/>
+    <!-- 圆头 -->
+    <circle cx="0" cy="40" r="22" fill="#ffd60a" stroke="#5a4505" stroke-width="2"/>
+    <!-- 笑脸 LED -->
+    <circle cx="-7" cy="36" r="3" fill="#1a1a0a"/>
+    <circle cx="7" cy="36" r="3" fill="#1a1a0a"/>
+    <path d="M -7 46 Q 0 50 7 46" stroke="#1a1a0a" stroke-width="1.5" fill="none"/>
+    <!-- 蝴蝶结 / 装饰 -->
+    <polygon points="-10,18 -2,22 -2,14" fill="#ff3b3b"/>
+    <polygon points="2,22 10,18 2,14" fill="#ff3b3b"/>
+    <text x="0" y="184" text-anchor="middle" fill="#ffd60a" font-size="10" font-weight="700">R-05 和声</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">客服 · 友好</text>
+  </g>
+
+  <!-- R-06 精算 -->
+  <g transform="translate(620, 50)">
+    <ellipse cx="0" cy="160" rx="26" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 计算器风身体 -->
+    <rect x="-16" y="60" width="32" height="76" fill="#5e5ce6" stroke="#1a1a3a" stroke-width="2"/>
+    <rect x="-12" y="68" width="24" height="14" fill="#0a0a18"/>
+    <line x1="-10" y1="74" x2="10" y2="74" stroke="#30d158" stroke-width="1.5"/>
+    <!-- 按键 -->
+    <rect x="-12" y="86" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="-3" y="86" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="6" y="86" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="-12" y="96" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="-3" y="96" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="6" y="96" width="6" height="6" fill="#3a3a5c"/>
+    <rect x="-12" y="128" width="4" height="22" fill="#1a1a3a"/>
+    <rect x="8" y="128" width="4" height="22" fill="#1a1a3a"/>
+    <!-- 方头 -->
+    <rect x="-15" y="20" width="30" height="36" fill="#5e5ce6" stroke="#1a1a3a" stroke-width="2"/>
+    <rect x="-10" y="32" width="20" height="6" fill="#0a0a18"/>
+    <text x="0" y="36" text-anchor="middle" fill="#30d158" font-size="9" font-family="monospace">$$$</text>
+    <text x="0" y="184" text-anchor="middle" fill="#5e5ce6" font-size="10" font-weight="700">R-06 精算</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">财务 · 算账</text>
+  </g>
+
+  <!-- R-07 引路 -->
+  <g transform="translate(730, 50)">
+    <ellipse cx="0" cy="160" rx="28" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 探险风身体 + 背包 -->
+    <rect x="-26" y="64" width="14" height="44" fill="#7a4a35" stroke="#3a2010" stroke-width="1.5"/>
+    <rect x="-25" y="68" width="12" height="6" fill="#5a3a25"/>
+    <rect x="-25" y="80" width="12" height="6" fill="#5a3a25"/>
+    <rect x="-12" y="60" width="28" height="76" fill="#ff9f0a" stroke="#5a3a05" stroke-width="2" rx="3"/>
+    <rect x="-7" y="128" width="4" height="22" fill="#5a3a05"/>
+    <rect x="3" y="128" width="4" height="22" fill="#5a3a05"/>
+    <!-- 圆头 + 探险帽 -->
+    <circle cx="2" cy="40" r="20" fill="#ff9f0a" stroke="#5a3a05" stroke-width="2"/>
+    <ellipse cx="2" cy="22" rx="22" ry="4" fill="#3a2010"/>
+    <!-- 单光眼 -->
+    <circle cx="2" cy="40" r="6" fill="#1a1a1a"/>
+    <circle cx="2" cy="40" r="2.5" fill="#ffd60a"/>
+    <!-- 望远镜 -->
+    <rect x="-2" y="50" width="8" height="10" fill="#1a1a1a"/>
+    <text x="0" y="184" text-anchor="middle" fill="#ff9f0a" font-size="10" font-weight="700">R-07 引路</text>
+    <text x="0" y="196" text-anchor="middle" fill="#888" font-size="8">探险 · 好奇</text>
+  </g>
+</svg>
+
+<svg viewBox="0 0 880 220" xmlns="http://www.w3.org/2000/svg" style="margin-top:8px">
+  <!-- R-08 扣板机 -->
+  <g transform="translate(70, 50)">
+    <ellipse cx="0" cy="140" rx="32" ry="6" fill="#000" opacity="0.5"/>
+    <!-- 西部风身体 -->
+    <rect x="-18" y="50" width="36" height="68" fill="#ff2d92" stroke="#5a0a30" stroke-width="2.5" rx="2"/>
+    <rect x="-13" y="110" width="6" height="22" fill="#5a0a30"/>
+    <rect x="7" y="110" width="6" height="22" fill="#5a0a30"/>
+    <!-- 牛仔帽 -->
+    <ellipse cx="0" cy="14" rx="26" ry="4" fill="#3a2010"/>
+    <rect x="-12" y="6" width="24" height="10" fill="#3a2010"/>
+    <!-- 头 -->
+    <rect x="-15" y="16" width="30" height="32" fill="#ff2d92" stroke="#5a0a30" stroke-width="2"/>
+    <rect x="-10" y="26" width="6" height="6" fill="#ffd60a"/>
+    <rect x="4" y="26" width="6" height="6" fill="#ffd60a"/>
+    <!-- 双枪 -->
+    <rect x="20" y="74" width="14" height="6" fill="#444"/>
+    <rect x="-34" y="74" width="14" height="6" fill="#444"/>
+    <text x="0" y="160" text-anchor="middle" fill="#ff2d92" font-size="10" font-weight="700">R-08 扣板机</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">赌徒 · 不按套路</text>
+  </g>
+
+  <!-- 风格 reference: 注释方块 -->
+  <g transform="translate(220, 30)">
+    <rect width="630" height="160" fill="#0a0c20" stroke="#1f1f3a" stroke-width="1" rx="6"/>
+    <text x="20" y="32" fill="#ff9500" font-size="13" font-weight="700">设计要点</text>
+    <text x="20" y="58" fill="#aaaacc" font-size="12">▸ 头部 = 圆 / 方 / 棱角，决定第一印象（友好 vs 危险 vs 冷静）</text>
+    <text x="20" y="78" fill="#aaaacc" font-size="12">▸ 颜色 = 人格识别色（红=守 / 蓝=快 / 绿=思 / 紫=狠 / 黄=友 / 橙=探）</text>
+    <text x="20" y="98" fill="#aaaacc" font-size="12">▸ 身体上必有 1 个"职业道具"（盾、轮、屏、枪、蝴蝶结、计算器、背包、双枪）</text>
+    <text x="20" y="118" fill="#aaaacc" font-size="12">▸ LED 眼 = 表情核心。圆点 / 长条 / 闪烁 表达情绪</text>
+    <text x="20" y="138" fill="#aaaacc" font-size="12">▸ 身高 ~140-160px (1× sprite), 留出头顶飘字 / 思考气泡空间</text>
+  </g>
+</svg>
+
+<div class="ref-note">
+<strong>找素材关键词：</strong>
+"pixel robot characters set", "robot RPG sprites", "WALL-E inspired robots",
+"Mega Man robot variants", "bit robot character pack", "robot npc pixel art".
+<br><br>
+<strong>免费推荐：</strong>
+Kenney "Robot Pack" / itch.io "Pixel Robot" 搜索 / OpenGameArt "robot sprite".
+不强求一次买全 8 个，可以买 2-3 个底模再改色 / 改细节。
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>3 · NPC 机器人形象</h2>
+<p class="desc">8 个故事 NPC，每个有强烈视觉辨识度。</p>
+
+<svg viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- 老家政机器人 -->
+  <g transform="translate(70, 50)">
+    <ellipse cx="0" cy="135" rx="22" ry="5" fill="#000" opacity="0.4"/>
+    <!-- 矮小球形身 -->
+    <ellipse cx="0" cy="100" rx="22" ry="28" fill="#7a6a55" stroke="#3a2820" stroke-width="2"/>
+    <!-- 锈迹 -->
+    <circle cx="-12" cy="98" r="3" fill="#5a3025" opacity="0.7"/>
+    <circle cx="14" cy="105" r="2" fill="#5a3025" opacity="0.7"/>
+    <circle cx="-5" cy="115" r="2" fill="#5a3025" opacity="0.7"/>
+    <!-- 单眼 -->
+    <circle cx="0" cy="92" r="6" fill="#1a1a1a"/>
+    <circle cx="0" cy="92" r="3" fill="#ffd60a" opacity="0.6"/>
+    <!-- 短腿 -->
+    <rect x="-10" y="125" width="6" height="14" fill="#3a2820"/>
+    <rect x="4" y="125" width="6" height="14" fill="#3a2820"/>
+    <!-- 拐杖 -->
+    <line x1="22" y1="80" x2="28" y2="140" stroke="#5a3a25" stroke-width="2"/>
+    <text x="0" y="160" text-anchor="middle" fill="#7a6a55" font-size="10" font-weight="700">老家政</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">守 30 年的旧机</text>
+  </g>
+
+  <!-- 母机 + 子机 -->
+  <g transform="translate(190, 50)">
+    <ellipse cx="0" cy="140" rx="30" ry="5" fill="#000" opacity="0.4"/>
+    <!-- 母机 -->
+    <rect x="-18" y="50" width="36" height="70" fill="#a06cd5" stroke="#3a1a5a" stroke-width="2" rx="4"/>
+    <circle cx="0" cy="30" r="18" fill="#a06cd5" stroke="#3a1a5a" stroke-width="2"/>
+    <rect x="-10" y="26" width="6" height="4" fill="#ffd60a"/>
+    <rect x="4" y="26" width="6" height="4" fill="#ffd60a"/>
+    <!-- 一个手臂吊着 -->
+    <rect x="-25" y="80" width="6" height="20" fill="#3a1a5a" transform="rotate(-30 -22 90)"/>
+    <!-- 子机 (在怀里) -->
+    <rect x="0" y="80" width="20" height="26" fill="#5e5ce6" stroke="#1a1a3a" stroke-width="1.5"/>
+    <circle cx="10" cy="73" r="8" fill="#5e5ce6" stroke="#1a1a3a" stroke-width="1.5"/>
+    <rect x="6" y="71" width="3" height="3" fill="#888"/>
+    <rect x="11" y="71" width="3" height="3" fill="#888"/>
+    <!-- 母机腿 -->
+    <rect x="-12" y="118" width="6" height="22" fill="#3a1a5a"/>
+    <rect x="6" y="118" width="6" height="22" fill="#3a1a5a"/>
+    <text x="0" y="160" text-anchor="middle" fill="#a06cd5" font-size="10" font-weight="700">母机 + 子机</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">悲情角色</text>
+  </g>
+
+  <!-- 神秘陌生人 -->
+  <g transform="translate(310, 50)">
+    <ellipse cx="0" cy="135" rx="24" ry="5" fill="#000" opacity="0.5"/>
+    <!-- 黑斗篷 -->
+    <path d="M -22 60 L 22 60 L 26 130 L -26 130 Z" fill="#1a1a1a" stroke="#3a3a5c" stroke-width="2"/>
+    <!-- 帽兜 -->
+    <path d="M -20 60 Q 0 30 20 60" fill="#1a1a1a" stroke="#3a3a5c" stroke-width="2"/>
+    <!-- 阴影里的眼 -->
+    <rect x="-8" y="48" width="4" height="3" fill="#ff3b3b"/>
+    <rect x="4" y="48" width="4" height="3" fill="#ff3b3b"/>
+    <!-- 腿 -->
+    <rect x="-10" y="120" width="6" height="20" fill="#0a0a14"/>
+    <rect x="4" y="120" width="6" height="20" fill="#0a0a14"/>
+    <text x="0" y="160" text-anchor="middle" fill="#aaaacc" font-size="10" font-weight="700">神秘陌生人</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">身份不明</text>
+  </g>
+
+  <!-- 拾荒者老锈 -->
+  <g transform="translate(420, 50)">
+    <ellipse cx="0" cy="135" rx="28" ry="5" fill="#000" opacity="0.5"/>
+    <!-- 缝合的破烂铠甲 -->
+    <rect x="-22" y="60" width="44" height="70" fill="#5a4530" stroke="#1a0f0a" stroke-width="2.5"/>
+    <!-- 不同金属片 -->
+    <rect x="-22" y="60" width="20" height="20" fill="#7a6a45"/>
+    <rect x="0" y="80" width="22" height="20" fill="#3a3a3a"/>
+    <rect x="-22" y="100" width="22" height="20" fill="#5a4530"/>
+    <line x1="-2" y1="60" x2="-2" y2="130" stroke="#1a0f0a" stroke-width="1" stroke-dasharray="2,2"/>
+    <!-- 锈迹 -->
+    <circle cx="-15" cy="70" r="3" fill="#7a3a25" opacity="0.7"/>
+    <circle cx="10" cy="115" r="3" fill="#7a3a25" opacity="0.7"/>
+    <!-- 头 -->
+    <rect x="-15" y="22" width="30" height="36" fill="#5a4530" stroke="#1a0f0a" stroke-width="2"/>
+    <!-- 眼 (一红一坏)-->
+    <rect x="-10" y="32" width="6" height="6" fill="#ff3b3b"/>
+    <line x1="3" y1="34" x2="11" y2="40" stroke="#1a0f0a" stroke-width="2"/>
+    <line x1="11" y1="34" x2="3" y2="40" stroke="#1a0f0a" stroke-width="2"/>
+    <!-- 钢管武器 -->
+    <line x1="22" y1="70" x2="36" y2="130" stroke="#888" stroke-width="3"/>
+    <!-- 腿 -->
+    <rect x="-12" y="120" width="6" height="22" fill="#1a0f0a"/>
+    <rect x="6" y="120" width="6" height="22" fill="#1a0f0a"/>
+    <text x="0" y="160" text-anchor="middle" fill="#7a4a35" font-size="10" font-weight="700">拾荒者老锈</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">暴力 · 直接</text>
+  </g>
+
+  <!-- 商人旧货郎 -->
+  <g transform="translate(540, 50)">
+    <ellipse cx="0" cy="135" rx="36" ry="5" fill="#000" opacity="0.4"/>
+    <!-- 推车 -->
+    <rect x="-30" y="90" width="60" height="36" fill="#5a3a25" stroke="#3a2010" stroke-width="2"/>
+    <circle cx="-22" cy="130" r="6" fill="#1a1a1a" stroke="#3a2010" stroke-width="1"/>
+    <circle cx="22" cy="130" r="6" fill="#1a1a1a" stroke="#3a2010" stroke-width="1"/>
+    <!-- 车上的杂货 -->
+    <rect x="-25" y="76" width="10" height="14" fill="#30d158" stroke="#0e3a18" stroke-width="0.8"/>
+    <rect x="-12" y="80" width="8" height="10" fill="#5ac8fa" stroke="#0a4060" stroke-width="0.8"/>
+    <rect x="-2" y="74" width="12" height="16" fill="#ff9500" stroke="#5a3a05" stroke-width="0.8"/>
+    <rect x="12" y="78" width="10" height="12" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="0.8"/>
+    <!-- 商人本体 -->
+    <rect x="-12" y="40" width="24" height="50" fill="#ff9f0a" stroke="#5a3a05" stroke-width="2" rx="2"/>
+    <circle cx="0" cy="22" r="14" fill="#ff9f0a" stroke="#5a3a05" stroke-width="2"/>
+    <!-- VR 眼镜 -->
+    <rect x="-12" y="18" width="24" height="6" fill="#1a1a1a"/>
+    <rect x="-9" y="19" width="6" height="4" fill="#5ac8fa"/>
+    <rect x="3" y="19" width="6" height="4" fill="#5ac8fa"/>
+    <text x="0" y="160" text-anchor="middle" fill="#ff9f0a" font-size="10" font-weight="700">商人旧货郎</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">推车 · 公平</text>
+  </g>
+
+  <!-- 流浪儿童机器人小 7 -->
+  <g transform="translate(660, 80)">
+    <ellipse cx="0" cy="120" rx="18" ry="4" fill="#000" opacity="0.4"/>
+    <!-- 小身体 -->
+    <rect x="-12" y="60" width="24" height="40" fill="#5ac8fa" stroke="#0a4060" stroke-width="2" rx="3"/>
+    <!-- 小圆头 -->
+    <circle cx="0" cy="46" r="13" fill="#5ac8fa" stroke="#0a4060" stroke-width="2"/>
+    <!-- 一只眼坏了 -->
+    <rect x="-8" y="42" width="5" height="5" fill="#ffd60a"/>
+    <line x1="3" y1="40" x2="9" y2="46" stroke="#0a4060" stroke-width="1.5"/>
+    <line x1="9" y1="40" x2="3" y2="46" stroke="#0a4060" stroke-width="1.5"/>
+    <!-- 短腿 -->
+    <rect x="-7" y="98" width="4" height="12" fill="#0a4060"/>
+    <rect x="3" y="98" width="4" height="12" fill="#0a4060"/>
+    <!-- "NEW" 标签 -->
+    <rect x="6" y="58" width="14" height="6" fill="#ff3b3b"/>
+    <text x="13" y="63" text-anchor="middle" fill="#fff" font-size="5" font-weight="700">NEW</text>
+    <text x="0" y="148" text-anchor="middle" fill="#5ac8fa" font-size="10" font-weight="700">小 7</text>
+    <text x="0" y="160" text-anchor="middle" fill="#888" font-size="8">流浪幼机</text>
+  </g>
+
+  <!-- 救援队伊尔达 -->
+  <g transform="translate(800, 50)">
+    <ellipse cx="0" cy="135" rx="32" ry="5" fill="#000" opacity="0.5"/>
+    <!-- 大型军用 -->
+    <rect x="-26" y="56" width="52" height="74" fill="#3a3a4c" stroke="#1a1a2a" stroke-width="2.5"/>
+    <!-- 政府标识 -->
+    <rect x="-10" y="64" width="20" height="14" fill="#ffd60a"/>
+    <text x="0" y="74" text-anchor="middle" fill="#1a1a1a" font-size="9" font-weight="700">★</text>
+    <!-- 防化纹理 -->
+    <line x1="-26" y1="90" x2="26" y2="90" stroke="#1a1a2a" stroke-width="1"/>
+    <line x1="-26" y1="105" x2="26" y2="105" stroke="#1a1a2a" stroke-width="1"/>
+    <!-- 头 (头盔) -->
+    <rect x="-18" y="20" width="36" height="36" fill="#3a3a4c" stroke="#1a1a2a" stroke-width="2"/>
+    <rect x="-10" y="32" width="20" height="6" fill="#5ac8fa"/>
+    <!-- 腿 -->
+    <rect x="-15" y="120" width="6" height="22" fill="#1a1a2a"/>
+    <rect x="9" y="120" width="6" height="22" fill="#1a1a2a"/>
+    <text x="0" y="160" text-anchor="middle" fill="#aaaacc" font-size="10" font-weight="700">救援队伊尔达</text>
+    <text x="0" y="172" text-anchor="middle" fill="#888" font-size="8">救世主登场</text>
+  </g>
+</svg>
+
+<div class="ref-note">
+<strong>设计要点：</strong>
+NPC 一眼能看出"职业/身份"。 老家政 = 矮锈球 + 拐杖 ·
+拾荒者 = 拼接铠甲 + 武器 · 商人 = 推车 + VR · 流浪儿童 = 小 + "NEW" 标签 ·
+<br><br>
+<strong>找素材关键词：</strong>
+"old robot rusty pixel", "scavenger robot post-apocalyptic",
+"merchant robot npc cart", "tiny robot child sprite", "soldier robot game asset".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>4 · 资源道具图标（24×24 / 32×32）</h2>
+<p class="desc">8 大资源类型的图标设计。简笔画风格，色彩饱和度高便于识别。</p>
+
+<svg viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- 标题 -->
+  <text x="20" y="30" fill="#ff9500" font-size="13" font-weight="700">主资源</text>
+
+  <!-- 电池 -->
+  <g transform="translate(60, 60)">
+    <rect x="-22" y="-30" width="44" height="60" fill="#30d158" stroke="#0a4030" stroke-width="3"/>
+    <rect x="-22" y="-30" width="44" height="10" fill="#ffd60a"/>
+    <rect x="-12" y="-38" width="24" height="8" fill="#0a4030"/>
+    <text x="0" y="6" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">⚡</text>
+    <text x="0" y="55" text-anchor="middle" fill="#30d158" font-size="11" font-weight="700">电池</text>
+    <text x="0" y="68" text-anchor="middle" fill="#888" font-size="9">主能源</text>
+  </g>
+
+  <!-- 冷却液 -->
+  <g transform="translate(160, 60)">
+    <rect x="-12" y="-30" width="24" height="58" fill="#5ac8fa" opacity="0.7" stroke="#0a84ff" stroke-width="2.5"/>
+    <rect x="-8" y="-38" width="16" height="8" fill="#0a84ff"/>
+    <line x1="-12" y1="-15" x2="12" y2="-15" stroke="#0a84ff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-12" y1="-5" x2="12" y2="-5" stroke="#0a84ff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-12" y1="5" x2="12" y2="5" stroke="#0a84ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="0" y="55" text-anchor="middle" fill="#5ac8fa" font-size="11" font-weight="700">冷却液</text>
+    <text x="0" y="68" text-anchor="middle" fill="#888" font-size="9">防过热</text>
+  </g>
+
+  <!-- 修理包 -->
+  <g transform="translate(260, 60)">
+    <rect x="-22" y="-22" width="44" height="44" fill="#ff3b3b" stroke="#5a0a0a" stroke-width="3"/>
+    <rect x="-5" y="-15" width="10" height="30" fill="#fff"/>
+    <rect x="-15" y="-5" width="30" height="10" fill="#fff"/>
+    <rect x="-22" y="-28" width="14" height="6" fill="#5a0a0a"/>
+    <rect x="8" y="-28" width="14" height="6" fill="#5a0a0a"/>
+    <text x="0" y="55" text-anchor="middle" fill="#ff3b3b" font-size="11" font-weight="700">修理包</text>
+    <text x="0" y="68" text-anchor="middle" fill="#888" font-size="9">恢复完整性</text>
+  </g>
+
+  <text x="380" y="30" fill="#ff9500" font-size="13" font-weight="700">工具/装备</text>
+
+  <!-- 工具 (扳手) -->
+  <g transform="translate(420, 60)">
+    <path d="M -16 -16 L -8 -8 L 14 14 L 18 18 L 14 22 L -8 0 Z" fill="#888" stroke="#444" stroke-width="2"/>
+    <circle cx="-12" cy="-12" r="6" fill="#444"/>
+    <circle cx="-12" cy="-12" r="3" fill="#888"/>
+    <text x="0" y="55" text-anchor="middle" fill="#888" font-size="11" font-weight="700">工具</text>
+    <text x="0" y="68" text-anchor="middle" fill="#888" font-size="9">扳手</text>
+  </g>
+
+  <!-- 武器 (脉冲枪) -->
+  <g transform="translate(520, 60)">
+    <rect x="-20" y="-8" width="36" height="16" fill="#444" stroke="#222" stroke-width="2"/>
+    <rect x="-14" y="-12" width="6" height="4" fill="#222"/>
+    <rect x="14" y="-3" width="8" height="6" fill="#5ac8fa"/>
+    <rect x="-22" y="6" width="14" height="14" fill="#222" stroke="#444" stroke-width="1"/>
+    <text x="0" y="55" text-anchor="middle" fill="#aaaacc" font-size="11" font-weight="700">脉冲枪</text>
+    <text x="0" y="68" text-anchor="middle" fill="#888" font-size="9">5 发能量包</text>
+  </g>
+
+  <text x="600" y="30" fill="#ff9500" font-size="13" font-weight="700">通信/解压</text>
+
+  <!-- 收音机 -->
+  <g transform="translate(640, 60)">
+    <rect x="-20" y="-12" width="40" height="28" fill="#5a4530" stroke="#3a2820" stroke-width="2"/>
+    <rect x="-16" y="-8" width="32" height="16" fill="#1a1010"/>
+    <circle cx="-10" cy="0" r="3" fill="#ff3b3b"/>
+    <circle cx="10" cy="0" r="3" fill="#30d158"/>
+    <line x1="0" y1="-12" x2="0" y2="-22" stroke="#5a4530" stroke-width="2"/>
+    <circle cx="0" cy="-22" r="2" fill="#888"/>
+    <text x="0" y="40" text-anchor="middle" fill="#5a4530" font-size="11" font-weight="700">收音机</text>
+    <text x="0" y="53" text-anchor="middle" fill="#888" font-size="9">触发事件</text>
+  </g>
+
+  <!-- 数据磁盘 -->
+  <g transform="translate(740, 60)">
+    <rect x="-18" y="-18" width="36" height="36" fill="#1a1a3a" stroke="#0a0a18" stroke-width="2"/>
+    <rect x="-12" y="-15" width="24" height="6" fill="#5ac8fa" opacity="0.7"/>
+    <circle cx="0" cy="2" r="6" fill="#888"/>
+    <circle cx="0" cy="2" r="2" fill="#1a1a3a"/>
+    <rect x="-8" y="14" width="16" height="2" fill="#888"/>
+    <text x="0" y="40" text-anchor="middle" fill="#5ac8fa" font-size="11" font-weight="700">数据磁盘</text>
+    <text x="0" y="53" text-anchor="middle" fill="#888" font-size="9">解压</text>
+  </g>
+
+  <!-- 扑克 -->
+  <g transform="translate(820, 60)">
+    <rect x="-13" y="-18" width="22" height="32" fill="#fff" stroke="#222" stroke-width="2" transform="rotate(-15 0 0)"/>
+    <rect x="-11" y="-16" width="22" height="32" fill="#fff" stroke="#222" stroke-width="2" transform="rotate(-5 0 0)"/>
+    <rect x="-9" y="-14" width="22" height="32" fill="#fff" stroke="#222" stroke-width="2" transform="rotate(5 0 0)"/>
+    <text x="2" y="6" fill="#ff3b3b" font-size="14" font-weight="700">♥</text>
+    <text x="0" y="40" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">扑克</text>
+    <text x="0" y="53" text-anchor="middle" fill="#888" font-size="9">解压</text>
+  </g>
+
+  <!-- 第二行：状态图标 -->
+  <text x="20" y="135" fill="#ff9500" font-size="13" font-weight="700">状态指示</text>
+
+  <g transform="translate(60, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#ff3b3b" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" fill="#ff3b3b" font-size="20">❤</text>
+    <text x="0" y="40" text-anchor="middle" fill="#ff3b3b" font-size="10" font-weight="700">完整性</text>
+  </g>
+
+  <g transform="translate(150, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#ff9f0a" stroke-width="2"/>
+    <rect x="-10" y="-10" width="20" height="14" fill="none" stroke="#ff9f0a" stroke-width="2"/>
+    <line x1="0" y1="-12" x2="0" y2="-6" stroke="#ff9f0a" stroke-width="2"/>
+    <text x="0" y="40" text-anchor="middle" fill="#ff9f0a" font-size="10" font-weight="700">电量</text>
+  </g>
+
+  <g transform="translate(240, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#ff3b3b" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" fill="#ff3b3b" font-size="20">🌡</text>
+    <text x="0" y="40" text-anchor="middle" fill="#ff3b3b" font-size="10" font-weight="700">过热度</text>
+  </g>
+
+  <g transform="translate(330, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#bf5af2" stroke-width="2"/>
+    <path d="M -10 5 Q -5 -10 0 -5 Q 5 -12 10 5" stroke="#bf5af2" stroke-width="2" fill="none"/>
+    <text x="0" y="40" text-anchor="middle" fill="#bf5af2" font-size="10" font-weight="700">故障率</text>
+  </g>
+
+  <g transform="translate(420, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#0a84ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#0a84ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="#0a84ff"/>
+    <text x="0" y="40" text-anchor="middle" fill="#0a84ff" font-size="10" font-weight="700">系统稳定</text>
+  </g>
+
+  <g transform="translate(510, 170)">
+    <circle r="22" fill="#1a1a2a" stroke="#30d158" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" fill="#30d158" font-size="18">🤝</text>
+    <text x="0" y="40" text-anchor="middle" fill="#30d158" font-size="10" font-weight="700">信任度</text>
+  </g>
+</svg>
+
+<div class="ref-note">
+<strong>设计要点：</strong>
+图标 ≤ 32×32 px · 最多 4-5 个色 · 主体 + 1-2 装饰元素 · 边线 1-2 px 描边便于在背景上看清.
+<br><br>
+<strong>找素材关键词：</strong>
+"pixel item icons set", "RPG resource icons 16x16", "post-apocalyptic loot icons",
+"battery medical kit pixel", "Kenney game icons".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>5 · 外部世界（电磁废土）</h2>
+<p class="desc">通过监控屏看出去 / 派人外出时看到的场景。</p>
+
+<svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg">
+  <!-- 紫红色霾天空 -->
+  <defs>
+    <linearGradient id="emp-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a0a4a"/>
+      <stop offset="60%" stop-color="#2a0a3a"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+    <linearGradient id="emp-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0a14"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="240" fill="url(#emp-sky)"/>
+  <rect x="0" y="240" width="880" height="120" fill="url(#emp-ground)"/>
+
+  <!-- 远处城市轮廓 -->
+  <g fill="#0e0a18" opacity="0.85">
+    <rect x="0" y="160" width="60" height="100"/>
+    <rect x="60" y="140" width="50" height="120"/>
+    <polygon points="110,170 130,130 150,170 150,260 110,260"/>
+    <rect x="160" y="150" width="70" height="110"/>
+    <rect x="240" y="130" width="40" height="130"/>
+    <polygon points="290,170 320,120 350,170 350,260 290,260"/>
+    <rect x="360" y="140" width="80" height="120"/>
+    <!-- 倒下的高楼 -->
+    <polygon points="440,260 540,180 560,200 460,260" fill="#0a0a14"/>
+    <rect x="570" y="155" width="55" height="105"/>
+    <rect x="630" y="135" width="35" height="125"/>
+    <polygon points="680,170 720,115 760,170 760,260 680,260"/>
+    <rect x="780" y="160" width="60" height="100"/>
+    <rect x="850" y="140" width="30" height="120"/>
+  </g>
+
+  <!-- 楼上的小窗(都没亮) -->
+  <g fill="#3a3a4c" opacity="0.3">
+    <rect x="14" y="180" width="6" height="6"/>
+    <rect x="28" y="180" width="6" height="6"/>
+    <rect x="14" y="200" width="6" height="6"/>
+    <rect x="170" y="170" width="5" height="5"/>
+    <rect x="190" y="170" width="5" height="5"/>
+    <rect x="170" y="190" width="5" height="5"/>
+    <rect x="370" y="160" width="6" height="6"/>
+    <rect x="390" y="160" width="6" height="6"/>
+  </g>
+
+  <!-- 偶尔亮的窗 -->
+  <rect x="180" y="170" width="5" height="5" fill="#ffd60a" opacity="0.6"/>
+  <rect x="640" y="170" width="5" height="5" fill="#ff3b3b" opacity="0.6"/>
+
+  <!-- 电弧（紫色）-->
+  <g stroke="#bf5af2" stroke-width="1.8" fill="none" opacity="0.8">
+    <path d="M 200 30 L 215 60 L 205 80 L 220 110 L 210 130"/>
+    <path d="M 600 50 L 590 75 L 605 95 L 595 120"/>
+    <path d="M 750 80 L 735 100 L 745 120"/>
+  </g>
+
+  <!-- 微弱辐射粒子 -->
+  <g fill="#bf5af2" opacity="0.4">
+    <circle cx="120" cy="80" r="1.5"/>
+    <circle cx="320" cy="50" r="1.2"/>
+    <circle cx="450" cy="100" r="1"/>
+    <circle cx="550" cy="170" r="1.5"/>
+    <circle cx="700" cy="140" r="1.2"/>
+    <circle cx="820" cy="60" r="1"/>
+    <circle cx="80" cy="200" r="1.5"/>
+    <circle cx="380" cy="180" r="1.2"/>
+  </g>
+
+  <!-- 月亮（被遮 / 偏色）-->
+  <circle cx="780" cy="50" r="22" fill="#bf5af2" opacity="0.5"/>
+  <circle cx="785" cy="48" r="20" fill="#1a0a2e" opacity="0.6"/>
+
+  <!-- 道路（灭线 perspective）-->
+  <polygon points="0,360 880,360 600,260 280,260" fill="#1a0a14"/>
+  <line x1="280" y1="260" x2="0" y2="360" stroke="#ffd60a" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.3"/>
+  <line x1="600" y1="260" x2="880" y2="360" stroke="#ffd60a" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.3"/>
+
+  <!-- 停摆的汽车 -->
+  <g transform="translate(220, 290)">
+    <rect x="-30" y="-15" width="60" height="20" fill="#3a2820" stroke="#1a0f0a" stroke-width="1.5"/>
+    <rect x="-20" y="-22" width="40" height="10" fill="#3a2820" stroke="#1a0f0a" stroke-width="1.5"/>
+    <circle cx="-18" cy="8" r="6" fill="#1a1a1a"/>
+    <circle cx="18" cy="8" r="6" fill="#1a1a1a"/>
+    <!-- 烧痕 -->
+    <ellipse cx="0" cy="-15" rx="8" ry="3" fill="#bf5af2" opacity="0.4"/>
+  </g>
+
+  <g transform="translate(560, 295)">
+    <rect x="-25" y="-12" width="50" height="16" fill="#5a3a25" stroke="#3a2010" stroke-width="1.5"/>
+    <rect x="-15" y="-18" width="30" height="8" fill="#5a3a25" stroke="#3a2010" stroke-width="1.5"/>
+    <circle cx="-15" cy="6" r="5" fill="#1a1a1a"/>
+    <circle cx="15" cy="6" r="5" fill="#1a1a1a"/>
+  </g>
+
+  <!-- 倒下的机器人 (远处)-->
+  <g transform="translate(120, 320)">
+    <rect x="-20" y="-4" width="40" height="8" fill="#5a4530" stroke="#1a0f0a" stroke-width="1"/>
+    <rect x="-8" y="-12" width="16" height="8" fill="#5a4530" stroke="#1a0f0a" stroke-width="1"/>
+    <line x1="-25" y1="2" x2="-15" y2="2" stroke="#888" stroke-width="2"/>
+    <circle cx="-32" cy="2" r="3" fill="#888"/>
+  </g>
+
+  <g transform="translate(720, 325)">
+    <rect x="-16" y="-3" width="32" height="6" fill="#3a3a4c" stroke="#1a1a2a" stroke-width="1"/>
+    <rect x="-6" y="-10" width="12" height="7" fill="#3a3a4c" stroke="#1a1a2a" stroke-width="1"/>
+    <!-- 散落零件 -->
+    <rect x="-30" y="0" width="6" height="3" fill="#444"/>
+    <rect x="20" y="-1" width="4" height="2" fill="#444"/>
+  </g>
+
+  <!-- 倒下的电线杆 -->
+  <line x1="450" y1="270" x2="500" y2="350" stroke="#3a2010" stroke-width="3"/>
+  <circle cx="495" cy="345" r="3" fill="#3a2010"/>
+  <!-- 断裂的线 -->
+  <path d="M 450 270 Q 400 280 360 290" stroke="#444" stroke-width="1" fill="none"/>
+
+  <!-- 标题 -->
+  <text x="440" y="30" text-anchor="middle" fill="#bf5af2" font-size="14" font-weight="800" letter-spacing="3">CYBER WASTELAND · 电磁废土</text>
+</svg>
+
+<div class="ref-note">
+<strong>美术要点：</strong>
+紫红色调天空（电磁余波）· 倒下的城市轮廓 · 偶尔的紫色电弧 · 停摆的车 · 散落的报废机器人零件 · 远处偶有一盏黄/红灯（暗示还有其他幸存者）。
+<br><br>
+<strong>找素材关键词：</strong>
+"post apocalyptic city skyline pixel", "wasteland pixel art background",
+"abandoned city silhouette", "purple sky electromagnetic storm", "ruined urban pixel".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>6 · 事件场景示意</h2>
+<p class="desc">3 个典型事件场景的画面布局, 帮美术师理解叙事节奏。</p>
+
+<div class="grid grid-2">
+  <!-- 事件 A: 敲门 -->
+  <div>
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="#1a1410"/>
+      <rect x="0" y="0" width="400" height="280" fill="#0a0a14" opacity="0.3"/>
+      <text x="200" y="22" text-anchor="middle" fill="#ff9500" font-size="11" font-weight="700">事件 A · 敲门</text>
+
+      <!-- 防护门 -->
+      <rect x="280" y="60" width="80" height="200" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+      <circle cx="295" cy="180" r="4" fill="#ffd60a"/>
+
+      <!-- 内部主角 -->
+      <g transform="translate(180, 180)">
+        <rect x="-12" y="-10" width="24" height="34" fill="#5ac8fa" stroke="#0a4060" stroke-width="2" rx="2"/>
+        <circle cx="0" cy="-22" r="14" fill="#5ac8fa" stroke="#0a4060" stroke-width="2"/>
+        <rect x="-7" y="-26" width="5" height="4" fill="#ffd60a"/>
+        <rect x="2" y="-26" width="5" height="4" fill="#ffd60a"/>
+      </g>
+
+      <!-- 监控屏显示外面 -->
+      <rect x="80" y="100" width="80" height="60" fill="#0a1a2a" stroke="#5a4530" stroke-width="2"/>
+      <text x="120" y="118" text-anchor="middle" fill="#5ac8fa" font-size="8" font-family="monospace">CAM-01</text>
+      <!-- 屏内: 老家政模糊像素 -->
+      <circle cx="120" cy="135" r="8" fill="#7a6a55"/>
+      <circle cx="120" cy="130" r="2" fill="#ffd60a"/>
+
+      <!-- 思考气泡 -->
+      <ellipse cx="240" cy="120" rx="30" ry="18" fill="#0a0c20" stroke="#bf5af2" stroke-width="1.5"/>
+      <text x="240" y="115" text-anchor="middle" fill="#bf5af2" font-size="9">是真的</text>
+      <text x="240" y="128" text-anchor="middle" fill="#bf5af2" font-size="9">还是假的?</text>
+      <circle cx="220" cy="138" r="3" fill="#0a0c20" stroke="#bf5af2" stroke-width="1"/>
+      <circle cx="213" cy="148" r="2" fill="#0a0c20" stroke="#bf5af2" stroke-width="1"/>
+
+      <!-- 敲门音效图示 -->
+      <text x="370" y="120" text-anchor="middle" fill="#ff3b3b" font-size="14" font-weight="800">!</text>
+      <text x="370" y="140" text-anchor="middle" fill="#ff3b3b" font-size="14" font-weight="800">!</text>
+      <line x1="350" y1="125" x2="360" y2="125" stroke="#ff3b3b" stroke-width="2"/>
+      <line x1="350" y1="135" x2="360" y2="135" stroke="#ff3b3b" stroke-width="2"/>
+
+      <text x="200" y="265" text-anchor="middle" fill="#aaaacc" font-size="10">A 给电池 / B 拒绝 / C 邀请进入</text>
+    </svg>
+  </div>
+
+  <!-- 事件 B: 跨房间交易 -->
+  <div>
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="#0a0a14"/>
+      <text x="200" y="22" text-anchor="middle" fill="#ff9500" font-size="11" font-weight="700">事件 B · Day 10 跨房间交易</text>
+
+      <!-- 4 个避难所 -->
+      <g transform="translate(60, 80)">
+        <rect x="-30" y="-30" width="60" height="60" fill="#2a1f1a" stroke="#ff3b3b" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="10" fill="#ff3b3b" opacity="0.5"/>
+        <text x="0" y="44" text-anchor="middle" fill="#ff3b3b" font-size="9" font-weight="700">R-01</text>
+      </g>
+      <g transform="translate(180, 80)">
+        <rect x="-30" y="-30" width="60" height="60" fill="#2a1f1a" stroke="#0a84ff" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="10" fill="#0a84ff" opacity="0.5"/>
+        <text x="0" y="44" text-anchor="middle" fill="#0a84ff" font-size="9" font-weight="700">R-02</text>
+      </g>
+      <g transform="translate(220, 200)">
+        <rect x="-30" y="-30" width="60" height="60" fill="#2a1f1a" stroke="#30d158" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="10" fill="#30d158" opacity="0.5"/>
+        <text x="0" y="44" text-anchor="middle" fill="#30d158" font-size="9" font-weight="700">R-03</text>
+      </g>
+      <g transform="translate(340, 130)">
+        <rect x="-30" y="-30" width="60" height="60" fill="#2a1f1a" stroke="#ffd60a" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="10" fill="#ffd60a" opacity="0.5"/>
+        <text x="0" y="44" text-anchor="middle" fill="#ffd60a" font-size="9" font-weight="700">R-04</text>
+      </g>
+
+      <!-- 通信连线 -->
+      <line x1="90" y1="80" x2="150" y2="80" stroke="#5ac8fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="180" y1="110" x2="220" y2="170" stroke="#bf5af2" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="210" y1="80" x2="310" y2="120" stroke="#5ac8fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="220" y1="200" x2="320" y2="155" stroke="#5ac8fa" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- 交易物品 (中间漂浮) -->
+      <g transform="translate(140, 145)">
+        <rect x="-6" y="-8" width="12" height="14" fill="#30d158"/>
+        <text x="0" y="20" text-anchor="middle" fill="#30d158" font-size="8">⚡×3</text>
+      </g>
+      <g transform="translate(265, 130)">
+        <rect x="-4" y="-8" width="8" height="14" fill="#5ac8fa"/>
+        <text x="0" y="20" text-anchor="middle" fill="#5ac8fa" font-size="8">💧×2</text>
+      </g>
+
+      <text x="200" y="265" text-anchor="middle" fill="#aaaacc" font-size="10">广播 60s · 私聊 180s · 结算 60s</text>
+    </svg>
+  </div>
+
+  <!-- 事件 C: 拾荒者突袭 -->
+  <div>
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="#1a0a14"/>
+      <text x="200" y="22" text-anchor="middle" fill="#ff9500" font-size="11" font-weight="700">事件 C · 拾荒者突袭</text>
+
+      <!-- 紫色电闪外景 -->
+      <path d="M 50 60 L 70 90 L 60 110" stroke="#bf5af2" stroke-width="1.5" fill="none" opacity="0.7"/>
+      <path d="M 350 50 L 330 80" stroke="#bf5af2" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+      <!-- 防护门 -->
+      <rect x="40" y="80" width="80" height="180" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+      <!-- 撞击痕迹 -->
+      <path d="M 70 130 L 90 145 L 75 165 L 95 175" stroke="#ff3b3b" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+      <!-- 拾荒者 (在外面) -->
+      <g transform="translate(170, 200)">
+        <rect x="-22" y="-50" width="44" height="60" fill="#5a4530" stroke="#1a0f0a" stroke-width="2"/>
+        <rect x="-15" y="-78" width="30" height="30" fill="#5a4530" stroke="#1a0f0a" stroke-width="2"/>
+        <rect x="-8" y="-72" width="5" height="4" fill="#ff3b3b"/>
+        <line x1="3" y1="-70" x2="11" y2="-66" stroke="#1a0f0a" stroke-width="1.5"/>
+        <line x1="11" y1="-70" x2="3" y2="-66" stroke="#1a0f0a" stroke-width="1.5"/>
+        <!-- 钢管举起 -->
+        <line x1="22" y1="-30" x2="50" y2="-60" stroke="#888" stroke-width="3"/>
+        <!-- 喊话气泡 -->
+        <ellipse cx="80" cy="-80" rx="50" ry="20" fill="#0a0a14" stroke="#ff3b3b" stroke-width="1.5"/>
+        <text x="80" y="-83" text-anchor="middle" fill="#ff3b3b" font-size="9">"开门!"</text>
+        <text x="80" y="-72" text-anchor="middle" fill="#ff3b3b" font-size="9">"交出电池!"</text>
+      </g>
+
+      <!-- 内部主角 -->
+      <g transform="translate(330, 200)">
+        <rect x="-12" y="-10" width="24" height="34" fill="#5ac8fa" stroke="#0a4060" stroke-width="2" rx="2"/>
+        <circle cx="0" cy="-22" r="14" fill="#5ac8fa" stroke="#0a4060" stroke-width="2"/>
+        <rect x="-7" y="-26" width="5" height="4" fill="#ff3b3b"/>
+        <rect x="2" y="-26" width="5" height="4" fill="#ff3b3b"/>
+        <!-- 武器准备 -->
+        <rect x="14" y="-2" width="14" height="6" fill="#444"/>
+      </g>
+
+      <!-- 警报红灯 -->
+      <circle cx="200" cy="50" r="8" fill="#ff3b3b" opacity="0.9"/>
+      <text x="200" y="54" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">!</text>
+
+      <text x="200" y="265" text-anchor="middle" fill="#aaaacc" font-size="10">A 武力对抗 / B 假装无人 / C 谈判分电池</text>
+    </svg>
+  </div>
+
+  <!-- 事件 D: 神秘箱子 -->
+  <div>
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="280" fill="#0a0c20"/>
+      <text x="200" y="22" text-anchor="middle" fill="#ff9500" font-size="11" font-weight="700">事件 D · 神秘机箱</text>
+
+      <!-- 防护门半开 -->
+      <rect x="60" y="60" width="60" height="200" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+      <line x1="65" y1="60" x2="65" y2="260" stroke="#ffd60a" stroke-width="1" opacity="0.5"/>
+
+      <!-- 门外的神秘箱子 -->
+      <g transform="translate(220, 200)">
+        <rect x="-30" y="-30" width="60" height="50" fill="#2a2820" stroke="#1a0f0a" stroke-width="3"/>
+        <!-- 焦黑表面 -->
+        <ellipse cx="-15" cy="-10" rx="6" ry="3" fill="#0a0a14"/>
+        <ellipse cx="10" cy="0" rx="5" ry="3" fill="#0a0a14"/>
+        <!-- 锁 -->
+        <rect x="-6" y="-8" width="12" height="14" fill="#888" stroke="#444" stroke-width="1"/>
+        <!-- 问号 -->
+        <text x="0" y="-2" text-anchor="middle" fill="#ffd60a" font-size="14" font-weight="800">?</text>
+      </g>
+
+      <!-- 内部主角探出头 -->
+      <g transform="translate(95, 140)">
+        <circle cx="0" cy="0" r="14" fill="#5ac8fa" stroke="#0a4060" stroke-width="2"/>
+        <rect x="-7" y="-4" width="5" height="4" fill="#ffd60a"/>
+        <rect x="2" y="-4" width="5" height="4" fill="#ffd60a"/>
+      </g>
+
+      <!-- 思考气泡 -->
+      <ellipse cx="160" cy="100" rx="40" ry="22" fill="#0a0c20" stroke="#5ac8fa" stroke-width="1.5"/>
+      <text x="160" y="95" text-anchor="middle" fill="#5ac8fa" font-size="9">谁放的?</text>
+      <text x="160" y="108" text-anchor="middle" fill="#5ac8fa" font-size="9">陷阱?</text>
+
+      <!-- 飘浮粒子（电磁残留）-->
+      <circle cx="280" cy="80" r="1" fill="#bf5af2"/>
+      <circle cx="320" cy="120" r="1.5" fill="#bf5af2"/>
+      <circle cx="180" cy="180" r="1.2" fill="#bf5af2"/>
+
+      <text x="200" y="265" text-anchor="middle" fill="#aaaacc" font-size="10">A 立刻打开 / B 远程开锁 / C 报废处理</text>
+    </svg>
+  </div>
+</div>
+
+<div class="ref-note">
+<strong>美术要点：</strong>
+每个事件 = 一张"电影分镜"。主体 + 戏剧化氛围 + 选项提示 ·
+重要元素始终居中或 1/3 处 · 暗色调 + 1-2 个高饱和点（红色警报 / 黄色警示）。
+<br><br>
+<strong>找素材关键词：</strong>
+"60 seconds event illustration", "comic panel pixel game", "RPG event scene art".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>7 · UI 框架元素</h2>
+<p class="desc">游戏内 UI 的边框 / 按钮 / 弹窗风格。复古工业感。</p>
+
+<svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- 事件卡边框示例 -->
+  <g transform="translate(40, 30)">
+    <rect width="280" height="160" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+    <!-- 双层边框（怀旧）-->
+    <rect x="6" y="6" width="268" height="148" fill="none" stroke="#5a4530" stroke-width="1"/>
+    <!-- 角钉 -->
+    <circle cx="14" cy="14" r="3" fill="#3a2010"/>
+    <circle cx="266" cy="14" r="3" fill="#3a2010"/>
+    <circle cx="14" cy="146" r="3" fill="#3a2010"/>
+    <circle cx="266" cy="146" r="3" fill="#3a2010"/>
+    <!-- 标题 -->
+    <rect x="0" y="0" width="280" height="22" fill="#5a4530"/>
+    <text x="14" y="16" fill="#ffd60a" font-size="11" font-weight="700">📜 事件 #042</text>
+    <!-- 内容 -->
+    <text x="14" y="48" fill="#fff" font-size="11" font-weight="700">陌生老家政机器人来求电</text>
+    <text x="14" y="68" fill="#aaaacc" font-size="10">一台旧型号家用机器人走到</text>
+    <text x="14" y="82" fill="#aaaacc" font-size="10">你的避难所门口, 它的电量</text>
+    <text x="14" y="96" fill="#aaaacc" font-size="10">只剩 5%...</text>
+    <!-- 选项 -->
+    <rect x="14" y="115" width="78" height="26" fill="#0a4030" stroke="#30d158" stroke-width="1.5"/>
+    <text x="53" y="132" text-anchor="middle" fill="#30d158" font-size="10" font-weight="700">A 给电池</text>
+    <rect x="100" y="115" width="78" height="26" fill="#3a0a14" stroke="#ff3b3b" stroke-width="1.5"/>
+    <text x="139" y="132" text-anchor="middle" fill="#ff3b3b" font-size="10" font-weight="700">B 拒绝</text>
+    <rect x="186" y="115" width="78" height="26" fill="#1a0a3a" stroke="#bf5af2" stroke-width="1.5"/>
+    <text x="225" y="132" text-anchor="middle" fill="#bf5af2" font-size="10" font-weight="700">C 邀请</text>
+  </g>
+
+  <!-- 状态栏 -->
+  <g transform="translate(360, 30)">
+    <rect width="490" height="160" fill="#1a1410" stroke="#5a4530" stroke-width="3"/>
+    <rect x="0" y="0" width="490" height="22" fill="#5a4530"/>
+    <text x="14" y="16" fill="#ffd60a" font-size="11" font-weight="700">📊 状态面板</text>
+
+    <!-- 角色信息 -->
+    <text x="20" y="50" fill="#5ac8fa" font-size="13" font-weight="700">R-01 守望者</text>
+    <text x="20" y="66" fill="#aaaacc" font-size="10" font-family="monospace">Day 7 / 30</text>
+
+    <!-- 状态条 -->
+    <text x="20" y="92" fill="#ff3b3b" font-size="10">❤ 完整性</text>
+    <rect x="100" y="84" width="200" height="10" fill="#3a1a14"/>
+    <rect x="100" y="84" width="150" height="10" fill="#ff3b3b"/>
+    <text x="306" y="92" fill="#ff3b3b" font-size="10" font-family="monospace">75/100</text>
+
+    <text x="20" y="110" fill="#ff9f0a" font-size="10">🔋 电量</text>
+    <rect x="100" y="102" width="200" height="10" fill="#3a2510"/>
+    <rect x="100" y="102" width="80" height="10" fill="#ff9f0a"/>
+    <text x="306" y="110" fill="#ff9f0a" font-size="10" font-family="monospace">40/100</text>
+
+    <text x="20" y="128" fill="#5ac8fa" font-size="10">🌡 过热度</text>
+    <rect x="100" y="120" width="200" height="10" fill="#0a3045"/>
+    <rect x="100" y="120" width="60" height="10" fill="#5ac8fa"/>
+    <text x="306" y="128" fill="#5ac8fa" font-size="10" font-family="monospace">30/100</text>
+
+    <text x="20" y="146" fill="#bf5af2" font-size="10">⚠ 故障率</text>
+    <rect x="100" y="138" width="200" height="10" fill="#2a0a3a"/>
+    <rect x="100" y="138" width="40" height="10" fill="#bf5af2"/>
+    <text x="306" y="146" fill="#bf5af2" font-size="10" font-family="monospace">20/100</text>
+
+    <!-- 资源 -->
+    <text x="380" y="50" fill="#aaaacc" font-size="10" font-family="monospace">🥫 ⚡ 5</text>
+    <text x="380" y="66" fill="#aaaacc" font-size="10" font-family="monospace">💧 ❄️ 3</text>
+    <text x="380" y="82" fill="#aaaacc" font-size="10" font-family="monospace">💊 🔧 2</text>
+    <text x="380" y="98" fill="#aaaacc" font-size="10" font-family="monospace">🔫     1</text>
+    <text x="380" y="114" fill="#aaaacc" font-size="10" font-family="monospace">📻     1</text>
+  </g>
+
+  <!-- 思考过程模板示例 -->
+  <g transform="translate(40, 220)">
+    <rect width="810" height="140" fill="#0a0c20" stroke="#1f1f3a" stroke-width="2"/>
+    <text x="20" y="24" fill="#ff9500" font-size="11" font-weight="700">🧠 R-03 织梦者 思考流</text>
+
+    <text x="20" y="50" fill="#5ac8fa" font-size="11">🔍 OBSERVATION: 门外的旧家政头部有一道焊接痕, 不像普通老化...</text>
+    <text x="20" y="68" fill="#bf5af2" font-size="11">🧠 HYPOTHESIS: A) 是改装过的探子 (60%)  B) 真的是老家政只是修过 (40%)</text>
+    <text x="20" y="86" fill="#ffd60a" font-size="11">📝 PLAN: 先扫描序列号 → 验证是否在官方库 → 决定开门</text>
+    <text x="20" y="104" fill="#30d158" font-size="11">⚙️ EXECUTION: scan_serial("R-1990-A") → 数据库无匹配 ⚠</text>
+    <text x="20" y="122" fill="#ffd60a" font-size="13" font-weight="700">📋 ANSWER: 选 B 拒绝 · 🎯 CONFIDENCE: 78</text>
+  </g>
+</svg>
+
+<div class="ref-note">
+<strong>UI 风格要点：</strong>
+深色背景（#1a1410 棕黑）+ 暖橙边框（#5a4530）+ 角钉细节（致敬复古机械）·
+按钮三色区分（绿=积极 / 红=拒绝 / 紫=好奇）· 等宽字体用于数字 / 中文字体用于叙事.
+<br><br>
+<strong>找素材关键词：</strong>
+"retro game UI pack", "industrial sci-fi UI", "Fallout terminal UI",
+"Kenney UI Pack", "pixel game HUD".
+</div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════════════ -->
+<section>
+<h2>8 · 给美术外包/采购的成品需求清单</h2>
+<p class="desc">直接拿这份清单去 Fiverr / Itch.io / 找美术，告知所需。</p>
+
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.7; color: #c8c8e0;">
+<pre style="background: #0a0c20; padding: 16px; border-radius: 6px; border: 1px solid #1f1f3a; overflow-x: auto;">
+PROJECT: SHELTER · 2D 像素生存游戏
+STYLE:   60 Seconds! Reatomic + WALL-E + Fallout
+PALETTE: 暖棕 (#3a2820/#5a4530) + 冷蓝 (#5ac8fa) + 警示色
+
+═══════════════════════════════════════════════════════════
+P0 必做（demo 用 / 7 天内）
+═══════════════════════════════════════════════════════════
+
+[ ] 主场景 · 避难所内部横切面          1 张, 1920×1080
+    含: 充电座 / 床 / 工作台 / 储物货架 / 收音机 / 防护门 / 监控屏
+
+[ ] Hero 机器人 · 4 个                 各 64×96 px sprite
+    每个: 待机 / 走动 (4 帧) / 思考 / 摔倒 (5 个状态)
+    R-01 守望者 (红) · R-02 速行者 (蓝) · R-03 织梦者 (绿) · R-05 和声 (黄)
+
+[ ] NPC 机器人 · 3 个                  各 64×96 px sprite
+    每个: 待机 / 简单动作 (2-3 帧)
+    老家政 + 拾荒者 + 商人
+
+[ ] 资源道具图标 · 8 个                各 32×32 px
+    电池 / 冷却液 / 修理包 / 工具 / 武器 / 收音机 / 数据磁盘 / 扑克
+
+[ ] 状态图标 · 6 个                    各 32×32 px
+    完整性 / 电量 / 过热度 / 故障率 / 系统稳定 / 信任度
+
+[ ] UI 框架                            事件卡 / 状态栏 / 按钮 (3 种颜色)
+
+═══════════════════════════════════════════════════════════
+P1 推荐（30 天 launch）
+═══════════════════════════════════════════════════════════
+
+[ ] 剩下的 4 个 hero 机器人            R-04 / R-06 / R-07 / R-08
+[ ] 剩下的 5 个 NPC                    母机+子机 / 流浪儿童 / 救援队 / 黑客 / 神秘陌生人
+[ ] 外部世界 · 电磁废土                1 张, 1920×600 (远景背景)
+[ ] 多避难所同屏布局                   2×2 grid 4 个房间俯瞰图
+[ ] 事件场景插画                       4 张关键事件 (敲门 / 交易 / 突袭 / 神秘箱)
+
+═══════════════════════════════════════════════════════════
+P2 加分（后续优化）
+═══════════════════════════════════════════════════════════
+
+[ ] 角色专属表情包                     8 个 hero × 5 种 (开心/担心/愤怒/思考/受伤)
+[ ] 颁奖典礼                           奖杯 / 奖牌 / 礼花
+[ ] 转场动画                           日 → 夜 / 章节间
+[ ] 高光特效                           战斗 / 修理成功 / 电磁余波
+
+═══════════════════════════════════════════════════════════
+预算建议
+═══════════════════════════════════════════════════════════
+
+  极致省钱      ¥0       全部用 Kenney CC0 + 自调
+  性价比 ⭐    ¥1500     Kenney + 1-2 个付费包 + 1-2 个 Fiverr 委托
+  豪华版       ¥10000+   全部委托美术外包
+</pre>
+</div>
+</section>
+
+<footer style="text-align: center; padding: 32px 0; color: #5a5a7a; font-size: 11px;">
+SHELTER · ART CONCEPT SKETCHES v1.0 · 2026-05-09
+</footer>
+
+</body>
+</html>

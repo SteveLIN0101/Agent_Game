@@ -1,0 +1,6041 @@
+{
+  "project": "Red Dust",
+  "asset_set": "defringe_green_cleanup_v17",
+  "created_at": "2026-05-14T17:01:04",
+  "method": "Second pass removes chroma-key green residue and recolors semi-transparent pixels from nearest non-green foreground pixel.",
+  "processed_count": 464,
+  "processed": [
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle.png",
+      "before": {
+        "green_count": 15,
+        "bright_semi_count": 0,
+        "semi_count": 1132
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1058
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 293
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_512.png",
+      "before": {
+        "green_count": 15,
+        "bright_semi_count": 0,
+        "semi_count": 1132
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1058
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 130
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait.png",
+      "before": {
+        "green_count": 40,
+        "bright_semi_count": 0,
+        "semi_count": 654
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 578
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 165
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 153
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_512.png",
+      "before": {
+        "green_count": 40,
+        "bright_semi_count": 0,
+        "semi_count": 654
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 578
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 46
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 44
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle.png",
+      "before": {
+        "green_count": 13,
+        "bright_semi_count": 0,
+        "semi_count": 889
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 837
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 217
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 196
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_512.png",
+      "before": {
+        "green_count": 13,
+        "bright_semi_count": 0,
+        "semi_count": 889
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 837
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 97
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 91
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait.png",
+      "before": {
+        "green_count": 5,
+        "bright_semi_count": 0,
+        "semi_count": 951
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 871
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 143
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 130
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_512.png",
+      "before": {
+        "green_count": 5,
+        "bright_semi_count": 0,
+        "semi_count": 951
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 871
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 64
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 55
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle.png",
+      "before": {
+        "green_count": 11,
+        "bright_semi_count": 0,
+        "semi_count": 938
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 855
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 230
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 203
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_512.png",
+      "before": {
+        "green_count": 11,
+        "bright_semi_count": 0,
+        "semi_count": 938
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 855
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 102
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 92
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait.png",
+      "before": {
+        "green_count": 39,
+        "bright_semi_count": 0,
+        "semi_count": 2025
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1817
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 290
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 234
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_512.png",
+      "before": {
+        "green_count": 39,
+        "bright_semi_count": 0,
+        "semi_count": 2025
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1817
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 122
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 93
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle.png",
+      "before": {
+        "green_count": 14,
+        "bright_semi_count": 0,
+        "semi_count": 990
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 223
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 208
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_512.png",
+      "before": {
+        "green_count": 14,
+        "bright_semi_count": 0,
+        "semi_count": 990
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 114
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 107
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait.png",
+      "before": {
+        "green_count": 8,
+        "bright_semi_count": 0,
+        "semi_count": 1450
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1314
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 228
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 174
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_512.png",
+      "before": {
+        "green_count": 8,
+        "bright_semi_count": 0,
+        "semi_count": 1450
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1314
+      }
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 110
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 103
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged.png",
+      "before": {
+        "green_count": 129,
+        "bright_semi_count": 0,
+        "semi_count": 598
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 579
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 199
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 179
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_512.png",
+      "before": {
+        "green_count": 129,
+        "bright_semi_count": 0,
+        "semi_count": 598
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 579
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 74
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette.png",
+      "before": {
+        "green_count": 97,
+        "bright_semi_count": 0,
+        "semi_count": 640
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 620
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 272
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 222
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_512.png",
+      "before": {
+        "green_count": 97,
+        "bright_semi_count": 0,
+        "semi_count": 640
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 620
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 90
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 71
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal.png",
+      "before": {
+        "green_count": 164,
+        "bright_semi_count": 0,
+        "semi_count": 853
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 821
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 294
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 266
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_512.png",
+      "before": {
+        "green_count": 164,
+        "bright_semi_count": 0,
+        "semi_count": 853
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 821
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 143
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 137
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder.png",
+      "before": {
+        "green_count": 205,
+        "bright_semi_count": 0,
+        "semi_count": 1420
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1237
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_128.png",
+      "before": {
+        "green_count": 4,
+        "bright_semi_count": 0,
+        "semi_count": 349
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 319
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_512.png",
+      "before": {
+        "green_count": 205,
+        "bright_semi_count": 0,
+        "semi_count": 1420
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1237
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 160
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 146
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder.png",
+      "before": {
+        "green_count": 557,
+        "bright_semi_count": 0,
+        "semi_count": 2192
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1997
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 399
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 361
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_512.png",
+      "before": {
+        "green_count": 557,
+        "bright_semi_count": 0,
+        "semi_count": 2192
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1997
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 185
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token.png",
+      "before": {
+        "green_count": 13,
+        "bright_semi_count": 0,
+        "semi_count": 794
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 747
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 204
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 184
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_512.png",
+      "before": {
+        "green_count": 13,
+        "bright_semi_count": 0,
+        "semi_count": 794
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 747
+      }
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 94
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 129
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 74
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 70
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 133
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 126
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 26,
+        "semi_count": 157
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 22,
+        "semi_count": 143
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 75
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 200
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 179
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 94
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 18,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 157
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 92
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 244
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 218
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 112
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 171
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 137
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 54
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 49
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 131
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 7,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 48
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 44
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 24,
+        "semi_count": 340
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 21,
+        "semi_count": 313
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 178
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 164
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 161
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 108
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 103
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 55
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 51
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 250
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 235
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 111
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 190
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 181
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 109
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 3,
+        "semi_count": 225
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 204
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 106
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 150
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 139
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 79
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 76
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 174
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 162
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 90
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 147
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 113
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 72
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 60
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 188
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 177
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 96
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 83
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 126
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 121
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 51
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 43
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 129
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 74
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 70
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 133
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 126
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 26,
+        "semi_count": 157
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 22,
+        "semi_count": 143
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 75
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 200
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 179
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 94
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 18,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 157
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 92
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 244
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 218
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 112
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 171
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 137
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 54
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 49
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 131
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 7,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 48
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 44
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 24,
+        "semi_count": 340
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 21,
+        "semi_count": 313
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 178
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 164
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 161
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 108
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 103
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 55
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 51
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 250
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 235
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 111
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 190
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 181
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 109
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 3,
+        "semi_count": 225
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 204
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 106
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 150
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 139
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 79
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 76
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 174
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 162
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 90
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 147
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 113
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 72
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 60
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 188
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 177
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 96
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 83
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 126
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 121
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 51
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 43
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 637
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 583
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 147
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 132
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 637
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 583
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 87
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 79
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1167
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 909
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 376
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 355
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1167
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 909
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 210
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 201
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_split_composite_check.png",
+      "before": {
+        "green_count": 8,
+        "bright_semi_count": 0,
+        "semi_count": 1474
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1211
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 745
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 724
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 87
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 83
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 745
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 724
+      }
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 53
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 41
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 129
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 655,
+        "semi_count": 967
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 74
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 70
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 133
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 126
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 972
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 26,
+        "semi_count": 157
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 22,
+        "semi_count": 143
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 649,
+        "semi_count": 905
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 167,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 75
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 73
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 200
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 179
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 528,
+        "semi_count": 882
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 492,
+        "semi_count": 816
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 94
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 18,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 157
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 489,
+        "semi_count": 758
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 450,
+        "semi_count": 688
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 92
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 244
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 218
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 621,
+        "semi_count": 956
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 571,
+        "semi_count": 886
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 112
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 171
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 680,
+        "semi_count": 901
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 85
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 137
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 129
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 338,
+        "semi_count": 554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 315,
+        "semi_count": 503
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 54
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 49
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 131
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 7,
+        "semi_count": 120
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 363,
+        "semi_count": 678
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 343,
+        "semi_count": 645
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 48
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 44
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 24,
+        "semi_count": 340
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 21,
+        "semi_count": 313
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 979,
+        "semi_count": 1489
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 912,
+        "semi_count": 1380
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 178
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 164
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 172
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 161
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 798,
+        "semi_count": 1170
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 687,
+        "semi_count": 1035
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 108
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 103
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 526,
+        "semi_count": 711
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 197,
+        "semi_count": 229
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 55
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 51
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 250
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 235
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 582,
+        "semi_count": 1098
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 544,
+        "semi_count": 1031
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 111
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 190
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 29,
+        "semi_count": 181
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 567,
+        "semi_count": 805
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 527,
+        "semi_count": 753
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 109
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 105
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 3,
+        "semi_count": 225
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 204
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 217,
+        "semi_count": 998
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 200,
+        "semi_count": 917
+      }
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 106
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 99
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 150
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 139
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 518,
+        "semi_count": 714
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 499,
+        "semi_count": 693
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 79
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 76
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 174
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 12,
+        "semi_count": 162
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 175,
+        "semi_count": 1258
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 90
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 147
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 113
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 309,
+        "semi_count": 512
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 283,
+        "semi_count": 474
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 72
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 60
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 168
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 158
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 312,
+        "semi_count": 660
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 277,
+        "semi_count": 616
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 88
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 81
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 188
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 177
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 77,
+        "semi_count": 719
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 72,
+        "semi_count": 646
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 96
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 83
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 126
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 121
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 249,
+        "semi_count": 557
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 225,
+        "semi_count": 500
+      }
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 51
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 43
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 371,
+        "semi_count": 577
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 158,
+        "semi_count": 200
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 115
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 3,
+        "semi_count": 106
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 371,
+        "semi_count": 577
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 158,
+        "semi_count": 200
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 52
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 49
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1085,
+        "semi_count": 1411
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 267,
+        "semi_count": 384
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 33,
+        "semi_count": 211
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 32,
+        "semi_count": 181
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1085,
+        "semi_count": 1411
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 267,
+        "semi_count": 384
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 105
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 97
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 777,
+        "semi_count": 995
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 189,
+        "semi_count": 238
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 38,
+        "semi_count": 203
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 33,
+        "semi_count": 186
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 777,
+        "semi_count": 995
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 189,
+        "semi_count": 238
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 67
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 65
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 323
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 299
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 104
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 103
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 201,
+        "semi_count": 408
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 178,
+        "semi_count": 369
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 7,
+        "semi_count": 550
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 4,
+        "semi_count": 511
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 201,
+        "semi_count": 408
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 178,
+        "semi_count": 369
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 192
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 184
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_split_composite_check.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 201,
+        "semi_count": 408
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 178,
+        "semi_count": 369
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 552,
+        "semi_count": 1056
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 491,
+        "semi_count": 946
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 236
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 10,
+        "semi_count": 217
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 552,
+        "semi_count": 1056
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 491,
+        "semi_count": 946
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 6,
+        "semi_count": 123
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 6,
+        "semi_count": 114
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 502,
+        "semi_count": 835
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 474,
+        "semi_count": 794
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 182
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 11,
+        "semi_count": 171
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 502,
+        "semi_count": 835
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 474,
+        "semi_count": 794
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 87
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 762,
+        "semi_count": 1044
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 745,
+        "semi_count": 988
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 307
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 268
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 762,
+        "semi_count": 1044
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 745,
+        "semi_count": 988
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 115
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 110
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2208,
+        "semi_count": 3026
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2208,
+        "semi_count": 3026
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 495
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 14,
+        "semi_count": 460
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 2208,
+        "semi_count": 3026
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2208,
+        "semi_count": 3026
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 197
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 183
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 867,
+        "semi_count": 1194
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 220,
+        "semi_count": 285
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 21,
+        "semi_count": 231
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 17,
+        "semi_count": 209
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 867,
+        "semi_count": 1194
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 220,
+        "semi_count": 285
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 70
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 65
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 506,
+        "semi_count": 744
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 153,
+        "semi_count": 213
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 125
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 116
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 506,
+        "semi_count": 744
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 153,
+        "semi_count": 213
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 56
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 52
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1295,
+        "semi_count": 1583
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 420,
+        "semi_count": 544
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 21,
+        "semi_count": 240
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 17,
+        "semi_count": 218
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1295,
+        "semi_count": 1583
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 420,
+        "semi_count": 544
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 112
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 104
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 153,
+        "semi_count": 345
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 140,
+        "semi_count": 325
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 251
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 237
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 153,
+        "semi_count": 345
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 140,
+        "semi_count": 325
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 96,
+        "semi_count": 164
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 85,
+        "semi_count": 147
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 17,
+        "semi_count": 278
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 15,
+        "semi_count": 269
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 96,
+        "semi_count": 164
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 85,
+        "semi_count": 147
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 82
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 78
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 291,
+        "semi_count": 537
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 262,
+        "semi_count": 481
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 651
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 600
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 291,
+        "semi_count": 537
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 262,
+        "semi_count": 481
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 227
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 209
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_split_composite_check.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 387,
+        "semi_count": 701
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 347,
+        "semi_count": 628
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 556,
+        "semi_count": 865
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 509,
+        "semi_count": 803
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 8,
+        "semi_count": 208
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 5,
+        "semi_count": 184
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 556,
+        "semi_count": 865
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 509,
+        "semi_count": 803
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 101
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 637
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 583
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 147
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 132
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 637
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 583
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 87
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 79
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1167
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 909
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 376
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 355
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1167
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 909
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 210
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 201
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_split_composite_check.png",
+      "before": {
+        "green_count": 8,
+        "bright_semi_count": 0,
+        "semi_count": 1474
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1211
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 745
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 724
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 87
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 83
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 745
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 724
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 53
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 41
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_1920.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_480.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_960.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 0
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1515
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 328
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 311
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1554
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1515
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 141
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 135
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1234
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1225
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 185
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 175
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1234
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1225
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 130
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 130
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 958
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 942
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 245
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 214
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 958
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 942
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 75
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 388,
+        "semi_count": 628
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 355,
+        "semi_count": 590
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 175
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 2,
+        "semi_count": 166
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_512.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 388,
+        "semi_count": 628
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 355,
+        "semi_count": 590
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 74
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 1,
+        "semi_count": 68
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available.png",
+      "before": {
+        "green_count": 130,
+        "bright_semi_count": 0,
+        "semi_count": 1426
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1396
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 284
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 280
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_512.png",
+      "before": {
+        "green_count": 130,
+        "bright_semi_count": 0,
+        "semi_count": 1426
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 1396
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 128
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 122
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable.png",
+      "before": {
+        "green_count": 181,
+        "bright_semi_count": 0,
+        "semi_count": 748
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 725
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 295
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 240
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_512.png",
+      "before": {
+        "green_count": 181,
+        "bright_semi_count": 0,
+        "semi_count": 748
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 725
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 187
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 187
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger.png",
+      "before": {
+        "green_count": 141,
+        "bright_semi_count": 0,
+        "semi_count": 419
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 404
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 371
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 343
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_512.png",
+      "before": {
+        "green_count": 141,
+        "bright_semi_count": 0,
+        "semi_count": 419
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 404
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 187
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 176
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured.png",
+      "before": {
+        "green_count": 82,
+        "bright_semi_count": 0,
+        "semi_count": 464
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 435
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 294
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 197
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_512.png",
+      "before": {
+        "green_count": 82,
+        "bright_semi_count": 0,
+        "semi_count": 464
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 435
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 188
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 175
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic.png",
+      "before": {
+        "green_count": 106,
+        "bright_semi_count": 0,
+        "semi_count": 600
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 579
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 336
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 258
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_512.png",
+      "before": {
+        "green_count": 106,
+        "bright_semi_count": 0,
+        "semi_count": 600
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 579
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 167
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 139
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside.png",
+      "before": {
+        "green_count": 71,
+        "bright_semi_count": 0,
+        "semi_count": 529
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 502
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 314
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 279
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_512.png",
+      "before": {
+        "green_count": 71,
+        "bright_semi_count": 0,
+        "semi_count": 529
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 502
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 94
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 78
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick.png",
+      "before": {
+        "green_count": 104,
+        "bright_semi_count": 0,
+        "semi_count": 458
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 455
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 316
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 314
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_512.png",
+      "before": {
+        "green_count": 104,
+        "bright_semi_count": 0,
+        "semi_count": 458
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 455
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 96
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 89
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst.png",
+      "before": {
+        "green_count": 104,
+        "bright_semi_count": 0,
+        "semi_count": 475
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 449
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_128.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 306
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 215
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_512.png",
+      "before": {
+        "green_count": 104,
+        "bright_semi_count": 0,
+        "semi_count": 475
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 449
+      }
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_64.png",
+      "before": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 188
+      },
+      "after": {
+        "green_count": 0,
+        "bright_semi_count": 0,
+        "semi_count": 183
+      }
+    }
+  ]
+}

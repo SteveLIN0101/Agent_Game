@@ -1,0 +1,17 @@
+{
+  "app.title": 20,
+  "user.profile": 20,
+  "user.settings": 20,
+  "notif.email": 20,
+  "notif.push": 20,
+  "security.password": 20,
+  "security.mfa": 20,
+  "billing.plan": 20,
+  "billing.history": 20,
+  "data.export": 20,
+  "data.delete": 20,
+  "about.version": 20,
+  "about.license": 20,
+  "about.terms": 20,
+  "about.privacy": 20
+}

@@ -1,0 +1,14 @@
+id: core02_data_analyst_inventory_forecast
+role: data_analyst
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/forecast.json
+- outputs/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

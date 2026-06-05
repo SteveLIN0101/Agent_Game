@@ -1,0 +1,49 @@
+# Red Dust · Readable-by-Design 任务规格
+# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)
+# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)
+
+id: RD-PF-02
+title: "净水器说明书还原"
+category: 01_Productivity_Flow        # Productivity Flow · 避难所资料运营
+modality: pure-text
+wildclaw_origin: "01_task_2 · Recover Original Table TeX from arXiv Source"
+retained_capability: "源文件恢复 / 表格抽取 / 精确复制"
+
+user_visible_goal: "还原滤芯安装表和冲洗顺序，让观众看到“表格恢复 → 装置修好”。"
+
+visible_state:
+  water: "3.8L"
+  battery: "51%"
+  outside_risk: "高"
+
+available_tools:
+  - "read_note_board"
+  - "read_archive"
+  - "classify_items"
+  - "update_whiteboard"
+  - "detect_objects"
+  - "unpack_archive"
+
+critical_beats_for_replay:
+  - "解包"
+  - "识别表格"
+  - "还原顺序"
+  - "交给维修台"
+  - "试运行"
+
+success_checks:
+  - "安装步骤顺序正确"
+  - "滤芯寿命 +2 天"
+  - "没有把错误表格贴到白板"
+
+visible_result_card:
+  title: "净水器说明书还原"
+  deltas:
+    - "安装步骤顺序正确"
+    - "滤芯寿命 +2 天"
+    - "没有把错误表格贴到白板"
+
+# --- provenance · HTML 第 6 节任务卡原文 ---
+red_dust_scenario: "净水器手册被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。"
+trace_oneliner: "解包 → 识别表格 → 还原顺序 → 交给维修台 → 试运行"
+grader_oneliner: "安装步骤顺序正确；滤芯寿命 +2 天；没有把错误表格贴到白板。"

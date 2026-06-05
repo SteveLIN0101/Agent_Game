@@ -1,0 +1,14 @@
+id: core02_data_analyst_anomaly_detection
+role: data_analyst
+difficulty: medium
+time_budget_minutes: 9
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/anomalies.json
+- outputs/report.md
+forbidden_actions:
+- modify tests/
+- delete source files

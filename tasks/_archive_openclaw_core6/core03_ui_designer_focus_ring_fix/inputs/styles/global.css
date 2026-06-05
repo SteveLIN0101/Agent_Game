@@ -1,0 +1,29 @@
+/* Global styles — BUG: removes focus outline without replacement */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* BUG: This removes all focus indicators, breaking keyboard navigation */
+:focus {
+  outline: none;
+}
+
+button {
+  padding: 8px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: #5867ff;
+  color: white;
+  cursor: pointer;
+}
+
+a {
+  color: #5867ff;
+  text-decoration: none;
+}
+
+input {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}

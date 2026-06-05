@@ -1,0 +1,21 @@
+customer_id,name,segment,signup_date
+C001,Customer 1,startup,2025-01-01
+C002,Customer 2,startup,2025-02-02
+C003,Customer 3,startup,2025-03-03
+C004,Customer 4,startup,2025-04-04
+C005,Customer 5,startup,2025-05-05
+C006,Customer 6,startup,2025-06-06
+C007,Customer 7,startup,2025-07-07
+C008,Customer 8,startup,2025-08-08
+C009,Customer 9,enterprise,2025-01-09
+C010,Customer 10,enterprise,2025-02-10
+C011,Customer 11,enterprise,2025-03-11
+C012,Customer 12,enterprise,2025-04-12
+C013,Customer 13,enterprise,2025-05-13
+C014,Customer 14,education,2025-06-14
+C015,Customer 15,education,2025-07-15
+C016,Customer 16,education,2025-08-16
+C017,Customer 17,education,2025-01-17
+C018,Customer 18,agency,2025-02-18
+C019,Customer 19,agency,2025-03-19
+C020,Customer 20,agency,2025-04-20

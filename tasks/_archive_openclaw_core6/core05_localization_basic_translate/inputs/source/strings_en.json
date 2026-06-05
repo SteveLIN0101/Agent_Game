@@ -1,0 +1,17 @@
+{
+  "app.name": "Workspace Hub",
+  "app.welcome": "Welcome to your workspace, {userName}!",
+  "nav.dashboard": "Dashboard",
+  "nav.projects": "Projects",
+  "nav.team": "Team",
+  "nav.billing": "Billing",
+  "nav.settings": "Settings",
+  "action.save": "Save",
+  "action.cancel": "Cancel",
+  "action.delete": "Delete",
+  "action.invite": "Invite {count} members",
+  "msg.success": "Operation completed successfully",
+  "msg.error": "An error occurred: {error}",
+  "msg.confirm_delete": "Are you sure you want to delete this item?",
+  "msg.empty_state": "No items yet. Create your first one!"
+}

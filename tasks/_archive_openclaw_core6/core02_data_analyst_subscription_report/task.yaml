@@ -1,0 +1,15 @@
+id: core02_data_analyst_subscription_report
+role: data_analyst
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- outputs/summary.json
+- outputs/report.md
+- outputs/cleaned_payments.csv
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,2329 @@
+{
+  "project": "Red Dust",
+  "asset_set": "defringe_boundary_cleanup_v18",
+  "created_at": "2026-05-14T17:04:03",
+  "method": "Clean 2px foreground boundary band: replace greenish/bright/semi-transparent matte pixels with nearest interior foreground color while preserving dark ink outlines.",
+  "processed_count": 464,
+  "processed": [
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle.png",
+      "suspect_boundary_before": 121,
+      "suspect_boundary_after": 615
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_128.png",
+      "suspect_boundary_before": 192,
+      "suspect_boundary_after": 226
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_512.png",
+      "suspect_boundary_before": 121,
+      "suspect_boundary_after": 615
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_idle_64.png",
+      "suspect_boundary_before": 96,
+      "suspect_boundary_after": 110
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait.png",
+      "suspect_boundary_before": 220,
+      "suspect_boundary_after": 517
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_128.png",
+      "suspect_boundary_before": 147,
+      "suspect_boundary_after": 131
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_512.png",
+      "suspect_boundary_before": 220,
+      "suspect_boundary_after": 517
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_lao_qian_portrait_64.png",
+      "suspect_boundary_before": 43,
+      "suspect_boundary_after": 39
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle.png",
+      "suspect_boundary_before": 24,
+      "suspect_boundary_after": 396
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_128.png",
+      "suspect_boundary_before": 107,
+      "suspect_boundary_after": 132
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_512.png",
+      "suspect_boundary_before": 24,
+      "suspect_boundary_after": 396
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_idle_64.png",
+      "suspect_boundary_before": 54,
+      "suspect_boundary_after": 53
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait.png",
+      "suspect_boundary_before": 85,
+      "suspect_boundary_after": 676
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_128.png",
+      "suspect_boundary_before": 95,
+      "suspect_boundary_after": 101
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_512.png",
+      "suspect_boundary_before": 85,
+      "suspect_boundary_after": 676
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_ma_dehai_portrait_64.png",
+      "suspect_boundary_before": 49,
+      "suspect_boundary_after": 49
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle.png",
+      "suspect_boundary_before": 28,
+      "suspect_boundary_after": 382
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_128.png",
+      "suspect_boundary_before": 96,
+      "suspect_boundary_after": 174
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_512.png",
+      "suspect_boundary_before": 28,
+      "suspect_boundary_after": 382
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_idle_64.png",
+      "suspect_boundary_before": 62,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait.png",
+      "suspect_boundary_before": 98,
+      "suspect_boundary_after": 799
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_128.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 146
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_512.png",
+      "suspect_boundary_before": 98,
+      "suspect_boundary_after": 799
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_shen_zhiyue_portrait_64.png",
+      "suspect_boundary_before": 50,
+      "suspect_boundary_after": 62
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle.png",
+      "suspect_boundary_before": 10,
+      "suspect_boundary_after": 490
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_128.png",
+      "suspect_boundary_before": 113,
+      "suspect_boundary_after": 179
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_512.png",
+      "suspect_boundary_before": 10,
+      "suspect_boundary_after": 490
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_idle_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 97
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait.png",
+      "suspect_boundary_before": 13,
+      "suspect_boundary_after": 687
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_128.png",
+      "suspect_boundary_before": 64,
+      "suspect_boundary_after": 128
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_512.png",
+      "suspect_boundary_before": 13,
+      "suspect_boundary_after": 687
+    },
+    {
+      "path": "RedDust/art/characters/rd_char_xiao_tie_portrait_64.png",
+      "suspect_boundary_before": 72,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_128.png",
+      "suspect_boundary_before": 9,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_diesel_canister_scavenged_64.png",
+      "suspect_boundary_before": 20,
+      "suspect_boundary_after": 42
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_128.png",
+      "suspect_boundary_before": 33,
+      "suspect_boundary_after": 129
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_night_visitor_door_silhouette_64.png",
+      "suspect_boundary_before": 31,
+      "suspect_boundary_after": 39
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal.png",
+      "suspect_boundary_before": 4,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_128.png",
+      "suspect_boundary_before": 43,
+      "suspect_boundary_after": 221
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_512.png",
+      "suspect_boundary_before": 4,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_opposite_building_morse_signal_64.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 122
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder.png",
+      "suspect_boundary_before": 90,
+      "suspect_boundary_after": 123
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_128.png",
+      "suspect_boundary_before": 69,
+      "suspect_boundary_after": 238
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_512.png",
+      "suspect_boundary_before": 90,
+      "suspect_boundary_after": 123
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_rat_intruder_64.png",
+      "suspect_boundary_before": 104,
+      "suspect_boundary_after": 124
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder.png",
+      "suspect_boundary_before": 42,
+      "suspect_boundary_after": 16
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_128.png",
+      "suspect_boundary_before": 38,
+      "suspect_boundary_after": 263
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_512.png",
+      "suspect_boundary_before": 42,
+      "suspect_boundary_after": 16
+    },
+    {
+      "path": "RedDust/art/events/rd_event_sand_scorpion_intruder_64.png",
+      "suspect_boundary_before": 110,
+      "suspect_boundary_after": 116
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token.png",
+      "suspect_boundary_before": 7,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_128.png",
+      "suspect_boundary_before": 39,
+      "suspect_boundary_after": 164
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_512.png",
+      "suspect_boundary_before": 7,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/events/rd_event_warm_core_invitation_token_64.png",
+      "suspect_boundary_before": 71,
+      "suspect_boundary_after": 78
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_128.png",
+      "suspect_boundary_before": 133,
+      "suspect_boundary_after": 76
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_512.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_aura_speaker_idle_64.png",
+      "suspect_boundary_before": 71,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_128.png",
+      "suspect_boundary_before": 114,
+      "suspect_boundary_after": 106
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_512.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_battery_box_mixed_cells_64.png",
+      "suspect_boundary_before": 67,
+      "suspect_boundary_after": 65
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_128.png",
+      "suspect_boundary_before": 111,
+      "suspect_boundary_after": 48
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_512.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_board_single_64.png",
+      "suspect_boundary_before": 61,
+      "suspect_boundary_after": 54
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_128.png",
+      "suspect_boundary_before": 174,
+      "suspect_boundary_after": 120
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_512.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_chess_cards_sanity_set_64.png",
+      "suspect_boundary_before": 78,
+      "suspect_boundary_after": 66
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "suspect_boundary_before": 165,
+      "suspect_boundary_after": 129
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "suspect_boundary_before": 85,
+      "suspect_boundary_after": 77
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "suspect_boundary_before": 220,
+      "suspect_boundary_after": 179
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "suspect_boundary_before": 105,
+      "suspect_boundary_after": 63
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "suspect_boundary_before": 123,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "suspect_boundary_before": 82,
+      "suspect_boundary_after": 62
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "suspect_boundary_before": 122,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "suspect_boundary_before": 47,
+      "suspect_boundary_after": 29
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_512.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_insect_spray_sand_pests_64.png",
+      "suspect_boundary_before": 39,
+      "suspect_boundary_after": 33
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "suspect_boundary_before": 321,
+      "suspect_boundary_after": 192
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "suspect_boundary_before": 157,
+      "suspect_boundary_after": 125
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "suspect_boundary_before": 153,
+      "suspect_boundary_after": 133
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 64
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_512.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_playing_cards_deck_single_64.png",
+      "suspect_boundary_before": 51,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_128.png",
+      "suspect_boundary_before": 218,
+      "suspect_boundary_after": 167
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_512.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_radio_semiconductor_idle_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 68
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "suspect_boundary_before": 211,
+      "suspect_boundary_after": 162
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "suspect_boundary_before": 106,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "suspect_boundary_before": 215,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "suspect_boundary_before": 108,
+      "suspect_boundary_after": 70
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 119
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_512.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_single_64.png",
+      "suspect_boundary_before": 84,
+      "suspect_boundary_after": 55
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "suspect_boundary_before": 173,
+      "suspect_boundary_after": 143
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "suspect_boundary_before": 83,
+      "suspect_boundary_after": 67
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 92
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_512.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_single_64.png",
+      "suspect_boundary_before": 60,
+      "suspect_boundary_after": 53
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_box_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_128.png",
+      "suspect_boundary_before": 207,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_512.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_jug_full_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_128.png",
+      "suspect_boundary_before": 127,
+      "suspect_boundary_after": 105
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_512.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_pack/assets/resources/rd_res_water_bottle_single_64.png",
+      "suspect_boundary_before": 45,
+      "suspect_boundary_after": 39
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_128.png",
+      "suspect_boundary_before": 133,
+      "suspect_boundary_after": 76
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_512.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_aura_speaker_idle_64.png",
+      "suspect_boundary_before": 71,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_128.png",
+      "suspect_boundary_before": 114,
+      "suspect_boundary_after": 106
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_512.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_battery_box_mixed_cells_64.png",
+      "suspect_boundary_before": 67,
+      "suspect_boundary_after": 65
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_128.png",
+      "suspect_boundary_before": 111,
+      "suspect_boundary_after": 48
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_512.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_board_single_64.png",
+      "suspect_boundary_before": 61,
+      "suspect_boundary_after": 54
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_128.png",
+      "suspect_boundary_before": 174,
+      "suspect_boundary_after": 120
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_512.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_chess_cards_sanity_set_64.png",
+      "suspect_boundary_before": 78,
+      "suspect_boundary_after": 66
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "suspect_boundary_before": 165,
+      "suspect_boundary_after": 129
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "suspect_boundary_before": 85,
+      "suspect_boundary_after": 77
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "suspect_boundary_before": 220,
+      "suspect_boundary_after": 179
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "suspect_boundary_before": 105,
+      "suspect_boundary_after": 63
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "suspect_boundary_before": 123,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "suspect_boundary_before": 82,
+      "suspect_boundary_after": 62
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "suspect_boundary_before": 122,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "suspect_boundary_before": 47,
+      "suspect_boundary_after": 29
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_512.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_insect_spray_sand_pests_64.png",
+      "suspect_boundary_before": 39,
+      "suspect_boundary_after": 33
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "suspect_boundary_before": 321,
+      "suspect_boundary_after": 192
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "suspect_boundary_before": 157,
+      "suspect_boundary_after": 125
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "suspect_boundary_before": 153,
+      "suspect_boundary_after": 133
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 64
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_512.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_playing_cards_deck_single_64.png",
+      "suspect_boundary_before": 51,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_128.png",
+      "suspect_boundary_before": 218,
+      "suspect_boundary_after": 167
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_512.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_radio_semiconductor_idle_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 68
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "suspect_boundary_before": 211,
+      "suspect_boundary_after": 162
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "suspect_boundary_before": 106,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "suspect_boundary_before": 215,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "suspect_boundary_before": 108,
+      "suspect_boundary_after": 70
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 119
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_512.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_single_64.png",
+      "suspect_boundary_before": 84,
+      "suspect_boundary_after": 55
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "suspect_boundary_before": 173,
+      "suspect_boundary_after": 143
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "suspect_boundary_before": 83,
+      "suspect_boundary_after": 67
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 92
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_512.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_single_64.png",
+      "suspect_boundary_before": 60,
+      "suspect_boundary_after": 53
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_box_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_128.png",
+      "suspect_boundary_before": 207,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_512.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_jug_full_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_128.png",
+      "suspect_boundary_before": 127,
+      "suspect_boundary_after": 105
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_512.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/resources/rd_res_water_bottle_single_64.png",
+      "suspect_boundary_before": 45,
+      "suspect_boundary_after": 39
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png",
+      "suspect_boundary_before": 37,
+      "suspect_boundary_after": 124
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png",
+      "suspect_boundary_before": 74,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_128.png",
+      "suspect_boundary_before": 30,
+      "suspect_boundary_after": 240
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_body_static_64.png",
+      "suspect_boundary_before": 102,
+      "suspect_boundary_after": 155
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wall_exhaust_fan_split_composite_check.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 331
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_128.png",
+      "suspect_boundary_before": 62,
+      "suspect_boundary_after": 51
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 331
+    },
+    {
+      "path": "RedDust/art/packages/reddust_survival_resources_props_with_env_addons_pack/assets/scenes/rd_env_wooden_crate_surface_empty_64.png",
+      "suspect_boundary_before": 30,
+      "suspect_boundary_after": 22
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_128.png",
+      "suspect_boundary_before": 133,
+      "suspect_boundary_after": 76
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_512.png",
+      "suspect_boundary_before": 1667,
+      "suspect_boundary_after": 581
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_aura_speaker_idle_64.png",
+      "suspect_boundary_before": 71,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_128.png",
+      "suspect_boundary_before": 114,
+      "suspect_boundary_after": 106
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_512.png",
+      "suspect_boundary_before": 713,
+      "suspect_boundary_after": 338
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_battery_box_mixed_cells_64.png",
+      "suspect_boundary_before": 67,
+      "suspect_boundary_after": 65
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_128.png",
+      "suspect_boundary_before": 111,
+      "suspect_boundary_after": 48
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_512.png",
+      "suspect_boundary_before": 1188,
+      "suspect_boundary_after": 487
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_board_single_64.png",
+      "suspect_boundary_before": 61,
+      "suspect_boundary_after": 54
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_128.png",
+      "suspect_boundary_before": 174,
+      "suspect_boundary_after": 120
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_512.png",
+      "suspect_boundary_before": 1707,
+      "suspect_boundary_after": 726
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_chess_cards_sanity_set_64.png",
+      "suspect_boundary_before": 78,
+      "suspect_boundary_after": 66
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_128.png",
+      "suspect_boundary_before": 165,
+      "suspect_boundary_after": 129
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_512.png",
+      "suspect_boundary_before": 1592,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_city_map_handdrawn_folded_64.png",
+      "suspect_boundary_before": 85,
+      "suspect_boundary_after": 77
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_128.png",
+      "suspect_boundary_before": 220,
+      "suspect_boundary_after": 179
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_512.png",
+      "suspect_boundary_before": 1981,
+      "suspect_boundary_after": 946
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_crowbar_signal_flare_pair_64.png",
+      "suspect_boundary_before": 105,
+      "suspect_boundary_after": 63
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_128.png",
+      "suspect_boundary_before": 123,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_512.png",
+      "suspect_boundary_before": 1705,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_driver_toolbox_blue_metal_64.png",
+      "suspect_boundary_before": 82,
+      "suspect_boundary_after": 62
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_128.png",
+      "suspect_boundary_before": 122,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_512.png",
+      "suspect_boundary_before": 937,
+      "suspect_boundary_after": 410
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_first_aid_kit_wall_softcase_64.png",
+      "suspect_boundary_before": 47,
+      "suspect_boundary_after": 29
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_512.png",
+      "suspect_boundary_before": 1083,
+      "suspect_boundary_after": 495
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_insect_spray_sand_pests_64.png",
+      "suspect_boundary_before": 39,
+      "suspect_boundary_after": 33
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_128.png",
+      "suspect_boundary_before": 321,
+      "suspect_boundary_after": 192
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_512.png",
+      "suspect_boundary_before": 3276,
+      "suspect_boundary_after": 1648
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_mp3_earbuds_repaired_64.png",
+      "suspect_boundary_before": 157,
+      "suspect_boundary_after": 125
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_128.png",
+      "suspect_boundary_before": 153,
+      "suspect_boundary_after": 133
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_512.png",
+      "suspect_boundary_before": 2002,
+      "suspect_boundary_after": 883
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_old_newspaper_bound_volume_64.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 64
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_512.png",
+      "suspect_boundary_before": 920,
+      "suspect_boundary_after": 317
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_playing_cards_deck_single_64.png",
+      "suspect_boundary_before": 51,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_128.png",
+      "suspect_boundary_before": 218,
+      "suspect_boundary_after": 167
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_512.png",
+      "suspect_boundary_before": 1868,
+      "suspect_boundary_after": 849
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_radio_semiconductor_idle_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 68
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_128.png",
+      "suspect_boundary_before": 211,
+      "suspect_boundary_after": 162
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_512.png",
+      "suspect_boundary_before": 1835,
+      "suspect_boundary_after": 1059
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_reinforced_door_bar_wallmount_64.png",
+      "suspect_boundary_before": 106,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_128.png",
+      "suspect_boundary_before": 215,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_512.png",
+      "suspect_boundary_before": 1170,
+      "suspect_boundary_after": 871
+    },
+    {
+      "path": "RedDust/art/props/rd_prop_sand_mask_goggles_hanging_64.png",
+      "suspect_boundary_before": 108,
+      "suspect_boundary_after": 70
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_128.png",
+      "suspect_boundary_before": 112,
+      "suspect_boundary_after": 119
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_512.png",
+      "suspect_boundary_before": 1334,
+      "suspect_boundary_after": 609
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_single_64.png",
+      "suspect_boundary_before": 84,
+      "suspect_boundary_after": 55
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_128.png",
+      "suspect_boundary_before": 173,
+      "suspect_boundary_after": 143
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_512.png",
+      "suspect_boundary_before": 1238,
+      "suspect_boundary_after": 708
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_filter_disc_stack_clean_used_64.png",
+      "suspect_boundary_before": 83,
+      "suspect_boundary_after": 67
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_128.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 92
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_512.png",
+      "suspect_boundary_before": 917,
+      "suspect_boundary_after": 294
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_single_64.png",
+      "suspect_boundary_before": 60,
+      "suspect_boundary_after": 53
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_box_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_128.png",
+      "suspect_boundary_before": 152,
+      "suspect_boundary_after": 144
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_512.png",
+      "suspect_boundary_before": 946,
+      "suspect_boundary_after": 275
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_food_vacuum_pack_stack_64.png",
+      "suspect_boundary_before": 81,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_128.png",
+      "suspect_boundary_before": 207,
+      "suspect_boundary_after": 165
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_512.png",
+      "suspect_boundary_before": 608,
+      "suspect_boundary_after": 448
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_jug_full_64.png",
+      "suspect_boundary_before": 92,
+      "suspect_boundary_after": 83
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_128.png",
+      "suspect_boundary_before": 127,
+      "suspect_boundary_after": 105
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_512.png",
+      "suspect_boundary_before": 826,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/resources/rd_res_water_bottle_single_64.png",
+      "suspect_boundary_before": 45,
+      "suspect_boundary_after": 39
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm.png",
+      "suspect_boundary_before": 738,
+      "suspect_boundary_after": 202
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_128.png",
+      "suspect_boundary_before": 72,
+      "suspect_boundary_after": 87
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_512.png",
+      "suspect_boundary_before": 738,
+      "suspect_boundary_after": 202
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_ceiling_lamp_warm_64.png",
+      "suspect_boundary_before": 45,
+      "suspect_boundary_after": 41
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan.png",
+      "suspect_boundary_before": 2108,
+      "suspect_boundary_after": 941
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_128.png",
+      "suspect_boundary_before": 162,
+      "suspect_boundary_after": 139
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_512.png",
+      "suspect_boundary_before": 2108,
+      "suspect_boundary_after": 941
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_chair_old_rattan_64.png",
+      "suspect_boundary_before": 82,
+      "suspect_boundary_after": 73
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange.png",
+      "suspect_boundary_before": 1570,
+      "suspect_boundary_after": 798
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_128.png",
+      "suspect_boundary_before": 253,
+      "suspect_boundary_after": 138
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_512.png",
+      "suspect_boundary_before": 1570,
+      "suspect_boundary_after": 798
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_emergency_lamp_orange_64.png",
+      "suspect_boundary_before": 98,
+      "suspect_boundary_after": 68
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor.png",
+      "suspect_boundary_before": 79,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_128.png",
+      "suspect_boundary_before": 299,
+      "suspect_boundary_after": 284
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_512.png",
+      "suspect_boundary_before": 79,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_blades_rotor_64.png",
+      "suspect_boundary_before": 103,
+      "suspect_boundary_after": 97
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static.png",
+      "suspect_boundary_before": 625,
+      "suspect_boundary_after": 279
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_128.png",
+      "suspect_boundary_before": 271,
+      "suspect_boundary_after": 450
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_512.png",
+      "suspect_boundary_before": 625,
+      "suspect_boundary_after": 279
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_body_static_64.png",
+      "suspect_boundary_before": 184,
+      "suspect_boundary_after": 169
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_exhaust_fan_split_composite_check.png",
+      "suspect_boundary_before": 643,
+      "suspect_boundary_after": 279
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set.png",
+      "suspect_boundary_before": 1670,
+      "suspect_boundary_after": 690
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_128.png",
+      "suspect_boundary_before": 218,
+      "suspect_boundary_after": 187
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_512.png",
+      "suspect_boundary_before": 1670,
+      "suspect_boundary_after": 690
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_fan_ventilation_set_64.png",
+      "suspect_boundary_before": 115,
+      "suspect_boundary_after": 104
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair.png",
+      "suspect_boundary_before": 1655,
+      "suspect_boundary_after": 709
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_128.png",
+      "suspect_boundary_before": 195,
+      "suspect_boundary_after": 140
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_512.png",
+      "suspect_boundary_before": 1655,
+      "suspect_boundary_after": 709
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_lamp_emergency_light_pair_64.png",
+      "suspect_boundary_before": 90,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf.png",
+      "suspect_boundary_before": 1803,
+      "suspect_boundary_after": 547
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_128.png",
+      "suspect_boundary_before": 254,
+      "suspect_boundary_after": 187
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_512.png",
+      "suspect_boundary_before": 1803,
+      "suspect_boundary_after": 547
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_metal_archive_shelf_64.png",
+      "suspect_boundary_before": 109,
+      "suspect_boundary_after": 90
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set.png",
+      "suspect_boundary_before": 5494,
+      "suspect_boundary_after": 1878
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_128.png",
+      "suspect_boundary_before": 457,
+      "suspect_boundary_after": 334
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_512.png",
+      "suspect_boundary_before": 5494,
+      "suspect_boundary_after": 1878
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_mismatched_stools_set_64.png",
+      "suspect_boundary_before": 174,
+      "suspect_boundary_after": 156
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round.png",
+      "suspect_boundary_before": 1521,
+      "suspect_boundary_after": 622
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_128.png",
+      "suspect_boundary_before": 173,
+      "suspect_boundary_after": 157
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_512.png",
+      "suspect_boundary_before": 1521,
+      "suspect_boundary_after": 622
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_old_wood_round_64.png",
+      "suspect_boundary_before": 59,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding.png",
+      "suspect_boundary_before": 898,
+      "suspect_boundary_after": 230
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_128.png",
+      "suspect_boundary_before": 99,
+      "suspect_boundary_after": 85
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_512.png",
+      "suspect_boundary_before": 898,
+      "suspect_boundary_after": 230
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_plastic_folding_64.png",
+      "suspect_boundary_before": 52,
+      "suspect_boundary_after": 46
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding.png",
+      "suspect_boundary_before": 2355,
+      "suspect_boundary_after": 987
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_128.png",
+      "suspect_boundary_before": 163,
+      "suspect_boundary_after": 139
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_512.png",
+      "suspect_boundary_before": 2355,
+      "suspect_boundary_after": 987
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_stool_taxi_spare_folding_64.png",
+      "suspect_boundary_before": 96,
+      "suspect_boundary_after": 86
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked.png",
+      "suspect_boundary_before": 564,
+      "suspect_boundary_after": 211
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_128.png",
+      "suspect_boundary_before": 234,
+      "suspect_boundary_after": 218
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_512.png",
+      "suspect_boundary_before": 564,
+      "suspect_boundary_after": 211
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_storage_cabinet_stocked_64.png",
+      "suspect_boundary_before": 82,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor.png",
+      "suspect_boundary_before": 756,
+      "suspect_boundary_after": 428
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_128.png",
+      "suspect_boundary_before": 270,
+      "suspect_boundary_after": 262
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_512.png",
+      "suspect_boundary_before": 756,
+      "suspect_boundary_after": 428
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_blades_rotor_64.png",
+      "suspect_boundary_before": 78,
+      "suspect_boundary_after": 74
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static.png",
+      "suspect_boundary_before": 923,
+      "suspect_boundary_after": 365
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_128.png",
+      "suspect_boundary_before": 364,
+      "suspect_boundary_after": 551
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_512.png",
+      "suspect_boundary_before": 923,
+      "suspect_boundary_after": 365
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_body_static_64.png",
+      "suspect_boundary_before": 206,
+      "suspect_boundary_after": 198
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_table_fan_split_composite_check.png",
+      "suspect_boundary_before": 1244,
+      "suspect_boundary_after": 464
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm.png",
+      "suspect_boundary_before": 1672,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_128.png",
+      "suspect_boundary_before": 188,
+      "suspect_boundary_after": 169
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_512.png",
+      "suspect_boundary_before": 1672,
+      "suspect_boundary_after": 864
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_taped_window_sandstorm_64.png",
+      "suspect_boundary_before": 89,
+      "suspect_boundary_after": 79
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png",
+      "suspect_boundary_before": 37,
+      "suspect_boundary_after": 124
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png",
+      "suspect_boundary_before": 74,
+      "suspect_boundary_after": 75
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_128.png",
+      "suspect_boundary_before": 30,
+      "suspect_boundary_after": 240
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_body_static_64.png",
+      "suspect_boundary_before": 102,
+      "suspect_boundary_after": 155
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wall_exhaust_fan_split_composite_check.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 331
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_128.png",
+      "suspect_boundary_before": 62,
+      "suspect_boundary_after": 51
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 331
+    },
+    {
+      "path": "RedDust/art/scenes/rd_env_wooden_crate_surface_empty_64.png",
+      "suspect_boundary_before": 30,
+      "suspect_boundary_after": 22
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_1920.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_480.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/scenes/rd_scene_apt_main_day_idle_960.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_128.png",
+      "suspect_boundary_before": 2,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_icon_compact_64.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 56
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_128.png",
+      "suspect_boundary_before": 98,
+      "suspect_boundary_after": 168
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 56
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_aura_panel_active_64.png",
+      "suspect_boundary_before": 130,
+      "suspect_boundary_after": 127
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 89
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_128.png",
+      "suspect_boundary_before": 23,
+      "suspect_boundary_after": 197
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 89
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_event_card_blank_64.png",
+      "suspect_boundary_before": 28,
+      "suspect_boundary_after": 64
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen.png",
+      "suspect_boundary_before": 1304,
+      "suspect_boundary_after": 468
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_128.png",
+      "suspect_boundary_before": 128,
+      "suspect_boundary_after": 126
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_512.png",
+      "suspect_boundary_before": 1304,
+      "suspect_boundary_after": 468
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_diary_notebook_pen_64.png",
+      "suspect_boundary_before": 64,
+      "suspect_boundary_after": 40
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available.png",
+      "suspect_boundary_before": 34,
+      "suspect_boundary_after": 29
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_128.png",
+      "suspect_boundary_before": 143,
+      "suspect_boundary_after": 271
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_512.png",
+      "suspect_boundary_before": 34,
+      "suspect_boundary_after": 29
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_available_64.png",
+      "suspect_boundary_before": 80,
+      "suspect_boundary_after": 79
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_128.png",
+      "suspect_boundary_before": 94,
+      "suspect_boundary_after": 214
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_prop_slot_unavailable_64.png",
+      "suspect_boundary_before": 146,
+      "suspect_boundary_after": 185
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 61
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_hunger_64.png",
+      "suspect_boundary_before": 11,
+      "suspect_boundary_after": 167
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 22
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_injured_64.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 82
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 18
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sanity_panic_64.png",
+      "suspect_boundary_before": 8,
+      "suspect_boundary_after": 69
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 112
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_scavenging_outside_64.png",
+      "suspect_boundary_before": 22,
+      "suspect_boundary_after": 58
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 33
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_sick_64.png",
+      "suspect_boundary_before": 6,
+      "suspect_boundary_after": 78
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_128.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 62
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_512.png",
+      "suspect_boundary_before": 0,
+      "suspect_boundary_after": 0
+    },
+    {
+      "path": "RedDust/art/ui/rd_ui_status_thirst_64.png",
+      "suspect_boundary_before": 3,
+      "suspect_boundary_after": 135
+    }
+  ]
+}

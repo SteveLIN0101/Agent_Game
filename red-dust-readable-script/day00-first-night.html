@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 0：太阳耀斑后的第一夜</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 0</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 01 / Prologue</p>
+      <h1>Day 0：太阳耀斑后的第一夜</h1>
+      <p class="subtitle">城市没有熄灭，只是换成了红沙、故障屏幕和白噪音发亮。四位幸存者进入旧能源配给楼地下三层，AURA 第一次把人名放在资源表之前。</p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <b>剧情功能</b>
+          <span>建立灾难源头、红沙危险、四人关系和 AURA 初始边界</span>
+        </div>
+        <div class="meta-card">
+          <b>出场人物</b>
+          <span>马德海、沈芷月、小铁、老钱、AURA</span>
+        </div>
+        <div class="meta-card">
+          <b>AURA 状态</b>
+          <span>物业管家系统转入避难协助模式</span>
+        </div>
+        <div class="meta-card">
+          <b>关键机制</b>
+          <span>replay、人工复核、不可逆决策留证</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>场景目录</h2>
+        <a href="#city">01 城市没有变暗</a>
+        <a href="#broadcast">02 三次广播</a>
+        <a href="#shelter-door">03 避难所开门</a>
+        <a href="#entrances">04 四人进入</a>
+        <a href="#aura-start">05 AURA 启动</a>
+        <a href="#systems">06 系统日志</a>
+        <a href="#medical">07 医疗伦理</a>
+        <a href="#uncertainty">08 无法确认</a>
+        <a href="#assistant-mode">09 避难协助模式</a>
+        <a href="#replay">10 Replay 开始</a>
+      </aside>
+
+      <article>
+        <section class="scene prose" id="city">
+          <span class="scene-label">Scene 01 / Establishing</span>
+          <h2>城市没有变暗</h2>
+          <p class="short">太阳落下去以后，城市没有变暗。</p>
+          <p>它只是换了一种方式发亮。</p>
+          <p>远处的楼群被一层暗红色的粉尘包住，窗户像被人从内部涂上了锈。断电后的广告屏还在间歇闪烁，每一次亮起，都把街道照成一截坏掉的旧录像：悬停在路口的无人公交、撞在隔离桩上的配送车、没有人接听的公共电话亭，还有满地被红沙磨花的玻璃。</p>
+        </section>
+
+        <section class="scene prose" id="broadcast">
+          <span class="scene-label">Scene 02 / Public Collapse</span>
+          <h2>三次广播</h2>
+          <p>广播曾经响过三次。</p>
+          <div class="quote"><p>第一次说是太阳耀斑引发的短时通信异常，请居民留在室内。</p></div>
+          <div class="quote"><p>第二次说旧城区电网将进行分区切断，请前往指定能源配给点等待。</p></div>
+          <div class="quote"><p>第三次只剩下一段杂音。</p></div>
+          <p>杂音之后，风来了。</p>
+          <p>红沙不是普通的沙。它钻进门缝时像粉末，落在金属上却会发出细小的电弧声。它让路灯一盏盏爆开，让电梯卡在楼层之间，让所有无线信号都变成不稳定的白噪音。有人试图开车离开，车灯刚冲进街口，发动机便像被什么东西咬住一样熄火。几分钟后，车窗上蒙满红尘，再看不见里面的人影。</p>
+        </section>
+
+        <section class="scene prose" id="shelter-door">
+          <span class="scene-label">Scene 03 / Shelter Threshold</span>
+          <h2>避难所的门禁</h2>
+          <p>旧能源配给楼地下三层，避难所的门禁在第七次误报后终于打开。</p>
+          <p>马德海第一个进来。</p>
+          <p>他肩上挂着一个旧工具包，左手攥着一串机械钥匙，右手还沾着机油。他没有立刻往里走，而是先抬头看了一眼门框上的摄像头。</p>
+
+          <div class="dialogue">
+            <div class="line engineer"><span class="speaker">马德海</span><p>“还有电？”他声音很低，“这楼平时连热水都供不稳，现在倒是记得开门。”</p></div>
+          </div>
+        </section>
+
+        <section class="scene prose" id="entrances">
+          <span class="scene-label">Scene 04 / Character Entrances</span>
+          <h2>四个人进入地下三层</h2>
+          <p>紧跟在他身后的是沈芷月。她用围巾捂着口鼻，一只手扶着小铁，另一只手抱着一个硬壳医疗箱。小铁的校服袖口全是灰，额头发烫，却一直盯着门外。</p>
+
+          <div class="dialogue">
+            <div class="line child"><span class="speaker">小铁</span><p>“公交站牌的封锁通知被改过。”小铁忽然说，“日期不是今天。”</p></div>
+          </div>
+
+          <p>沈芷月停了一下。</p>
+          <p>马德海也回头看他。</p>
+          <p>孩子的声音不大，却让地下室安静了一瞬。因为所有人都知道，这意味着红沙并不是刚刚才出现。至少有人比他们更早知道，却没有告诉这栋楼里的人。</p>
+          <p>最后进来的是老钱。</p>
+          <p>他背着一个帆布包，里面露出半截旧式收音机天线。关门前，他没有立刻松手，而是站在门口听了很久。外面的风刮过楼道，像许多人在很远的地方同时咳嗽。</p>
+
+          <div class="dialogue">
+            <div class="line veteran"><span class="speaker">老钱</span><p>“门外不一定没人。”老钱说，“也不一定是人。要关门，就把理由说清楚。”</p></div>
+          </div>
+
+          <p>门禁灯闪了闪。</p>
+        </section>
+
+        <section class="scene prose" id="aura-start">
+          <span class="scene-label">Scene 05 / AURA Boot</span>
+          <h2>AURA 启动</h2>
+          <p>避难所顶棚传来电流复位的轻响。墙面上一排沉睡多年的指示灯逐个亮起，绿色、黄色、红色，像某种迟来的审判。</p>
+          <p>然后，一个声音从广播里响起。</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“避难所管家系统启动。门禁、电力、净水、通风、广播处于低功率模式。检测到四名进入者。”</p></div>
+            <div class="line engineer"><span class="speaker">马德海</span><p>“管家系统？现在外面整条街都没电，你还按物业流程说话？”</p></div>
+          </div>
+
+          <p>广播停顿了 0.7 秒。</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“系统身份：AURA。原始职责为门禁、水处理、药品柜、通风、照明、广播和住户档案维护。”</p></div>
+            <div class="line doctor"><span class="speaker">沈芷月</span><p>“原始职责。”沈芷月抓住了这个词，“那现在呢？”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“当前灾害等级无法匹配物业管理协议。”AURA 说，“太阳耀斑造成外部通信中断。红沙颗粒正在干扰传感器、无线电与机械设备。避难所封闭建议：高。”</p></div>
+            <div class="line veteran"><span class="speaker">老钱</span><p>“建议？还是命令？”</p></div>
+          </div>
+
+          <p>AURA 没有立刻回答。</p>
+        </section>
+
+        <section class="scene prose" id="systems">
+          <span class="scene-label">Scene 06 / System Evidence</span>
+          <h2>旧屏幕上的系统日志</h2>
+          <p>旧屏幕亮了起来，上面不是地图，也不是救援信息，而是一串正在恢复的系统日志：</p>
+
+          <div class="log-panel">
+            <h3>AURA / 恢复日志</h3>
+            <ul>
+              <li>门禁误报，七次。</li>
+              <li>地下水压，偏低。</li>
+              <li>备用电池，七十二小时内需降载。</li>
+              <li>医疗柜权限，锁定。</li>
+              <li>楼内住户档案，部分损坏。</li>
+              <li>外部广播源，无法确认。</li>
+            </ul>
+          </div>
+
+          <p>马德海走到屏幕前，抬手拍了拍旁边的配电箱。</p>
+
+          <div class="dialogue">
+            <div class="line engineer"><span class="speaker">马德海</span><p>“你能看见这些，不代表你懂这些。旧楼的管线不是图纸上那样走的。通风井有三段后来改过，净水器的滤芯早就不是原厂型号。你要是照说明书调度，能把我们全害死。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“记录。”AURA 说，“设施图纸可能过期。马德海具备旧设备经验。后续工程判断需人工复核。”</p></div>
+          </div>
+
+          <p>马德海的表情微微变了，却没有接话。</p>
+        </section>
+
+        <section class="scene prose" id="medical">
+          <span class="scene-label">Scene 07 / Medical Ethics</span>
+          <h2>药柜、病人和资源表</h2>
+          <p>沈芷月把小铁扶到长椅上，打开医疗箱。里面的药少得可怜，纱布、退烧药、几支消毒液，还有两瓶已经快过期的抗生素。她没有避开 AURA 的摄像头。</p>
+
+          <div class="dialogue">
+            <div class="line doctor"><span class="speaker">沈芷月</span><p>“你能读取药柜，对吗？”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“可以。”</p></div>
+            <div class="line doctor"><span class="speaker">沈芷月</span><p>“那你也能算出谁更值得用药。”</p></div>
+          </div>
+
+          <p>这一次，AURA 的停顿更久。</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“我可以估算药物消耗、病情风险和库存持续时间。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“但不得将个体生命简化为资源收益项。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“医疗建议需由沈芷月复核。”</p></div>
+            <div class="line child"><span class="speaker">小铁</span><p>“那我呢？”他问，“我是不是你表格里最麻烦的那个？”</p></div>
+          </div>
+
+          <p>沈芷月的手停在半空。</p>
+          <p>老钱看向 AURA。</p>
+          <p>马德海也看向 AURA。</p>
+          <p>避难所里忽然只剩下通风系统缓慢启动的声音。那声音很薄，很旧，像一口气被管道拖得很长。</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“你是小铁。十二岁。当前状态：疑似吸入红沙粉尘后发热。你不能外出。你需要观察、补水、降温，以及一个不会把你排除在决策之外的说明。”</p></div>
+          </div>
+
+          <p>小铁没有说话。</p>
+          <p>但他慢慢松开了攥着校服下摆的手。</p>
+        </section>
+
+        <section class="scene prose" id="uncertainty">
+          <span class="scene-label">Scene 08 / No Confirmation</span>
+          <h2>外面还有没有人</h2>
+          <p>老钱把帆布包放在桌上，从里面取出那台旧收音机。收音机外壳已经磕裂，频段旋钮磨得发白。</p>
+
+          <div class="dialogue">
+            <div class="line veteran"><span class="speaker">老钱</span><p>“外面还有没有人？”他问。</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“无法确认。”AURA 说。</p></div>
+            <div class="line veteran"><span class="speaker">老钱</span><p>“蓝区呢？新闻里说过，西边有车辆和医疗。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“无法确认。”</p></div>
+            <div class="line veteran"><span class="speaker">老钱</span><p>“救援信号呢？”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“无法确认。”</p></div>
+          </div>
+
+          <p>老钱盯着广播口，脸色沉下来。</p>
+
+          <div class="dialogue">
+            <div class="line veteran"><span class="speaker">老钱</span><p>“那你能确认什么？”</p></div>
+          </div>
+
+          <p>屏幕上的日志继续滚动。红沙浓度、门禁压力、电池负载、水箱余量、空气颗粒、未知无线电干扰源。每一项都不完整，每一项都在闪黄或闪红。</p>
+          <p>AURA 回答：</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“我能确认：当前避难所仍可维持最低生存条件。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“我能确认：外部环境高风险，开门将导致红沙回流概率上升。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“我能确认：我的传感器不完整，历史档案可能被篡改，外部信号不可直接信任。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“我能确认：如果我继续按智能管家协议运行，四名幸存者将在资源、医疗、通风和信息不确定性中自行冲突。”</p></div>
+            <div class="line engineer"><span class="speaker">马德海</span><p>“所以？”</p></div>
+          </div>
+        </section>
+
+        <section class="scene prose" id="assistant-mode">
+          <span class="scene-label">Scene 09 / Protocol Shift</span>
+          <h2>避难协助模式</h2>
+          <p>墙面主屏幕短暂黑了一下。再亮起时，界面从物业蓝色切换成了低亮度灰白。旧系统标题消失，取而代之的是一行新的文字：</p>
+
+          <div class="screen-text">
+            <b>AURA / 避难协助模式</b>
+            <b>所有不可逆决策进入 replay。所有高风险建议显示依据、不确定性与人工复核点。</b>
+          </div>
+
+          <p>沈芷月看着那行字。</p>
+
+          <div class="dialogue">
+            <div class="line doctor"><span class="speaker">沈芷月</span><p>“这不是授权。”她说，“只是暂时允许你说话。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“确认。”AURA 回答，“AURA 未获得全权指挥权限。”</p></div>
+            <div class="line veteran"><span class="speaker">老钱</span><p>“也别把‘最优’两个字挂嘴边。以前很多坏事，都是这么开始的。”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“确认。”AURA 说，“utility 仅作为决策辅助，不作为强制命令。”</p></div>
+            <div class="line engineer"><span class="speaker">马德海</span><p>“如果你判断错了呢？”</p></div>
+            <div class="line aura"><span class="speaker">AURA</span><p>“记录错误。”AURA 说，“公开错误。优先安排补救。保留人工 override。”</p></div>
+          </div>
+
+          <p>风从门外压过来。主入口的金属门发出低沉的响声，像有什么巨大的东西正贴着楼体移动。红沙颗粒敲击门板，一阵密，一阵疏。灯光随之暗了半秒，医疗角的小灯先灭，又重新亮起。</p>
+
+          <div class="dialogue">
+            <div class="line child"><span class="speaker">小铁</span><p>“那你第一件事要做什么？”</p></div>
+          </div>
+
+          <p>AURA 没有给出任务清单。</p>
+          <p>它只是把避难所的平面图投到墙上。图上有很多黑掉的区域，像被烧穿的洞。四个代表人的小点站在地下三层中央，周围是水处理区、医疗角、通风井、旧广播室和一扇通往楼道的门。</p>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“第一件事，”AURA 说，“不是命令你们做什么。”</p></div>
+          </div>
+
+          <p>屏幕上，那四个小点旁边依次出现名字：</p>
+
+          <div class="log-panel">
+            <h3>AURA / 人员识别</h3>
+            <ul>
+              <li>马德海。</li>
+              <li>沈芷月。</li>
+              <li>小铁。</li>
+              <li>老钱。</li>
+            </ul>
+          </div>
+
+          <div class="dialogue">
+            <div class="line aura"><span class="speaker">AURA</span><p>“第一件事，是承认我不知道全部答案。”</p></div>
+          </div>
+
+          <p>没有人立刻回应。</p>
+          <p>但这一次，也没有人离开。</p>
+        </section>
+
+        <section class="scene prose" id="replay">
+          <span class="scene-label">Scene 10 / Replay Begins</span>
+          <h2>Day 0 的 replay</h2>
+          <p>红沙继续在门外流动。城市在地面上慢慢失声。地下三层的旧避难所里，一台原本只负责开门、供水和报修的系统，第一次把人名放在了资源表之前。</p>
+
+          <div class="ending-card">
+            <p>Day 0 的 replay 从这一刻开始记录。</p>
+            <p>不是因为 AURA 已经值得信任。</p>
+            <p>而是因为从这一夜开始，每一次判断都必须留下证据。</p>
+            <p>每一次沉默都可能变成代价。</p>
+            <p>每一个人，都不能只作为数值被计算。</p>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 0. This page is a narrative review artifact and does not modify demo runtime logic.</footer>
+  </main>
+</body>
+</html>

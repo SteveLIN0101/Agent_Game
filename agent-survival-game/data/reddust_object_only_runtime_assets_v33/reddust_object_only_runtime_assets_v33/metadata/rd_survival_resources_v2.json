@@ -1,0 +1,109 @@
+{
+  "project": "Red Dust",
+  "asset_set": "survival_single_items_and_food_boxes_v2",
+  "source_generator_output": "/Users/yicui/.codex/generated_images/019e1b1f-f341-7202-b266-29ac939df27d/ig_0848c595d9de555b016a02e8000da4819887869ed2f757702c.png",
+  "source_sheet_copy": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_single_items_v2.png",
+  "processing": "manual crop plus border-color alpha extraction; exported 512, 128, 64 px transparent PNGs; old food pack stack alias replaced with vacuum box stack for compatibility",
+  "items": [
+    {
+      "name_cn": "单瓶洁净水",
+      "stem": "rd_res_water_bottle_single",
+      "kind": "single",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_single_items_v2.png",
+      "crop_xywh": [
+        55,
+        160,
+        310,
+        550
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_single.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_single_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_single_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_water_bottle_single_64.png"
+      },
+      "bbox_512": [
+        189,
+        85,
+        335,
+        423
+      ]
+    },
+    {
+      "name_cn": "单片防沙滤片",
+      "stem": "rd_res_filter_disc_single",
+      "kind": "single",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_single_items_v2.png",
+      "crop_xywh": [
+        390,
+        340,
+        390,
+        360
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_single.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_single_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_single_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_filter_disc_single_64.png"
+      },
+      "bbox_512": [
+        78,
+        106,
+        437,
+        414
+      ]
+    },
+    {
+      "name_cn": "真空盒压缩食物组",
+      "stem": "rd_res_food_vacuum_box_stack",
+      "kind": "stack",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_single_items_v2.png",
+      "crop_xywh": [
+        780,
+        220,
+        520,
+        500
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_stack.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_stack_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_stack_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_stack_64.png"
+      },
+      "bbox_512": [
+        90,
+        79,
+        422,
+        442
+      ]
+    },
+    {
+      "name_cn": "单个真空盒压缩食物",
+      "stem": "rd_res_food_vacuum_box_single",
+      "kind": "single",
+      "source_sheet": "/Users/yicui/Documents/New project 2/RedDust/art/generated_sources/rd_asset_sheet_survival_single_items_v2.png",
+      "crop_xywh": [
+        1310,
+        390,
+        430,
+        330
+      ],
+      "files": {
+        "canonical": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_single.png",
+        "512": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_single_512.png",
+        "128": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_single_128.png",
+        "64": "/Users/yicui/Documents/New project 2/RedDust/art/resources/rd_res_food_vacuum_box_single_64.png"
+      },
+      "bbox_512": [
+        64,
+        126,
+        424,
+        393
+      ]
+    }
+  ],
+  "previews": {
+    "core_props": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_survival_props_engineered_preview.png",
+    "single_items": "/Users/yicui/Documents/New project 2/RedDust/art/previews/rd_resource_single_items_v2_preview.png"
+  }
+}

@@ -1,0 +1,406 @@
+/*
+ * ===========================================================================
+ * Red Dust Codex Theme — OpenClaw / 红沙 Project
+ * ===========================================================================
+ * Source:   theme-factory skill
+ * Spec:     themes/red-dust-codex.md
+ *
+ * 提炼自 docs 17 / 18 / 19 的共同视觉基础。
+ * 主形态 = 长设计稿 (long-form design doc with sidebar TOC)。
+ * 跟同系列 theme-sunset-boulevard.css (PPT-deck 形态) 形成对照。
+ *
+ * Palette
+ *   #1a1208 Deep Bowl     — page background (deep soil)
+ *   #2a1d10 Medium Bowl   — card background
+ *   #382716 Elevated Bowl — sticky TOC / table head / case-box
+ *   #f5e6d3 Cream         — body text (sand-bleached parchment)
+ *   #c5a878 Warm Cream    — dimmed text (faded ink)
+ *   #ff8c42 Ember         — primary accent (火橙)
+ *   #ffd60a Amber         — secondary accent / highlight (沙金)
+ *
+ * Typography
+ *   Body:    sans  (PingFang SC / Noto Sans SC)
+ *   Mono:    JetBrains Mono / SF Mono
+ *   (no serif — long-form doc reads better in clean sans)
+ *
+ * Usage in HTML
+ *   <link rel="stylesheet" href="theme-red-dust-codex.css">
+ *   <style> ... 文档专属语义色 + 专属组件 ... </style>
+ *
+ *   发布前 inline 模式：复制本 CSS 全文到 <style> 块顶部，移除 <link>。
+ *
+ * Document conventions
+ *   - <div.app> 双栏布局 (250px sticky TOC + 1200px main)
+ *   - <aside.toc> 左侧导航
+ *   - <main> 内容主区
+ *   - <header.doc-header> 文档头 (h1 + .sub + .meta)
+ *   - 组件 · .callout / .tag / .kv / .case / .tradeoff / .matrix / .diagram
+ * ===========================================================================
+ */
+
+/* ─── Theme tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Raw palette (Red Dust Codex namespace) */
+  --rd-bg-deep:        #1a1208;
+  --rd-bg-medium:      #2a1d10;
+  --rd-bg-elev:        #382716;
+  --rd-border:         #4a341e;
+  --rd-border-strong:  #6b4f3a;
+  --rd-cream:          #f5e6d3;
+  --rd-cream-warm:     #c5a878;
+  --rd-cream-mute:     #806350;
+  --rd-ember:          #ff8c42;
+  --rd-amber:          #ffd60a;
+  --rd-red:            #e84545;
+  --rd-green:          #30d158;
+  --rd-code-bg:        #14100a;
+
+  /* Semantic layer (兼容 docs 17/18/19 直接使用的简短变量名) */
+  --bg:               var(--rd-bg-deep);
+  --bg-card:          var(--rd-bg-medium);
+  --bg-elev:          var(--rd-bg-elev);
+  --border:           var(--rd-border);
+  --border-strong:    var(--rd-border-strong);
+  --text:             var(--rd-cream);
+  --text-dim:         var(--rd-cream-warm);
+  --text-mute:        var(--rd-cream-mute);
+  --accent:           var(--rd-ember);
+  --accent-soft:      var(--rd-amber);
+  --red:              var(--rd-red);
+  --green:            var(--rd-green);
+  --code-bg:          var(--rd-code-bg);
+
+  /* Fonts */
+  --font-sans:  'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  --font-mono:  'JetBrains Mono', 'Cascadia Code', 'SF Mono', Menlo, monospace;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Layout · 双栏 (sticky TOC + main) ───────────────────────────────────── */
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.toc {
+  position: sticky; top: 0; align-self: start;
+  height: 100vh; overflow-y: auto;
+  padding: 20px 18px;
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
+  font-size: 13px;
+}
+.toc h2 {
+  font-size: 11px; color: var(--accent);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin: 16px 0 8px;
+  border: none; padding: 0;
+}
+.toc h2:first-child { margin-top: 0; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 2px 0; }
+.toc a {
+  color: var(--text-dim); text-decoration: none;
+  display: block; padding: 4px 8px;
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+}
+.toc a:hover { color: var(--accent); background: rgba(255,140,66,0.08); }
+.toc .sub { padding-left: 14px; font-size: 12px; }
+
+main { padding: 28px 36px; max-width: 1200px; }
+
+/* ─── Doc header ──────────────────────────────────────────────────────────── */
+.doc-header {
+  border-bottom: 2px solid var(--border-strong);
+  padding-bottom: 18px; margin-bottom: 28px;
+}
+.doc-header h1 { font-size: 28px; color: var(--accent-soft); margin: 0 0 6px; }
+.doc-header .sub { color: var(--text-dim); font-size: 13px; }
+.doc-header .meta {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px; border-radius: 5px;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px; color: var(--text-dim);
+}
+.doc-header .meta strong { color: var(--accent-soft); }
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h2 {
+  color: var(--accent-soft); font-size: 22px;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 6px; margin-top: 36px;
+}
+h3 {
+  color: var(--accent); font-size: 17px;
+  margin-top: 24px; border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+h4 { color: var(--text); font-size: 14px; margin-top: 18px; }
+
+p { margin: 8px 0; }
+strong { color: var(--accent-soft); }
+em { color: var(--text-dim); font-style: italic; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a.cite { color: var(--text-dim); text-decoration: underline dotted; }
+a.cite:hover { color: var(--accent); }
+
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+
+/* ─── Code ────────────────────────────────────────────────────────────────── */
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--code-bg);
+  color: var(--text);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+pre {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 4px;
+  line-height: 1.55;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+td code, p code, li code {
+  font-size: 11px;
+}
+
+/* ─── Tables ──────────────────────────────────────────────────────────────── */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--bg-card);
+  border-radius: 6px; overflow: hidden;
+  font-size: 13px;
+}
+th {
+  background: var(--bg-elev); color: var(--accent-soft);
+  text-align: left; padding: 8px 12px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.4px;
+  border-bottom: 2px solid var(--border-strong);
+}
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,140,66,0.04); }
+
+/* ─── Callouts ────────────────────────────────────────────────────────────── */
+.callout {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.callout-warn { border-left-color: var(--red);         background: rgba(232,69,69,0.06); }
+.callout-tip  { border-left-color: var(--accent-soft); background: rgba(255,214,10,0.06); }
+
+/* ─── Tags / chips ────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 1px 6px; border-radius: 3px;
+  font-weight: 600; letter-spacing: 0.5px;
+  margin-right: 3px;
+  background: rgba(255,140,66,0.18);
+  color: var(--accent);
+}
+.tag-warn  { background: rgba(232,69,69,0.18);   color: var(--red); }
+.tag-tip   { background: rgba(255,214,10,0.18);  color: var(--accent-soft); }
+.tag-ok    { background: rgba(48,209,88,0.18);   color: var(--green); }
+
+/* ─── Key-Value grid ──────────────────────────────────────────────────────── */
+.kv {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 6px 14px;
+  font-size: 13px;
+  margin: 8px 0;
+}
+.kv .k {
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.kv .v { color: var(--text); }
+
+/* ─── Case study box ──────────────────────────────────────────────────────── */
+.case {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 14px 0;
+}
+.case-header {
+  display: flex; align-items: baseline;
+  gap: 8px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+.case-header .case-tag {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 1px;
+  padding: 2px 6px; border-radius: 3px;
+  background: rgba(255,140,66,0.15);
+  color: var(--accent);
+}
+.case-header .case-title {
+  font-weight: 700; color: var(--accent-soft);
+  font-size: 14px;
+}
+.case-header .case-meta {
+  font-size: 11px; color: var(--text-mute); margin-left: auto;
+}
+
+/* ─── Tradeoff (pros / cons) ──────────────────────────────────────────────── */
+.tradeoff {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin: 14px 0;
+}
+.tradeoff > div {
+  padding: 12px 14px; border-radius: 6px;
+  font-size: 13px;
+  background: var(--bg-card);
+}
+.tradeoff .pros { border-left: 3px solid var(--green); }
+.tradeoff .cons { border-left: 3px solid var(--red); }
+.tradeoff h5 {
+  margin: 0 0 6px; font-size: 11px;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.tradeoff .pros h5 { color: var(--green); }
+.tradeoff .cons h5 { color: var(--red); }
+.tradeoff ul { padding-left: 16px; margin: 4px 0; }
+.tradeoff li { margin: 3px 0; }
+
+/* ─── Matrix table (compact) ──────────────────────────────────────────────── */
+.matrix table th { font-size: 11px; }
+.matrix table td:first-child {
+  background: var(--bg-elev);
+  color: var(--accent-soft);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ─── Diagram container ──────────────────────────────────────────────────── */
+.diagram {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px; margin: 14px 0;
+  overflow-x: auto;
+}
+.diagram-title {
+  font-size: 11px; color: var(--text-mute);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+svg { display: block; max-width: 100%; }
+svg text { fill: var(--text); font-family: var(--font-sans); }
+
+/* ─── Name-pick chips (命名候选展示) ───────────────────────────────────────── */
+.name-pick {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+}
+.name-pick .label {
+  color: var(--accent-soft);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+.name-pick .chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--bg-card);
+}
+.name-pick .chip.pref {
+  border-color: var(--accent-soft);
+  color: var(--accent-soft);
+}
+
+/* ─── Sample (code example block) ─────────────────────────────────────────── */
+.sample {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
+.sample-title {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 4px;
+}
+.sample code {
+  display: block;
+  white-space: pre-wrap;
+  font-size: 11.5px;
+  line-height: 1.55;
+  margin-top: 4px;
+  padding: 8px 10px;
+  background: var(--code-bg);
+  border-radius: 3px;
+}
+
+/* ─── References list ─────────────────────────────────────────────────────── */
+.refs { font-size: 12px; }
+.refs ol { padding-left: 22px; }
+.refs li { margin: 4px 0; color: var(--text-dim); }
+.refs li a { color: var(--accent); text-decoration: none; }
+.refs li a:hover { text-decoration: underline; }
+
+/* ─── Print ───────────────────────────────────────────────────────────────── */
+@media print {
+  body { background: white; color: #1a1208; }
+  .app { display: block; }
+  .toc { display: none; }
+  main { padding: 0; max-width: none; }
+  .doc-header h1, h2, h3 { color: #1a1208; }
+  .callout, .case, table, .tradeoff > div, .diagram, .sample {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    color: #1a1208;
+  }
+  th { background: #f4e8d8; color: #1a1208; }
+  code, pre { background: #f4e8d8; color: #1a1208; }
+}

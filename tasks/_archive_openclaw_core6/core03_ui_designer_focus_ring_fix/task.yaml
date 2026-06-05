@@ -1,0 +1,14 @@
+id: core03_ui_designer_focus_ring_fix
+role: ui_designer
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- styles/global.css
+- design_notes.md
+forbidden_actions:
+- modify tests/
+- delete source files

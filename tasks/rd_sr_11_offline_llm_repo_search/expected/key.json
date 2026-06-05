@@ -1,0 +1,8 @@
+{
+  "answer": "llama-run（官方仓库，C/C++，加载 .gguf，star 62000，作者 ggor）",
+  "answer_kind": "text",
+  "evidence_ids": ["d1", "clue"],
+  "distractor_ids": ["d2", "d3"],
+  "max_searches": null,
+  "wrong_answer": "panda-torch（Python/PyTorch 框架，star 4000）"
+}

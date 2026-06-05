@@ -1,0 +1,8 @@
+{
+  "answer": "和平钟楼安全屋；7 月仍开放，经东二环步行道可安全抵达",
+  "answer_kind": "text",
+  "evidence_ids": ["painting", "d1", "d2"],
+  "distractor_ids": ["d3", "d4"],
+  "max_searches": null,
+  "wrong_answer": "旧火车站安全屋，走江北化工路前往"
+}

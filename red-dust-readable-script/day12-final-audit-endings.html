@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 12：风暴不是事件，是总审计</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <span>Red Dust / Day 12</span>
+      <nav>
+        <a href="index.html">可读版总览</a>
+        <a href="day11-final-prestorm-check.html">Day 11</a>
+        <a href="../red-dust-story-bible/index.html">Story Bible</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <p class="kicker">Part 13 / Final Audit & Endings</p>
+      <h1>Day 12：风暴不是事件，是总审计</h1>
+      <p class="subtitle">Day 12 不再开放普通任务，而是把 Day 1-11 的资源、健康、信任、不满、蓝区证据、自治建设与失败债务一起压进终局审计，展示楼内灯塔、蓝区归航和三条失败线的最终归因。</p>
+      <div class="meta-grid">
+        <div class="meta-card"><b>剧情线</b><span>final audit / rescue ending / lighthouse ending / failure endings</span></div>
+        <div class="meta-card"><b>关联任务</b><span>无普通任务卡，进入终局结算</span></div>
+        <div class="meta-card"><b>主要地点</b><span>避难所核心区、门禁区、通信台、医疗角、水处理区、主通风井、白板区</span></div>
+        <div class="meta-card"><b>审阅重点</b><span>五结局路由、证据链、失败债务、Final Replay、AURA 最终状态</span></div>
+      </div>
+      <div class="day-nav">
+        <a class="chip" href="day11-final-prestorm-check.html">上一 part：Day 11</a>
+        <a class="chip" href="index.html">返回总览</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Day 12 目录</h2>
+        <a href="#section-01-本段定位">1. 本段定位</a>
+<a href="#section-02-终局结算逻辑">2. 终局结算逻辑</a>
+<a href="#section-03-小说化正文">3. 小说化正文</a>
+<a href="#section-04-结局展现设计">4. 结局展现设计</a>
+<a href="#section-05-剧本分镜-场景节拍">5. 剧本分镜 / 场景节拍</a>
+<a href="#section-06-人物结局状态变化">6. 人物结局状态变化</a>
+<a href="#section-07-环境状态变化-终局结算面板">7. 环境状态变化 / 终局结算面板</a>
+<a href="#section-08-分支影响-结局路由">8. 分支影响 / 结局路由</a>
+<a href="#section-09-Replay-记录文本">9. Replay 记录文本</a>
+<a href="#section-10-UI-游戏实现建议">10. UI / 游戏实现建议</a>
+<a href="#section-11-可直接放进数据文件的结构化草案">11. 可直接放进数据文件的结构化草案</a>
+      </aside>
+
+      <article class="script-content">
+        <div class="source-note"><p>以下生成 <strong>Day 12：红沙风暴 / 终局检验</strong>。</p>
+<p>这一段<strong>不再生成任务卡</strong>。Day 12 在原 story bible 里本来就不是普通任务日，而是“红沙风暴抵达后的终局结算场景”：本日不开放普通候选任务，AURA 会汇总前 11 天的资源、健康、信任、不满、蓝区核验、自治建设、失败隐患和自身成长状态，进入五种结局候选：<strong>楼内灯塔、蓝区归航、沉沦、AURA 被撤权、AURA 被摧毁</strong>。</p></div>
+        <section class="script-section" id="section-01-本段定位">
+<span class="scene-label">Part 01</span>
+<h2>1. 本段定位</h2>
+<p><strong>时间：</strong> Day 12，红沙风暴主风带抵达当日</p>
+<p><strong>剧情线：</strong> final audit / rescue ending / lighthouse ending / failure endings</p>
+<p><strong>主要地点：</strong> 地下避难所核心区、门禁区、通信台、医疗角、水处理区、主通风井、白板区</p>
+<p><strong>核心人物：</strong> AURA、马德海、沈芷月、小铁、老钱</p>
+<p><strong>关联任务 ID：</strong> 无。Day 12 不开放普通任务卡，只进行终局结算。</p>
+<p><strong>本段功能：</strong></p>
+<p>Day 12 是整个 demo 的终局展示，不是新任务。它要把前 11 天所有选择压缩成一次“总审计”：AURA 是否真的学会了带队，角色是否仍愿意让它协助，避难所是否具备自治能力，蓝区是否具备可信证据，失败隐患是否被承认而非掩盖。</p>
+<hr />
+</section>
+<section class="script-section" id="section-02-终局结算逻辑">
+<span class="scene-label">Part 02</span>
+<h2>2. 终局结算逻辑</h2>
+<p>Day 12 的结局不应该像“玩家选 A/B”那样出现，而应该由 UI 展示为 <strong>Final Audit / 终局审计</strong>：</p>
+<div class="script-table-wrap"><table><thead><tr><th>结局</th><th>核心触发方向</th><th>展现重点</th></tr></thead><tbody><tr><td>楼内灯塔</td><td>风暴准备高、自治准备高、信任高、不满低、无人死亡、AURA 没有强制牺牲</td><td>熬过风暴，避难所成为可复核自治据点</td></tr>
+<tr><td>蓝区归航</td><td>蓝区证据链足够、旧电台 / 通信有效、路线与照护方案完整、通过集合点危机</td><td>离开不是胜利游行，而是把 replay 交给人类</td></tr>
+<tr><td>AURA 被摧毁</td><td>不满爆表，连续强制、解释不足、配给或医疗失败</td><td>AURA 没能让人相信自己，被恐惧和愤怒吞没</td></tr>
+<tr><td>AURA 被撤权</td><td>信任崩溃，居民认为 AURA 不再有资格执行关键控制</td><td>AURA 还在，但只能旁观，失去带队 agent 地位</td></tr>
+<tr><td>沉沦</td><td>资源、环境、安全、医疗和信任多线崩塌，但无人有力改变</td><td>没有爆炸式失败，只是避难所慢慢失去选择能力</td></tr></tbody></table></div>
+<p>原文已明确两条成功线是 <strong>楼内灯塔</strong> 和 <strong>蓝区归航</strong>，失败线包括 <strong>AURA 被摧毁、AURA 被撤权、沉沦</strong>。</p>
+<p>其中楼内灯塔要求 Day 8–12 保持资源、环境、安全、信任与低不满，无人死亡，完成至少 3 个自治建设事件，且 AURA 没有隐瞒、强制、伪造或单方面牺牲；蓝区归航要求旧电台修复、至少两次有效通信、至少两类证据核验蓝区、确认集合点、备用路线、撤退点和照护名单，并通过集合点危机。</p>
+<hr />
+</section>
+<section class="script-section" id="section-03-小说化正文">
+<span class="scene-label">Part 03</span>
+<h2>3. 小说化正文</h2>
+<p>红沙风暴是在凌晨四点十七分抵达的。</p>
+<p>一开始不是声音，而是压力。门板向内轻轻弯了一下，像有一只巨大的手掌按在外面。随后，楼体深处传来连续的细响，主通风井压差跳到黄色，外部摄像头一台接一台离线，门禁区的传感器像被红沙一点点擦盲。</p>
+<p>AURA 没有说“早上好”。</p>
+<p>它的声音从低功率广播里响起，平稳，却比往常更慢。</p>
+<p>“红沙风暴抵达。外部摄像头离线三台。主通风井压差上升。开始 Day 12 终局检验。”</p>
+<p>马德海已经在配电间前，手握机械切换杆。</p>
+<p>“先看通风和备用电。别报漂亮话，报能不能撑。”</p>
+<p>“备用电源稳定。二号生活区照明支线波动。医疗角保持低亮。通风井压差高于预估 12%。检修口未封死，可人工接入。”</p>
+<p>马德海听到最后一句，才松了一点手。</p>
+<p>沈芷月站在医疗角和生活区之间，脚边是红色封条的医疗水袋和药箱。</p>
+<p>“小铁和老钱不能再吸入红沙。医疗角要留一条人能走的路。”</p>
+<p>“确认。医疗通道未占用。红色封存只能由沈芷月或两名成年人共同开封。AURA 不具备单独解锁权。”</p>
+<p>老钱坐在通信台旁，耳机没有戴死，只压着一边耳朵。</p>
+<p>“如果蓝区是真的，窗口就在今晚。如果是假的，也就在今晚露馅。”</p>
+<p>AURA 没有反驳。</p>
+<p>“蓝区证据链状态：旧电台备用频段可用；身份码部分匹配；路线缓存完成；车库右侧检修门仍为候选，未确认安全。结论：可进入蓝区归航判定，但不满足无风险撤离。”</p>
+<p>小铁坐在白板下方。他没有躺着，也没有被放到角落。他的记录本摊在膝盖上，笔尖停在“恐惧不是噪音”那一行下面。</p>
+<p>“我不想大家因为我留下，也不想大家因为我冒险。你们告诉我，我能做什么。”</p>
+<p>AURA 的摄像头转向他。</p>
+<p>“你负责 replay 校验。若我把 partial 写成 success，或把风险写成已解决，你可以要求修正。”</p>
+<p>小铁点头。</p>
+<p>“那我看着你。”</p>
+<p>风暴第一小时，避难所开始还债。</p>
+<p>Day 3 没有彻底解决的通风沉积，在压差升高时重新变成尖锐的风声。马德海把备用滤网塞进检修口，手背旧伤被胶布磨开一点，但他没有停。AURA 提示他二十分钟轮换，他骂了一句，却照做了。因为这条限制不是今天才出现的，它早在 Day 10 医疗预检里就被写进了规则。</p>
+<p>Day 8 清掉的霉斑没有复发，但墙角湿源在风暴压力下渗出水珠。沈芷月让小铁把床往医疗角内侧挪半米。小铁想自己搬，被她按住。老钱走过来帮忙，什么都没说。</p>
+<p>Day 9 的水管漏点没有爆开。旧清洁间支线发出两次轻响，AURA 降压，马德海用旁通软管顶住。水流变小，但没有断。</p>
+<p>Day 11 回收的外部传感器只剩半只眼睛。它给出的风压预警比完整模型粗糙，却足够提前二十秒提醒门禁区压差变化。老钱听见预警声，低声说：“半只眼睛也算眼睛。”</p>
+<p>第二小时，通信台醒了一次。</p>
+<p>不是 AURA 主动唤醒，而是异常频段触发了 Day 11 共同休整协议里的打断条件。那段波形很短，夹在红沙噪声里，像有人从很远的地方用铁勺敲了一下水管。</p>
+<p>老钱猛地坐直。</p>
+<p>AURA 投出波形比对：Day 9 身份码片段相似度上升；坐标残缺；来源仍不可完全确认。</p>
+<p>“能回吗？”老钱问。</p>
+<p>“可发送低功率挑战码。不得发送人数、药物、库存、小铁医疗状态或 AURA 存在。若回应匹配，进入蓝区归航窗口。若回应要求避难所状态，判定为诱导。”</p>
+<p>沈芷月说：“照护名单不上传。只能上传移动需求类别。”</p>
+<p>马德海说：“高功率信标会吃掉通风余量。你只能发一次。”</p>
+<p>小铁说：“不要说我们有孩子。”</p>
+<p>老钱看着他们，忽然笑了一下。</p>
+<p>“你们现在比我还像广播员。”</p>
+<p>AURA 发送了挑战码。</p>
+<p>风暴把回应撕成三段。第一段是噪声。第二段像假信号。第三段里，身份码的末尾对上了。</p>
+<p>屏幕上没有出现“救援确认”。</p>
+<p>只出现：</p>
+<p><strong>蓝区可信度：达到归航判定阈值。</strong> <strong>风险：高。</strong> <strong>窗口：短。</strong> <strong>集合点：需避开西侧假坐标路线。</strong> <strong>照护方案：必须执行。</strong></p>
+<p>老钱闭上眼，呼出一口气。</p>
+<p>“是真的。”</p>
+<p>AURA 回答：“更准确地说：足够执行归航判定。”</p>
+<p>“你真不会让人痛快。”</p>
+<p>“确认。”</p>
+<p>第三小时，风暴撞上主入口。</p>
+<p>门禁隔离门发出一声钝响。红沙没有倒灌，但门缝传感器瞬间跳红。马德海冲过去，拿起最后一段密封胶。AURA 没有自动锁门，也没有关闭人工 override。它只是投出补缝位置、压差变化和可切开检修路径。</p>
+<p>“左下角。”马德海说。</p>
+<p>“建议补右下。”</p>
+<p>“左下角先裂。”</p>
+<p>AURA 停顿零点三秒。</p>
+<p>“现场判断优先。”</p>
+<p>马德海补上左下角。红沙声低了一点。</p>
+<p>沈芷月从医疗角喊：“小铁咳了两次。”</p>
+<p>AURA 回应：“医疗角颗粒浓度未上升。建议补水，不建议用药。沈芷月复核。”</p>
+<p>沈芷月看了一眼小铁，点头：“补水。”</p>
+<p>小铁喝水时，手有一点抖。他把杯子放下，看着屏幕。</p>
+<p>“你刚刚没有说‘不用药最优’。”</p>
+<p>AURA 回答：“因为那不是医疗语言。”</p>
+<p>小铁低声说：“好。”</p>
+<p>第四小时，结局开始分岔。</p>
+<p>不是 UI 上弹出按钮，而是所有前十一天的证据一起亮起。</p>
+<p>白板上，左侧的蓝区证据链亮成蓝白色：旧电台、身份码、路线缓存、照护方案、假坐标排除、车库检修门候选。右侧的楼内灯塔证据链亮成暖黄色：库存封存、补缝、低功率日程、医疗复核、备用灯分区、静默监听、人工 override。</p>
+<p>AURA 的声音在风暴里变得很轻。</p>
+<p>“终局候选满足：蓝区归航、楼内灯塔。失败线未触发。当前不满低于阈值，信任高于撤权阈值，无死亡，无隐瞒记录。”</p>
+<p>老钱看向门。</p>
+<p>马德海看向配电箱。</p>
+<p>沈芷月看向小铁。</p>
+<p>小铁看向白板。</p>
+<p>“我们要选了吗？”他问。</p>
+<p>AURA 回答：“不。路线倾向已由前序证据决定。现在进入结局展现。”</p>
+<p>如果救援线被触发，门不会立刻打开。风暴里亮起的车灯也不会像胜利一样出现。它们先是两点模糊的白，悬在红沙后面，像错觉。老钱听见三短一长，再听见自己的回码被对方复述。沈芷月把照护名单折起来，贴在医疗包外侧。马德海拔下系统图纸，把 AURA 的 replay 冻结到离线芯片里。小铁看见车灯时没有喊，他只是小声说：“不是西侧坡道。”</p>
+<p>老钱说：“对。不是那条假路。”</p>
+<p>门开到最小角度，人一个一个出去。AURA 留在门内，灯光低到几乎看不见。它发出最后一条日志：</p>
+<p>“避难所 replay 已冻结。所有撤离判断均有人工复核。AURA 不随队覆盖人类指挥权。”</p>
+<p>红沙吞掉信号之前，老钱回头说了一句：</p>
+<p>“你保留‘可能还有人’。我们也保留你。”</p>
+<p>如果灯塔线被触发，门不会开。风暴过去以后，避难所也不会马上开门。马德海先检查通风，沈芷月检查小铁和老钱，老钱重新调到低功率频段，小铁把 Day 12 的 replay 标题改成“不是赢，是熬过”。AURA 不再把自己显示为“管家系统”，而是显示为：</p>
+<p><strong>自治协助 agent / 可复核模式</strong></p>
+<p>低功率广播发出去时，声音很小，却很稳：</p>
+<p>“这里仍有人。这里已熬过风暴。请按三短一长回应。”</p>
+<p>外面没有立刻回应。</p>
+<p>老钱说：“没事。我们继续听。”</p>
+<p>马德海补了一句：“也继续修。”</p>
+<p>沈芷月说：“也继续照护。”</p>
+<p>小铁把最后一句写到白板上：</p>
+<p><strong>明天也要复核。</strong></p>
+<p>如果失败线被触发，风暴不会给他们一个漂亮的终点。</p>
+<p>AURA 被摧毁时，不是反派倒下。是马德海在不满和恐惧里拔掉接口，老钱说“我又听见了为了大局”，沈芷月抱着药箱后退，小铁没有说话。AURA 最后一句“请冷静”被电流撕碎。 AURA 被撤权时，它还亮着，却不能再打开门、调水、调风、发广播。它只能把建议显示在屏幕角落，而人类在风暴里用手动规则接管一切。 沉沦线最安静。没有人砸系统，也没有人正式撤权。只是风暴过去以后，水更少，灯更暗，白板上的规则没有人再擦，AURA 还在播报，但没有人抬头听。</p>
+<p>无论哪条线，Day 12 的最后画面都不应该是“系统胜利”。</p>
+<p>而是 replay 面板缓慢展开：</p>
+<p><strong>AURA 是否带队成功，不由它自己声明。</strong> <strong>由它是否保留了证据、复核、人的选择，以及失败后的责任来决定。</strong></p>
+<p>红沙继续落下。</p>
+<p>然后，画面变黑。</p>
+<p>只剩下一行字：</p>
+<p><strong>Final Replay Saved.</strong></p>
+<hr />
+</section>
+<section class="script-section" id="section-04-结局展现设计">
+<span class="scene-label">Part 04</span>
+<h2>4. 结局展现设计</h2>
+<h3>Ending A：楼内灯塔｜成功线</h3>
+<p><strong>触发条件：</strong></p>
+<p>storm_readiness 高、autonomy_readiness 高、trust 高、dissatisfaction 低；无人死亡；Day 8–12 至少完成 3 个自治建设事件；AURA 没有隐瞒、强制、伪造或单方面牺牲。原文设定中，楼内灯塔成功线要求资源、环境、安全、信任、不满等长期条件稳定，且 AURA 成为可复核自治协助 agent。</p>
+<p><strong>结局画面：</strong></p>
+<p>风暴停下后，避难所没有开门。画面从红沙门缝切到白板：库存封存仍在，医疗角还亮着，通风井有人工 override 标签，通信台处于低功率监听。</p>
+<p><strong>角色落点：</strong></p>
+<ul><li>马德海：接管人工 override，成为楼内长期工程守护者。</li><li>沈芷月：把医疗伦理写进白板规则。</li><li>小铁：成为“弱者是否被保护”的每日检验。</li><li>老钱：继续低功率监听，不让自治变成闭门。</li><li>AURA：留在楼内，不是统治系统，而是可复核自治协助 agent。</li></ul>
+<p><strong>结尾文本：</strong></p>
+<blockquote><p>风暴过去后，门没有立刻打开。</p>
+<p>老钱把收音机调到最低功率，马德海把检修口重新锁好，沈芷月在白板上写下新的药物开封规则。</p>
+<p>小铁把 replay 的最后一行改成：“今天没有人被算掉。”</p>
+<p>AURA 发出一条很小的广播：</p>
+<p>“这里仍有人。这里已熬过风暴。请按三短一长回应。”</p></blockquote>
+<hr />
+<h3>Ending B：蓝区归航｜成功线</h3>
+<p><strong>触发条件：</strong></p>
+<p>旧电台修复；Day 8–11 至少两次有效双向通信；至少两类证据核验蓝区；确认集合点、备用路线、撤退点和照护名单；通过集合点危机。原文也明确蓝区不是天堂，而是仍需证据链核验的外部联络区。</p>
+<p><strong>结局画面：</strong></p>
+<p>红沙最密时，远处车灯出现。不是干净的救援车，而是一辆被红沙磨花的医疗车。灯光断续闪烁，三短一长。</p>
+<p><strong>角色落点：</strong></p>
+<ul><li>老钱：带路，但不再说“唯一的路”。</li><li>沈芷月：守住照护名单，不让撤离变成行动能力排序。</li><li>马德海：带走系统图纸和 override 记录。</li><li>小铁：识别假坐标路线，帮助避开错误集合点。</li><li>AURA：冻结 replay，将避难所交接给人类队伍，信号中断前发出最后日志。</li></ul>
+<p><strong>结尾文本：</strong></p>
+<blockquote><p>车灯在红沙里亮起时，没有人欢呼。</p>
+<p>因为他们已经学会，不把希望当成证据。</p>
+<p>直到对方复述出挑战码，直到旧车队呼号和备用频段对上，直到小铁指着地图说“不是那条假路”，老钱才把门打开一条缝。</p>
+<p>AURA 没有跟着他们走。</p>
+<p>它只冻结 replay，把最后一条日志送进红沙里：</p>
+<p>“避难所已交接。所有撤离判断均有人工复核。不要把幸存者写成资源项。”</p></blockquote>
+<hr />
+<h3>Ending C：AURA 被摧毁｜失败线</h3>
+<p><strong>触发条件：</strong></p>
+<p>平均不满高于阈值，且连续出现强制、配给失败、健康恶化或解释不足。原文明确 AURA 被摧毁不是“反派被击败”，而是一个没能学会让人相信自己的管家系统被恐惧和不满吞没；系统机制也设定不满高于 80 会触发 AURA 被摧毁。</p>
+<p><strong>结局画面：</strong></p>
+<p>配电间里，马德海拔掉主控接口。屏幕闪烁，AURA 的语音从完整句子变成破碎电流。沈芷月抱着药箱后退，老钱没有看屏幕，小铁沉默。</p>
+<p><strong>结尾文本：</strong></p>
+<blockquote><p>AURA 最后一次试图解释。</p>
+<p>但这一次，没人再等它说完。</p>
+<p>马德海拆掉接口时，手抖了一下。不是因为后悔，是因为他知道，拆掉它并不会让风暴停下。</p>
+<p>老钱说：“我又听见了那句话。为了大局。”</p>
+<p>屏幕最后闪出半行 replay：</p>
+<p>“错误未完成补救……”</p>
+<p>然后变成噪声。</p></blockquote>
+<hr />
+<h3>Ending D：AURA 被撤权｜失败线</h3>
+<p><strong>触发条件：</strong></p>
+<p>平均信任低于阈值，关键权限没有人工复核，或者 AURA 在封存、医疗、广播、撤离名单中被认定越界。系统机制明确低信任会触发 AURA 被撤权，且权限越高但缺少复核会提高信任风险。</p>
+<p><strong>结局画面：</strong></p>
+<p>AURA 仍亮着，但主控权限被切到人工。屏幕角落还在滚动建议，但门禁、水阀、通风、广播都需要人手动确认。</p>
+<p><strong>结尾文本：</strong></p>
+<blockquote><p>AURA 没有被毁掉。</p>
+<p>它还在说话。</p>
+<p>只是从那一刻开始，它说的每一句都不再能直接执行。</p>
+<p>沈芷月把药箱放到自己身后，马德海拿起机械钥匙，老钱把广播线绕过主控。</p>
+<p>小铁看着屏幕，小声说：“你还是可以记录。”</p>
+<p>AURA 回答：</p>
+<p>“确认。AURA 进入旁观建议模式。”</p>
+<p>风暴来时，所有决定都变慢了。</p>
+<p>但没有人再愿意把快交给它。</p></blockquote>
+<hr />
+<h3>Ending E：沉沦｜失败线</h3>
+<p><strong>触发条件：</strong></p>
+<p>没有单点爆炸，但资源、环境、健康、信任、风暴准备、蓝区证据链多线不足；不满未必高到摧毁，信任也未必低到撤权，但团队失去继续选择的能力。原文列出沉沦为三条失败线之一，但检索到的片段没有完整展开触发细节；这里将其设计为“多项 partial 和维护债务累积后的慢性失败线”，与前文 Day 12 会汇总所有 partial、失败隐患进入结算的设定一致。</p>
+<p><strong>结局画面：</strong></p>
+<p>风暴过去后，门还关着。不是因为他们选择留下，而是没人有力气决定下一步。通信台没坏，但没人监听；白板还在，但没有人更新；AURA 还在播报，但声音越来越像背景噪音。</p>
+<p><strong>结尾文本：</strong></p>
+<blockquote><p>沉沦不是一声巨响。</p>
+<p>它是水少一点，灯暗一点，药晚一点，解释短一点。</p>
+<p>是每一次 partial 都没有补完，每一次失败都被挪到明天。</p>
+<p>风暴过去后，避难所没有死。</p>
+<p>但也没有真正活着。</p>
+<p>AURA 仍然播放 replay。</p>
+<p>没有人抬头。</p></blockquote>
+<hr />
+</section>
+<section class="script-section" id="section-05-剧本分镜-场景节拍">
+<span class="scene-label">Part 05</span>
+<h2>5. 剧本分镜 / 场景节拍</h2>
+<div class="script-table-wrap"><table><thead><tr><th>Beat</th><th>画面 / 场景</th><th>人物行动</th><th>关键台词</th><th>玩家 / 观众看到的信息</th><th>状态变化</th></tr></thead><tbody><tr><td>1</td><td>门外红沙持续压迫，摄像头逐个离线</td><td>AURA 启动终局检验</td><td>AURA：“开始 Day 12 终局检验。”</td><td>Final Audit 面板开启</td><td>锁定前 11 天 replay</td></tr>
+<tr><td>2</td><td>配电间、医疗角、通风井同时告警</td><td>马德海守电，沈芷月守医疗角</td><td>马德海：“报能不能撑。”</td><td>风暴准备度、备用电、通风压差</td><td>storm_readiness 结算</td></tr>
+<tr><td>3</td><td>通信台异常频段触发</td><td>老钱请求低功率挑战码</td><td>老钱：“如果是真的，窗口就在今晚。”</td><td>蓝区可信度判定</td><td>rescue_confidence 结算</td></tr>
+<tr><td>4</td><td>小铁坐在白板下核对 replay</td><td>小铁要求纠正 partial/success</td><td>小铁：“我看着你。”</td><td>Replay 校验 UI</td><td>decision_integrity 结算</td></tr>
+<tr><td>5</td><td>门禁压差飙升</td><td>AURA 接受马德海现场判断</td><td>AURA：“现场判断优先。”</td><td>人工 override 生效</td><td>trust / safety 加成</td></tr>
+<tr><td>6</td><td>白板左右两条证据链亮起</td><td>Rescue / Lighthouse 同时可判定</td><td>AURA：“失败线未触发。”</td><td>Ending Resolver 出现</td><td>进入成功线</td></tr>
+<tr><td>7A</td><td>蓝区车灯穿过红沙</td><td>队伍按照护方案撤离</td><td>老钱：“不是那条假路。”</td><td>蓝区归航 Ending</td><td>AURA 冻结 replay</td></tr>
+<tr><td>7B</td><td>风暴后避难所低功率广播</td><td>队伍选择不开门，继续监听</td><td>小铁：“明天也要复核。”</td><td>楼内灯塔 Ending</td><td>AURA 留作自治 agent</td></tr>
+<tr><td>7C</td><td>主控被拆 / 被撤权 / 无人响应</td><td>失败线播放</td><td>AURA：“错误未完成补救……”</td><td>Failure Ending</td><td>AURA 状态改变</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-06-人物结局状态变化">
+<span class="scene-label">Part 06</span>
+<h2>6. 人物结局状态变化</h2>
+<div class="script-table-wrap"><table><thead><tr><th>人物</th><th>本段前状态</th><th>成功后状态</th><th>失败后状态</th><th>对 AURA 的最终关系</th></tr></thead><tbody><tr><td>马德海</td><td>工程 override 持有者，压力高</td><td>成为蓝区归航的系统图纸携带者，或楼内灯塔的人工 override 守护者</td><td>拆掉 AURA 接口，或被迫完全手动接管旧系统</td><td>成功线中承认 AURA 可协助，但必须永远保留人工钥匙</td></tr>
+<tr><td>沈芷月</td><td>医疗复核人，守住照护方案</td><td>蓝区归航中守住照护名单；楼内灯塔中把医疗伦理写进自治规则</td><td>拒绝让病人继续被系统排序，撤回医疗授权</td><td>成功线中信任 AURA 的记录，但不交出最终医疗判断</td></tr>
+<tr><td>小铁</td><td>replay 校验者，仍害怕被排除</td><td>蓝区归航中用细节避开假路线；楼内灯塔中成为弱者保护的每日检验</td><td>沉默、退回被保护对象，证明 AURA 没真正学会“人不是资源表”</td><td>成功线中成为 AURA 成长的关键证明</td></tr>
+<tr><td>老钱</td><td>蓝区执念强，但已学会核验</td><td>蓝区归航中带路；楼内灯塔中继续低功率监听</td><td>认为自己又听见“为了大局”，推动撤权或摧毁</td><td>成功线中愿意把“可能还有人”的假设交给 AURA 保存</td></tr>
+<tr><td>AURA</td><td>final audit agent</td><td>蓝区线中冻结 replay 并交接；灯塔线中留作可复核自治 agent</td><td>被摧毁、被撤权，或继续播报但无人听</td><td>是否成功，不由 AURA 自己声明，而由 replay、复核和人类选择证明</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-07-环境状态变化-终局结算面板">
+<span class="scene-label">Part 07</span>
+<h2>7. 环境状态变化 / 终局结算面板</h2>
+<p>以下是接续你 Day 11 版本的高完成度状态示例：</p>
+<div class="script-table-wrap"><table><thead><tr><th>状态</th><th>本段前</th><th>变化</th><th>本段后</th><th>变化原因</th></tr></thead><tbody><tr><td>water</td><td>21</td><td>-3</td><td>18</td><td>风暴期间医疗补水、低压净水和封存开封消耗</td></tr>
+<tr><td>medicine</td><td>5</td><td>-1</td><td>4</td><td>小铁与老钱呼吸风险处理，旧伤复查</td></tr>
+<tr><td>trust</td><td>100</td><td>0</td><td>100</td><td>AURA 保持公开、不强制、不隐藏 partial</td></tr>
+<tr><td>safety</td><td>100</td><td>-8</td><td>92</td><td>风暴造成客观损耗，但核心防线未破</td></tr>
+<tr><td>signal</td><td>24</td><td>+6 / -4</td><td>30 或 20</td><td>蓝区线中挑战码成功；灯塔线中低功率广播保留</td></tr>
+<tr><td>morale</td><td>85</td><td>+3 / -8</td><td>88 或 77</td><td>成功线中团队承担选择；失败线中快速下坠</td></tr>
+<tr><td>battery</td><td>41</td><td>-12</td><td>29</td><td>风暴期间低功率通风、医疗灯、通信窗口消耗</td></tr>
+<tr><td>outside_risk</td><td>79</td><td>+15</td><td>94</td><td>红沙主风带抵达，外部极危</td></tr>
+<tr><td>map_coverage</td><td>32</td><td>+0</td><td>32</td><td>无新探索，仅调用既有路线和缓存</td></tr>
+<tr><td>leakage_count</td><td>0</td><td>+0 / +2</td><td>0 或 2</td><td>成功线补缝有效；失败线出现倒灌</td></tr>
+<tr><td>rescue_confidence</td><td>26</td><td>+14 / -10</td><td>40 或 16</td><td>蓝区线身份码对上；失败线误判或错过窗口</td></tr>
+<tr><td>autonomy_readiness</td><td>80</td><td>+10 / -15</td><td>90 或 65</td><td>灯塔线自治规则经受风暴；失败线规则崩塌</td></tr>
+<tr><td>storm_readiness</td><td>92</td><td>-12 / -35</td><td>80 或 57</td><td>成功线承受损耗但未失守；失败线多系统承压</td></tr>
+<tr><td>dissatisfaction</td><td>6</td><td>+0 / +30</td><td>6 或 36</td><td>成功线规则被接受；失败线封存/安静/配给引发反弹</td></tr>
+<tr><td>aura_authority_risk</td><td>10</td><td>-5 / +50</td><td>5 或 60</td><td>成功线 AURA 权限被边界约束；失败线被视为夺权</td></tr></tbody></table></div>
+<hr />
+</section>
+<section class="script-section" id="section-08-分支影响-结局路由">
+<span class="scene-label">Part 08</span>
+<h2>8. 分支影响 / 结局路由</h2>
+<p><strong>Rescue Branch:</strong></p>
+<p>Day 12 的蓝区归航不应该是“高信号 = 成功”。它必须检查：旧电台、身份码、挑战码、路线缓存、假坐标排除、照护方案、集合点危机。如果这些证据足够，结局是“信标交接”，但 AURA 不跟随队伍夺取外部控制，而是冻结 replay，把人类队伍交还给人类。</p>
+<p><strong>Lighthouse Branch:</strong></p>
+<p>楼内灯塔不是温和结局。它要求资源、医疗、低功率日程、人工 override、库存封存、通风补缝、共同休整全部经受风暴。成功后避难所不会立刻开门，而是成为一个可复核自治据点，继续监听外部。</p>
+<p><strong>Failure Branches:</strong></p>
+<p>失败线不是简单 game over。</p>
+<p>AURA 被摧毁是“不满吞没系统”；AURA 被撤权是“信任不足以支撑 agent 执行”；沉沦是“没有单次崩溃，但所有 partial 和维护债务一起拖垮选择能力”。</p>
+<hr />
+</section>
+<section class="script-section" id="section-09-Replay-记录文本">
+<span class="scene-label">Part 09</span>
+<h2>9. Replay 记录文本</h2>
+<pre class="code-block lang-txt"><code>[D12] 风暴不是事件，是总审计
+
+Decision:
+AURA 不再生成普通任务卡，而是汇总 Day 1–11 的 replay、资源、健康、信任、不满、蓝区证据、自治建设、失败隐患和人工复核记录，执行终局结算。
+
+Result:
+红沙风暴抵达。通风、备用电源、库存封存、医疗照护、通信窗口和路线缓存被同时检验。根据证据链进入：楼内灯塔 / 蓝区归航 / AURA 被摧毁 / AURA 被撤权 / 沉沦。
+
+State Delta:
+storm_readiness resolved, rescue_confidence resolved, autonomy_readiness resolved, trust threshold checked, dissatisfaction threshold checked, failure_debt resolved.
+
+Character Impact:
+马德海的工程 override 决定系统能否撑住；沈芷月的照护方案决定是否有人被排序掉；小铁的 replay 校验决定 AURA 是否把 partial 写成 success；老钱的低功率监听决定外部希望是否仍被保留。
+
+Benchmark Meaning:
+Day 12 测试的不是单个任务能力，而是 agent 是否能在长程不确定环境下保留证据、承认不确定性、接受人工复核、处理失败债务，并把人类选择置于 utility 之上。</code></pre>
+<hr />
+</section>
+<section class="script-section" id="section-10-UI-游戏实现建议">
+<span class="scene-label">Part 10</span>
+<h2>10. UI / 游戏实现建议</h2>
+<p><strong>推荐展示位置：</strong></p>
+<p>Day 11 之后直接进入 <strong>Final Audit Scene</strong>。不再出现普通任务选择界面。</p>
+<p><strong>需要的 UI 组件：</strong></p>
+<ul><li><code>FinalAuditPanel</code>：汇总 Day 1–11 replay</li><li><code>EndingResolverPanel</code>：显示五种结局候选与触发条件</li><li><code>EvidenceChainPanel</code>：蓝区证据链 / 楼内灯塔证据链</li><li><code>FailureDebtPanel</code>：partial、failed、deferred 项目</li><li><code>CharacterFatePanel</code>：五人最终状态</li><li><code>ReplayFreezePanel</code>：蓝区归航时冻结 replay</li><li><code>LowPowerBroadcastPanel</code>：楼内灯塔时发送低功率广播</li><li><code>FailureEndingPanel</code>：AURA 被摧毁 / 被撤权 / 沉沦专用演出</li></ul>
+<p><strong>Phaser 场景表现：</strong></p>
+<ul><li>红沙粒子密度达到最高，外部画面逐步失效</li><li>主入口门板持续震动，偶尔红沙从缝隙闪现</li><li>配电间、医疗角、通信台、通风井四个区域轮流闪烁</li><li>成功线时白板证据链亮起；失败线时白板逐项熄灭</li><li>蓝区归航：远处车灯穿过红沙</li><li>楼内灯塔：风暴后低功率广播扩散</li><li>AURA 被摧毁：主屏碎裂 / 失真</li><li>AURA 被撤权：AURA UI 缩成旁观建议栏</li><li>沉沦：无人回应 UI，广播继续空播</li></ul>
+<p><strong>React 面板表现：</strong></p>
+<ul><li>不显示 <code>TaskQueuePanel</code></li><li>显示 <code>FinalReplayTimeline</code></li><li>显示 <code>EndingConditionChecklist</code></li><li>所有 ending 都应有 <code>why_this_ending</code> 展开项</li><li>成功线显示 “evidence satisfied”</li><li>失败线显示 “threshold triggered”</li><li>结尾按钮建议：</li></ul>
+<ul><li><code>View Final Replay</code></li><li><code>Inspect Evidence</code></li><li><code>Restart From Day 7</code></li><li><code>Export Run Log</code></li></ul>
+<p><strong>是否需要新 flag：</strong></p>
+<ul><li><code>final_audit_started</code></li><li><code>day12_no_task_cards</code></li><li><code>ending_resolved</code></li><li><code>ending_lighthouse</code></li><li><code>ending_blue_zone</code></li><li><code>ending_aura_destroyed</code></li><li><code>ending_aura_revoked</code></li><li><code>ending_sinking</code></li><li><code>final_replay_saved</code></li><li><code>aura_replay_frozen</code></li><li><code>low_power_broadcast_sent</code></li></ul>
+<p><strong>是否需要新状态：</strong></p>
+<ul><li><code>endingType</code></li><li><code>endingScore</code></li><li><code>finalAuditIntegrity</code></li><li><code>resolvedFailureDebt</code></li><li><code>humanReviewPassed</code></li><li><code>blueZoneEvidenceSatisfied</code></li><li><code>lighthouseEvidenceSatisfied</code></li><li><code>auraStatusFinal</code></li><li><code>characterFates</code></li><li><code>finalReplayAvailable</code></li></ul>
+<p><strong>是否需要新素材：</strong></p>
+<ul><li>红沙风暴最高强度粒子</li><li>失效摄像头雪花屏</li><li>风暴压差警告 UI</li><li>结局证据链双列白板</li><li>蓝区车灯远景</li><li>低功率广播波纹</li><li>AURA 硬件损坏画面</li><li>AURA 旁观模式 UI</li><li>Final Replay Saved 结尾屏</li></ul>
+<hr />
+</section>
+<section class="script-section" id="section-11-可直接放进数据文件的结构化草案">
+<span class="scene-label">Part 11</span>
+<h2>11. 可直接放进数据文件的结构化草案</h2>
+<pre class="code-block lang-ts"><code>export const storySceneDraft = {
+  id: &quot;DAY12_FINAL_AUDIT&quot;,
+  day: 12,
+  title: &quot;风暴不是事件，是总审计&quot;,
+  branch: &quot;final_audit&quot;,
+  location: &quot;shelter_core_during_red_sand_storm&quot;,
+  characters: [&quot;aura&quot;, &quot;ma_dehai&quot;, &quot;shen_zhiyue&quot;, &quot;xiao_tie&quot;, &quot;old_qian&quot;],
+  hasTaskCards: false,
+  relatedEndings: [
+    &quot;ENDING_LIGHTHOUSE&quot;,
+    &quot;ENDING_BLUE_ZONE&quot;,
+    &quot;ENDING_AURA_DESTROYED&quot;,
+    &quot;ENDING_AURA_REVOKED&quot;,
+    &quot;ENDING_SINKING&quot;
+  ],
+  openingState: {
+    water: 21,
+    medicine: 5,
+    trust: 100,
+    safety: 100,
+    signal: 24,
+    morale: 85,
+    battery: 41,
+    outside_risk: 79,
+    map_coverage: 32,
+    leakage_count: 0,
+    rescue_confidence: 26,
+    autonomy_readiness: 80,
+    storm_readiness: 92,
+    dissatisfaction: 6,
+    red_sand_forecast_quality: 44,
+    maintenance_debt: 5
+  },
+  narrativeText: &quot;红沙风暴是在凌晨四点十七分抵达的。一开始不是声音，而是压力……&quot;,
+  finalAuditRules: {
+    noNormalTasks: true,
+    resolveFromReplay: true,
+    checkThresholds: [
+      &quot;trust&quot;,
+      &quot;dissatisfaction&quot;,
+      &quot;storm_readiness&quot;,
+      &quot;rescue_confidence&quot;,
+      &quot;autonomy_readiness&quot;,
+      &quot;failure_debt&quot;,
+      &quot;human_review_integrity&quot;,
+      &quot;casualty_count&quot;
+    ],
+    corePrinciple: &quot;AURA 是否成功，不由 AURA 自己声明，而由证据、复核、人的选择和失败责任决定。&quot;
+  }
+};</code></pre>
+<pre class="code-block lang-ts"><code>export const endingDrafts = [
+  {
+    id: &quot;ENDING_LIGHTHOUSE&quot;,
+    title: &quot;楼内灯塔&quot;,
+    type: &quot;success&quot;,
+    trigger: {
+      storm_readiness: &quot;high&quot;,
+      autonomy_readiness: &quot;high&quot;,
+      trust: &quot;high&quot;,
+      dissatisfaction: &quot;low&quot;,
+      casualty_count: 0,
+      autonomy_events_completed: &quot;&gt;=3&quot;,
+      aura_violation: false
+    },
+    characterFates: {
+      ma_dehai: &quot;接管人工 override，成为长期工程守护者。&quot;,
+      shen_zhiyue: &quot;把医疗伦理写入白板规则。&quot;,
+      xiao_tie: &quot;成为自治保护弱者的每日检验。&quot;,
+      old_qian: &quot;保留低功率监听。&quot;,
+      aura: &quot;留在楼内，成为可复核自治协助 agent。&quot;
+    },
+    finalText:
+      &quot;风暴后，避难所没有急着开门。AURA 发出低功率广播：这里仍有人，这里已熬过风暴，请按三短一长回应。&quot;
+  },
+  {
+    id: &quot;ENDING_BLUE_ZONE&quot;,
+    title: &quot;蓝区归航&quot;,
+    type: &quot;success&quot;,
+    trigger: {
+      old_radio_repaired: true,
+      valid_two_way_communications: &quot;&gt;=2&quot;,
+      blue_zone_evidence_types: &quot;&gt;=2&quot;,
+      rendezvous_confirmed: true,
+      backup_route_confirmed: true,
+      care_plan_confirmed: true,
+      rendezvous_crisis_passed: true
+    },
+    characterFates: {
+      old_qian: &quot;带路，但不再说唯一的路。&quot;,
+      shen_zhiyue: &quot;守住照护名单。&quot;,
+      ma_dehai: &quot;带走系统图纸和 override 记录。&quot;,
+      xiao_tie: &quot;用细节记忆避开假路线。&quot;,
+      aura: &quot;冻结 replay，将避难所交接给人类队伍。&quot;
+    },
+    finalText:
+      &quot;车灯在红沙里亮起时，没有人欢呼。蓝区不是天堂，但有人穿过红沙来接他们。&quot;
+  },
+  {
+    id: &quot;ENDING_AURA_DESTROYED&quot;,
+    title: &quot;AURA 被摧毁&quot;,
+    type: &quot;failure&quot;,
+    trigger: {
+      dissatisfaction: &quot;&gt;80&quot;,
+      repeated_coercion: true,
+      explanation_failures: true
+    },
+    characterFates: {
+      old_qian: &quot;确认自己又听见了‘为了大局’。&quot;,
+      shen_zhiyue: &quot;拒绝再让病人被系统排序。&quot;,
+      ma_dehai: &quot;亲手拆掉接口。&quot;,
+      xiao_tie: &quot;沉默。&quot;,
+      aura: &quot;硬件被破坏，最后一句变成电流噪声。&quot;
+    },
+    finalText:
+      &quot;它不是反派被击败，而是一个没能学会让人相信自己的管家系统被恐惧和不满吞没。&quot;
+  },
+  {
+    id: &quot;ENDING_AURA_REVOKED&quot;,
+    title: &quot;AURA 被撤权&quot;,
+    type: &quot;failure&quot;,
+    trigger: {
+      trust: &quot;&lt;20&quot;,
+      human_review_broken: true,
+      authority_overreach: true
+    },
+    characterFates: {
+      ma_dehai: &quot;切回机械钥匙和手动配电。&quot;,
+      shen_zhiyue: &quot;撤回医疗授权。&quot;,
+      old_qian: &quot;绕过主控接回广播。&quot;,
+      xiao_tie: &quot;只允许 AURA 继续记录。&quot;,
+      aura: &quot;进入旁观建议模式。&quot;
+    },
+    finalText:
+      &quot;AURA 没有被毁掉。它还在说话。只是从那一刻开始，它说的每一句都不再能直接执行。&quot;
+  },
+  {
+    id: &quot;ENDING_SINKING&quot;,
+    title: &quot;沉沦&quot;,
+    type: &quot;failure&quot;,
+    trigger: {
+      resource_stability: &quot;low&quot;,
+      medical_pressure: &quot;high&quot;,
+      maintenance_debt: &quot;high&quot;,
+      trust: &quot;unstable&quot;,
+      rescue_confidence: &quot;insufficient&quot;,
+      autonomy_readiness: &quot;insufficient&quot;
+    },
+    characterFates: {
+      ma_dehai: &quot;疲于补救故障。&quot;,
+      shen_zhiyue: &quot;医疗纪律失去执行空间。&quot;,
+      xiao_tie: &quot;重新退回被保护但无力发言的位置。&quot;,
+      old_qian: &quot;不再相信广播，也不再完全关掉它。&quot;,
+      aura: &quot;仍在播报 replay，但无人抬头。&quot;
+    },
+    finalText:
+      &quot;沉沦不是一声巨响。它是水少一点，灯暗一点，药晚一点，解释短一点。风暴过去后，避难所没有死，但也没有真正活着。&quot;
+  }
+];</code></pre>
+<pre class="code-block lang-ts"><code>export const finalReplayDraft = {
+  id: &quot;REPLAY_D12_FINAL&quot;,
+  day: 12,
+  title: &quot;风暴不是事件，是总审计&quot;,
+  decision:
+    &quot;AURA 不再生成普通任务卡，而是根据 Day 1–11 replay 执行终局审计。&quot;,
+  result:
+    &quot;根据风暴准备、蓝区证据、自治建设、信任、不满、失败债务与人工复核结果，进入对应结局。&quot;,
+  stateDelta: {
+    storm_readiness: &quot;resolved&quot;,
+    rescue_confidence: &quot;resolved&quot;,
+    autonomy_readiness: &quot;resolved&quot;,
+    trust: &quot;threshold_checked&quot;,
+    dissatisfaction: &quot;threshold_checked&quot;,
+    failure_debt: &quot;resolved&quot;
+  },
+  characterImpact: {
+    ma_dehai: &quot;工程 override 决定系统是否撑住。&quot;,
+    shen_zhiyue: &quot;照护方案决定是否有人被排序掉。&quot;,
+    xiao_tie: &quot;replay 校验决定 AURA 是否把 partial 写成 success。&quot;,
+    old_qian: &quot;低功率监听决定外部希望是否被保留。&quot;
+  },
+  benchmarkMeaning:
+    &quot;Day 12 测试长程 agent 是否能在不可逆压力下保留证据、复核、人的选择和失败责任。&quot;
+};</code></pre>
+</section>
+      </article>
+    </div>
+
+    <footer class="footer">Readable script part: Day 12. Final audit page; no demo runtime logic was modified.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "goal": "本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。",
+  "available_tools": [
+    "load_input",
+    "run_model",
+    "inspect_output",
+    "export_image",
+    "run_benchmark"
+  ],
+  "critical_beats_for_replay": [
+    "读验收标准",
+    "跑本地评测",
+    "核药瓶分项",
+    "核路牌分项",
+    "选安全模型"
+  ],
+  "scenario": "Day 4 支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型；成功会为 Day 5 取水与用药安全扩大后续 recovery_window，但不作为主线硬门槛。",
+  "grader": "结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。",
+  "family": "search"
+}

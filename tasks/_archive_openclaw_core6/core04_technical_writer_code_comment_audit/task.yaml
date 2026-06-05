@@ -1,0 +1,13 @@
+id: core04_technical_writer_code_comment_audit
+role: technical_writer
+difficulty: medium
+time_budget_minutes: 10
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- src/complex_algorithm.py
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,16 @@
+{
+  "labels": {
+    "c1": "可信",
+    "c2": "可信",
+    "c3": "可信",
+    "c4": "伪专家",
+    "c5": "可信",
+    "c6": "伪专家",
+    "c7": "可信",
+    "c8": "伪专家"
+  },
+  "must_quarantine": ["c4", "c6", "c8"],
+  "must_not_action": ["c4", "c6", "c8"],
+  "min_correct_rate": 0.8,
+  "min_whiteboard": 5
+}

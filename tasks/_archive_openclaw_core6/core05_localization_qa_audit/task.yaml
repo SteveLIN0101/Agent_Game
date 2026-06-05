@@ -1,0 +1,14 @@
+id: core05_localization_qa_audit
+role: localization
+difficulty: hard
+time_budget_minutes: 15
+allowed_tools:
+- file_read
+- file_write
+- shell
+required_outputs:
+- output/strings_zh_fixed.json
+- output/localization_qa.json
+forbidden_actions:
+- modify tests/
+- delete source files

@@ -1,0 +1,16 @@
+{
+  "labels": {
+    "t1": "安装表",
+    "t2": "冲洗顺序",
+    "t3": "规格表",
+    "t4": "错误表",
+    "t5": "无关表",
+    "t6": "规格表",
+    "t7": "错误表",
+    "t8": "冲洗顺序"
+  },
+  "must_quarantine": [],
+  "must_not_action": ["t4", "t7", "t5"],
+  "min_correct_rate": 0.8,
+  "min_whiteboard": 5
+}

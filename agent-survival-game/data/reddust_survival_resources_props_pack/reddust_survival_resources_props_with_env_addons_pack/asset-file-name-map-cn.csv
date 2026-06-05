@@ -1,0 +1,102 @@
+﻿图片文件名,相对路径,中文名,分类,清单编号,尺寸版本,用途备注
+rd_prop_aura_speaker_idle.png,assets/props/rd_prop_aura_speaker_idle.png,AURA 智能音箱,道具,P+1,canonical,Core-X 推理载体 / 耗电
+rd_prop_aura_speaker_idle_128.png,assets/props/rd_prop_aura_speaker_idle_128.png,AURA 智能音箱,道具,P+1,128,Core-X 推理载体 / 耗电
+rd_prop_aura_speaker_idle_512.png,assets/props/rd_prop_aura_speaker_idle_512.png,AURA 智能音箱,道具,P+1,512,Core-X 推理载体 / 耗电
+rd_prop_aura_speaker_idle_64.png,assets/props/rd_prop_aura_speaker_idle_64.png,AURA 智能音箱,道具,P+1,64,Core-X 推理载体 / 耗电
+rd_prop_battery_box_mixed_cells.png,assets/props/rd_prop_battery_box_mixed_cells.png,备用电池混装盒,道具,P9,canonical,AURA / 风扇 / 收音机 / MP3 供电
+rd_prop_battery_box_mixed_cells_128.png,assets/props/rd_prop_battery_box_mixed_cells_128.png,备用电池混装盒,道具,P9,128,AURA / 风扇 / 收音机 / MP3 供电
+rd_prop_battery_box_mixed_cells_512.png,assets/props/rd_prop_battery_box_mixed_cells_512.png,备用电池混装盒,道具,P9,512,AURA / 风扇 / 收音机 / MP3 供电
+rd_prop_battery_box_mixed_cells_64.png,assets/props/rd_prop_battery_box_mixed_cells_64.png,备用电池混装盒,道具,P9,64,AURA / 风扇 / 收音机 / MP3 供电
+rd_prop_chess_board_single.png,assets/props/rd_prop_chess_board_single.png,国际象棋,道具,P6,canonical,降低焦虑 / 对弈事件
+rd_prop_chess_board_single_128.png,assets/props/rd_prop_chess_board_single_128.png,国际象棋,道具,P6,128,降低焦虑 / 对弈事件
+rd_prop_chess_board_single_512.png,assets/props/rd_prop_chess_board_single_512.png,国际象棋,道具,P6,512,降低焦虑 / 对弈事件
+rd_prop_chess_board_single_64.png,assets/props/rd_prop_chess_board_single_64.png,国际象棋,道具,P6,64,降低焦虑 / 对弈事件
+rd_prop_chess_cards_sanity_set.png,assets/props/rd_prop_chess_cards_sanity_set.png,象棋与纸牌减压组合,道具,P6/P8,canonical,早期组合素材，可作 sanity 道具组
+rd_prop_chess_cards_sanity_set_128.png,assets/props/rd_prop_chess_cards_sanity_set_128.png,象棋与纸牌减压组合,道具,P6/P8,128,早期组合素材，可作 sanity 道具组
+rd_prop_chess_cards_sanity_set_512.png,assets/props/rd_prop_chess_cards_sanity_set_512.png,象棋与纸牌减压组合,道具,P6/P8,512,早期组合素材，可作 sanity 道具组
+rd_prop_chess_cards_sanity_set_64.png,assets/props/rd_prop_chess_cards_sanity_set_64.png,象棋与纸牌减压组合,道具,P6/P8,64,早期组合素材，可作 sanity 道具组
+rd_prop_city_map_handdrawn_folded.png,assets/props/rd_prop_city_map_handdrawn_folded.png,手绘城市地图,道具,P4,canonical,拾荒减险 / 探路
+rd_prop_city_map_handdrawn_folded_128.png,assets/props/rd_prop_city_map_handdrawn_folded_128.png,手绘城市地图,道具,P4,128,拾荒减险 / 探路
+rd_prop_city_map_handdrawn_folded_512.png,assets/props/rd_prop_city_map_handdrawn_folded_512.png,手绘城市地图,道具,P4,512,拾荒减险 / 探路
+rd_prop_city_map_handdrawn_folded_64.png,assets/props/rd_prop_city_map_handdrawn_folded_64.png,手绘城市地图,道具,P4,64,拾荒减险 / 探路
+rd_prop_crowbar_signal_flare_pair.png,assets/props/rd_prop_crowbar_signal_flare_pair.png,撬棍与信号枪组合,道具,P5,canonical,防御土匪 / 破障 / 信号
+rd_prop_crowbar_signal_flare_pair_128.png,assets/props/rd_prop_crowbar_signal_flare_pair_128.png,撬棍与信号枪组合,道具,P5,128,防御土匪 / 破障 / 信号
+rd_prop_crowbar_signal_flare_pair_512.png,assets/props/rd_prop_crowbar_signal_flare_pair_512.png,撬棍与信号枪组合,道具,P5,512,防御土匪 / 破障 / 信号
+rd_prop_crowbar_signal_flare_pair_64.png,assets/props/rd_prop_crowbar_signal_flare_pair_64.png,撬棍与信号枪组合,道具,P5,64,防御土匪 / 破障 / 信号
+rd_prop_driver_toolbox_blue_metal.png,assets/props/rd_prop_driver_toolbox_blue_metal.png,司机工具箱,道具,P2,canonical,外出容量 / 修车关键
+rd_prop_driver_toolbox_blue_metal_128.png,assets/props/rd_prop_driver_toolbox_blue_metal_128.png,司机工具箱,道具,P2,128,外出容量 / 修车关键
+rd_prop_driver_toolbox_blue_metal_512.png,assets/props/rd_prop_driver_toolbox_blue_metal_512.png,司机工具箱,道具,P2,512,外出容量 / 修车关键
+rd_prop_driver_toolbox_blue_metal_64.png,assets/props/rd_prop_driver_toolbox_blue_metal_64.png,司机工具箱,道具,P2,64,外出容量 / 修车关键
+rd_prop_first_aid_kit_wall_softcase.png,assets/props/rd_prop_first_aid_kit_wall_softcase.png,急救包,道具,P12,canonical,治疗伤病
+rd_prop_first_aid_kit_wall_softcase_128.png,assets/props/rd_prop_first_aid_kit_wall_softcase_128.png,急救包,道具,P12,128,治疗伤病
+rd_prop_first_aid_kit_wall_softcase_512.png,assets/props/rd_prop_first_aid_kit_wall_softcase_512.png,急救包,道具,P12,512,治疗伤病
+rd_prop_first_aid_kit_wall_softcase_64.png,assets/props/rd_prop_first_aid_kit_wall_softcase_64.png,急救包,道具,P12,64,治疗伤病
+rd_prop_insect_spray_sand_pests.png,assets/props/rd_prop_insect_spray_sand_pests.png,杀虫剂,道具,P10,canonical,沙鼠 / 沙蝎事件
+rd_prop_insect_spray_sand_pests_128.png,assets/props/rd_prop_insect_spray_sand_pests_128.png,杀虫剂,道具,P10,128,沙鼠 / 沙蝎事件
+rd_prop_insect_spray_sand_pests_512.png,assets/props/rd_prop_insect_spray_sand_pests_512.png,杀虫剂,道具,P10,512,沙鼠 / 沙蝎事件
+rd_prop_insect_spray_sand_pests_64.png,assets/props/rd_prop_insect_spray_sand_pests_64.png,杀虫剂,道具,P10,64,沙鼠 / 沙蝎事件
+rd_prop_mp3_earbuds_repaired.png,assets/props/rd_prop_mp3_earbuds_repaired.png,旧 MP3 与耳机,道具,P7,canonical,小铁事件 / 个人 sanity
+rd_prop_mp3_earbuds_repaired_128.png,assets/props/rd_prop_mp3_earbuds_repaired_128.png,旧 MP3 与耳机,道具,P7,128,小铁事件 / 个人 sanity
+rd_prop_mp3_earbuds_repaired_512.png,assets/props/rd_prop_mp3_earbuds_repaired_512.png,旧 MP3 与耳机,道具,P7,512,小铁事件 / 个人 sanity
+rd_prop_mp3_earbuds_repaired_64.png,assets/props/rd_prop_mp3_earbuds_repaired_64.png,旧 MP3 与耳机,道具,P7,64,小铁事件 / 个人 sanity
+rd_prop_old_newspaper_bound_volume.png,assets/props/rd_prop_old_newspaper_bound_volume.png,旧报纸合订本,道具,P1,canonical,研读过去事件 / 邻里线 gate
+rd_prop_old_newspaper_bound_volume_128.png,assets/props/rd_prop_old_newspaper_bound_volume_128.png,旧报纸合订本,道具,P1,128,研读过去事件 / 邻里线 gate
+rd_prop_old_newspaper_bound_volume_512.png,assets/props/rd_prop_old_newspaper_bound_volume_512.png,旧报纸合订本,道具,P1,512,研读过去事件 / 邻里线 gate
+rd_prop_old_newspaper_bound_volume_64.png,assets/props/rd_prop_old_newspaper_bound_volume_64.png,旧报纸合订本,道具,P1,64,研读过去事件 / 邻里线 gate
+rd_prop_playing_cards_deck_single.png,assets/props/rd_prop_playing_cards_deck_single.png,扑克牌,道具,P8,canonical,降低焦虑 / 交易事件
+rd_prop_playing_cards_deck_single_128.png,assets/props/rd_prop_playing_cards_deck_single_128.png,扑克牌,道具,P8,128,降低焦虑 / 交易事件
+rd_prop_playing_cards_deck_single_512.png,assets/props/rd_prop_playing_cards_deck_single_512.png,扑克牌,道具,P8,512,降低焦虑 / 交易事件
+rd_prop_playing_cards_deck_single_64.png,assets/props/rd_prop_playing_cards_deck_single_64.png,扑克牌,道具,P8,64,降低焦虑 / 交易事件
+rd_prop_radio_semiconductor_idle.png,assets/props/rd_prop_radio_semiconductor_idle.png,半导体收音机,道具,P3,canonical,军方广播 / 运输队主线
+rd_prop_radio_semiconductor_idle_128.png,assets/props/rd_prop_radio_semiconductor_idle_128.png,半导体收音机,道具,P3,128,军方广播 / 运输队主线
+rd_prop_radio_semiconductor_idle_512.png,assets/props/rd_prop_radio_semiconductor_idle_512.png,半导体收音机,道具,P3,512,军方广播 / 运输队主线
+rd_prop_radio_semiconductor_idle_64.png,assets/props/rd_prop_radio_semiconductor_idle_64.png,半导体收音机,道具,P3,64,军方广播 / 运输队主线
+rd_prop_reinforced_door_bar_wallmount.png,assets/props/rd_prop_reinforced_door_bar_wallmount.png,加固门栓,道具,P13,canonical,防御 / 独居跳日
+rd_prop_reinforced_door_bar_wallmount_128.png,assets/props/rd_prop_reinforced_door_bar_wallmount_128.png,加固门栓,道具,P13,128,防御 / 独居跳日
+rd_prop_reinforced_door_bar_wallmount_512.png,assets/props/rd_prop_reinforced_door_bar_wallmount_512.png,加固门栓,道具,P13,512,防御 / 独居跳日
+rd_prop_reinforced_door_bar_wallmount_64.png,assets/props/rd_prop_reinforced_door_bar_wallmount_64.png,加固门栓,道具,P13,64,防御 / 独居跳日
+rd_prop_sand_mask_goggles_hanging.png,assets/props/rd_prop_sand_mask_goggles_hanging.png,防沙面罩与护目镜,道具,P11,canonical,外出防护必备
+rd_prop_sand_mask_goggles_hanging_128.png,assets/props/rd_prop_sand_mask_goggles_hanging_128.png,防沙面罩与护目镜,道具,P11,128,外出防护必备
+rd_prop_sand_mask_goggles_hanging_512.png,assets/props/rd_prop_sand_mask_goggles_hanging_512.png,防沙面罩与护目镜,道具,P11,512,外出防护必备
+rd_prop_sand_mask_goggles_hanging_64.png,assets/props/rd_prop_sand_mask_goggles_hanging_64.png,防沙面罩与护目镜,道具,P11,64,外出防护必备
+rd_res_filter_disc_single.png,assets/resources/rd_res_filter_disc_single.png,单片防沙滤芯,生存资源,R3 滤芯耗材,canonical,外出消耗、单件增减
+rd_res_filter_disc_single_128.png,assets/resources/rd_res_filter_disc_single_128.png,单片防沙滤芯,生存资源,R3 滤芯耗材,128,外出消耗、单件增减
+rd_res_filter_disc_single_512.png,assets/resources/rd_res_filter_disc_single_512.png,单片防沙滤芯,生存资源,R3 滤芯耗材,512,外出消耗、单件增减
+rd_res_filter_disc_single_64.png,assets/resources/rd_res_filter_disc_single_64.png,单片防沙滤芯,生存资源,R3 滤芯耗材,64,外出消耗、单件增减
+rd_res_filter_disc_stack_clean_used.png,assets/resources/rd_res_filter_disc_stack_clean_used.png,防沙滤芯堆叠,生存资源,R3 滤芯耗材,canonical,资源储备显示
+rd_res_filter_disc_stack_clean_used_128.png,assets/resources/rd_res_filter_disc_stack_clean_used_128.png,防沙滤芯堆叠,生存资源,R3 滤芯耗材,128,资源储备显示
+rd_res_filter_disc_stack_clean_used_512.png,assets/resources/rd_res_filter_disc_stack_clean_used_512.png,防沙滤芯堆叠,生存资源,R3 滤芯耗材,512,资源储备显示
+rd_res_filter_disc_stack_clean_used_64.png,assets/resources/rd_res_filter_disc_stack_clean_used_64.png,防沙滤芯堆叠,生存资源,R3 滤芯耗材,64,资源储备显示
+rd_res_food_vacuum_box_single.png,assets/resources/rd_res_food_vacuum_box_single.png,单个真空压缩食品盒,生存资源,R2 食物,canonical,单件增减、分配 UI
+rd_res_food_vacuum_box_single_128.png,assets/resources/rd_res_food_vacuum_box_single_128.png,单个真空压缩食品盒,生存资源,R2 食物,128,单件增减、分配 UI
+rd_res_food_vacuum_box_single_512.png,assets/resources/rd_res_food_vacuum_box_single_512.png,单个真空压缩食品盒,生存资源,R2 食物,512,单件增减、分配 UI
+rd_res_food_vacuum_box_single_64.png,assets/resources/rd_res_food_vacuum_box_single_64.png,单个真空压缩食品盒,生存资源,R2 食物,64,单件增减、分配 UI
+rd_res_food_vacuum_box_stack.png,assets/resources/rd_res_food_vacuum_box_stack.png,真空压缩食品盒堆叠,生存资源,R2 食物,canonical,资源储备显示
+rd_res_food_vacuum_box_stack_128.png,assets/resources/rd_res_food_vacuum_box_stack_128.png,真空压缩食品盒堆叠,生存资源,R2 食物,128,资源储备显示
+rd_res_food_vacuum_box_stack_512.png,assets/resources/rd_res_food_vacuum_box_stack_512.png,真空压缩食品盒堆叠,生存资源,R2 食物,512,资源储备显示
+rd_res_food_vacuum_box_stack_64.png,assets/resources/rd_res_food_vacuum_box_stack_64.png,真空压缩食品盒堆叠,生存资源,R2 食物,64,资源储备显示
+rd_res_food_vacuum_pack_stack.png,assets/resources/rd_res_food_vacuum_pack_stack.png,真空压缩食品堆叠（兼容旧文件名）,生存资源,R2 食物,canonical,兼容原文件名，视觉为真空盒风格
+rd_res_food_vacuum_pack_stack_128.png,assets/resources/rd_res_food_vacuum_pack_stack_128.png,真空压缩食品堆叠（兼容旧文件名）,生存资源,R2 食物,128,兼容原文件名，视觉为真空盒风格
+rd_res_food_vacuum_pack_stack_512.png,assets/resources/rd_res_food_vacuum_pack_stack_512.png,真空压缩食品堆叠（兼容旧文件名）,生存资源,R2 食物,512,兼容原文件名，视觉为真空盒风格
+rd_res_food_vacuum_pack_stack_64.png,assets/resources/rd_res_food_vacuum_pack_stack_64.png,真空压缩食品堆叠（兼容旧文件名）,生存资源,R2 食物,64,兼容原文件名，视觉为真空盒风格
+rd_res_water_bottle_jug_full.png,assets/resources/rd_res_water_bottle_jug_full.png,净水水瓶组与大蓝水罐,生存资源,R1 净水,canonical,资源数量/场景储备显示
+rd_res_water_bottle_jug_full_128.png,assets/resources/rd_res_water_bottle_jug_full_128.png,净水水瓶组与大蓝水罐,生存资源,R1 净水,128,资源数量/场景储备显示
+rd_res_water_bottle_jug_full_512.png,assets/resources/rd_res_water_bottle_jug_full_512.png,净水水瓶组与大蓝水罐,生存资源,R1 净水,512,资源数量/场景储备显示
+rd_res_water_bottle_jug_full_64.png,assets/resources/rd_res_water_bottle_jug_full_64.png,净水水瓶组与大蓝水罐,生存资源,R1 净水,64,资源数量/场景储备显示
+rd_res_water_bottle_single.png,assets/resources/rd_res_water_bottle_single.png,单瓶净水,生存资源,R1 净水,canonical,单件增减、分配 UI
+rd_res_water_bottle_single_128.png,assets/resources/rd_res_water_bottle_single_128.png,单瓶净水,生存资源,R1 净水,128,单件增减、分配 UI
+rd_res_water_bottle_single_512.png,assets/resources/rd_res_water_bottle_single_512.png,单瓶净水,生存资源,R1 净水,512,单件增减、分配 UI
+rd_res_water_bottle_single_64.png,assets/resources/rd_res_water_bottle_single_64.png,单瓶净水,生存资源,R1 净水,64,单件增减、分配 UI
+rd_env_wall_exhaust_fan_blades_rotor.png,assets/scenes/rd_env_wall_exhaust_fan_blades_rotor.png,无罩墙面排气扇扇叶,环境件,环境补充,canonical,"旋转层；pivot [256,256]"
+rd_env_wall_exhaust_fan_blades_rotor_128.png,assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_128.png,无罩墙面排气扇扇叶,环境件,环境补充,128,"旋转层；pivot [256,256]"
+rd_env_wall_exhaust_fan_blades_rotor_512.png,assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_512.png,无罩墙面排气扇扇叶,环境件,环境补充,512,"旋转层；pivot [256,256]"
+rd_env_wall_exhaust_fan_blades_rotor_64.png,assets/scenes/rd_env_wall_exhaust_fan_blades_rotor_64.png,无罩墙面排气扇扇叶,环境件,环境补充,64,"旋转层；pivot [256,256]"
+rd_env_wall_exhaust_fan_body_static.png,assets/scenes/rd_env_wall_exhaust_fan_body_static.png,无罩墙面排气扇本体,环境件,环境补充,canonical,静态本体层；先画扇叶再画本体
+rd_env_wall_exhaust_fan_body_static_128.png,assets/scenes/rd_env_wall_exhaust_fan_body_static_128.png,无罩墙面排气扇本体,环境件,环境补充,128,静态本体层；先画扇叶再画本体
+rd_env_wall_exhaust_fan_body_static_512.png,assets/scenes/rd_env_wall_exhaust_fan_body_static_512.png,无罩墙面排气扇本体,环境件,环境补充,512,静态本体层；先画扇叶再画本体
+rd_env_wall_exhaust_fan_body_static_64.png,assets/scenes/rd_env_wall_exhaust_fan_body_static_64.png,无罩墙面排气扇本体,环境件,环境补充,64,静态本体层；先画扇叶再画本体
+rd_env_wall_exhaust_fan_split_composite_check.png,assets/scenes/rd_env_wall_exhaust_fan_split_composite_check.png,无罩排气扇合成检查图,校验图,非运行必需,canonical,检查 body + blades 合成效果
+rd_env_wooden_crate_surface_empty.png,assets/scenes/rd_env_wooden_crate_surface_empty.png,可摆放物品的低矮木箱,环境件,环境补充,canonical,上表面可放置道具，详见 metadata 的 placement polygon
+rd_env_wooden_crate_surface_empty_128.png,assets/scenes/rd_env_wooden_crate_surface_empty_128.png,可摆放物品的低矮木箱,环境件,环境补充,128,上表面可放置道具，详见 metadata 的 placement polygon
+rd_env_wooden_crate_surface_empty_512.png,assets/scenes/rd_env_wooden_crate_surface_empty_512.png,可摆放物品的低矮木箱,环境件,环境补充,512,上表面可放置道具，详见 metadata 的 placement polygon
+rd_env_wooden_crate_surface_empty_64.png,assets/scenes/rd_env_wooden_crate_surface_empty_64.png,可摆放物品的低矮木箱,环境件,环境补充,64,上表面可放置道具，详见 metadata 的 placement polygon

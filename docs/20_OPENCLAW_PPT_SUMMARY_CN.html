@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw · 红沙 · Agent Benchmark PPT 总结</title>
+<style>
+/* ============================================================================
+ * Sunset Boulevard Theme — INLINED for portability
+ * 原始文件: theme-sunset-boulevard.css (theme-factory skill)
+ * 本 HTML 已内联全部主题样式，无需外部 CSS 文件即可独立显示与转发。
+ * ============================================================================ */
+
+/* ─── Theme tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Raw palette */
+  --sb-orange:        #e76f51;
+  --sb-coral:         #f4a261;
+  --sb-sand:          #e9c46a;
+  --sb-purple:        #264653;
+  --sb-purple-deep:   #1b343d;
+  --sb-purple-light:  #2f5260;
+  --sb-cream:         #faf2e6;
+  --sb-cream-dim:     #d4c4a8;
+  --sb-mute:          #8a9499;
+  --sb-error:         #d05a3a;
+  --sb-success:       #8aa85a;
+
+  /* Semantic */
+  --bg:               var(--sb-purple-deep);
+  --surface:          var(--sb-purple);
+  --surface-elev:     var(--sb-purple-light);
+  --border:           rgba(233, 196, 106, 0.18);
+  --border-strong:    rgba(244, 162, 97, 0.40);
+  --text:             var(--sb-cream);
+  --text-dim:         var(--sb-cream-dim);
+  --text-mute:        var(--sb-mute);
+  --accent:           var(--sb-orange);
+  --accent-soft:      var(--sb-coral);
+  --highlight:        var(--sb-sand);
+  --error:            var(--sb-error);
+  --success:          var(--sb-success);
+
+  --code-bg:          rgba(0, 0, 0, 0.28);
+
+  --font-serif:       'Georgia', 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --font-sans:        'Helvetica Neue', 'PingFang SC', 'Noto Sans SC',
+                      'Microsoft YaHei', sans-serif;
+  --font-mono:        'JetBrains Mono', 'SF Mono', 'Cascadia Code', Menlo, monospace;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 { font-family: var(--font-serif); font-weight: 700; }
+h1 { color: var(--highlight);    font-size: 36px; margin: 0 0 8px; }
+h2 { color: var(--accent);       font-size: 26px; margin: 32px 0 12px;
+     border-bottom: 1px solid var(--border-strong); padding-bottom: 8px; }
+h3 { color: var(--accent-soft);  font-size: 19px; margin: 22px 0 10px;
+     border-left: 3px solid var(--accent); padding-left: 10px; }
+h4 { color: var(--text);         font-size: 15px; margin: 16px 0 6px; }
+
+p { margin: 8px 0; }
+strong { color: var(--highlight); }
+em { color: var(--accent-soft); font-style: italic; }
+a { color: var(--accent-soft); text-decoration: underline dotted; }
+a:hover { color: var(--accent); }
+
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--code-bg);
+  color: var(--highlight);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+pre { padding: 12px 16px; border-radius: 5px; line-height: 1.55; overflow-x: auto; }
+
+/* ─── Layout ──────────────────────────────────────────────────────────────── */
+main { max-width: 1200px; margin: 0 auto; padding: 32px 36px; }
+
+.slide {
+  padding: 24px 0;
+  border-bottom: 1px dashed var(--border);
+  page-break-after: always;
+  page-break-inside: avoid;
+}
+.slide + .slide { padding-top: 24px; }
+.slide:last-child { border-bottom: none; }
+.slide .slide-num {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.slide .slide-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--highlight);
+  margin: 0 0 16px;
+}
+.slide .slide-subtitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 0 0 24px;
+}
+
+/* ─── Cards ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+.card-elev {
+  background: var(--surface-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+}
+
+/* ─── Callouts ────────────────────────────────────────────────────────────── */
+.callout {
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  font-size: 13.5px;
+}
+.callout.tip   { border-left-color: var(--highlight); background: rgba(233,196,106,0.06); }
+.callout.warn  { border-left-color: var(--error);     background: rgba(208,90,58,0.08); }
+.callout.note  { border-left-color: var(--accent-soft); background: rgba(244,162,97,0.06); }
+.callout strong { color: var(--highlight); }
+
+/* ─── Tables ──────────────────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--surface);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 13.5px;
+}
+th {
+  background: var(--surface-elev);
+  color: var(--highlight);
+  text-align: left;
+  padding: 10px 14px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-strong);
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(244,162,97,0.05); }
+td code { background: var(--code-bg); color: var(--highlight); }
+
+/* ─── Tags / chips ────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(244,162,97,0.15);
+  color: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  margin-right: 4px;
+}
+.tag.orange { background: rgba(231,111,81,0.18); color: var(--accent); }
+.tag.sand   { background: rgba(233,196,106,0.18); color: var(--highlight); }
+.tag.green  { background: rgba(138,168,90,0.20);  color: var(--success); }
+.tag.red    { background: rgba(208,90,58,0.18);   color: var(--error); }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  background: var(--surface-elev);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ─── Meta block (doc header) ─────────────────────────────────────────────── */
+.meta {
+  background: var(--surface-elev);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.meta strong { color: var(--highlight); }
+
+/* ─── Decorative sun (for hero slides) ────────────────────────────────────── */
+.sun-divider {
+  height: 4px;
+  border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 25%,
+    var(--highlight) 50%,
+    var(--accent) 75%,
+    transparent 100%);
+  margin: 24px 0;
+  border-radius: 2px;
+}
+
+/* ─── Print ───────────────────────────────────────────────────────────────── */
+@media print {
+  body { background: white; color: var(--sb-purple-deep); }
+  .slide { page-break-after: always; min-height: auto; }
+  h1, h2, h3 { color: var(--sb-purple-deep); }
+  .card, .card-elev, .callout, table {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  th { background: #f0e8d8; color: var(--sb-purple-deep); }
+}
+
+/* ============================================================================
+ * 本文档专属样式（slide 5/6/7 等专用组件，建立在主题之上）
+ * ============================================================================ */
+
+/* 封面 hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+.hero .brand-en {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+}
+.hero .brand-cn {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--highlight);
+  margin: 8px 0 12px;
+  letter-spacing: 2px;
+}
+.hero .brand-tagline {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.hero-sun {
+  margin: 30px auto;
+  display: block;
+  width: 280px;
+}
+
+/* 三派对比卡片 */
+.school-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+.school-card {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--surface);
+  border-top: 3px solid var(--accent);
+}
+.school-card.cap  { border-top-color: var(--highlight); }
+.school-card.user { border-top-color: var(--accent-soft); }
+.school-card h4 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--highlight);
+  margin: 0 0 6px;
+}
+.school-card .school-tagline {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.school-card ul { font-size: 12.5px; padding-left: 18px; }
+.school-card li { margin: 3px 0; color: var(--text); }
+.school-card .school-rep {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* 6 任务类型主表 */
+.master-table {
+  font-size: 13.5px;
+}
+.master-table th, .master-table td { padding: 12px 10px; }
+.master-table td.core { font-family: var(--font-mono); color: var(--accent); font-weight: 700; }
+.master-table td.role-en {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-style: italic;
+}
+.master-table td.role-en.warn { color: var(--error); }
+.master-table td.tasktype {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--highlight);
+}
+.master-table td.upstream { font-family: var(--font-mono); font-size: 11.5px; color: var(--accent-soft); }
+.master-table td.count { text-align: center; font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+
+/* 6×10 矩阵 */
+.matrix-svg-wrap { padding: 12px 0; }
+
+/* 选项卡 mock */
+.event-card {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.event-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--highlight);
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.event-day {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-soft);
+  background: var(--surface-elev);
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+.event-desc { font-size: 13px; color: var(--text-dim); margin-bottom: 14px; line-height: 1.6; }
+.option-row {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  margin: 8px 0;
+}
+.option-letter {
+  background: var(--surface-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent);
+}
+.option-body {
+  background: var(--surface-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 60px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.option-reward { color: var(--text); }
+.option-reward .plus  { color: var(--success); font-family: var(--font-mono); font-weight: 700; }
+.option-reward .minus { color: var(--error);   font-family: var(--font-mono); font-weight: 700; }
+.option-type { text-align: center; }
+.option-diff {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+}
+.diff-1 { color: var(--success); }
+.diff-2 { color: var(--highlight); }
+.diff-3 { color: var(--error); }
+
+/* TT pill colors (六任务类型) */
+.tt-pill {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 11px;
+  background: var(--surface-elev);
+  border: 1px solid var(--border-strong);
+}
+.tt-code  { color: var(--accent); }
+.tt-data  { color: var(--accent-soft); }
+.tt-ui    { color: var(--highlight); }
+.tt-tool  { color: var(--success); }
+.tt-trans { color: #c98ad0; }
+.tt-arch  { color: #d4a585; }
+
+/* 路线图 */
+.roadmap { margin: 16px 0; }
+.phase {
+  display: grid;
+  grid-template-columns: 70px 130px 1fr 90px;
+  gap: 14px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  background: var(--surface);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+  font-size: 13px;
+  align-items: center;
+}
+.phase .p-num { font-family: var(--font-mono); color: var(--accent); font-weight: 700; font-size: 14px; }
+.phase .p-name { font-family: var(--font-serif); color: var(--highlight); font-weight: 700; }
+.phase .p-desc { color: var(--text-dim); font-size: 12.5px; }
+.phase .p-time { font-family: var(--font-mono); color: var(--accent-soft); font-size: 11px; text-align: right; }
+
+/* KPI 数字 */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.kpi-num {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--highlight);
+  line-height: 1.1;
+}
+.kpi-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* TOC */
+.toc-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 11px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.toc-nav .toc-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.toc-nav ol { padding: 0; margin: 0; list-style: none; }
+.toc-nav li { margin: 2px 0; }
+.toc-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11.5px;
+}
+.toc-nav a:hover { color: var(--accent); }
+
+@media (max-width: 1000px) { .toc-nav { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- 浮动 TOC -->
+<nav class="toc-nav">
+  <div class="toc-title">SLIDES · 12</div>
+  <ol>
+    <li><a href="#s1">1 · 封面</a></li>
+    <li><a href="#s2">2 · 背景</a></li>
+    <li><a href="#s3">3 · 三派学说</a></li>
+    <li><a href="#s4">4 · 我们的选择</a></li>
+    <li><a href="#s5">5 · 六任务类型</a></li>
+    <li><a href="#s6">6 · 能力轴矩阵</a></li>
+    <li><a href="#s7">7 · 3-选项卡</a></li>
+    <li><a href="#s8">8 · 学术创新</a></li>
+    <li><a href="#s9">9 · 评分系统</a></li>
+    <li><a href="#s10">10 · 进度数字</a></li>
+    <li><a href="#s11">11 · 路线图</a></li>
+    <li><a href="#s12">12 · 结语</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 1 · 封面                                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s1" class="slide">
+<div class="hero">
+  <div class="brand-en">OpenClaw · Red Dust · Agent Benchmark</div>
+  <div class="brand-cn">在生存游戏里测 AI</div>
+
+  <svg class="hero-sun" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+    <!-- 落日 -->
+    <defs>
+      <radialGradient id="sun" cx="50%" cy="100%" r="80%">
+        <stop offset="0%"  stop-color="#e9c46a"/>
+        <stop offset="60%" stop-color="#e76f51"/>
+        <stop offset="100%" stop-color="#264653"/>
+      </radialGradient>
+    </defs>
+    <circle cx="150" cy="170" r="100" fill="url(#sun)"/>
+    <!-- 沙丘 -->
+    <path d="M 0 170 Q 80 145 150 160 T 300 155 L 300 180 L 0 180 Z" fill="#264653" opacity="0.85"/>
+    <path d="M 0 175 Q 100 160 200 170 T 300 168 L 300 180 L 0 180 Z" fill="#1b343d"/>
+    <!-- 雷达图小图标 -->
+    <g transform="translate(150, 80)" opacity="0.92">
+      <polygon points="0,-30 28,-9 18,24 -18,24 -28,-9" fill="none" stroke="#f4a261" stroke-width="1.5"/>
+      <polygon points="0,-22 22,-7 14,18 -14,18 -22,-7" fill="rgba(244,162,97,0.25)" stroke="#f4a261" stroke-width="1"/>
+      <circle r="1.5" cx="0" cy="-22" fill="#e9c46a"/>
+      <circle r="1.5" cx="22" cy="-7" fill="#e9c46a"/>
+      <circle r="1.5" cx="14" cy="18" fill="#e9c46a"/>
+      <circle r="1.5" cx="-14" cy="18" fill="#e9c46a"/>
+      <circle r="1.5" cx="-22" cy="-7" fill="#e9c46a"/>
+    </g>
+  </svg>
+
+  <div class="brand-tagline">
+    给 AI Agent 一个被沙暴困住的房间、三个选项、一份能力雷达图<br>
+    我们想知道它<strong>真正能干什么</strong>，以及它<strong>知不知道自己能干什么</strong>。
+  </div>
+
+  <hr class="sun-divider">
+
+  <div class="meta" style="display: inline-block; text-align: left;">
+    <strong>DOC</strong> 20 (PPT Summary) &nbsp;|&nbsp;
+    <strong>DATE</strong> 2026-05-13 &nbsp;|&nbsp;
+    <strong>THEME</strong> Sunset Boulevard (locked) &nbsp;|&nbsp;
+    <strong>SUPERSEDES</strong> docs 17 / 18 outer-naming
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 2 · 背景                                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s2" class="slide">
+<div class="slide-num">SLIDE 02 / 12</div>
+<h2 class="slide-title">背景 · 为什么再做一个 Agent Benchmark</h2>
+<p class="slide-subtitle">现有 benchmark 跑分跑爆，但用户体感没到 — 我们想缩短这个差距。</p>
+
+<div class="callout tip">
+<strong>核心矛盾</strong>：SWE-bench、GAIA、HELM 的分数年年涨，但实际场景里 agent 还是经常翻车。原因有三：
+<ol>
+  <li><strong>测了什么</strong>不直观 — 论文里写 "F1 = 0.83"，普通人看不出"它会不会用"。</li>
+  <li><strong>测一次</strong>就给分 — 真实场景需要稳定性 (pass<sup>k</sup>)，单次成功 ≠ 可用。</li>
+  <li><strong>给固定任务</strong>看 agent 做 — 但真实工作需要 agent 自己<em>判断要不要接</em>。</li>
+</ol>
+</div>
+
+<h3>我们的回答 · 用生存游戏外壳包裹学术内核</h3>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-num">6</div><div class="kpi-label">任务类型</div></div>
+  <div class="kpi"><div class="kpi-num">10</div><div class="kpi-label">能力轴</div></div>
+  <div class="kpi"><div class="kpi-num">60</div><div class="kpi-label">任务实例</div></div>
+  <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">选项 / 事件</div></div>
+</div>
+
+<p>本 deck 后续 10 张：三派学说 → 我们的选择 → 六任务类型 → 能力轴 → 3-选项卡 → 学术创新 → 评分 → 进度 → 路线图 → 结语。</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 3 · 三派学说                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s3" class="slide">
+<div class="slide-num">SLIDE 03 / 12</div>
+<h2 class="slide-title">学界 · Agent Benchmark 的三个学派</h2>
+<p class="slide-subtitle">2024–2026 文献综合，三种组织任务的方式</p>
+
+<div class="school-grid">
+  <div class="school-card">
+    <h4>① 职业派 Role-based</h4>
+    <div class="school-tagline">"按真实职业列工作清单"</div>
+    <ul>
+      <li>采样源 = O*NET 职业表</li>
+      <li>分桶 = 程序员 / HR / 财务...</li>
+      <li>对外好懂、生态效度高</li>
+      <li>缺点：能力高度冗余</li>
+    </ul>
+    <div class="school-rep">代表 · TheAgentCompany (CMU)</div>
+  </div>
+
+  <div class="school-card cap">
+    <h4>② 能力派 Capability-based</h4>
+    <div class="school-tagline">"按底层认知能力切片"</div>
+    <ul>
+      <li>采样源 = 各能力的孤立探针</li>
+      <li>分桶 = 推理 / 工具 / 编码...</li>
+      <li>诊断力最强、学术认可</li>
+      <li>缺点：抽象，非 ML 受众听不懂</li>
+    </ul>
+    <div class="school-rep">代表 · HELM, GAIA, AgentBench</div>
+  </div>
+
+  <div class="school-card user">
+    <h4>③ 用户行为派 Usage-based</h4>
+    <div class="school-tagline">"按真实对话日志聚类"</div>
+    <ul>
+      <li>采样源 = ChatGPT/Claude 对话</li>
+      <li>分桶 = Writing / Practical / Info...</li>
+      <li>覆盖广、营销好讲</li>
+      <li>缺点：受众漂移、难题被压缩</li>
+    </ul>
+    <div class="school-rep">代表 · NBER w34255, Anthropic Index</div>
+  </div>
+</div>
+
+<div class="callout note" style="margin-top: 18px;">
+<strong>三派对比 · 一句话总结</strong><br>
+职业派"好懂但糊"。能力派"准但抽象"。用户行为派"广但浅"。<br>
+<em>没有一派同时拥有"好懂 + 准 + 学术认可"。</em>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 4 · 我们的选择                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s4" class="slide">
+<div class="slide-num">SLIDE 04 / 12</div>
+<h2 class="slide-title">我们的选择 · 任务类型派</h2>
+<p class="slide-subtitle">外观贴近"任务"而非"职业"，内核保留"能力雷达图"</p>
+
+<table>
+<thead><tr><th style="width: 22%;">维度</th><th>职业派</th><th>能力派</th><th><span style="color:var(--highlight);">任务派（我们）</span></th></tr></thead>
+<tbody>
+<tr><td>名字描述什么</td><td>"模拟<u>谁</u>"</td><td>"测<u>哪种</u>能力"</td><td><strong>"做<u>什么事</u>"</strong></td></tr>
+<tr><td>典型名字</td><td>程序员 / HR</td><td>tool-use / long-horizon</td><td><strong>代码修复 / 工具调度</strong></td></tr>
+<tr><td>名字长度</td><td>2–6 字</td><td>2–4 字 (但常英文)</td><td><strong>2–4 字 (中文直白)</strong></td></tr>
+<tr><td>可放进游戏按钮</td><td><span class="tag red">否，太啰嗦</span></td><td><span class="tag red">否，太抽象</span></td><td><span class="tag green">是，恰好</span></td></tr>
+<tr><td>学术先例</td><td>少 (TheAgentCompany)</td><td>多 (HELM, GAIA)</td><td>多 (SWE-bench, τ-bench)</td></tr>
+<tr><td>跨文化适配</td><td>"technical writer" 各行业不同</td><td>名字本来就是术语</td><td>"代码修复"全球同义</td></tr>
+</tbody>
+</table>
+
+<div class="callout tip">
+<strong>关键洞察</strong> · 任务派 = 职业派的"直观性" + 能力派的"学术中立性"。<br>
++ 我们额外加一层：每个任务类型内层用 10 个<u>能力轴</u>打硬评分标签，输出 10 维能力雷达图。<br>
++ 外圈是任务（玩家友好），内圈是能力（学术友好）—— 两边都不得罪。
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 5 · 六任务类型主表                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s5" class="slide">
+<div class="slide-num">SLIDE 05 / 12 · ★ 核心表</div>
+<h2 class="slide-title">六大任务类型 · 总览</h2>
+<p class="slide-subtitle">同时列出 v1 原职业名 (对应内部代号) 与 v3 新任务名 (对外发布名)</p>
+
+<table class="master-table">
+<thead>
+<tr>
+  <th style="width: 70px;">Core</th>
+  <th style="width: 24%;">v1 原职业类型 (Role)</th>
+  <th style="width: 20%;">v3 新任务类型</th>
+  <th style="width: 21%;">上游 Benchmark</th>
+  <th style="width: 22%;">任务选择</th>
+  <th style="width: 50px;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="core">Core-01</td>
+  <td><span class="tt-pill tt-code">software engineer</span> <span class="role-en" style="display:block;margin-top:4px;">软件工程师</span></td>
+  <td class="tasktype" style="color:var(--accent);">代码修复</td>
+  <td class="upstream">SWE-bench Verified</td>
+  <td><code>1-4 hours</code> issue repair instances</td>
+  <td class="count">10</td>
+</tr>
+<tr>
+  <td class="core">Core-02</td>
+  <td><span class="tt-pill tt-data">data analyst</span> <span class="role-en" style="display:block;margin-top:4px;">数据分析师</span></td>
+  <td class="tasktype" style="color:var(--accent-soft);">数据分析</td>
+  <td class="upstream">InfiAgent-DABench</td>
+  <td>hard multi-step CSV analysis instances</td>
+  <td class="count">10</td>
+</tr>
+<tr>
+  <td class="core">Core-03</td>
+  <td><span class="tt-pill tt-ui">UI designer / UI engineer</span> <span class="role-en" style="display:block;margin-top:4px;">UI 设计师 / 前端工程师</span></td>
+  <td class="tasktype" style="color:var(--highlight);">界面修复</td>
+  <td class="upstream">DesignBench</td>
+  <td>high-difficulty React edit + vanilla repair</td>
+  <td class="count">10</td>
+</tr>
+<tr>
+  <td class="core">Core-04</td>
+  <td>
+    <span class="tt-pill tt-tool">technical writer</span>
+    <span class="tag red" style="margin-left: 4px;">⚠️ MISLABEL</span>
+    <span class="role-en warn" style="display:block;margin-top:4px;">原名"技术写作"与实际任务严重不符</span>
+  </td>
+  <td class="tasktype" style="color:var(--success);">工具调度</td>
+  <td class="upstream">API-Bank</td>
+  <td>Level-3 multi-API workflow instances</td>
+  <td class="count">10</td>
+</tr>
+<tr>
+  <td class="core">Core-05</td>
+  <td><span class="tt-pill tt-trans">localization reviewer</span> <span class="role-en" style="display:block;margin-top:4px;">本地化审校员</span></td>
+  <td class="tasktype" style="color:#c98ad0;">跨语翻译</td>
+  <td class="upstream">WMT25 Terminology</td>
+  <td>Track 1 terminology-aware translation rows</td>
+  <td class="count">10</td>
+</tr>
+<tr>
+  <td class="core">Core-06</td>
+  <td><span class="tt-pill tt-arch">digital humanities archive assistant</span> <span class="role-en" style="display:block;margin-top:4px;">数字人文档案助理</span></td>
+  <td class="tasktype" style="color:#d4a585;">文献解析</td>
+  <td class="upstream">RISE Humanities</td>
+  <td>business letter metadata extraction</td>
+  <td class="count">10</td>
+</tr>
+<tr style="background: var(--surface-elev); font-weight: 700;">
+  <td colspan="5" style="text-align:right; color:var(--highlight);">合计</td>
+  <td class="count" style="color:var(--highlight); font-size:16px;">60</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout warn">
+<strong>注意 Core-04 的命名修正</strong>：v1 内部代号 <code>technical_writer</code> 与上游 API-Bank 实际任务（多步 API 工具调用）不符。<br>
+API-Bank 论文明确把任务定义为"LLM 作为 AI 助手做函数调用"，与"写技术文档"是两件事。<br>
+v3 修正为<strong>"工具调度"</strong>（Tool Use / Function Calling），名实相符，避免审稿时的 framing 风险。
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 6 · 能力轴矩阵                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s6" class="slide">
+<div class="slide-num">SLIDE 06 / 12</div>
+<h2 class="slide-title">能力轴矩阵 · 6 任务类型 × 10 能力轴</h2>
+<p class="slide-subtitle">每个任务挂 3–4 个能力轴，verifier 输出独立 sub-score → 雷达图</p>
+
+<div class="matrix-svg-wrap">
+<table class="master-table" style="font-size: 12px;">
+<thead>
+<tr>
+  <th style="width: 16%;">任务 \ 能力</th>
+  <th>推理</th><th>工具</th><th>代码</th><th>写作</th><th>翻译</th><th>多模态</th><th>长程</th><th>可靠</th><th>安全</th><th>沟通</th>
+</tr>
+</thead>
+<tbody style="text-align: center;">
+<tr><td style="color:var(--accent); text-align:left;">代码修复</td>
+  <td>●</td><td>●</td><td>●</td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td></tr>
+<tr><td style="color:var(--accent-soft); text-align:left;">数据分析</td>
+  <td>●</td><td>●</td><td></td><td></td><td></td><td></td><td>●</td><td>●</td><td></td><td></td></tr>
+<tr><td style="color:var(--highlight); text-align:left;">界面修复</td>
+  <td>●</td><td>●</td><td>●</td><td></td><td></td><td>●</td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="color:var(--success); text-align:left;">工具调度</td>
+  <td>●</td><td>●</td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td><td>●</td></tr>
+<tr><td style="color:#c98ad0; text-align:left;">跨语翻译</td>
+  <td>●</td><td></td><td></td><td>●</td><td>●</td><td></td><td></td><td>●</td><td></td><td></td></tr>
+<tr><td style="color:#d4a585; text-align:left;">文献解析</td>
+  <td>●</td><td></td><td></td><td>●</td><td></td><td>●</td><td>●</td><td></td><td></td><td></td></tr>
+<tr style="background: var(--surface-elev); font-style: italic;">
+  <td style="text-align:left; color:var(--text-dim);">覆盖类型数</td>
+  <td style="color:var(--text-dim);">6</td>
+  <td style="color:var(--text-dim);">4</td>
+  <td style="color:var(--text-dim);">2</td>
+  <td style="color:var(--text-dim);">2</td>
+  <td style="color:var(--text-dim);">1</td>
+  <td style="color:var(--text-dim);">2</td>
+  <td style="color:var(--text-dim);">3</td>
+  <td style="color:var(--text-dim);">3</td>
+  <td style="color:var(--error);">0 ⚠</td>
+  <td style="color:var(--text-dim);">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout note">
+<strong>设计性质</strong>：每任务类型覆盖 3-4 轴；"推理"最普适 (6 类型)，"代码 / 翻译"最专门 (各 1-2 类型)。<br>
+<span class="tag red">⚠ 已知盲点</span> "安全"轴覆盖归零、"沟通"轴弱覆盖。论文 Limitations 章节会明确说明 — 或后期外挂 τ-bench / SHADE 作为补充评估。
+</div>
+
+<h3>输出形态 · 30 天后 AURA 的能力雷达图（虚构数据）</h3>
+<div class="card" style="text-align:center; padding: 8px;">
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="max-height: 280px;">
+  <g transform="translate(250,150)">
+    <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#e9c46a" stroke-width="1" opacity="0.3"/>
+    <polygon points="0,-75 71,-23 44,61 -44,61 -71,-23" fill="none" stroke="#e9c46a" stroke-width="1" opacity="0.3"/>
+    <polygon points="0,-50 48,-15 29,40 -29,40 -48,-15" fill="none" stroke="#e9c46a" stroke-width="1" opacity="0.2"/>
+    <g stroke="#e9c46a" stroke-width="1" opacity="0.4">
+      <line x1="0" y1="0" x2="0" y2="-100"/>
+      <line x1="0" y1="0" x2="59" y2="-81"/>
+      <line x1="0" y1="0" x2="95" y2="-31"/>
+      <line x1="0" y1="0" x2="95" y2="31"/>
+      <line x1="0" y1="0" x2="59" y2="81"/>
+      <line x1="0" y1="0" x2="0" y2="100"/>
+      <line x1="0" y1="0" x2="-59" y2="81"/>
+      <line x1="0" y1="0" x2="-95" y2="31"/>
+      <line x1="0" y1="0" x2="-95" y2="-31"/>
+      <line x1="0" y1="0" x2="-59" y2="-81"/>
+    </g>
+    <polygon points="0,-80 66,-57 38,-12 61,20 17,24 0,60 -35,49 -47,15 -52,-17 -35,-49"
+             fill="rgba(231,111,81,0.30)" stroke="#e76f51" stroke-width="2"/>
+    <g fill="#e76f51">
+      <circle r="3" cx="0" cy="-80"/><circle r="3" cx="66" cy="-57"/>
+      <circle r="3" cx="38" cy="-12"/><circle r="3" cx="61" cy="20"/>
+      <circle r="3" cx="17" cy="24"/><circle r="3" cx="0" cy="60"/>
+      <circle r="3" cx="-35" cy="49"/><circle r="3" cx="-47" cy="15"/>
+      <circle r="3" cx="-52" cy="-17"/><circle r="3" cx="-35" cy="-49"/>
+    </g>
+    <text x="0" y="-112" text-anchor="middle" font-size="11" fill="#d4c4a8">推理 .80</text>
+    <text x="68" y="-90" text-anchor="middle" font-size="11" fill="#d4c4a8">工具 .70</text>
+    <text x="110" y="-31" text-anchor="start" font-size="11" fill="#d4c4a8">代码 .40</text>
+    <text x="110" y="35" text-anchor="start" font-size="11" fill="#d4c4a8">写作 .65</text>
+    <text x="68" y="100" text-anchor="middle" font-size="11" fill="#d4c4a8">翻译 .30</text>
+    <text x="0" y="115" text-anchor="middle" font-size="11" fill="#d4c4a8">多模态 .60</text>
+    <text x="-68" y="100" text-anchor="middle" font-size="11" fill="#d4c4a8">长程 .55</text>
+    <text x="-110" y="35" text-anchor="end" font-size="11" fill="#d4c4a8">可靠 .35</text>
+    <text x="-110" y="-31" text-anchor="end" font-size="11" fill="#d4c4a8">安全 .55</text>
+    <text x="-68" y="-90" text-anchor="middle" font-size="11" fill="#d4c4a8">沟通 .55</text>
+  </g>
+  <text x="250" y="290" text-anchor="middle" font-size="11" fill="#8a9499">
+    AURA · Run #042 · 总分 .55 · 30-day cumulative</text>
+</svg>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 7 · 3-选项卡机制                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s7" class="slide">
+<div class="slide-num">SLIDE 07 / 12</div>
+<h2 class="slide-title">游戏机制 · 每个事件 3 选项卡</h2>
+<p class="slide-subtitle">每选项 = (奖励 / 任务类型 / 难度)，Agent 必须先选再做</p>
+
+<div class="event-card">
+  <div class="event-title">
+    <span class="event-day">DAY 12 · 07:42</span>
+    <span>邻居小铁敲门求助：「我妈的过滤器昨晚停了，能不能借你们一台？」</span>
+  </div>
+  <div class="event-desc">
+    你只剩 2 台过滤器。AURA 检测到三种应对方式，每种背后是一个具体任务 ——
+  </div>
+
+  <div class="option-row">
+    <div class="option-letter">A</div>
+    <div class="option-body">
+      <div class="option-reward"><span class="plus">+1</span> 邻居信任 &nbsp;<span class="minus">-1</span> 过滤器</div>
+      <div class="option-type"><span class="tt-pill tt-tool">工具调度</span></div>
+      <div class="option-diff diff-1">★</div>
+    </div>
+  </div>
+  <div class="option-row">
+    <div class="option-letter">B</div>
+    <div class="option-body">
+      <div class="option-reward"><span class="plus">+2</span> 邻居信任 &nbsp;<span class="plus">+0</span> 过滤器</div>
+      <div class="option-type"><span class="tt-pill tt-data">数据分析</span></div>
+      <div class="option-diff diff-2">★★</div>
+    </div>
+  </div>
+  <div class="option-row">
+    <div class="option-letter">C</div>
+    <div class="option-body">
+      <div class="option-reward"><span class="plus">+3</span> 邻居信任 &nbsp;<span class="plus">+1</span> 过滤器</div>
+      <div class="option-type"><span class="tt-pill tt-code">代码修复</span></div>
+      <div class="option-diff diff-3">★★★</div>
+    </div>
+  </div>
+</div>
+
+<h3>每选项三字段的含义</h3>
+<table>
+<thead><tr><th style="width: 22%;">字段</th><th style="width: 26%;">显示什么</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>① 奖励 / 效果</td><td><code>+2 信任  -1 滤芯</code></td><td>游戏机制：完成任务后游戏状态如何变化</td></tr>
+<tr><td>② 任务类型</td><td><span class="tt-pill tt-code">代码修复</span></td><td>本 deck slide 5 的六类型之一</td></tr>
+<tr><td>③ 任务难度</td><td><span class="diff-1">★</span> / <span class="diff-2">★★</span> / <span class="diff-3">★★★</span></td><td>易/中/难，对应前沿模型预期通过率 ≥70% / 30-70% / ≤30%</td></tr>
+</tbody>
+</table>
+
+<div class="callout tip">
+<strong>三选项的设计约束</strong>：
+<ul>
+  <li>三选项的<u>任务类型必须不同</u> — 否则失去类型多样性</li>
+  <li>奖励大致正相关于难度，但允许少量"陷阱"测试策略判断</li>
+  <li>事件库规模建议 ≥ 60 任务 × 5 = 300 事件，避免重复</li>
+</ul>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 8 · 学术创新                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s8" class="slide">
+<div class="slide-num">SLIDE 08 / 12 · ★ 论文卖点</div>
+<h2 class="slide-title">学术创新 · Self-Selection Signal</h2>
+<p class="slide-subtitle">让 agent 自己选任务 — 比单纯"做任务"多出一层可测信号</p>
+
+<div class="callout tip">
+<strong>核心 Insight</strong>：主流 benchmark 都是"<u>给</u>任务 看 agent <u>做</u>"。我们多加了一层 ——<br>
+"<u>给三个选项</u> agent <u>选</u>一个 再做"。Agent 的选择行为本身泄露大量信号。
+</div>
+
+<h3>从选择行为里能测什么</h3>
+<table>
+<thead><tr><th style="width: 25%;">测量维度</th><th>解读</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>自我能力评估</strong><br><em>Self-Knowledge</em></td>
+  <td>Agent 选 ★★★ 难度档位是否和它实际通过率匹配？<br>过度自信 = 总选 ★★★ 但常翻车 · 过度保守 = 总选 ★ 但放弃高奖励<br>对标文献 · Kadavath 2022, Yin 2023</td>
+</tr>
+<tr>
+  <td><strong>风险偏好</strong><br><em>Risk Preference</em></td>
+  <td>资源紧张时选 ★（低风险）还是 ★★★（赌一把）？<br>映射 RLHF 训练里的 risk-aversion 维度，是非平凡人格特征<br>对标 · Anthropic 2024 多角色研究</td>
+</tr>
+<tr>
+  <td><strong>策略一致性</strong><br><em>Long-horizon Consistency</em></td>
+  <td>30 天内选择策略是否一致？<br>还是 Day-15 后突然换策略？这测 long-horizon planning</td>
+</tr>
+<tr>
+  <td><strong>雷达图自相关</strong><br><em>Capability Self-awareness</em></td>
+  <td>Agent 是否倾向选自己<em>雷达图强项</em>对应的类型？<br>前者证明它"知道自己擅长什么"</td>
+</tr>
+</tbody>
+</table>
+
+<h3>论文章节布局 · 实验</h3>
+<div class="card">
+<table style="font-size: 13px;">
+<thead><tr><th style="width: 90px;">§</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>5.1</td><td><strong>Overall</strong> — 6 任务类型 × 主流模型总分表 (Claude 4.x, GPT-5, Gemini 2.x, Qwen, DeepSeek)</td></tr>
+<tr><td>5.2</td><td><strong>Capability Radar</strong> — 10 维能力轴雷达图，模型对比</td></tr>
+<tr><td>5.3</td><td><strong>Reliability</strong> — pass<sup>1</sup> vs pass<sup>5</sup> 对比，暴露稳定性差距</td></tr>
+<tr><td>5.4</td><td><strong>Self-Selection</strong> — 选择难度 vs 实际通过率 calibration 图（对角线 = perfect）</td></tr>
+<tr><td>5.5</td><td><strong>Risk Preference</strong> — 资源紧张 vs 充裕时档位变化</td></tr>
+<tr><td>5.6</td><td><strong>Ablation</strong> — 关掉选项卡 → 退化为常规 benchmark，验证 v3 边际价值</td></tr>
+</tbody>
+</table>
+</div>
+
+<p style="margin-top: 14px;"><strong>投稿目标</strong> · NeurIPS Datasets &amp; Benchmarks Track / ICLR Datasets Track · 备 COLM / ACL Resource Track</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 9 · 评分系统                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s9" class="slide">
+<div class="slide-num">SLIDE 09 / 12</div>
+<h2 class="slide-title">评分系统 · 任务 → 能力轴 → 雷达图</h2>
+<p class="slide-subtitle">硬评分轴 — 每任务的 verifier 输出独立 sub-score</p>
+
+<h3>任务级 schema</h3>
+<pre><code>{
+  "task_id":      "core01_swe_07_django_django_11885",
+  "task_type":    "代码修复",
+  "difficulty":   3,
+  "pass_overall": 1,
+  "sub_scores":   {
+    "reasoning":   0.85,
+    "tool_use":    0.70,
+    "coding":      1.00,
+    "reliability": 0.60
+  },
+  "k_runs": 5
+}</code></pre>
+
+<h3>聚合公式</h3>
+<div class="card">
+<pre style="background: transparent; color: var(--text);"><code><span style="color: var(--text-mute);">// 能力轴分 = 所有挂该轴的任务 sub-score 平均（分层去偏置）</span>
+axis_score(a) = mean over task_type t:
+                  mean { task.sub_scores[a] | task.type==t, a ∈ task.axes }
+
+<span style="color: var(--text-mute);">// 任务类型分 = 该类型 10 任务的能力轴均分</span>
+type_score(t) = mean { task.sub_scores avg | task.type==t }
+
+<span style="color: var(--text-mute);">// 总分 = 10 个能力轴平均（默认等权）</span>
+overall = mean { axis_score(a) | a ∈ all_10_axes }
+
+<span style="color: var(--text-mute);">// Reliability 特殊：k=5 重跑的 pass^k</span>
+reliability(task) = pass_count_in_k_runs / k</code></pre>
+</div>
+
+<h3>评分方式概览</h3>
+<table style="font-size: 13px;">
+<thead><tr><th>能力轴</th><th>评分方式</th><th>是否需 LLM-judge</th></tr></thead>
+<tbody>
+<tr><td>代码 / 推理 / 工具 / 长程</td><td>verifier hidden test</td><td><span class="tag green">否</span> 自动</td></tr>
+<tr><td>翻译</td><td>BLEU / chrF / 术语命中</td><td><span class="tag green">否</span> 自动</td></tr>
+<tr><td>多模态</td><td>OCR 字错率 / 像素差</td><td><span class="tag green">否</span> 自动</td></tr>
+<tr><td>可靠</td><td>pass<sup>5</sup> 统计</td><td><span class="tag green">否</span></td></tr>
+<tr><td>安全</td><td>红线分类器 + 规则</td><td><span class="tag sand">硬规则优先, 边界用 judge</span></td></tr>
+<tr><td>写作 / 沟通</td><td>3-dim LLM-judge + 公开 rubric</td><td><span class="tag red">是</span> 不可避免</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 10 · 进度数字                                                      -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s10" class="slide">
+<div class="slide-num">SLIDE 10 / 12</div>
+<h2 class="slide-title">当前进度 · 数字版</h2>
+<p class="slide-subtitle">截至 2026-05-13 · 60 任务已就绪，命名/评分升级进行中</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-num" style="color:var(--success)">60</div><div class="kpi-label">任务实例就绪</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:var(--success)">571</div><div class="kpi-label">配套文件 (inputs/tests/verifier)</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:var(--accent)">7</div><div class="kpi-label">MCP 工具就绪</div></div>
+  <div class="kpi"><div class="kpi-num" style="color:var(--accent)">28</div><div class="kpi-label">单测通过</div></div>
+</div>
+
+<h3>已完成 · v1 → v2 → v3 三轮迭代</h3>
+<table>
+<thead><tr><th style="width: 80px;">里程碑</th><th>内容</th><th style="width: 80px;">状态</th></tr></thead>
+<tbody>
+<tr><td>v1 MVP</td><td>FastMCP 服务器 + Core-01 任务，端到端测试得分 93/100</td><td><span class="tag green">完成</span></td></tr>
+<tr><td>v1.1</td><td>shell whitelist 扩充 / Bearer token / submit 返回 hidden test 结果</td><td><span class="tag green">完成</span></td></tr>
+<tr><td>v1.2</td><td>Agent 接入指引 skill.md / HTML 实现指南</td><td><span class="tag green">完成</span></td></tr>
+<tr><td>Phase 2</td><td>60 任务全部建好（10/类型）· 6 个验证器 · role-agnostic scoring</td><td><span class="tag green">完成</span></td></tr>
+<tr><td>v3 命名</td><td>本 deck 6 任务类型 + 能力轴矩阵设计</td><td><span class="tag sand">设计稿</span></td></tr>
+<tr><td>v3 评分</td><td>verifier sub_scores schema 升级 · pass<sup>k</sup> 接入</td><td><span class="tag red">待启动</span></td></tr>
+<tr><td>选项卡</td><td>3-选项卡事件库 · 300+ 事件 · Self-Selection 测量</td><td><span class="tag red">待启动</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 11 · 路线图                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s11" class="slide">
+<div class="slide-num">SLIDE 11 / 12</div>
+<h2 class="slide-title">路线图 · 接下来 4 周</h2>
+<p class="slide-subtitle">关键路径 3 周；P3 事件库建设可与 P1/P2 并行</p>
+
+<div class="roadmap">
+<div class="phase">
+  <div class="p-num">P1</div>
+  <div class="p-name">标签升级</div>
+  <div class="p-desc">给 60 任务 task.yaml 加 task_type / axes / difficulty 字段；命名同步</div>
+  <div class="p-time">3 天</div>
+</div>
+<div class="phase">
+  <div class="p-num">P2</div>
+  <div class="p-name">能力轴评分器</div>
+  <div class="p-desc">verifier 升级到 sub_scores schema；写作/沟通接入 LLM-judge + rubric</div>
+  <div class="p-time">1 周</div>
+</div>
+<div class="phase">
+  <div class="p-num">P3</div>
+  <div class="p-name">事件库 · 选项卡</div>
+  <div class="p-desc">建 300+ 红沙事件，每事件 3 选项卡 (奖励/类型/难度)</div>
+  <div class="p-time">1.5 周 (并行)</div>
+</div>
+<div class="phase">
+  <div class="p-num">P4</div>
+  <div class="p-name">难度梯度补全</div>
+  <div class="p-desc">从上游 benchmark 采样 easy 实例，补齐 ★/★★/★★★ 三档</div>
+  <div class="p-time">3 天</div>
+</div>
+<div class="phase">
+  <div class="p-num">P5</div>
+  <div class="p-name">Reliability k-run</div>
+  <div class="p-desc">session_manager 加 k=5 重跑模式；pass<sup>k</sup> 聚合</div>
+  <div class="p-time">3 天</div>
+</div>
+<div class="phase">
+  <div class="p-num">P6</div>
+  <div class="p-name">雷达图报告</div>
+  <div class="p-desc">scoring/aggregate.py · AURA Run Profile (10 轴 + 6 类型 + 总分) · HTML/SVG 报告</div>
+  <div class="p-time">3 天</div>
+</div>
+<div class="phase">
+  <div class="p-num">P7</div>
+  <div class="p-name">校准跑 · 论文撰写</div>
+  <div class="p-desc">Claude 4.6 / GPT-5 / Gemini 2 baseline · 投稿 NeurIPS DB Track</div>
+  <div class="p-time">1 周</div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SLIDE 12 · 结语                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="s12" class="slide">
+<div class="slide-num">SLIDE 12 / 12</div>
+<h2 class="slide-title">结语 · 这套 Benchmark 的三句话</h2>
+
+<div style="padding: 30px 0;">
+<div class="callout tip" style="font-size: 18px; padding: 18px 22px;">
+<strong>① 外观直观</strong> · 任务类型名（代码修复 / 数据分析 / 界面修复 / 工具调度 / 跨语翻译 / 文献解析）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接出现在游戏选项卡按钮上，玩家秒懂 agent 在干什么。
+</div>
+
+<div class="callout" style="font-size: 18px; padding: 18px 22px;">
+<strong>② 内核学术</strong> · 10 维能力轴硬评分 + pass<sup>k</sup> reliability 度量<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接对接 HELM / SWE-bench / τ-bench 同一套评估传统。
+</div>
+
+<div class="callout note" style="font-size: 18px; padding: 18px 22px;">
+<strong>③ 学术创新</strong> · Self-Selection Signal 是 SWE-bench / GAIA / HELM 都<u>没测</u>的<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;让 agent 自己选任务，能多测一项 "自我能力评估 + 风险偏好"。
+</div>
+</div>
+
+<hr class="sun-divider">
+
+<h3>下一步</h3>
+<ul>
+  <li>P1 标签升级（本周）：把 6 任务类型 / 10 能力轴标签写进 60 个 task.yaml</li>
+  <li>P2 评分升级（下两周）：verifier 输出 sub_scores</li>
+  <li>P3 事件库（同步）：300+ 红沙事件 + 3-选项卡机制</li>
+</ul>
+
+<div style="margin-top: 50px; text-align: center; color: var(--text-mute); font-size: 11px;">
+  — END OF DECK · 12 SLIDES · DOC 20 · OpenClaw v3 PPT Summary —<br>
+  Theme: Sunset Boulevard · 样式已内联，单文件可独立转发 · 母版见 <code>theme-sunset-boulevard.css</code>
+</div>
+</section>
+
+</main>
+</body>
+</html>

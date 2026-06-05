@@ -1,0 +1,21 @@
+{
+  "goal": "判断撤离方案是否可行，给出能做、不能做、必须延后的部分。",
+  "available_tools": [
+    "read_messages",
+    "ask_neighbor",
+    "check_character_state",
+    "save_draft",
+    "compute",
+    "write_report"
+  ],
+  "critical_beats_for_replay": [
+    "读消息",
+    "画时间线",
+    "标硬阻塞",
+    "算资源",
+    "写报告"
+  ],
+  "scenario": "不同邻居对撤离路线、物资、门禁和救援队说法不断变化。",
+  "grader": "明确“原计划不可行”；关键风险列全；不乱承诺。",
+  "family": "report"
+}

@@ -1,0 +1,12 @@
+{
+  "app.name": "Workspace Hub",
+  "nav.dashboard": "Dashboard",
+  "nav.settings": "Settings",
+  "action.save": "Save",
+  "action.cancel": "Cancel",
+  "action.delete": "Delete",
+  "msg.success": "Operation completed",
+  "msg.error": "Error: {error}",
+  "status.active": "Active",
+  "label.email": "Email address"
+}
