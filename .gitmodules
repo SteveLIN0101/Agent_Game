@@ -1,3 +1,4 @@
 [submodule "RedDust"]
 	path = RedDust
-	url = https://github.com/peter-cui-yi/RedDust.git
+	url = https://github.com/SteveLIN0101/RedDust.git
+	branch = agent-game-integration
