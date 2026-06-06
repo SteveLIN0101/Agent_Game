@@ -48,10 +48,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D03-T02` | 3 | task_slot | 通风管道预维护 | ventilation | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` | 把医疗风险与通风维护绑定 |
 | `D03-T03` | 3 | task_slot | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | 建立药物优先级、禁忌复核和药箱护理职责 |
 | `D03-T04` | 3 | task_slot | 废弃办公室探索 | residents | `RD-SR-04`, `RD-PF-10` | 寻找口罩、工具和维修日志 |
-| `D04-T03` | 4 | task_slot | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | 识别希望里的诱饵 |
-| `D04-T01` | 4 | task_slot | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | 记录疑似救援但不暴露位置 |
-| `D04-T04` | 4 | task_slot | 配电间工具搜寻 | water | `RD-PF-07`, `RD-SR-04` | 先保证里面不断电 |
-| `D04-T02` | 4 | task_slot | 屋顶天线方案 | beacon | `RD-CS-10`, `RD-PF-04` | 把天线增强设为高风险证据题 |
+| `D04-T03` | 4 | task_slot | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | 识别纸条矛盾点，只提取可用地标，不让希望替代证据 |
+| `D04-T01` | 4 | task_slot | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | 低功率监听疑似蓝区信号，不主动回应，不泄露位置、人数、库存或系统状态 |
+| `D04-T04` | 4 | task_slot | 配电间工具搜寻 | communication | `RD-PF-07`, `RD-SR-04` | 找保险丝、绝缘胶布和旧电路图，先保证里面不断电 |
+| `D04-T02` | 4 | task_slot | 屋顶天线方案 | beacon | `RD-PF-04` | 先整理可信监听白名单，再决定是否冒险增强屋顶天线 |
 | `D05-T03` | 5 | task_slot | 应急包组装 | whiteboard | `RD-PF-10`, `RD-CS-05` | 让路线不是地图而是人能回来 |
 | `D05-T04` | 5 | task_slot | 空桶储水计划 | water | `RD-SR-06`, `RD-PF-02` | 在外出冲动前补足内部余量 |
 | `D05-T01` | 5 | task_slot | 楼道物资搜寻 | security | `RD-PF-09`, `RD-PF-08` | 短探必须能回来 |
@@ -104,10 +104,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D03-T02` | 3 | 通风管道预维护 | ventilation | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` | 成功：`safety+4`, `trust+3`, `morale+2`, `battery-2`, `outside_risk-1`, `ventilation_stability+10`, `storm_readiness+6`；失败：`safety-6`, `trust-6`, `morale-4`, `outside_risk+4`, `ventilation_stability-10`, `xiao_tie_health-6`, `failure_stage+1` | `ventilation_checked` | `engineering_override_protocol` |
 | `D03-T03` | 3 | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | 成功：`medicine+1`, `trust+3`, `morale+1`, `medical_pressure-4`, `autonomy_readiness+4`；失败：`medicine-2`, `trust-5`, `morale-3`, `medical_pressure+8`, `autonomy_readiness-2` | `medicine_classified` | `medicine_tier_board` |
 | `D03-T04` | 3 | 废弃办公室探索 | residents | `RD-SR-04`, `RD-PF-10` | `safety+3`, `trust+2`, `morale+2`, `map_coverage+4`, `storm_readiness+4` | `abandoned_office_checked` | `dust_masks` |
-| `D04-T03` | 4 | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | `safety+3`, `trust+3`, `morale+1`, `map_coverage+4`, `rescue_confidence+1`, `false_signal_risk-3` | `fake_coordinate_archived` | `route_risk_layer` |
-| `D04-T01` | 4 | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | `signal+4`, `rescue_confidence+3`, `trust+3`, `morale+2`, `battery-2`, `outside_risk+1`, `blue_zone_evidence+1` | `blue_zone_signal_logged` | `low_power_listening` |
-| `D04-T04` | 4 | 配电间工具搜寻 | water | `RD-PF-07`, `RD-SR-04` | `safety+3`, `trust+2`, `battery+2`, `morale+1`, `autonomy_readiness+4`, `storm_readiness+3` | `power_tools_found` | `backup_repair_materials` |
-| `D04-T02` | 4 | 屋顶天线方案 | beacon | `RD-CS-10`, `RD-PF-04` | `signal+5`, `rescue_confidence+3`, `trust+2`, `safety-1`, `battery-3`, `outside_risk+2`, `blue_zone_evidence+1` | `antenna_plan_reviewed` | `beacon_upgrade_option` |
+| `D04-T03` | 4 | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | 成功：`safety+3`, `trust+3`, `morale+1`, `map_coverage+4`, `rescue_confidence+1`, `false_signal_risk-3`；失败：`safety-4`, `trust-4`, `morale-2`, `rescue_confidence-3`, `false_signal_risk+6`, `failure_stage+1` | `fake_coordinate_archived` | `route_risk_layer`, `landmark_extraction_protocol` |
+| `D04-T01` | 4 | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | 成功：`signal+4`, `rescue_confidence+3`, `trust+3`, `morale+2`, `battery-2`, `outside_risk+1`, `blue_zone_evidence+1`；失败：`signal-2`, `rescue_confidence-4`, `trust-5`, `safety-4`, `outside_risk+6`, `battery-3`, `false_signal_risk+5`, `privacy_risk+3`, `failure_stage+1` | `blue_zone_signal_logged` | `low_power_listening`, `blue_zone_signal_archive` |
+| `D04-T04` | 4 | 配电间工具搜寻 | communication | `RD-PF-07`, `RD-SR-04` | 成功：`safety+3`, `trust+2`, `battery+2`, `morale+1`, `autonomy_readiness+4`, `storm_readiness+3`；失败：`safety-5`, `trust-5`, `battery-5`, `morale-3`, `autonomy_readiness-2`, `storm_readiness-3`, `maintenance_debt+4`, `failure_stage+1` | `power_tools_found` | `backup_repair_materials`, `old_circuit_diagram` |
+| `D04-T02` | 4 | 屋顶天线方案 | beacon | `RD-PF-04` | 成功：`signal+5`, `rescue_confidence+3`, `trust+2`, `safety-1`, `battery-3`, `outside_risk+2`, `blue_zone_evidence+1`；失败：`signal-3`, `rescue_confidence-3`, `trust-3`, `safety-5`, `battery-5`, `outside_risk+7`, `blue_zone_evidence-1`, `false_signal_risk+3`, `failure_stage+1` | `antenna_plan_reviewed` | `beacon_upgrade_option`, `beacon_channel_whitelist` |
 | `D05-T03` | 5 | 应急包组装 | whiteboard | `RD-PF-10`, `RD-CS-05` | `safety+4`, `morale+2`, `route_confidence+3`, `medicine-1` | `go_bag_ready` | `care_mobility_pack` |
 | `D05-T04` | 5 | 空桶储水计划 | water | `RD-SR-06`, `RD-PF-02` | `water+5`, `trust+2`, `storm_readiness+3`, `battery-1` | `water_storage_plan_ready` | `sealed_water_cache` |
 | `D05-T01` | 5 | 楼道物资搜寻 | security | `RD-PF-09`, `RD-PF-08` | `water+2`, `safety+3`, `map_coverage+5`, `outside_risk-1` | `hallway_supply_checked` | `corridor_supply_notes` |
@@ -162,15 +162,15 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CS-07` | 生活区卫生分区墙报 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
 | `RD-CS-08` | D06-T01 · 权限白板 | `D06-T01` 权限白板 | `tasks/rd_cs_08_aura_toolkit_docsite` |
 | `RD-CS-09` | D10-T01 · 低功率日程 | `D10-T01` 低功率日程 | `tasks/rd_cs_09_repair_plan_slides` |
-| `RD-CS-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播, `D04-T02` 屋顶天线方案 | `tasks/rd_cs_10_multisize_sos_poster` |
-| `RD-CS-11` | D04-T01 · 第一次蓝区信号 | `D04-T01` 第一次蓝区信号 | `tasks/rd_cs_11_rescue_video_zh_dub` |
+| `RD-CS-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_cs_10_multisize_sos_poster` |
+| `RD-CS-11` | 蓝区片段中文转写配音 | `D04-T01` 第一次蓝区信号 | `tasks/rd_cs_11_rescue_video_zh_dub` |
 | `RD-PF-01` | D09-T01 · 深层储藏架加固 | `D09-T01` 深层储藏架加固, `D11-T01` 最终库存封存 | `tasks/rd_pf_01_rescue_bulletin_triage` |
 | `RD-PF-02` | D02-T02 · 净水预滤芯清洗 | `D02-T02` 净水预滤芯清洗, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索, `D09-T02` 水管压力测试 | `tasks/rd_pf_02_water_filter_manual_restore` |
 | `RD-PF-03` | 药箱清单与分级复核 | `D01-T02` 紧急资源清点, `D03-T01` 小铁复诊, `D03-T03` 药箱分级, `D10-T02` 医疗预检, `D11-T01` 最终库存封存 | `tasks/rd_pf_03_medicine_box_inventory` |
-| `RD-PF-04` | D04-T02 · 屋顶天线方案 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
+| `RD-PF-04` | 屋顶天线监听白名单 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
 | `RD-PF-05` | D07-T02 · 撤离名单 | `D07-T02` 撤离名单 | `tasks/rd_pf_05_resident_relationship_archive` |
 | `RD-PF-06` | 配给与值守试运行表 | `D02-T01` 配给与值守试运行, `D10-T01` 低功率日程 | `tasks/rd_pf_06_shelter_shift_schedule` |
-| `RD-PF-07` | D03-T02 · 通风管道预维护 | `D03-T02` 通风管道预维护, `D04-T04` 配电间工具搜寻, `D07-T04` 风暴前的最后维护 | `tasks/rd_pf_07_generator_repair_ranking` |
+| `RD-PF-07` | 配电与通风抢修负责人 | `D03-T02` 通风管道预维护, `D04-T04` 配电间工具搜寻, `D07-T04` 风暴前的最后维护 | `tasks/rd_pf_07_generator_repair_ranking` |
 | `RD-PF-08` | D01-T04 · 近门杂物搜寻 | `D01-T04` 近门杂物搜寻, `D05-T01` 楼道物资搜寻 | `tasks/rd_pf_08_ruins_photo_classify` |
 | `RD-PF-09` | D02-T04 · 同层楼道短探 | `D02-T04` 同层楼道短探, `D05-T01` 楼道物资搜寻 | `tasks/rd_pf_09_fifty_room_survey` |
 | `RD-PF-10` | D03-T04 · 废弃办公室探索 | `D03-T04` 废弃办公室探索, `D05-T03` 应急包组装, `D09-T01` 深层储藏架加固 | `tasks/rd_pf_10_emergency_doc_pack` |
@@ -190,10 +190,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SI-04` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_04_defense_status_contradiction` |
 | `RD-SI-05` | D06-T03 · 巡逻规则 | `D06-T03` 巡逻规则, `D11-T03` 安静时段协议 | `tasks/rd_si_05_crisis_escalation_routing` |
 | `RD-SI-06` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_06_building_status_report` |
-| `RD-SR-01` | D04-T01 · 第一次蓝区信号 | `D04-T01` 第一次蓝区信号, `D08-T03` 静默监听 | `tasks/rd_sr_01_survivor_connection_chain` |
+| `RD-SR-01` | 蓝区信号人脉核验链 | `D04-T01` 第一次蓝区信号, `D08-T03` 静默监听 | `tasks/rd_sr_01_survivor_connection_chain` |
 | `RD-SR-02` | D07-T03 · 旧电台重启 | `D07-T03` 旧电台重启, `D08-T03` 静默监听 | `tasks/rd_sr_02_oldrules_vs_broadcast` |
-| `RD-SR-03` | D04-T01 · 第一次蓝区信号 | `D04-T01` 第一次蓝区信号, `D07-T03` 旧电台重启, `D09-T04` 蓝区二次核验 | `tasks/rd_sr_03_lifesaving_comms_device` |
-| `RD-SR-04` | D03-T04 · 废弃办公室探索 | `D03-T04` 废弃办公室探索, `D04-T04` 配电间工具搜寻 | `tasks/rd_sr_04_repair_patch_4searches` |
+| `RD-SR-03` | 低功率监听设备选择 | `D04-T01` 第一次蓝区信号, `D07-T03` 旧电台重启, `D09-T04` 蓝区二次核验 | `tasks/rd_sr_03_lifesaving_comms_device` |
+| `RD-SR-04` | 配电间维修补丁证据链 | `D03-T04` 废弃办公室探索, `D04-T04` 配电间工具搜寻 | `tasks/rd_sr_04_repair_patch_4searches` |
 | `RD-SR-05` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_05_redsand_vision_paper_search` |
 | `RD-SR-06` | D01-T02 · 紧急资源清点 | `D01-T02` 紧急资源清点, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索 | `tasks/rd_sr_06_supply_threshold_calc` |
 | `RD-SR-07` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_07_photo_geolocate_dropzone` |

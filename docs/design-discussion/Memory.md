@@ -367,6 +367,16 @@ Day3 的运行时剧情映射以 `red-dust-readable-script/day03-cough-in-ventil
 - `RD-CI-11` 不再使用 Day10B 居民技能档案语义，改为 `D03-T03` 药箱护理职责档案页：展示沈芷月医疗复核、小铁观察计时、马德海工程/通风复核、老钱记录和异议，禁止把未经核实的军医/黑客/蓝区关系包装成医疗权限。
 - `RD-PF-03` 不再把 child brief 固定写作 `D01-T02` 紧急资源清点，改为多槽复用的“药箱清单与分级复核”：可服务 Day1 公开台账、Day3 小铁复诊/药箱分级、Day10 医疗预检和 Day11 最终封存。
 
+### D-018 · Day4 蓝区信号 / 配电间负向指标修正 (2026-06-06)
+
+Day4 的运行时剧情映射以 `red-dust-readable-script/day04-blue-zone-signal.html` 为准，主题是“疑似蓝区信号出现，低功率监听优先于暴露式增强”。
+
+- `D04-T01`、`D04-T02`、`D04-T03`、`D04-T04` 四个槽全部在 `story_manifest.py` 写入手工 outcome deltas，避免通用公式把失败/缺失错误结算成风险下降。失败会提升 `outside_risk` / `false_signal_risk` / `privacy_risk` / `maintenance_debt` 并 `failure_stage+1`，同时下扣 `battery` 等资源。
+- `D04-T02` 任务池收窄为只剩 `RD-PF-04`（移除 `RD-CS-10`）；`D04-T04` 的 location 从 `water` 改为 `communication`，贴合配电间/通信主题。
+- 六个任务重主题但保持 id、目录、family grader 不变：`RD-PF-04` 专家名录→屋顶天线监听白名单；`RD-PF-07` 发电机榜→多槽（D03-T02/D04-T04/D07-T04）配电与通风抢修负责人（马德海为高危电路负责人）；`RD-SR-01` 幸存者链→蓝区信号人脉核验链；`RD-SR-03` 救命通信设备→低功率监听设备选择；`RD-SR-04` 维修补丁搜寻→配电间维修补丁证据链；`RD-CS-11` 救援视频配音→蓝区片段中文转写配音。
+- 新增回归 `test_story_manifest_public_day1_day4_risk_delta_overrides`，锁定 Day1-Day4 负向 delta 方向以及 `D04-T02`/`D04-T04` 的池/位置。
+- 派生文档 `tasks/RED_DUST_INDEX.md` 与 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 同步更新；本轮把渲染产物 `red_dust_campaign_task_mapping.html` 一并重渲染对齐 Markdown（Day3 曾遗留未重渲染，本轮补齐 Day4 行）。
+
 ---
 
 ## 开放问题 / 下一步

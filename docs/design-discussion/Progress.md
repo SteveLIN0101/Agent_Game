@@ -457,4 +457,22 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-06 · Day4 后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day04-blue-zone-signal.html` 修正 Day4 主题：疑似蓝区信号、低功率监听、配电间工具搜寻
+- [x] `D04-T01`/`D04-T02`/`D04-T03`/`D04-T04`：`story_manifest.py` 全部写入手写 outcome deltas，失败/缺失提升 `outside_risk` / `false_signal_risk` / `privacy_risk` / `maintenance_debt` 并 `failure_stage+1`
+- [x] `D04-T02` 任务池移除 `RD-CS-10` 只保留 `RD-PF-04`；`D04-T04` location `water` → `communication`
+- [x] 六个任务重主题（id/目录/grader 不变）：`RD-PF-04` 屋顶天线监听白名单、`RD-PF-07` 多槽配电与通风抢修负责人、`RD-SR-01` 蓝区信号人脉核验链、`RD-SR-03` 低功率监听设备选择、`RD-SR-04` 配电间维修补丁证据链、`RD-CS-11` 蓝区片段中文转写配音
+- [x] 更新 `tasks/RED_DUST_INDEX.md`、`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md`，并把渲染产物 `red_dust_campaign_task_mapping.html` 重渲染对齐 Markdown（补齐 Day4 行）
+
+### 验证
+- [x] 新增回归 `test_story_manifest_public_day1_day4_risk_delta_overrides` 锁定 Day1-Day4 负向 delta 与 D04-T02/T04 池/位置
+- [x] `tests/test_reddust_campaign.py tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：126 passed
+
+### 提交
+- [x] 分三次提交：`Align Red Dust Day4 campaign slots with canon`（manifest+test）、`Retheme Red Dust Day4 benchmark tasks`（6 个任务目录）、`Document Red Dust Day4 campaign mapping`（INDEX/mapping.md/mapping.html/Memory/Progress）
+
+---
+
 ## 讨论历史

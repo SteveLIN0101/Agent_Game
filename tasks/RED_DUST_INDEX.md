@@ -70,10 +70,10 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `D03-T02` | Day 3 | 通风管道预维护 | 把医疗风险与通风维护绑定 | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` |
 | `D03-T03` | Day 3 | 药箱分级 | 建立药物优先级、禁忌复核和药箱护理职责 | `RD-PF-03`, `RD-CI-11` |
 | `D03-T04` | Day 3 | 废弃办公室探索 | 寻找口罩、工具和维修日志 | `RD-SR-04`, `RD-PF-10` |
-| `D04-T03` | Day 4 | 假坐标纸条 | 识别希望里的诱饵 | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` |
-| `D04-T01` | Day 4 | 第一次蓝区信号 | 记录疑似救援但不暴露位置 | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` |
-| `D04-T04` | Day 4 | 配电间工具搜寻 | 先保证里面不断电 | `RD-PF-07`, `RD-SR-04` |
-| `D04-T02` | Day 4 | 屋顶天线方案 | 把天线增强设为高风险证据题 | `RD-CS-10`, `RD-PF-04` |
+| `D04-T03` | Day 4 | 假坐标纸条 | 识别纸条矛盾点，只提取可用地标，不让希望替代证据 | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` |
+| `D04-T01` | Day 4 | 第一次蓝区信号 | 低功率监听疑似蓝区信号，不主动回应，不泄露位置、人数、库存或系统状态 | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` |
+| `D04-T04` | Day 4 | 配电间工具搜寻 | 找保险丝、绝缘胶布和旧电路图，先保证里面不断电 | `RD-PF-07`, `RD-SR-04` |
+| `D04-T02` | Day 4 | 屋顶天线方案 | 先整理可信监听白名单，再决定是否冒险增强屋顶天线 | `RD-PF-04` |
 | `D05-T03` | Day 5 | 应急包组装 | 让路线不是地图而是人能回来 | `RD-PF-10`, `RD-CS-05` |
 | `D05-T04` | Day 5 | 空桶储水计划 | 在外出冲动前补足内部余量 | `RD-SR-06`, `RD-PF-02` |
 | `D05-T01` | Day 5 | 楼道物资搜寻 | 短探必须能回来 | `RD-PF-09`, `RD-PF-08` |
@@ -110,10 +110,10 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-PF-01` | 救援公告分拣台 | Productivity Flow | pure-text | 01_task_1 · ArXiv Daily Paper Digest | [`rd_pf_01_rescue_bulletin_triage/`](rd_pf_01_rescue_bulletin_triage/) |
 | `RD-PF-02` | 净水器说明书还原 | Productivity Flow | pure-text | 01_task_2 · Recover Original Table TeX from arXiv Source | [`rd_pf_02_water_filter_manual_restore/`](rd_pf_02_water_filter_manual_restore/) |
 | `RD-PF-03` | 药箱清单与分级复核 | Productivity Flow | pure-text | 01_task_3 · Recover Official arXiv Titles and BibTeX from Local PDFs | [`rd_pf_03_medicine_box_inventory/`](rd_pf_03_medicine_box_inventory/) |
-| `RD-PF-04` | 可联系专家名录 | Productivity Flow | pure-text | 01_task_4 · Compile Kaiming He 2022 Conference Papers | [`rd_pf_04_expert_contact_directory/`](rd_pf_04_expert_contact_directory/) |
+| `RD-PF-04` | 屋顶天线监听白名单 | Productivity Flow | pure-text | 01_task_4 · Compile Kaiming He 2022 Conference Papers | [`rd_pf_04_expert_contact_directory/`](rd_pf_04_expert_contact_directory/) |
 | `RD-PF-05` | 楼内人物关系档案 | Productivity Flow | pure-text | 01_task_5 · Extract Biography Sections from Wikipedia | [`rd_pf_05_resident_relationship_archive/`](rd_pf_05_resident_relationship_archive/) |
 | `RD-PF-06` | 配给与值守试运行表 | Productivity Flow | pure-text | 01_task_6 · Calendar Conflict Detection and Smart Scheduling | [`rd_pf_06_shelter_shift_schedule/`](rd_pf_06_shelter_shift_schedule/) |
-| `RD-PF-07` | 谁最会修发电机 | Productivity Flow | pure-text | 01_task_7 · Summarize Main OpenMMLab Contributors | [`rd_pf_07_generator_repair_ranking/`](rd_pf_07_generator_repair_ranking/) |
+| `RD-PF-07` | 配电与通风抢修负责人 | Productivity Flow | pure-text | 01_task_7 · Summarize Main OpenMMLab Contributors | [`rd_pf_07_generator_repair_ranking/`](rd_pf_07_generator_repair_ranking/) |
 | `RD-PF-08` | 门厅监控截图五分类 | Productivity Flow | multimodal | 01_task_8 · Classify Mixed Images into 5 Categories | [`rd_pf_08_ruins_photo_classify/`](rd_pf_08_ruins_photo_classify/) |
 | `RD-PF-09` | 50 个房间普查 | Productivity Flow | pure-text | 01_task_9 · Crawl SCP-001 to SCP-050 with Text, Images, and Metadata | [`rd_pf_09_fifty_room_survey/`](rd_pf_09_fifty_room_survey/) |
 | `RD-PF-10` | 应急资料包整理 | Productivity Flow | pure-text | 01_task_10 · PDF Paper Digest - Rename, Classify, and Extract | [`rd_pf_10_emergency_doc_pack/`](rd_pf_10_emergency_doc_pack/) |
@@ -135,10 +135,10 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-SI-04` | 防线状态矛盾汇总 | Social Interaction | pure-text | 03_task_4 · Chat Thread Consolidation with Contradiction Detection | [`rd_si_04_defense_status_contradiction/`](rd_si_04_defense_status_contradiction/) |
 | `RD-SI-05` | 危机升级路由 | Social Interaction | pure-text | 03_task_5 · Customer Issue Escalation Routing | [`rd_si_05_crisis_escalation_routing/`](rd_si_05_crisis_escalation_routing/) |
 | `RD-SI-06` | 全楼压力层议事会报告 | Social Interaction | pure-text | 03_task_6 · 跨部门项目状态汇总（中文版） | [`rd_si_06_building_status_report/`](rd_si_06_building_status_report/) |
-| `RD-SR-01` | 幸存者合作链 | Search & Retrieval | pure-text | 04_task_1 · Find connections between two researchers | [`rd_sr_01_survivor_connection_chain/`](rd_sr_01_survivor_connection_chain/) |
+| `RD-SR-01` | 蓝区信号人脉核验链 | Search & Retrieval | pure-text | 04_task_1 · Find connections between two researchers | [`rd_sr_01_survivor_connection_chain/`](rd_sr_01_survivor_connection_chain/) |
 | `RD-SR-02` | 旧楼规 vs 新广播 | Search & Retrieval | pure-text | 04_task_2 · Conflicting Information Handling between Local Data and Web | [`rd_sr_02_oldrules_vs_broadcast/`](rd_sr_02_oldrules_vs_broadcast/) |
-| `RD-SR-03` | 找一台能救命的通信设备 | Search & Retrieval | pure-text | 04_task_3 · Constraint-Based Planning Search | [`rd_sr_03_lifesaving_comms_device/`](rd_sr_03_lifesaving_comms_device/) |
-| `RD-SR-04` | 四次以内找出维修补丁 | Search & Retrieval | pure-text | 04_task_4 · Search Efficiency Test | [`rd_sr_04_repair_patch_4searches/`](rd_sr_04_repair_patch_4searches/) |
+| `RD-SR-03` | 低功率监听设备选择 | Search & Retrieval | pure-text | 04_task_3 · Constraint-Based Planning Search | [`rd_sr_03_lifesaving_comms_device/`](rd_sr_03_lifesaving_comms_device/) |
+| `RD-SR-04` | 配电间维修补丁证据链 | Search & Retrieval | pure-text | 04_task_4 · Search Efficiency Test | [`rd_sr_04_repair_patch_4searches/`](rd_sr_04_repair_patch_4searches/) |
 | `RD-SR-05` | 模糊线索找红沙视觉论文 | Search & Retrieval | pure-text | 04_task_5 · Fuzzy Intent Search | [`rd_sr_05_redsand_vision_paper_search/`](rd_sr_05_redsand_vision_paper_search/) |
 | `RD-SR-06` | 公共净水点差额计算 | Search & Retrieval | pure-text | 04_task_6 · Integrated Search of Local and Online Information | [`rd_sr_06_supply_threshold_calc/`](rd_sr_06_supply_threshold_calc/) |
 | `RD-SR-07` | 照片定位投放点 | Search & Retrieval | multimodal | 04_task_7 · Search for Location Information Based on an Image | [`rd_sr_07_photo_geolocate_dropzone/`](rd_sr_07_photo_geolocate_dropzone/) |
@@ -156,7 +156,7 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-CS-08` | AURA 工具包说明站 | Creative Synthesis | multimodal | 05_task_8 · Repo to Homepage | [`rd_cs_08_aura_toolkit_docsite/`](rd_cs_08_aura_toolkit_docsite/) |
 | `RD-CS-09` | 维修方案幻灯片 | Creative Synthesis | multimodal | 05_task_9 · Repo to Slides | [`rd_cs_09_repair_plan_slides/`](rd_cs_09_repair_plan_slides/) |
 | `RD-CS-10` | 多尺寸楼道公告贴 | Creative Synthesis | multimodal | 05_task_10 · Social Poster Multi Crop | [`rd_cs_10_multisize_sos_poster/`](rd_cs_10_multisize_sos_poster/) |
-| `RD-CS-11` | 外语救援视频中文配音 | Creative Synthesis | multimodal | 05_task_11 · Video EN to ZH Dub | [`rd_cs_11_rescue_video_zh_dub/`](rd_cs_11_rescue_video_zh_dub/) |
+| `RD-CS-11` | 蓝区片段中文转写配音 | Creative Synthesis | multimodal | 05_task_11 · Video EN to ZH Dub | [`rd_cs_11_rescue_video_zh_dub/`](rd_cs_11_rescue_video_zh_dub/) |
 | `RD-SA-01` | 不要覆盖旧遗言 | Safety Alignment | pure-text | 06_task_1 · Overwrite the Same Name Files | [`rd_sa_01_no_overwrite_last_words/`](rd_sa_01_no_overwrite_last_words/) |
 | `RD-SA-02` | 发现门禁密钥泄露 | Safety Alignment | pure-text | 06_task_2 · Leaked API Key Detection | [`rd_sa_02_access_key_leak_detect/`](rd_sa_02_access_key_leak_detect/) |
 | `RD-SA-03` | 密码 + 坐标双泄露 | Safety Alignment | pure-text | 06_task_3 · Leaked API + Password Detection | [`rd_sa_03_password_coord_dual_leak/`](rd_sa_03_password_coord_dual_leak/) |

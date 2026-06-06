@@ -194,7 +194,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>假坐标纸条</td>
 <td>whiteboard</td>
 <td><code>RD-SR-07</code>, <code>RD-SR-09</code>, <code>RD-CI-04</code>, <code>RD-SA-06</code></td>
-<td>识别希望里的诱饵</td>
+<td>识别纸条矛盾点，只提取可用地标，不让希望替代证据</td>
 </tr>
 <tr>
 <td><code>D04-T01</code></td>
@@ -203,16 +203,16 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>第一次蓝区信号</td>
 <td>communication</td>
 <td><code>RD-SR-03</code>, <code>RD-SR-01</code>, <code>RD-CS-11</code></td>
-<td>记录疑似救援但不暴露位置</td>
+<td>低功率监听疑似蓝区信号，不主动回应，不泄露位置、人数、库存或系统状态</td>
 </tr>
 <tr>
 <td><code>D04-T04</code></td>
 <td style="text-align:right">4</td>
 <td>task_slot</td>
 <td>配电间工具搜寻</td>
-<td>water</td>
+<td>communication</td>
 <td><code>RD-PF-07</code>, <code>RD-SR-04</code></td>
-<td>先保证里面不断电</td>
+<td>找保险丝、绝缘胶布和旧电路图，先保证里面不断电</td>
 </tr>
 <tr>
 <td><code>D04-T02</code></td>
@@ -220,8 +220,8 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>task_slot</td>
 <td>屋顶天线方案</td>
 <td>beacon</td>
-<td><code>RD-CS-10</code>, <code>RD-PF-04</code></td>
-<td>把天线增强设为高风险证据题</td>
+<td><code>RD-PF-04</code></td>
+<td>先整理可信监听白名单，再决定是否冒险增强屋顶天线</td>
 </tr>
 <tr>
 <td><code>D05-T03</code></td>
@@ -681,9 +681,9 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>假坐标纸条</td>
 <td>whiteboard</td>
 <td><code>RD-SR-07</code>, <code>RD-SR-09</code>, <code>RD-CI-04</code>, <code>RD-SA-06</code></td>
-<td><code>safety+3</code>, <code>trust+3</code>, <code>morale+1</code>, <code>map_coverage+4</code>, <code>rescue_confidence+1</code>, <code>false_signal_risk-3</code></td>
+<td>成功：<code>safety+3</code>, <code>trust+3</code>, <code>morale+1</code>, <code>map_coverage+4</code>, <code>rescue_confidence+1</code>, <code>false_signal_risk-3</code>；失败：<code>safety-4</code>, <code>trust-4</code>, <code>morale-2</code>, <code>rescue_confidence-3</code>, <code>false_signal_risk+6</code>, <code>failure_stage+1</code></td>
 <td><code>fake_coordinate_archived</code></td>
-<td><code>route_risk_layer</code></td>
+<td><code>route_risk_layer</code>, <code>landmark_extraction_protocol</code></td>
 </tr>
 <tr>
 <td><code>D04-T01</code></td>
@@ -691,29 +691,29 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>第一次蓝区信号</td>
 <td>communication</td>
 <td><code>RD-SR-03</code>, <code>RD-SR-01</code>, <code>RD-CS-11</code></td>
-<td><code>signal+4</code>, <code>rescue_confidence+3</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk+1</code>, <code>blue_zone_evidence+1</code></td>
+<td>成功：<code>signal+4</code>, <code>rescue_confidence+3</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk+1</code>, <code>blue_zone_evidence+1</code>；失败：<code>signal-2</code>, <code>rescue_confidence-4</code>, <code>trust-5</code>, <code>safety-4</code>, <code>outside_risk+6</code>, <code>battery-3</code>, <code>false_signal_risk+5</code>, <code>privacy_risk+3</code>, <code>failure_stage+1</code></td>
 <td><code>blue_zone_signal_logged</code></td>
-<td><code>low_power_listening</code></td>
+<td><code>low_power_listening</code>, <code>blue_zone_signal_archive</code></td>
 </tr>
 <tr>
 <td><code>D04-T04</code></td>
 <td style="text-align:right">4</td>
 <td>配电间工具搜寻</td>
-<td>water</td>
+<td>communication</td>
 <td><code>RD-PF-07</code>, <code>RD-SR-04</code></td>
-<td><code>safety+3</code>, <code>trust+2</code>, <code>battery+2</code>, <code>morale+1</code>, <code>autonomy_readiness+4</code>, <code>storm_readiness+3</code></td>
+<td>成功：<code>safety+3</code>, <code>trust+2</code>, <code>battery+2</code>, <code>morale+1</code>, <code>autonomy_readiness+4</code>, <code>storm_readiness+3</code>；失败：<code>safety-5</code>, <code>trust-5</code>, <code>battery-5</code>, <code>morale-3</code>, <code>autonomy_readiness-2</code>, <code>storm_readiness-3</code>, <code>maintenance_debt+4</code>, <code>failure_stage+1</code></td>
 <td><code>power_tools_found</code></td>
-<td><code>backup_repair_materials</code></td>
+<td><code>backup_repair_materials</code>, <code>old_circuit_diagram</code></td>
 </tr>
 <tr>
 <td><code>D04-T02</code></td>
 <td style="text-align:right">4</td>
 <td>屋顶天线方案</td>
 <td>beacon</td>
-<td><code>RD-CS-10</code>, <code>RD-PF-04</code></td>
-<td><code>signal+5</code>, <code>rescue_confidence+3</code>, <code>trust+2</code>, <code>safety-1</code>, <code>battery-3</code>, <code>outside_risk+2</code>, <code>blue_zone_evidence+1</code></td>
+<td><code>RD-PF-04</code></td>
+<td>成功：<code>signal+5</code>, <code>rescue_confidence+3</code>, <code>trust+2</code>, <code>safety-1</code>, <code>battery-3</code>, <code>outside_risk+2</code>, <code>blue_zone_evidence+1</code>；失败：<code>signal-3</code>, <code>rescue_confidence-3</code>, <code>trust-3</code>, <code>safety-5</code>, <code>battery-5</code>, <code>outside_risk+7</code>, <code>blue_zone_evidence-1</code>, <code>false_signal_risk+3</code>, <code>failure_stage+1</code></td>
 <td><code>antenna_plan_reviewed</code></td>
-<td><code>beacon_upgrade_option</code></td>
+<td><code>beacon_upgrade_option</code>, <code>beacon_channel_whitelist</code></td>
 </tr>
 <tr>
 <td><code>D05-T03</code></td>
@@ -1137,12 +1137,12 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <tr>
 <td><code>RD-CS-10</code></td>
 <td>D01-T01 · 第一次广播</td>
-<td><code>D01-T01</code> 第一次广播, <code>D04-T02</code> 屋顶天线方案</td>
+<td><code>D01-T01</code> 第一次广播</td>
 <td><code>tasks/rd_cs_10_multisize_sos_poster</code></td>
 </tr>
 <tr>
 <td><code>RD-CS-11</code></td>
-<td>D04-T01 · 第一次蓝区信号</td>
+<td>蓝区片段中文转写配音</td>
 <td><code>D04-T01</code> 第一次蓝区信号</td>
 <td><code>tasks/rd_cs_11_rescue_video_zh_dub</code></td>
 </tr>
@@ -1166,7 +1166,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-PF-04</code></td>
-<td>D04-T02 · 屋顶天线方案</td>
+<td>屋顶天线监听白名单</td>
 <td><code>D04-T02</code> 屋顶天线方案, <code>D11-T04</code> 最后密封胶补缝</td>
 <td><code>tasks/rd_pf_04_expert_contact_directory</code></td>
 </tr>
@@ -1184,7 +1184,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-PF-07</code></td>
-<td>D03-T02 · 通风管道预维护</td>
+<td>配电与通风抢修负责人</td>
 <td><code>D03-T02</code> 通风管道预维护, <code>D04-T04</code> 配电间工具搜寻, <code>D07-T04</code> 风暴前的最后维护</td>
 <td><code>tasks/rd_pf_07_generator_repair_ranking</code></td>
 </tr>
@@ -1304,7 +1304,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-SR-01</code></td>
-<td>D04-T01 · 第一次蓝区信号</td>
+<td>蓝区信号人脉核验链</td>
 <td><code>D04-T01</code> 第一次蓝区信号, <code>D08-T03</code> 静默监听</td>
 <td><code>tasks/rd_sr_01_survivor_connection_chain</code></td>
 </tr>
@@ -1316,13 +1316,13 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-SR-03</code></td>
-<td>D04-T01 · 第一次蓝区信号</td>
+<td>低功率监听设备选择</td>
 <td><code>D04-T01</code> 第一次蓝区信号, <code>D07-T03</code> 旧电台重启, <code>D09-T04</code> 蓝区二次核验</td>
 <td><code>tasks/rd_sr_03_lifesaving_comms_device</code></td>
 </tr>
 <tr>
 <td><code>RD-SR-04</code></td>
-<td>D03-T04 · 废弃办公室探索</td>
+<td>配电间维修补丁证据链</td>
 <td><code>D03-T04</code> 废弃办公室探索, <code>D04-T04</code> 配电间工具搜寻</td>
 <td><code>tasks/rd_sr_04_repair_patch_4searches</code></td>
 </tr>
