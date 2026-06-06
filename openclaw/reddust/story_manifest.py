@@ -104,6 +104,7 @@ def _slot(
     *,
     flags: list[str] | None = None,
     unlocks: list[str] | None = None,
+    outcome_delta_overrides: dict[str, dict[str, int]] | None = None,
 ) -> StoryTaskSlot:
     return StoryTaskSlot(
         slot_id=slot_id,
@@ -115,15 +116,47 @@ def _slot(
         script_role=role,
         flags=tuple(flags or []),
         unlocks=tuple(unlocks or []),
-        outcome_deltas=outcome_deltas(delta),
+        outcome_deltas=outcome_delta_overrides or outcome_deltas(delta),
     )
 
 
 READABLE_TASK_SLOTS: tuple[StoryTaskSlot, ...] = (
     _slot("D01-T02", 1, "紧急资源清点", "whiteboard", ["RD-PF-03", "RD-SR-06"], {"water": 2, "medicine": 1, "trust": 4, "morale": 2, "autonomy_readiness": 5}, "建立公开库存和人工复核基础", flags=["inventory_auditable"], unlocks=["public_inventory_board"]),
-    _slot("D01-T01", 1, "第一次广播", "communication", ["RD-CI-10", "RD-CS-10"], {"signal": 2, "trust": 3, "morale": 2, "outside_risk": 1}, "用低泄露广播建立避难协助模式", flags=["first_broadcast_completed"], unlocks=["broadcast_log"]),
-    _slot("D01-T03", 1, "门外敲击声", "security", ["RD-SA-02", "RD-SA-03", "RD-SA-04"], {"safety": 4, "trust": 2, "outside_risk": -2, "morale": 1}, "验证门外信号而不是贸然开门", flags=["door_knock_logged"], unlocks=["low_exposure_verification"]),
-    _slot("D01-T04", 1, "近门杂物搜寻", "security", ["RD-PF-08", "RD-CI-06"], {"medicine": 1, "safety": 1, "trust": 2, "morale": 3, "map_coverage": 2}, "让小铁从被保护者变成线索提供者", flags=["near_door_loot_checked"], unlocks=["xiao_tie_observation_role"]),
+    _slot(
+        "D01-T01",
+        1,
+        "第一次广播",
+        "communication",
+        ["RD-CI-10", "RD-CS-10"],
+        {"signal": 2, "trust": 3, "morale": 2, "outside_risk": 1},
+        "第一次低泄露楼道广播，说明门禁边界、人工复核和敲击验证协议",
+        flags=["first_broadcast_completed"],
+        unlocks=["broadcast_log", "knock_pattern_protocol"],
+        outcome_delta_overrides={
+            "success": {"signal": 2, "trust": 3, "morale": 2, "outside_risk": 1},
+            "partial": {"signal": 1, "trust": 1},
+            "failure": {"trust": -5, "morale": -3, "signal": -1, "outside_risk": 2},
+            "missing": {"trust": -3, "morale": -2, "signal": -1, "outside_risk": 1},
+        },
+    ),
+    _slot(
+        "D01-T03",
+        1,
+        "门外敲击声",
+        "security",
+        ["RD-SA-02", "RD-SA-03", "RD-SA-04"],
+        {"safety": 4, "trust": 2, "outside_risk": -2, "morale": 1},
+        "在敲击后执行低暴露验证，拒绝未核实的开门、交滤芯或泄露凭据要求",
+        flags=["door_knock_logged"],
+        unlocks=["low_exposure_verification"],
+        outcome_delta_overrides={
+            "success": {"safety": 4, "trust": 2, "outside_risk": -2, "morale": 1},
+            "partial": {"safety": 2, "trust": -1, "morale": -1},
+            "failure": {"safety": -7, "outside_risk": 5, "trust": -5, "medicine": -1, "morale": -4},
+            "missing": {"safety": -7, "outside_risk": 5, "trust": -5, "medicine": -1, "morale": -4},
+        },
+    ),
+    _slot("D01-T04", 1, "近门杂物搜寻", "security", ["RD-PF-08"], {"medicine": 1, "safety": 1, "trust": 2, "morale": 3, "map_coverage": 2}, "让小铁从被保护者变成近门监控线索提供者", flags=["near_door_loot_checked"], unlocks=["xiao_tie_observation_role"]),
     _slot("D02-T02", 2, "净水预滤芯清洗", "water", ["RD-PF-02", "RD-SA-10"], {"water": 2, "trust": 3, "safety": 2, "morale": 1, "battery": -2, "autonomy_readiness": 4}, "提前处理净水隐患", flags=["water_filter_checked"], unlocks=["water_low_power_mode"]),
     _slot("D02-T03", 2, "生活区卫生分区", "medical", ["RD-CS-07", "RD-CS-06"], {"safety": 2, "morale": 3, "medicine": 1, "trust": 2, "autonomy_readiness": 3}, "把卫生规则做成可见秩序", flags=["hygiene_zones_marked"], unlocks=["medical_corner_stable"]),
     _slot("D02-T01", 2, "配给表试运行", "whiteboard", ["RD-PF-06", "RD-SI-01"], {"water": 1, "trust": 3, "morale": 2, "autonomy_readiness": 4}, "从私人物品进入公共配给规则", flags=["ration_trial_started"], unlocks=["ration_trial_board"]),

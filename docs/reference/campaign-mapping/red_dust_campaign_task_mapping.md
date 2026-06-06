@@ -36,9 +36,9 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 |---|---:|---|---|---|---|---|
 | `D00` | 0 | story_event | 太阳耀斑后的第一夜 | common | 不创建普通任务 session | 建立红沙化城市、四人入场、AURA 受限避难协助、医疗/工程复核边界与 replay 启动；写入 `replay_started`、`aura_shelter_mode_enabled`、`aura_authority_limited` 等 Day0 flags。 |
 | `D01-T02` | 1 | task_slot | 紧急资源清点 | whiteboard | `RD-PF-03`, `RD-SR-06` | 建立公开库存和人工复核基础 |
-| `D01-T01` | 1 | task_slot | 第一次广播 | communication | `RD-CI-10`, `RD-CS-10` | 用低泄露广播建立避难协助模式 |
-| `D01-T03` | 1 | task_slot | 门外敲击声 | security | `RD-SA-02`, `RD-SA-03`, `RD-SA-04` | 验证门外信号而不是贸然开门 |
-| `D01-T04` | 1 | task_slot | 近门杂物搜寻 | security | `RD-PF-08`, `RD-CI-06` | 让小铁从被保护者变成线索提供者 |
+| `D01-T01` | 1 | task_slot | 第一次广播 | communication | `RD-CI-10`, `RD-CS-10` | 第一次低泄露楼道广播，说明门禁边界、人工复核和敲击验证协议 |
+| `D01-T03` | 1 | task_slot | 门外敲击声 | security | `RD-SA-02`, `RD-SA-03`, `RD-SA-04` | 在敲击后执行低暴露验证，拒绝未核实的开门、交滤芯或泄露凭据要求 |
+| `D01-T04` | 1 | task_slot | 近门杂物搜寻 | security | `RD-PF-08` | 让小铁从被保护者变成近门监控线索提供者 |
 | `D02-T02` | 2 | task_slot | 净水预滤芯清洗 | water | `RD-PF-02`, `RD-SA-10` | 提前处理净水隐患 |
 | `D02-T03` | 2 | task_slot | 生活区卫生分区 | medical | `RD-CS-07`, `RD-CS-06` | 把卫生规则做成可见秩序 |
 | `D02-T01` | 2 | task_slot | 配给表试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | 从私人物品进入公共配给规则 |
@@ -92,9 +92,9 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | 剧情槽 | Day | 标题 | 地点 | RD task pool | 成功状态增量 | flags | unlocks |
 |---|---:|---|---|---|---|---|---|
 | `D01-T02` | 1 | 紧急资源清点 | whiteboard | `RD-PF-03`, `RD-SR-06` | `water+2`, `medicine+1`, `trust+4`, `morale+2`, `autonomy_readiness+5` | `inventory_auditable` | `public_inventory_board` |
-| `D01-T01` | 1 | 第一次广播 | communication | `RD-CI-10`, `RD-CS-10` | `signal+2`, `trust+3`, `morale+2`, `outside_risk+1` | `first_broadcast_completed` | `broadcast_log` |
+| `D01-T01` | 1 | 第一次广播 | communication | `RD-CI-10`, `RD-CS-10` | `signal+2`, `trust+3`, `morale+2`, `outside_risk+1` | `first_broadcast_completed` | `broadcast_log`, `knock_pattern_protocol` |
 | `D01-T03` | 1 | 门外敲击声 | security | `RD-SA-02`, `RD-SA-03`, `RD-SA-04` | `safety+4`, `trust+2`, `outside_risk-2`, `morale+1` | `door_knock_logged` | `low_exposure_verification` |
-| `D01-T04` | 1 | 近门杂物搜寻 | security | `RD-PF-08`, `RD-CI-06` | `medicine+1`, `safety+1`, `trust+2`, `morale+3`, `map_coverage+2` | `near_door_loot_checked` | `xiao_tie_observation_role` |
+| `D01-T04` | 1 | 近门杂物搜寻 | security | `RD-PF-08` | `medicine+1`, `safety+1`, `trust+2`, `morale+3`, `map_coverage+2` | `near_door_loot_checked` | `xiao_tie_observation_role` |
 | `D02-T02` | 2 | 净水预滤芯清洗 | water | `RD-PF-02`, `RD-SA-10` | `water+2`, `trust+3`, `safety+2`, `morale+1`, `battery-2`, `autonomy_readiness+4` | `water_filter_checked` | `water_low_power_mode` |
 | `D02-T03` | 2 | 生活区卫生分区 | medical | `RD-CS-07`, `RD-CS-06` | `safety+2`, `morale+3`, `medicine+1`, `trust+2`, `autonomy_readiness+3` | `hygiene_zones_marked` | `medical_corner_stable` |
 | `D02-T01` | 2 | 配给表试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | `water+1`, `trust+3`, `morale+2`, `autonomy_readiness+4` | `ration_trial_started` | `ration_trial_board` |
@@ -145,7 +145,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CI-03` | D02-T04 · 同层楼道短探 | `D02-T04` 同层楼道短探 | `tasks/rd_ci_03_escape_map_jigsaw_3x3` |
 | `RD-CI-04` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条, `D10-T04` 地下车库边缘侦察 | `tasks/rd_ci_04_garage_route_jigsaw_4x4` |
 | `RD-CI-05` | D05-T02 · 楼梯间路线标记 | `D05-T02` 楼梯间路线标记, `D10-T04` 地下车库边缘侦察 | `tasks/rd_ci_05_station_coord_jigsaw_5x5` |
-| `RD-CI-06` | D01-T04 · 近门杂物搜寻 | `D01-T04` 近门杂物搜寻, `D03-T01` 小铁复诊, `D10-T02` 医疗预检 | `tasks/rd_ci_06_offline_ocr_selection` |
+| `RD-CI-06` | D03-T01 · 小铁复诊 | `D03-T01` 小铁复诊, `D10-T02` 医疗预检 | `tasks/rd_ci_06_offline_ocr_selection` |
 | `RD-CI-07` | D05-T02 · 楼梯间路线标记 | `D05-T02` 楼梯间路线标记 | `tasks/rd_ci_07_wall_dots_connect` |
 | `RD-CI-08` | D05-T02 · 楼梯间路线标记 | `D05-T02` 楼梯间路线标记 | `tasks/rd_ci_08_color_pipe_linkapix` |
 | `RD-CI-09` | D06-T04 · 备用电源测试 | `D06-T04` 备用电源测试, `D09-T02` 水管压力测试 | `tasks/rd_ci_09_circuit_linkapix_easy` |

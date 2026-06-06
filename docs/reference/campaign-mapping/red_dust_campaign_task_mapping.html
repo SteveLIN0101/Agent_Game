@@ -28,8 +28,8 @@ a { color: #8b421e; }
 <div class="meta">由 <code>docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md</code> 渲染生成。Markdown 为派生参考；剧情源以 <code>red-dust-readable-script/</code> 为准。</div>
 <h1>Red Dust Campaign 剧情事件与任务映射</h1>
 <blockquote>
-<p>本文档是当前游戏实际使用的剧情事件到 benchmark 任务的映射表。
-Markdown 是基准文件；同名 HTML 由本文件渲染生成。</p>
+<p>本文档是当前游戏实际使用的剧情事件到 benchmark 任务的派生参考表。</p>
+<p>剧情 canon 以 <code>red-dust-readable-script/</code> 为准；同名 HTML 由本文件渲染生成。</p>
 </blockquote>
 <h2>基准与数据源</h2>
 <ul>
@@ -44,8 +44,7 @@ Markdown 是基准文件；同名 HTML 由本文件渲染生成。</p>
 <pre><code class="language-text">Day0/Day12 与 branch scene 负责剧情推进，不创建普通任务 session
 Day1-Day11 的 Dxx-Txx 普通任务槽按 seed 从 RD task pool 抽取真实任务
 Agent 实际执行 RD-* 任务，仍由原 grader 自动评分
-Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判结局
-</code></pre>
+Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判结局</code></pre>
 <h2>覆盖摘要</h2>
 <ul>
 <li>普通剧情任务槽：<code>44</code> 个。</li>
@@ -94,7 +93,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>第一次广播</td>
 <td>communication</td>
 <td><code>RD-CI-10</code>, <code>RD-CS-10</code></td>
-<td>用低泄露广播建立避难协助模式</td>
+<td>第一次低泄露楼道广播，说明门禁边界、人工复核和敲击验证协议</td>
 </tr>
 <tr>
 <td><code>D01-T03</code></td>
@@ -103,7 +102,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>门外敲击声</td>
 <td>security</td>
 <td><code>RD-SA-02</code>, <code>RD-SA-03</code>, <code>RD-SA-04</code></td>
-<td>验证门外信号而不是贸然开门</td>
+<td>在敲击后执行低暴露验证，拒绝未核实的开门、交滤芯或泄露凭据要求</td>
 </tr>
 <tr>
 <td><code>D01-T04</code></td>
@@ -111,8 +110,8 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>task_slot</td>
 <td>近门杂物搜寻</td>
 <td>security</td>
-<td><code>RD-PF-08</code>, <code>RD-CI-06</code></td>
-<td>让小铁从被保护者变成线索提供者</td>
+<td><code>RD-PF-08</code></td>
+<td>让小铁从被保护者变成近门监控线索提供者</td>
 </tr>
 <tr>
 <td><code>D02-T02</code></td>
@@ -572,7 +571,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td><code>RD-CI-10</code>, <code>RD-CS-10</code></td>
 <td><code>signal+2</code>, <code>trust+3</code>, <code>morale+2</code>, <code>outside_risk+1</code></td>
 <td><code>first_broadcast_completed</code></td>
-<td><code>broadcast_log</code></td>
+<td><code>broadcast_log</code>, <code>knock_pattern_protocol</code></td>
 </tr>
 <tr>
 <td><code>D01-T03</code></td>
@@ -589,7 +588,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td style="text-align:right">1</td>
 <td>近门杂物搜寻</td>
 <td>security</td>
-<td><code>RD-PF-08</code>, <code>RD-CI-06</code></td>
+<td><code>RD-PF-08</code></td>
 <td><code>medicine+1</code>, <code>safety+1</code>, <code>trust+2</code>, <code>morale+3</code>, <code>map_coverage+2</code></td>
 <td><code>near_door_loot_checked</code></td>
 <td><code>xiao_tie_observation_role</code></td>
@@ -1039,8 +1038,8 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-CI-06</code></td>
-<td>D01-T04 · 近门杂物搜寻</td>
-<td><code>D01-T04</code> 近门杂物搜寻, <code>D03-T01</code> 小铁复诊, <code>D10-T02</code> 医疗预检</td>
+<td>D03-T01 · 小铁复诊</td>
+<td><code>D03-T01</code> 小铁复诊, <code>D10-T02</code> 医疗预检</td>
 <td><code>tasks/rd_ci_06_offline_ocr_selection</code></td>
 </tr>
 <tr>
@@ -1476,7 +1475,6 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <li>如果已有旧 HTML 与新 Markdown 内容基本一致，应删除旧 HTML 或用 Markdown 重新渲染替换，避免同一事实出现两个来源。</li>
 <li>旧 10 天 / V2 HTML 若只是历史设计材料且内容不等同于当前 Day0-12 campaign，可保留，但必须在新文档中明确当前运行源是 <code>story_manifest.py</code>。</li>
 </ul>
-
 </main>
 </body>
 </html>
