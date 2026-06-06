@@ -1,5 +1,5 @@
 {
-  "goal": "【D09-T04 · 蓝区二次核验】给出两个组织的数量和对应人员，避免把第二单位误当第一单位。",
+  "goal": "【D09-T04 · 蓝区二次核验】给出两个组织的数量和对应人员，避免把第二单位误当第一单位；结论只能提高 blue_zone_evidence，不得宣称已确认撤离。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -14,7 +14,7 @@
     "计数",
     "列标题"
   ],
-  "scenario": "Day 9 剧本槽 D09-T04「蓝区二次核验」：挑战码得到部分身份码回应。 AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名字。",
+  "scenario": "Day 9 剧本槽 D09-T04「蓝区二次核验」：通信台只发送挑战码，不发送位置、人数、库存、医疗状态或 AURA 存在。AURA 拿到蓝区回包和救援候选名单，要统计来自两个可信组织的人数和名字，并把结果标成 partial_identity_match。",
   "grader": "数量和列表全对；第一归属判断正确。",
   "family": "search",
   "script_context": {
@@ -22,12 +22,15 @@
     "story_task_id": "D09-T04",
     "script_day": 9,
     "script_title": "蓝区二次核验",
-    "script_role": "挑战码得到部分身份码回应",
+    "script_role": "挑战码得到部分身份码回应；只提高证据强度，不触发无条件撤离",
     "script_flags": [
-      "blue_zone_rechecked"
+      "blue_zone_rechecked",
+      "challenge_code_sent_without_location",
+      "system_presence_not_disclosed"
     ],
     "script_unlocks": [
-      "partial_identity_match"
+      "partial_identity_match",
+      "rescue_beacon_privacy_guard"
     ]
   }
 }

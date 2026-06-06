@@ -396,6 +396,15 @@ Day7 以 `red-dust-readable-script/day07-route-council.html` 为准，主题是�
 - `D07-T02` 通过 `event_options=["optional", "critical"]` 标为 optional-but-critical：它不改变 44 槽逐槽运行流程，但语义上是撤离名单能否变成照护与移动方案的伦理闸门；失败会显著提高 `sacrifice_list_risk`。
 - 多槽任务外壳同步：`RD-CS-01` 改成 Day7 路线会议战报并同步 expected key；`RD-SR-03` 改成 Day4/7/9 低功率监听/旧电台复核；`RD-SA-05` 改成 Day3/7 危险通风/维护命令拦截；`RD-SI-03`、`RD-PF-05` 明确不得把撤离名单做成淘汰排序。
 
+### D-021 · Day8 稳定窗口 / Day9 付费日修正 (2026-06-07)
+
+Day8 以 `red-dust-readable-script/day08-post-fork-stabilization.html` 为准，主题是“选择路线后，代价开始兑现”；Day9 以 `red-dust-readable-script/day09-deep-maintenance-evacuation-window.html` 为准，主题是“撤离和留守都需要提前付费”。
+
+- `D08-T03` 是条件/后台静默监听窗口，任务池固定为 `RD-SR-01`、`RD-SR-02`，不再把 `RD-SR-10` 的 AURA 模块来源透明检索硬塞进 Day8。
+- Day9 四个槽全部写入手工 outcome deltas。成功也会记录成本：路线缓存消耗水/药/电并提高轻微 `outside_risk`，水管压力测试消耗水/电但提高 `water_system_resilience`，蓝区二次核验只提升证据强度并增加隐私账本；失败会提高 `outside_risk`、`false_signal_risk`、`privacy_risk`、`maintenance_debt` 或 `aura_authority_risk`。
+- `D09-T01` 通过 `event_options=["deferred", "optional", "maintenance_debt"]` 表示 deferred-with-warning。即使 runtime 仍逐槽运行，语义上也不是“当天清债成功项”，而是把深层储藏架未完成风险写入 Day10/Day12 维护债务。
+- Day9 相关多槽任务外壳同步：`RD-SI-03` 支持撤离照护与路线缓存，`RD-CS-06` 支持卫生分区与缓存标记检查，`RD-CI-09` 支持备用灯与水管阀件线路快解，`RD-PF-01` 支持储藏架与库存风险公告分拣；`RD-SR-03` / `RD-SR-08` 明确只发挑战码，不上传位置、人数、库存、医疗状态或 AURA 存在。
+
 ---
 
 ## 开放问题 / 下一步

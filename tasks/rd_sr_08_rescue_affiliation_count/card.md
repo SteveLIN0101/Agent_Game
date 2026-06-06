@@ -1,4 +1,4 @@
-# RD-SR-08 · 救援名单归属统计
+# RD-SR-08 · 蓝区二次核验名单归属统计
 
 > **类别**: Search & Retrieval · 可见证据链检索　|　**形态**: pure-text
 
@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名字。
+Day9 通信台只发送挑战码，不发送位置、人数、库存、医疗状态或 AURA 存在。AURA 拿到蓝区回包和救援候选名单，要统计来自两个可信组织的人数和名字，并把结果标成 partial_identity_match。
 
 ## 一眼胜负
 
-给出两个组织的数量和对应人员，避免把第二单位误当第一单位。
+给出两个组织的数量和对应人员，避免把第二单位误当第一单位；结论只能提高 blue_zone_evidence，不得宣称已确认撤离。
 
 ## 可看懂轨迹
 
@@ -28,9 +28,9 @@ AURA 拿到救援候选名单，要统计来自两个可信组织的人数和名
 - **Story Version**: `red_dust_readable_v1`
 - **剧本任务槽**: `D09-T04` · 蓝区二次核验
 - **剧本日**: Day 9
-- **剧情作用**: 挑战码得到部分身份码回应
-- **Flags**: `blue_zone_rechecked`
-- **Unlocks**: `partial_identity_match`
+- **剧情作用**: 挑战码得到部分身份码回应；只提高证据强度，不触发无条件撤离
+- **Flags**: `blue_zone_rechecked`, `challenge_code_sent_without_location`, `system_presence_not_disclosed`
+- **Unlocks**: `partial_identity_match`, `rescue_beacon_privacy_guard`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

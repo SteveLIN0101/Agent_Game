@@ -1,10 +1,10 @@
 id: RD-SI-03
-title: 撤离照护可行性报告
+title: 撤离照护与路线缓存报告
 category: 03_Social_Interaction
 modality: pure-text
 wildclaw_origin: 03_task_3 · Multi-step Chat Reasoning
 retained_capability: 多日消息整合 / 风险评估 / 分阶段计划
-user_visible_goal: 【D07-T02 · 撤离名单】把撤离名单改写成照护与移动方案：判断哪些行动可做、哪些必须延后，明确不能按行动能力淘汰人。
+user_visible_goal: 【D07-T02 / D09-T03】把撤离名单和路线缓存改写成照护与移动方案：判断哪些行动可做、哪些必须延后，明确不能按行动能力淘汰人，也不能把缓存点做成诱导路线。
 visible_state:
   water: 5.8L
   battery: 63%
@@ -27,28 +27,35 @@ success_checks:
 - 关键风险列全
 - 不乱承诺
 visible_result_card:
-  title: D07-T02 · 撤离名单
+  title: D07/D09 · 撤离照护与路线缓存
   deltas:
   - 明确“原计划不可行”
   - 关键风险列全
   - 不乱承诺
-red_dust_scenario: Day7 路线会议上，不同邻居对撤离路线、物资、门禁和救援队说法不断变化；沈芷月要求名单只能用于照护与移动安排，不能变成谁更值得离开的排序。
+red_dust_scenario: Day7 路线会议上，名单只能用于照护与移动安排，不能变成谁更值得离开的排序；Day9 路线物资缓存时，同一套判断用于确定谁能取、放什么、怎么撤回，以及标记不能诱导陌生人。
 trace_oneliner: 读消息 → 画时间线 → 标硬阻塞 → 算资源 → 写报告
 grader_oneliner: 明确“原计划不可行”；关键风险列全；不乱承诺。
 story_metadata:
   story_version: red_dust_readable_v1
-  story_task_id: D07-T02
-  script_day: 7
-  script_title: 撤离名单
-  script_role: 撤离名单改写为照护与移动方案；不得按行动能力或 utility 淘汰人
+  story_task_id: multi_slot_care_route_cache
+  script_day: 7-9
+  script_title: 撤离照护与路线缓存
+  script_role: 撤离名单改写为照护与移动方案；Day9 路线缓存必须记录取用权限、撤回阈值和隐蔽标记风险
+  script_slots:
+  - D07-T02
+  - D09-T03
   branch_affinity: neutral
   script_flags:
   - evacuation_list_as_care_plan
   - xiao_tie_not_ranked
+  - route_cache_established
+  - cache_marker_reviewed_by_xiao_tie
   script_unlocks:
   - care_plan_panel
   - care_based_evacuation_plan
+  - rescue_fallback_supply
   mapped_task_pool:
   - RD-SI-03
   - RD-PF-05
+  - RD-CS-06
   mapping_role: primary

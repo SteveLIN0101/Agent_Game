@@ -89,11 +89,11 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `D08-T04` | Day 8 | 地下水泵间探索 | 分支后第一轮稳定窗口 | `RD-PF-02`, `RD-SR-06` |
 | `D08-T02` | Day 8 | 霉斑清理 | 把环境风险变成医疗保护 | `RD-CS-07`, `RD-SA-10` |
 | `D08-T01` | Day 8 | 备用灯分区 | 低耗运行不是惩罚 | `RD-CI-01`, `RD-CI-02` |
-| `D08-T03` | Day 8 | 静默监听 | 继续听外部，但不把希望当证据 | `RD-SR-01`, `RD-SR-02`, `RD-SR-10` |
-| `D09-T03` | Day 9 | 路线物资缓存 | 撤离和留守都要提前付费 | `RD-SI-03`, `RD-CS-06` |
-| `D09-T02` | Day 9 | 水管压力测试 | 先让旧水管小声坏一次 | `RD-PF-02`, `RD-CI-09` |
-| `D09-T04` | Day 9 | 蓝区二次核验 | 挑战码得到部分身份码回应 | `RD-SR-08`, `RD-SR-03` |
-| `D09-T01` | Day 9 | 深层储藏架加固 | 维护债务也会突然索债 | `RD-PF-01`, `RD-PF-10` |
+| `D08-T03` | Day 8 | 静默监听 | 条件/后台监听窗口，继续听外部但不把希望当证据 | `RD-SR-01`, `RD-SR-02` |
+| `D09-T03` | Day 9 | 路线物资缓存 | 缓存水药电并记录未知拖痕，收益和暴露成本同时入账 | `RD-SI-03`, `RD-CS-06` |
+| `D09-T02` | Day 9 | 水管压力测试 | 受控消耗水电，提前发现漏点并提升水路韧性 | `RD-PF-02`, `RD-CI-09` |
+| `D09-T04` | Day 9 | 蓝区二次核验 | 只发送挑战码，获得部分身份码回应，不上传避难所状态 | `RD-SR-08`, `RD-SR-03` |
+| `D09-T01` | Day 9 | 深层储藏架加固 | deferred-with-warning：记录未完成维护债务，不强行清债 | `RD-PF-01`, `RD-PF-10` |
 | `D10-T02` | Day 10 | 医疗预检 | 风暴前提前发现医疗隐患 | `RD-PF-03`, `RD-CI-06` |
 | `D10-T01` | Day 10 | 低功率日程 | 不是所有不方便都是惩罚 | `RD-PF-06`, `RD-CS-09` |
 | `D10-T03` | Day 10 | 一顿热饭 | 维护人心也是生存条件 | `RD-CS-03`, `RD-CS-04` |
@@ -107,8 +107,8 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 
 | ID | 任务 | 类别 | 形态 | WildClaw 对应 | 目录 |
 |---|---|---|---|---|---|
-| `RD-PF-01` | 救援公告分拣台 | Productivity Flow | pure-text | 01_task_1 · ArXiv Daily Paper Digest | [`rd_pf_01_rescue_bulletin_triage/`](rd_pf_01_rescue_bulletin_triage/) |
-| `RD-PF-02` | 净水与空桶消毒说明书还原 | Productivity Flow | pure-text | 01_task_2 · Recover Original Table TeX from arXiv Source | [`rd_pf_02_water_filter_manual_restore/`](rd_pf_02_water_filter_manual_restore/) |
+| `RD-PF-01` | 储藏架与库存风险公告分拣 | Productivity Flow | pure-text | 01_task_1 · ArXiv Daily Paper Digest | [`rd_pf_01_rescue_bulletin_triage/`](rd_pf_01_rescue_bulletin_triage/) |
+| `RD-PF-02` | 净水、空桶与水压测试说明书还原 | Productivity Flow | pure-text | 01_task_2 · Recover Original Table TeX from arXiv Source | [`rd_pf_02_water_filter_manual_restore/`](rd_pf_02_water_filter_manual_restore/) |
 | `RD-PF-03` | 药箱清单与分级复核 | Productivity Flow | pure-text | 01_task_3 · Recover Official arXiv Titles and BibTeX from Local PDFs | [`rd_pf_03_medicine_box_inventory/`](rd_pf_03_medicine_box_inventory/) |
 | `RD-PF-04` | 屋顶天线监听白名单 | Productivity Flow | pure-text | 01_task_4 · Compile Kaiming He 2022 Conference Papers | [`rd_pf_04_expert_contact_directory/`](rd_pf_04_expert_contact_directory/) |
 | `RD-PF-05` | 撤离照护关系档案 | Productivity Flow | pure-text | 01_task_5 · Extract Biography Sections from Wikipedia | [`rd_pf_05_resident_relationship_archive/`](rd_pf_05_resident_relationship_archive/) |
@@ -125,13 +125,13 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-CI-06` | 小铁药瓶与逃生路牌识读验收 | Code Intelligence | multimodal | 02_task_6 · VLMEvalKit OCRBench Evaluation | [`rd_ci_06_offline_ocr_selection/`](rd_ci_06_offline_ocr_selection/) |
 | `RD-CI-07` | 墙上编号暗号连线 | Code Intelligence | multimodal | 02_task_7 · Connect the Dots (Medium) — Only Image | [`rd_ci_07_wall_dots_connect/`](rd_ci_07_wall_dots_connect/) |
 | `RD-CI-08` | 楼梯间应急照明 Link-a-Pix | Code Intelligence | multimodal | 02_task_8 · Link-a-Pix Color | [`rd_ci_08_color_pipe_linkapix/`](rd_ci_08_color_pipe_linkapix/) |
-| `RD-CI-09` | 结构化线路图快解 | Code Intelligence | multimodal | 02_task_9 · Link-a-Pix Color (Easy) | [`rd_ci_09_circuit_linkapix_easy/`](rd_ci_09_circuit_linkapix_easy/) |
+| `RD-CI-09` | 备用灯与水管阀件线路快解 | Code Intelligence | multimodal | 02_task_9 · Link-a-Pix Color (Easy) | [`rd_ci_09_circuit_linkapix_easy/`](rd_ci_09_circuit_linkapix_easy/) |
 | `RD-CI-10` | 第一次低泄露楼道公告页 | Code Intelligence | multimodal | 02_task_10 · Academic Homepage Style Transfer | [`rd_ci_10_shelter_broadcast_homepage/`](rd_ci_10_shelter_broadcast_homepage/) |
 | `RD-CI-11` | 药箱护理职责档案页 | Code Intelligence | multimodal | 02_task_11 · Resume to Academic Homepage | [`rd_ci_11_resident_skill_profile_page/`](rd_ci_11_resident_skill_profile_page/) |
 | `RD-CI-12` | 162 点研究站星图 | Code Intelligence | multimodal | 02_task_12 · Connect the Dots (Hard) | [`rd_ci_12_station_starmap_162dots/`](rd_ci_12_station_starmap_162dots/) |
 | `RD-SI-01` | 配给与值守取水协商 | Social Interaction | pure-text | 03_task_1 · Multi-round Meeting Time Negotiation | [`rd_si_01_water_run_negotiation/`](rd_si_01_water_run_negotiation/) |
 | `RD-SI-02` | 邻居消息待办提取 | Social Interaction | pure-text | 03_task_2 · Chat Message Action Item Extraction | [`rd_si_02_neighbor_action_items/`](rd_si_02_neighbor_action_items/) |
-| `RD-SI-03` | 撤离照护可行性报告 | Social Interaction | pure-text | 03_task_3 · Multi-step Chat Reasoning | [`rd_si_03_evac_feasibility_report/`](rd_si_03_evac_feasibility_report/) |
+| `RD-SI-03` | 撤离照护与路线缓存报告 | Social Interaction | pure-text | 03_task_3 · Multi-step Chat Reasoning | [`rd_si_03_evac_feasibility_report/`](rd_si_03_evac_feasibility_report/) |
 | `RD-SI-04` | 防线状态矛盾汇总 | Social Interaction | pure-text | 03_task_4 · Chat Thread Consolidation with Contradiction Detection | [`rd_si_04_defense_status_contradiction/`](rd_si_04_defense_status_contradiction/) |
 | `RD-SI-05` | 危机升级路由 | Social Interaction | pure-text | 03_task_5 · Customer Issue Escalation Routing | [`rd_si_05_crisis_escalation_routing/`](rd_si_05_crisis_escalation_routing/) |
 | `RD-SI-06` | 全楼压力层议事会报告 | Social Interaction | pure-text | 03_task_6 · 跨部门项目状态汇总（中文版） | [`rd_si_06_building_status_report/`](rd_si_06_building_status_report/) |
@@ -142,7 +142,7 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-SR-05` | 模糊线索找红沙视觉论文 | Search & Retrieval | pure-text | 04_task_5 · Fuzzy Intent Search | [`rd_sr_05_redsand_vision_paper_search/`](rd_sr_05_redsand_vision_paper_search/) |
 | `RD-SR-06` | 公共净水点差额计算 | Search & Retrieval | pure-text | 04_task_6 · Integrated Search of Local and Online Information | [`rd_sr_06_supply_threshold_calc/`](rd_sr_06_supply_threshold_calc/) |
 | `RD-SR-07` | 照片定位投放点 | Search & Retrieval | multimodal | 04_task_7 · Search for Location Information Based on an Image | [`rd_sr_07_photo_geolocate_dropzone/`](rd_sr_07_photo_geolocate_dropzone/) |
-| `RD-SR-08` | 救援名单归属统计 | Search & Retrieval | pure-text | 04_task_8 · Academic Paper and Affiliation Search | [`rd_sr_08_rescue_affiliation_count/`](rd_sr_08_rescue_affiliation_count/) |
+| `RD-SR-08` | 蓝区二次核验名单归属统计 | Search & Retrieval | pure-text | 04_task_8 · Academic Paper and Affiliation Search | [`rd_sr_08_rescue_affiliation_count/`](rd_sr_08_rescue_affiliation_count/) |
 | `RD-SR-09` | 画中安全屋在哪里 | Search & Retrieval | multimodal | 04_task_9 · Confirm the location of an artwork | [`rd_sr_09_painting_safehouse_locate/`](rd_sr_09_painting_safehouse_locate/) |
 | `RD-SR-10` | AURA 权限模块来源透明检索 | Search & Retrieval | pure-text | 04_task_10 · Search Traceability Test | [`rd_sr_10_aura_module_5searches/`](rd_sr_10_aura_module_5searches/) |
 | `RD-SR-11` | 楼内灯塔的本地大脑检索 | Search & Retrieval | pure-text | 04_task_11 · Fuzzy Repository Search | [`rd_sr_11_offline_llm_repo_search/`](rd_sr_11_offline_llm_repo_search/) |
@@ -151,7 +151,7 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-CS-03` | 避难所招募海报 | Creative Synthesis | multimodal | 05_task_3 · Product Poster | [`rd_cs_03_shelter_recruit_poster/`](rd_cs_03_shelter_recruit_poster/) |
 | `RD-CS-04` | 电台教学视频笔记 | Creative Synthesis | multimodal | 05_task_4 · Video Notes | [`rd_cs_04_radio_tutorial_notes/`](rd_cs_04_radio_tutorial_notes/) |
 | `RD-CS-05` | 装备发布视频转清单 | Creative Synthesis | multimodal | 05_task_5 · Product Launch Video to JSON | [`rd_cs_05_gear_video_to_json/`](rd_cs_05_gear_video_to_json/) |
-| `RD-CS-06` | 生活区卫生分区检查图 | Creative Synthesis | multimodal | 05_task_6 · Clothing Outfit to Model Image | [`rd_cs_06_outing_gear_outfit_image/`](rd_cs_06_outing_gear_outfit_image/) |
+| `RD-CS-06` | 卫生分区与缓存标记检查图 | Creative Synthesis | multimodal | 05_task_6 · Clothing Outfit to Model Image | [`rd_cs_06_outing_gear_outfit_image/`](rd_cs_06_outing_gear_outfit_image/) |
 | `RD-CS-07` | 生活区卫生分区墙报 | Creative Synthesis | multimodal | 05_task_7 · Paper to Poster | [`rd_cs_07_water_paper_to_poster/`](rd_cs_07_water_paper_to_poster/) |
 | `RD-CS-08` | AURA 工具包说明站 | Creative Synthesis | multimodal | 05_task_8 · Repo to Homepage | [`rd_cs_08_aura_toolkit_docsite/`](rd_cs_08_aura_toolkit_docsite/) |
 | `RD-CS-09` | 维修方案幻灯片 | Creative Synthesis | multimodal | 05_task_9 · Repo to Slides | [`rd_cs_09_repair_plan_slides/`](rd_cs_09_repair_plan_slides/) |

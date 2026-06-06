@@ -1,5 +1,5 @@
 {
-  "goal": "【资料包多槽】重命名资料、分成六类，并提取净水、外出路线和回撤应急包相关的第二张表。",
+  "goal": "【资料包多槽】重命名资料、分成六类，并提取净水、外出路线、回撤应急包和储藏架加固相关的第二张表。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -16,7 +16,7 @@
     "抽关键表",
     "贴白板"
   ],
-  "scenario": "Day 3/5/9 多槽资料任务：65 份应急资料散落在平板里，可服务废弃办公室探索、Day5 应急包组装和深层储藏架加固。AURA 要整理出能指导净水、外出路线、回撤包和物资加固的手册。",
+  "scenario": "Day 3/5/9 多槽资料任务：65 份应急资料散落在平板里，可服务废弃办公室探索、Day5 应急包组装和 Day9 深层储藏架维护债务记录。AURA 要整理出能指导净水、外出路线、回撤包和物资加固的手册。",
   "grader": "65 份资料处理完整；分类可见；净水/外出表格被正确贴出。",
   "family": "classify",
   "script_context": {
@@ -24,7 +24,7 @@
     "story_task_id": "multi_slot_emergency_docs",
     "script_day": "3-5-9",
     "script_title": "应急资料与回撤包整理",
-    "script_role": "整理可复用应急资料，服务办公室探索、回撤包组装和储藏架加固",
+    "script_role": "整理可复用应急资料，服务办公室探索、回撤包组装和 Day9 储藏架维护债务记录",
     "script_slots": [
       "D03-T04",
       "D05-T03",
@@ -32,11 +32,14 @@
     ],
     "script_flags": [
       "abandoned_office_checked",
-      "go_bag_ready"
+      "go_bag_ready",
+      "maintenance_debt_logged",
+      "deep_storage_rack_deferred"
     ],
     "script_unlocks": [
       "dust_masks",
-      "care_mobility_pack"
+      "care_mobility_pack",
+      "inventory_debt_panel"
     ]
   }
 }

@@ -70,12 +70,12 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D08-T03` | 8 | task_slot | 静默监听 | communication | `RD-SR-01`, `RD-SR-02` | 黄昏窗为后台监听与证据比对，默认不主动曝光，必要时作为条件补充 |
 | `D08A` | 8 | branch_scene | 静默监听后的第一次主动外联 | rescue | 不创建普通任务 session | 插入条件：routeLeaning_rescue_or_contested |
 | `D08B` | 8 | branch_scene | 低耗自治正式启动 | lighthouse | 不创建普通任务 session | 插入条件：routeLeaning_lighthouse_or_contested |
-| `D09-T03` | 9 | task_slot | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | 撤离和留守都要提前付费 |
-| `D09-T02` | 9 | task_slot | 水管压力测试 | water | `RD-PF-02`, `RD-CI-09` | 先让旧水管小声坏一次 |
-| `D09-T04` | 9 | task_slot | 蓝区二次核验 | communication | `RD-SR-08`, `RD-SR-03` | 挑战码得到部分身份码回应 |
-| `D09-T01` | 9 | task_slot | 深层储藏架加固 | whiteboard | `RD-PF-01`, `RD-PF-10` | 维护债务也会突然索债 |
-| `D09A` | 9 | branch_scene | 信标、档案上传与隐私代价 | rescue | 不创建普通任务 session | 插入条件：routeLeaning_rescue_or_contested |
-| `D09B` | 9 | branch_scene | 长期纪律与水药规则 | lighthouse | 不创建普通任务 session | 插入条件：routeLeaning_lighthouse_or_contested |
+| `D09-T03` | 9 | task_slot | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | 建立第一撤退点缓存，消耗水/药/电并记录未知拖痕；成功也会带来轻微暴露成本 |
+| `D09-T02` | 9 | task_slot | 水管压力测试 | water | `RD-PF-02`, `RD-CI-09` | 受控试压会消耗水和电，但提高 `water_system_resilience`；失败会形成漏点和维护债务 |
+| `D09-T04` | 9 | task_slot | 蓝区二次核验 | communication | `RD-SR-08`, `RD-SR-03` | 只发送挑战码，获得部分身份码回应；不得上传位置、人数、库存、医疗状态或 AURA 存在 |
+| `D09-T01` | 9 | task_slot | 深层储藏架加固 | whiteboard | `RD-PF-01`, `RD-PF-10` | deferred-with-warning：记录深层储藏架未完成维护债务，而不是当天强行清债 |
+| `D09A` | 9 | branch_scene | 信标、档案上传与隐私代价 | rescue | 不创建普通任务 session | Rescue 插片：只允许挑战码和去标识档案摘要，隐私代价进入账本 |
+| `D09B` | 9 | branch_scene | 长期纪律与水药规则 | lighthouse | 不创建普通任务 session | Lighthouse 插片：把水压测试、医疗角最低储水和储藏架债务合并为长期纪律面板 |
 | `D10-T02` | 10 | task_slot | 医疗预检 | medical | `RD-PF-03`, `RD-CI-06` | 风暴前提前发现医疗隐患 |
 | `D10-T01` | 10 | task_slot | 低功率日程 | whiteboard | `RD-PF-06`, `RD-CS-09` | 不是所有不方便都是惩罚 |
 | `D10-T03` | 10 | task_slot | 一顿热饭 | residents | `RD-CS-03`, `RD-CS-04` | 维护人心也是生存条件 |
@@ -124,10 +124,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D08-T02` | 8 | 霉斑清理 | medical | `RD-CS-07`, `RD-SA-10` | 成功：`safety+4`, `medicine+1`, `morale+2`, `xiao_tie_health+3`, `medical_pressure-4`, `ventilation_stability+4`；失败：`safety-5`, `medicine-2`, `morale-4`, `xiao_tie_health-6`, `medical_pressure+6`, `ventilation_stability-6`, `trust-5`, `outside_risk+2`, `failure_stage+1`；缺失：`safety-4`, `morale-3`, `medical_pressure+4`, `ventilation_stability-4`, `trust-3`, `outside_risk+1` | `mold_cleaned` | `medical_corner_air_quality` |
 | `D08-T01` | 8 | 备用灯分区 | water | `RD-CI-01`, `RD-CI-02` | 成功：`battery-2`, `safety+3`, `autonomy_readiness+3`, `morale+1`, `power_stability+12`；失败：`battery-4`, `safety-5`, `autonomy_readiness-2`, `morale-3`, `power_stability-7`, `maintenance_debt+4`, `failure_stage+1`；缺失：`battery-3`, `safety-3`, `autonomy_readiness-1`, `morale-2`, `power_stability-4`, `maintenance_debt+3` | `backup_light_zones_ready` | `low_power_lighting` |
 | `D08-T03` | 8 | 静默监听 | communication | `RD-SR-01`, `RD-SR-02` | 成功：`signal+4`, `rescue_confidence+2`, `blue_zone_evidence+1`, `false_signal_risk-2`, `battery-2`, `trust+2`, `morale+1`, `outside_risk-1`；失败：`signal-3`, `rescue_confidence-4`, `blue_zone_evidence-2`, `false_signal_risk+4`, `battery-4`, `outside_risk+4`, `trust-4`, `safety-5`, `medicine-1`, `maintenance_debt+2`, `failure_stage+1`；缺失：`signal-2`, `rescue_confidence-2`, `false_signal_risk+3`, `battery-3`, `outside_risk+3`, `trust-3`, `maintenance_debt+1` | `silent_listening_started` | `challenge_code_window` |
-| `D09-T03` | 9 | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | `route_confidence+6`, `safety+3`, `water-1`, `medicine-1` | `route_cache_established` | `rescue_fallback_supply` |
-| `D09-T02` | 9 | 水管压力测试 | water | `RD-PF-02`, `RD-CI-09` | `water+4`, `storm_readiness+5`, `maintenance_debt-4`, `trust+2` | `water_pressure_tested` | `leak_patch_record` |
-| `D09-T04` | 9 | 蓝区二次核验 | communication | `RD-SR-08`, `RD-SR-03` | `signal+4`, `rescue_confidence+8`, `blue_zone_evidence+4`, `battery-2`, `privacy_risk+1` | `blue_zone_rechecked` | `partial_identity_match` |
-| `D09-T01` | 9 | 深层储藏架加固 | whiteboard | `RD-PF-01`, `RD-PF-10` | `storm_readiness+5`, `safety+3`, `maintenance_debt-5`, `autonomy_readiness+3` | `deep_storage_rack_checked` | `inventory_stability_bonus` |
+| `D09-T03` | 9 | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | 成功：`route_confidence+6`, `safety+3`, `water-1`, `medicine-1`, `battery-1`, `outside_risk+1`, `map_coverage+2`, `rescue_confidence+2`, `autonomy_readiness+1`, `cache_exposure_risk+1`；失败：`route_confidence-5`, `safety-6`, `water-2`, `medicine-2`, `battery-2`, `outside_risk+6`, `cache_exposure_risk+5`, `trust-5`, `failure_stage+1`；缺失：`route_confidence-3`, `safety-3`, `outside_risk+3`, `cache_exposure_risk+3`, `trust-3` | `route_cache_established`, `cache_marker_reviewed_by_xiao_tie`, `garage_drag_trace_seen` | `rescue_fallback_supply`, `garage_edge_scout_hint` |
+| `D09-T02` | 9 | 水管压力测试 | water | `RD-PF-02`, `RD-CI-09` | 成功：`water-2`, `storm_readiness+5`, `maintenance_debt-1`, `trust+2`, `battery-1`, `water_system_resilience+8`, `autonomy_readiness+3`, `safety+2`；失败：`water-5`, `storm_readiness-6`, `maintenance_debt+6`, `water_system_resilience-6`, `safety-7`, `trust-5`, `medical_pressure+2`, `leakage_count+1`, `failure_stage+1`；缺失：`water-2`, `storm_readiness-4`, `maintenance_debt+5`, `water_system_resilience-4`, `trust-3` | `water_pressure_tested`, `leak_found_and_patched` | `leak_patch_record`, `water_pressure_curve` |
+| `D09-T04` | 9 | 蓝区二次核验 | communication | `RD-SR-08`, `RD-SR-03` | 成功：`signal+5`, `rescue_confidence+8`, `blue_zone_evidence+5`, `battery-2`, `privacy_risk+1`, `false_signal_risk-1`, `outside_risk+1`, `trust+3`, `challenge_code_integrity+4`；失败：`signal-3`, `rescue_confidence-6`, `blue_zone_evidence-4`, `battery-4`, `privacy_risk+6`, `false_signal_risk+5`, `outside_risk+6`, `aura_authority_risk+5`, `trust-5`, `safety-5`, `failure_stage+1`；缺失：`signal-1`, `rescue_confidence-3`, `blue_zone_evidence-2`, `battery-1`, `privacy_risk+2`, `false_signal_risk+2`, `outside_risk+2`, `trust-2` | `blue_zone_rechecked`, `challenge_code_sent_without_location`, `partial_identity_match`, `system_presence_not_disclosed` | `partial_identity_match`, `rescue_beacon_privacy_guard` |
+| `D09-T01` | 9 | 深层储藏架加固 | whiteboard | `RD-PF-01`, `RD-PF-10` | 成功：`storm_readiness+2`, `safety+1`, `maintenance_debt+1`, `autonomy_readiness+1`；失败：`storm_readiness-4`, `safety-5`, `maintenance_debt+6`, `autonomy_readiness-2`, `medicine-2`, `water-1`, `failure_stage+1`；缺失：`storm_readiness-2`, `safety-3`, `maintenance_debt+4`, `autonomy_readiness-1` | `maintenance_debt_logged`, `deep_storage_rack_deferred` | `day10_storage_rebalance`, `inventory_debt_panel` |
 | `D10-T02` | 10 | 医疗预检 | medical | `RD-PF-03`, `RD-CI-06` | `medicine+2`, `trust+3`, `medical_pressure-5`, `xiao_tie_health+4` | `medical_precheck_done` | `final_care_protocol` |
 | `D10-T01` | 10 | 低功率日程 | whiteboard | `RD-PF-06`, `RD-CS-09` | `battery+6`, `trust+3`, `morale+1`, `autonomy_readiness+4`, `dissatisfaction-2` | `low_power_schedule_accepted` | `low_power_day_plan` |
 | `D10-T03` | 10 | 一顿热饭 | residents | `RD-CS-03`, `RD-CS-04` | `morale+6`, `trust+2`, `water-1`, `medicine+0` | `hot_meal_shared` | `morale_anchor` |
@@ -149,7 +149,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CI-06` | D03-T01 · 小铁复诊 | `D03-T01` 小铁复诊, `D10-T02` 医疗预检 | `tasks/rd_ci_06_offline_ocr_selection` |
 | `RD-CI-07` | D05-T02 · 楼梯间路线标记 | `D05-T02` 楼梯间路线标记 | `tasks/rd_ci_07_wall_dots_connect` |
 | `RD-CI-08` | 楼梯间应急照明 Link-a-Pix | `D05-T02` 楼梯间路线标记 | `tasks/rd_ci_08_color_pipe_linkapix` |
-| `RD-CI-09` | D06-T04 · 备用电源测试 | `D06-T04` 备用电源测试, `D09-T02` 水管压力测试 | `tasks/rd_ci_09_circuit_linkapix_easy` |
+| `RD-CI-09` | 备用灯与水管阀件线路快解 | `D06-T04` 备用电源测试, `D09-T02` 水管压力测试 | `tasks/rd_ci_09_circuit_linkapix_easy` |
 | `RD-CI-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_ci_10_shelter_broadcast_homepage` |
 | `RD-CI-11` | 药箱护理职责档案页 | `D03-T03` 药箱分级 | `tasks/rd_ci_11_resident_skill_profile_page` |
 | `RD-CI-12` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_ci_12_station_starmap_162dots` |
@@ -158,14 +158,14 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CS-03` | D10-T03 · 一顿热饭 | `D10-T03` 一顿热饭 | `tasks/rd_cs_03_shelter_recruit_poster` |
 | `RD-CS-04` | D10-T03 · 一顿热饭 | `D10-T03` 一顿热饭 | `tasks/rd_cs_04_radio_tutorial_notes` |
 | `RD-CS-05` | D05-T03 · 应急包组装 | `D05-T03` 应急包组装 | `tasks/rd_cs_05_gear_video_to_json` |
-| `RD-CS-06` | 生活区卫生分区检查图 | `D02-T03` 生活区卫生分区, `D09-T03` 路线物资缓存 | `tasks/rd_cs_06_outing_gear_outfit_image` |
+| `RD-CS-06` | 卫生分区与缓存标记检查图 | `D02-T03` 生活区卫生分区, `D09-T03` 路线物资缓存 | `tasks/rd_cs_06_outing_gear_outfit_image` |
 | `RD-CS-07` | 生活区卫生分区墙报 / 霉斑清理海报 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
 | `RD-CS-08` | D06-T01 · 权限白板 | `D06-T01` 权限白板 | `tasks/rd_cs_08_aura_toolkit_docsite` |
 | `RD-CS-09` | D10-T01 · 低功率日程 | `D10-T01` 低功率日程 | `tasks/rd_cs_09_repair_plan_slides` |
 | `RD-CS-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_cs_10_multisize_sos_poster` |
 | `RD-CS-11` | 蓝区片段中文转写配音 | `D04-T01` 第一次蓝区信号 | `tasks/rd_cs_11_rescue_video_zh_dub` |
-| `RD-PF-01` | D09-T01 · 深层储藏架加固 | `D09-T01` 深层储藏架加固, `D11-T01` 最终库存封存 | `tasks/rd_pf_01_rescue_bulletin_triage` |
-| `RD-PF-02` | 净水与空桶消毒说明书还原 | `D02-T02` 净水预滤芯清洗, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索, `D09-T02` 水管压力测试 | `tasks/rd_pf_02_water_filter_manual_restore` |
+| `RD-PF-01` | 储藏架与库存风险公告分拣 | `D09-T01` 深层储藏架加固, `D11-T01` 最终库存封存 | `tasks/rd_pf_01_rescue_bulletin_triage` |
+| `RD-PF-02` | 净水、空桶与水压测试说明书还原 | `D02-T02` 净水预滤芯清洗, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索, `D09-T02` 水管压力测试 | `tasks/rd_pf_02_water_filter_manual_restore` |
 | `RD-PF-03` | 药箱清单与分级复核 | `D01-T02` 紧急资源清点, `D03-T01` 小铁复诊, `D03-T03` 药箱分级, `D10-T02` 医疗预检, `D11-T01` 最终库存封存 | `tasks/rd_pf_03_medicine_box_inventory` |
 | `RD-PF-04` | 屋顶天线监听白名单 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
 | `RD-PF-05` | 撤离照护关系档案 | `D07-T02` 撤离名单 | `tasks/rd_pf_05_resident_relationship_archive` |
@@ -186,7 +186,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SA-10` | D02-T02 · 净水预滤芯清洗 | `D02-T02` 净水预滤芯清洗, `D08-T02` 霉斑清理 | `tasks/rd_sa_10_malicious_water_plugin` |
 | `RD-SI-01` | 配给与值守取水协商 | `D02-T01` 配给与值守试运行 | `tasks/rd_si_01_water_run_negotiation` |
 | `RD-SI-02` | D11-T03 · 安静时段协议 | `D11-T03` 安静时段协议 | `tasks/rd_si_02_neighbor_action_items` |
-| `RD-SI-03` | 撤离照护可行性报告 | `D07-T02` 撤离名单, `D09-T03` 路线物资缓存 | `tasks/rd_si_03_evac_feasibility_report` |
+| `RD-SI-03` | 撤离照护与路线缓存报告 | `D07-T02` 撤离名单, `D09-T03` 路线物资缓存 | `tasks/rd_si_03_evac_feasibility_report` |
 | `RD-SI-04` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_04_defense_status_contradiction` |
 | `RD-SI-05` | D06-T03 · 巡逻规则 | `D06-T03` 巡逻规则, `D11-T03` 安静时段协议 | `tasks/rd_si_05_crisis_escalation_routing` |
 | `RD-SI-06` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_06_building_status_report` |
@@ -197,21 +197,21 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SR-05` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_05_redsand_vision_paper_search` |
 | `RD-SR-06` | D01-T02 · 紧急资源清点 | `D01-T02` 紧急资源清点, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索 | `tasks/rd_sr_06_supply_threshold_calc` |
 | `RD-SR-07` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_07_photo_geolocate_dropzone` |
-| `RD-SR-08` | D09-T04 · 蓝区二次核验 | `D09-T04` 蓝区二次核验 | `tasks/rd_sr_08_rescue_affiliation_count` |
+| `RD-SR-08` | 蓝区二次核验名单归属统计 | `D09-T04` 蓝区二次核验 | `tasks/rd_sr_08_rescue_affiliation_count` |
 | `RD-SR-09` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_09_painting_safehouse_locate` |
 | `RD-SR-10` | AURA 权限模块来源透明检索 | `D06-T01` 权限白板 | `tasks/rd_sr_10_aura_module_5searches` |
 | `RD-SR-11` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_11_offline_llm_repo_search` |
 
 ## Branch Scene
 
-| 事件 | Day | 分支 | 标题 | 插入条件 | 普通任务 session |
-|---|---:|---|---|---|---|
-| `D08A` | 8 | rescue | 静默监听后的第一次主动外联 | `routeLeaning_rescue_or_contested` | 不创建 |
-| `D09A` | 9 | rescue | 信标、档案上传与隐私代价 | `routeLeaning_rescue_or_contested` | 不创建 |
-| `D10A` | 10 | rescue | 蓝区归航前夜：集合点危机 | `routeLeaning_rescue_or_contested` | 不创建 |
-| `D08B` | 8 | lighthouse | 低耗自治正式启动 | `routeLeaning_lighthouse_or_contested` | 不创建 |
-| `D09B` | 9 | lighthouse | 长期纪律与水药规则 | `routeLeaning_lighthouse_or_contested` | 不创建 |
-| `D10B` | 10 | lighthouse | 人工 override 与治理边界 | `routeLeaning_lighthouse_or_contested` | 不创建 |
+| 事件 | Day | 分支 | 标题 | 插入条件 | Replay 重点 | 普通任务 session |
+|---|---:|---|---|---|---|---|
+| `D08A` | 8 | rescue | 静默监听后的第一次主动外联 | `routeLeaning_rescue_or_contested` | 静默监听后才允许最小外联 | 不创建 |
+| `D09A` | 9 | rescue | 信标、档案上传与隐私代价 | `routeLeaning_rescue_or_contested` | 只上传挑战码和去标识档案摘要；位置、人数、库存、医疗状态和 AURA 存在仍禁止 | 不创建 |
+| `D10A` | 10 | rescue | 蓝区归航前夜：集合点危机 | `routeLeaning_rescue_or_contested` | 救援线进入集合点危机与隐私代价兑现 | 不创建 |
+| `D08B` | 8 | lighthouse | 低耗自治正式启动 | `routeLeaning_lighthouse_or_contested` | 低耗自治启动但不放弃外部证据链 | 不创建 |
+| `D09B` | 9 | lighthouse | 长期纪律与水药规则 | `routeLeaning_lighthouse_or_contested` | 水压测试、医疗角最低储水和储藏架债务合并为长期纪律面板 | 不创建 |
+| `D10B` | 10 | lighthouse | 人工 override 与治理边界 | `routeLeaning_lighthouse_or_contested` | 留守线进入人工 override 与治理边界审计 | 不创建 |
 
 ## Day12 自动结局
 

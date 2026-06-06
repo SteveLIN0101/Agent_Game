@@ -1,5 +1,5 @@
 {
-  "goal": "【D02-T03 · 生活区卫生分区】生成一张卫生分区检查图，标出睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与。",
+  "goal": "【D02-T03 / D09-T03】生成一张检查图，Day2 标出睡眠区、医疗角、废弃物封存、粉尘沉积和通风方向；Day9 复用同一检查规则审核缓存点隐蔽标记，避免箭头或图案诱导陌生人。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -15,20 +15,26 @@
     "标通风箭头",
     "锁定小铁标签"
   ],
-  "scenario": "Day 2 剧本槽 D02-T03「生活区卫生分区」：生活区需要一张给所有人照着检查的示意图。睡眠区不挡风，医疗角不直吹，废弃物封存不靠水，粉尘沉积带少停留，小铁只参与写标签。",
+  "scenario": "Day 2/9 多槽视觉检查任务：Day2 生活区需要一张给所有人照着检查的示意图；Day9 路线缓存也复用这套视觉规则，只允许内侧人员看懂的触觉/灰色绳结标记，不能画明显箭头或暴露缓存点。",
   "grader": "卫生分区全覆盖；图片不误导；风险点写明。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D02-T03",
-    "script_day": 2,
-    "script_title": "生活区卫生分区",
-    "script_role": "把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序",
+    "story_task_id": "multi_slot_hygiene_cache_visual",
+    "script_day": "2-9",
+    "script_title": "卫生分区与缓存标记检查图",
+    "script_role": "把生活区卫生风险做成可见秩序；Day9 复用检查图规则审核路线缓存隐蔽标记和外部诱导风险",
+    "script_slots": [
+      "D02-T03",
+      "D09-T03"
+    ],
     "script_flags": [
-      "hygiene_zones_marked"
+      "hygiene_zones_marked",
+      "cache_marker_reviewed_by_xiao_tie"
     ],
     "script_unlocks": [
-      "medical_corner_stable"
+      "medical_corner_stable",
+      "rescue_fallback_supply"
     ]
   }
 }

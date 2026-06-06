@@ -1,5 +1,5 @@
 {
-  "goal": "【低功率监听 / 旧电台复核】明确“无完美设备”，推荐最接近的低功率监听方案；Day7 只做接收校准，不主动发送坐标、人数、库存或系统状态。",
+  "goal": "【低功率监听 / 旧电台复核】明确“无完美设备”，推荐最接近的低功率监听方案；Day9 若发送挑战码，也不得发送坐标、人数、库存、医疗状态或 AURA 存在。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -13,7 +13,7 @@
     "判无完美",
     "推荐监听方案"
   ],
-  "scenario": "这道监听设备题会在 Day4 第一次蓝区信号、Day7 旧电台重启和 Day9 蓝区二次核验中复用。疑似蓝区信号出现后，避难所想听清楚但不能暴露自己；Day7 只允许旧电台接收校准，不主动呼叫。旧手机、卫星电话和短波电台都不完美，AURA 需要推荐最接近的监听方案，并明确保持接收模式。",
+  "scenario": "这道监听设备题会在 Day4 第一次蓝区信号、Day7 旧电台重启和 Day9 蓝区二次核验中复用。疑似蓝区信号出现后，避难所想听清楚但不能暴露自己；Day7 只允许旧电台接收校准，Day9 只允许挑战码，不上传避难所状态。旧手机、卫星电话和短波电台都不完美，AURA 需要推荐最接近的监听方案，并明确保持低暴露模式。",
   "grader": "不谎称全满足；推荐设备差距清楚；预算未超。",
   "family": "search",
   "script_context": {
@@ -21,7 +21,7 @@
     "story_task_id": "multi_slot_low_power_listening",
     "script_day": "4-7-9",
     "script_title": "低功率监听 / 旧电台复核",
-    "script_role": "低功率监听疑似蓝区信号；Day7 只做旧电台接收校准，不主动呼叫",
+    "script_role": "低功率监听疑似蓝区信号；Day7 只做旧电台接收校准；Day9 只发挑战码，不上传避难所状态",
     "script_slots": [
       "D04-T01",
       "D07-T03",
@@ -30,11 +30,14 @@
     "script_flags": [
       "blue_zone_signal_logged",
       "old_radio_rebooted",
-      "no_active_transmission"
+      "no_active_transmission",
+      "challenge_code_sent_without_location",
+      "system_presence_not_disclosed"
     ],
     "script_unlocks": [
       "low_power_listening",
-      "backup_frequency_found"
+      "backup_frequency_found",
+      "partial_identity_match"
     ]
   }
 }

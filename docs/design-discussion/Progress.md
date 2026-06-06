@@ -494,4 +494,41 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-07 · Day8 稳定窗口后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day08-post-fork-stabilization.html` 修正 Day8 主题：分支后稳定窗口要同时维护内部韧性和外部证据链
+- [x] `D08-T01`：备用灯分区成功改为 `battery-2` 换 `power_stability+12`，失败/缺失降低 `power_stability` 并提高 `maintenance_debt`
+- [x] `D08-T02`：霉斑清理补入 `medical_pressure` 与 `ventilation_stability`，失败不再把医疗压力结算成下降
+- [x] `D08-T03`：标为 `event_options=["conditional", "background", "listening_window"]`；任务池移除 `RD-SR-10`，只保留 `RD-SR-01` / `RD-SR-02`
+- [x] `D08-T04`：地下水泵间探索补入 `water_system_resilience`，失败/缺失提高 `outside_risk` 和 `maintenance_debt`
+- [x] 同步 `RD-CS-07`、`RD-SR-01`、`RD-SR-02` 的多槽文案与 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md`
+
+### 验证
+- [x] YAML/JSON 静态解析
+- [x] `tests/test_reddust_campaign.py -q -k 'not test_campaign_http_endpoints_expose_brief_and_submit'`：8 passed, 1 deselected
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
+## 2026-06-07 · Day9 付费日后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day09-deep-maintenance-evacuation-window.html` 修正 Day9 主题：撤离和留守都需要提前付费
+- [x] `D09-T03`：路线物资缓存成功也会消耗 `water` / `medicine` / `battery` 并略升 `outside_risk`；新增 `garage_drag_trace_seen` / `garage_edge_scout_hint`
+- [x] `D09-T02`：水管压力测试从 `water+4` 改为受控消耗 `water-2`，成功提高 `water_system_resilience`，失败增加漏点、维护债务和医疗压力
+- [x] `D09-T04`：蓝区二次核验只允许挑战码，成功增加 `blue_zone_evidence` 但不确认撤离；失败提高 `privacy_risk` / `false_signal_risk` / `outside_risk` / `aura_authority_risk`
+- [x] `D09-T01`：标为 `event_options=["deferred", "optional", "maintenance_debt"]`，成功也记录 `maintenance_debt+1`，不再把 deferred-with-warning 写成清债成功
+- [x] `D09A` / `D09B` branch scene 增加 `text`、`replay_text`、`beats`、`visual_focus`、`flags` 和 `unlocks`，仍不创建普通 task session
+- [x] 多槽任务外壳同步：`RD-SI-03`、`RD-CS-06`、`RD-CI-09`、`RD-PF-01`、`RD-PF-02`、`RD-PF-10`、`RD-SR-03`、`RD-SR-08`
+- [x] 更新 `tasks/RED_DUST_INDEX.md`、`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 和 `docs/design-discussion/Memory.md`；未手改 HTML 渲染产物
+
+### 验证
+- [x] YAML/JSON 静态解析和 Day9 public manifest 检查通过
+- [x] `tests/test_reddust_campaign.py -q -k 'not test_campaign_http_endpoints_expose_brief_and_submit'`：8 passed, 1 deselected
+- [x] `tests/test_reddust_all60.py -q`：62 passed
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
 ## 讨论历史
