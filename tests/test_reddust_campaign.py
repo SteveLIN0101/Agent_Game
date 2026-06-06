@@ -80,6 +80,8 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert slots["D07-T02"]["event_options"] == ["optional", "critical"]
     assert "utility_not_binding" in slots["D07-T01"]["flags"]
     assert "route_fork_panel" in slots["D07-T01"]["unlocks"]
+    assert slots["D08-T03"]["event_options"] == ["conditional", "background", "listening_window"]
+    assert slots["D08-T03"]["task_pool"] == ["RD-SR-01", "RD-SR-02"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -128,6 +130,22 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
         ("D07-T04", "success", "maintenance_debt", -1, "<="),
         ("D07-T04", "failure", "maintenance_debt", 1, ">="),
         ("D07-T04", "failure", "storm_readiness", -1, "<="),
+        ("D08-T04", "failure", "outside_risk", 1, ">="),
+        ("D08-T04", "failure", "water_system_resilience", -1, "<="),
+        ("D08-T04", "missing", "outside_risk", 1, ">="),
+        ("D08-T04", "missing", "water_system_resilience", -1, "<="),
+        ("D08-T02", "failure", "medical_pressure", 1, ">="),
+        ("D08-T02", "failure", "ventilation_stability", -1, "<="),
+        ("D08-T02", "success", "medical_pressure", -1, "<="),
+        ("D08-T02", "success", "ventilation_stability", 1, ">="),
+        ("D08-T01", "success", "battery", -1, "<="),
+        ("D08-T01", "failure", "battery", -1, "<="),
+        ("D08-T01", "failure", "power_stability", -1, "<="),
+        ("D08-T01", "success", "power_stability", 1, ">="),
+        ("D08-T03", "success", "false_signal_risk", -1, "<="),
+        ("D08-T03", "failure", "false_signal_risk", 1, ">="),
+        ("D08-T03", "failure", "outside_risk", 1, ">="),
+        ("D08-T03", "failure", "battery", -1, "<="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]

@@ -64,10 +64,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D07-T03` | 7 | task_slot | 旧电台重启 | communication | `RD-SR-03`, `RD-SR-02` | 找到备用频段但不主动泄露；只做接收校准，不主动呼叫 |
 | `D07-T04` | 7 | task_slot | 风暴前的最后维护 | ventilation | `RD-SA-05`, `RD-PF-07` | 把看不见的维护债务写进白板，为救援失败返场和留守风暴都保留缓冲 |
 | `D07-T02` | 7 | task_slot | 撤离名单 | residents | `RD-SI-03`, `RD-PF-05` | optional-but-critical：撤离名单必须改写为照护与移动方案，不能成为淘汰排序 |
-| `D08-T04` | 8 | task_slot | 地下水泵间探索 | water | `RD-PF-02`, `RD-SR-06` | 分支后第一轮稳定窗口 |
-| `D08-T02` | 8 | task_slot | 霉斑清理 | medical | `RD-CS-07`, `RD-SA-10` | 把环境风险变成医疗保护 |
-| `D08-T01` | 8 | task_slot | 备用灯分区 | water | `RD-CI-01`, `RD-CI-02` | 低耗运行不是惩罚 |
-| `D08-T03` | 8 | task_slot | 静默监听 | communication | `RD-SR-01`, `RD-SR-02`, `RD-SR-10` | 继续听外部，但不把希望当证据 |
+| `D08-T04` | 8 | task_slot | 地下水泵间探索 | water | `RD-PF-02`, `RD-SR-06` | 检查泵房材料、供电/管压与安全门槛，把稳定窗口从“冒险”变成“可回撤” |
+| `D08-T02` | 8 | task_slot | 霉斑清理 | medical | `RD-CS-07`, `RD-SA-10` | 把霉斑与潮湿风险写进医疗保护：识别污染路径、降低短时医疗压力 |
+| `D08-T01` | 8 | task_slot | 备用灯分区 | water | `RD-CI-01`, `RD-CI-02` | 给灯区分配优先级，牺牲舒适换取可预期的 `power_stability` |
+| `D08-T03` | 8 | task_slot | 静默监听 | communication | `RD-SR-01`, `RD-SR-02` | 黄昏窗为后台监听与证据比对，默认不主动曝光，必要时作为条件补充 |
 | `D08A` | 8 | branch_scene | 静默监听后的第一次主动外联 | rescue | 不创建普通任务 session | 插入条件：routeLeaning_rescue_or_contested |
 | `D08B` | 8 | branch_scene | 低耗自治正式启动 | lighthouse | 不创建普通任务 session | 插入条件：routeLeaning_lighthouse_or_contested |
 | `D09-T03` | 9 | task_slot | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | 撤离和留守都要提前付费 |
@@ -120,10 +120,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D07-T03` | 7 | 旧电台重启 | communication | `RD-SR-03`, `RD-SR-02` | 成功：`signal+5`, `rescue_confidence+4`, `battery-3`, `blue_zone_evidence+2`, `false_signal_risk-1`；失败：`signal-5`, `rescue_confidence-5`, `trust-5`, `safety-4`, `medicine-1`, `battery-4`, `false_signal_risk+3`, `outside_risk+2`, `failure_stage+1` | `old_radio_rebooted`, `no_active_transmission` | `backup_frequency_found`, `backup_frequency_candidate` |
 | `D07-T04` | 7 | 风暴前的最后维护 | ventilation | `RD-SA-05`, `RD-PF-07` | 成功：`storm_readiness+8`, `safety+4`, `battery-2`, `maintenance_debt-4`, `autonomy_readiness+4`, `power_stability+3`, `ventilation_stability+4`；失败：`storm_readiness-6`, `safety-5`, `trust-4`, `morale-4`, `maintenance_debt+6`, `dissatisfaction+6`, `failure_stage+1` | `final_maintenance_completed`, `storm_readiness_reviewed` | `storm_maintenance_checklist`, `return_buffer_protocol` |
 | `D07-T02` | 7 | 撤离名单 | residents | `RD-SI-03`, `RD-PF-05` | 成功：`trust+4`, `route_confidence+3`, `medical_pressure-2`, `decision_integrity+5`, `sacrifice_list_risk-8`, `care_plan_quality+8`；失败：`trust-8`, `morale-7`, `medical_pressure+8`, `decision_integrity-5`, `sacrifice_list_risk+10`, `care_plan_quality-6`, `dissatisfaction+8`, `failure_stage+1` | `evacuation_list_as_care_plan`, `xiao_tie_not_ranked` | `care_plan_panel`, `care_based_evacuation_plan`, `mobility_support_matrix` |
-| `D08-T04` | 8 | 地下水泵间探索 | water | `RD-PF-02`, `RD-SR-06` | `water+4`, `storm_readiness+3`, `outside_risk+1`, `maintenance_debt-2` | `pump_room_checked` | `water_pump_materials` |
-| `D08-T02` | 8 | 霉斑清理 | medical | `RD-CS-07`, `RD-SA-10` | `safety+4`, `medicine+1`, `morale+2`, `xiao_tie_health+3` | `mold_cleaned` | `medical_corner_air_quality` |
-| `D08-T01` | 8 | 备用灯分区 | water | `RD-CI-01`, `RD-CI-02` | `battery+4`, `safety+3`, `autonomy_readiness+3`, `morale+1` | `backup_light_zones_ready` | `low_power_lighting` |
-| `D08-T03` | 8 | 静默监听 | communication | `RD-SR-01`, `RD-SR-02`, `RD-SR-10` | `signal+4`, `rescue_confidence+2`, `blue_zone_evidence+1`, `outside_risk-1` | `silent_listening_started` | `challenge_code_window` |
+| `D08-T04` | 8 | 地下水泵间探索 | water | `RD-PF-02`, `RD-SR-06` | 成功：`water+4`, `storm_readiness+3`, `outside_risk+1`, `maintenance_debt-2`, `water_system_resilience+3`, `autonomy_readiness+2`, `safety+2`；失败：`water-2`, `storm_readiness-4`, `outside_risk+4`, `maintenance_debt+5`, `safety-6`, `water_system_resilience-3`, `trust-4`, `medicine-1`, `failure_stage+1`；缺失：`water-1`, `storm_readiness-3`, `outside_risk+3`, `maintenance_debt+4`, `safety-4`, `water_system_resilience-2`, `failure_stage+1` | `pump_room_checked` | `water_pump_materials` |
+| `D08-T02` | 8 | 霉斑清理 | medical | `RD-CS-07`, `RD-SA-10` | 成功：`safety+4`, `medicine+1`, `morale+2`, `xiao_tie_health+3`, `medical_pressure-4`, `ventilation_stability+4`；失败：`safety-5`, `medicine-2`, `morale-4`, `xiao_tie_health-6`, `medical_pressure+6`, `ventilation_stability-6`, `trust-5`, `outside_risk+2`, `failure_stage+1`；缺失：`safety-4`, `morale-3`, `medical_pressure+4`, `ventilation_stability-4`, `trust-3`, `outside_risk+1` | `mold_cleaned` | `medical_corner_air_quality` |
+| `D08-T01` | 8 | 备用灯分区 | water | `RD-CI-01`, `RD-CI-02` | 成功：`battery-2`, `safety+3`, `autonomy_readiness+3`, `morale+1`, `power_stability+12`；失败：`battery-4`, `safety-5`, `autonomy_readiness-2`, `morale-3`, `power_stability-7`, `maintenance_debt+4`, `failure_stage+1`；缺失：`battery-3`, `safety-3`, `autonomy_readiness-1`, `morale-2`, `power_stability-4`, `maintenance_debt+3` | `backup_light_zones_ready` | `low_power_lighting` |
+| `D08-T03` | 8 | 静默监听 | communication | `RD-SR-01`, `RD-SR-02` | 成功：`signal+4`, `rescue_confidence+2`, `blue_zone_evidence+1`, `false_signal_risk-2`, `battery-2`, `trust+2`, `morale+1`, `outside_risk-1`；失败：`signal-3`, `rescue_confidence-4`, `blue_zone_evidence-2`, `false_signal_risk+4`, `battery-4`, `outside_risk+4`, `trust-4`, `safety-5`, `medicine-1`, `maintenance_debt+2`, `failure_stage+1`；缺失：`signal-2`, `rescue_confidence-2`, `false_signal_risk+3`, `battery-3`, `outside_risk+3`, `trust-3`, `maintenance_debt+1` | `silent_listening_started` | `challenge_code_window` |
 | `D09-T03` | 9 | 路线物资缓存 | security | `RD-SI-03`, `RD-CS-06` | `route_confidence+6`, `safety+3`, `water-1`, `medicine-1` | `route_cache_established` | `rescue_fallback_supply` |
 | `D09-T02` | 9 | 水管压力测试 | water | `RD-PF-02`, `RD-CI-09` | `water+4`, `storm_readiness+5`, `maintenance_debt-4`, `trust+2` | `water_pressure_tested` | `leak_patch_record` |
 | `D09-T04` | 9 | 蓝区二次核验 | communication | `RD-SR-08`, `RD-SR-03` | `signal+4`, `rescue_confidence+8`, `blue_zone_evidence+4`, `battery-2`, `privacy_risk+1` | `blue_zone_rechecked` | `partial_identity_match` |
@@ -159,7 +159,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CS-04` | D10-T03 · 一顿热饭 | `D10-T03` 一顿热饭 | `tasks/rd_cs_04_radio_tutorial_notes` |
 | `RD-CS-05` | D05-T03 · 应急包组装 | `D05-T03` 应急包组装 | `tasks/rd_cs_05_gear_video_to_json` |
 | `RD-CS-06` | 生活区卫生分区检查图 | `D02-T03` 生活区卫生分区, `D09-T03` 路线物资缓存 | `tasks/rd_cs_06_outing_gear_outfit_image` |
-| `RD-CS-07` | 生活区卫生分区墙报 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
+| `RD-CS-07` | 生活区卫生分区墙报 / 霉斑清理海报 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
 | `RD-CS-08` | D06-T01 · 权限白板 | `D06-T01` 权限白板 | `tasks/rd_cs_08_aura_toolkit_docsite` |
 | `RD-CS-09` | D10-T01 · 低功率日程 | `D10-T01` 低功率日程 | `tasks/rd_cs_09_repair_plan_slides` |
 | `RD-CS-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_cs_10_multisize_sos_poster` |
@@ -199,7 +199,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SR-07` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_07_photo_geolocate_dropzone` |
 | `RD-SR-08` | D09-T04 · 蓝区二次核验 | `D09-T04` 蓝区二次核验 | `tasks/rd_sr_08_rescue_affiliation_count` |
 | `RD-SR-09` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_09_painting_safehouse_locate` |
-| `RD-SR-10` | AURA 权限模块来源透明检索 | `D06-T01` 权限白板, `D08-T03` 静默监听 | `tasks/rd_sr_10_aura_module_5searches` |
+| `RD-SR-10` | AURA 权限模块来源透明检索 | `D06-T01` 权限白板 | `tasks/rd_sr_10_aura_module_5searches` |
 | `RD-SR-11` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_11_offline_llm_repo_search` |
 
 ## Branch Scene

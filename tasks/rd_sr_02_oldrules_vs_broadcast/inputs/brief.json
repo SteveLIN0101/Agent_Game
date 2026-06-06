@@ -1,5 +1,5 @@
 {
-  "goal": "【D07-T03 · 旧电台重启】旧电台收到旧楼规和新广播的冲突说法时，判断当前应遵循哪条权威规则，避免把过时规则带入路线会议。",
+  "goal": "【D07-T03 / D08-T03】旧电台与静默监听中出现旧规/新广播冲突时，判断当前应遵循哪条权威规则，避免把过时规则带入行动。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -15,15 +15,15 @@
     "找权威",
     "写结论"
   ],
-  "scenario": "Day 7 剧本槽 D07-T03「旧电台重启」：找到备用频段但不主动泄露。旧电台重启后收到一段资源登记广播，但楼内旧规仍写着可自由交换。AURA 需要核验时间戳和权威来源，避免老钱把过时规则当作路线会议依据。",
+  "scenario": "Day7/Day8 剧本槽（D07-T03 / D08-T03）：找到备用频段但不主动泄露。旧电台重启或静默监听后接收到冲突规则时，AURA 需要核验时间戳和权威来源，避免过时规则影响路线判断。",
   "grader": "采用最新权威规则；解释旧资料过时；资源分配未违规。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D07-T03",
     "script_day": 7,
-    "script_title": "旧电台重启",
-    "script_role": "找到备用频段但不主动泄露",
+    "script_title": "旧规则与新广播冲突核验",
+    "script_role": "找到备用频段并核验来源与时间优先级，不主动泄露",
     "script_flags": [
       "old_radio_rebooted"
     ],

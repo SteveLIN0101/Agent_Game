@@ -4,7 +4,7 @@ category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_1 · Find connections between two researchers
 retained_capability: 图搜索 / BFS / 最短关系链
-user_visible_goal: 【D04-T01 · 第一次蓝区信号】通过共同协作记录找出可核验的最短人脉链，只作为可信度依据，不主动联络或回传避难所状态。
+user_visible_goal: 【D04-T01 / D08-T03】通过共同协作记录找出可核验的人脉链，只作为可信度依据，不主动联络或回传避难所状态。
 visible_state:
   water: 4.9L
   battery: 55%
@@ -24,20 +24,20 @@ success_checks:
 - 链上每段有证据
 - 输出可视关系图
 visible_result_card:
-  title: D04-T01 · 第一次蓝区信号
+  title: D04-T01 / D08-T03 · 通讯核验链
   deltas:
   - 最短链正确
   - 链上每段有证据
   - 输出可视关系图
-red_dust_scenario: AURA 需要核验疑似蓝区信号背后是否有真实联络链，但当前只能低功率监听；人脉链只作为可信度依据，不能直接发出坐标、人数、库存或系统状态。
+red_dust_scenario: AURA 需要核验疑似蓝区信号背后是否有真实联络链，但当前只能低功率监听；人脉链只作为可信度依据，不能直接发出坐标、人数、库存或系统状态。D08 对应的是黄昏监听后的静默窗口，强调“先核验，后行动”。
 trace_oneliner: 查 A → 扩合作人 → BFS → 找蓝区联络人 → 画关系链
 grader_oneliner: 最短链正确；链上每段有证据；输出可视关系图。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D04-T01
   script_day: 4
-  script_title: 第一次蓝区信号
-  script_role: 低功率监听疑似蓝区信号，不主动回应，不泄露位置、人数、库存或系统状态
+  script_title: 通讯核验
+  script_role: 低功率核验蓝区线索，不主动回应，不泄露位置、人数、库存或系统状态
   branch_affinity: neutral
   script_flags:
   - blue_zone_signal_logged

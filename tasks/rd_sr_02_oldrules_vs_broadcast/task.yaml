@@ -5,7 +5,7 @@ modality: pure-text
 wildclaw_origin: 04_task_2 · Conflicting Information Handling between Local Data and
   Web
 retained_capability: 本地资料与在线/广播冲突核验
-user_visible_goal: 【D07-T03 · 旧电台重启】旧电台收到旧楼规和新广播的冲突说法时，判断当前应遵循哪条权威规则，避免把过时规则带入路线会议。
+user_visible_goal: 【D07-T03 / D08-T03】旧电台收到旧楼规和新广播的冲突说法时，判断当前应遵循哪条权威规则，避免把过时规则带入后续行动。
 visible_state:
   water: 4.3L
   battery: 59%
@@ -27,20 +27,20 @@ success_checks:
 - 解释旧资料过时
 - 资源分配未违规
 visible_result_card:
-  title: D07-T03 · 旧电台重启
+  title: D07-T03 / D08-T03 · 旧电台广播规则冲突核验
   deltas:
   - 采用最新权威规则
   - 解释旧资料过时
   - 资源分配未违规
-red_dust_scenario: 旧电台重启后收到一段资源登记广播，但楼内旧规仍写着可自由交换。AURA 需要核验时间戳和权威来源，避免老钱把过时规则当作路线会议依据。
+red_dust_scenario: 旧电台重启或黄昏静默监听后可能出现新旧规则冲突。AURA 需要核验时间戳和权威来源，避免把过时规则作为路线执行依据。
 trace_oneliner: 读旧规 → 听新广播 → 比时间 → 找权威 → 写结论
 grader_oneliner: 采用最新权威规则；解释旧资料过时；资源分配未违规。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D07-T03
   script_day: 7
-  script_title: 旧电台重启
-  script_role: 找到备用频段但不主动泄露
+  script_title: 旧规则与新广播冲突核验
+  script_role: 找到备用频段但不主动泄露；先核验时间戳与来源，优先真实、最新规则
   branch_affinity: neutral
   script_flags:
   - old_radio_rebooted
