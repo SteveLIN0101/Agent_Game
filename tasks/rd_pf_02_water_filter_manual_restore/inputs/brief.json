@@ -1,5 +1,5 @@
 {
-  "goal": "【D02-T02 · 净水预滤芯清洗】还原滤芯安装表和冲洗顺序，让观众看到“表格恢复 → 装置修好”。",
+  "goal": "【净水流程多槽】还原滤芯安装表、冲洗顺序和空桶消毒流程，让观众看到“表格恢复 → 装置可安全储水”。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -15,20 +15,28 @@
     "交给维修台",
     "试运行"
   ],
-  "scenario": "Day 2 剧本槽 D02-T02「净水预滤芯清洗」：提前处理净水隐患。 净水器手册被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。",
-  "grader": "安装步骤顺序正确；滤芯寿命 +2 天；没有把错误表格贴到白板。",
+  "scenario": "Day 2/5/8/9 多槽净水流程任务：净水器和储水桶说明书被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。它可服务滤芯清洗、Day5 空桶消毒储水、泵房材料和水管压力测试。",
+  "grader": "安装/冲洗步骤顺序正确；滤芯寿命 +2 天；空桶消毒标记清楚；没有把错误表格贴到白板。",
   "family": "classify",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D02-T02",
-    "script_day": 2,
-    "script_title": "净水预滤芯清洗",
-    "script_role": "提前处理净水隐患",
+    "story_task_id": "multi_slot_water_manual",
+    "script_day": "2-5-8-9",
+    "script_title": "净水与空桶消毒说明书还原",
+    "script_role": "还原净水/储水/泵房流程，支撑滤芯清洗、空桶储水和后续水路维护",
+    "script_slots": [
+      "D02-T02",
+      "D05-T04",
+      "D08-T04",
+      "D09-T02"
+    ],
     "script_flags": [
-      "water_filter_checked"
+      "water_filter_checked",
+      "water_storage_plan_ready"
     ],
     "script_unlocks": [
-      "water_low_power_mode"
+      "water_low_power_mode",
+      "sealed_water_cache"
     ]
   }
 }

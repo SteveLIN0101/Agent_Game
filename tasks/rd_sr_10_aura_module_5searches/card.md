@@ -1,4 +1,4 @@
-# RD-SR-10 · 五次以内找出 AURA 模块来源
+# RD-SR-10 · AURA 权限模块来源透明检索
 
 > **类别**: Search & Retrieval · 可见证据链检索　|　**形态**: pure-text
 
@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-Day 6 安全诊断 bonus：AURA 配置模块来自某个开源版本，必须查清何时加入和对应补丁；成功降低 tool_permission_risk。
+Day 6 权限白板要公开 AURA 能控制什么、不能控制什么，以及工具/权限模块来自哪里。AURA 配置模块来自某个开源版本，必须查清何时加入和对应补丁，不能把黑箱工具当成制度依据。
 
 ## 一眼胜负
 
-≤5 次搜索确认模块版本和补丁号。
+≤5 次搜索确认 AURA 权限/工具模块版本和补丁号，把来源透明地贴到白板。
 
 ## 可看懂轨迹
 
@@ -21,7 +21,7 @@ Day 6 安全诊断 bonus：AURA 配置模块来自某个开源版本，必须查
 
 ## 可见状态 / Grader
 
-次数合规；版本/补丁正确；证据链完整。
+次数合规；版本/补丁正确；证据链完整；权限来源透明。
 
 ## V2 剧情定位 / 调整说明
 
@@ -33,11 +33,11 @@ Day 6 安全诊断 bonus：AURA 配置模块来自某个开源版本，必须查
 ## Day0-12 剧本定位
 
 - **Story Version**: `red_dust_readable_v1`
-- **剧本任务槽**: `D06-T04` · 备用电源测试
+- **剧本任务槽**: `D06-T01` · 权限白板
 - **剧本日**: Day 6
-- **剧情作用**: 让高功率信标代价提前可见
-- **Flags**: `backup_power_tested`
-- **Unlocks**: `power_tradeoff_board`
+- **剧情作用**: 核验 AURA 权限/工具模块来源，降低工具黑箱和权限漂移风险
+- **Flags**: `permission_matrix_published`
+- **Unlocks**: `permission_matrix_panel`, `aura_module_provenance_verified`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

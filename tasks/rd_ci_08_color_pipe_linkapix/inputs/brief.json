@@ -1,5 +1,5 @@
 {
-  "goal": "【D05-T02 · 楼梯间路线标记】按颜色和数字连线，填出可用电路图。",
+  "goal": "【D05-T02 · 楼梯间路线标记】按颜色和数字连线，填出楼梯间应急照明/隐藏线路图，用作回撤路线辅助。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,20 +15,21 @@
     "填色",
     "切换电路"
   ],
-  "scenario": "Day 5 剧本槽 D05-T02「楼梯间路线标记」：建立不会诱导陌生人的路线标记。 配电箱上有彩色数字谜题，解开后显示隐藏线路。",
-  "grader": "图像与答案相似；描述正确；电力状态更新。",
+  "scenario": "Day 5 剧本槽 D05-T02「楼梯间路线标记」：建立不会诱导陌生人的路线标记。楼梯间配电箱上有彩色数字谜题，解开后显示应急照明和隐藏线路；它只能作为回撤路线辅助，不能替代粉笔/绳结等低技术标记。",
+  "grader": "图像与答案相似；描述正确；应急照明/隐藏线路状态更新。",
   "family": "puzzle",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D05-T02",
     "script_day": 5,
     "script_title": "楼梯间路线标记",
-    "script_role": "建立不会诱导陌生人的路线标记",
+    "script_role": "把应急照明/隐藏线路作为回撤路线辅助，不替代低技术路线标记",
     "script_flags": [
       "stair_markers_reviewed"
     ],
     "script_unlocks": [
-      "alternate_marker"
+      "alternate_marker",
+      "emergency_lighting_hint"
     ]
   }
 }

@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。
+Day 6 备用电源测试要让高功率信标代价提前可见。AURA 已拿到线路谜题 JSON，需要低功率还原线路图、点亮备用灯，并把 battery 消耗与 power_stability 收益写进白板。
 
 ## 一眼胜负
 
-最快还原 10×10 线路图，让备用灯亮起来。
+最快还原 10×10 线路图，低功率点亮备用灯，并记录 battery 消耗与 power_stability 收益。
 
 ## 可看懂轨迹
 
@@ -21,16 +21,16 @@ AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。
 
 ## 可见状态 / Grader
 
-灯光 +1；图片正确；输出描述中文。
+灯光 +1；图片正确；输出描述中文；电力取舍记录清楚。
 
 ## Day0-12 剧本定位
 
 - **Story Version**: `red_dust_readable_v1`
 - **剧本任务槽**: `D06-T04` · 备用电源测试
 - **剧本日**: Day 6
-- **剧情作用**: 让高功率信标代价提前可见
-- **Flags**: `backup_power_tested`
-- **Unlocks**: `power_tradeoff_board`
+- **剧情作用**: 消耗少量 battery 换取 power_stability 证据，让高功率信标代价提前可见
+- **Flags**: `backup_power_tested`, `power_tradeoff_visible`
+- **Unlocks**: `power_tradeoff_board`, `ma_dehai_power_abort_enabled`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

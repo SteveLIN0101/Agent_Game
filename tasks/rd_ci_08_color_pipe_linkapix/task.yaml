@@ -1,10 +1,10 @@
 id: RD-CI-08
-title: 彩色管线 Link-a-Pix
+title: 楼梯间应急照明 Link-a-Pix
 category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_8 · Link-a-Pix Color
 retained_capability: 约束求解 / 路径规划 / 像素图
-user_visible_goal: 【D05-T02 · 楼梯间路线标记】按颜色和数字连线，填出可用电路图。
+user_visible_goal: 【D05-T02 · 楼梯间路线标记】按颜色和数字连线，填出楼梯间应急照明/隐藏线路图，用作回撤路线辅助。
 visible_state:
   water: 4.0L
   battery: 66%
@@ -31,20 +31,21 @@ visible_result_card:
   - 图像与答案相似
   - 描述正确
   - 电力状态更新
-red_dust_scenario: 配电箱上有彩色数字谜题，解开后显示隐藏线路。
+red_dust_scenario: 楼梯间配电箱上有彩色数字谜题，解开后显示应急照明和隐藏线路；它只能作为回撤路线辅助，不能替代粉笔/绳结等低技术标记。
 trace_oneliner: 读数字 → 配对 → 搜路径 → 填色 → 切换电路
-grader_oneliner: 图像与答案相似；描述正确；电力状态更新。
+grader_oneliner: 图像与答案相似；描述正确；应急照明/隐藏线路状态更新。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D05-T02
   script_day: 5
   script_title: 楼梯间路线标记
-  script_role: 建立不会诱导陌生人的路线标记
+  script_role: 把应急照明/隐藏线路作为回撤路线辅助，不替代低技术路线标记
   branch_affinity: neutral
   script_flags:
   - stair_markers_reviewed
   script_unlocks:
   - alternate_marker
+  - emergency_lighting_hint
   mapped_task_pool:
   - RD-CI-07
   - RD-CI-05

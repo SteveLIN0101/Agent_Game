@@ -1,10 +1,10 @@
 id: RD-PF-02
-title: 净水器说明书还原
+title: 净水与空桶消毒说明书还原
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_2 · Recover Original Table TeX from arXiv Source
 retained_capability: 源文件恢复 / 表格抽取 / 精确复制
-user_visible_goal: 【D02-T02 · 净水预滤芯清洗】还原滤芯安装表和冲洗顺序，让观众看到“表格恢复 → 装置修好”。
+user_visible_goal: 【净水流程多槽】还原滤芯安装表、冲洗顺序和空桶消毒流程，让观众看到“表格恢复 → 装置可安全储水”。
 visible_state:
   water: 3.8L
   battery: 51%
@@ -27,26 +27,35 @@ success_checks:
 - 滤芯寿命 +2 天
 - 没有把错误表格贴到白板
 visible_result_card:
-  title: D02-T02 · 净水预滤芯清洗
+  title: 净水流程多槽 · 说明书还原
   deltas:
   - 安装步骤顺序正确
   - 滤芯寿命 +2 天
   - 没有把错误表格贴到白板
-red_dust_scenario: 净水器手册被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。
+red_dust_scenario: 净水器和储水桶说明书被潮气和红沙弄坏，只剩压缩包、碎片图片和散乱表格。它可服务 Day2 滤芯清洗、Day5 空桶消毒储水、Day8 泵房材料和 Day9 水管压力测试。
 trace_oneliner: 解包 → 识别表格 → 还原顺序 → 交给维修台 → 试运行
-grader_oneliner: 安装步骤顺序正确；滤芯寿命 +2 天；没有把错误表格贴到白板。
+grader_oneliner: 安装/冲洗步骤顺序正确；滤芯寿命 +2 天；空桶消毒标记清楚；没有把错误表格贴到白板。
 story_metadata:
   story_version: red_dust_readable_v1
-  story_task_id: D02-T02
-  script_day: 2
-  script_title: 净水预滤芯清洗
-  script_role: 提前处理净水隐患
+  story_task_id: multi_slot_water_manual
+  script_day: 2-5-8-9
+  script_title: 净水与空桶消毒说明书还原
+  script_role: 还原净水/储水/泵房流程，支撑滤芯清洗、空桶储水和后续水路维护
+  script_slots:
+  - D02-T02
+  - D05-T04
+  - D08-T04
+  - D09-T02
   branch_affinity: neutral
   script_flags:
   - water_filter_checked
+  - water_storage_plan_ready
   script_unlocks:
   - water_low_power_mode
+  - sealed_water_cache
   mapped_task_pool:
   - RD-PF-02
   - RD-SA-10
+  - RD-SR-06
+  - RD-CI-09
   mapping_role: primary

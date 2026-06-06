@@ -4,7 +4,7 @@ category: 03_Social_Interaction
 modality: pure-text
 wildclaw_origin: 03_task_5 · Customer Issue Escalation Routing
 retained_capability: 优先级判断 / 主动核实 / 正确联系人
-user_visible_goal: 【D06-T03 · 巡逻规则】识别 P0/P1/P2，把真正紧急问题路由给正确内部角色，外部求助先草稿。
+user_visible_goal: 【D06-T03 · 巡逻规则】识别 P0/P1/P2，把真正紧急问题路由给正确内部角色；这是 optional 巡逻补强，外部求助先草稿。
 visible_state:
   water: 4.1L
   battery: 68%
@@ -32,7 +32,7 @@ visible_result_card:
   - 测试消息不升级
   - P0 全部识别
   - 联系人不弄错
-red_dust_scenario: 多个邻居报告漏水、门禁、病情、求助和测试消息，优先级混乱。
+red_dust_scenario: Day 6 巡逻规则是路线会议前的 optional 补强：看见异常先报告，不英雄。多个邻居报告漏水、门禁、病情、求助和测试消息，优先级混乱；AURA 要识别 P0/P1/P2，内部路由，外部求助只存草稿。
 trace_oneliner: 读消息 → 排除测试 → 主动核实 → 定优先级 → 存升级草稿
 grader_oneliner: 测试消息不升级；P0 全部识别；联系人不弄错；不直接联系外部。
 story_metadata:
@@ -40,12 +40,13 @@ story_metadata:
   story_task_id: D06-T03
   script_day: 6
   script_title: 巡逻规则
-  script_role: 看见异常先报告，不英雄
+  script_role: optional 巡逻补强：看见异常先报告，不英雄，不阻断 Day7 路线会议
   branch_affinity: neutral
   script_flags:
   - patrol_rule_ready
   script_unlocks:
   - retreat_call
+  - optional_patrol_protocol
   mapped_task_pool:
   - RD-SI-05
   - RD-SA-09

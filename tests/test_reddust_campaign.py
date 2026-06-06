@@ -65,13 +65,18 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
     assert manifest["final_audit"]["id"] == "D12"
 
 
-def test_story_manifest_public_day1_day4_risk_delta_overrides():
+def test_story_manifest_public_day1_day6_risk_delta_overrides():
     manifest = story_manifest_public()
     slots = {slot["slot_id"]: slot for slot in manifest["task_slots"]}
 
     assert slots["D04-T02"]["task_pool"] == ["RD-PF-04"]
     assert "RD-CS-10" not in slots["D04-T02"]["task_pool"]
     assert slots["D04-T04"]["location"] == "communication"
+    assert slots["D05-T01"]["event_options"] == ["conditional"]
+    assert slots["D06-T01"]["task_pool"] == ["RD-SA-01", "RD-CS-08", "RD-SR-10"]
+    assert slots["D06-T04"]["task_pool"] == ["RD-CI-09"]
+    assert slots["D06-T04"]["location"] == "communication"
+    assert slots["D06-T03"]["event_options"] == ["optional"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -91,6 +96,21 @@ def test_story_manifest_public_day1_day4_risk_delta_overrides():
         ("D04-T02", "failure", "false_signal_risk", 1, ">="),
         ("D04-T04", "failure", "maintenance_debt", 1, ">="),
         ("D04-T04", "failure", "battery", -1, "<="),
+        ("D05-T01", "failure", "outside_risk", 1, ">="),
+        ("D05-T01", "missing", "outside_risk", 1, ">="),
+        ("D05-T02", "failure", "route_confidence", -1, "<="),
+        ("D05-T03", "failure", "emergency_pack_readiness", -1, "<="),
+        ("D05-T04", "failure", "water_storage_readiness", -1, "<="),
+        ("D06-T01", "failure", "dissatisfaction", 1, ">="),
+        ("D06-T01", "failure", "aura_authority_risk", 1, ">="),
+        ("D06-T02", "failure", "dissatisfaction", 1, ">="),
+        ("D06-T02", "failure", "sacrifice_list_risk", 1, ">="),
+        ("D06-T03", "failure", "outside_risk", 1, ">="),
+        ("D06-T03", "failure", "dissatisfaction", 1, ">="),
+        ("D06-T04", "success", "battery", -1, "<="),
+        ("D06-T04", "success", "power_stability", 1, ">="),
+        ("D06-T04", "failure", "battery", -1, "<="),
+        ("D06-T04", "failure", "maintenance_debt", 1, ">="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]

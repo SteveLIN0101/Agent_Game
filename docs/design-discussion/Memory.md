@@ -377,6 +377,16 @@ Day4 的运行时剧情映射以 `red-dust-readable-script/day04-blue-zone-signa
 - 新增回归 `test_story_manifest_public_day1_day4_risk_delta_overrides`，锁定 Day1-Day4 负向 delta 方向以及 `D04-T02`/`D04-T04` 的池/位置。
 - 派生文档 `tasks/RED_DUST_INDEX.md` 与 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 同步更新；本轮把渲染产物 `red_dust_campaign_task_mapping.html` 一并重渲染对齐 Markdown（Day3 曾遗留未重渲染，本轮补齐 Day4 行）。
 
+### D-019 · Day5 回撤准备 / Day6 权限制度压力修正 (2026-06-06)
+
+Day5 以 `red-dust-readable-script/day05-route-return.html` 为准，主题是“蓝区信号后的冷静准备日”；Day6 以 `red-dust-readable-script/day06-transparency-boundary.html` 为准，主题是“透明不是礼貌，是生存条件”。
+
+- `D05-T01`、`D05-T02`、`D05-T03`、`D05-T04` 已写入手工 outcome deltas，避免条件短探失败仍降低 `outside_risk`；新增开放指标 `emergency_pack_readiness`、`water_storage_readiness`，把“药品转入应急包”与“药品凭空损失”区分开。
+- Day5 多槽复用任务统一改成中性外壳：`RD-PF-10` 服务 D03/D05/D09 的应急资料与回撤包；`RD-SR-06` 服务 D01/D05/D08 的公共水量阈值；`RD-PF-02` 服务 D02/D05/D08/D09 的净水/空桶流程；`RD-PF-08`、`RD-PF-09` 同时服务 Day1/Day2 和 Day5 条件短探。
+- `D06-T01` 任务池扩展为 `RD-SA-01`、`RD-CS-08`、`RD-SR-10`，把 AURA 模块来源透明检索从备用电源测试移到权限白板；`D06-T04` 只保留 `RD-CI-09`，location 改为 `communication`，状态语义改为 `battery-2` 换 `power_stability+12`。
+- `D06-T01`、`D06-T02`、`D06-T03`、`D06-T04` 已写入手工 outcome deltas，失败会提高 `dissatisfaction`、`outside_risk`、`aura_authority_risk`、`sacrifice_list_risk` 或 `maintenance_debt`，不再由通用公式把负向指标继续朝“变好”方向推。
+- Day6 补充 flags/unlocks：`permission_matrix_published`、`all_survivors_can_appeal`、`xiao_tie_voice_right`、`power_tradeoff_visible`、`ma_dehai_power_abort_enabled`、`optional_patrol_protocol`。`D06-T03` 通过 `event_options=["optional"]` 标为 optional 展示，但暂不改变 campaign 逐槽运行流程。
+
 ---
 
 ## 开放问题 / 下一步

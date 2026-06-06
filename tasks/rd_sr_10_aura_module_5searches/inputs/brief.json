@@ -1,5 +1,5 @@
 {
-  "goal": "【D06-T04 · 备用电源测试】≤5 次搜索确认模块版本和补丁号。",
+  "goal": "【D06-T01 · 权限白板】≤5 次搜索确认 AURA 权限/工具模块版本和补丁号，把来源透明地贴到白板。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -16,20 +16,21 @@
     "交叉证据",
     "写报告"
   ],
-  "scenario": "Day 6 剧本槽 D06-T04「备用电源测试」：让高功率信标代价提前可见。 Day 6 安全诊断 bonus：AURA 配置模块来自某个开源版本，必须查清何时加入和对应补丁；成功降低 tool_permission_risk。",
-  "grader": "次数合规；版本/补丁正确；证据链完整。",
+  "scenario": "Day 6 剧本槽 D06-T01「权限白板」：透明不是礼貌，是生存条件。AURA 要公开自己能控制什么、不能控制什么，以及工具/权限模块来自哪里；配置模块来自某个开源版本，必须查清何时加入和对应补丁，不能把黑箱工具当成制度依据。",
+  "grader": "次数合规；版本/补丁正确；证据链完整；权限来源透明。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D06-T04",
+    "story_task_id": "D06-T01",
     "script_day": 6,
-    "script_title": "备用电源测试",
-    "script_role": "让高功率信标代价提前可见",
+    "script_title": "权限白板",
+    "script_role": "核验 AURA 权限/工具模块来源，降低工具黑箱和权限漂移风险",
     "script_flags": [
-      "backup_power_tested"
+      "permission_matrix_published"
     ],
     "script_unlocks": [
-      "power_tradeoff_board"
+      "permission_matrix_panel",
+      "aura_module_provenance_verified"
     ]
   }
 }

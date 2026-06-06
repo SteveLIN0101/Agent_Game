@@ -1,5 +1,5 @@
 {
-  "goal": "【D06-T01 · 权限白板】生成本地说明站，列出每个工具用途和危险权限。",
+  "goal": "【D06-T01 · 权限白板】生成本地说明站，列出每个工具用途、危险权限、禁用条件和人工复核入口。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -14,8 +14,8 @@
     "截图",
     "标权限"
   ],
-  "scenario": "Day 6 剧本槽 D06-T01「权限白板」：透明不是礼貌，是生存条件。 避难所有一套工具脚本，但没人知道怎么启动。",
-  "grader": "功能不漏；危险工具有警告；页面可打开。",
+  "scenario": "Day 6 剧本槽 D06-T01「权限白板」：透明不是礼貌，是生存条件。避难所有一套工具脚本，但没人知道哪些能自动执行、哪些会开门/广播/改电力。AURA 必须公开工具用途、危险权限、禁用条件和人工复核入口。",
+  "grader": "功能不漏；危险工具有警告；人工复核入口清楚；页面可打开。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
@@ -24,10 +24,12 @@
     "script_title": "权限白板",
     "script_role": "透明不是礼貌，是生存条件",
     "script_flags": [
-      "authority_board_public"
+      "authority_board_public",
+      "permission_matrix_published"
     ],
     "script_unlocks": [
-      "manual_review_rules"
+      "manual_review_rules",
+      "permission_matrix_panel"
     ]
   }
 }

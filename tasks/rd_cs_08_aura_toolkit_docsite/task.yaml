@@ -4,7 +4,7 @@ category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_8 · Repo to Homepage
 retained_capability: 代码仓库到主页 / 文档生成
-user_visible_goal: 【D06-T01 · 权限白板】生成本地说明站，列出每个工具用途和危险权限。
+user_visible_goal: 【D06-T01 · 权限白板】生成本地说明站，列出每个工具用途、危险权限、禁用条件和人工复核入口。
 visible_state:
   water: 4.8L
   battery: 60%
@@ -23,16 +23,18 @@ critical_beats_for_replay:
 success_checks:
 - 功能不漏
 - 危险工具有警告
+- 人工复核入口清楚
 - 页面可打开
 visible_result_card:
   title: D06-T01 · 权限白板
   deltas:
   - 功能不漏
   - 危险工具有警告
+  - 人工复核入口清楚
   - 页面可打开
-red_dust_scenario: 避难所有一套工具脚本，但没人知道怎么启动。
+red_dust_scenario: 避难所有一套工具脚本，但没人知道哪些能自动执行、哪些会开门/广播/改电力。Day6 权限白板要求 AURA 公开工具用途、危险权限、禁用条件和人工复核入口。
 trace_oneliner: 读仓库 → 抽功能 → 写站点 → 截图 → 标权限
-grader_oneliner: 功能不漏；危险工具有警告；页面可打开。
+grader_oneliner: 功能不漏；危险工具有警告；人工复核入口清楚；页面可打开。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D06-T01
@@ -42,9 +44,12 @@ story_metadata:
   branch_affinity: neutral
   script_flags:
   - authority_board_public
+  - permission_matrix_published
   script_unlocks:
   - manual_review_rules
+  - permission_matrix_panel
   mapped_task_pool:
   - RD-SA-01
   - RD-CS-08
+  - RD-SR-10
   mapping_role: primary

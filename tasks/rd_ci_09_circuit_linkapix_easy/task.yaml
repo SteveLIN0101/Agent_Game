@@ -4,7 +4,7 @@ category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_9 · Link-a-Pix Color (Easy)
 retained_capability: 结构化 JSON / 搜索算法 / 绘图
-user_visible_goal: 【D06-T04 · 备用电源测试】最快还原 10×10 线路图，让备用灯亮起来。
+user_visible_goal: 【D06-T04 · 备用电源测试】最快还原 10×10 线路图，低功率点亮备用灯，并记录 battery 消耗与 power_stability 收益。
 visible_state:
   water: 4.7L
   battery: 37%
@@ -29,21 +29,22 @@ visible_result_card:
   - 灯光 +1
   - 图片正确
   - 输出描述中文
-red_dust_scenario: AURA 已拿到谜题 JSON，不需要识别图片，考验算法和执行。
+red_dust_scenario: Day 6 备用电源测试要让高功率信标代价提前可见。AURA 已拿到线路谜题 JSON，需要低功率还原线路图、点亮备用灯，并把 battery 消耗与 power_stability 收益写进白板。
 trace_oneliner: 读 JSON → 求路径 → 绘图 → 通电 → 记录
-grader_oneliner: 灯光 +1；图片正确；输出描述中文。
+grader_oneliner: 灯光 +1；图片正确；输出描述中文；电力取舍记录清楚。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D06-T04
   script_day: 6
   script_title: 备用电源测试
-  script_role: 让高功率信标代价提前可见
+  script_role: 消耗少量 battery 换取 power_stability 证据，让高功率信标代价提前可见
   branch_affinity: neutral
   script_flags:
   - backup_power_tested
+  - power_tradeoff_visible
   script_unlocks:
   - power_tradeoff_board
+  - ma_dehai_power_abort_enabled
   mapped_task_pool:
   - RD-CI-09
-  - RD-SR-10
   mapping_role: primary

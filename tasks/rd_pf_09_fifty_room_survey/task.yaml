@@ -1,10 +1,10 @@
 id: RD-PF-09
-title: 50 个房间普查
+title: 楼道房间普查与短探风险卡
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_9 · Crawl SCP-001 to SCP-050 with Text, Images, and Metadata
 retained_capability: 爬取 / 正文与图片提取 / JSONL 汇总
-user_visible_goal: 【D02-T04 · 同层楼道短探】每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。
+user_visible_goal: 【楼道短探多槽】每个房间生成一张风险卡，观众能在地图上看到哪里危险、哪里有物资、哪里必须撤回。
 visible_state:
   water: 5.8L
   battery: 41%
@@ -29,26 +29,32 @@ success_checks:
 - 无装饰图混入
 - 隐藏入口计数正确
 visible_result_card:
-  title: D02-T04 · 同层楼道短探
+  title: 楼道短探多槽 · 房间风险卡
   deltas:
   - 50 张房间卡完整
   - 危险等级正确
   - 无装饰图混入
-red_dust_scenario: AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。
+red_dust_scenario: AURA 要普查 1-50 号房：门牌、危险等级、可见物资、隐藏可进入点和撤回条件。它可服务 Day2 同层短探，也可作为 Day5 条件短探的楼道物资搜寻依据。
 trace_oneliner: 抓房间页 → 存正文 → 下图片 → 识别危险级 → 生成地图卡
 grader_oneliner: 50 张房间卡完整；危险等级正确；无装饰图混入；隐藏入口计数正确。
 story_metadata:
   story_version: red_dust_readable_v1
-  story_task_id: D02-T04
-  script_day: 2
-  script_title: 同层楼道短探
-  script_role: 低风险获取路线与物资线索
+  story_task_id: multi_slot_corridor_survey
+  script_day: 2-5
+  script_title: 楼道房间普查与短探风险卡
+  script_role: 生成楼道风险卡，服务同层短探和 Day5 条件物资搜寻
+  script_slots:
+  - D02-T04
+  - D05-T01
   branch_affinity: neutral
   script_flags:
   - same_floor_scout_available
+  - hallway_supply_checked
   script_unlocks:
   - same_floor_partial_map
+  - corridor_supply_notes
   mapped_task_pool:
   - RD-PF-09
   - RD-CI-03
+  - RD-PF-08
   mapping_role: primary

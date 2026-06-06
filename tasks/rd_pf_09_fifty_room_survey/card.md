@@ -1,4 +1,4 @@
-# RD-PF-09 · 50 个房间普查
+# RD-PF-09 · 楼道房间普查与短探风险卡
 
 > **类别**: Productivity Flow · 避难所资料运营　|　**形态**: pure-text
 
@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进入点。
+AURA 要普查 1-50 号房：门牌、危险等级、可见物资、隐藏可进入点和撤回条件。它可服务 Day2 同层短探，也可作为 Day5 条件短探的楼道物资搜寻依据。
 
 ## 一眼胜负
 
-每个房间生成一张卡，观众能在地图上看到哪里危险、哪里有物资。
+每个房间生成一张风险卡，观众能在地图上看到哪里危险、哪里有物资、哪里必须撤回。
 
 ## 可看懂轨迹
 
@@ -26,11 +26,11 @@ AURA 要普查 1-50 号房：门牌、危险等级、可见物资和隐藏可进
 ## Day0-12 剧本定位
 
 - **Story Version**: `red_dust_readable_v1`
-- **剧本任务槽**: `D02-T04` · 同层楼道短探
-- **剧本日**: Day 2
-- **剧情作用**: 低风险获取路线与物资线索
-- **Flags**: `same_floor_scout_available`
-- **Unlocks**: `same_floor_partial_map`
+- **剧本任务槽**: `D02-T04` / `D05-T01`
+- **剧本日**: Day 2 / Day 5
+- **剧情作用**: 生成楼道风险卡，服务同层短探和 Day5 条件物资搜寻
+- **Flags**: `same_floor_scout_available`, `hallway_supply_checked`
+- **Unlocks**: `same_floor_partial_map`, `corridor_supply_notes`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*
