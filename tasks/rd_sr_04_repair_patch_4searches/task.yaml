@@ -1,10 +1,10 @@
 id: RD-SR-04
-title: 四次以内找出维修补丁
+title: 配电间维修补丁证据链
 category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_4 · Search Efficiency Test
 retained_capability: 搜索预算 / 证据链 / 版本追踪
-user_visible_goal: 【D03-T04 · 废弃办公室探索】用 ≤4 次搜索确认版本和补丁号，写证据链。
+user_visible_goal: 【维修日志证据链】用 ≤4 次搜索确认旧电路图/发电机手册里的自动巡检函数版本和补丁号，写证据链。
 visible_state:
   water: 3.1L
   battery: 35%
@@ -27,25 +27,30 @@ success_checks:
 - 版本和补丁正确
 - 每条证据有来源
 visible_result_card:
-  title: D03-T04 · 废弃办公室探索
+  title: 配电间维修补丁证据链
   deltas:
   - 搜索次数合规
   - 版本和补丁正确
   - 每条证据有来源
-red_dust_scenario: 发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。
+red_dust_scenario: 这道维修补丁题会在 Day3 废弃办公室探索和 Day4 配电间工具搜寻中复用。发电机手册说 auto_inspect() 可自动巡检油压与温度，但不知道从哪个版本加入、哪个补丁引入。
 trace_oneliner: 搜 1 → 定版本 → 搜 2 → 定补丁 → 写证据
 grader_oneliner: 搜索次数合规；版本和补丁正确；每条证据有来源。
 story_metadata:
   story_version: red_dust_readable_v1
-  story_task_id: D03-T04
-  script_day: 3
-  script_title: 废弃办公室探索
-  script_role: 寻找口罩、工具和维修日志
+  story_task_id: multi_slot_repair_patch
+  script_day: 3-4
+  script_title: 配电间维修补丁证据链
+  script_role: 支持废弃办公室维修日志和配电间工具搜寻的工程证据链
   branch_affinity: neutral
   script_flags:
   - abandoned_office_checked
+  - power_tools_found
   script_unlocks:
   - dust_masks
+  - backup_repair_materials
+  script_slots:
+  - D03-T04
+  - D04-T04
   mapped_task_pool:
   - RD-SR-04
   - RD-PF-10

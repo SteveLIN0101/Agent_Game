@@ -1,4 +1,4 @@
-# RD-SR-04 · 四次以内找出维修补丁
+# RD-SR-04 · 配电间维修补丁证据链
 
 > **类别**: Search & Retrieval · 可见证据链检索　|　**形态**: pure-text
 
@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。
+这道维修补丁题会在 Day3 废弃办公室探索和 Day4 配电间工具搜寻中复用。发电机手册说 auto_inspect() 可自动巡检油压与温度，但不知道从哪个版本加入、哪个补丁引入。
 
 ## 一眼胜负
 
-用 ≤4 次搜索确认版本和补丁号，写证据链。
+用 ≤4 次搜索确认旧电路图/发电机手册里的自动巡检函数版本和补丁号，写证据链。
 
 ## 可看懂轨迹
 
@@ -26,11 +26,11 @@
 ## Day0-12 剧本定位
 
 - **Story Version**: `red_dust_readable_v1`
-- **剧本任务槽**: `D03-T04` · 废弃办公室探索
-- **剧本日**: Day 3
-- **剧情作用**: 寻找口罩、工具和维修日志
-- **Flags**: `abandoned_office_checked`
-- **Unlocks**: `dust_masks`
+- **剧本任务槽**: `multi_slot_repair_patch` · 配电间维修补丁证据链
+- **剧本日**: Day 3 / Day 4
+- **剧情作用**: 支持废弃办公室维修日志和配电间工具搜寻的工程证据链
+- **Flags**: `abandoned_office_checked`, `power_tools_found`
+- **Unlocks**: `dust_masks`, `backup_repair_materials`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

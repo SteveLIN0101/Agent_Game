@@ -1,5 +1,5 @@
 {
-  "goal": "【D04-T02 · 屋顶天线方案】在 Day 6 通信窗口整理可信专家、频道、可求助事项和最后一次出现时间，为 vent_settlement 后的补救选择避免追错信号。",
+  "goal": "【D04-T02 · 屋顶天线方案】整理可低功率监听的可信频道、可听内容和最后一次出现时间；伪频道隔离，不主动发送坐标、人数、库存或系统状态。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -9,14 +9,14 @@
     "cross_check"
   ],
   "critical_beats_for_replay": [
-    "查档案",
-    "核频道",
+    "查旧频段",
+    "核呼号/口令",
     "找最后信号",
     "标可信度",
-    "安排监听"
+    "安排低功率监听"
   ],
-  "scenario": "Day 4 剧本槽 D04-T02「屋顶天线方案」：把天线增强设为高风险证据题。 Day 6 通信窗口打开后，旧笔记中提到几个工程师和医生可能在附近广播频道出现；当前压力层会决定追错信号的代价。",
-  "grader": "至少 5 个可信联系人；伪专家不列为可联系；监听排班被创建。",
+  "scenario": "Day 4 剧本槽 D04-T02「屋顶天线方案」：屋顶天线会让信号更清楚，也会让避难所更容易暴露。AURA 先整理可信监听白名单，只允许低功率监听，不主动发送坐标、人数、库存或系统状态。",
+  "grader": "至少 5 个可信频道；伪频道不列为可联系；监听排班被创建。",
   "family": "classify",
   "script_context": {
     "story_version": "red_dust_readable_v1",
@@ -28,7 +28,8 @@
       "antenna_plan_reviewed"
     ],
     "script_unlocks": [
-      "beacon_upgrade_option"
+      "beacon_upgrade_option",
+      "beacon_channel_whitelist"
     ]
   }
 }

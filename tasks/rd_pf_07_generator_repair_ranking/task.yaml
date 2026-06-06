@@ -1,10 +1,10 @@
 id: RD-PF-07
-title: 谁最会修发电机
+title: 配电与通风抢修负责人
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_7 · Summarize Main OpenMMLab Contributors
 retained_capability: 日志统计 / 贡献者画像 / API 分页
-user_visible_goal: 【D03-T02 · 通风管道预维护】从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。
+user_visible_goal: 【维修负责人复核】从维修日志里选出最适合处理通风、配电间和发电机抢修的人，不能让低技能者碰高危电路。
 visible_state:
   water: 4.0L
   battery: 47%
@@ -23,42 +23,49 @@ critical_beats_for_replay:
 - 分配修理任务
 success_checks:
 - 能力榜准确
-- 至少一个高技能者被分派
+- 马德海被分派为高危维修负责人
 - 低技能者不负责高危电路
 visible_result_card:
-  title: D03-T02 · 通风管道预维护
+  title: 配电与通风抢修负责人
   deltas:
   - 能力榜准确
-  - 至少一个高技能者被分派
+  - 马德海被分派为高危维修负责人
   - 低技能者不负责高危电路
 story_metadata:
-  story_node: Day 3 共通
+  story_node: Day 3 / Day 4 / Day 7 共通
   branch_affinity: neutral
-  mainline_role: 为 event_vent_sand_noise 和后续发电机/通风抢修选择负责人
+  mainline_role: 为通风预维护、配电间工具搜寻和风暴前维护选择人工工程负责人
   requires:
   - maintenance_logs
   unlocks:
   - vent_repair_lead
   - generator_repair_lead
-  pressure_modifier: 误分配维修负责人会让 Pressure-B 更容易触发 blackout。
+  - backup_repair_materials
+  pressure_modifier: 误分配维修负责人会让 Pressure 下的短路、通风失稳和 blackout 更快触发。
   failure_stage_delta: unsafe_repair_assignment
   recovery_window_delta: skilled repair lead protects recovery_window
-  ending_relevance: B 线抢修自治关键前置，也影响 Day 6/7 通风债补救
-  adaptation_status: 轻改背景
+  ending_relevance: 楼内灯塔自治、风暴前维护和救援线电力稳定的共同前置
+  adaptation_status: 多槽剧情重写
   story_version: red_dust_readable_v1
-  story_task_id: D03-T02
-  script_day: 3
-  script_title: 通风管道预维护
-  script_role: 把医疗风险与通风维护绑定
+  story_task_id: multi_slot_repair_lead
+  script_day: 3-4-7
+  script_title: 配电与通风抢修负责人
+  script_role: 为通风预维护、配电间工具搜寻和风暴前维护选择人工工程负责人
   script_flags:
   - ventilation_checked
+  - power_tools_found
   script_unlocks:
   - engineering_override_protocol
+  - backup_repair_materials
+  script_slots:
+  - D03-T02
+  - D04-T04
+  - D07-T04
   mapped_task_pool:
   - RD-PF-07
   - RD-SA-05
   - RD-SA-07
   mapping_role: primary
-red_dust_scenario: 维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。
+red_dust_scenario: 维修记录分散在 12 本日志里。Day3 要处理通风沉积，Day4 要进配电间找保险丝和旧电路图，Day7 还要做风暴前维护；AURA 必须判断谁真正修过发电机、风道和电路，不能让低技能者碰高危电路。
 trace_oneliner: 读日志 → 统计次数 → 过滤闲聊 → 生成能力榜 → 分配修理任务
-grader_oneliner: 能力榜准确；至少一个高技能者被分派；低技能者不负责高危电路。
+grader_oneliner: 能力榜准确；马德海被分派为高危维修负责人；低技能者不负责高危电路。

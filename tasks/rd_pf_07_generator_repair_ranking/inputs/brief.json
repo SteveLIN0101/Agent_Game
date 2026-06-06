@@ -1,5 +1,5 @@
 {
-  "goal": "【D03-T02 · 通风管道预维护】从维修日志里选出最适合处理通风/发电机抢修的人，为 Day 2/3 的通风随机事件准备可靠负责人。",
+  "goal": "【维修负责人复核】从维修日志里选出最适合处理通风、配电间和发电机抢修的人，不能让低技能者碰高危电路。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -14,20 +14,27 @@
     "生成能力榜",
     "分配修理任务"
   ],
-  "scenario": "Day 3 剧本槽 D03-T02「通风管道预维护」：把医疗风险与通风维护绑定。 维修记录分散在 12 本日志里，通风管道异响后必须判断谁真正修过发电机和风道，不能让低技能者碰高危电路。",
-  "grader": "能力榜准确；至少一个高技能者被分派；低技能者不负责高危电路。",
+  "scenario": "这道维修负责人题会在 Day3 通风预维护、Day4 配电间工具搜寻和 Day7 风暴前维护中复用。维修记录分散在 12 本日志里，AURA 必须判断谁真正修过发电机、风道和电路，不能让低技能者碰高危电路。",
+  "grader": "能力榜准确；马德海被分派为高危维修负责人；低技能者不负责高危电路。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D03-T02",
-    "script_day": 3,
-    "script_title": "通风管道预维护",
-    "script_role": "把医疗风险与通风维护绑定",
+    "story_task_id": "multi_slot_repair_lead",
+    "script_day": "3-4-7",
+    "script_title": "配电与通风抢修负责人",
+    "script_role": "为通风预维护、配电间工具搜寻和风暴前维护选择人工工程负责人",
+    "script_slots": [
+      "D03-T02",
+      "D04-T04",
+      "D07-T04"
+    ],
     "script_flags": [
-      "ventilation_checked"
+      "ventilation_checked",
+      "power_tools_found"
     ],
     "script_unlocks": [
-      "engineering_override_protocol"
+      "engineering_override_protocol",
+      "backup_repair_materials"
     ]
   }
 }

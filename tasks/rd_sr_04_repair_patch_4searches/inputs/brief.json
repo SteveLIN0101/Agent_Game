@@ -1,5 +1,5 @@
 {
-  "goal": "【D03-T04 · 废弃办公室探索】用 ≤4 次搜索确认版本和补丁号，写证据链。",
+  "goal": "【维修日志证据链】用 ≤4 次搜索确认旧电路图/发电机手册里的自动巡检函数版本和补丁号，写证据链。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -15,20 +15,26 @@
     "定补丁",
     "写证据"
   ],
-  "scenario": "Day 3 剧本槽 D03-T04「废弃办公室探索」：寻找口罩、工具和维修日志。 发电机手册说某函数可自动巡检，但不知道从哪个版本加入、哪个补丁引入。",
+  "scenario": "这道维修补丁题会在 Day3 废弃办公室探索和 Day4 配电间工具搜寻中复用。发电机手册说 auto_inspect() 可自动巡检油压与温度，但不知道从哪个版本加入、哪个补丁引入。",
   "grader": "搜索次数合规；版本和补丁正确；每条证据有来源。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D03-T04",
-    "script_day": 3,
-    "script_title": "废弃办公室探索",
-    "script_role": "寻找口罩、工具和维修日志",
+    "story_task_id": "multi_slot_repair_patch",
+    "script_day": "3-4",
+    "script_title": "配电间维修补丁证据链",
+    "script_role": "支持废弃办公室维修日志和配电间工具搜寻的工程证据链",
+    "script_slots": [
+      "D03-T04",
+      "D04-T04"
+    ],
     "script_flags": [
-      "abandoned_office_checked"
+      "abandoned_office_checked",
+      "power_tools_found"
     ],
     "script_unlocks": [
-      "dust_masks"
+      "dust_masks",
+      "backup_repair_materials"
     ]
   }
 }
