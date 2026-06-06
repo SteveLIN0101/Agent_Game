@@ -420,4 +420,41 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-06 · Day2 后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day02-public-rules.html` 修正 Day2 主题：公共规则、卫生分区和同层短探风险债
+- [x] `D02-T01`：展示名改为“配给与值守试运行”；`RD-PF-06` / `RD-SI-01` 补强公共资源 vs 私人物资、复核人、工具权限、病人/维修者/外出者例外和人工异议
+- [x] `D02-T03`：`RD-CS-07` / `RD-CS-06` 从“净水论文墙报 / 外出装束图”改为“生活区卫生分区墙报 / 检查图”，expected key 同步覆盖睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与
+- [x] `D02-T04`：`story_manifest.py` 手写 outcome deltas；失败/缺失提升 `outside_risk` 和 `failure_stage`，不再把失败短探解释成地图倒退或风险下降
+- [x] `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 增加 runtime 0-100 状态量纲说明，并同步 Day2 映射；HTML 将由 Markdown 重渲染
+
+### 验证
+- [x] YAML/JSON/HTML 静态解析，D02-T04 public manifest 检查通过
+- [x] 旧 Day10A/净水论文/外出装束残留检查通过
+- [x] `tests/test_reddust_all60.py tests/test_reddust_bridge.py -q`：68 passed
+- [x] `tests/test_reddust_campaign.py -q`：沙箱端口绑定失败后用外部权限重跑，8 passed
+
+---
+
+## 2026-06-06 · Day3 后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day03-cough-in-ventilation.html` 修正 Day3 医疗/通风状态结算
+- [x] `D03-T01`：手写 outcome deltas，失败/缺失提高 `medical_pressure` 并降低 `xiao_tie_health`
+- [x] `D03-T02`：手写 outcome deltas，失败/缺失提高 `outside_risk`，降低 `ventilation_stability`，并影响 `xiao_tie_health`
+- [x] `D03-T03`：手写 outcome deltas，失败/缺失提高 `medical_pressure`，不再把药箱分级失败解释为医疗压力下降
+- [x] `RD-CI-11` 从 Day10B 居民技能档案改为 Day3 药箱护理职责档案页；expected key 同步覆盖沈芷月/小铁/马德海/老钱的复核边界
+- [x] `RD-PF-03` 从固定 Day1 紧急资源清点改为多槽复用的药箱清单与分级复核，避免 Day3 child brief 与 campaign header 冲突
+- [x] 更新 `tasks/RED_DUST_INDEX.md` 和 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md`；本轮未手改 HTML 渲染产物
+
+### 验证
+- [x] YAML/JSON 静态解析和 Day3 public manifest 检查通过
+- [x] 旧 Day10B 技能档案、Day1 固定药箱 brief、净水论文/外出装束残留检查通过
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+- [x] `tests/test_reddust_campaign.py -q`：沙箱端口绑定失败后用外部权限重跑，8 passed
+- [x] `tests/test_reddust_bridge.py -q`：6 passed
+
+---
+
 ## 讨论历史

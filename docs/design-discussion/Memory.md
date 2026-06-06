@@ -350,6 +350,23 @@ Day1 的运行时剧情映射以 `red-dust-readable-script/day01-who-can-close-d
 - `RD-CI-06` 不再属于 Day1 近门杂物搜寻主槽，主剧本定位改为 `D03-T01` 小铁复诊的感知增强 bonus，并仍通过 `D03-T01` / `D10-T02` 保持 campaign 覆盖。
 - `D01-T02` 的 `RD-PF-03`、`RD-SR-06` 不改 grader family，只增强 narrative/brief/card：资源公开不是收缴，需区分公共资源与私人物资，标注来源、复核人、沈芷月医疗复核和马德海工具权限。
 
+### D-016 · Day2 公共规则、卫生分区与短探风险债 (2026-06-06)
+
+Day2 的运行时剧情映射以 `red-dust-readable-script/day02-public-rules.html` 为准，主题是“公共规则从私人物品开始”，不是净水论文展示或外出装备展示。
+
+- `D02-T01` 展示名改为“配给与值守试运行”，任务池仍为 `RD-PF-06`、`RD-SI-01`。两题都保留原 grader 能力，但 task/card/brief 强化：公共水药可进入白板，私人物资不能被 AURA 直接征用；沈芷月复核医疗配给和小铁状态，马德海复核工具/滤芯/修门时段，老钱要求人工异议记录。
+- `D02-T03` 仍映射 `RD-CS-07`、`RD-CS-06`，但两题从“净水论文墙报 / 外出装束图”改为“生活区卫生分区墙报 / 检查图”。必备语义为：睡眠区、医疗角、废弃物封存、粉尘沉积带、通风方向、小铁只参与安全内侧的大字标签。
+- `D02-T04` 保持任务池 `RD-PF-09`、`RD-CI-03`，但 `story_manifest.py` 为该槽手写 outcome deltas：成功提升 `map_coverage` 并降低 `outside_risk`；失败/缺失不再让 `outside_risk` 下降，也不大幅扣减地图覆盖，而是增加 `outside_risk`、降低 safety/trust/morale/medicine，并写入 `failure_stage+1` 作为短探风险债。
+- Campaign runtime 继续使用 0-100 归一化 HUD 指标和开放式辅助指标；剧本文档里的水量、药品份数、时间等故事化原始数值不等同于 runtime `state_delta` 的物理计量单位。映射文档已明确这一点。
+
+### D-017 · Day3 医疗/通风负向指标修正 (2026-06-06)
+
+Day3 的运行时剧情映射以 `red-dust-readable-script/day03-cough-in-ventilation.html` 为准，主题是“小铁病情、药物有限、通风沉积与医疗伦理绑定”。
+
+- `D03-T01`、`D03-T02`、`D03-T03` 已在 `story_manifest.py` 写入手工 outcome deltas，避免通用公式错误处理“数值降低为好”的字段。失败/缺失会提高 `medical_pressure`、`outside_risk` 或 `failure_stage`，并降低 `xiao_tie_health` / `ventilation_stability`，不再出现失败却降低医疗压力或暴露风险的反向结算。
+- `RD-CI-11` 不再使用 Day10B 居民技能档案语义，改为 `D03-T03` 药箱护理职责档案页：展示沈芷月医疗复核、小铁观察计时、马德海工程/通风复核、老钱记录和异议，禁止把未经核实的军医/黑客/蓝区关系包装成医疗权限。
+- `RD-PF-03` 不再把 child brief 固定写作 `D01-T02` 紧急资源清点，改为多槽复用的“药箱清单与分级复核”：可服务 Day1 公开台账、Day3 小铁复诊/药箱分级、Day10 医疗预检和 Day11 最终封存。
+
 ---
 
 ## 开放问题 / 下一步

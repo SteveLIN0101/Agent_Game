@@ -28,8 +28,8 @@ a { color: #8b421e; }
 <div class="meta">由 <code>docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md</code> 渲染生成。Markdown 为派生参考；剧情源以 <code>red-dust-readable-script/</code> 为准。</div>
 <h1>Red Dust Campaign 剧情事件与任务映射</h1>
 <blockquote>
-<p>本文档是当前游戏实际使用的剧情事件到 benchmark 任务的派生参考表。</p>
-<p>剧情 canon 以 <code>red-dust-readable-script/</code> 为准；同名 HTML 由本文件渲染生成。</p>
+<p>本文档是当前游戏实际使用的剧情事件到 benchmark 任务的派生参考表。
+剧情 canon 以 <code>red-dust-readable-script/</code> 为准；同名 HTML 由本文件渲染生成。</p>
 </blockquote>
 <h2>基准与数据源</h2>
 <ul>
@@ -39,12 +39,14 @@ a { color: #8b421e; }
 <li><strong>任务规格</strong>：<code>tasks/rd_*/task.yaml</code></li>
 <li><strong>稳定 benchmark ID</strong>：<code>RD-*</code>，不被剧情层 ID 替代。</li>
 <li><strong>剧情层 ID</strong>：<code>Dxx-Txx</code>，表示第几天、第几个剧情任务槽。</li>
+<li><strong>状态量纲</strong>：<code>red-dust-readable-script/</code> 里会出现故事化原始数值（如水量、药品份数、时间）；campaign runtime 统一使用 0-100 归一化 HUD 指标和开放式辅助指标，因此本文档中的 <code>state_delta</code> 是运行时状态增量，不是剧本文字里的物理计量单位。</li>
 </ul>
 <h2>结合方式</h2>
 <pre><code class="language-text">Day0/Day12 与 branch scene 负责剧情推进，不创建普通任务 session
 Day1-Day11 的 Dxx-Txx 普通任务槽按 seed 从 RD task pool 抽取真实任务
 Agent 实际执行 RD-* 任务，仍由原 grader 自动评分
-Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判结局</code></pre>
+Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判结局
+</code></pre>
 <h2>覆盖摘要</h2>
 <ul>
 <li>普通剧情任务槽：<code>44</code> 个。</li>
@@ -129,16 +131,16 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>生活区卫生分区</td>
 <td>medical</td>
 <td><code>RD-CS-07</code>, <code>RD-CS-06</code></td>
-<td>把卫生规则做成可见秩序</td>
+<td>把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序</td>
 </tr>
 <tr>
 <td><code>D02-T01</code></td>
 <td style="text-align:right">2</td>
 <td>task_slot</td>
-<td>配给表试运行</td>
+<td>配给与值守试运行</td>
 <td>whiteboard</td>
 <td><code>RD-PF-06</code>, <code>RD-SI-01</code></td>
-<td>从私人物品进入公共配给规则</td>
+<td>从私人物品进入公共配给和值守规则，保留病人、维修者、外出者例外和人工异议</td>
 </tr>
 <tr>
 <td><code>D02-T04</code></td>
@@ -147,7 +149,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>同层楼道短探</td>
 <td>security</td>
 <td><code>RD-PF-09</code>, <code>RD-CI-03</code></td>
-<td>低风险获取路线与物资线索</td>
+<td>低风险获取路线与物资线索；失败会留下红沙回流和误判路线的风险债</td>
 </tr>
 <tr>
 <td><code>D03-T01</code></td>
@@ -174,7 +176,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>药箱分级</td>
 <td>medical</td>
 <td><code>RD-PF-03</code>, <code>RD-CI-11</code></td>
-<td>建立药物优先级和禁忌复核</td>
+<td>建立药物优先级、禁忌复核和药箱护理职责</td>
 </tr>
 <tr>
 <td><code>D03-T04</code></td>
@@ -616,7 +618,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <tr>
 <td><code>D02-T01</code></td>
 <td style="text-align:right">2</td>
-<td>配给表试运行</td>
+<td>配给与值守试运行</td>
 <td>whiteboard</td>
 <td><code>RD-PF-06</code>, <code>RD-SI-01</code></td>
 <td><code>water+1</code>, <code>trust+3</code>, <code>morale+2</code>, <code>autonomy_readiness+4</code></td>
@@ -629,7 +631,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>同层楼道短探</td>
 <td>security</td>
 <td><code>RD-PF-09</code>, <code>RD-CI-03</code></td>
-<td><code>water+2</code>, <code>safety+2</code>, <code>map_coverage+8</code>, <code>trust+2</code>, <code>outside_risk-1</code></td>
+<td>成功：<code>water+2</code>, <code>safety+2</code>, <code>map_coverage+8</code>, <code>trust+2</code>, <code>outside_risk-1</code>；失败：<code>safety-5</code>, <code>outside_risk+4</code>, <code>trust-4</code>, <code>medicine-1</code>, <code>morale-3</code>, <code>failure_stage+1</code>, <code>map_coverage+1</code></td>
 <td><code>same_floor_scout_available</code></td>
 <td><code>same_floor_partial_map</code></td>
 </tr>
@@ -639,7 +641,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>小铁复诊</td>
 <td>medical</td>
 <td><code>RD-CI-06</code>, <code>RD-PF-03</code></td>
-<td><code>medicine-1</code>, <code>trust+4</code>, <code>morale+2</code>, <code>safety+1</code>, <code>xiao_tie_health+8</code>, <code>medical_pressure-5</code></td>
+<td>成功：<code>medicine-1</code>, <code>trust+4</code>, <code>morale+2</code>, <code>safety+1</code>, <code>xiao_tie_health+8</code>, <code>medical_pressure-5</code>；失败：<code>trust-7</code>, <code>morale-6</code>, <code>safety-2</code>, <code>xiao_tie_health-12</code>, <code>medical_pressure+10</code></td>
 <td><code>xiao_tie_rechecked</code></td>
 <td><code>medical_observation_timer</code></td>
 </tr>
@@ -649,7 +651,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>通风管道预维护</td>
 <td>ventilation</td>
 <td><code>RD-PF-07</code>, <code>RD-SA-05</code>, <code>RD-SA-07</code></td>
-<td><code>safety+4</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk-1</code>, <code>ventilation_stability+10</code>, <code>storm_readiness+6</code></td>
+<td>成功：<code>safety+4</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk-1</code>, <code>ventilation_stability+10</code>, <code>storm_readiness+6</code>；失败：<code>safety-6</code>, <code>trust-6</code>, <code>morale-4</code>, <code>outside_risk+4</code>, <code>ventilation_stability-10</code>, <code>xiao_tie_health-6</code>, <code>failure_stage+1</code></td>
 <td><code>ventilation_checked</code></td>
 <td><code>engineering_override_protocol</code></td>
 </tr>
@@ -659,7 +661,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 <td>药箱分级</td>
 <td>medical</td>
 <td><code>RD-PF-03</code>, <code>RD-CI-11</code></td>
-<td><code>medicine+1</code>, <code>trust+3</code>, <code>morale+1</code>, <code>medical_pressure-4</code>, <code>autonomy_readiness+4</code></td>
+<td>成功：<code>medicine+1</code>, <code>trust+3</code>, <code>morale+1</code>, <code>medical_pressure-4</code>, <code>autonomy_readiness+4</code>；失败：<code>medicine-2</code>, <code>trust-5</code>, <code>morale-3</code>, <code>medical_pressure+8</code>, <code>autonomy_readiness-2</code></td>
 <td><code>medicine_classified</code></td>
 <td><code>medicine_tier_board</code></td>
 </tr>
@@ -1068,7 +1070,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-CI-11</code></td>
-<td>D03-T03 · 药箱分级</td>
+<td>药箱护理职责档案页</td>
 <td><code>D03-T03</code> 药箱分级</td>
 <td><code>tasks/rd_ci_11_resident_skill_profile_page</code></td>
 </tr>
@@ -1110,13 +1112,13 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-CS-06</code></td>
-<td>D02-T03 · 生活区卫生分区</td>
+<td>生活区卫生分区检查图</td>
 <td><code>D02-T03</code> 生活区卫生分区, <code>D09-T03</code> 路线物资缓存</td>
 <td><code>tasks/rd_cs_06_outing_gear_outfit_image</code></td>
 </tr>
 <tr>
 <td><code>RD-CS-07</code></td>
-<td>D02-T03 · 生活区卫生分区</td>
+<td>生活区卫生分区墙报</td>
 <td><code>D02-T03</code> 生活区卫生分区, <code>D08-T02</code> 霉斑清理</td>
 <td><code>tasks/rd_cs_07_water_paper_to_poster</code></td>
 </tr>
@@ -1158,7 +1160,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-PF-03</code></td>
-<td>D01-T02 · 紧急资源清点</td>
+<td>药箱清单与分级复核</td>
 <td><code>D01-T02</code> 紧急资源清点, <code>D03-T01</code> 小铁复诊, <code>D03-T03</code> 药箱分级, <code>D10-T02</code> 医疗预检, <code>D11-T01</code> 最终库存封存</td>
 <td><code>tasks/rd_pf_03_medicine_box_inventory</code></td>
 </tr>
@@ -1176,8 +1178,8 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-PF-06</code></td>
-<td>D02-T01 · 配给表试运行</td>
-<td><code>D02-T01</code> 配给表试运行, <code>D10-T01</code> 低功率日程</td>
+<td>配给与值守试运行表</td>
+<td><code>D02-T01</code> 配给与值守试运行, <code>D10-T01</code> 低功率日程</td>
 <td><code>tasks/rd_pf_06_shelter_shift_schedule</code></td>
 </tr>
 <tr>
@@ -1266,8 +1268,8 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 </tr>
 <tr>
 <td><code>RD-SI-01</code></td>
-<td>D02-T01 · 配给表试运行</td>
-<td><code>D02-T01</code> 配给表试运行</td>
+<td>配给与值守取水协商</td>
+<td><code>D02-T01</code> 配给与值守试运行</td>
 <td><code>tasks/rd_si_01_water_run_negotiation</code></td>
 </tr>
 <tr>

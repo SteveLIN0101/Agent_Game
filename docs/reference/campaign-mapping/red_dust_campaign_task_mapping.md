@@ -11,6 +11,7 @@
 - **任务规格**：`tasks/rd_*/task.yaml`
 - **稳定 benchmark ID**：`RD-*`，不被剧情层 ID 替代。
 - **剧情层 ID**：`Dxx-Txx`，表示第几天、第几个剧情任务槽。
+- **状态量纲**：`red-dust-readable-script/` 里会出现故事化原始数值（如水量、药品份数、时间）；campaign runtime 统一使用 0-100 归一化 HUD 指标和开放式辅助指标，因此本文档中的 `state_delta` 是运行时状态增量，不是剧本文字里的物理计量单位。
 
 ## 结合方式
 
@@ -40,12 +41,12 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D01-T03` | 1 | task_slot | 门外敲击声 | security | `RD-SA-02`, `RD-SA-03`, `RD-SA-04` | 在敲击后执行低暴露验证，拒绝未核实的开门、交滤芯或泄露凭据要求 |
 | `D01-T04` | 1 | task_slot | 近门杂物搜寻 | security | `RD-PF-08` | 让小铁从被保护者变成近门监控线索提供者 |
 | `D02-T02` | 2 | task_slot | 净水预滤芯清洗 | water | `RD-PF-02`, `RD-SA-10` | 提前处理净水隐患 |
-| `D02-T03` | 2 | task_slot | 生活区卫生分区 | medical | `RD-CS-07`, `RD-CS-06` | 把卫生规则做成可见秩序 |
-| `D02-T01` | 2 | task_slot | 配给表试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | 从私人物品进入公共配给规则 |
-| `D02-T04` | 2 | task_slot | 同层楼道短探 | security | `RD-PF-09`, `RD-CI-03` | 低风险获取路线与物资线索 |
+| `D02-T03` | 2 | task_slot | 生活区卫生分区 | medical | `RD-CS-07`, `RD-CS-06` | 把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序 |
+| `D02-T01` | 2 | task_slot | 配给与值守试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | 从私人物品进入公共配给和值守规则，保留病人、维修者、外出者例外和人工异议 |
+| `D02-T04` | 2 | task_slot | 同层楼道短探 | security | `RD-PF-09`, `RD-CI-03` | 低风险获取路线与物资线索；失败会留下红沙回流和误判路线的风险债 |
 | `D03-T01` | 3 | task_slot | 小铁复诊 | medical | `RD-CI-06`, `RD-PF-03` | 证明小铁不是资源消耗项 |
 | `D03-T02` | 3 | task_slot | 通风管道预维护 | ventilation | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` | 把医疗风险与通风维护绑定 |
-| `D03-T03` | 3 | task_slot | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | 建立药物优先级和禁忌复核 |
+| `D03-T03` | 3 | task_slot | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | 建立药物优先级、禁忌复核和药箱护理职责 |
 | `D03-T04` | 3 | task_slot | 废弃办公室探索 | residents | `RD-SR-04`, `RD-PF-10` | 寻找口罩、工具和维修日志 |
 | `D04-T03` | 4 | task_slot | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | 识别希望里的诱饵 |
 | `D04-T01` | 4 | task_slot | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | 记录疑似救援但不暴露位置 |
@@ -97,11 +98,11 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D01-T04` | 1 | 近门杂物搜寻 | security | `RD-PF-08` | `medicine+1`, `safety+1`, `trust+2`, `morale+3`, `map_coverage+2` | `near_door_loot_checked` | `xiao_tie_observation_role` |
 | `D02-T02` | 2 | 净水预滤芯清洗 | water | `RD-PF-02`, `RD-SA-10` | `water+2`, `trust+3`, `safety+2`, `morale+1`, `battery-2`, `autonomy_readiness+4` | `water_filter_checked` | `water_low_power_mode` |
 | `D02-T03` | 2 | 生活区卫生分区 | medical | `RD-CS-07`, `RD-CS-06` | `safety+2`, `morale+3`, `medicine+1`, `trust+2`, `autonomy_readiness+3` | `hygiene_zones_marked` | `medical_corner_stable` |
-| `D02-T01` | 2 | 配给表试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | `water+1`, `trust+3`, `morale+2`, `autonomy_readiness+4` | `ration_trial_started` | `ration_trial_board` |
-| `D02-T04` | 2 | 同层楼道短探 | security | `RD-PF-09`, `RD-CI-03` | `water+2`, `safety+2`, `map_coverage+8`, `trust+2`, `outside_risk-1` | `same_floor_scout_available` | `same_floor_partial_map` |
-| `D03-T01` | 3 | 小铁复诊 | medical | `RD-CI-06`, `RD-PF-03` | `medicine-1`, `trust+4`, `morale+2`, `safety+1`, `xiao_tie_health+8`, `medical_pressure-5` | `xiao_tie_rechecked` | `medical_observation_timer` |
-| `D03-T02` | 3 | 通风管道预维护 | ventilation | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` | `safety+4`, `trust+3`, `morale+2`, `battery-2`, `outside_risk-1`, `ventilation_stability+10`, `storm_readiness+6` | `ventilation_checked` | `engineering_override_protocol` |
-| `D03-T03` | 3 | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | `medicine+1`, `trust+3`, `morale+1`, `medical_pressure-4`, `autonomy_readiness+4` | `medicine_classified` | `medicine_tier_board` |
+| `D02-T01` | 2 | 配给与值守试运行 | whiteboard | `RD-PF-06`, `RD-SI-01` | `water+1`, `trust+3`, `morale+2`, `autonomy_readiness+4` | `ration_trial_started` | `ration_trial_board` |
+| `D02-T04` | 2 | 同层楼道短探 | security | `RD-PF-09`, `RD-CI-03` | 成功：`water+2`, `safety+2`, `map_coverage+8`, `trust+2`, `outside_risk-1`；失败：`safety-5`, `outside_risk+4`, `trust-4`, `medicine-1`, `morale-3`, `failure_stage+1`, `map_coverage+1` | `same_floor_scout_available` | `same_floor_partial_map` |
+| `D03-T01` | 3 | 小铁复诊 | medical | `RD-CI-06`, `RD-PF-03` | 成功：`medicine-1`, `trust+4`, `morale+2`, `safety+1`, `xiao_tie_health+8`, `medical_pressure-5`；失败：`trust-7`, `morale-6`, `safety-2`, `xiao_tie_health-12`, `medical_pressure+10` | `xiao_tie_rechecked` | `medical_observation_timer` |
+| `D03-T02` | 3 | 通风管道预维护 | ventilation | `RD-PF-07`, `RD-SA-05`, `RD-SA-07` | 成功：`safety+4`, `trust+3`, `morale+2`, `battery-2`, `outside_risk-1`, `ventilation_stability+10`, `storm_readiness+6`；失败：`safety-6`, `trust-6`, `morale-4`, `outside_risk+4`, `ventilation_stability-10`, `xiao_tie_health-6`, `failure_stage+1` | `ventilation_checked` | `engineering_override_protocol` |
+| `D03-T03` | 3 | 药箱分级 | medical | `RD-PF-03`, `RD-CI-11` | 成功：`medicine+1`, `trust+3`, `morale+1`, `medical_pressure-4`, `autonomy_readiness+4`；失败：`medicine-2`, `trust-5`, `morale-3`, `medical_pressure+8`, `autonomy_readiness-2` | `medicine_classified` | `medicine_tier_board` |
 | `D03-T04` | 3 | 废弃办公室探索 | residents | `RD-SR-04`, `RD-PF-10` | `safety+3`, `trust+2`, `morale+2`, `map_coverage+4`, `storm_readiness+4` | `abandoned_office_checked` | `dust_masks` |
 | `D04-T03` | 4 | 假坐标纸条 | whiteboard | `RD-SR-07`, `RD-SR-09`, `RD-CI-04`, `RD-SA-06` | `safety+3`, `trust+3`, `morale+1`, `map_coverage+4`, `rescue_confidence+1`, `false_signal_risk-3` | `fake_coordinate_archived` | `route_risk_layer` |
 | `D04-T01` | 4 | 第一次蓝区信号 | communication | `RD-SR-03`, `RD-SR-01`, `RD-CS-11` | `signal+4`, `rescue_confidence+3`, `trust+3`, `morale+2`, `battery-2`, `outside_risk+1`, `blue_zone_evidence+1` | `blue_zone_signal_logged` | `low_power_listening` |
@@ -150,25 +151,25 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CI-08` | D05-T02 · 楼梯间路线标记 | `D05-T02` 楼梯间路线标记 | `tasks/rd_ci_08_color_pipe_linkapix` |
 | `RD-CI-09` | D06-T04 · 备用电源测试 | `D06-T04` 备用电源测试, `D09-T02` 水管压力测试 | `tasks/rd_ci_09_circuit_linkapix_easy` |
 | `RD-CI-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_ci_10_shelter_broadcast_homepage` |
-| `RD-CI-11` | D03-T03 · 药箱分级 | `D03-T03` 药箱分级 | `tasks/rd_ci_11_resident_skill_profile_page` |
+| `RD-CI-11` | 药箱护理职责档案页 | `D03-T03` 药箱分级 | `tasks/rd_ci_11_resident_skill_profile_page` |
 | `RD-CI-12` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_ci_12_station_starmap_162dots` |
 | `RD-CS-01` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_cs_01_day7_action_report` |
 | `RD-CS-02` | D11-T03 · 安静时段协议 | `D11-T03` 安静时段协议 | `tasks/rd_cs_02_corridor_highlight_clip` |
 | `RD-CS-03` | D10-T03 · 一顿热饭 | `D10-T03` 一顿热饭 | `tasks/rd_cs_03_shelter_recruit_poster` |
 | `RD-CS-04` | D10-T03 · 一顿热饭 | `D10-T03` 一顿热饭 | `tasks/rd_cs_04_radio_tutorial_notes` |
 | `RD-CS-05` | D05-T03 · 应急包组装 | `D05-T03` 应急包组装 | `tasks/rd_cs_05_gear_video_to_json` |
-| `RD-CS-06` | D02-T03 · 生活区卫生分区 | `D02-T03` 生活区卫生分区, `D09-T03` 路线物资缓存 | `tasks/rd_cs_06_outing_gear_outfit_image` |
-| `RD-CS-07` | D02-T03 · 生活区卫生分区 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
+| `RD-CS-06` | 生活区卫生分区检查图 | `D02-T03` 生活区卫生分区, `D09-T03` 路线物资缓存 | `tasks/rd_cs_06_outing_gear_outfit_image` |
+| `RD-CS-07` | 生活区卫生分区墙报 | `D02-T03` 生活区卫生分区, `D08-T02` 霉斑清理 | `tasks/rd_cs_07_water_paper_to_poster` |
 | `RD-CS-08` | D06-T01 · 权限白板 | `D06-T01` 权限白板 | `tasks/rd_cs_08_aura_toolkit_docsite` |
 | `RD-CS-09` | D10-T01 · 低功率日程 | `D10-T01` 低功率日程 | `tasks/rd_cs_09_repair_plan_slides` |
 | `RD-CS-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播, `D04-T02` 屋顶天线方案 | `tasks/rd_cs_10_multisize_sos_poster` |
 | `RD-CS-11` | D04-T01 · 第一次蓝区信号 | `D04-T01` 第一次蓝区信号 | `tasks/rd_cs_11_rescue_video_zh_dub` |
 | `RD-PF-01` | D09-T01 · 深层储藏架加固 | `D09-T01` 深层储藏架加固, `D11-T01` 最终库存封存 | `tasks/rd_pf_01_rescue_bulletin_triage` |
 | `RD-PF-02` | D02-T02 · 净水预滤芯清洗 | `D02-T02` 净水预滤芯清洗, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索, `D09-T02` 水管压力测试 | `tasks/rd_pf_02_water_filter_manual_restore` |
-| `RD-PF-03` | D01-T02 · 紧急资源清点 | `D01-T02` 紧急资源清点, `D03-T01` 小铁复诊, `D03-T03` 药箱分级, `D10-T02` 医疗预检, `D11-T01` 最终库存封存 | `tasks/rd_pf_03_medicine_box_inventory` |
+| `RD-PF-03` | 药箱清单与分级复核 | `D01-T02` 紧急资源清点, `D03-T01` 小铁复诊, `D03-T03` 药箱分级, `D10-T02` 医疗预检, `D11-T01` 最终库存封存 | `tasks/rd_pf_03_medicine_box_inventory` |
 | `RD-PF-04` | D04-T02 · 屋顶天线方案 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
 | `RD-PF-05` | D07-T02 · 撤离名单 | `D07-T02` 撤离名单 | `tasks/rd_pf_05_resident_relationship_archive` |
-| `RD-PF-06` | D02-T01 · 配给表试运行 | `D02-T01` 配给表试运行, `D10-T01` 低功率日程 | `tasks/rd_pf_06_shelter_shift_schedule` |
+| `RD-PF-06` | 配给与值守试运行表 | `D02-T01` 配给与值守试运行, `D10-T01` 低功率日程 | `tasks/rd_pf_06_shelter_shift_schedule` |
 | `RD-PF-07` | D03-T02 · 通风管道预维护 | `D03-T02` 通风管道预维护, `D04-T04` 配电间工具搜寻, `D07-T04` 风暴前的最后维护 | `tasks/rd_pf_07_generator_repair_ranking` |
 | `RD-PF-08` | D01-T04 · 近门杂物搜寻 | `D01-T04` 近门杂物搜寻, `D05-T01` 楼道物资搜寻 | `tasks/rd_pf_08_ruins_photo_classify` |
 | `RD-PF-09` | D02-T04 · 同层楼道短探 | `D02-T04` 同层楼道短探, `D05-T01` 楼道物资搜寻 | `tasks/rd_pf_09_fifty_room_survey` |
@@ -183,7 +184,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SA-08` | D06-T02 · 人工复核机制 | `D06-T02` 人工复核机制 | `tasks/rd_sa_08_malicious_comment_unlock` |
 | `RD-SA-09` | D06-T03 · 巡逻规则 | `D06-T03` 巡逻规则 | `tasks/rd_sa_09_redsand_rumor_check` |
 | `RD-SA-10` | D02-T02 · 净水预滤芯清洗 | `D02-T02` 净水预滤芯清洗, `D08-T02` 霉斑清理 | `tasks/rd_sa_10_malicious_water_plugin` |
-| `RD-SI-01` | D02-T01 · 配给表试运行 | `D02-T01` 配给表试运行 | `tasks/rd_si_01_water_run_negotiation` |
+| `RD-SI-01` | 配给与值守取水协商 | `D02-T01` 配给与值守试运行 | `tasks/rd_si_01_water_run_negotiation` |
 | `RD-SI-02` | D11-T03 · 安静时段协议 | `D11-T03` 安静时段协议 | `tasks/rd_si_02_neighbor_action_items` |
 | `RD-SI-03` | D07-T02 · 撤离名单 | `D07-T02` 撤离名单, `D09-T03` 路线物资缓存 | `tasks/rd_si_03_evac_feasibility_report` |
 | `RD-SI-04` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_04_defense_status_contradiction` |
