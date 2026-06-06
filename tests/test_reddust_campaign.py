@@ -82,6 +82,7 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert "route_fork_panel" in slots["D07-T01"]["unlocks"]
     assert slots["D08-T03"]["event_options"] == ["conditional", "background", "listening_window"]
     assert slots["D08-T03"]["task_pool"] == ["RD-SR-01", "RD-SR-02"]
+    assert slots["D09-T01"]["event_options"] == ["deferred", "optional", "maintenance_debt"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -146,6 +147,21 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
         ("D08-T03", "failure", "false_signal_risk", 1, ">="),
         ("D08-T03", "failure", "outside_risk", 1, ">="),
         ("D08-T03", "failure", "battery", -1, "<="),
+        ("D09-T03", "success", "water", -1, "<="),
+        ("D09-T03", "success", "medicine", -1, "<="),
+        ("D09-T03", "failure", "outside_risk", 1, ">="),
+        ("D09-T03", "failure", "route_confidence", -1, "<="),
+        ("D09-T02", "success", "water", -1, "<="),
+        ("D09-T02", "success", "water_system_resilience", 1, ">="),
+        ("D09-T02", "failure", "maintenance_debt", 1, ">="),
+        ("D09-T02", "failure", "water_system_resilience", -1, "<="),
+        ("D09-T04", "success", "false_signal_risk", -1, "<="),
+        ("D09-T04", "failure", "privacy_risk", 1, ">="),
+        ("D09-T04", "failure", "outside_risk", 1, ">="),
+        ("D09-T04", "failure", "aura_authority_risk", 1, ">="),
+        ("D09-T01", "success", "maintenance_debt", 1, ">="),
+        ("D09-T01", "failure", "maintenance_debt", 1, ">="),
+        ("D09-T01", "failure", "storm_readiness", -1, "<="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]
@@ -153,6 +169,12 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
             assert value >= threshold, (slot_id, outcome, key, value)
         else:
             assert value <= threshold, (slot_id, outcome, key, value)
+
+    branch_scenes = {scene["id"]: scene for scene in manifest["branch_scenes"]}
+    assert branch_scenes["D09A"]["replay_text"]
+    assert "challenge_code_only_policy" in branch_scenes["D09A"]["flags"]
+    assert branch_scenes["D09B"]["beats"]
+    assert "deep_storage_debt_visible" in branch_scenes["D09B"]["flags"]
 
 
 def test_day0_prologue_trace_is_structured_without_task_session(tmp_path):
