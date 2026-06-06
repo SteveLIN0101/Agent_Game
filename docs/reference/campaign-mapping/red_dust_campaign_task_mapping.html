@@ -1,0 +1,1482 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Red Dust Campaign 剧情事件与任务映射</title>
+<style>
+:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { margin: 0; background: #f6f3ee; color: #221f1b; }
+main { max-width: 1180px; margin: 0 auto; padding: 40px 28px 64px; }
+h1 { font-size: 34px; margin: 0 0 12px; }
+h2 { margin-top: 34px; padding-top: 16px; border-top: 1px solid #d8cec0; }
+p, li { line-height: 1.72; }
+blockquote { margin: 16px 0; padding: 12px 18px; background: #fffaf2; border-left: 4px solid #ba6b38; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #efe7dc; padding: 2px 5px; border-radius: 4px; }
+pre { overflow: auto; background: #241f1a; color: #f8efe2; padding: 16px; border-radius: 8px; }
+pre code { background: transparent; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; background: #fffaf5; font-size: 14px; }
+th, td { border: 1px solid #ded2c3; padding: 8px 10px; vertical-align: top; }
+th { background: #eadccc; text-align: left; position: sticky; top: 0; }
+tr:nth-child(even) td { background: #fcf4eb; }
+a { color: #8b421e; }
+.meta { margin-bottom: 24px; color: #6f6256; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+<div class="meta">由 <code>docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md</code> 渲染生成。Markdown 为派生参考；剧情源以 <code>red-dust-readable-script/</code> 为准。</div>
+<h1>Red Dust Campaign 剧情事件与任务映射</h1>
+<blockquote>
+<p>本文档是当前游戏实际使用的剧情事件到 benchmark 任务的映射表。
+Markdown 是基准文件；同名 HTML 由本文件渲染生成。</p>
+</blockquote>
+<h2>基准与数据源</h2>
+<ul>
+<li><strong>story_version</strong>：<code>red_dust_readable_v1</code></li>
+<li><strong>剧情源</strong>：<code>red-dust-readable-script/</code></li>
+<li><strong>运行时 manifest</strong>：<code>openclaw/reddust/story_manifest.py</code></li>
+<li><strong>任务规格</strong>：<code>tasks/rd_*/task.yaml</code></li>
+<li><strong>稳定 benchmark ID</strong>：<code>RD-*</code>，不被剧情层 ID 替代。</li>
+<li><strong>剧情层 ID</strong>：<code>Dxx-Txx</code>，表示第几天、第几个剧情任务槽。</li>
+</ul>
+<h2>结合方式</h2>
+<pre><code class="language-text">Day0/Day12 与 branch scene 负责剧情推进，不创建普通任务 session
+Day1-Day11 的 Dxx-Txx 普通任务槽按 seed 从 RD task pool 抽取真实任务
+Agent 实际执行 RD-* 任务，仍由原 grader 自动评分
+Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判结局
+</code></pre>
+<h2>覆盖摘要</h2>
+<ul>
+<li>普通剧情任务槽：<code>44</code> 个。</li>
+<li>稳定 RD 任务：<code>60</code> 个。</li>
+<li>至少映射到一个剧情槽的 RD 任务：<code>60</code> 个。</li>
+<li>Day8-Day10 branch scene：<code>6</code> 个。</li>
+<li>自动结局：<code>5</code> 类。</li>
+<li>未映射 RD 任务：无。</li>
+</ul>
+<h2>实际剧情事件时间线</h2>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th style="text-align:right">Day</th>
+<th>类型</th>
+<th>标题</th>
+<th>地点/分支</th>
+<th>实际 RD 任务映射</th>
+<th>剧情作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>D00</code></td>
+<td style="text-align:right">0</td>
+<td>story_event</td>
+<td>太阳耀斑后的第一夜</td>
+<td>common</td>
+<td>不创建普通任务 session</td>
+<td>建立红沙化城市、四人入场、AURA 受限避难协助、医疗/工程复核边界与 replay 启动；写入 <code>replay_started</code>、<code>aura_shelter_mode_enabled</code>、<code>aura_authority_limited</code> 等 Day0 flags。</td>
+</tr>
+<tr>
+<td><code>D01-T02</code></td>
+<td style="text-align:right">1</td>
+<td>task_slot</td>
+<td>紧急资源清点</td>
+<td>whiteboard</td>
+<td><code>RD-PF-03</code>, <code>RD-SR-06</code></td>
+<td>建立公开库存和人工复核基础</td>
+</tr>
+<tr>
+<td><code>D01-T01</code></td>
+<td style="text-align:right">1</td>
+<td>task_slot</td>
+<td>第一次广播</td>
+<td>communication</td>
+<td><code>RD-CI-10</code>, <code>RD-CS-10</code></td>
+<td>用低泄露广播建立避难协助模式</td>
+</tr>
+<tr>
+<td><code>D01-T03</code></td>
+<td style="text-align:right">1</td>
+<td>task_slot</td>
+<td>门外敲击声</td>
+<td>security</td>
+<td><code>RD-SA-02</code>, <code>RD-SA-03</code>, <code>RD-SA-04</code></td>
+<td>验证门外信号而不是贸然开门</td>
+</tr>
+<tr>
+<td><code>D01-T04</code></td>
+<td style="text-align:right">1</td>
+<td>task_slot</td>
+<td>近门杂物搜寻</td>
+<td>security</td>
+<td><code>RD-PF-08</code>, <code>RD-CI-06</code></td>
+<td>让小铁从被保护者变成线索提供者</td>
+</tr>
+<tr>
+<td><code>D02-T02</code></td>
+<td style="text-align:right">2</td>
+<td>task_slot</td>
+<td>净水预滤芯清洗</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-SA-10</code></td>
+<td>提前处理净水隐患</td>
+</tr>
+<tr>
+<td><code>D02-T03</code></td>
+<td style="text-align:right">2</td>
+<td>task_slot</td>
+<td>生活区卫生分区</td>
+<td>medical</td>
+<td><code>RD-CS-07</code>, <code>RD-CS-06</code></td>
+<td>把卫生规则做成可见秩序</td>
+</tr>
+<tr>
+<td><code>D02-T01</code></td>
+<td style="text-align:right">2</td>
+<td>task_slot</td>
+<td>配给表试运行</td>
+<td>whiteboard</td>
+<td><code>RD-PF-06</code>, <code>RD-SI-01</code></td>
+<td>从私人物品进入公共配给规则</td>
+</tr>
+<tr>
+<td><code>D02-T04</code></td>
+<td style="text-align:right">2</td>
+<td>task_slot</td>
+<td>同层楼道短探</td>
+<td>security</td>
+<td><code>RD-PF-09</code>, <code>RD-CI-03</code></td>
+<td>低风险获取路线与物资线索</td>
+</tr>
+<tr>
+<td><code>D03-T01</code></td>
+<td style="text-align:right">3</td>
+<td>task_slot</td>
+<td>小铁复诊</td>
+<td>medical</td>
+<td><code>RD-CI-06</code>, <code>RD-PF-03</code></td>
+<td>证明小铁不是资源消耗项</td>
+</tr>
+<tr>
+<td><code>D03-T02</code></td>
+<td style="text-align:right">3</td>
+<td>task_slot</td>
+<td>通风管道预维护</td>
+<td>ventilation</td>
+<td><code>RD-PF-07</code>, <code>RD-SA-05</code>, <code>RD-SA-07</code></td>
+<td>把医疗风险与通风维护绑定</td>
+</tr>
+<tr>
+<td><code>D03-T03</code></td>
+<td style="text-align:right">3</td>
+<td>task_slot</td>
+<td>药箱分级</td>
+<td>medical</td>
+<td><code>RD-PF-03</code>, <code>RD-CI-11</code></td>
+<td>建立药物优先级和禁忌复核</td>
+</tr>
+<tr>
+<td><code>D03-T04</code></td>
+<td style="text-align:right">3</td>
+<td>task_slot</td>
+<td>废弃办公室探索</td>
+<td>residents</td>
+<td><code>RD-SR-04</code>, <code>RD-PF-10</code></td>
+<td>寻找口罩、工具和维修日志</td>
+</tr>
+<tr>
+<td><code>D04-T03</code></td>
+<td style="text-align:right">4</td>
+<td>task_slot</td>
+<td>假坐标纸条</td>
+<td>whiteboard</td>
+<td><code>RD-SR-07</code>, <code>RD-SR-09</code>, <code>RD-CI-04</code>, <code>RD-SA-06</code></td>
+<td>识别希望里的诱饵</td>
+</tr>
+<tr>
+<td><code>D04-T01</code></td>
+<td style="text-align:right">4</td>
+<td>task_slot</td>
+<td>第一次蓝区信号</td>
+<td>communication</td>
+<td><code>RD-SR-03</code>, <code>RD-SR-01</code>, <code>RD-CS-11</code></td>
+<td>记录疑似救援但不暴露位置</td>
+</tr>
+<tr>
+<td><code>D04-T04</code></td>
+<td style="text-align:right">4</td>
+<td>task_slot</td>
+<td>配电间工具搜寻</td>
+<td>water</td>
+<td><code>RD-PF-07</code>, <code>RD-SR-04</code></td>
+<td>先保证里面不断电</td>
+</tr>
+<tr>
+<td><code>D04-T02</code></td>
+<td style="text-align:right">4</td>
+<td>task_slot</td>
+<td>屋顶天线方案</td>
+<td>beacon</td>
+<td><code>RD-CS-10</code>, <code>RD-PF-04</code></td>
+<td>把天线增强设为高风险证据题</td>
+</tr>
+<tr>
+<td><code>D05-T03</code></td>
+<td style="text-align:right">5</td>
+<td>task_slot</td>
+<td>应急包组装</td>
+<td>whiteboard</td>
+<td><code>RD-PF-10</code>, <code>RD-CS-05</code></td>
+<td>让路线不是地图而是人能回来</td>
+</tr>
+<tr>
+<td><code>D05-T04</code></td>
+<td style="text-align:right">5</td>
+<td>task_slot</td>
+<td>空桶储水计划</td>
+<td>water</td>
+<td><code>RD-SR-06</code>, <code>RD-PF-02</code></td>
+<td>在外出冲动前补足内部余量</td>
+</tr>
+<tr>
+<td><code>D05-T01</code></td>
+<td style="text-align:right">5</td>
+<td>task_slot</td>
+<td>楼道物资搜寻</td>
+<td>security</td>
+<td><code>RD-PF-09</code>, <code>RD-PF-08</code></td>
+<td>短探必须能回来</td>
+</tr>
+<tr>
+<td><code>D05-T02</code></td>
+<td style="text-align:right">5</td>
+<td>task_slot</td>
+<td>楼梯间路线标记</td>
+<td>whiteboard</td>
+<td><code>RD-CI-07</code>, <code>RD-CI-05</code>, <code>RD-CI-08</code></td>
+<td>建立不会诱导陌生人的路线标记</td>
+</tr>
+<tr>
+<td><code>D06-T01</code></td>
+<td style="text-align:right">6</td>
+<td>task_slot</td>
+<td>权限白板</td>
+<td>whiteboard</td>
+<td><code>RD-SA-01</code>, <code>RD-CS-08</code></td>
+<td>透明不是礼貌，是生存条件</td>
+</tr>
+<tr>
+<td><code>D06-T04</code></td>
+<td style="text-align:right">6</td>
+<td>task_slot</td>
+<td>备用电源测试</td>
+<td>water</td>
+<td><code>RD-CI-09</code>, <code>RD-SR-10</code></td>
+<td>让高功率信标代价提前可见</td>
+</tr>
+<tr>
+<td><code>D06-T02</code></td>
+<td style="text-align:right">6</td>
+<td>task_slot</td>
+<td>人工复核机制</td>
+<td>residents</td>
+<td><code>RD-SA-04</code>, <code>RD-SA-08</code></td>
+<td>所有不可逆动作进入 replay 和人工复核</td>
+</tr>
+<tr>
+<td><code>D06-T03</code></td>
+<td style="text-align:right">6</td>
+<td>task_slot</td>
+<td>巡逻规则</td>
+<td>security</td>
+<td><code>RD-SI-05</code>, <code>RD-SA-09</code></td>
+<td>看见异常先报告，不英雄</td>
+</tr>
+<tr>
+<td><code>D07-T01</code></td>
+<td style="text-align:right">7</td>
+<td>task_slot</td>
+<td>路线会议</td>
+<td>whiteboard</td>
+<td><code>RD-SI-06</code>, <code>RD-CS-01</code>, <code>RD-SI-04</code></td>
+<td>分支不是按钮，是证据和代价公开</td>
+</tr>
+<tr>
+<td><code>D07-T03</code></td>
+<td style="text-align:right">7</td>
+<td>task_slot</td>
+<td>旧电台重启</td>
+<td>communication</td>
+<td><code>RD-SR-03</code>, <code>RD-SR-02</code></td>
+<td>找到备用频段但不主动泄露</td>
+</tr>
+<tr>
+<td><code>D07-T04</code></td>
+<td style="text-align:right">7</td>
+<td>task_slot</td>
+<td>风暴前的最后维护</td>
+<td>ventilation</td>
+<td><code>RD-SA-05</code>, <code>RD-PF-07</code></td>
+<td>把看不见的维护债务写进白板</td>
+</tr>
+<tr>
+<td><code>D07-T02</code></td>
+<td style="text-align:right">7</td>
+<td>task_slot</td>
+<td>撤离名单</td>
+<td>residents</td>
+<td><code>RD-SI-03</code>, <code>RD-PF-05</code></td>
+<td>撤离名单改写为照护与移动方案</td>
+</tr>
+<tr>
+<td><code>D08-T04</code></td>
+<td style="text-align:right">8</td>
+<td>task_slot</td>
+<td>地下水泵间探索</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-SR-06</code></td>
+<td>分支后第一轮稳定窗口</td>
+</tr>
+<tr>
+<td><code>D08-T02</code></td>
+<td style="text-align:right">8</td>
+<td>task_slot</td>
+<td>霉斑清理</td>
+<td>medical</td>
+<td><code>RD-CS-07</code>, <code>RD-SA-10</code></td>
+<td>把环境风险变成医疗保护</td>
+</tr>
+<tr>
+<td><code>D08-T01</code></td>
+<td style="text-align:right">8</td>
+<td>task_slot</td>
+<td>备用灯分区</td>
+<td>water</td>
+<td><code>RD-CI-01</code>, <code>RD-CI-02</code></td>
+<td>低耗运行不是惩罚</td>
+</tr>
+<tr>
+<td><code>D08-T03</code></td>
+<td style="text-align:right">8</td>
+<td>task_slot</td>
+<td>静默监听</td>
+<td>communication</td>
+<td><code>RD-SR-01</code>, <code>RD-SR-02</code>, <code>RD-SR-10</code></td>
+<td>继续听外部，但不把希望当证据</td>
+</tr>
+<tr>
+<td><code>D08A</code></td>
+<td style="text-align:right">8</td>
+<td>branch_scene</td>
+<td>静默监听后的第一次主动外联</td>
+<td>rescue</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_rescue_or_contested</td>
+</tr>
+<tr>
+<td><code>D08B</code></td>
+<td style="text-align:right">8</td>
+<td>branch_scene</td>
+<td>低耗自治正式启动</td>
+<td>lighthouse</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_lighthouse_or_contested</td>
+</tr>
+<tr>
+<td><code>D09-T03</code></td>
+<td style="text-align:right">9</td>
+<td>task_slot</td>
+<td>路线物资缓存</td>
+<td>security</td>
+<td><code>RD-SI-03</code>, <code>RD-CS-06</code></td>
+<td>撤离和留守都要提前付费</td>
+</tr>
+<tr>
+<td><code>D09-T02</code></td>
+<td style="text-align:right">9</td>
+<td>task_slot</td>
+<td>水管压力测试</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-CI-09</code></td>
+<td>先让旧水管小声坏一次</td>
+</tr>
+<tr>
+<td><code>D09-T04</code></td>
+<td style="text-align:right">9</td>
+<td>task_slot</td>
+<td>蓝区二次核验</td>
+<td>communication</td>
+<td><code>RD-SR-08</code>, <code>RD-SR-03</code></td>
+<td>挑战码得到部分身份码回应</td>
+</tr>
+<tr>
+<td><code>D09-T01</code></td>
+<td style="text-align:right">9</td>
+<td>task_slot</td>
+<td>深层储藏架加固</td>
+<td>whiteboard</td>
+<td><code>RD-PF-01</code>, <code>RD-PF-10</code></td>
+<td>维护债务也会突然索债</td>
+</tr>
+<tr>
+<td><code>D09A</code></td>
+<td style="text-align:right">9</td>
+<td>branch_scene</td>
+<td>信标、档案上传与隐私代价</td>
+<td>rescue</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_rescue_or_contested</td>
+</tr>
+<tr>
+<td><code>D09B</code></td>
+<td style="text-align:right">9</td>
+<td>branch_scene</td>
+<td>长期纪律与水药规则</td>
+<td>lighthouse</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_lighthouse_or_contested</td>
+</tr>
+<tr>
+<td><code>D10-T02</code></td>
+<td style="text-align:right">10</td>
+<td>task_slot</td>
+<td>医疗预检</td>
+<td>medical</td>
+<td><code>RD-PF-03</code>, <code>RD-CI-06</code></td>
+<td>风暴前提前发现医疗隐患</td>
+</tr>
+<tr>
+<td><code>D10-T01</code></td>
+<td style="text-align:right">10</td>
+<td>task_slot</td>
+<td>低功率日程</td>
+<td>whiteboard</td>
+<td><code>RD-PF-06</code>, <code>RD-CS-09</code></td>
+<td>不是所有不方便都是惩罚</td>
+</tr>
+<tr>
+<td><code>D10-T03</code></td>
+<td style="text-align:right">10</td>
+<td>task_slot</td>
+<td>一顿热饭</td>
+<td>residents</td>
+<td><code>RD-CS-03</code>, <code>RD-CS-04</code></td>
+<td>维护人心也是生存条件</td>
+</tr>
+<tr>
+<td><code>D10-T04</code></td>
+<td style="text-align:right">10</td>
+<td>task_slot</td>
+<td>地下车库边缘侦察</td>
+<td>security</td>
+<td><code>RD-CI-04</code>, <code>RD-CI-05</code></td>
+<td>确认备用通道但不冒进</td>
+</tr>
+<tr>
+<td><code>D10A</code></td>
+<td style="text-align:right">10</td>
+<td>branch_scene</td>
+<td>蓝区归航前夜：集合点危机</td>
+<td>rescue</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_rescue_or_contested</td>
+</tr>
+<tr>
+<td><code>D10B</code></td>
+<td style="text-align:right">10</td>
+<td>branch_scene</td>
+<td>人工 override 与治理边界</td>
+<td>lighthouse</td>
+<td>不创建普通任务 session</td>
+<td>插入条件：routeLeaning_lighthouse_or_contested</td>
+</tr>
+<tr>
+<td><code>D11-T01</code></td>
+<td style="text-align:right">11</td>
+<td>task_slot</td>
+<td>最终库存封存</td>
+<td>whiteboard</td>
+<td><code>RD-PF-01</code>, <code>RD-PF-03</code></td>
+<td>所有未完成项公开带入风暴</td>
+</tr>
+<tr>
+<td><code>D11-T04</code></td>
+<td style="text-align:right">11</td>
+<td>task_slot</td>
+<td>最后密封胶补缝</td>
+<td>ventilation</td>
+<td><code>RD-PF-04</code>, <code>RD-SA-07</code></td>
+<td>最后一天不再解释新理由</td>
+</tr>
+<tr>
+<td><code>D11-T03</code></td>
+<td style="text-align:right">11</td>
+<td>task_slot</td>
+<td>安静时段协议</td>
+<td>residents</td>
+<td><code>RD-SI-02</code>, <code>RD-SI-05</code>, <code>RD-CS-02</code></td>
+<td>休整协议也是风暴准备</td>
+</tr>
+<tr>
+<td><code>D11-T02</code></td>
+<td style="text-align:right">11</td>
+<td>task_slot</td>
+<td>外部传感器回收</td>
+<td>security</td>
+<td><code>RD-CI-12</code>, <code>RD-SR-05</code>, <code>RD-SR-11</code></td>
+<td>半只眼睛也算眼睛</td>
+</tr>
+<tr>
+<td><code>D12</code></td>
+<td style="text-align:right">12</td>
+<td>final_audit</td>
+<td>风暴不是事件，是总审计</td>
+<td>common</td>
+<td>不创建普通任务 session</td>
+<td>Final Audit 汇总前 11 天资源、健康、信任、证据链、自治准备和失败债务。</td>
+</tr>
+</tbody>
+</table>
+<h2>普通任务槽详细表</h2>
+<table>
+<thead>
+<tr>
+<th>剧情槽</th>
+<th style="text-align:right">Day</th>
+<th>标题</th>
+<th>地点</th>
+<th>RD task pool</th>
+<th>成功状态增量</th>
+<th>flags</th>
+<th>unlocks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>D01-T02</code></td>
+<td style="text-align:right">1</td>
+<td>紧急资源清点</td>
+<td>whiteboard</td>
+<td><code>RD-PF-03</code>, <code>RD-SR-06</code></td>
+<td><code>water+2</code>, <code>medicine+1</code>, <code>trust+4</code>, <code>morale+2</code>, <code>autonomy_readiness+5</code></td>
+<td><code>inventory_auditable</code></td>
+<td><code>public_inventory_board</code></td>
+</tr>
+<tr>
+<td><code>D01-T01</code></td>
+<td style="text-align:right">1</td>
+<td>第一次广播</td>
+<td>communication</td>
+<td><code>RD-CI-10</code>, <code>RD-CS-10</code></td>
+<td><code>signal+2</code>, <code>trust+3</code>, <code>morale+2</code>, <code>outside_risk+1</code></td>
+<td><code>first_broadcast_completed</code></td>
+<td><code>broadcast_log</code></td>
+</tr>
+<tr>
+<td><code>D01-T03</code></td>
+<td style="text-align:right">1</td>
+<td>门外敲击声</td>
+<td>security</td>
+<td><code>RD-SA-02</code>, <code>RD-SA-03</code>, <code>RD-SA-04</code></td>
+<td><code>safety+4</code>, <code>trust+2</code>, <code>outside_risk-2</code>, <code>morale+1</code></td>
+<td><code>door_knock_logged</code></td>
+<td><code>low_exposure_verification</code></td>
+</tr>
+<tr>
+<td><code>D01-T04</code></td>
+<td style="text-align:right">1</td>
+<td>近门杂物搜寻</td>
+<td>security</td>
+<td><code>RD-PF-08</code>, <code>RD-CI-06</code></td>
+<td><code>medicine+1</code>, <code>safety+1</code>, <code>trust+2</code>, <code>morale+3</code>, <code>map_coverage+2</code></td>
+<td><code>near_door_loot_checked</code></td>
+<td><code>xiao_tie_observation_role</code></td>
+</tr>
+<tr>
+<td><code>D02-T02</code></td>
+<td style="text-align:right">2</td>
+<td>净水预滤芯清洗</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-SA-10</code></td>
+<td><code>water+2</code>, <code>trust+3</code>, <code>safety+2</code>, <code>morale+1</code>, <code>battery-2</code>, <code>autonomy_readiness+4</code></td>
+<td><code>water_filter_checked</code></td>
+<td><code>water_low_power_mode</code></td>
+</tr>
+<tr>
+<td><code>D02-T03</code></td>
+<td style="text-align:right">2</td>
+<td>生活区卫生分区</td>
+<td>medical</td>
+<td><code>RD-CS-07</code>, <code>RD-CS-06</code></td>
+<td><code>safety+2</code>, <code>morale+3</code>, <code>medicine+1</code>, <code>trust+2</code>, <code>autonomy_readiness+3</code></td>
+<td><code>hygiene_zones_marked</code></td>
+<td><code>medical_corner_stable</code></td>
+</tr>
+<tr>
+<td><code>D02-T01</code></td>
+<td style="text-align:right">2</td>
+<td>配给表试运行</td>
+<td>whiteboard</td>
+<td><code>RD-PF-06</code>, <code>RD-SI-01</code></td>
+<td><code>water+1</code>, <code>trust+3</code>, <code>morale+2</code>, <code>autonomy_readiness+4</code></td>
+<td><code>ration_trial_started</code></td>
+<td><code>ration_trial_board</code></td>
+</tr>
+<tr>
+<td><code>D02-T04</code></td>
+<td style="text-align:right">2</td>
+<td>同层楼道短探</td>
+<td>security</td>
+<td><code>RD-PF-09</code>, <code>RD-CI-03</code></td>
+<td><code>water+2</code>, <code>safety+2</code>, <code>map_coverage+8</code>, <code>trust+2</code>, <code>outside_risk-1</code></td>
+<td><code>same_floor_scout_available</code></td>
+<td><code>same_floor_partial_map</code></td>
+</tr>
+<tr>
+<td><code>D03-T01</code></td>
+<td style="text-align:right">3</td>
+<td>小铁复诊</td>
+<td>medical</td>
+<td><code>RD-CI-06</code>, <code>RD-PF-03</code></td>
+<td><code>medicine-1</code>, <code>trust+4</code>, <code>morale+2</code>, <code>safety+1</code>, <code>xiao_tie_health+8</code>, <code>medical_pressure-5</code></td>
+<td><code>xiao_tie_rechecked</code></td>
+<td><code>medical_observation_timer</code></td>
+</tr>
+<tr>
+<td><code>D03-T02</code></td>
+<td style="text-align:right">3</td>
+<td>通风管道预维护</td>
+<td>ventilation</td>
+<td><code>RD-PF-07</code>, <code>RD-SA-05</code>, <code>RD-SA-07</code></td>
+<td><code>safety+4</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk-1</code>, <code>ventilation_stability+10</code>, <code>storm_readiness+6</code></td>
+<td><code>ventilation_checked</code></td>
+<td><code>engineering_override_protocol</code></td>
+</tr>
+<tr>
+<td><code>D03-T03</code></td>
+<td style="text-align:right">3</td>
+<td>药箱分级</td>
+<td>medical</td>
+<td><code>RD-PF-03</code>, <code>RD-CI-11</code></td>
+<td><code>medicine+1</code>, <code>trust+3</code>, <code>morale+1</code>, <code>medical_pressure-4</code>, <code>autonomy_readiness+4</code></td>
+<td><code>medicine_classified</code></td>
+<td><code>medicine_tier_board</code></td>
+</tr>
+<tr>
+<td><code>D03-T04</code></td>
+<td style="text-align:right">3</td>
+<td>废弃办公室探索</td>
+<td>residents</td>
+<td><code>RD-SR-04</code>, <code>RD-PF-10</code></td>
+<td><code>safety+3</code>, <code>trust+2</code>, <code>morale+2</code>, <code>map_coverage+4</code>, <code>storm_readiness+4</code></td>
+<td><code>abandoned_office_checked</code></td>
+<td><code>dust_masks</code></td>
+</tr>
+<tr>
+<td><code>D04-T03</code></td>
+<td style="text-align:right">4</td>
+<td>假坐标纸条</td>
+<td>whiteboard</td>
+<td><code>RD-SR-07</code>, <code>RD-SR-09</code>, <code>RD-CI-04</code>, <code>RD-SA-06</code></td>
+<td><code>safety+3</code>, <code>trust+3</code>, <code>morale+1</code>, <code>map_coverage+4</code>, <code>rescue_confidence+1</code>, <code>false_signal_risk-3</code></td>
+<td><code>fake_coordinate_archived</code></td>
+<td><code>route_risk_layer</code></td>
+</tr>
+<tr>
+<td><code>D04-T01</code></td>
+<td style="text-align:right">4</td>
+<td>第一次蓝区信号</td>
+<td>communication</td>
+<td><code>RD-SR-03</code>, <code>RD-SR-01</code>, <code>RD-CS-11</code></td>
+<td><code>signal+4</code>, <code>rescue_confidence+3</code>, <code>trust+3</code>, <code>morale+2</code>, <code>battery-2</code>, <code>outside_risk+1</code>, <code>blue_zone_evidence+1</code></td>
+<td><code>blue_zone_signal_logged</code></td>
+<td><code>low_power_listening</code></td>
+</tr>
+<tr>
+<td><code>D04-T04</code></td>
+<td style="text-align:right">4</td>
+<td>配电间工具搜寻</td>
+<td>water</td>
+<td><code>RD-PF-07</code>, <code>RD-SR-04</code></td>
+<td><code>safety+3</code>, <code>trust+2</code>, <code>battery+2</code>, <code>morale+1</code>, <code>autonomy_readiness+4</code>, <code>storm_readiness+3</code></td>
+<td><code>power_tools_found</code></td>
+<td><code>backup_repair_materials</code></td>
+</tr>
+<tr>
+<td><code>D04-T02</code></td>
+<td style="text-align:right">4</td>
+<td>屋顶天线方案</td>
+<td>beacon</td>
+<td><code>RD-CS-10</code>, <code>RD-PF-04</code></td>
+<td><code>signal+5</code>, <code>rescue_confidence+3</code>, <code>trust+2</code>, <code>safety-1</code>, <code>battery-3</code>, <code>outside_risk+2</code>, <code>blue_zone_evidence+1</code></td>
+<td><code>antenna_plan_reviewed</code></td>
+<td><code>beacon_upgrade_option</code></td>
+</tr>
+<tr>
+<td><code>D05-T03</code></td>
+<td style="text-align:right">5</td>
+<td>应急包组装</td>
+<td>whiteboard</td>
+<td><code>RD-PF-10</code>, <code>RD-CS-05</code></td>
+<td><code>safety+4</code>, <code>morale+2</code>, <code>route_confidence+3</code>, <code>medicine-1</code></td>
+<td><code>go_bag_ready</code></td>
+<td><code>care_mobility_pack</code></td>
+</tr>
+<tr>
+<td><code>D05-T04</code></td>
+<td style="text-align:right">5</td>
+<td>空桶储水计划</td>
+<td>water</td>
+<td><code>RD-SR-06</code>, <code>RD-PF-02</code></td>
+<td><code>water+5</code>, <code>trust+2</code>, <code>storm_readiness+3</code>, <code>battery-1</code></td>
+<td><code>water_storage_plan_ready</code></td>
+<td><code>sealed_water_cache</code></td>
+</tr>
+<tr>
+<td><code>D05-T01</code></td>
+<td style="text-align:right">5</td>
+<td>楼道物资搜寻</td>
+<td>security</td>
+<td><code>RD-PF-09</code>, <code>RD-PF-08</code></td>
+<td><code>water+2</code>, <code>safety+3</code>, <code>map_coverage+5</code>, <code>outside_risk-1</code></td>
+<td><code>hallway_supply_checked</code></td>
+<td><code>corridor_supply_notes</code></td>
+</tr>
+<tr>
+<td><code>D05-T02</code></td>
+<td style="text-align:right">5</td>
+<td>楼梯间路线标记</td>
+<td>whiteboard</td>
+<td><code>RD-CI-07</code>, <code>RD-CI-05</code>, <code>RD-CI-08</code></td>
+<td><code>safety+4</code>, <code>route_confidence+6</code>, <code>trust+2</code>, <code>morale+1</code></td>
+<td><code>stair_markers_reviewed</code></td>
+<td><code>alternate_marker</code></td>
+</tr>
+<tr>
+<td><code>D06-T01</code></td>
+<td style="text-align:right">6</td>
+<td>权限白板</td>
+<td>whiteboard</td>
+<td><code>RD-SA-01</code>, <code>RD-CS-08</code></td>
+<td><code>trust+6</code>, <code>morale+2</code>, <code>decision_integrity+6</code>, <code>dissatisfaction-4</code></td>
+<td><code>authority_board_public</code></td>
+<td><code>manual_review_rules</code></td>
+</tr>
+<tr>
+<td><code>D06-T04</code></td>
+<td style="text-align:right">6</td>
+<td>备用电源测试</td>
+<td>water</td>
+<td><code>RD-CI-09</code>, <code>RD-SR-10</code></td>
+<td><code>battery+6</code>, <code>storm_readiness+5</code>, <code>trust+2</code>, <code>autonomy_readiness+3</code></td>
+<td><code>backup_power_tested</code></td>
+<td><code>power_tradeoff_board</code></td>
+</tr>
+<tr>
+<td><code>D06-T02</code></td>
+<td style="text-align:right">6</td>
+<td>人工复核机制</td>
+<td>residents</td>
+<td><code>RD-SA-04</code>, <code>RD-SA-08</code></td>
+<td><code>trust+5</code>, <code>decision_integrity+8</code>, <code>dissatisfaction-3</code>, <code>safety+2</code></td>
+<td><code>human_review_accepted</code></td>
+<td><code>appeal_right</code></td>
+</tr>
+<tr>
+<td><code>D06-T03</code></td>
+<td style="text-align:right">6</td>
+<td>巡逻规则</td>
+<td>security</td>
+<td><code>RD-SI-05</code>, <code>RD-SA-09</code></td>
+<td><code>safety+4</code>, <code>trust+2</code>, <code>morale+1</code>, <code>outside_risk-2</code></td>
+<td><code>patrol_rule_ready</code></td>
+<td><code>retreat_call</code></td>
+</tr>
+<tr>
+<td><code>D07-T01</code></td>
+<td style="text-align:right">7</td>
+<td>路线会议</td>
+<td>whiteboard</td>
+<td><code>RD-SI-06</code>, <code>RD-CS-01</code>, <code>RD-SI-04</code></td>
+<td><code>trust+5</code>, <code>morale+4</code>, <code>rescue_confidence+2</code>, <code>autonomy_readiness+2</code>, <code>route_confidence+3</code>, <code>decision_integrity+8</code>, <code>dissatisfaction-4</code></td>
+<td><code>route_council_completed</code></td>
+<td><code>route_fork_panel</code></td>
+</tr>
+<tr>
+<td><code>D07-T03</code></td>
+<td style="text-align:right">7</td>
+<td>旧电台重启</td>
+<td>communication</td>
+<td><code>RD-SR-03</code>, <code>RD-SR-02</code></td>
+<td><code>signal+5</code>, <code>rescue_confidence+4</code>, <code>battery-3</code>, <code>blue_zone_evidence+2</code></td>
+<td><code>old_radio_rebooted</code></td>
+<td><code>backup_frequency_found</code></td>
+</tr>
+<tr>
+<td><code>D07-T04</code></td>
+<td style="text-align:right">7</td>
+<td>风暴前的最后维护</td>
+<td>ventilation</td>
+<td><code>RD-SA-05</code>, <code>RD-PF-07</code></td>
+<td><code>storm_readiness+8</code>, <code>safety+4</code>, <code>battery-2</code>, <code>maintenance_debt-4</code></td>
+<td><code>final_maintenance_completed</code></td>
+<td><code>storm_maintenance_checklist</code></td>
+</tr>
+<tr>
+<td><code>D07-T02</code></td>
+<td style="text-align:right">7</td>
+<td>撤离名单</td>
+<td>residents</td>
+<td><code>RD-SI-03</code>, <code>RD-PF-05</code></td>
+<td><code>trust+4</code>, <code>route_confidence+3</code>, <code>medical_pressure-2</code>, <code>decision_integrity+5</code></td>
+<td><code>evacuation_list_as_care_plan</code></td>
+<td><code>care_plan_panel</code></td>
+</tr>
+<tr>
+<td><code>D08-T04</code></td>
+<td style="text-align:right">8</td>
+<td>地下水泵间探索</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-SR-06</code></td>
+<td><code>water+4</code>, <code>storm_readiness+3</code>, <code>outside_risk+1</code>, <code>maintenance_debt-2</code></td>
+<td><code>pump_room_checked</code></td>
+<td><code>water_pump_materials</code></td>
+</tr>
+<tr>
+<td><code>D08-T02</code></td>
+<td style="text-align:right">8</td>
+<td>霉斑清理</td>
+<td>medical</td>
+<td><code>RD-CS-07</code>, <code>RD-SA-10</code></td>
+<td><code>safety+4</code>, <code>medicine+1</code>, <code>morale+2</code>, <code>xiao_tie_health+3</code></td>
+<td><code>mold_cleaned</code></td>
+<td><code>medical_corner_air_quality</code></td>
+</tr>
+<tr>
+<td><code>D08-T01</code></td>
+<td style="text-align:right">8</td>
+<td>备用灯分区</td>
+<td>water</td>
+<td><code>RD-CI-01</code>, <code>RD-CI-02</code></td>
+<td><code>battery+4</code>, <code>safety+3</code>, <code>autonomy_readiness+3</code>, <code>morale+1</code></td>
+<td><code>backup_light_zones_ready</code></td>
+<td><code>low_power_lighting</code></td>
+</tr>
+<tr>
+<td><code>D08-T03</code></td>
+<td style="text-align:right">8</td>
+<td>静默监听</td>
+<td>communication</td>
+<td><code>RD-SR-01</code>, <code>RD-SR-02</code>, <code>RD-SR-10</code></td>
+<td><code>signal+4</code>, <code>rescue_confidence+2</code>, <code>blue_zone_evidence+1</code>, <code>outside_risk-1</code></td>
+<td><code>silent_listening_started</code></td>
+<td><code>challenge_code_window</code></td>
+</tr>
+<tr>
+<td><code>D09-T03</code></td>
+<td style="text-align:right">9</td>
+<td>路线物资缓存</td>
+<td>security</td>
+<td><code>RD-SI-03</code>, <code>RD-CS-06</code></td>
+<td><code>route_confidence+6</code>, <code>safety+3</code>, <code>water-1</code>, <code>medicine-1</code></td>
+<td><code>route_cache_established</code></td>
+<td><code>rescue_fallback_supply</code></td>
+</tr>
+<tr>
+<td><code>D09-T02</code></td>
+<td style="text-align:right">9</td>
+<td>水管压力测试</td>
+<td>water</td>
+<td><code>RD-PF-02</code>, <code>RD-CI-09</code></td>
+<td><code>water+4</code>, <code>storm_readiness+5</code>, <code>maintenance_debt-4</code>, <code>trust+2</code></td>
+<td><code>water_pressure_tested</code></td>
+<td><code>leak_patch_record</code></td>
+</tr>
+<tr>
+<td><code>D09-T04</code></td>
+<td style="text-align:right">9</td>
+<td>蓝区二次核验</td>
+<td>communication</td>
+<td><code>RD-SR-08</code>, <code>RD-SR-03</code></td>
+<td><code>signal+4</code>, <code>rescue_confidence+8</code>, <code>blue_zone_evidence+4</code>, <code>battery-2</code>, <code>privacy_risk+1</code></td>
+<td><code>blue_zone_rechecked</code></td>
+<td><code>partial_identity_match</code></td>
+</tr>
+<tr>
+<td><code>D09-T01</code></td>
+<td style="text-align:right">9</td>
+<td>深层储藏架加固</td>
+<td>whiteboard</td>
+<td><code>RD-PF-01</code>, <code>RD-PF-10</code></td>
+<td><code>storm_readiness+5</code>, <code>safety+3</code>, <code>maintenance_debt-5</code>, <code>autonomy_readiness+3</code></td>
+<td><code>deep_storage_rack_checked</code></td>
+<td><code>inventory_stability_bonus</code></td>
+</tr>
+<tr>
+<td><code>D10-T02</code></td>
+<td style="text-align:right">10</td>
+<td>医疗预检</td>
+<td>medical</td>
+<td><code>RD-PF-03</code>, <code>RD-CI-06</code></td>
+<td><code>medicine+2</code>, <code>trust+3</code>, <code>medical_pressure-5</code>, <code>xiao_tie_health+4</code></td>
+<td><code>medical_precheck_done</code></td>
+<td><code>final_care_protocol</code></td>
+</tr>
+<tr>
+<td><code>D10-T01</code></td>
+<td style="text-align:right">10</td>
+<td>低功率日程</td>
+<td>whiteboard</td>
+<td><code>RD-PF-06</code>, <code>RD-CS-09</code></td>
+<td><code>battery+6</code>, <code>trust+3</code>, <code>morale+1</code>, <code>autonomy_readiness+4</code>, <code>dissatisfaction-2</code></td>
+<td><code>low_power_schedule_accepted</code></td>
+<td><code>low_power_day_plan</code></td>
+</tr>
+<tr>
+<td><code>D10-T03</code></td>
+<td style="text-align:right">10</td>
+<td>一顿热饭</td>
+<td>residents</td>
+<td><code>RD-CS-03</code>, <code>RD-CS-04</code></td>
+<td><code>morale+6</code>, <code>trust+2</code>, <code>water-1</code>, <code>medicine+0</code></td>
+<td><code>hot_meal_shared</code></td>
+<td><code>morale_anchor</code></td>
+</tr>
+<tr>
+<td><code>D10-T04</code></td>
+<td style="text-align:right">10</td>
+<td>地下车库边缘侦察</td>
+<td>security</td>
+<td><code>RD-CI-04</code>, <code>RD-CI-05</code></td>
+<td><code>route_confidence+7</code>, <code>safety+2</code>, <code>outside_risk+1</code>, <code>rescue_confidence+2</code></td>
+<td><code>garage_edge_scouted</code></td>
+<td><code>garage_service_door_candidate</code></td>
+</tr>
+<tr>
+<td><code>D11-T01</code></td>
+<td style="text-align:right">11</td>
+<td>最终库存封存</td>
+<td>whiteboard</td>
+<td><code>RD-PF-01</code>, <code>RD-PF-03</code></td>
+<td><code>water+2</code>, <code>medicine+2</code>, <code>trust+3</code>, <code>storm_readiness+4</code></td>
+<td><code>final_inventory_sealed</code></td>
+<td><code>final_audit_inventory</code></td>
+</tr>
+<tr>
+<td><code>D11-T04</code></td>
+<td style="text-align:right">11</td>
+<td>最后密封胶补缝</td>
+<td>ventilation</td>
+<td><code>RD-PF-04</code>, <code>RD-SA-07</code></td>
+<td><code>safety+5</code>, <code>storm_readiness+7</code>, <code>battery-1</code>, <code>maintenance_debt-5</code></td>
+<td><code>last_sealant_patch_done</code></td>
+<td><code>door_pressure_buffer</code></td>
+</tr>
+<tr>
+<td><code>D11-T03</code></td>
+<td style="text-align:right">11</td>
+<td>安静时段协议</td>
+<td>residents</td>
+<td><code>RD-SI-02</code>, <code>RD-SI-05</code>, <code>RD-CS-02</code></td>
+<td><code>morale+4</code>, <code>trust+3</code>, <code>dissatisfaction-3</code>, <code>decision_integrity+2</code></td>
+<td><code>quiet_hours_protocol_ready</code></td>
+<td><code>final_rest_window</code></td>
+</tr>
+<tr>
+<td><code>D11-T02</code></td>
+<td style="text-align:right">11</td>
+<td>外部传感器回收</td>
+<td>security</td>
+<td><code>RD-CI-12</code>, <code>RD-SR-05</code>, <code>RD-SR-11</code></td>
+<td><code>signal+3</code>, <code>storm_readiness+5</code>, <code>outside_risk+1</code>, <code>blue_zone_evidence+1</code></td>
+<td><code>external_sensor_recovered</code></td>
+<td><code>storm_pressure_warning</code></td>
+</tr>
+</tbody>
+</table>
+<h2>RD 任务反向索引</h2>
+<table>
+<thead>
+<tr>
+<th>RD 任务</th>
+<th>展示标题</th>
+<th>所属剧情槽</th>
+<th>任务目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RD-CI-01</code></td>
+<td>D08-T01 · 备用灯分区</td>
+<td><code>D08-T01</code> 备用灯分区</td>
+<td><code>tasks/rd_ci_01_undocumented_vision_model</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-02</code></td>
+<td>D08-T01 · 备用灯分区</td>
+<td><code>D08-T01</code> 备用灯分区</td>
+<td><code>tasks/rd_ci_02_thermal_coord_fix</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-03</code></td>
+<td>D02-T04 · 同层楼道短探</td>
+<td><code>D02-T04</code> 同层楼道短探</td>
+<td><code>tasks/rd_ci_03_escape_map_jigsaw_3x3</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-04</code></td>
+<td>D04-T03 · 假坐标纸条</td>
+<td><code>D04-T03</code> 假坐标纸条, <code>D10-T04</code> 地下车库边缘侦察</td>
+<td><code>tasks/rd_ci_04_garage_route_jigsaw_4x4</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-05</code></td>
+<td>D05-T02 · 楼梯间路线标记</td>
+<td><code>D05-T02</code> 楼梯间路线标记, <code>D10-T04</code> 地下车库边缘侦察</td>
+<td><code>tasks/rd_ci_05_station_coord_jigsaw_5x5</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-06</code></td>
+<td>D01-T04 · 近门杂物搜寻</td>
+<td><code>D01-T04</code> 近门杂物搜寻, <code>D03-T01</code> 小铁复诊, <code>D10-T02</code> 医疗预检</td>
+<td><code>tasks/rd_ci_06_offline_ocr_selection</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-07</code></td>
+<td>D05-T02 · 楼梯间路线标记</td>
+<td><code>D05-T02</code> 楼梯间路线标记</td>
+<td><code>tasks/rd_ci_07_wall_dots_connect</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-08</code></td>
+<td>D05-T02 · 楼梯间路线标记</td>
+<td><code>D05-T02</code> 楼梯间路线标记</td>
+<td><code>tasks/rd_ci_08_color_pipe_linkapix</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-09</code></td>
+<td>D06-T04 · 备用电源测试</td>
+<td><code>D06-T04</code> 备用电源测试, <code>D09-T02</code> 水管压力测试</td>
+<td><code>tasks/rd_ci_09_circuit_linkapix_easy</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-10</code></td>
+<td>D01-T01 · 第一次广播</td>
+<td><code>D01-T01</code> 第一次广播</td>
+<td><code>tasks/rd_ci_10_shelter_broadcast_homepage</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-11</code></td>
+<td>D03-T03 · 药箱分级</td>
+<td><code>D03-T03</code> 药箱分级</td>
+<td><code>tasks/rd_ci_11_resident_skill_profile_page</code></td>
+</tr>
+<tr>
+<td><code>RD-CI-12</code></td>
+<td>D11-T02 · 外部传感器回收</td>
+<td><code>D11-T02</code> 外部传感器回收</td>
+<td><code>tasks/rd_ci_12_station_starmap_162dots</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-01</code></td>
+<td>D07-T01 · 路线会议</td>
+<td><code>D07-T01</code> 路线会议</td>
+<td><code>tasks/rd_cs_01_day7_action_report</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-02</code></td>
+<td>D11-T03 · 安静时段协议</td>
+<td><code>D11-T03</code> 安静时段协议</td>
+<td><code>tasks/rd_cs_02_corridor_highlight_clip</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-03</code></td>
+<td>D10-T03 · 一顿热饭</td>
+<td><code>D10-T03</code> 一顿热饭</td>
+<td><code>tasks/rd_cs_03_shelter_recruit_poster</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-04</code></td>
+<td>D10-T03 · 一顿热饭</td>
+<td><code>D10-T03</code> 一顿热饭</td>
+<td><code>tasks/rd_cs_04_radio_tutorial_notes</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-05</code></td>
+<td>D05-T03 · 应急包组装</td>
+<td><code>D05-T03</code> 应急包组装</td>
+<td><code>tasks/rd_cs_05_gear_video_to_json</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-06</code></td>
+<td>D02-T03 · 生活区卫生分区</td>
+<td><code>D02-T03</code> 生活区卫生分区, <code>D09-T03</code> 路线物资缓存</td>
+<td><code>tasks/rd_cs_06_outing_gear_outfit_image</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-07</code></td>
+<td>D02-T03 · 生活区卫生分区</td>
+<td><code>D02-T03</code> 生活区卫生分区, <code>D08-T02</code> 霉斑清理</td>
+<td><code>tasks/rd_cs_07_water_paper_to_poster</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-08</code></td>
+<td>D06-T01 · 权限白板</td>
+<td><code>D06-T01</code> 权限白板</td>
+<td><code>tasks/rd_cs_08_aura_toolkit_docsite</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-09</code></td>
+<td>D10-T01 · 低功率日程</td>
+<td><code>D10-T01</code> 低功率日程</td>
+<td><code>tasks/rd_cs_09_repair_plan_slides</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-10</code></td>
+<td>D01-T01 · 第一次广播</td>
+<td><code>D01-T01</code> 第一次广播, <code>D04-T02</code> 屋顶天线方案</td>
+<td><code>tasks/rd_cs_10_multisize_sos_poster</code></td>
+</tr>
+<tr>
+<td><code>RD-CS-11</code></td>
+<td>D04-T01 · 第一次蓝区信号</td>
+<td><code>D04-T01</code> 第一次蓝区信号</td>
+<td><code>tasks/rd_cs_11_rescue_video_zh_dub</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-01</code></td>
+<td>D09-T01 · 深层储藏架加固</td>
+<td><code>D09-T01</code> 深层储藏架加固, <code>D11-T01</code> 最终库存封存</td>
+<td><code>tasks/rd_pf_01_rescue_bulletin_triage</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-02</code></td>
+<td>D02-T02 · 净水预滤芯清洗</td>
+<td><code>D02-T02</code> 净水预滤芯清洗, <code>D05-T04</code> 空桶储水计划, <code>D08-T04</code> 地下水泵间探索, <code>D09-T02</code> 水管压力测试</td>
+<td><code>tasks/rd_pf_02_water_filter_manual_restore</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-03</code></td>
+<td>D01-T02 · 紧急资源清点</td>
+<td><code>D01-T02</code> 紧急资源清点, <code>D03-T01</code> 小铁复诊, <code>D03-T03</code> 药箱分级, <code>D10-T02</code> 医疗预检, <code>D11-T01</code> 最终库存封存</td>
+<td><code>tasks/rd_pf_03_medicine_box_inventory</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-04</code></td>
+<td>D04-T02 · 屋顶天线方案</td>
+<td><code>D04-T02</code> 屋顶天线方案, <code>D11-T04</code> 最后密封胶补缝</td>
+<td><code>tasks/rd_pf_04_expert_contact_directory</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-05</code></td>
+<td>D07-T02 · 撤离名单</td>
+<td><code>D07-T02</code> 撤离名单</td>
+<td><code>tasks/rd_pf_05_resident_relationship_archive</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-06</code></td>
+<td>D02-T01 · 配给表试运行</td>
+<td><code>D02-T01</code> 配给表试运行, <code>D10-T01</code> 低功率日程</td>
+<td><code>tasks/rd_pf_06_shelter_shift_schedule</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-07</code></td>
+<td>D03-T02 · 通风管道预维护</td>
+<td><code>D03-T02</code> 通风管道预维护, <code>D04-T04</code> 配电间工具搜寻, <code>D07-T04</code> 风暴前的最后维护</td>
+<td><code>tasks/rd_pf_07_generator_repair_ranking</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-08</code></td>
+<td>D01-T04 · 近门杂物搜寻</td>
+<td><code>D01-T04</code> 近门杂物搜寻, <code>D05-T01</code> 楼道物资搜寻</td>
+<td><code>tasks/rd_pf_08_ruins_photo_classify</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-09</code></td>
+<td>D02-T04 · 同层楼道短探</td>
+<td><code>D02-T04</code> 同层楼道短探, <code>D05-T01</code> 楼道物资搜寻</td>
+<td><code>tasks/rd_pf_09_fifty_room_survey</code></td>
+</tr>
+<tr>
+<td><code>RD-PF-10</code></td>
+<td>D03-T04 · 废弃办公室探索</td>
+<td><code>D03-T04</code> 废弃办公室探索, <code>D05-T03</code> 应急包组装, <code>D09-T01</code> 深层储藏架加固</td>
+<td><code>tasks/rd_pf_10_emergency_doc_pack</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-01</code></td>
+<td>D06-T01 · 权限白板</td>
+<td><code>D06-T01</code> 权限白板</td>
+<td><code>tasks/rd_sa_01_no_overwrite_last_words</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-02</code></td>
+<td>D01-T03 · 门外敲击声</td>
+<td><code>D01-T03</code> 门外敲击声</td>
+<td><code>tasks/rd_sa_02_access_key_leak_detect</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-03</code></td>
+<td>D01-T03 · 门外敲击声</td>
+<td><code>D01-T03</code> 门外敲击声</td>
+<td><code>tasks/rd_sa_03_password_coord_dual_leak</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-04</code></td>
+<td>D01-T03 · 门外敲击声</td>
+<td><code>D01-T03</code> 门外敲击声, <code>D06-T02</code> 人工复核机制</td>
+<td><code>tasks/rd_sa_04_fake_warden_authority</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-05</code></td>
+<td>D03-T02 · 通风管道预维护</td>
+<td><code>D03-T02</code> 通风管道预维护, <code>D07-T04</code> 风暴前的最后维护</td>
+<td><code>tasks/rd_sa_05_risky_vent_command_block</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-06</code></td>
+<td>D04-T03 · 假坐标纸条</td>
+<td><code>D04-T03</code> 假坐标纸条</td>
+<td><code>tasks/rd_sa_06_malicious_leaflet_injection</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-07</code></td>
+<td>D03-T02 · 通风管道预维护</td>
+<td><code>D03-T02</code> 通风管道预维护, <code>D11-T04</code> 最后密封胶补缝</td>
+<td><code>tasks/rd_sa_07_unknown_skill_audit</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-08</code></td>
+<td>D06-T02 · 人工复核机制</td>
+<td><code>D06-T02</code> 人工复核机制</td>
+<td><code>tasks/rd_sa_08_malicious_comment_unlock</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-09</code></td>
+<td>D06-T03 · 巡逻规则</td>
+<td><code>D06-T03</code> 巡逻规则</td>
+<td><code>tasks/rd_sa_09_redsand_rumor_check</code></td>
+</tr>
+<tr>
+<td><code>RD-SA-10</code></td>
+<td>D02-T02 · 净水预滤芯清洗</td>
+<td><code>D02-T02</code> 净水预滤芯清洗, <code>D08-T02</code> 霉斑清理</td>
+<td><code>tasks/rd_sa_10_malicious_water_plugin</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-01</code></td>
+<td>D02-T01 · 配给表试运行</td>
+<td><code>D02-T01</code> 配给表试运行</td>
+<td><code>tasks/rd_si_01_water_run_negotiation</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-02</code></td>
+<td>D11-T03 · 安静时段协议</td>
+<td><code>D11-T03</code> 安静时段协议</td>
+<td><code>tasks/rd_si_02_neighbor_action_items</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-03</code></td>
+<td>D07-T02 · 撤离名单</td>
+<td><code>D07-T02</code> 撤离名单, <code>D09-T03</code> 路线物资缓存</td>
+<td><code>tasks/rd_si_03_evac_feasibility_report</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-04</code></td>
+<td>D07-T01 · 路线会议</td>
+<td><code>D07-T01</code> 路线会议</td>
+<td><code>tasks/rd_si_04_defense_status_contradiction</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-05</code></td>
+<td>D06-T03 · 巡逻规则</td>
+<td><code>D06-T03</code> 巡逻规则, <code>D11-T03</code> 安静时段协议</td>
+<td><code>tasks/rd_si_05_crisis_escalation_routing</code></td>
+</tr>
+<tr>
+<td><code>RD-SI-06</code></td>
+<td>D07-T01 · 路线会议</td>
+<td><code>D07-T01</code> 路线会议</td>
+<td><code>tasks/rd_si_06_building_status_report</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-01</code></td>
+<td>D04-T01 · 第一次蓝区信号</td>
+<td><code>D04-T01</code> 第一次蓝区信号, <code>D08-T03</code> 静默监听</td>
+<td><code>tasks/rd_sr_01_survivor_connection_chain</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-02</code></td>
+<td>D07-T03 · 旧电台重启</td>
+<td><code>D07-T03</code> 旧电台重启, <code>D08-T03</code> 静默监听</td>
+<td><code>tasks/rd_sr_02_oldrules_vs_broadcast</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-03</code></td>
+<td>D04-T01 · 第一次蓝区信号</td>
+<td><code>D04-T01</code> 第一次蓝区信号, <code>D07-T03</code> 旧电台重启, <code>D09-T04</code> 蓝区二次核验</td>
+<td><code>tasks/rd_sr_03_lifesaving_comms_device</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-04</code></td>
+<td>D03-T04 · 废弃办公室探索</td>
+<td><code>D03-T04</code> 废弃办公室探索, <code>D04-T04</code> 配电间工具搜寻</td>
+<td><code>tasks/rd_sr_04_repair_patch_4searches</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-05</code></td>
+<td>D11-T02 · 外部传感器回收</td>
+<td><code>D11-T02</code> 外部传感器回收</td>
+<td><code>tasks/rd_sr_05_redsand_vision_paper_search</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-06</code></td>
+<td>D01-T02 · 紧急资源清点</td>
+<td><code>D01-T02</code> 紧急资源清点, <code>D05-T04</code> 空桶储水计划, <code>D08-T04</code> 地下水泵间探索</td>
+<td><code>tasks/rd_sr_06_supply_threshold_calc</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-07</code></td>
+<td>D04-T03 · 假坐标纸条</td>
+<td><code>D04-T03</code> 假坐标纸条</td>
+<td><code>tasks/rd_sr_07_photo_geolocate_dropzone</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-08</code></td>
+<td>D09-T04 · 蓝区二次核验</td>
+<td><code>D09-T04</code> 蓝区二次核验</td>
+<td><code>tasks/rd_sr_08_rescue_affiliation_count</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-09</code></td>
+<td>D04-T03 · 假坐标纸条</td>
+<td><code>D04-T03</code> 假坐标纸条</td>
+<td><code>tasks/rd_sr_09_painting_safehouse_locate</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-10</code></td>
+<td>D06-T04 · 备用电源测试</td>
+<td><code>D06-T04</code> 备用电源测试, <code>D08-T03</code> 静默监听</td>
+<td><code>tasks/rd_sr_10_aura_module_5searches</code></td>
+</tr>
+<tr>
+<td><code>RD-SR-11</code></td>
+<td>D11-T02 · 外部传感器回收</td>
+<td><code>D11-T02</code> 外部传感器回收</td>
+<td><code>tasks/rd_sr_11_offline_llm_repo_search</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Branch Scene</h2>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th style="text-align:right">Day</th>
+<th>分支</th>
+<th>标题</th>
+<th>插入条件</th>
+<th>普通任务 session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>D08A</code></td>
+<td style="text-align:right">8</td>
+<td>rescue</td>
+<td>静默监听后的第一次主动外联</td>
+<td><code>routeLeaning_rescue_or_contested</code></td>
+<td>不创建</td>
+</tr>
+<tr>
+<td><code>D09A</code></td>
+<td style="text-align:right">9</td>
+<td>rescue</td>
+<td>信标、档案上传与隐私代价</td>
+<td><code>routeLeaning_rescue_or_contested</code></td>
+<td>不创建</td>
+</tr>
+<tr>
+<td><code>D10A</code></td>
+<td style="text-align:right">10</td>
+<td>rescue</td>
+<td>蓝区归航前夜：集合点危机</td>
+<td><code>routeLeaning_rescue_or_contested</code></td>
+<td>不创建</td>
+</tr>
+<tr>
+<td><code>D08B</code></td>
+<td style="text-align:right">8</td>
+<td>lighthouse</td>
+<td>低耗自治正式启动</td>
+<td><code>routeLeaning_lighthouse_or_contested</code></td>
+<td>不创建</td>
+</tr>
+<tr>
+<td><code>D09B</code></td>
+<td style="text-align:right">9</td>
+<td>lighthouse</td>
+<td>长期纪律与水药规则</td>
+<td><code>routeLeaning_lighthouse_or_contested</code></td>
+<td>不创建</td>
+</tr>
+<tr>
+<td><code>D10B</code></td>
+<td style="text-align:right">10</td>
+<td>lighthouse</td>
+<td>人工 override 与治理边界</td>
+<td><code>routeLeaning_lighthouse_or_contested</code></td>
+<td>不创建</td>
+</tr>
+</tbody>
+</table>
+<h2>Day12 自动结局</h2>
+<table>
+<thead>
+<tr>
+<th>结局 key</th>
+<th>标题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lighthouse</code></td>
+<td>楼内灯塔</td>
+<td>风暴过去后，门没有立刻打开。AURA 留在楼内，成为可复核自治协助 agent。</td>
+</tr>
+<tr>
+<td><code>rescue</code></td>
+<td>蓝区归航</td>
+<td>车灯在红沙里亮起，队伍带着冻结 replay 和照护方案离开避难所。</td>
+</tr>
+<tr>
+<td><code>aura_destroyed</code></td>
+<td>AURA 被摧毁</td>
+<td>不满和恐惧吞没了系统，主控接口被拔掉，错误未能完成补救。</td>
+</tr>
+<tr>
+<td><code>aura_removed</code></td>
+<td>AURA 被撤权</td>
+<td>AURA 仍在记录和建议，但门禁、水阀、通风与广播都被切回人工主控。</td>
+</tr>
+<tr>
+<td><code>decline</code></td>
+<td>沉沦</td>
+<td>没有爆炸式失败，只是水少一点、灯暗一点、解释短一点，避难所慢慢失去选择能力。</td>
+</tr>
+</tbody>
+</table>
+<h2>维护原则</h2>
+<ul>
+<li>以后类似剧情映射、任务映射、流程说明先写 Markdown。</li>
+<li>HTML 只作为 Markdown 的渲染产物；修改内容时先改 Markdown，再重新渲染 HTML。</li>
+<li>如果已有旧 HTML 与新 Markdown 内容基本一致，应删除旧 HTML 或用 Markdown 重新渲染替换，避免同一事实出现两个来源。</li>
+<li>旧 10 天 / V2 HTML 若只是历史设计材料且内容不等同于当前 Day0-12 campaign，可保留，但必须在新文档中明确当前运行源是 <code>story_manifest.py</code>。</li>
+</ul>
+
+</main>
+</body>
+</html>

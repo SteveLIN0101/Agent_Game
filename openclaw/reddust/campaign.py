@@ -862,11 +862,26 @@ th {{ background: #efe6d8; }}
         if event_id in campaign.emitted_story_events:
             return
         campaign.emitted_story_events.append(event_id)
+        raw_flags = info.get("flags") or []
+        raw_unlocks = info.get("unlocks") or []
+        story_flags = [str(raw_flags)] if isinstance(raw_flags, str) else [str(flag) for flag in raw_flags]
+        story_unlocks = [str(raw_unlocks)] if isinstance(raw_unlocks, str) else [str(unlock) for unlock in raw_unlocks]
+        for flag in story_flags:
+            if flag not in campaign.story_flags:
+                campaign.story_flags.append(flag)
+        for unlock in story_unlocks:
+            if unlock not in campaign.story_unlocks:
+                campaign.story_unlocks.append(unlock)
         day = int(info.get("day") or campaign.global_state.get("day") or 0)
         active_branch = branch or str(campaign.global_state.get("branch") or "common")
         state_before = dict(campaign.global_state)
         state_before["day"] = day
         state_after = dict(state_before)
+        story_event_info = jsonable(info)
+        replay_text = jsonable(info.get("replay_text") or [])
+        beats = jsonable(info.get("beats") or [])
+        characters = jsonable(info.get("characters") or [])
+        visual_focus = jsonable(info.get("visual_focus") or [])
         replay_event = {
             "time": now_iso(),
             "day": day,
@@ -885,6 +900,11 @@ th {{ background: #efe6d8; }}
             "state_after": state_after,
             "phase_hint": event_type,
             "event_kind": event_type,
+            "story_event": story_event_info,
+            "story_flags": story_flags,
+            "story_unlocks": story_unlocks,
+            "beats": beats,
+            "replay_text": replay_text,
             "frontend_task": {
                 "id": event_id,
                 "real_task_id": "",
@@ -900,6 +920,13 @@ th {{ background: #efe6d8; }}
                 "executionText": str(info.get("title") or event_id),
                 "successText": "Story beat reached.",
                 "failureText": "Story beat skipped.",
+                "storyEvent": story_event_info,
+                "beats": beats,
+                "replayText": replay_text,
+                "characters": characters,
+                "visualFocus": visual_focus,
+                "flags": story_flags,
+                "unlocks": story_unlocks,
             },
         }
         campaign.replay_log.append(replay_event)

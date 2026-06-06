@@ -5,7 +5,14 @@ from pathlib import Path
 
 from openclaw.reddust.campaign import CampaignService, CampaignSlot, DEFAULT_CAMPAIGN_SLOTS
 from openclaw.reddust.lan_server import RedDustLanService, make_http_server
-from openclaw.reddust.story_manifest import BRANCH_SCENES, ENDINGS, READABLE_TASK_SLOTS, STORY_VERSION, story_manifest_public
+from openclaw.reddust.story_manifest import (
+    BRANCH_SCENES,
+    ENDINGS,
+    PROLOGUE_EVENT,
+    READABLE_TASK_SLOTS,
+    STORY_VERSION,
+    story_manifest_public,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,7 +58,51 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
     manifest = story_manifest_public()
     assert manifest["story_version"] == STORY_VERSION
     assert manifest["prologue"]["id"] == "D00"
+    assert manifest["prologue"]["beats"]
+    assert "aura_authority_limited" in manifest["prologue"]["flags"]
+    assert "manual_review_rules" not in manifest["prologue"]["flags"]
+    assert "manual_review_rules" not in manifest["prologue"].get("unlocks", [])
     assert manifest["final_audit"]["id"] == "D12"
+
+
+def test_day0_prologue_trace_is_structured_without_task_session(tmp_path):
+    lan = RedDustLanService(tasks_dir=ROOT / "tasks", run_dir=tmp_path / "lan")
+    campaign = CampaignService(lan, run_dir=tmp_path / "campaigns")
+
+    state = campaign.create_campaign({
+        "seed": "day0-structured",
+        "branch_policy": "rescue",
+        "task_selection": "first",
+    })
+    cid = state["campaign_id"]
+
+    assert state["current_slot_id"] == "D01-T02"
+    assert state["current_run"]["slot_id"] == "D01-T02"
+    assert len(campaign.sessions[cid].task_runs) == 1
+    assert "aura_authority_limited" in state["story_flags"]
+    assert "manual_review_rules" not in state["story_flags"]
+
+    day0_replay = state["replay_log"][0]
+    assert day0_replay["slot_id"] == "D00"
+    assert day0_replay["task_id"] == ""
+    assert day0_replay["story_event"]["beats"][0]["id"] == "D00-B01"
+    assert "replay_started" in day0_replay["story_flags"]
+    assert day0_replay["replay_text"]
+
+    story_events = [event for event in state["events"] if event["type"] == "story_event"]
+    assert len(story_events) == 1
+    story_event = story_events[0]["payload"]["story_event"]
+    assert story_event["id"] == "D00"
+    assert story_event["beats"] == PROLOGUE_EVENT["beats"]
+    assert "aura_authority_limited" in story_event["flags"]
+    assert story_event["replay_text"]
+
+    trace = campaign.trace_campaign(cid)
+    first_frontend_event = trace["frontend_trace"][0]
+    assert first_frontend_event["phase_hint"] == "story_event"
+    assert first_frontend_event["frontend_task"]["id"] == "D00"
+    assert first_frontend_event["frontend_task"]["beats"]
+    assert first_frontend_event["replay_event"]["story_event"]["flags"] == PROLOGUE_EVENT["flags"]
 
 
 def test_campaign_seeded_task_selection_is_reproducible(tmp_path):
