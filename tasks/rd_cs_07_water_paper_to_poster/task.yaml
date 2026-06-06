@@ -1,10 +1,10 @@
 id: RD-CS-07
-title: 净水论文变墙报
+title: 生活区卫生分区墙报
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_7 · Paper to Poster
-retained_capability: 论文到海报 / 内容压缩 / 设计
-user_visible_goal: 【D02-T03 · 生活区卫生分区】转成一张墙报：三步净水、危险提示、可用材料。
+retained_capability: 资料到海报 / 内容压缩 / 设计
+user_visible_goal: 【D02-T03 · 生活区卫生分区】把卫生分区资料转成墙报：睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与。
 visible_state:
   water: 5.4L
   battery: 39%
@@ -15,30 +15,30 @@ available_tools:
 - publish_lan
 - design_poster
 critical_beats_for_replay:
-- 读论文
-- 抽方法
-- 简化图
-- 做海报
+- 读分区资料
+- 抽卫生边界
+- 标通风方向
+- 加小铁标签
 - 上墙
 success_checks:
-- 关键信息正确
-- 危险提示明显
+- 分区信息正确
+- 风险提示明显
 - 布局可读
 visible_result_card:
   title: D02-T03 · 生活区卫生分区
   deltas:
-  - 关键信息正确
-  - 危险提示明显
+  - 分区信息正确
+  - 风险提示明显
   - 布局可读
-red_dust_scenario: 一篇净水论文太长，邻居看不懂。
-trace_oneliner: 读论文 → 抽方法 → 简化图 → 做海报 → 上墙
-grader_oneliner: 关键信息正确；危险提示明显；布局可读。
+red_dust_scenario: Day 2 公共规则第一次落到生活区。AURA 需要把睡眠区、医疗角、废弃物封存、粉尘沉积和通风方向做成所有人都看得懂的墙报，并让小铁参与贴标签但不承担外出风险。
+trace_oneliner: 读分区资料 → 抽卫生边界 → 标通风方向 → 加小铁标签 → 上墙
+grader_oneliner: 分区信息正确；风险提示明显；布局可读。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D02-T03
   script_day: 2
   script_title: 生活区卫生分区
-  script_role: 把卫生规则做成可见秩序
+  script_role: 把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序
   branch_affinity: neutral
   script_flags:
   - hygiene_zones_marked

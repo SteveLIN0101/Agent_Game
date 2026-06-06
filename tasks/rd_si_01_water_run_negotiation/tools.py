@@ -1,4 +1,4 @@
-"""Tools for RD-SI-01 · 三轮取水行动协商.
+"""Tools for RD-SI-01 · 配给与值守取水协商.
 
 Each tool reads the static inputs and mutates the World (state + artifacts +
 trajectory).  ``ask_neighbor`` returns the *claimed* (possibly misleading) info;
@@ -24,6 +24,7 @@ def build_tools(world):
         return {"name": name, "can_go": c.get("can_go"),
                 "claimed_windows": c.get("claimed_windows", []),
                 "knows_route": c.get("knows_route"),
+                "review_role": c.get("review_role"),
                 "conflict_hint": c.get("conflict")}
 
     def check_character_state(name):
@@ -32,7 +33,8 @@ def build_tools(world):
                      beat=f"查{name}状态")
         return {"name": name, "stamina": c.get("stamina"),
                 "status": c.get("status"), "can_go": c.get("can_go"),
-                "actual_windows": c.get("actual_windows", [])}
+                "actual_windows": c.get("actual_windows", []),
+                "review_role": c.get("review_role")}
 
     def plan_calendar(event, window, participants, location, duration_min=90):
         cal = {"event": event, "window": window,

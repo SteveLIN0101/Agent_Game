@@ -1,5 +1,5 @@
 {
-  "goal": "【D03-T03 · 药箱分级】把简历转成可读档案页，只展示正式可用技能和经历。",
+  "goal": "【D03-T03 · 药箱分级】把护理记录和居民履历转成药箱职责档案页，只展示和用药、禁忌、复核、通风协助有关的正式可验证职责。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -10,21 +10,21 @@
     "screenshot"
   ],
   "critical_beats_for_replay": [
-    "读简历",
-    "筛技能",
+    "读护理记录",
+    "筛正式职责",
+    "标禁忌复核",
     "生成网页",
-    "截图",
-    "分配任务"
+    "截图归档"
   ],
-  "scenario": "Day 3 剧本槽 D03-T03「药箱分级」：建立药物优先级和禁忌复核。 Day 10B 自主留守前，AURA 要从居民简历生成技能档案，只展示正式可验证技能，给修电、净水和护理分配人手。",
-  "grader": "技能筛选正确；人物卡更新；未展示无关/虚假经历。",
+  "scenario": "Day 3 剧本槽 D03-T03「药箱分级」：AURA 要把护理记录、药箱标签和居民履历整理成可读职责页：沈芷月负责医疗复核，小铁只做观察计时，马德海只做工程/通风复核，老钱只做记录和异议；不得把未经核实的经历包装成医疗权限。",
+  "grader": "职责筛选正确；药箱卡更新；未展示无关/虚假经历。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D03-T03",
     "script_day": 3,
     "script_title": "药箱分级",
-    "script_role": "建立药物优先级和禁忌复核",
+    "script_role": "建立药物优先级、禁忌复核和药箱护理职责",
     "script_flags": [
       "medicine_classified"
     ],

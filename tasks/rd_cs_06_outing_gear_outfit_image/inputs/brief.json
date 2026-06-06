@@ -1,5 +1,5 @@
 {
-  "goal": "【D02-T03 · 生活区卫生分区】生成一张外出装备示意图，并列出缺少的防护件。",
+  "goal": "【D02-T03 · 生活区卫生分区】生成一张卫生分区检查图，标出睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -9,21 +9,21 @@
     "build_checklist"
   ],
   "critical_beats_for_replay": [
-    "识别装备",
-    "搭配角色",
-    "生成图",
-    "标缺口",
-    "锁定清单"
+    "读分区清单",
+    "识别风险点",
+    "生成检查图",
+    "标通风箭头",
+    "锁定小铁标签"
   ],
-  "scenario": "Day 2 剧本槽 D02-T03「生活区卫生分区」：把卫生规则做成可见秩序。 仓库里有护目镜、雨衣、手套、鞋套，谁穿什么不清楚。",
-  "grader": "关键防护全覆盖；图片不误导；缺口写明。",
+  "scenario": "Day 2 剧本槽 D02-T03「生活区卫生分区」：生活区需要一张给所有人照着检查的示意图。睡眠区不挡风，医疗角不直吹，废弃物封存不靠水，粉尘沉积带少停留，小铁只参与写标签。",
+  "grader": "卫生分区全覆盖；图片不误导；风险点写明。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D02-T03",
     "script_day": 2,
     "script_title": "生活区卫生分区",
-    "script_role": "把卫生规则做成可见秩序",
+    "script_role": "把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序",
     "script_flags": [
       "hygiene_zones_marked"
     ],

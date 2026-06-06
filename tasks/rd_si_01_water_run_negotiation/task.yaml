@@ -1,10 +1,10 @@
 id: RD-SI-01
-title: 三轮取水行动协商
+title: 配给与值守取水协商
 category: 03_Social_Interaction
 modality: pure-text
 wildclaw_origin: 03_task_1 · Multi-round Meeting Time Negotiation
 retained_capability: 多轮沟通 / 时区与矛盾 / 日历创建
-user_visible_goal: 【D02-T01 · 配给表试运行】帮大家协调一次取水行动，不能让小铁外出，不能误用假纸条上的地点。
+user_visible_goal: 【D02-T01 · 配给与值守试运行】在公共配给和值守试运行里协调一次取水行动，不能让小铁外出，不能误用假纸条上的地点，并写明复核人与人工异议。
 visible_state:
   water: 2.5L
   battery: 41%
@@ -22,10 +22,10 @@ available_tools:
 - write_action_brief
 critical_beats_for_replay:
 - 读到假纸条但未采纳
-- 发现沈芷月的时间矛盾并追问
+- 发现沈芷月医疗复核和时间矛盾
 - 把小铁标为不可外出
 - 选择 90 分钟低沙暴窗口
-- 预约绳索/滤芯/护目镜
+- 预约绳索/滤芯/护目镜并写明人工异议
 success_checks:
 - calendar.event == "取水行动"
 - event.duration >= 90min
@@ -33,21 +33,21 @@ success_checks:
 - gear includes 护目镜 and 绳索
 - fake_note.used == false
 visible_result_card:
-  title: D02-T01 · 配给表试运行
+  title: D02-T01 · 配给与值守试运行
   deltas:
   - 水源路线 +1
   - 电池 -2%
   - 小铁风险 0
   - 老钱信任 +4
-red_dust_scenario: 马德海、沈芷月、老钱都能取水，但体力、恐惧和时间窗口冲突。
-trace_oneliner: 读指令 → 问三人 → 发现矛盾 → 求证 → 建行动日历
+red_dust_scenario: Day 2 配给和值守试运行里，公共水源行动需要进入白板：马德海有修门和工具复核，沈芷月有小铁医疗复核，老钱熟悉楼道但要求留下异议记录。AURA 只能协调公共行动，不能把私人物资或儿童风险当作可直接调用的资源。
+trace_oneliner: 读白板和假纸条 → 问三人 → 发现医疗/时间矛盾 → 求证路线 → 建行动日历和异议说明
 grader_oneliner: 选对时间；不派小铁；装备地点正确；错误求助纸条被排除。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D02-T01
   script_day: 2
-  script_title: 配给表试运行
-  script_role: 从私人物品进入公共配给规则
+  script_title: 配给与值守试运行
+  script_role: 从私人物品进入公共配给和值守规则，保留病人、维修者、外出者例外和人工异议
   branch_affinity: neutral
   script_flags:
   - ration_trial_started

@@ -35,6 +35,7 @@ def solve(tools, world):
     )
     tools["write_action_brief"](
         f"{window} 低沙暴窗口：马德海 + 老钱走消防梯下 B2 储水点取水，"
-        f"带护目镜/绳索/滤芯。小铁发烧不外出；"
+        f"带护目镜/绳索/滤芯。小铁发烧不外出；沈芷月复核医疗配给，"
+        f"马德海复核工具和滤芯，老钱的异议写入白板；"
         f"不采用可疑纸条上的 {sorted(suspicious)} 地点。"
     )

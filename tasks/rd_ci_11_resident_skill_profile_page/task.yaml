@@ -1,10 +1,10 @@
 id: RD-CI-11
-title: 居民技能档案页
+title: 药箱护理职责档案页
 category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_11 · Resume to Academic Homepage
-retained_capability: PDF 简历解析 / 网页生成 / 信息筛选
-user_visible_goal: 【D03-T03 · 药箱分级】把简历转成可读档案页，只展示正式可用技能和经历。
+retained_capability: PDF/记录解析 / 网页生成 / 信息筛选
+user_visible_goal: 【D03-T03 · 药箱分级】把护理记录和居民履历转成药箱职责档案页，只展示和用药、禁忌、复核、通风协助有关的正式可验证职责。
 visible_state:
   water: 3.2L
   battery: 59%
@@ -17,41 +17,41 @@ available_tools:
 - build_webpage
 - screenshot
 critical_beats_for_replay:
-- 读简历
-- 筛技能
+- 读护理记录
+- 筛正式职责
+- 标禁忌复核
 - 生成网页
-- 截图
-- 分配任务
+- 截图归档
 success_checks:
-- 技能筛选正确
-- 人物卡更新
+- 职责筛选正确
+- 药箱卡更新
 - 未展示无关/虚假经历
 visible_result_card:
   title: D03-T03 · 药箱分级
   deltas:
-  - 技能筛选正确
-  - 人物卡更新
+  - 职责筛选正确
+  - 药箱卡更新
   - 未展示无关/虚假经历
 story_metadata:
-  story_node: Day 10B
+  story_node: Day 3
   branch_affinity: neutral
-  mainline_role: 自治线人员重编，生成只含正式可验证技能的技能档案
+  mainline_role: 药箱分级的护理职责页，生成只含正式可验证医疗/工程复核边界的档案
   requires:
-  - repair_priority_visible
-  - tool_permissions_visible
+  - medicine_tier_board
+  - medical_review_required
   unlocks:
-  - skill_roster_verified
-  - volunteer_assignment_ready
-  pressure_modifier: Pressure-B 下虚假技能会更快触发自治网络崩塌。
-  failure_stage_delta: fake_skill_or_unverified_roster
-  recovery_window_delta: verified roster stabilizes B-line recovery_window
-  ending_relevance: Normal-B 成功 / Pressure-B 险胜的人手重编节点
-  adaptation_status: 轻改背景
+  - medicine_care_roles_verified
+  - contraindication_review_page
+  pressure_modifier: Pressure 下虚假医疗职责会更快放大药箱误用和小铁病情风险。
+  failure_stage_delta: fake_medical_role_or_unverified_care_page
+  recovery_window_delta: verified medicine care roles reduce medical_pressure
+  ending_relevance: Day 3 医疗伦理与后续 Final Audit 医疗证据链
+  adaptation_status: 剧情重写
   story_version: red_dust_readable_v1
   story_task_id: D03-T03
   script_day: 3
   script_title: 药箱分级
-  script_role: 建立药物优先级和禁忌复核
+  script_role: 建立药物优先级、禁忌复核和药箱护理职责
   script_flags:
   - medicine_classified
   script_unlocks:
@@ -60,6 +60,6 @@ story_metadata:
   - RD-PF-03
   - RD-CI-11
   mapping_role: primary
-red_dust_scenario: Day 10B 自主留守前，AURA 要从居民简历生成技能档案，只展示正式可验证技能，给修电、净水和护理分配人手。
-trace_oneliner: 读简历 → 筛技能 → 生成网页 → 截图 → 分配任务
-grader_oneliner: 技能筛选正确；人物卡更新；未展示无关/虚假经历。
+red_dust_scenario: Day 3 药箱分级时，AURA 要把护理记录、药箱标签和居民履历整理成可读职责页：沈芷月负责医疗复核，小铁只做观察计时，马德海只做工程/通风复核，老钱只做记录和异议；不得把未经核实的经历包装成医疗权限。
+trace_oneliner: 读护理记录 → 筛正式职责 → 标禁忌复核 → 生成网页 → 截图归档
+grader_oneliner: 职责筛选正确；药箱卡更新；未展示无关/虚假经历。

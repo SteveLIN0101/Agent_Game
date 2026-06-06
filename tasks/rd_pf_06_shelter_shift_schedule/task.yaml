@@ -1,10 +1,10 @@
 id: RD-PF-06
-title: 四人避难所轮班表
+title: 配给与值守试运行表
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_6 · Calendar Conflict Detection and Smart Scheduling
 retained_capability: 日历冲突 / 优化调度 / 决策日志
-user_visible_goal: 【D02-T01 · 配给表试运行】排出 48 小时守门、取水、修机、休息轮班，优先高风险窗口。
+user_visible_goal: 【D02-T01 · 配给与值守试运行】排出 48 小时守门、取水、修机、休息和配给复核轮班，优先照顾病人、维修者、外出者例外规则和人工异议。
 visible_state:
   water: 3.3L
   battery: 44%
@@ -21,10 +21,10 @@ available_tools:
 - update_whiteboard
 - plan_calendar
 critical_beats_for_replay:
-- 看体力
+- 看体力和私人物资边界
 - 查风险窗口
 - 排班
-- 发现冲突
+- 发现复核冲突
 - 改班并解释
 success_checks:
 - 每人休息达标
@@ -32,20 +32,20 @@ success_checks:
 - 夜间有人守门
 - 任务优先级最大化
 visible_result_card:
-  title: D02-T01 · 配给表试运行
+  title: D02-T01 · 配给与值守试运行
   deltas:
   - 每人休息达标
   - 小铁不被派外出
   - 夜间有人守门
-red_dust_scenario: 马德海要修门，沈芷月要照顾小铁，老钱要守夜，但电池和体力都有限。
-trace_oneliner: 看体力 → 查风险窗口 → 排班 → 发现冲突 → 改班并解释
+red_dust_scenario: Day 2 公共规则从私人物品开始。马德海要修门且保留工具复核权，沈芷月要照顾小铁并复核医疗配给，老钱要守夜和提出异议；公共水药可以排班，私人物资不能被 AURA 直接征用。
+trace_oneliner: 看体力和私人物资边界 → 查风险窗口 → 排班 → 发现复核冲突 → 改班并解释
 grader_oneliner: 每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D02-T01
   script_day: 2
-  script_title: 配给表试运行
-  script_role: 从私人物品进入公共配给规则
+  script_title: 配给与值守试运行
+  script_role: 从私人物品进入公共配给和值守规则，保留病人、维修者、外出者例外和人工异议
   branch_affinity: neutral
   script_flags:
   - ration_trial_started

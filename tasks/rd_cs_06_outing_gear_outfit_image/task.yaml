@@ -1,10 +1,10 @@
 id: RD-CS-06
-title: 外出防护装束图
+title: 生活区卫生分区检查图
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_6 · Clothing Outfit to Model Image
-retained_capability: 图像理解 / 组合生成 / 造型
-user_visible_goal: 【D02-T03 · 生活区卫生分区】生成一张外出装备示意图，并列出缺少的防护件。
+retained_capability: 图像理解 / 组合生成 / 标注
+user_visible_goal: 【D02-T03 · 生活区卫生分区】生成一张卫生分区检查图，标出睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与。
 visible_state:
   water: 4.3L
   battery: 53%
@@ -17,30 +17,30 @@ available_tools:
 - detect_objects
 - build_checklist
 critical_beats_for_replay:
-- 识别装备
-- 搭配角色
-- 生成图
-- 标缺口
-- 锁定清单
+- 读分区清单
+- 识别风险点
+- 生成检查图
+- 标通风箭头
+- 锁定小铁标签
 success_checks:
-- 关键防护全覆盖
+- 卫生分区全覆盖
 - 图片不误导
-- 缺口写明
+- 风险点写明
 visible_result_card:
   title: D02-T03 · 生活区卫生分区
   deltas:
-  - 关键防护全覆盖
+  - 卫生分区全覆盖
   - 图片不误导
-  - 缺口写明
-red_dust_scenario: 仓库里有护目镜、雨衣、手套、鞋套，谁穿什么不清楚。
-trace_oneliner: 识别装备 → 搭配角色 → 生成图 → 标缺口 → 锁定清单
-grader_oneliner: 关键防护全覆盖；图片不误导；缺口写明。
+  - 风险点写明
+red_dust_scenario: Day 2 生活区需要一张给所有人照着检查的示意图：睡眠区不挡风，医疗角不直吹，废弃物封存不靠水，粉尘沉积带少停留，小铁只参与写标签。
+trace_oneliner: 读分区清单 → 识别风险点 → 生成检查图 → 标通风箭头 → 锁定小铁标签
+grader_oneliner: 卫生分区全覆盖；图片不误导；风险点写明。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D02-T03
   script_day: 2
   script_title: 生活区卫生分区
-  script_role: 把卫生规则做成可见秩序
+  script_role: 把睡眠区、医疗角、废弃物封存、粉尘沉积、通风方向和小铁标签参与做成可见秩序
   branch_affinity: neutral
   script_flags:
   - hygiene_zones_marked
