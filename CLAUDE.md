@@ -216,7 +216,7 @@ These belong to the archived Occupational Core-6 path:
 ## Repository / Submodule / Generated Artifacts
 
 - Parent repo remote: `https://github.com/SteveLIN0101/Agent_Game.git` (private, default branch `main`).
-- `RedDust/` is a submodule on branch `agent-game-integration`, currently pinned to `c49f17d`.
+- `RedDust/` is a submodule on branch `agent-game-integration`, currently pinned to `d5f5327`.
 - RedDust remotes: `origin=https://github.com/SteveLIN0101/RedDust.git`, `upstream=https://github.com/peter-cui-yi/RedDust.git`.
 - Keep `.gitignore` anchored as `/RedDust/`. A bare `RedDust/` pattern can hide `openclaw/reddust/` on case-insensitive macOS filesystems.
 - Generated artifacts are ignored: `RedDust/node_modules/`, `RedDust/dist/`, `RedDust/tsconfig.tsbuildinfo`, `runs/`, caches, archives, and local workspaces.

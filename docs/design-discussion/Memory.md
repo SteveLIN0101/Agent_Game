@@ -292,8 +292,8 @@ curl http://<开发机IP>:7001/tasks
   - `origin` 为用户 fork：`https://github.com/SteveLIN0101/RedDust.git`
   - `upstream` 为原仓库：`https://github.com/peter-cui-yi/RedDust.git`
   - `.gitmodules` 指向 Steve fork，`branch=agent-game-integration`
-  - 当前 submodule 指针仍为 `c49f17d`；本轮 Day0-12 前端适配修改尚未形成新的 submodule commit
-  - 父仓库 submodule 固定在该分支的 `c49f17d` commit
+  - 当前 submodule 指针为 `d5f5327`（2026-06-06 从 `c49f17d` bump，已推到 `origin/agent-game-integration`），含 Day0-12 readable-script 前端适配的 5 个 commit
+  - 父仓库 submodule 固定在该分支的 `d5f5327` commit
 - **父仓库 `.gitignore`**：已将 submodule 忽略规则锚定为 `/RedDust/`，避免 macOS ignorecase 误伤 `openclaw/reddust/`；同时继续忽略 `runs/`、`workspaces/`、`openclaw_core6_team_sync/`、`素材/`、`*.zip`、`*.tar.gz`、`node_modules/`、`__pycache__`、`.godot/`、`*.tsbuildinfo` 等。
 - **首次 push 经验**：第一次 push 因大包传输（130M pack）触发 `curl 55 Recv failure: Connection reset by peer` 中途失败；第二次加 `GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=300` keepalive 后稳定完成。
 - **其他同事 clone 后的恢复命令**：`git submodule update --init --recursive`（否则 RedDust 目录会保持空）
