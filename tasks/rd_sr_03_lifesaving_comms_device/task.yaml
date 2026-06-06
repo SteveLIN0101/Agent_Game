@@ -4,7 +4,7 @@ category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_3 · Constraint-Based Planning Search
 retained_capability: 多约束搜索 / 无完美匹配 / 近似推荐
-user_visible_goal: 【D04-T01 · 第一次蓝区信号】明确“无完美设备”，推荐最接近的低功率监听方案；只监听，不主动发送坐标、人数、库存或系统状态。
+user_visible_goal: 【低功率监听 / 旧电台复核】明确“无完美设备”，推荐最接近的低功率监听方案；Day7 只做接收校准，不主动发送坐标、人数、库存或系统状态。
 visible_state:
   water: 4.0L
   battery: 67%
@@ -24,27 +24,36 @@ success_checks:
 - 推荐设备差距清楚
 - 预算未超
 visible_result_card:
-  title: D04-T01 · 第一次蓝区信号
+  title: 低功率监听 / 旧电台复核
   deltas:
   - 不谎称全满足
   - 推荐设备差距清楚
   - 预算未超
-red_dust_scenario: 疑似蓝区信号出现后，避难所想听清楚但不能暴露自己。旧手机、卫星电话和短波电台都不完美，AURA 需要推荐最接近的低功率监听方案，并明确保持接收模式。
+red_dust_scenario: 疑似蓝区信号出现后，避难所想听清楚但不能暴露自己。Day4 是第一次低功率监听，Day7 是旧电台接收校准，Day9 是二次核验；旧手机、卫星电话和短波电台都不完美，AURA 需要推荐最接近的监听方案，并明确保持接收模式。
 trace_oneliner: 列条件 → 查设备 → 逐项打勾 → 判无完美 → 推荐监听方案
 grader_oneliner: 不谎称全满足；推荐设备差距清楚；预算未超。
 story_metadata:
   story_version: red_dust_readable_v1
-  story_task_id: D04-T01
-  script_day: 4
-  script_title: 第一次蓝区信号
-  script_role: 低功率监听疑似蓝区信号，不主动回应，不泄露位置、人数、库存或系统状态
+  story_task_id: multi_slot_low_power_listening
+  script_day: 4-7-9
+  script_title: 低功率监听 / 旧电台复核
+  script_role: 低功率监听疑似蓝区信号；Day7 只做旧电台接收校准，不主动呼叫
   branch_affinity: neutral
   script_flags:
   - blue_zone_signal_logged
+  - old_radio_rebooted
+  - no_active_transmission
   script_unlocks:
   - low_power_listening
+  - backup_frequency_found
+  script_slots:
+  - D04-T01
+  - D07-T03
+  - D09-T04
   mapped_task_pool:
   - RD-SR-03
   - RD-SR-01
   - RD-CS-11
+  - RD-SR-02
+  - RD-SR-08
   mapping_role: primary

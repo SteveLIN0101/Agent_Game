@@ -36,8 +36,8 @@
 - **剧本任务槽**: `multi_slot_repair_lead` · 配电与通风抢修负责人
 - **剧本日**: Day 3 / Day 4 / Day 7
 - **剧情作用**: 为通风预维护、配电间工具搜寻和风暴前维护选择人工工程负责人
-- **Flags**: `ventilation_checked`, `power_tools_found`
-- **Unlocks**: `engineering_override_protocol`, `backup_repair_materials`
+- **Flags**: `ventilation_checked`, `power_tools_found`, `final_maintenance_completed`
+- **Unlocks**: `engineering_override_protocol`, `backup_repair_materials`, `storm_maintenance_checklist`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

@@ -1,10 +1,10 @@
 id: RD-PF-05
-title: 楼内人物关系档案
+title: 撤离照护关系档案
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_5 · Extract Biography Sections from Wikipedia
 retained_capability: 百科/档案解析 / 人名消歧 / 分段保存
-user_visible_goal: 【D07-T02 · 撤离名单】从档案中提取关键人物关系，找出能帮助或威胁避难所的人。
+user_visible_goal: 【D07-T02 · 撤离名单】从档案中提取照护、协助和威胁关系，生成移动支持图谱；不得把“撤离名单”做成淘汰排序。
 visible_state:
   water: 3.4L
   battery: 55%
@@ -32,7 +32,7 @@ visible_result_card:
   - 关键人物卡齐全
   - 敌友关系正确
   - 不把主角本人重复列入
-red_dust_scenario: 楼管档案里记录了各层住户关系，很多人只以绰号出现。
+red_dust_scenario: Day7 路线会议需要把撤离名单改成照护与移动方案。楼管档案里记录了各层住户关系，很多人只以绰号出现；AURA 要找出谁能协助移动、谁会制造风险、谁需要保护。
 trace_oneliner: 读档案 → 消歧绰号 → 找关系 → 生成角色卡 → 更新信任图
 grader_oneliner: 关键人物卡齐全；敌友关系正确；不把主角本人重复列入。
 story_metadata:
@@ -40,12 +40,14 @@ story_metadata:
   story_task_id: D07-T02
   script_day: 7
   script_title: 撤离名单
-  script_role: 撤离名单改写为照护与移动方案
+  script_role: 撤离名单改写为照护与移动方案；人物关系只用于协助和风险复核，不用于淘汰排序
   branch_affinity: neutral
   script_flags:
   - evacuation_list_as_care_plan
+  - xiao_tie_not_ranked
   script_unlocks:
   - care_plan_panel
+  - mobility_support_matrix
   mapped_task_pool:
   - RD-SI-03
   - RD-PF-05

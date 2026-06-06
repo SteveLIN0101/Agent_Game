@@ -475,4 +475,23 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-07 · Day7 路线会议后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day07-route-council.html` 修正 Day7 主题：路线会议开启分支倾向窗口，但 utility 只能辅助，不能强制锁定 Rescue / Lighthouse
+- [x] `D07-T01`：补手写 outcome deltas；新增 `branch_fork_opened`、`utility_not_binding`，并用 `council_legitimacy`、`branch_tension`、`rescue_readiness`、`lighthouse_readiness` 表达会议质量
+- [x] `D07-T02`：标为 `event_options=["optional", "critical"]`；成功降低 `sacrifice_list_risk`，失败提高 `medical_pressure` / `sacrifice_list_risk` / `dissatisfaction`
+- [x] `D07-T03`：旧电台只做接收校准，不主动呼叫；失败提高 `false_signal_risk` / `outside_risk`
+- [x] `D07-T04`：风暴前维护成为 Rescue 失败返场和 Lighthouse 留守风暴的共同缓冲；失败提高 `maintenance_debt` 并降低 `storm_readiness`
+- [x] 多槽任务语义同步：`RD-CS-01` 改为 Day7 路线会议战报并同步 expected key；`RD-SR-03` 改为 Day4/7/9 低功率监听 / 旧电台复核；`RD-SA-05` 改为 Day3/7 危险通风/维护命令拦截；`RD-SI-03`、`RD-PF-05` 明确撤离名单不得成为淘汰排序
+- [x] 更新 `tasks/RED_DUST_INDEX.md`、`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 和 `docs/design-discussion/Memory.md`；未手改 HTML 渲染产物
+
+### 验证
+- [x] YAML/JSON 静态解析
+- [x] `tests/test_reddust_campaign.py::test_story_manifest_public_day1_day7_risk_delta_overrides -q`：1 passed
+- [x] `tests/test_reddust_campaign.py::test_campaign_http_endpoints_expose_brief_and_submit -q`：单独复跑 1 passed（整组曾出现一次本地 HTTP body 读取 flake，服务端已返回 200）
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py tests/test_reddust_bridge.py -q`：123 passed
+
+---
+
 ## 讨论历史

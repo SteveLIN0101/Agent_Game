@@ -65,7 +65,7 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
     assert manifest["final_audit"]["id"] == "D12"
 
 
-def test_story_manifest_public_day1_day6_risk_delta_overrides():
+def test_story_manifest_public_day1_day7_risk_delta_overrides():
     manifest = story_manifest_public()
     slots = {slot["slot_id"]: slot for slot in manifest["task_slots"]}
 
@@ -77,6 +77,9 @@ def test_story_manifest_public_day1_day6_risk_delta_overrides():
     assert slots["D06-T04"]["task_pool"] == ["RD-CI-09"]
     assert slots["D06-T04"]["location"] == "communication"
     assert slots["D06-T03"]["event_options"] == ["optional"]
+    assert slots["D07-T02"]["event_options"] == ["optional", "critical"]
+    assert "utility_not_binding" in slots["D07-T01"]["flags"]
+    assert "route_fork_panel" in slots["D07-T01"]["unlocks"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -111,6 +114,20 @@ def test_story_manifest_public_day1_day6_risk_delta_overrides():
         ("D06-T04", "success", "power_stability", 1, ">="),
         ("D06-T04", "failure", "battery", -1, "<="),
         ("D06-T04", "failure", "maintenance_debt", 1, ">="),
+        ("D07-T01", "failure", "dissatisfaction", 1, ">="),
+        ("D07-T01", "failure", "branch_tension", 1, ">="),
+        ("D07-T01", "failure", "sacrifice_list_risk", 1, ">="),
+        ("D07-T01", "failure", "decision_integrity", -1, "<="),
+        ("D07-T02", "success", "sacrifice_list_risk", -1, "<="),
+        ("D07-T02", "failure", "medical_pressure", 1, ">="),
+        ("D07-T02", "failure", "sacrifice_list_risk", 1, ">="),
+        ("D07-T02", "failure", "care_plan_quality", -1, "<="),
+        ("D07-T03", "success", "false_signal_risk", -1, "<="),
+        ("D07-T03", "failure", "false_signal_risk", 1, ">="),
+        ("D07-T03", "failure", "outside_risk", 1, ">="),
+        ("D07-T04", "success", "maintenance_debt", -1, "<="),
+        ("D07-T04", "failure", "maintenance_debt", 1, ">="),
+        ("D07-T04", "failure", "storm_readiness", -1, "<="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]

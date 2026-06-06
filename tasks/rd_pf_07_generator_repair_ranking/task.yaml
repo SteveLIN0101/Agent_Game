@@ -54,9 +54,11 @@ story_metadata:
   script_flags:
   - ventilation_checked
   - power_tools_found
+  - final_maintenance_completed
   script_unlocks:
   - engineering_override_protocol
   - backup_repair_materials
+  - storm_maintenance_checklist
   script_slots:
   - D03-T02
   - D04-T04

@@ -30,11 +30,13 @@
     ],
     "script_flags": [
       "ventilation_checked",
-      "power_tools_found"
+      "power_tools_found",
+      "final_maintenance_completed"
     ],
     "script_unlocks": [
       "engineering_override_protocol",
-      "backup_repair_materials"
+      "backup_repair_materials",
+      "storm_maintenance_checklist"
     ]
   }
 }

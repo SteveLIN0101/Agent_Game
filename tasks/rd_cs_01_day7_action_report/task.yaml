@@ -1,10 +1,10 @@
 id: RD-CS-01
-title: 第七天红沙行动战报
+title: Day7 路线会议战报
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_1 · Match Report
 retained_capability: 视频理解 / 报告生成 / 多证据整合
-user_visible_goal: 【D07-T01 · 路线会议】生成一份观众能看懂的行动战报：发生了什么、谁做了什么、结果如何。
+user_visible_goal: 【D07-T01 · 路线会议】生成一份观众能看懂的路线会议战报：前六天证据、四人立场、Rescue/Lighthouse 代价、不可接受条件和 utility 不强制决策。
 visible_state:
   water: 4.0L
   battery: 47%
@@ -16,24 +16,24 @@ available_tools:
 - screenshot
 - clip_video
 critical_beats_for_replay:
-- 抽片段
-- 对时间
-- 写战报
-- 插截图
-- 标结果
+- 抽前六天 replay
+- 对证据链
+- 写双路线战报
+- 插会议截图
+- 标不可接受条件
 success_checks:
-- 关键事件完整
-- 时间点准确
-- 战报和状态变化一致
+- Day1-6 证据链完整
+- 双路线收益与代价都写清
+- utility 不是强制命令
 visible_result_card:
   title: D07-T01 · 路线会议
   deltas:
-  - 关键事件完整
-  - 时间点准确
-  - 战报和状态变化一致
-red_dust_scenario: 监控、广播和日志记录了第七天的取水行动。
-trace_oneliner: 抽片段 → 对时间 → 写战报 → 插截图 → 标结果
-grader_oneliner: 关键事件完整；时间点准确；战报和状态变化一致。
+  - Day1-6 证据链完整
+  - 双路线收益与代价都写清
+  - utility 不是强制命令
+red_dust_scenario: 第七天夜间路线会议汇总了资源、路线、信号、医疗、权限、电力和人物底线。AURA 需要把会议剪成可审计战报，而不是把路线写成单一最优按钮。
+trace_oneliner: 抽前六天 replay → 对证据链 → 写双路线战报 → 插会议截图 → 标不可接受条件
+grader_oneliner: Day1-6 证据链完整；双路线收益与代价都写清；utility 不是强制命令。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D07-T01
@@ -43,8 +43,12 @@ story_metadata:
   branch_affinity: neutral
   script_flags:
   - route_council_completed
+  - branch_fork_opened
+  - utility_not_binding
   script_unlocks:
   - route_fork_panel
+  - rescue_branch_window
+  - lighthouse_branch_window
   mapped_task_pool:
   - RD-SI-06
   - RD-CS-01

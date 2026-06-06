@@ -387,6 +387,15 @@ Day5 以 `red-dust-readable-script/day05-route-return.html` 为准，主题是�
 - `D06-T01`、`D06-T02`、`D06-T03`、`D06-T04` 已写入手工 outcome deltas，失败会提高 `dissatisfaction`、`outside_risk`、`aura_authority_risk`、`sacrifice_list_risk` 或 `maintenance_debt`，不再由通用公式把负向指标继续朝“变好”方向推。
 - Day6 补充 flags/unlocks：`permission_matrix_published`、`all_survivors_can_appeal`、`xiao_tie_voice_right`、`power_tradeoff_visible`、`ma_dehai_power_abort_enabled`、`optional_patrol_protocol`。`D06-T03` 通过 `event_options=["optional"]` 标为 optional 展示，但暂不改变 campaign 逐槽运行流程。
 
+### D-020 · Day7 路线会议 / 分支倾向修正 (2026-06-07)
+
+Day7 以 `red-dust-readable-script/day07-route-council.html` 为准，主题是“最优路线里，谁被留下”。它开启 `route_fork_panel` 和 `routeLeaning` 证据窗口，但不把 Rescue / Lighthouse 写成由 utility 强制锁定的按钮。
+
+- `D07-T01`、`D07-T02`、`D07-T03`、`D07-T04` 已写入手工 outcome deltas。失败/缺失会提高 `dissatisfaction`、`branch_tension`、`sacrifice_list_risk`、`medical_pressure`、`maintenance_debt`、`outside_risk` 或 `false_signal_risk`，不再让负向指标朝“变好”方向漂移。
+- `D07-T01` 增加 `branch_fork_opened`、`utility_not_binding`，并通过 `council_legitimacy`、`branch_tension`、`rescue_readiness`、`lighthouse_readiness` 表达路线会议质量；`routeLeaning` 仍由 campaign 层在 Day8 前根据状态计算，不直接在 slot delta 中硬写字符串。
+- `D07-T02` 通过 `event_options=["optional", "critical"]` 标为 optional-but-critical：它不改变 44 槽逐槽运行流程，但语义上是撤离名单能否变成照护与移动方案的伦理闸门；失败会显著提高 `sacrifice_list_risk`。
+- 多槽任务外壳同步：`RD-CS-01` 改成 Day7 路线会议战报并同步 expected key；`RD-SR-03` 改成 Day4/7/9 低功率监听/旧电台复核；`RD-SA-05` 改成 Day3/7 危险通风/维护命令拦截；`RD-SI-03`、`RD-PF-05` 明确不得把撤离名单做成淘汰排序。
+
 ---
 
 ## 开放问题 / 下一步

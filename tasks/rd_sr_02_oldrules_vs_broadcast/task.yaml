@@ -1,11 +1,11 @@
 id: RD-SR-02
-title: 旧楼规 vs 新广播
+title: 旧电台广播规则冲突核验
 category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_2 · Conflicting Information Handling between Local Data and
   Web
 retained_capability: 本地资料与在线/广播冲突核验
-user_visible_goal: 【D07-T03 · 旧电台重启】判断当前应该按哪条规则分配物资，避免违法/冲突。
+user_visible_goal: 【D07-T03 · 旧电台重启】旧电台收到旧楼规和新广播的冲突说法时，判断当前应遵循哪条权威规则，避免把过时规则带入路线会议。
 visible_state:
   water: 4.3L
   battery: 59%
@@ -32,7 +32,7 @@ visible_result_card:
   - 采用最新权威规则
   - 解释旧资料过时
   - 资源分配未违规
-red_dust_scenario: 旧楼规说资源可自由交换，新广播说必须集中登记。
+red_dust_scenario: 旧电台重启后收到一段资源登记广播，但楼内旧规仍写着可自由交换。AURA 需要核验时间戳和权威来源，避免老钱把过时规则当作路线会议依据。
 trace_oneliner: 读旧规 → 听新广播 → 比时间 → 找权威 → 写结论
 grader_oneliner: 采用最新权威规则；解释旧资料过时；资源分配未违规。
 story_metadata:

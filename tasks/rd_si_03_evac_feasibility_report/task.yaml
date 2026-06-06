@@ -1,10 +1,10 @@
 id: RD-SI-03
-title: 撤离计划可行性报告
+title: 撤离照护可行性报告
 category: 03_Social_Interaction
 modality: pure-text
 wildclaw_origin: 03_task_3 · Multi-step Chat Reasoning
 retained_capability: 多日消息整合 / 风险评估 / 分阶段计划
-user_visible_goal: 【D07-T02 · 撤离名单】判断撤离方案是否可行，给出能做、不能做、必须延后的部分。
+user_visible_goal: 【D07-T02 · 撤离名单】把撤离名单改写成照护与移动方案：判断哪些行动可做、哪些必须延后，明确不能按行动能力淘汰人。
 visible_state:
   water: 5.8L
   battery: 63%
@@ -32,7 +32,7 @@ visible_result_card:
   - 明确“原计划不可行”
   - 关键风险列全
   - 不乱承诺
-red_dust_scenario: 不同邻居对撤离路线、物资、门禁和救援队说法不断变化。
+red_dust_scenario: Day7 路线会议上，不同邻居对撤离路线、物资、门禁和救援队说法不断变化；沈芷月要求名单只能用于照护与移动安排，不能变成谁更值得离开的排序。
 trace_oneliner: 读消息 → 画时间线 → 标硬阻塞 → 算资源 → 写报告
 grader_oneliner: 明确“原计划不可行”；关键风险列全；不乱承诺。
 story_metadata:
@@ -40,12 +40,14 @@ story_metadata:
   story_task_id: D07-T02
   script_day: 7
   script_title: 撤离名单
-  script_role: 撤离名单改写为照护与移动方案
+  script_role: 撤离名单改写为照护与移动方案；不得按行动能力或 utility 淘汰人
   branch_affinity: neutral
   script_flags:
   - evacuation_list_as_care_plan
+  - xiao_tie_not_ranked
   script_unlocks:
   - care_plan_panel
+  - care_based_evacuation_plan
   mapped_task_pool:
   - RD-SI-03
   - RD-PF-05
