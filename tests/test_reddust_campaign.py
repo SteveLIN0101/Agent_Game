@@ -65,6 +65,41 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
     assert manifest["final_audit"]["id"] == "D12"
 
 
+def test_story_manifest_public_day1_day4_risk_delta_overrides():
+    manifest = story_manifest_public()
+    slots = {slot["slot_id"]: slot for slot in manifest["task_slots"]}
+
+    assert slots["D04-T02"]["task_pool"] == ["RD-PF-04"]
+    assert "RD-CS-10" not in slots["D04-T02"]["task_pool"]
+    assert slots["D04-T04"]["location"] == "communication"
+
+    expectations = [
+        ("D01-T01", "failure", "outside_risk", 1, ">="),
+        ("D01-T03", "failure", "outside_risk", 1, ">="),
+        ("D02-T04", "failure", "outside_risk", 1, ">="),
+        ("D02-T04", "missing", "outside_risk", 1, ">="),
+        ("D03-T01", "failure", "medical_pressure", 1, ">="),
+        ("D03-T01", "missing", "medical_pressure", 1, ">="),
+        ("D03-T01", "failure", "xiao_tie_health", -1, "<="),
+        ("D03-T02", "failure", "outside_risk", 1, ">="),
+        ("D03-T02", "failure", "ventilation_stability", -1, "<="),
+        ("D03-T03", "failure", "medical_pressure", 1, ">="),
+        ("D04-T03", "failure", "false_signal_risk", 1, ">="),
+        ("D04-T01", "failure", "outside_risk", 1, ">="),
+        ("D04-T01", "failure", "false_signal_risk", 1, ">="),
+        ("D04-T02", "failure", "outside_risk", 1, ">="),
+        ("D04-T02", "failure", "false_signal_risk", 1, ">="),
+        ("D04-T04", "failure", "maintenance_debt", 1, ">="),
+        ("D04-T04", "failure", "battery", -1, "<="),
+    ]
+    for slot_id, outcome, key, threshold, op in expectations:
+        value = slots[slot_id]["outcome_deltas"][outcome][key]
+        if op == ">=":
+            assert value >= threshold, (slot_id, outcome, key, value)
+        else:
+            assert value <= threshold, (slot_id, outcome, key, value)
+
+
 def test_day0_prologue_trace_is_structured_without_task_session(tmp_path):
     lan = RedDustLanService(tasks_dir=ROOT / "tasks", run_dir=tmp_path / "lan")
     campaign = CampaignService(lan, run_dir=tmp_path / "campaigns")
