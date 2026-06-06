@@ -1,6 +1,6 @@
 # Red Dust · Readable-by-Design 任务集 (60)
 
-> 由 `red_dust_readable_task_conversion.html` 转换生成。
+> 由 `docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html` 转换生成。当前 campaign 剧本以 `red-dust-readable-script/` 为准。
 > 这是 SHELTER / Red Dust 宏观轴的"易读型"任务：保留 WildClaw 的 agent 能力测试点，
 > 但把抽象产物换成**水、门、地图、广播、角色、信任、风险**等天然可视的世界状态，
 > 让观众无需专业背景就能看懂 agent 做了什么、为什么赢、有没有惹祸。

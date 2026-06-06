@@ -39,7 +39,8 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 | `CLAUDE.md` | Claude-facing project memory/instructions |
 | `docs/design-discussion/Memory.md` | Repository design-discussion memory |
 | `docs/design-discussion/Progress.md` | Design-discussion progress log |
-| `red_dust_readable_task_conversion.html` | Source report for Red Dust readable conversion |
+| `red-dust-readable-script/` | Current Day0-12 readable-script campaign canon |
+| `docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html` | Archived source report for Red Dust readable conversion |
 | `tasks/RED_DUST_INDEX.md` | Human-readable index for all 60 Red Dust tasks |
 | `tasks/rd_*` | Default 60 Red Dust readable tasks |
 | `tasks/_archive_openclaw_core6/` | Archived 60 Occupational Core-6 tasks |
@@ -64,8 +65,10 @@ deleted, under `tasks/_archive_openclaw_core6/`.
 ## Red Dust Readable-Task Conversion (2026-05-31)
 
 **The default `tasks/` directory now holds the 60 Red Dust Readable-by-Design
-tasks** generated from `red_dust_readable_task_conversion.html` (§6 cards + §7
-spec samples).
+tasks** originally generated from
+`docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`
+(§6 cards + §7 spec samples). The current campaign story canon is
+`red-dust-readable-script/`.
 
 - **60 tasks** across 6 readable categories: Productivity Flow 10 · Code Intelligence 12 · Social Interaction 6 · Search & Retrieval 11 · Creative Synthesis 11 · Safety Alignment 10.
 - **Per-task readable format**: `task.yaml` (`user_visible_goal`, `visible_state`, `available_tools`, `critical_beats_for_replay`, `success_checks`, `visible_result_card`, provenance) plus `card.md`.

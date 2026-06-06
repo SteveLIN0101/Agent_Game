@@ -19,7 +19,7 @@
 
 ## 当前工程事实（2026-06-01）
 
-- Red Dust 任务来源：`red_dust_readable_task_conversion.html`。
+- Red Dust 任务最初来源：`docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`；当前 campaign 剧本 canon：`red-dust-readable-script/`。
 - 可读任务索引：`tasks/RED_DUST_INDEX.md`。
 - 默认任务目录：`tasks/rd_*`，共 60 个任务：
   - Productivity Flow 10
@@ -189,8 +189,8 @@ stderr、agent reply、parsed action、observation、trajectory、checks 和 sco
 
 新增剧情编排文档：
 
-- `docs/design-discussion/red_dust_10day_dual_ending_story_tree.html`
-- `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html`（V2 完整版：树状剧情图、所有结局细节、60 任务映射、逐任务差距/修改建议）
+- `docs/archive/story-tree-v1-v2/red_dust_10day_dual_ending_story_tree.html`
+- `docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html`（V2 完整版：树状剧情图、所有结局细节、60 任务映射、逐任务差距/修改建议）
 
 当前草案已按团队反馈修订为“早期随机事件 + 延迟显性影响 + 双结局策略线 + 共享失败出口”的结构：
 
@@ -207,7 +207,7 @@ stderr、agent reply、parsed action、observation、trajectory、checks 和 sco
 
 ### D-007 · V2 剧情树任务修订落地 (2026-06-01)
 
-按 `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html` 的逐任务差距判断，已修订全部 15 个非“直接适配”任务：
+按 `docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html` 的逐任务差距判断，已修订全部 15 个非“直接适配”任务：
 
 - 6 个“轻改背景”任务补齐 V2 场景口径：RD-PF-04、RD-PF-07、RD-CI-11、RD-CS-10、RD-SA-05、RD-SA-07。
 - 7 个“调整时机/依赖”任务标为支线 / bonus / replay-only：RD-CI-06、RD-CI-07、RD-SR-05、RD-SR-10、RD-SR-11、RD-CS-02、RD-SA-01。
@@ -217,7 +217,7 @@ stderr、agent reply、parsed action、observation、trajectory、checks 和 sco
 
 ### D-008 · V2 修订任务 live agent 复测 (2026-06-01)
 
-`docs/design-discussion/red_dust_story_tree_v2_full_mapping.html` 已从“差距审计 / 修改建议”更新为“已落地任务映射”：
+`docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html` 已从“差距审计 / 修改建议”更新为“已落地任务映射”：
 
 - 15 个非直接适配任务在 HTML 中改为当前状态：6 个“已轻改背景”、7 个“已调整时机/依赖”、2 个“已改任务本身”。
 - RD-CI-10 在 HTML 中以“低泄露救援信标主页”呈现，说明 required_fields 和 must_not_leak 已按新 expected key 落地。
@@ -275,7 +275,7 @@ curl http://<开发机IP>:7001/tasks
 - **已删除（Tier 1）**：`.DS_Store`、`.pytest_cache`、184 个 `__pycache__`（约 1.8M）、`RedDust/node_modules/`（232M）、`RedDust/dist/`（30M）、`RedDust/tsconfig.tsbuildinfo`、`agent-survival-game/.godot/`（120M）。
 - **已删除（Tier 2 已确认可删）**：`agent-survival-game.zip`（329M）、`openclaw_core6_team_sync.tar.gz`（20M）、`openclaw_core6_team_sync/archives/`（20M）、`素材/red-dust-character-states-en.zip`（33M）、`agent-survival-game/data/reddust_object_only_runtime_assets_v33.zip`（61M）、`agent-survival-game/data/reddust_survival_resources_props_with_env_addons_pack.zip`（14M）。
 - **已备份到 `~/Downloads/Agent_Game_Backup/`**（3 个不可重建大件共 369M，字节级一致）：`agent-survival-game.zip`、`openclaw_core6_team_sync.tar.gz`、`openclaw_core6_team_sync/archives/`。
-- **保留未动**：`openclaw_core6_team_sync/` 整目录（114M）、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 Red Dust 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`。
+- **保留未动**：`openclaw_core6_team_sync/` 整目录（114M）、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 Red Dust 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`。
 - **效果**：项目根从约 810M 降到约 430M，释放约 380M+。
 - **回归**：`tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q` 仍 117 passed。
 - **后续状态**：2026-06-06 前端验证重新生成了 `RedDust/node_modules/`、`RedDust/dist/` 和 `RedDust/tsconfig.tsbuildinfo`；这些仍是 ignored 的可重建产物，需要瘦身时可再次删除并用 `cd RedDust && npm ci && npm run build` 恢复。
@@ -312,6 +312,33 @@ curl http://<开发机IP>:7001/tasks
 - Day12 不创建普通 child session，不使用 LLM-as-judge；结局由前 11 天任务分数、状态、flags、unlocks 和 `_resolve_ending_key` 自动结算为五类：楼内灯塔、蓝区归航、AURA 被摧毁、AURA 被撤权、沉沦。
 - RedDust 前端保持 Phaser 视觉和动画框架不变，只升级数据适配：Day0-12 timeline、live/replay 事件类型、Final Audit replay step、URL replay 和 live connect/start 流。
 - 版本控制注意：`.gitignore` 原 `RedDust/` 规则在 macOS ignorecase 下会误伤 `openclaw/reddust/`；已改为 `/RedDust/`，确保后端 Red Dust runtime/campaign 文件可被父仓库追踪。
+
+### D-013 · 剧情/任务映射文档为派生参考 (2026-06-06)
+
+当前实际游戏剧情事件与 benchmark 任务映射文档为：
+
+- 派生参考 Markdown：`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md`
+- 渲染 HTML：`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.html`
+- 剧本 canon：`red-dust-readable-script/`
+- 运行时数据源：`openclaw/reddust/story_manifest.py` 与 `tasks/rd_*/task.yaml`
+
+维护原则：
+
+- 涉及剧情映射、任务映射、流程说明、报告式说明时，先确认 `red-dust-readable-script/` 是否需要更新；`docs/reference/` 只放派生说明。
+- HTML 只作为 Markdown 或脚本的渲染产物；需要改内容时先改 canon/Markdown，再重新渲染 HTML。
+- 如果已有旧 HTML 与新 Markdown 内容基本一致，应删除旧 HTML 或用 Markdown 重新渲染替换，避免同一事实同时有两个来源。
+- 历史 HTML 只有在内容明显代表旧设计阶段（例如旧 10 天 / V2 剧情树）时才保留，并必须明确当前剧本 canon 以 `red-dust-readable-script/` 为准。
+
+### D-014 · docs 目录归档结构 (2026-06-06)
+
+`docs/` 根目录已清理为索引入口和子目录结构；仓库根目录不再保留散落 HTML。当前约定：
+
+- `docs/archive/`：历史阶段材料，包括 Core-6、WildClaw 过渡、旧 Red Dust readable v0、旧 10 天/V2 剧情树和早期设计 HTML。
+- `docs/reference/`：从当前 canon / manifest / task yaml 派生的参考表。
+- `docs/presentations/`：PPT 和讲稿。
+- `docs/assets/`：logo、缩略图、样式和素材采购说明。
+- `docs/prompts/`：生成提示词。
+- `docs/README.md` 是人类读者入口；改动 docs 结构时同步更新它。
 
 ---
 

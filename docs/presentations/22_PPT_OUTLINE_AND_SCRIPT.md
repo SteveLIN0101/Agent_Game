@@ -1253,7 +1253,7 @@ SurvivalScore ↑ 100
 - `19_ACC_TALK_OUTREACH_KIT.md` — 议程页 + 团队简介
 - `21_PPT_DESIGN_SPEC.md` — 此文档的前置设计 spec
 - `15_REDDUST_PLOT_TREE_CN.md` — 4 角色 canon
-- `16_REDDUST_DESIGN_COMPLETE_CN.html` — AURA 机制 + 嫁接表
+- `docs/archive/red-dust-design-v0/16_REDDUST_DESIGN_COMPLETE_CN.html` — AURA 机制 + 嫁接表
 - `06_BENCHMARKS.md` — Core-12 评分细则
 - `01_SHELTER_GDD.md` — 游戏设计文档
 

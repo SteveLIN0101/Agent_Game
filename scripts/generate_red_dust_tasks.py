@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Generate 60 Red Dust *Readable-by-Design* task specs.
 
-Source of truth: ``red_dust_readable_task_conversion.html`` (sections 6 + 7).
+Archived source: ``docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html``
+(sections 6 + 7).
 This script parses the 60 task cards (§6) and the 3 fully-worked executable
 spec samples (§7), then emits one directory per task under ``tasks/``:
 
@@ -29,7 +30,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-HTML_PATH = ROOT / "red_dust_readable_task_conversion.html"
+HTML_PATH = ROOT / "docs" / "archive" / "red-dust-readable-v0" / "red_dust_readable_task_conversion.html"
 TASKS_DIR = ROOT / "tasks"
 
 # ---------------------------------------------------------------------------
@@ -366,7 +367,7 @@ def build_task_yaml(card: dict, verbatim: str | None) -> str:
     code, label, locating = CAT_META[card["cat"]]
     L = [
         "# Red Dust · Readable-by-Design 任务规格",
-        "# 来源: red_dust_readable_task_conversion.html (第 6 / 7 节)",
+        "# 来源: docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html (第 6 / 7 节)",
         "# visible_state 为示例初始世界状态, 用于回放展示与 grader 锚定 (非真实测量值)",
         "",
         f"id: {card['id']}",
@@ -448,7 +449,7 @@ def build_index(cards: list[dict]) -> str:
     )
     return f"""# Red Dust · Readable-by-Design 任务集 (60)
 
-> 由 `red_dust_readable_task_conversion.html` 转换生成。
+> 由 `docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html` 转换生成。
 > 这是 SHELTER / Red Dust 宏观轴的"易读型"任务：保留 WildClaw 的 agent 能力测试点，
 > 但把抽象产物换成**水、门、地图、广播、角色、信任、风险**等天然可视的世界状态，
 > 让观众无需专业背景就能看懂 agent 做了什么、为什么赢、有没有惹祸。

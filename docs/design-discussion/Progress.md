@@ -33,7 +33,7 @@
 ### 已讨论
 - [x] 明确 Codex 默认第一读取的项目记忆/指令入口是 `AGENTS.md`
 - [x] 明确仓库自身的设计讨论代表记忆是 `docs/design-discussion/Memory.md`
-- [x] 核对 `AGENTS.md`、`CLAUDE.md`、`red_dust_readable_task_conversion.html`、`tasks/RED_DUST_INDEX.md`
+- [x] 核对 `AGENTS.md`、`CLAUDE.md`、`docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`、`tasks/RED_DUST_INDEX.md`
 - [x] 确认默认 `tasks/` 已切换为 60 个 Red Dust readable tasks
 - [x] 确认旧 Occupational Core-6 已归档到 `tasks/_archive_openclaw_core6/`
 - [x] 确认 60 个 Red Dust 任务均已 runnable + auto-scored
@@ -189,7 +189,7 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 
 ### 已完成
 - [x] 重新读取并核对 `AGENTS.md`、`CLAUDE.md`、`docs/design-discussion/Memory.md`、`docs/design-discussion/Progress.md`
-- [x] 核对 `tasks/RED_DUST_INDEX.md` 与 `red_dust_readable_task_conversion.html`
+- [x] 核对 `tasks/RED_DUST_INDEX.md` 与 `docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`
 - [x] 读取并提取 60 个 `tasks/rd_*/task.yaml` 与 `card.md` 的目标、状态、工具、replay beats
 - [x] 将 60 题按剧情功能重组为：生存运营、信息检索、社交协商、安全对抗、创意传播、代码 / 视觉 / 感知类能力
 - [x] 初版曾设计旧版共通线 + A/B 两条 10 天结局线
@@ -203,12 +203,12 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 - [x] 重画 HTML 树状主视觉：四条成功路径改为 Normal-A、Normal-B、Pressure-A、Pressure-B，并从 Normal 与 Pressure 两侧都连向共享失败出口
 - [x] 同步修订整份 HTML 的总览、10 天总表、共通线、A/B 结局线、失败模型、最小修改建议和开放问题
 - [x] 同步更新设计记忆，记录 story wrapper 需支持 pressure_level、failure_stage、recovery_window、ending_lockout_reason
-- [x] 新建完整 V2 HTML：`docs/design-discussion/red_dust_story_tree_v2_full_mapping.html`，包含新剧情树、所有成功/失败结局详情、60 任务映射表，以及逐任务“直接适配/轻改背景/调整时机/建议改任务本身”判断
+- [x] 新建完整 V2 HTML：`docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html`，包含新剧情树、所有成功/失败结局详情、60 任务映射表，以及逐任务“直接适配/轻改背景/调整时机/建议改任务本身”判断
 - [x] 明确剧情树优先：树定稿后，任务背景描述、发生时机和执行过程可按树轻量调整；前端在树确定后继续开发
 
 ### 产物
-- `docs/design-discussion/red_dust_10day_dual_ending_story_tree.html`
-- `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html`
+- `docs/archive/story-tree-v1-v2/red_dust_10day_dual_ending_story_tree.html`
+- `docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html`
 
 ### 剧情结构
 - 根分歧：Day 2 或 Day 3 随机事件 `event_vent_sand_noise`
@@ -250,7 +250,7 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
 ## 2026-06-01 · V2 修订任务 live agent 复测
 
 ### 已完成
-- [x] 将 `docs/design-discussion/red_dust_story_tree_v2_full_mapping.html` 从“差距审计 / 修改建议”改为“已落地任务映射”：15 个已修订任务显示为已轻改背景、已调整时机/依赖、已改任务本身
+- [x] 将 `docs/archive/story-tree-v1-v2/red_dust_story_tree_v2_full_mapping.html` 从“差距审计 / 修改建议”改为“已落地任务映射”：15 个已修订任务显示为已轻改背景、已调整时机/依赖、已改任务本身
 - [x] 清理 live batch HTML 标题，使选定任务批测不再写成 60-task report
 - [x] 用 `openclaw agent --agent main` 完整执行 15 个已修订任务；每题均提交并保存逐轮 JSON 轨迹
 - [x] 生成 HTML 轨迹报告：`runs/reddust_live_openclaw_v2_modified_20260601/report.html`
@@ -325,7 +325,7 @@ PYTHONPATH=. /Users/steve/miniconda3/envs/agent_game/bin/python -m pytest \
   - `openclaw_core6_team_sync/archives/` 三个 tar.gz 子包（共 20,953,773 字节，与源一致）
 - [x] Tier 1 强建议剔除：`.DS_Store`、`.pytest_cache`、184 个 `__pycache__`、`RedDust/node_modules`、`RedDust/dist`、`RedDust/tsconfig.tsbuildinfo`、`agent-survival-game/.godot`
 - [x] Tier 2 已确认可删 zip：`agent-survival-game.zip`、`openclaw_core6_team_sync.tar.gz`、`素材/red-dust-character-states-en.zip`、`agent-survival-game/data/reddust_object_only_runtime_assets_v33.zip`、`agent-survival-game/data/reddust_survival_resources_props_with_env_addons_pack.zip`、`openclaw_core6_team_sync/archives/`
-- [x] 保留未动：`openclaw_core6_team_sync/` 整目录、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`
+- [x] 保留未动：`openclaw_core6_team_sync/` 整目录、`runs/reddust_live_openclaw_20260601_013937/`、`runs/reddust_live_openclaw_v2_modified_20260601/`、`runs/reddust_lan_sessions/`、所有 60 任务目录、`openclaw/reddust/`、`tests/`、`scripts/`、`docs/`、`docs/archive/red-dust-readable-v0/red_dust_readable_task_conversion.html`、`tasks/_archive_openclaw_core6/`
 
 ### 验证
 - 项目根总大小从约 810M 降到约 430M（释放约 380M）
@@ -386,6 +386,7 @@ git submodule update --init --recursive
 - [x] 更新 `scripts/run_reddust_campaign_agent.py`，增加 `--story-version` 并默认使用 `red_dust_readable_v1`
 - [x] RedDust 前端保持 Phaser 场景和动画框架不变，升级 Day0-12 timeline、live/replay 事件类型、story/branch/final replay step、HUD 审计摘要和 agent prompt
 - [x] 修正 `.gitignore`：`RedDust/` 改为 `/RedDust/`，避免 macOS ignorecase 误伤 `openclaw/reddust/`
+- [x] 2026-06-06 docs 整理：根目录散落 HTML 移入 `docs/archive/`；旧 10 天/V2 剧情树归档；PPT、资产、提示词和 campaign mapping 归入对应子目录；`docs/README.md` 明确当前剧本 canon 为 `red-dust-readable-script/`
 
 ### 验证状态
 - [x] `openclaw/reddust/story_manifest.py`、`openclaw/reddust/campaign.py`、`openclaw/reddust/lan_server.py`、`scripts/run_reddust_campaign_agent.py` py_compile 通过
