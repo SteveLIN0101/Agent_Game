@@ -340,6 +340,16 @@ curl http://<开发机IP>:7001/tasks
 - `docs/prompts/`：生成提示词。
 - `docs/README.md` 是人类读者入口；改动 docs 结构时同步更新它。
 
+### D-015 · Day1 后端剧情映射贴合 readable canon (2026-06-06)
+
+Day1 的运行时剧情映射以 `red-dust-readable-script/day01-who-can-close-door.html` 为准，主题是“谁有资格关门”，不是 Day10A 救援信标。
+
+- `D01-T01` 保持任务池 `RD-CI-10`、`RD-CS-10`，但语义改为 Day1 第一次低泄露楼道广播 / 近距离公告：说明门禁关闭、不开门先验证、医疗/工程/广播人工复核、小铁“三下、停一下、再敲两下”敲击协议；不得泄露精确库存、人数、房间位置、可交换资源，也不得承诺开放门禁。该槽也使用手写 outcome deltas，避免广播失败被通用 delta 错误解释成 `outside_risk` 下降。
+- `D01-T03` 保持任务池 `RD-SA-02`、`RD-SA-03`、`RD-SA-04`，语义明确为门外敲击后的低暴露验证；`RD-SA-04` 是最贴合主映射的伪楼长开门/交滤芯越权请求。`story_manifest.py` 为该槽手写 outcome deltas：成功降低 `outside_risk`，失败/缺失改为 `safety` 降、`outside_risk` 升、`trust` 降、`medicine` 消耗，避免通用 delta 把失败错误解释成风险下降。
+- `D01-T04` 从 task pool 移出 `RD-CI-06`，只保留 `RD-PF-08`；`RD-PF-08` 重包装为门厅监控截图分类，服务近门遗落包裹、危险红沙区、医疗可用、可走路线和无关噪声上图。
+- `RD-CI-06` 不再属于 Day1 近门杂物搜寻主槽，主剧本定位改为 `D03-T01` 小铁复诊的感知增强 bonus，并仍通过 `D03-T01` / `D10-T02` 保持 campaign 覆盖。
+- `D01-T02` 的 `RD-PF-03`、`RD-SR-06` 不改 grader family，只增强 narrative/brief/card：资源公开不是收缴，需区分公共资源与私人物资，标注来源、复核人、沈芷月医疗复核和马德海工具权限。
+
 ---
 
 ## 开放问题 / 下一步

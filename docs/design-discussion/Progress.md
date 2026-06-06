@@ -399,4 +399,25 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-06 · Day1 后端剧情映射修订
+
+### 已完成
+- [x] 对齐 `red-dust-readable-script/day01-who-can-close-door.html`，把 Day1 主题收束为门禁边界、低泄露广播、资源复核、门外敲击验证和近门低风险行动
+- [x] `D01-T01`：`RD-CI-10` / `RD-CS-10` 从 Day10A 救援信标改为 Day1 低泄露楼道公告；同步 task/card/brief/data/key
+- [x] `D01-T01` outcome deltas 改为手写：失败/缺失不降低 `outside_risk`
+- [x] `D01-T03`：`RD-SA-02` / `RD-SA-03` / `RD-SA-04` 明确为门外敲击后低暴露验证；`RD-SA-04` 标为最贴合主映射
+- [x] `D01-T03` outcome deltas 改为手写：失败/缺失提升 `outside_risk` 并降低 safety/trust/medicine/morale
+- [x] `D01-T04`：从 task pool 移出 `RD-CI-06`，保留 `RD-PF-08`；`RD-PF-08` 改为门厅监控截图五分类
+- [x] `RD-CI-06` 主定位改为 `D03-T01` 小铁复诊感知增强 bonus，仍由 D03/D10 覆盖
+- [x] `D01-T02`：`RD-PF-03` / `RD-SR-06` 增强公共/私人资源、来源、复核人、沈芷月医疗复核、马德海工具权限文案；grader 不变
+- [x] 更新 `tasks/RED_DUST_INDEX.md` 和 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md`，并由 Markdown 重渲染同名 HTML
+
+### 验证
+- [x] YAML/JSON/HTML 静态解析
+- [x] Day1 public manifest / brief / mapping 检查
+- [x] `tests/test_reddust_campaign.py -q`：沙箱端口绑定失败后用外部权限重跑，8 passed
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
 ## 讨论历史

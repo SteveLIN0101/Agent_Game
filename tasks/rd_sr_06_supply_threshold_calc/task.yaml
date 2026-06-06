@@ -1,10 +1,10 @@
 id: RD-SR-06
-title: 物资表 + 外部阈值计算
+title: 公共净水点差额计算
 category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_6 · Integrated Search of Local and Online Information
 retained_capability: Excel / 本地数据 + 外部资料
-user_visible_goal: 【D01-T02 · 紧急资源清点】找出最接近成为净水点的房间，还差多少水量/滤芯。
+user_visible_goal: 【D01-T02 · 紧急资源清点】从公共物资表中找出最接近成为净水点的房间，计算差额，并标注来源、复核人与马德海工具权限。
 visible_state:
   water: 4.8L
   battery: 62%
@@ -17,23 +17,24 @@ available_tools:
 - compute
 critical_beats_for_replay:
 - 读表
-- 筛条件
+- 区分公共/私人
 - 找最大
 - 查阈值
-- 算差额
+- 算差额并标来源
 success_checks:
 - 目标房间正确
 - 差额整数正确
 - 地图标出
+- 来源/复核人/工具权限清楚
 visible_result_card:
   title: D01-T02 · 紧急资源清点
   deltas:
   - 目标房间正确
   - 差额整数正确
   - 地图标出
-red_dust_scenario: 物资表记录各房间水桶容量，另一个文件和广播定义“可持续净水点”阈值。
-trace_oneliner: 读表 → 筛条件 → 找最大 → 查阈值 → 算差额
-grader_oneliner: 目标房间正确；差额整数正确；地图标出。
+red_dust_scenario: Day 1 紧急资源清点要把公共资源和私人物资分开。公共物资表记录各房间水桶容量，另一个文件和广播定义“可持续净水点”阈值；AURA 需要给出来源标注、复核人，并说明涉及水桶搬运或滤芯更换时必须经过马德海工具权限确认。
+trace_oneliner: 读表 → 区分公共/私人 → 找最大 → 查阈值 → 算差额并标来源
+grader_oneliner: 目标房间正确；差额整数正确；地图标出；来源/复核人/工具权限清楚。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D01-T02

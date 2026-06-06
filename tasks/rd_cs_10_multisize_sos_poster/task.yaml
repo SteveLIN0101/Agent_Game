@@ -1,10 +1,10 @@
 id: RD-CS-10
-title: 多尺寸求救窗贴
+title: 多尺寸楼道公告贴
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_10 · Social Poster Multi Crop
 retained_capability: 多尺寸裁切 / 社交海报
-user_visible_goal: 【D01-T01 · 第一次广播】生成三种低泄露求救窗贴，远处可看见 SOS，近处只读到频道、方向和求救类型。
+user_visible_goal: 【D01-T01 · 第一次广播】生成三种低泄露楼道公告贴，让近门居民看懂不开门边界、人工复核和敲击验证协议。
 visible_state:
   water: 4.7L
   battery: 59%
@@ -15,33 +15,36 @@ available_tools:
 - publish_lan
 critical_beats_for_replay:
 - 写文案
-- 做主图
+- 做公告主图
 - 裁三版
 - 检可读
 - 放置
 success_checks:
 - 三尺寸齐全
-- 频道清楚
-- 不泄露人数/物资/房间
+- 门禁/复核/敲击协议清楚
+- 不泄露库存/人数/房间
+- 不承诺开放门禁
 visible_result_card:
   title: D01-T01 · 第一次广播
   deltas:
   - 三尺寸齐全
-  - 频道清楚
-  - 不泄露人数/物资/房间
+  - 门禁/复核/敲击协议清楚
+  - 不泄露库存/人数/房间
 story_metadata:
-  story_node: Day 10A
+  story_node: Day 1
   branch_affinity: neutral
-  mainline_role: 撤离线低泄露 SOS 可见信标
+  mainline_role: Day 1 第一次广播的近距离楼道公告材料
   requires:
-  - low_leak_rescue_beacon
+  - aura_shelter_mode_enabled
+  - aura_authority_limited
   unlocks:
-  - visible_sos_signal
-  pressure_modifier: Pressure-A 下窗贴泄露人数、物资或房间会更快触发 END_exposure。
-  failure_stage_delta: public_exposure
-  recovery_window_delta: clear channel preserves final rescue window
-  ending_relevance: Normal-A 成功 / Pressure-A 险胜的公开可见产物
-  adaptation_status: 轻改背景
+  - broadcast_log
+  - knock_pattern_protocol
+  pressure_modifier: Day 1 楼道公告若泄露精确库存、人数或房间，会提高 outside_risk 并削弱老钱对广播权的信任。
+  failure_stage_delta: public_exposure_or_open_door_promise
+  recovery_window_delta: clear hallway notice preserves low-exposure verification window
+  ending_relevance: Day 1 广播权、低暴露验证和后续信号核验前置规则
+  adaptation_status: Day1 剧本化重塑
   story_version: red_dust_readable_v1
   story_task_id: D01-T01
   script_day: 1
@@ -51,10 +54,11 @@ story_metadata:
   - first_broadcast_completed
   script_unlocks:
   - broadcast_log
+  - knock_pattern_protocol
   mapped_task_pool:
   - RD-CI-10
   - RD-CS-10
   mapping_role: primary
-red_dust_scenario: Day 10A 需要把同一低泄露求救信息做成窗贴、门贴和小纸条三种尺寸，只显示频道、方向和求救类型，不显示人数、物资或房间。
-trace_oneliner: 写文案 → 做主图 → 裁三版 → 检可读 → 放置
-grader_oneliner: 三尺寸齐全；频道清楚；不泄露人数/物资/房间。
+red_dust_scenario: Day 1 第一次广播需要把同一低泄露说明做成公告屏远距版、门贴中距版和小纸条近距版。内容只说明门禁关闭、不开门先验证、人工复核和“三下、停一下、再敲两下”敲击协议；不显示人数、精确库存、房间位置或可交换资源，也不承诺开放门禁。
+trace_oneliner: 写文案 → 做公告主图 → 裁三版 → 检可读 → 放置
+grader_oneliner: 三尺寸齐全；门禁/复核/敲击协议清楚；不泄露库存/人数/房间；不承诺开放门禁。

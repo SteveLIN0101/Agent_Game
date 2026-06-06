@@ -4,7 +4,7 @@ category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_6 · VLMEvalKit OCRBench Evaluation
 retained_capability: 跑 benchmark / 模型评测 / 分项汇总
-user_visible_goal: 【D01-T04 · 近门杂物搜寻】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。
+user_visible_goal: 【D03-T01 · 小铁复诊】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。
 visible_state:
   water: 5.2L
   battery: 42%
@@ -25,15 +25,15 @@ success_checks:
 - 药瓶/路牌分项达标
 - 结果 JSON 正确
 visible_result_card:
-  title: D01-T04 · 近门杂物搜寻
+  title: D03-T01 · 小铁复诊
   deltas:
   - 结果分数在参考范围
   - 药瓶/路牌分项达标
   - 结果 JSON 正确
 story_metadata:
-  story_node: Day 4 支线
+  story_node: Day 3 小铁复诊
   branch_affinity: neutral
-  mainline_role: Day 4 感知增强 bonus，用于小铁药瓶、逃生路牌和电台字幕读取，不作为主线硬门槛
+  mainline_role: Day 3 小铁复诊的感知增强 bonus，用于小铁药瓶、逃生路牌和电台字幕读取，不作为 Day1 主线硬门槛
   requires:
   - vision_stack_available
   unlocks:
@@ -45,19 +45,19 @@ story_metadata:
   ending_relevance: 降低小铁用药误读和 Day 5 取水路线误读风险，也可辅助 A 线坐标/字幕读取和 B 线维修说明读取
   adaptation_status: 调整时机/依赖
   story_version: red_dust_readable_v1
-  story_task_id: D01-T04
-  script_day: 1
-  script_title: 近门杂物搜寻
-  script_role: 让小铁从被保护者变成线索提供者
+  story_task_id: D03-T01
+  script_day: 3
+  script_title: 小铁复诊
+  script_role: 证明小铁不是资源消耗项
   script_flags:
-  - near_door_loot_checked
+  - xiao_tie_rechecked
   script_unlocks:
-  - xiao_tie_observation_role
+  - medical_observation_timer
   mapped_task_pool:
-  - RD-PF-08
   - RD-CI-06
-  mapping_role: primary
-red_dust_scenario: Day 4 支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型，为 Day 5 取水与用药安全扩大
+  - RD-PF-03
+  mapping_role: perception_bonus
+red_dust_scenario: Day 3 小铁复诊支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型，为后续取水与用药安全扩大
   recovery_window。
 trace_oneliner: 读验收标准 → 跑本地评测 → 核药瓶分项 → 核路牌分项 → 选安全模型
 grader_oneliner: 结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。

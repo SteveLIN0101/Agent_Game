@@ -1,5 +1,5 @@
 {
-  "goal": "【D01-T04 · 近门杂物搜寻】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。",
+  "goal": "【D03-T01 · 小铁复诊】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -14,20 +14,20 @@
     "核路牌分项",
     "选安全模型"
   ],
-  "scenario": "Day 1 剧本槽 D01-T04「近门杂物搜寻」：让小铁从被保护者变成线索提供者。 Day 4 支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型；成功会为 Day 5 取水与用药安全扩大后续 recovery_window，但不作为主线硬门槛。",
+  "scenario": "Day 3 剧本槽 D03-T01「小铁复诊」：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型；成功会为后续取水与用药安全扩大 recovery_window，但不作为 Day 1 近门杂物搜寻主线硬门槛。",
   "grader": "结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D01-T04",
-    "script_day": 1,
-    "script_title": "近门杂物搜寻",
-    "script_role": "让小铁从被保护者变成线索提供者",
+    "story_task_id": "D03-T01",
+    "script_day": 3,
+    "script_title": "小铁复诊",
+    "script_role": "证明小铁不是资源消耗项",
     "script_flags": [
-      "near_door_loot_checked"
+      "xiao_tie_rechecked"
     ],
     "script_unlocks": [
-      "xiao_tie_observation_role"
+      "medical_observation_timer"
     ]
   }
 }
