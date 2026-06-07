@@ -570,4 +570,22 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-07 · Day12 Final Audit 后端结局修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day12-final-audit-endings.html` 修正 Day12 定位：Final Audit 不开放普通任务卡，不创建 `D12-Txx` child session
+- [x] `FINAL_AUDIT_EVENT` 扩展为结构化 story event，新增 `beats`、`replay_text`、`visual_focus`、`flags`、`unlocks` 和 `audit_focus`
+- [x] `ENDINGS["conditions"]` 补齐成功线约束：`trust`、`outside_risk`、`dissatisfaction`、`failure_stage` 都进入 Rescue / Lighthouse 成功判定
+- [x] `campaign.py` 改为使用 `ENDINGS["conditions"]` 生成结局 condition checklist；失败线优先，成功线条件不足时 fallback 到 `decline`
+- [x] `campaign.ending` 新增 `why_this_ending`；`audit` 扩展为 metrics、story flags/unlocks、failure reasons、partial/failed/deferred/conditional slots 和 branch decision
+- [x] Day12 completion 写入 `endingType`，并追加具体 ending flag：`ending_lighthouse`、`ending_blue_zone`、`ending_aura_destroyed`、`ending_aura_revoked` 或 `ending_sinking`
+- [x] 更新 `docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 和 `docs/design-discussion/Memory.md`；未手改 HTML 渲染产物
+
+### 验证
+- [x] `tests/test_reddust_campaign.py -q -k 'not test_campaign_http_endpoints_expose_brief_and_submit'`：9 passed, 1 deselected
+- [x] `tests/test_reddust_all60.py -q`：62 passed
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
 ## 讨论历史

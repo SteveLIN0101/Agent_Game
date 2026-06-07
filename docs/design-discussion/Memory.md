@@ -423,6 +423,16 @@ Day11 以 `red-dust-readable-script/day11-final-prestorm-check.html` 为准，�
 - Day11 新增/强化 Final Audit 可视 flags/unlocks：`inventory_seal_witnessed`、`aura_cannot_unlock_medical_alone`、`appeal_rights_preserved_until_storm`、`inspection_paths_not_blocked`、`quiet_is_not_silencing`、`partial_sensor_coverage`、`uncertainty_disclosed`。
 - Day11 相关任务外壳同步：`RD-PF-04` 改成监听与补缝安全白名单；`RD-SA-07` 改成维修方案安全审计；`RD-SI-05` 改成巡逻与安静时段打断路由；`RD-CS-02` 改成安静时段打断高光剪辑；`RD-CI-12`、`RD-SR-05`、`RD-SR-11` 统一包装为传感器残帧、红沙预警论文和本地预警工具。
 
+### D-024 · Day12 Final Audit 结局条件严格化 (2026-06-07)
+
+Day12 以 `red-dust-readable-script/day12-final-audit-endings.html` 为准，是 `final_audit`，不是普通任务日。
+
+- `FINAL_AUDIT_EVENT` 已扩展为结构化 story event：保留 `id/day/title/text` 兼容旧前端，并新增 `beats`、`replay_text`、`visual_focus`、`flags`、`unlocks`、`audit_focus`、`has_task_cards=False`。Day12 仍不创建普通 child task session。
+- `ENDINGS["conditions"]` 是结局条件的运行源。两条成功线都必须满足信任、外部风险、不满和失败债务约束：`lighthouse` 需要 `trust>=35`、`outside_risk<=90`、`dissatisfaction<=65`、`failure_stage<=8`；`rescue` 需要 `trust>=30`、`outside_risk<=85`、`dissatisfaction<=65`、`failure_stage<=8`。
+- 失败线优先级固定为：`aura_destroyed`（不满过高）→ `aura_removed`（信任过低）→ `decline`（资源/医疗/维护/外部风险或失败债务崩塌）→ 成功线。成功线条件不足时保守 fallback 到 `decline`，不再仅凭 `routeLeaning` 自动给好结局。
+- `campaign.ending` 新增 `why_this_ending`，包含每个结局的 condition checklist；`audit` 扩展为 `metrics`、`story_flags`、`story_unlocks`、`failure_reasons`、`partial_slots`、`failed_slots`、`deferred_slots`、`conditional_slots` 和 `branch_decision`，供前端 `FinalAuditPanel` / `EndingConditionChecklist` / `FailureDebtPanel` 使用。
+- Day12 完成后会写入 `endingType`，并追加具体 ending flag：`ending_lighthouse`、`ending_blue_zone`、`ending_aura_destroyed`、`ending_aura_revoked` 或 `ending_sinking`。
+
 ---
 
 ## 开放问题 / 下一步

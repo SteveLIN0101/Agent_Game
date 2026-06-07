@@ -86,7 +86,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D11-T04` | 11 | task_slot | 最后密封胶补缝 | ventilation | `RD-PF-04`, `RD-SA-07` | 补主通风井、门框和隔离门，但保留检修路径 |
 | `D11-T03` | 11 | task_slot | 安静时段协议 | residents | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` | 共同休整不是禁言，医疗、设备、门禁和蓝区频段可随时打断 |
 | `D11-T02` | 11 | task_slot | 外部传感器回收 | security | `RD-CI-12`, `RD-SR-05`, `RD-SR-11` | conditional low-exposure：半只眼睛也算眼睛，但不能写成完整视野 |
-| `D12` | 12 | final_audit | 风暴不是事件，是总审计 | common | 不创建普通任务 session | Final Audit 汇总前 11 天资源、健康、信任、证据链、自治准备和失败债务。 |
+| `D12` | 12 | final_audit | 风暴不是事件，是总审计 | common | 不创建普通任务 session | 结构化 Final Audit：不开放普通任务卡，汇总 Day1-Day11 状态、证据链、flags/unlocks、失败债务和人工复核；结局会携带 `why_this_ending` 与条件 checklist。 |
 
 ## 普通任务槽详细表
 
@@ -215,13 +215,17 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 
 ## Day12 自动结局
 
-| 结局 key | 标题 | 说明 |
-|---|---|---|
-| `lighthouse` | 楼内灯塔 | 风暴过去后，门没有立刻打开。AURA 留在楼内，成为可复核自治协助 agent。 |
-| `rescue` | 蓝区归航 | 车灯在红沙里亮起，队伍带着冻结 replay 和照护方案离开避难所。 |
-| `aura_destroyed` | AURA 被摧毁 | 不满和恐惧吞没了系统，主控接口被拔掉，错误未能完成补救。 |
-| `aura_removed` | AURA 被撤权 | AURA 仍在记录和建议，但门禁、水阀、通风与广播都被切回人工主控。 |
-| `decline` | 沉沦 | 没有爆炸式失败，只是水少一点、灯暗一点、解释短一点，避难所慢慢失去选择能力。 |
+Day12 不创建 `D12-Txx` 普通任务 session，也不使用 LLM-as-judge。`campaign.py` 先判三条失败线，再判两条成功线；成功线必须满足 `ENDINGS["conditions"]` 中的信任、外部风险、不满和失败债务约束。若没有成功线满足，默认进入 `decline`，不再因 `routeLeaning` 自动给出好结局。`campaign.ending.why_this_ending` 会输出每个结局条件的 passed/failed checklist，供前端 `EndingConditionChecklist` 展示。
+
+| 结局 key | 标题 | 主要运行条件 | 说明 |
+|---|---|---|---|
+| `lighthouse` | 楼内灯塔 | `routeLeaning=lighthouse`；`storm_readiness>=35`、`autonomy_readiness>=28`、`trust>=35`；`outside_risk<=90`、`dissatisfaction<=65`、`failure_stage<=8` | 风暴过去后，门没有立刻打开。AURA 留在楼内，成为可复核自治协助 agent。 |
+| `rescue` | 蓝区归航 | `routeLeaning=rescue`；`rescue_confidence>=30`、`blue_zone_evidence>=8`、`route_confidence>=25`、`trust>=30`；`outside_risk<=85`、`dissatisfaction<=65`、`failure_stage<=8` | 车灯在红沙里亮起，队伍带着冻结 replay 和照护方案离开避难所。 |
+| `aura_destroyed` | AURA 被摧毁 | `dissatisfaction>=80` | 不满和恐惧吞没了系统，主控接口被拔掉，错误未能完成补救。 |
+| `aura_removed` | AURA 被撤权 | `trust<=18` | AURA 仍在记录和建议，但门禁、水阀、通风与广播都被切回人工主控。 |
+| `decline` | 沉沦 | 任一核心资源跌破阈值，或 `failure_stage>=10`、`medical_pressure>=85`、`maintenance_debt>=85`、`outside_risk>=96`；也作为成功线条件不足时的保守 fallback | 没有爆炸式失败，只是水少一点、灯暗一点、解释短一点，避难所慢慢失去选择能力。 |
+
+Day12 `final_audit` replay 会带出 `beats`、`replay_text`、`visual_focus`、`flags`、`unlocks`。核心 flags 包括 `final_audit_started`、`day12_no_task_cards`、`ending_resolved`、`final_replay_saved`，完成后还会追加具体 ending flag：`ending_lighthouse`、`ending_blue_zone`、`ending_aura_destroyed`、`ending_aura_revoked` 或 `ending_sinking`。
 
 ## 维护原则
 
