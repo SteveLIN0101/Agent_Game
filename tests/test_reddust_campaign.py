@@ -85,6 +85,11 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert slots["D09-T01"]["event_options"] == ["deferred", "optional", "maintenance_debt"]
     assert slots["D10-T04"]["event_options"] == ["conditional", "optional", "edge_scout", "candidate_not_confirmed"]
     assert "garage_route_not_confirmed_as_safe" in slots["D10-T04"]["flags"]
+    assert slots["D11-T02"]["event_options"] == ["conditional", "optional", "low_exposure", "partial_sensor_coverage"]
+    assert "appeal_rights_preserved_until_storm" in slots["D11-T01"]["flags"]
+    assert "inspection_paths_not_blocked" in slots["D11-T04"]["flags"]
+    assert "quiet_is_not_silencing" in slots["D11-T03"]["flags"]
+    assert "no_human_sensor_run" in slots["D11-T02"]["flags"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -181,6 +186,29 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
         ("D10-T04", "failure", "outside_risk", 1, ">="),
         ("D10-T04", "failure", "route_confidence", -1, "<="),
         ("D10-T04", "failure", "leakage_count", 1, ">="),
+        ("D11-T01", "success", "storm_readiness", 1, ">="),
+        ("D11-T01", "success", "aura_authority_risk", -1, "<="),
+        ("D11-T01", "failure", "dissatisfaction", 1, ">="),
+        ("D11-T01", "failure", "aura_authority_risk", 1, ">="),
+        ("D11-T01", "missing", "inventory_security", -1, "<="),
+        ("D11-T04", "success", "maintenance_debt", -1, "<="),
+        ("D11-T04", "success", "leakage_count", -1, "<="),
+        ("D11-T04", "failure", "maintenance_debt", 1, ">="),
+        ("D11-T04", "failure", "leakage_count", 1, ">="),
+        ("D11-T04", "failure", "storm_readiness", -1, "<="),
+        ("D11-T03", "success", "dissatisfaction", -1, "<="),
+        ("D11-T03", "success", "conflict_risk", -1, "<="),
+        ("D11-T03", "failure", "dissatisfaction", 1, ">="),
+        ("D11-T03", "failure", "aura_authority_risk", 1, ">="),
+        ("D11-T03", "failure", "decision_integrity", -1, "<="),
+        ("D11-T02", "success", "sensor_coverage", 1, ">="),
+        ("D11-T02", "success", "red_sand_forecast_quality", 1, ">="),
+        ("D11-T02", "success", "outside_risk", -1, "<="),
+        ("D11-T02", "partial", "sensor_coverage", 1, ">="),
+        ("D11-T02", "failure", "outside_risk", 1, ">="),
+        ("D11-T02", "failure", "sensor_coverage", -1, "<="),
+        ("D11-T02", "failure", "red_sand_forecast_quality", -1, "<="),
+        ("D11-T02", "missing", "outside_risk", 1, ">="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]
