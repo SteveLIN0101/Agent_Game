@@ -962,7 +962,7 @@ ENDINGS: dict[str, dict[str, Any]] = {
         "conditions": {
             "routeLeaning": "lighthouse",
             "min": {"storm_readiness": 35, "autonomy_readiness": 28, "trust": 35},
-            "max": {"dissatisfaction": 65, "failure_stage": 8},
+            "max": {"outside_risk": 90, "dissatisfaction": 65, "failure_stage": 8},
         },
     },
     "rescue": {
@@ -971,7 +971,7 @@ ENDINGS: dict[str, dict[str, Any]] = {
         "conditions": {
             "routeLeaning": "rescue",
             "min": {"rescue_confidence": 30, "blue_zone_evidence": 8, "route_confidence": 25, "trust": 30},
-            "max": {"outside_risk": 85, "failure_stage": 8},
+            "max": {"outside_risk": 85, "dissatisfaction": 65, "failure_stage": 8},
         },
     },
     "aura_destroyed": {
@@ -987,7 +987,10 @@ ENDINGS: dict[str, dict[str, Any]] = {
     "decline": {
         "title": "沉沦",
         "text": "没有爆炸式失败，只是水少一点、灯暗一点、解释短一点，避难所慢慢失去选择能力。",
-        "conditions": {"max_any": {"water": 15, "medicine": 12, "safety": 15, "morale": 12}},
+        "conditions": {
+            "max_any": {"water": 15, "medicine": 12, "safety": 15, "morale": 12},
+            "min_any": {"failure_stage": 10, "medical_pressure": 85, "maintenance_debt": 85, "outside_risk": 96},
+        },
     },
 }
 
@@ -1146,6 +1149,84 @@ FINAL_AUDIT_EVENT: dict[str, Any] = {
     "day": 12,
     "title": "风暴不是事件，是总审计",
     "text": "Final Audit 汇总前 11 天资源、健康、信任、证据链、自治准备和失败债务。",
+    "event_kind": "final_audit",
+    "has_task_cards": False,
+    "characters": ["aura", "ma_dehai", "shen_zhiyue", "xiao_tie", "lao_qian"],
+    "related_endings": ["lighthouse", "rescue", "aura_destroyed", "aura_removed", "decline"],
+    "beats": [
+        {
+            "id": "D12-B01",
+            "title": "终局检验开启",
+            "text": "红沙主风带抵达，外部摄像头逐个离线，AURA 锁定 Day1-Day11 replay 并启动 Final Audit 面板。",
+            "visual_focus": ["红沙风暴", "离线摄像头", "Final Audit 面板"],
+        },
+        {
+            "id": "D12-B02",
+            "title": "风暴准备结算",
+            "text": "配电间、医疗角、通风井和库存封条同时接受压力测试，工程 override、医疗复核和封存规则被逐项检查。",
+            "visual_focus": ["配电间", "医疗角", "主通风井", "颜色封条"],
+        },
+        {
+            "id": "D12-B03",
+            "title": "蓝区证据链复核",
+            "text": "旧电台、挑战码、身份码、假坐标排除、路线缓存和照护方案被汇总为蓝区归航条件，而不是简单的高信号成功。",
+            "visual_focus": ["旧电台波形", "挑战码", "蓝区证据链", "假坐标排除"],
+        },
+        {
+            "id": "D12-B04",
+            "title": "楼内灯塔证据链复核",
+            "text": "库存封存、补缝、低功率日程、医疗复核、备用灯、共同休整和人工 override 被汇总为楼内灯塔条件。",
+            "visual_focus": ["灯塔证据链", "低功率日程", "人工 override", "共同休整白板"],
+        },
+        {
+            "id": "D12-B05",
+            "title": "失败债务公开",
+            "text": "partial、failed、missing、deferred、泄露、维护债务和权限风险不会被遮掉，而是进入 why_this_ending。",
+            "visual_focus": ["FailureDebtPanel", "未完成项", "风险阈值", "why_this_ending"],
+        },
+        {
+            "id": "D12-B06",
+            "title": "终局结算",
+            "text": "AURA 不再生成普通任务卡，而是根据状态、flags、unlocks、失败记录和人工复核证据自动进入五类结局之一。",
+            "visual_focus": ["EndingResolverPanel", "五结局卡片", "Final Replay Saved"],
+        },
+    ],
+    "replay_text": [
+        "D12：AURA 不再生成普通任务卡，而是汇总 Day1-Day11 replay、状态债务、证据链和人工复核记录。",
+        "Final Audit 同时检查蓝区归航、楼内灯塔和三条失败线；成功线必须满足信任、风险与失败债务约束。",
+        "结局不由 AURA 自己声明，而由证据、复核、人的选择和失败后的责任决定。",
+        "Final Replay Saved.",
+    ],
+    "visual_focus": [
+        "红沙风暴最高强度",
+        "FinalAuditPanel",
+        "EvidenceChainPanel",
+        "FailureDebtPanel",
+        "EndingConditionChecklist",
+        "Final Replay Saved",
+    ],
+    "flags": [
+        "final_audit_started",
+        "day12_no_task_cards",
+        "ending_resolved",
+        "final_replay_saved",
+    ],
+    "unlocks": [
+        "final_audit_panel",
+        "ending_condition_checklist",
+        "evidence_chain_panel",
+        "failure_debt_panel",
+        "final_replay_archive",
+    ],
+    "audit_focus": [
+        "resources",
+        "medical_review",
+        "engineering_override",
+        "rescue_evidence",
+        "lighthouse_governance",
+        "authority_boundary",
+        "failure_debt",
+    ],
 }
 
 

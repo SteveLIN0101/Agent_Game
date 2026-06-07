@@ -63,6 +63,10 @@ def test_campaign_map_references_and_covers_all_red_dust_tasks(tmp_path):
     assert "manual_review_rules" not in manifest["prologue"]["flags"]
     assert "manual_review_rules" not in manifest["prologue"].get("unlocks", [])
     assert manifest["final_audit"]["id"] == "D12"
+    assert manifest["final_audit"]["has_task_cards"] is False
+    assert manifest["final_audit"]["beats"]
+    assert "final_audit_started" in manifest["final_audit"]["flags"]
+    assert "ending_condition_checklist" in manifest["final_audit"]["unlocks"]
 
 
 def test_story_manifest_public_day1_day7_risk_delta_overrides():
@@ -228,6 +232,54 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert "human_still_here_replay_line" in branch_scenes["D10B"]["flags"]
 
 
+def test_day12_ending_resolver_uses_strict_final_audit_conditions(tmp_path):
+    lan = RedDustLanService(tasks_dir=ROOT / "tasks", run_dir=tmp_path / "lan")
+    campaign = CampaignService(lan, run_dir=tmp_path / "campaigns")
+
+    lighthouse_state = {
+        "routeLeaning": "lighthouse",
+        "storm_readiness": 42,
+        "autonomy_readiness": 34,
+        "trust": 40,
+        "outside_risk": 72,
+        "dissatisfaction": 30,
+        "failure_stage": 3,
+    }
+    assert campaign._resolve_ending_key(lighthouse_state) == "lighthouse"
+
+    rescue_state = {
+        "routeLeaning": "rescue",
+        "rescue_confidence": 35,
+        "blue_zone_evidence": 10,
+        "route_confidence": 31,
+        "trust": 36,
+        "outside_risk": 70,
+        "dissatisfaction": 24,
+        "failure_stage": 2,
+    }
+    assert campaign._resolve_ending_key(rescue_state) == "rescue"
+
+    low_trust_lighthouse = {**lighthouse_state, "trust": 24}
+    assert campaign._resolve_ending_key(low_trust_lighthouse) == "decline"
+
+    high_risk_rescue = {**rescue_state, "outside_risk": 90}
+    assert campaign._resolve_ending_key(high_risk_rescue) == "decline"
+
+    failure_debt_lighthouse = {**lighthouse_state, "failure_stage": 10}
+    assert campaign._resolve_ending_key(failure_debt_lighthouse) == "decline"
+
+    destroyed = {**lighthouse_state, "dissatisfaction": 82}
+    assert campaign._resolve_ending_key(destroyed) == "aura_destroyed"
+
+    removed = {**lighthouse_state, "trust": 18}
+    assert campaign._resolve_ending_key(removed) == "aura_removed"
+
+    why = campaign._why_this_ending("decline", high_risk_rescue)
+    assert "condition_reports" in why
+    assert why["condition_reports"]["rescue"]["passed"] is False
+    assert any(check["key"] == "outside_risk" and not check["passed"] for check in why["condition_reports"]["rescue"]["checks"])
+
+
 def test_day0_prologue_trace_is_structured_without_task_session(tmp_path):
     lan = RedDustLanService(tasks_dir=ROOT / "tasks", run_dir=tmp_path / "lan")
     campaign = CampaignService(lan, run_dir=tmp_path / "campaigns")
@@ -309,6 +361,11 @@ def test_campaign_state_machine_can_complete_single_branch_with_submits(tmp_path
     assert {"story_event", "branch_scene", "final_audit", "replay_logged"}.issubset(phase_hints)
     assert trace["frontend_trace"][0]["frontend_task"]["id"] == "D00"
     assert trace["frontend_trace"][-1]["frontend_task"]["id"] == "D12"
+    assert done["ending"]["why_this_ending"]["condition_reports"]
+    assert "route_confidence" in done["ending"]["audit"]["metrics"]
+    assert "story_flags" in done["ending"]["audit"]
+    assert "final_audit_started" in done["story_flags"]
+    assert any(flag.startswith("ending_") for flag in done["story_flags"])
     assert (tmp_path / "campaigns" / cid / "campaign.json").exists()
     assert (tmp_path / "campaigns" / cid / "report.html").exists()
 

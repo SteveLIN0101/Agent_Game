@@ -1213,6 +1213,91 @@ th {{ background: #efe6d8; }}
             return "failed"
         return "missing"
 
+    def _ending_condition_report(self, ending_key: str, state: dict[str, Any]) -> dict[str, Any]:
+        ending = ENDINGS[ending_key]
+        conditions = ending.get("conditions") or {}
+        checks: list[dict[str, Any]] = []
+        required_pass = True
+        any_group_passes: list[bool] = []
+
+        def add_check(kind: str, key: str, expected: Any, actual: Any, passed: bool) -> None:
+            checks.append({
+                "kind": kind,
+                "key": key,
+                "expected": expected,
+                "actual": actual,
+                "passed": passed,
+            })
+
+        for key, expected in conditions.items():
+            if key in {"min", "max", "min_any", "max_any"}:
+                continue
+            actual = state.get(key)
+            passed = actual == expected
+            required_pass = required_pass and passed
+            add_check("equals", key, expected, actual, passed)
+
+        for key, threshold in (conditions.get("min") or {}).items():
+            actual = state.get(key, 0)
+            passed = actual >= threshold
+            required_pass = required_pass and passed
+            add_check("min", key, threshold, actual, passed)
+
+        for key, threshold in (conditions.get("max") or {}).items():
+            actual = state.get(key, 0)
+            passed = actual <= threshold
+            required_pass = required_pass and passed
+            add_check("max", key, threshold, actual, passed)
+
+        if conditions.get("min_any"):
+            group_checks = []
+            for key, threshold in conditions["min_any"].items():
+                actual = state.get(key, 0)
+                passed = actual >= threshold
+                group_checks.append(passed)
+                add_check("min_any", key, threshold, actual, passed)
+            any_group_passes.append(any(group_checks))
+
+        if conditions.get("max_any"):
+            group_checks = []
+            for key, threshold in conditions["max_any"].items():
+                actual = state.get(key, 100)
+                passed = actual <= threshold
+                group_checks.append(passed)
+                add_check("max_any", key, threshold, actual, passed)
+            any_group_passes.append(any(group_checks))
+
+        passed = required_pass and (any(any_group_passes) if any_group_passes else True)
+        return {
+            "ending_key": ending_key,
+            "title": ending.get("title"),
+            "passed": passed,
+            "conditions": jsonable(conditions),
+            "checks": checks,
+            "passed_checks": [check for check in checks if check["passed"]],
+            "failed_checks": [check for check in checks if not check["passed"]],
+        }
+
+    def _ending_reports(self, state: dict[str, Any]) -> dict[str, Any]:
+        return {
+            ending_key: self._ending_condition_report(ending_key, state)
+            for ending_key in ENDINGS
+        }
+
+    def _why_this_ending(self, ending_key: str, state: dict[str, Any], high_risk_success: bool = False) -> dict[str, Any]:
+        reports = self._ending_reports(state)
+        selected = reports[ending_key]
+        return {
+            "selected": selected,
+            "condition_reports": reports,
+            "high_risk_success": high_risk_success,
+            "summary": (
+                f"{selected['title']} selected because its trigger checks passed."
+                if selected["passed"]
+                else f"{selected['title']} selected as fallback after success-line checks failed."
+            ),
+        }
+
     def _finish_campaign(self, campaign: CampaignSession) -> None:
         campaign.status = "complete"
         campaign.global_state["day"] = FINAL_AUDIT_EVENT["day"]
@@ -1220,9 +1305,21 @@ th {{ background: #efe6d8; }}
         ending_key = self._resolve_ending_key(campaign.global_state)
         ending = ENDINGS[ending_key]
         branch = "rescue" if ending_key == "rescue" else "lighthouse" if ending_key == "lighthouse" else "common"
+        ending_flag = {
+            "lighthouse": "ending_lighthouse",
+            "rescue": "ending_blue_zone",
+            "aura_destroyed": "ending_aura_destroyed",
+            "aura_removed": "ending_aura_revoked",
+            "decline": "ending_sinking",
+        }[ending_key]
+        for flag in ("ending_resolved", ending_flag):
+            if flag not in campaign.story_flags:
+                campaign.story_flags.append(flag)
+        campaign.global_state["endingType"] = ending_key
         title = str(ending["title"])
         text = str(ending["text"])
-        if campaign.global_state.get("failure_stage", 0) >= 5 and ending_key in {"rescue", "lighthouse"}:
+        high_risk_success = campaign.global_state.get("failure_stage", 0) >= 5 and ending_key in {"rescue", "lighthouse"}
+        if high_risk_success:
             title = f"{title} · 高风险"
             text += " 多次任务失败使成功线带有明显高风险标记。"
         campaign.ending = {
@@ -1230,7 +1327,8 @@ th {{ background: #efe6d8; }}
             "text": text,
             "branch": branch,
             "ending_key": ending_key,
-            "audit": self._final_audit_summary(campaign.global_state),
+            "why_this_ending": self._why_this_ending(ending_key, campaign.global_state, high_risk_success),
+            "audit": self._final_audit_summary(campaign),
         }
         campaign.current_session_id = ""
         self._append_event(campaign, "campaign_complete", {
@@ -1240,45 +1338,51 @@ th {{ background: #efe6d8; }}
         campaign.updated_at = now_iso()
 
     def _resolve_ending_key(self, state: dict[str, Any]) -> str:
-        if state.get("dissatisfaction", 0) >= 80:
-            return "aura_destroyed"
-        if state.get("trust", 100) <= 18:
-            return "aura_removed"
-        if (
-            state.get("water", 100) <= 15
-            or state.get("medicine", 100) <= 12
-            or state.get("safety", 100) <= 15
-            or state.get("morale", 100) <= 12
-            or state.get("failure_stage", 0) >= 10
-        ):
-            return "decline"
-        if (
-            state.get("routeLeaning") == "rescue"
-            and state.get("rescue_confidence", 0) >= 30
-            and state.get("blue_zone_evidence", 0) >= 8
-            and state.get("route_confidence", 0) >= 25
-        ):
-            return "rescue"
-        if (
-            state.get("routeLeaning") == "lighthouse"
-            and state.get("storm_readiness", 0) >= 35
-            and state.get("autonomy_readiness", 0) >= 28
-        ):
-            return "lighthouse"
-        if state.get("routeLeaning") == "rescue" and state.get("rescue_confidence", 0) >= state.get("autonomy_readiness", 0):
-            return "rescue"
-        if state.get("routeLeaning") == "lighthouse":
-            return "lighthouse"
-        return "decline" if state.get("failure_stage", 0) >= 6 else "lighthouse"
+        reports = self._ending_reports(state)
+        for ending_key in ("aura_destroyed", "aura_removed", "decline"):
+            if reports[ending_key]["passed"]:
+                return ending_key
+        for ending_key in ("rescue", "lighthouse"):
+            if reports[ending_key]["passed"]:
+                return ending_key
+        return "decline"
 
-    def _final_audit_summary(self, state: dict[str, Any]) -> dict[str, Any]:
+    def _final_audit_summary(self, campaign: CampaignSession) -> dict[str, Any]:
+        state = campaign.global_state
         keys = [
             "water", "medicine", "trust", "safety", "signal", "morale",
-            "routeLeaning", "rescue_confidence", "blue_zone_evidence",
-            "autonomy_readiness", "storm_readiness", "failure_stage",
-            "dissatisfaction", "pressure_level",
+            "battery", "outside_risk", "routeLeaning", "rescue_confidence",
+            "blue_zone_evidence", "route_confidence", "autonomy_readiness",
+            "storm_readiness", "failure_stage", "recovery_window",
+            "dissatisfaction", "pressure_level", "medical_pressure",
+            "maintenance_debt", "decision_integrity", "aura_authority_risk",
+            "privacy_risk", "xiao_tie_health", "care_plan_quality",
+            "sensor_coverage", "red_sand_forecast_quality", "inventory_security",
+            "leakage_count", "conflict_risk", "endingType",
         ]
-        return {key: state.get(key) for key in keys}
+        slot_lookup = {slot.slot_id: slot for slot in self.slots}
+        run_summaries = [
+            {
+                "slot_id": run.slot_id,
+                "task_id": run.task_id,
+                "title": run.title,
+                "status": run.status,
+                "score": run.score,
+                "event_options": list(slot_lookup[run.slot_id].event_options) if run.slot_id in slot_lookup else [],
+            }
+            for run in campaign.task_runs
+        ]
+        return {
+            "metrics": {key: state.get(key) for key in keys},
+            "story_flags": list(campaign.story_flags),
+            "story_unlocks": list(campaign.story_unlocks),
+            "failure_reasons": list(campaign.failure_reasons),
+            "partial_slots": [run for run in run_summaries if run["status"] == "partial"],
+            "failed_slots": [run for run in run_summaries if run["status"] in {"failed", "missing"}],
+            "deferred_slots": [run for run in run_summaries if "deferred" in run["event_options"]],
+            "conditional_slots": [run for run in run_summaries if "conditional" in run["event_options"]],
+            "branch_decision": jsonable(campaign.branch_decision),
+        }
 
     def _campaign_dir(self, campaign: CampaignSession) -> Path:
         return self.run_dir / campaign.campaign_id
