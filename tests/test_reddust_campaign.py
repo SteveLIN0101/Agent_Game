@@ -83,6 +83,8 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert slots["D08-T03"]["event_options"] == ["conditional", "background", "listening_window"]
     assert slots["D08-T03"]["task_pool"] == ["RD-SR-01", "RD-SR-02"]
     assert slots["D09-T01"]["event_options"] == ["deferred", "optional", "maintenance_debt"]
+    assert slots["D10-T04"]["event_options"] == ["conditional", "optional", "edge_scout", "candidate_not_confirmed"]
+    assert "garage_route_not_confirmed_as_safe" in slots["D10-T04"]["flags"]
 
     expectations = [
         ("D01-T01", "failure", "outside_risk", 1, ">="),
@@ -162,6 +164,23 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
         ("D09-T01", "success", "maintenance_debt", 1, ">="),
         ("D09-T01", "failure", "maintenance_debt", 1, ">="),
         ("D09-T01", "failure", "storm_readiness", -1, "<="),
+        ("D10-T02", "success", "medicine", -1, "<="),
+        ("D10-T02", "success", "medical_pressure", -1, "<="),
+        ("D10-T02", "failure", "medical_pressure", 1, ">="),
+        ("D10-T02", "failure", "xiao_tie_health", -1, "<="),
+        ("D10-T01", "success", "battery", 1, ">="),
+        ("D10-T01", "success", "dissatisfaction", -1, "<="),
+        ("D10-T01", "failure", "dissatisfaction", 1, ">="),
+        ("D10-T01", "failure", "aura_authority_risk", 1, ">="),
+        ("D10-T01", "failure", "power_stability", -1, "<="),
+        ("D10-T03", "success", "dissatisfaction", -1, "<="),
+        ("D10-T03", "failure", "dissatisfaction", 1, ">="),
+        ("D10-T03", "failure", "decision_integrity", -1, "<="),
+        ("D10-T04", "success", "route_confidence", 1, ">="),
+        ("D10-T04", "success", "outside_risk", 1, ">="),
+        ("D10-T04", "failure", "outside_risk", 1, ">="),
+        ("D10-T04", "failure", "route_confidence", -1, "<="),
+        ("D10-T04", "failure", "leakage_count", 1, ">="),
     ]
     for slot_id, outcome, key, threshold, op in expectations:
         value = slots[slot_id]["outcome_deltas"][outcome][key]
@@ -175,6 +194,10 @@ def test_story_manifest_public_day1_day7_risk_delta_overrides():
     assert "challenge_code_only_policy" in branch_scenes["D09A"]["flags"]
     assert branch_scenes["D09B"]["beats"]
     assert "deep_storage_debt_visible" in branch_scenes["D09B"]["flags"]
+    assert branch_scenes["D10A"]["replay_text"]
+    assert "garage_candidate_not_confirmed" in branch_scenes["D10A"]["flags"]
+    assert branch_scenes["D10B"]["beats"]
+    assert "human_still_here_replay_line" in branch_scenes["D10B"]["flags"]
 
 
 def test_day0_prologue_trace_is_structured_without_task_session(tmp_path):
