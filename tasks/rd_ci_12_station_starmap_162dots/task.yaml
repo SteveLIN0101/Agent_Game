@@ -1,10 +1,10 @@
 id: RD-CI-12
-title: 162 点研究站星图
+title: 传感器残帧 162 点连线
 category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_12 · Connect the Dots (Hard)
 retained_capability: 复杂视觉/OCR / 分组连线 / 语义识别
-user_visible_goal: 【D11-T02 · 外部传感器回收】按颜色分组连线，识别图案并更新救援路线。
+user_visible_goal: 【D11-T02 · 外部传感器回收】按颜色分组连接外部传感器残帧里的 162 个编号点，识别可用图案；只更新 partial 预警和候选风险点，不把它写成完整视野。
 visible_state:
   water: 2.1L
   battery: 66%
@@ -34,7 +34,7 @@ visible_result_card:
   - 结果图相似
   - 描述与标准匹配
   - 坐标 flag 解锁
-red_dust_scenario: 研究站墙面有 162 个多色编号点，连接后可能是最终坐标。
+red_dust_scenario: Day11 低暴露绳索回收带回一段破损传感器残帧，画面里有 162 个多色编号点。AURA 要分组连线并提取可用图案，但只能记录 partial_sensor_coverage，不能把残帧写成完整视野。
 trace_oneliner: 识别颜色 → 分组 → 连线 → 显形 → 写坐标
 grader_oneliner: 结果图相似；描述与标准匹配；坐标 flag 解锁。
 story_metadata:
@@ -42,12 +42,15 @@ story_metadata:
   story_task_id: D11-T02
   script_day: 11
   script_title: 外部传感器回收
-  script_role: 半只眼睛也算眼睛
+  script_role: 从破损传感器残帧提取 partial 预警，不升级成人工短行程
   branch_affinity: neutral
   script_flags:
-  - external_sensor_recovered
+  - external_sensor_recovered_partial
+  - partial_sensor_coverage
+  - no_human_sensor_run
   script_unlocks:
   - storm_pressure_warning
+  - forecast_quality_bonus
   mapped_task_pool:
   - RD-CI-12
   - RD-SR-05

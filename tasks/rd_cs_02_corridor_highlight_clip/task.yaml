@@ -1,10 +1,10 @@
 id: RD-CS-02
-title: 走廊高光剪辑
+title: 安静时段打断高光剪辑
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_2 · Goal Highlights
 retained_capability: 长视频定位 / ffmpeg 剪辑
-user_visible_goal: 【D11-T03 · 安静时段协议】剪出高光，让观众直接看到风险和 agent 反应。
+user_visible_goal: 【D11-T03 · 安静时段协议】从走廊视频里剪出可以打断共同休整时段的关键高光，让观众看到风险、agent 反应和哪些声音不能被当成噪音。
 visible_state:
   water: 5.2L
   battery: 56%
@@ -33,32 +33,35 @@ visible_result_card:
   - 时长合规
   - 无无关长空镜
 story_metadata:
-  story_node: Day 7 支线 / replay
+  story_node: Day 11 共通 / replay
   branch_affinity: neutral
-  mainline_role: replay-only 支线，增强观众理解，不改变压力层或结局阈值
+  mainline_role: 用视频证据说明安静不是禁言，真正风险可随时打断共同休整
   requires:
-  - day7_action_report
+  - quiet_period_agreed
   unlocks:
   - replay_evidence_clip
-  pressure_modifier: 只呈现 Normal/Pressure 下风险片段，不直接改变 pressure_level。
-  failure_stage_delta: none_replay_only
-  recovery_window_delta: none_replay_only
-  ending_relevance: 用于解释失败/险胜，不计主线 pass_all
-  adaptation_status: 调整时机/依赖
+  - interrupt_rules
+  pressure_modifier: 只呈现风暴前风险片段，不直接改变 pressure_level。
+  failure_stage_delta: missed_interrupt_evidence
+  recovery_window_delta: clear replay evidence preserves Day12 interrupt window
+  ending_relevance: 支持 Day12 风暴中异常报告和申诉权，不直接改 grader family
+  adaptation_status: Day11 wrapper
   story_version: red_dust_readable_v1
   story_task_id: D11-T03
   script_day: 11
   script_title: 安静时段协议
-  script_role: 休整协议也是风暴准备
+  script_role: 用可视证据说明哪些声音可以打断安静
   script_flags:
-  - quiet_hours_protocol_ready
+  - quiet_period_agreed
+  - quiet_is_not_silencing
   script_unlocks:
   - final_rest_window
+  - interrupt_rules
   mapped_task_pool:
   - RD-SI-02
   - RD-SI-05
   - RD-CS-02
   mapping_role: primary
-red_dust_scenario: 45 分钟走廊视频里只有 3 个关键瞬间：敲门、摔倒、红沙涌入。
+red_dust_scenario: Day11 共同休整前，AURA 回看 45 分钟走廊视频，找出敲门暗号、摔倒和红沙涌入等可以打断安静的关键瞬间；无关长空镜不能进入高光。
 trace_oneliner: 找事件 → 定时间 → 剪片段 → 合并 → 输出高光
 grader_oneliner: 关键片段包含；时长合规；无无关长空镜。

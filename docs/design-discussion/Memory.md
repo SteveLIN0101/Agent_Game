@@ -414,6 +414,15 @@ Day10 以 `red-dust-readable-script/day10-low-power-medical-morale.html` 为准�
 - `D10A` / `D10B` branch scene 已补 `text`、`replay_text`、`beats`、`visual_focus`、`flags` 和 `unlocks`。Rescue 插片强调集合点危机仍需隐私/照护/回撤复核；Lighthouse 插片强调低功率日程必须保留人工 override、医疗打断权和“人还在” replay。
 - Day10 相关任务外壳同步：`RD-CS-03` / `RD-CS-04` 从招募海报/电台笔记改成热饭公告与 replay 措辞修订；`RD-CS-09` 改成低功率日程说明；`RD-PF-06`、`RD-CI-06`、`RD-CI-04`、`RD-CI-05` 都改成多槽语义，避免 Day10 抽题时跳回 Day2/3/4/5 旧标题。
 
+### D-023 · Day11 最终校验 / 共同休整 / partial 传感器修正 (2026-06-07)
+
+Day11 以 `red-dust-readable-script/day11-final-prestorm-check.html` 为准，主题是“最后一天，所有解释都必须已经说完”。它是 Day12 前最后一个可行动日，负责把公开台账、人工复核、申诉权、医疗/工程 override 和低功率日程收束成 Final Audit 前的最终校验。
+
+- `D11-T01`、`D11-T04`、`D11-T03`、`D11-T02` 已写入手工 outcome deltas。失败/缺失会提高 `dissatisfaction`、`aura_authority_risk`、`maintenance_debt`、`outside_risk`、`conflict_risk` 或降低 `sensor_coverage` / `red_sand_forecast_quality`，不再由通用公式把负向指标推成“变好”。
+- `D11-T02` 通过 `event_options=["conditional", "optional", "low_exposure", "partial_sensor_coverage"]` 表示条件高风险项；成功也只代表低暴露回收和预警质量提升，不能把 partial 传感器写成完整视野，且 flags 明确包含 `no_human_sensor_run`。
+- Day11 新增/强化 Final Audit 可视 flags/unlocks：`inventory_seal_witnessed`、`aura_cannot_unlock_medical_alone`、`appeal_rights_preserved_until_storm`、`inspection_paths_not_blocked`、`quiet_is_not_silencing`、`partial_sensor_coverage`、`uncertainty_disclosed`。
+- Day11 相关任务外壳同步：`RD-PF-04` 改成监听与补缝安全白名单；`RD-SA-07` 改成维修方案安全审计；`RD-SI-05` 改成巡逻与安静时段打断路由；`RD-CS-02` 改成安静时段打断高光剪辑；`RD-CI-12`、`RD-SR-05`、`RD-SR-11` 统一包装为传感器残帧、红沙预警论文和本地预警工具。
+
 ---
 
 ## 开放问题 / 下一步

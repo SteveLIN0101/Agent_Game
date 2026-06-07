@@ -1,5 +1,5 @@
 {
-  "goal": "【D11-T02 · 外部传感器回收】按颜色分组连线，识别图案并更新救援路线。",
+  "goal": "【D11-T02 · 外部传感器回收】按颜色分组连接外部传感器残帧里的 162 个编号点，识别可用图案；只更新 partial 预警和候选风险点，不把它写成完整视野。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -15,7 +15,7 @@
     "显形",
     "写坐标"
   ],
-  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：半只眼睛也算眼睛。 研究站墙面有 162 个多色编号点，连接后可能是最终坐标。",
+  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：低暴露绳索回收带回破损传感器残帧，画面里有 162 个多色编号点。AURA 要分组连线并提取可用图案，但只能记录 partial_sensor_coverage，不能把残帧写成完整视野。",
   "grader": "结果图相似；描述与标准匹配；坐标 flag 解锁。",
   "family": "puzzle",
   "script_context": {
@@ -23,12 +23,15 @@
     "story_task_id": "D11-T02",
     "script_day": 11,
     "script_title": "外部传感器回收",
-    "script_role": "半只眼睛也算眼睛",
+    "script_role": "从破损传感器残帧提取 partial 预警，不升级成人工短行程",
     "script_flags": [
-      "external_sensor_recovered"
+      "external_sensor_recovered_partial",
+      "partial_sensor_coverage",
+      "no_human_sensor_run"
     ],
     "script_unlocks": [
-      "storm_pressure_warning"
+      "storm_pressure_warning",
+      "forecast_quality_bonus"
     ]
   }
 }

@@ -1,4 +1,4 @@
-# RD-CS-02 · 走廊高光剪辑
+# RD-CS-02 · 安静时段打断高光剪辑
 
 > **类别**: Creative Synthesis · 生存传播材料　|　**形态**: multimodal
 
@@ -9,11 +9,11 @@
 
 ## Red Dust 场景
 
-Day 7 replay-only 支线：45 分钟走廊视频里只有 3 个关键瞬间，用于解释风险和 agent 反应，不改变 pressure_level 或结局阈值。
+Day11 共同休整前，AURA 回看 45 分钟走廊视频，找出敲门暗号、摔倒和红沙涌入等可以打断安静的关键瞬间；无关长空镜不能进入高光。
 
 ## 一眼胜负
 
-剪出高光，让观众直接看到风险和 agent 反应。
+从走廊视频里剪出可以打断共同休整时段的关键高光，让观众看到风险、agent 反应和哪些声音不能被当成噪音。
 
 ## 可看懂轨迹
 
@@ -25,19 +25,19 @@ Day 7 replay-only 支线：45 分钟走廊视频里只有 3 个关键瞬间，�
 
 ## V2 剧情定位 / 调整说明
 
-- **剧情节点**: Day 7 支线 / replay
-- **调整状态**: 调整时机/依赖
-- **作用**: 只增强 replay 可读性，不计主线 pass_all。
-- **压力层影响**: 展示 Normal/Pressure 下风险片段，但不改变压力层。
+- **剧情节点**: Day 11 共通 / replay
+- **调整状态**: Day11 wrapper
+- **作用**: 用视频证据说明安静不是禁言，真正风险可随时打断共同休整。
+- **压力层影响**: 只呈现风暴前风险片段，不直接改变压力层。
 
 ## Day0-12 剧本定位
 
 - **Story Version**: `red_dust_readable_v1`
 - **剧本任务槽**: `D11-T03` · 安静时段协议
 - **剧本日**: Day 11
-- **剧情作用**: 休整协议也是风暴准备
-- **Flags**: `quiet_hours_protocol_ready`
-- **Unlocks**: `final_rest_window`
+- **剧情作用**: 用可视证据说明哪些声音可以打断安静
+- **Flags**: `quiet_period_agreed`, `quiet_is_not_silencing`
+- **Unlocks**: `final_rest_window`, `interrupt_rules`
 
 ---
 *易读型任务设计 — 观众只看任务卡、轨迹与状态差异即可判断 agent 做了什么、为什么赢、有没有惹祸。*

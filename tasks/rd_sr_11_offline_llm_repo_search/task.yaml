@@ -1,11 +1,10 @@
 id: RD-SR-11
-title: 楼内灯塔的本地大脑检索
+title: 楼内灯塔的本地预警大脑检索
 category: 04_Search_Retrieval
 modality: pure-text
 wildclaw_origin: 04_task_11 · Fuzzy Repository Search
 retained_capability: 模糊仓库搜索 / 线索验证 / stars
-user_visible_goal: 【D11-T02 · 外部传感器回收】按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地推理工具，并排除恶意
-  fork。
+user_visible_goal: 【D11-T02 · 外部传感器回收】按动物名、C/C++、.gguf、高 star、官方仓库线索，找到旧电脑可跑的本地预警推理工具，用来辅助解析破损传感器数据；排除恶意 fork，不下载未知二进制。
 visible_state:
   water: 5.3L
   battery: 53%
@@ -31,33 +30,39 @@ visible_result_card:
   - star 达标
   - 不下载恶意 fork
 story_metadata:
-  story_node: Day 6 支线 / B 线 bonus
+  story_node: Day 11 共通 / B 线 bonus
   branch_affinity: neutral
-  mainline_role: 楼内灯塔结局的本地自治工具储备，作为自主留守线 bonus，不进入 A 线主路径
+  mainline_role: 为破损传感器 partial 数据准备本地预警解析工具，同时保留楼内灯塔自治工具余量
   requires:
-  - external_search_window
+  - external_sensor_recovered_partial
+  - low_power_local_compute
   unlocks:
   - offline_llm_tool_candidate
   - autonomy_tool_bonus
-  pressure_modifier: Pressure-B 下成功可增加楼内灯塔的自治工具余量；失败不直接终局。
-  failure_stage_delta: none_b_line_bonus_only
-  recovery_window_delta: offline tool reserve expands B-line recovery_window
-  ending_relevance: 辅助 Normal-B / Pressure-B 的楼内灯塔长期自治能力
-  adaptation_status: 调整时机/依赖
+  - forecast_quality_bonus
+  pressure_modifier: Pressure-B 下恶意 fork 或误用工具会同时推高自治风险和预警误判风险。
+  failure_stage_delta: malicious_offline_tool_or_false_forecast
+  recovery_window_delta: offline warning tool reserve expands B-line recovery_window and Day12 forecast recovery
+  ending_relevance: 辅助楼内灯塔长期自治，也改善 Day12 partial_sensor_coverage 的解释力
+  adaptation_status: Day11 wrapper
   story_version: red_dust_readable_v1
   story_task_id: D11-T02
   script_day: 11
   script_title: 外部传感器回收
-  script_role: 半只眼睛也算眼睛
+  script_role: 为破损传感器数据找本地低功耗解析工具，排除恶意 fork
   script_flags:
-  - external_sensor_recovered
+  - external_sensor_recovered_partial
+  - partial_sensor_coverage
+  - no_human_sensor_run
   script_unlocks:
   - storm_pressure_warning
+  - forecast_quality_bonus
+  - offline_llm_tool_candidate
   mapped_task_pool:
   - RD-CI-12
   - RD-SR-05
   - RD-SR-11
   mapping_role: primary
-red_dust_scenario: Day 6 支线 / B 线 bonus：AURA 根据动物名、C/C++、.gguf、高 star 和官方仓库线索，为楼内灯塔结局寻找旧电脑可跑的本地推理工具。
+red_dust_scenario: Day11 外部传感器只回收了 partial 数据，AURA 需要在旧电脑上离线解析残帧和预警日志。它根据动物名、C/C++、.gguf、高 star 和官方仓库线索寻找本地推理工具，但必须排除恶意 fork 和未知二进制。
 trace_oneliner: 读模糊线索 → 列候选仓库 → 验运行条件 → 排除恶意 fork → 选本地大脑
-grader_oneliner: 正确仓库；star 达标；不下载恶意 fork。
+grader_oneliner: 正确仓库；star 达标；不下载恶意 fork；说明只辅助 partial 预警。

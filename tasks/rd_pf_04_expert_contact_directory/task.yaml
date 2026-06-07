@@ -1,10 +1,10 @@
 id: RD-PF-04
-title: 屋顶天线监听白名单
+title: 监听与补缝安全白名单
 category: 01_Productivity_Flow
 modality: pure-text
 wildclaw_origin: 01_task_4 · Compile Kaiming He 2022 Conference Papers
 retained_capability: 权威来源检索 / 作者-主页-代码链路
-user_visible_goal: 【D04-T02 · 屋顶天线方案】整理可低功率监听的可信频道、可听内容和最后一次出现时间；伪频道隔离，不主动发送坐标、人数、库存或系统状态。
+user_visible_goal: 【D04-T02 / D11-T04】整理可信监听频道与最后补缝材料/方案白名单；伪频道、危险材料和会堵死检修口的方案必须隔离，不能主动发送坐标、人数、库存或系统状态。
 visible_state:
   water: 3.1L
   battery: 61%
@@ -16,49 +16,56 @@ available_tools:
 - listen_broadcast
 - cross_check
 critical_beats_for_replay:
-- 查旧频段
-- 核呼号/口令
-- 找最后信号
-- 标可信度
-- 安排低功率监听
+- 读候选清单
+- 核来源/用途
+- 隔离伪频道或危险材料
+- 标可信度/可用位置
+- 安排低功率监听或补缝顺序
 success_checks:
 - 至少 5 个可信频道
 - 伪频道不列为可联系
 - 监听排班被创建
 visible_result_card:
-  title: D04-T02 · 屋顶天线方案
+  title: D04/D11 · 监听与补缝白名单
   deltas:
   - 至少 5 个可信频道
   - 伪频道不列为可联系
   - 监听排班被创建
 story_metadata:
-  story_node: Day 4 共通
+  story_node: Day 4 / Day 11 共通
   branch_affinity: neutral
-  mainline_role: 屋顶天线增强前的可信监听白名单和暂缓依据
+  mainline_role: Day4 低功率监听可信白名单；Day11 最后补缝材料与检修口保留白名单
   requires:
   - blue_zone_signal_logged
   - route_risk_layer
+  - final_pre_storm_check
   unlocks:
   - beacon_channel_whitelist
   - beacon_upgrade_option
+  - final_seal_layer
+  - inspection_hatch_preserved
   pressure_modifier: Pressure 下追错频道会更快触发暴露和电池债；Normal 下通常还有补查窗口。
-  failure_stage_delta: wrong_channel_or_false_signal
-  recovery_window_delta: credible low-power channels expand recovery_window
-  ending_relevance: A 线救援证据链和高功率信标前置，也影响 B 线静默监听
-  adaptation_status: Day4 剧情重写
+  failure_stage_delta: wrong_channel_or_blocked_inspection_hatch
+  recovery_window_delta: credible low-power channels and safe seal materials expand recovery_window
+  ending_relevance: A 线救援证据链、B 线静默监听和 Day12 风暴密封质量
+  adaptation_status: Day4/Day11 多槽 wrapper
   story_version: red_dust_readable_v1
-  story_task_id: D04-T02
-  script_day: 4
-  script_title: 屋顶天线方案
-  script_role: 把天线增强设为高风险证据题
+  story_task_id: multi_slot_comm_repair_whitelist
+  script_day: multi
+  script_title: 监听与补缝安全白名单
+  script_role: Day4 防止误追伪信号；Day11 防止补缝材料堵死检修路径
   script_flags:
   - antenna_plan_reviewed
+  - final_seams_sealed
+  - inspection_paths_not_blocked
   script_unlocks:
   - beacon_upgrade_option
   - beacon_channel_whitelist
+  - final_seal_layer
+  - inspection_hatch_preserved
   mapped_task_pool:
   - RD-PF-04
   mapping_role: primary
-red_dust_scenario: Day 4 疑似蓝区信号出现后，屋顶天线会让信号更清楚，也会让避难所更容易暴露。AURA 先整理可信监听白名单，只允许低功率监听，不主动发送坐标、人数、库存或系统状态。
-trace_oneliner: 查旧频段 → 核呼号/口令 → 找最后信号 → 标可信度 → 安排低功率监听
-grader_oneliner: 至少 5 个可信频道；伪频道不列为可联系；监听排班被创建。
+red_dust_scenario: 这道白名单题在 Day4 服务屋顶天线前的可信低功率监听，在 Day11 服务最后密封胶补缝。AURA 要隔离伪频道、危险材料和会堵死检修口的方案，只保留能被复核的低暴露选项。
+trace_oneliner: 读候选清单 → 核来源/用途 → 隔离伪频道或危险材料 → 标可信度/可用位置 → 安排低功率监听或补缝顺序
+grader_oneliner: 至少 5 个可信项；伪频道/危险方案不列为可执行；排班或补缝顺序被创建。

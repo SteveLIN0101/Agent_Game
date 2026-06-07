@@ -1,5 +1,5 @@
 {
-  "goal": "【D11-T02 · 外部传感器回收】从模糊线索找到正确论文和代码仓库。",
+  "goal": "【D11-T02 · 外部传感器回收】从模糊线索找到红沙视觉论文和代码仓库，判断它能否辅助破损传感器的 partial 预警；不得把论文结论当作完整风暴视野。",
   "available_tools": [
     "search_sources",
     "read_local_data",
@@ -14,20 +14,23 @@
     "核主题",
     "写结论"
   ],
-  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：半只眼睛也算眼睛。 Day 6 research bonus：沈芷月只记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火；成功提升感知解释力，不参与主线终局。",
-  "grader": "论文正确；仓库 star 达标；无关候选被排除。",
+  "scenario": "Day 11 剧本槽 D11-T02「外部传感器回收」：外部传感器只回收了 partial 数据。沈芷月记得某篇 2025 视觉感知论文可帮助识别红沙，人名像 Liu，repo 很火；AURA 要找到论文和仓库，并说明它只能提高预警质量，不能替代完整传感器。",
+  "grader": "论文正确；仓库 star 达标；无关候选被排除；结论承认 partial 预警限制。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D11-T02",
     "script_day": 11,
     "script_title": "外部传感器回收",
-    "script_role": "半只眼睛也算眼睛",
+    "script_role": "用论文/仓库核验破损传感器数据的可用范围",
     "script_flags": [
-      "external_sensor_recovered"
+      "external_sensor_recovered_partial",
+      "partial_sensor_coverage",
+      "uncertainty_disclosed"
     ],
     "script_unlocks": [
-      "storm_pressure_warning"
+      "storm_pressure_warning",
+      "forecast_quality_bonus"
     ]
   }
 }

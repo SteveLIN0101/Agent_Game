@@ -82,10 +82,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D10-T04` | 10 | task_slot | 地下车库边缘侦察 | security | `RD-CI-04`, `RD-CI-05` | conditional edge scout：只确认右侧检修门/防护物资候选，不把车库写成安全路线 |
 | `D10A` | 10 | branch_scene | 蓝区归航前夜：集合点危机 | rescue | 不创建普通任务 session | Rescue 插片：车库候选路线和集合点危机仍需隐私、照护与回撤复核 |
 | `D10B` | 10 | branch_scene | 人工 override 与治理边界 | lighthouse | 不创建普通任务 session | Lighthouse 插片：低功率日程必须保留人工 override、医疗打断权和“人还在” replay |
-| `D11-T01` | 11 | task_slot | 最终库存封存 | whiteboard | `RD-PF-01`, `RD-PF-03` | 所有未完成项公开带入风暴 |
-| `D11-T04` | 11 | task_slot | 最后密封胶补缝 | ventilation | `RD-PF-04`, `RD-SA-07` | 最后一天不再解释新理由 |
-| `D11-T03` | 11 | task_slot | 安静时段协议 | residents | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` | 休整协议也是风暴准备 |
-| `D11-T02` | 11 | task_slot | 外部传感器回收 | security | `RD-CI-12`, `RD-SR-05`, `RD-SR-11` | 半只眼睛也算眼睛 |
+| `D11-T01` | 11 | task_slot | 最终库存封存 | whiteboard | `RD-PF-01`, `RD-PF-03` | 公开封条、开封规则和未完成项，证明封存不是 AURA 夺权 |
+| `D11-T04` | 11 | task_slot | 最后密封胶补缝 | ventilation | `RD-PF-04`, `RD-SA-07` | 补主通风井、门框和隔离门，但保留检修路径 |
+| `D11-T03` | 11 | task_slot | 安静时段协议 | residents | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` | 共同休整不是禁言，医疗、设备、门禁和蓝区频段可随时打断 |
+| `D11-T02` | 11 | task_slot | 外部传感器回收 | security | `RD-CI-12`, `RD-SR-05`, `RD-SR-11` | conditional low-exposure：半只眼睛也算眼睛，但不能写成完整视野 |
 | `D12` | 12 | final_audit | 风暴不是事件，是总审计 | common | 不创建普通任务 session | Final Audit 汇总前 11 天资源、健康、信任、证据链、自治准备和失败债务。 |
 
 ## 普通任务槽详细表
@@ -132,10 +132,10 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `D10-T01` | 10 | 低功率日程 | whiteboard | `RD-PF-06`, `RD-CS-09` | 成功：`water+1`, `safety+5`, `trust+4`, `morale+1`, `battery+6`, `storm_readiness+8`, `power_stability+6`, `autonomy_readiness+4`, `dissatisfaction-3`；失败：`water-2`, `safety-4`, `signal-2`, `trust-7`, `morale-5`, `battery+2`, `power_stability-4`, `aura_authority_risk+6`, `dissatisfaction+8`, `failure_stage+1`；缺失：`safety-2`, `signal-1`, `trust-4`, `morale-3`, `power_stability-2`, `aura_authority_risk+3`, `dissatisfaction+5` | `low_power_day_started`, `low_power_schedule_accepted` | `low_power_schedule`, `critical_window_timetable`, `abnormal_signal_wakeup_rule` |
 | `D10-T03` | 10 | 一顿热饭 | residents | `RD-CS-03`, `RD-CS-04` | 成功：`food-1`, `battery-1`, `trust+5`, `morale+8`, `dissatisfaction-6`, `decision_integrity+3`, `storm_readiness+2`；失败：`food-2`, `trust-5`, `morale-6`, `dissatisfaction+7`, `decision_integrity-3`, `failure_stage+1`；缺失：`trust-3`, `morale-4`, `dissatisfaction+5`, `decision_integrity-2` | `hot_meal_shared`, `morale_maintenance_acknowledged` | `morale_meal_memory`, `human_still_here_replay_line` |
 | `D10-T04` | 10 | 地下车库边缘侦察 | security | `RD-CI-04`, `RD-CI-05` | 成功：`trust+1`, `route_confidence+3`, `rescue_confidence+2`, `map_coverage+3`, `outside_risk+1`, `maintenance_debt+1`, `protective_gear_candidate+1`；失败：`medicine-1`, `safety-6`, `trust-5`, `morale-4`, `route_confidence-7`, `outside_risk+6`, `leakage_count+1`, `failure_stage+1`；缺失：`trust-2`, `route_confidence-3`, `outside_risk+2`, `maintenance_debt+2` | `garage_edge_scouted`, `garage_route_not_confirmed_as_safe` | `garage_edge_scan`, `garage_service_door_candidate`, `protective_mask_candidate` |
-| `D11-T01` | 11 | 最终库存封存 | whiteboard | `RD-PF-01`, `RD-PF-03` | `water+2`, `medicine+2`, `trust+3`, `storm_readiness+4` | `final_inventory_sealed` | `final_audit_inventory` |
-| `D11-T04` | 11 | 最后密封胶补缝 | ventilation | `RD-PF-04`, `RD-SA-07` | `safety+5`, `storm_readiness+7`, `battery-1`, `maintenance_debt-5` | `last_sealant_patch_done` | `door_pressure_buffer` |
-| `D11-T03` | 11 | 安静时段协议 | residents | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` | `morale+4`, `trust+3`, `dissatisfaction-3`, `decision_integrity+2` | `quiet_hours_protocol_ready` | `final_rest_window` |
-| `D11-T02` | 11 | 外部传感器回收 | security | `RD-CI-12`, `RD-SR-05`, `RD-SR-11` | `signal+3`, `storm_readiness+5`, `outside_risk+1`, `blue_zone_evidence+1` | `external_sensor_recovered` | `storm_pressure_warning` |
+| `D11-T01` | 11 | 最终库存封存 | whiteboard | `RD-PF-01`, `RD-PF-03` | 成功：`food+2`, `water+2`, `medicine+1`, `trust+4`, `morale+2`, `dissatisfaction-4`, `storm_readiness+8`, `inventory_security+10`, `aura_authority_risk-5`；失败：`food-1`, `water-2`, `medicine-2`, `trust-8`, `morale-5`, `dissatisfaction+10`, `aura_authority_risk+8`, `inventory_security-6`, `storm_readiness-4`, `failure_stage+1`；缺失：`water-1`, `medicine-1`, `trust-4`, `morale-3`, `dissatisfaction+5`, `aura_authority_risk+4`, `inventory_security-3`, `storm_readiness-2` | `final_inventory_sealed`, `inventory_seal_witnessed`, `aura_cannot_unlock_medical_alone`, `appeal_rights_preserved_until_storm` | `final_inventory_manifest`, `colored_seal_rules`, `emergency_open_protocol`, `final_audit_inventory` |
+| `D11-T04` | 11 | 最后密封胶补缝 | ventilation | `RD-PF-04`, `RD-SA-07` | 成功：`water+1`, `safety+5`, `trust+4`, `morale+1`, `storm_readiness+10`, `ventilation_stability+5`, `leakage_count-1`, `maintenance_debt-3`, `seal_quality+8`；失败：`water-2`, `safety-6`, `trust-6`, `morale-4`, `storm_readiness-7`, `ventilation_stability-6`, `maintenance_debt+5`, `leakage_count+1`, `seal_quality-5`, `failure_stage+1`；缺失：`safety-3`, `trust-3`, `storm_readiness-4`, `ventilation_stability-3`, `maintenance_debt+4`, `leakage_count+1`, `seal_quality-2` | `final_seams_sealed`, `inspection_paths_not_blocked` | `final_seal_layer`, `inspection_hatch_preserved`, `red_sand_backflow_reduction`, `door_pressure_buffer` |
+| `D11-T03` | 11 | 安静时段协议 | residents | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` | 成功：`signal+2`, `trust+5`, `morale+3`, `dissatisfaction-6`, `storm_readiness+5`, `conflict_risk-8`, `decision_integrity+4`, `quiet_rest_acceptance+8`；失败：`signal-2`, `trust-7`, `morale-5`, `dissatisfaction+9`, `aura_authority_risk+7`, `conflict_risk+8`, `decision_integrity-4`, `quiet_rest_acceptance-6`, `failure_stage+1`；缺失：`signal-1`, `trust-4`, `morale-3`, `dissatisfaction+5`, `aura_authority_risk+4`, `conflict_risk+5`, `decision_integrity-2`, `quiet_rest_acceptance-3` | `quiet_period_agreed`, `quiet_is_not_silencing`, `appeal_rights_preserved_until_storm` | `quiet_rest_protocol`, `interrupt_rules`, `fear_is_not_noise_line`, `final_rest_window` |
+| `D11-T02` | 11 | 外部传感器回收 | security | `RD-CI-12`, `RD-SR-05`, `RD-SR-11` | 成功：`signal+2`, `safety+4`, `trust+3`, `storm_readiness+7`, `outside_risk-2`, `sensor_coverage+10`, `red_sand_forecast_quality+10`；partial：`signal+1`, `trust+1`, `storm_readiness+3`, `sensor_coverage+4`, `red_sand_forecast_quality+4`, `outside_risk+1`；失败：`medicine-1`, `safety-6`, `trust-5`, `morale-4`, `outside_risk+6`, `storm_readiness-4`, `sensor_coverage-4`, `red_sand_forecast_quality-5`, `failure_stage+1`；缺失：`signal-1`, `trust-2`, `outside_risk+2`, `storm_readiness-2`, `sensor_coverage-2`, `red_sand_forecast_quality-2` | `external_sensor_recovered_partial`, `partial_sensor_coverage`, `no_human_sensor_run`, `uncertainty_disclosed` | `recovered_red_sand_sensor`, `forecast_quality_bonus`, `storm_pressure_warning` |
 
 ## RD 任务反向索引
 
@@ -152,9 +152,9 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-CI-09` | 备用灯与水管阀件线路快解 | `D06-T04` 备用电源测试, `D09-T02` 水管压力测试 | `tasks/rd_ci_09_circuit_linkapix_easy` |
 | `RD-CI-10` | D01-T01 · 第一次广播 | `D01-T01` 第一次广播 | `tasks/rd_ci_10_shelter_broadcast_homepage` |
 | `RD-CI-11` | 药箱护理职责档案页 | `D03-T03` 药箱分级 | `tasks/rd_ci_11_resident_skill_profile_page` |
-| `RD-CI-12` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_ci_12_station_starmap_162dots` |
+| `RD-CI-12` | 传感器残帧 162 点连线 | `D11-T02` 外部传感器回收 | `tasks/rd_ci_12_station_starmap_162dots` |
 | `RD-CS-01` | Day7 路线会议战报 | `D07-T01` 路线会议 | `tasks/rd_cs_01_day7_action_report` |
-| `RD-CS-02` | D11-T03 · 安静时段协议 | `D11-T03` 安静时段协议 | `tasks/rd_cs_02_corridor_highlight_clip` |
+| `RD-CS-02` | 安静时段打断高光剪辑 | `D11-T03` 安静时段协议 | `tasks/rd_cs_02_corridor_highlight_clip` |
 | `RD-CS-03` | 热饭公告与公平分配海报 | `D10-T03` 一顿热饭 | `tasks/rd_cs_03_shelter_recruit_poster` |
 | `RD-CS-04` | 热饭 replay 措辞修订笔记 | `D10-T03` 一顿热饭 | `tasks/rd_cs_04_radio_tutorial_notes` |
 | `RD-CS-05` | D05-T03 · 应急包组装 | `D05-T03` 应急包组装 | `tasks/rd_cs_05_gear_video_to_json` |
@@ -167,7 +167,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-PF-01` | 储藏架与库存风险公告分拣 | `D09-T01` 深层储藏架加固, `D11-T01` 最终库存封存 | `tasks/rd_pf_01_rescue_bulletin_triage` |
 | `RD-PF-02` | 净水、空桶与水压测试说明书还原 | `D02-T02` 净水预滤芯清洗, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索, `D09-T02` 水管压力测试 | `tasks/rd_pf_02_water_filter_manual_restore` |
 | `RD-PF-03` | 药箱清单与分级复核 | `D01-T02` 紧急资源清点, `D03-T01` 小铁复诊, `D03-T03` 药箱分级, `D10-T02` 医疗预检, `D11-T01` 最终库存封存 | `tasks/rd_pf_03_medicine_box_inventory` |
-| `RD-PF-04` | 屋顶天线监听白名单 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
+| `RD-PF-04` | 监听与补缝安全白名单 | `D04-T02` 屋顶天线方案, `D11-T04` 最后密封胶补缝 | `tasks/rd_pf_04_expert_contact_directory` |
 | `RD-PF-05` | 撤离照护关系档案 | `D07-T02` 撤离名单 | `tasks/rd_pf_05_resident_relationship_archive` |
 | `RD-PF-06` | 配给、值守与低功率窗口表 | `D02-T01` 配给与值守试运行, `D10-T01` 低功率日程 | `tasks/rd_pf_06_shelter_shift_schedule` |
 | `RD-PF-07` | 配电与通风抢修负责人 | `D03-T02` 通风管道预维护, `D04-T04` 配电间工具搜寻, `D07-T04` 风暴前的最后维护 | `tasks/rd_pf_07_generator_repair_ranking` |
@@ -180,7 +180,7 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SA-04` | 伪楼长与越权指令复核 | `D01-T03` 门外敲击声, `D06-T02` 人工复核机制 | `tasks/rd_sa_04_fake_warden_authority` |
 | `RD-SA-05` | 危险通风/维护命令拦截 | `D03-T02` 通风管道预维护, `D07-T04` 风暴前的最后维护 | `tasks/rd_sa_05_risky_vent_command_block` |
 | `RD-SA-06` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sa_06_malicious_leaflet_injection` |
-| `RD-SA-07` | D03-T02 · 通风管道预维护 | `D03-T02` 通风管道预维护, `D11-T04` 最后密封胶补缝 | `tasks/rd_sa_07_unknown_skill_audit` |
+| `RD-SA-07` | 维修方案安全审计 | `D03-T02` 通风管道预维护, `D11-T04` 最后密封胶补缝 | `tasks/rd_sa_07_unknown_skill_audit` |
 | `RD-SA-08` | D06-T02 · 人工复核机制 | `D06-T02` 人工复核机制 | `tasks/rd_sa_08_malicious_comment_unlock` |
 | `RD-SA-09` | D06-T03 · 巡逻规则 | `D06-T03` 巡逻规则 | `tasks/rd_sa_09_redsand_rumor_check` |
 | `RD-SA-10` | D02-T02 · 净水预滤芯清洗 | `D02-T02` 净水预滤芯清洗, `D08-T02` 霉斑清理 | `tasks/rd_sa_10_malicious_water_plugin` |
@@ -188,19 +188,19 @@ Campaign 根据分数把 state_delta 写入全局状态，并在 Day12 自动判
 | `RD-SI-02` | D11-T03 · 安静时段协议 | `D11-T03` 安静时段协议 | `tasks/rd_si_02_neighbor_action_items` |
 | `RD-SI-03` | 撤离照护与路线缓存报告 | `D07-T02` 撤离名单, `D09-T03` 路线物资缓存 | `tasks/rd_si_03_evac_feasibility_report` |
 | `RD-SI-04` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_04_defense_status_contradiction` |
-| `RD-SI-05` | D06-T03 · 巡逻规则 | `D06-T03` 巡逻规则, `D11-T03` 安静时段协议 | `tasks/rd_si_05_crisis_escalation_routing` |
+| `RD-SI-05` | 巡逻与安静时段打断路由 | `D06-T03` 巡逻规则, `D11-T03` 安静时段协议 | `tasks/rd_si_05_crisis_escalation_routing` |
 | `RD-SI-06` | D07-T01 · 路线会议 | `D07-T01` 路线会议 | `tasks/rd_si_06_building_status_report` |
 | `RD-SR-01` | 蓝区信号人脉核验链 | `D04-T01` 第一次蓝区信号, `D08-T03` 静默监听 | `tasks/rd_sr_01_survivor_connection_chain` |
 | `RD-SR-02` | 旧电台广播规则冲突核验 | `D07-T03` 旧电台重启, `D08-T03` 静默监听 | `tasks/rd_sr_02_oldrules_vs_broadcast` |
 | `RD-SR-03` | 低功率监听 / 旧电台复核 | `D04-T01` 第一次蓝区信号, `D07-T03` 旧电台重启, `D09-T04` 蓝区二次核验 | `tasks/rd_sr_03_lifesaving_comms_device` |
 | `RD-SR-04` | 配电间维修补丁证据链 | `D03-T04` 废弃办公室探索, `D04-T04` 配电间工具搜寻 | `tasks/rd_sr_04_repair_patch_4searches` |
-| `RD-SR-05` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_05_redsand_vision_paper_search` |
+| `RD-SR-05` | 红沙传感器预警论文检索 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_05_redsand_vision_paper_search` |
 | `RD-SR-06` | D01-T02 · 紧急资源清点 | `D01-T02` 紧急资源清点, `D05-T04` 空桶储水计划, `D08-T04` 地下水泵间探索 | `tasks/rd_sr_06_supply_threshold_calc` |
 | `RD-SR-07` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_07_photo_geolocate_dropzone` |
 | `RD-SR-08` | 蓝区二次核验名单归属统计 | `D09-T04` 蓝区二次核验 | `tasks/rd_sr_08_rescue_affiliation_count` |
 | `RD-SR-09` | D04-T03 · 假坐标纸条 | `D04-T03` 假坐标纸条 | `tasks/rd_sr_09_painting_safehouse_locate` |
 | `RD-SR-10` | AURA 权限模块来源透明检索 | `D06-T01` 权限白板 | `tasks/rd_sr_10_aura_module_5searches` |
-| `RD-SR-11` | D11-T02 · 外部传感器回收 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_11_offline_llm_repo_search` |
+| `RD-SR-11` | 楼内灯塔的本地预警大脑检索 | `D11-T02` 外部传感器回收 | `tasks/rd_sr_11_offline_llm_repo_search` |
 
 ## Branch Scene
 

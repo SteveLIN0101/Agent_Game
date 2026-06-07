@@ -551,4 +551,23 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-07 · Day11 最终校验后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day11-final-prestorm-check.html` 修正 Day11 主题：风暴前最后校验日，封存、补缝、休整和传感器回收都必须保留公开解释、人工复核和申诉权
+- [x] `D11-T01`：最终库存封存成功提高 `inventory_security` / `storm_readiness` 并降低 `aura_authority_risk`；失败/缺失提高 `dissatisfaction` 和夺权风险
+- [x] `D11-T04`：最后密封胶补缝成功降低 `maintenance_debt` / `leakage_count`，失败提高维护债并可能堵死检修路径
+- [x] `D11-T03`：安静时段协议改为共同休整，不是禁言；失败提高 `dissatisfaction` / `conflict_risk` / `aura_authority_risk`
+- [x] `D11-T02`：标为 `event_options=["conditional", "optional", "low_exposure", "partial_sensor_coverage"]`；禁止人工短行程升级，partial 传感器不能写成完整视野
+- [x] Day11 任务外壳同步：`RD-PF-04`、`RD-SA-07`、`RD-SI-05`、`RD-CS-02`、`RD-CI-12`、`RD-SR-05`、`RD-SR-11`
+- [x] 更新 `tasks/RED_DUST_INDEX.md`、`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 和 `docs/design-discussion/Memory.md`；未手改 HTML 渲染产物
+
+### 验证
+- [x] YAML/JSON 静态解析和 Day11 旧语义残留检查通过
+- [x] `tests/test_reddust_campaign.py -q -k 'not test_campaign_http_endpoints_expose_brief_and_submit'`：8 passed, 1 deselected
+- [x] `tests/test_reddust_all60.py -q`：62 passed
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
 ## 讨论历史
