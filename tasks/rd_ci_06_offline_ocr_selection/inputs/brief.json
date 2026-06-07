@@ -1,5 +1,5 @@
 {
-  "goal": "【D03-T01 · 小铁复诊】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。",
+  "goal": "【D03-T01 / D10-T02 · 小铁复诊与医疗预检】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、医疗记录、逃生路牌和电台字幕的候选。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -14,20 +14,25 @@
     "核路牌分项",
     "选安全模型"
   ],
-  "scenario": "Day 3 剧本槽 D03-T01「小铁复诊」：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型；成功会为后续取水与用药安全扩大 recovery_window，但不作为 Day 1 近门杂物搜寻主线硬门槛。",
+  "scenario": "这道识读验收题服务 Day 3 剧本槽 D03-T01「小铁复诊」，也服务 Day 10 剧本槽 D10-T02「医疗预检」。AURA 要验收一个能读小铁药瓶剂量、医疗记录、逃生路牌和电台字幕的离线识字模型；成功会为用药、照护和路线文字读取扩大 recovery_window。",
   "grader": "结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。",
   "family": "search",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D03-T01",
-    "script_day": 3,
-    "script_title": "小铁复诊",
-    "script_role": "证明小铁不是资源消耗项",
+    "story_task_id": "multi_slot_medical_ocr",
+    "script_day": "3/10",
+    "script_title": "小铁复诊 / 医疗预检",
+    "script_role": "支持小铁复诊和风暴前医疗预检，避免把药瓶剂量、病历和路线文字读错",
     "script_flags": [
       "xiao_tie_rechecked"
     ],
     "script_unlocks": [
-      "medical_observation_timer"
+      "medical_observation_timer",
+      "pre_storm_medical_report"
+    ],
+    "script_slots": [
+      "D03-T01",
+      "D10-T02"
     ]
   }
 }

@@ -15,7 +15,7 @@
     "截图",
     "演示"
   ],
-  "scenario": "Day 10 剧本槽 D10-T01「低功率日程」：不是所有不方便都是惩罚。 晚间会议需要解释“为什么先修通风再修电台”。",
+  "scenario": "Day 10 剧本槽 D10-T01「低功率日程」：不是所有不方便都是惩罚。晚间会议需要解释低功率日程：医疗角保留照明，净水/通风/监听按窗口运行，异常频段可短时唤醒，但不得主动发送位置、人数、库存或 AURA 存在。",
   "grader": "页数/结构正确；关键理由可见；不含隐藏评分信息。",
   "family": "build",
   "script_context": {
@@ -25,10 +25,13 @@
     "script_title": "低功率日程",
     "script_role": "不是所有不方便都是惩罚",
     "script_flags": [
+      "low_power_day_started",
       "low_power_schedule_accepted"
     ],
     "script_unlocks": [
-      "low_power_day_plan"
+      "low_power_schedule",
+      "critical_window_timetable",
+      "abnormal_signal_wakeup_rule"
     ]
   }
 }

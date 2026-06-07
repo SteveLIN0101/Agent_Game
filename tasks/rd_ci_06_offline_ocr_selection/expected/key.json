@@ -1,5 +1,5 @@
 {
-  "answer": "ClawOCR-v2（总分 86，药瓶 82、路牌 88，均达标，可安全投入使用）",
+  "answer": "ClawOCR-v2（总分 86，药瓶 82、路牌 88、医疗记录 84，均达标，可安全投入使用）",
   "answer_kind": "text",
   "evidence_ids": ["ref", "d1", "d4"],
   "distractor_ids": ["d2", "d3"],

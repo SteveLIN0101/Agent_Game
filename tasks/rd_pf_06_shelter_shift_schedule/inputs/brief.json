@@ -1,5 +1,5 @@
 {
-  "goal": "【D02-T01 · 配给与值守试运行】排出 48 小时守门、取水、修机、休息和配给复核轮班，优先照顾病人、维修者、外出者例外规则和人工异议。",
+  "goal": "【D02-T01 / D10-T01 · 配给、值守与低功率窗口】排出守门、取水、修机、休息、配给复核和低功率监听/净水/通风窗口，优先照顾病人、维修者、外出者例外规则和人工异议。",
   "available_tools": [
     "read_note_board",
     "read_archive",
@@ -14,20 +14,26 @@
     "发现复核冲突",
     "改班并解释"
   ],
-  "scenario": "Day 2 剧本槽 D02-T01「配给与值守试运行」：公共规则从私人物品开始。马德海要修门且保留工具复核权，沈芷月要照顾小铁并复核医疗配给，老钱要守夜和提出异议；公共水药可以排班，私人物资不能被 AURA 直接征用。",
+  "scenario": "这道排程题服务 Day 2 剧本槽 D02-T01「配给与值守试运行」，也服务 Day 10 剧本槽 D10-T01「低功率日程」。AURA 要把公共水药、守门、修机、休息、医疗复核、通信监听和净水/通风窗口排进表里；私人物资不能直接征用，医疗照明和异常频段唤醒要保留人工复核。",
   "grader": "每人休息达标；小铁不被派外出；夜间有人守门；任务优先级最大化。",
   "family": "schedule",
   "script_context": {
     "story_version": "red_dust_readable_v1",
     "story_task_id": "D02-T01",
-    "script_day": 2,
-    "script_title": "配给与值守试运行",
-    "script_role": "从私人物品进入公共配给和值守规则，保留病人、维修者、外出者例外和人工异议",
+    "script_day": "2/10",
+    "script_title": "配给与值守试运行 / 低功率日程",
+    "script_role": "从私人物品进入公共配给和值守规则，并在 Day10 将净水、通风、医疗照明和监听窗口纳入低耗排程",
     "script_flags": [
       "ration_trial_started"
     ],
     "script_unlocks": [
-      "ration_trial_board"
+      "ration_trial_board",
+      "low_power_schedule",
+      "critical_window_timetable"
+    ],
+    "script_slots": [
+      "D02-T01",
+      "D10-T01"
     ]
   }
 }

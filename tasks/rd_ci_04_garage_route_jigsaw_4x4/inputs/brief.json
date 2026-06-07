@@ -1,5 +1,5 @@
 {
-  "goal": "【D04-T03 · 假坐标纸条】拼出车库图，找出避开红沙堆积的通道。",
+  "goal": "【D04-T03 / D10-T04 · 车库风险图】拼出车库探头图，标出红沙堆积、坍塌和右侧检修门候选；不得把候选通道写成已确认安全路线。",
   "available_tools": [
     "load_input",
     "run_model",
@@ -14,23 +14,29 @@
     "算边缘",
     "搜全局",
     "拼图",
-    "标风险",
-    "生成路线"
+    "标坍塌和红沙风险",
+    "生成候选路线"
   ],
-  "scenario": "Day 4 剧本槽 D04-T03「假坐标纸条」：识别希望里的诱饵。 地下车库图被切成 24 块，8 块是偏移裁切干扰。",
+  "scenario": "这道拼图题服务 Day 4 剧本槽 D04-T03「假坐标纸条」，也服务 Day 10 剧本槽 D10-T04「地下车库边缘侦察」。地下车库探头图被切成 24 块，8 块是偏移裁切干扰；AURA 只能标出风险和候选路线，不能把车库写成已确认可走。",
   "grader": "16 块正确；通道连通；风险点标注。",
   "family": "jigsaw",
   "script_context": {
     "story_version": "red_dust_readable_v1",
-    "story_task_id": "D04-T03",
-    "script_day": 4,
-    "script_title": "假坐标纸条",
-    "script_role": "识别希望里的诱饵",
+    "story_task_id": "multi_slot_garage_route_risk",
+    "script_day": "4/10",
+    "script_title": "假坐标纸条 / 地下车库边缘侦察",
+    "script_role": "识别希望里的诱饵，并在 Day10 只确认候选路线而非安全路线",
     "script_flags": [
       "fake_coordinate_archived"
     ],
     "script_unlocks": [
-      "route_risk_layer"
+      "route_risk_layer",
+      "garage_edge_scan",
+      "garage_service_door_candidate"
+    ],
+    "script_slots": [
+      "D04-T03",
+      "D10-T04"
     ]
   }
 }

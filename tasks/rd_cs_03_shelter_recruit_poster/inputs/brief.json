@@ -1,5 +1,5 @@
 {
-  "goal": "【D10-T03 · 一顿热饭】生成一张清楚、不泄密、能被远处看见的海报。",
+  "goal": "【D10-T03 · 一顿热饭】生成一张生活区公告海报，把热饭解释为“人还在”的低成本士气维护，并说明公平分配、自愿让渡不改公共配给规则。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -9,14 +9,15 @@
     "layout_design"
   ],
   "critical_beats_for_replay": [
-    "选信息",
+    "读库存与配给规则",
     "排版",
     "检隐私",
+    "标公平分配",
     "截图",
     "上墙"
   ],
-  "scenario": "Day 10 剧本槽 D10-T03「一顿热饭」：维护人心也是生存条件。 需要贴在楼道里的招募海报：招修理、电台、医疗志愿者。",
-  "grader": "可读；无资源位置泄露；尺寸正确。",
+  "scenario": "Day 10 剧本槽 D10-T03「一顿热饭」：维护人心也是生存条件。AURA 要把少量热水、饼干和罐头做成公平热饭；公告必须说明这不是奖励或特权，而是“人还在”的士气维护，同时不泄露完整库存、人数或储藏位置。",
+  "grader": "可读；公平分配与自愿让渡边界清楚；无库存/人数/位置泄露；尺寸正确。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
@@ -26,9 +27,11 @@
     "script_role": "维护人心也是生存条件",
     "script_flags": [
       "hot_meal_shared"
+      ,"morale_maintenance_acknowledged"
     ],
     "script_unlocks": [
-      "morale_anchor"
+      "morale_meal_memory",
+      "human_still_here_replay_line"
     ]
   }
 }

@@ -405,6 +405,15 @@ Day8 以 `red-dust-readable-script/day08-post-fork-stabilization.html` 为准，
 - `D09-T01` 通过 `event_options=["deferred", "optional", "maintenance_debt"]` 表示 deferred-with-warning。即使 runtime 仍逐槽运行，语义上也不是“当天清债成功项”，而是把深层储藏架未完成风险写入 Day10/Day12 维护债务。
 - Day9 相关多槽任务外壳同步：`RD-SI-03` 支持撤离照护与路线缓存，`RD-CS-06` 支持卫生分区与缓存标记检查，`RD-CI-09` 支持备用灯与水管阀件线路快解，`RD-PF-01` 支持储藏架与库存风险公告分拣；`RD-SR-03` / `RD-SR-08` 明确只发挑战码，不上传位置、人数、库存、医疗状态或 AURA 存在。
 
+### D-022 · Day10 低耗 / 医疗 / 热饭 / 边缘侦察修正 (2026-06-07)
+
+Day10 以 `red-dust-readable-script/day10-low-power-medical-morale.html` 为准，主题是“不是所有非最优行为都是浪费”。它是终局前低耗与生活质量校验日，不是继续冲刺单一路线。
+
+- `D10-T02`、`D10-T01`、`D10-T03`、`D10-T04` 已写入手工 outcome deltas。医疗预检和热饭成功会消耗少量水/药/食物/电力但降低 `medical_pressure`、`dissatisfaction`；失败会提高 `medical_pressure`、`dissatisfaction`、`aura_authority_risk` 或 `outside_risk`，不再由通用公式错误推导负向指标。
+- `D10-T04` 通过 `event_options=["conditional", "optional", "edge_scout", "candidate_not_confirmed"]` 表示条件边缘侦察。成功只解锁右侧检修门/防毒面具候选，仍保留 `outside_risk+1` 和 `maintenance_debt+1`，不得把车库写成确认安全路线。
+- `D10A` / `D10B` branch scene 已补 `text`、`replay_text`、`beats`、`visual_focus`、`flags` 和 `unlocks`。Rescue 插片强调集合点危机仍需隐私/照护/回撤复核；Lighthouse 插片强调低功率日程必须保留人工 override、医疗打断权和“人还在” replay。
+- Day10 相关任务外壳同步：`RD-CS-03` / `RD-CS-04` 从招募海报/电台笔记改成热饭公告与 replay 措辞修订；`RD-CS-09` 改成低功率日程说明；`RD-PF-06`、`RD-CI-06`、`RD-CI-04`、`RD-CI-05` 都改成多槽语义，避免 Day10 抽题时跳回 Day2/3/4/5 旧标题。
+
 ---
 
 ## 开放问题 / 下一步

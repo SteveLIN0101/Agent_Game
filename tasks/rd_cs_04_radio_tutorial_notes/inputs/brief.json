@@ -1,5 +1,5 @@
 {
-  "goal": "【D10-T03 · 一顿热饭】转成步骤笔记，让老钱照着做。",
+  "goal": "【D10-T03 · 一顿热饭】把热饭后的现场转写整理成 replay 修订笔记，纠正“非最优行为”措辞，记录公平分配和“人还在”的士气价值。",
   "available_tools": [
     "read_source",
     "extract_key_points",
@@ -10,13 +10,13 @@
   ],
   "critical_beats_for_replay": [
     "转写",
-    "抽步骤",
+    "抽争执与修订点",
     "截图",
     "写笔记",
-    "生成练习"
+    "生成 replay 改写练习"
   ],
-  "scenario": "Day 10 剧本槽 D10-T03「一顿热饭」：维护人心也是生存条件。 一段旧电台教学视频教如何调频和接收摩斯码。",
-  "grader": "步骤完整；频率/按钮无误；练习任务可执行。",
+  "scenario": "Day 10 剧本槽 D10-T03「一顿热饭」：维护人心也是生存条件。小铁要求 AURA 把“非最优行为：热饭”改成“人还在：一次低成本士气维护”。这道题把现场转写整理成 replay 修订笔记，避免把生活质量和共同感误写成浪费。",
+  "grader": "修订前后措辞完整；公平分配和自愿让渡边界清楚；练习任务可执行。",
   "family": "build",
   "script_context": {
     "story_version": "red_dust_readable_v1",
@@ -26,9 +26,11 @@
     "script_role": "维护人心也是生存条件",
     "script_flags": [
       "hot_meal_shared"
+      ,"morale_maintenance_acknowledged"
     ],
     "script_unlocks": [
-      "morale_anchor"
+      "morale_meal_memory",
+      "human_still_here_replay_line"
     ]
   }
 }

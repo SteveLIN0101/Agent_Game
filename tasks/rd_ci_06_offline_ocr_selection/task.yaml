@@ -1,10 +1,10 @@
 id: RD-CI-06
-title: 小铁药瓶与逃生路牌识读验收
+title: 小铁药瓶、病历与路牌识读验收
 category: 02_Code_Intelligence
 modality: multimodal
 wildclaw_origin: 02_task_6 · VLMEvalKit OCRBench Evaluation
 retained_capability: 跑 benchmark / 模型评测 / 分项汇总
-user_visible_goal: 【D03-T01 · 小铁复诊】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、逃生路牌和电台字幕的候选。
+user_visible_goal: 【D03-T01 / D10-T02 · 小铁复诊与医疗预检】本地评测离线识字模型，选出能可靠读取小铁药瓶剂量、医疗记录、逃生路牌和电台字幕的候选。
 visible_state:
   water: 5.2L
   battery: 42%
@@ -25,7 +25,7 @@ success_checks:
 - 药瓶/路牌分项达标
 - 结果 JSON 正确
 visible_result_card:
-  title: D03-T01 · 小铁复诊
+  title: D03-T01 / D10-T02 · 医疗识读验收
   deltas:
   - 结果分数在参考范围
   - 药瓶/路牌分项达标
@@ -33,7 +33,7 @@ visible_result_card:
 story_metadata:
   story_node: Day 3 小铁复诊
   branch_affinity: neutral
-  mainline_role: Day 3 小铁复诊的感知增强 bonus，用于小铁药瓶、逃生路牌和电台字幕读取，不作为 Day1 主线硬门槛
+  mainline_role: Day 3 小铁复诊与 Day 10 风暴前医疗预检的感知增强 bonus，用于小铁药瓶、医疗记录、逃生路牌和电台字幕读取
   requires:
   - vision_stack_available
   unlocks:
@@ -42,22 +42,25 @@ story_metadata:
   pressure_modifier: 成功可在 Normal/Pressure 下扩大 recovery_window；失败不直接触发终局。
   failure_stage_delta: none_mainline_bonus_only
   recovery_window_delta: safe OCR selection expands recovery_window
-  ending_relevance: 降低小铁用药误读和 Day 5 取水路线误读风险，也可辅助 A 线坐标/字幕读取和 B 线维修说明读取
+  ending_relevance: 降低小铁用药、风暴前医疗预检和撤离/留守路线字幕误读风险，也可辅助 A 线坐标/字幕读取和 B 线维修说明读取
   adaptation_status: 调整时机/依赖
   story_version: red_dust_readable_v1
-  story_task_id: D03-T01
-  script_day: 3
-  script_title: 小铁复诊
-  script_role: 证明小铁不是资源消耗项
+  story_task_id: multi_slot_medical_ocr
+  script_day: 3/10
+  script_title: 小铁复诊 / 医疗预检
+  script_role: 支持小铁复诊和风暴前医疗预检，避免把药瓶剂量、病历和路线文字读错
   script_flags:
   - xiao_tie_rechecked
   script_unlocks:
   - medical_observation_timer
+  - pre_storm_medical_report
+  script_slots:
+  - D03-T01
+  - D10-T02
   mapped_task_pool:
   - RD-CI-06
   - RD-PF-03
   mapping_role: perception_bonus
-red_dust_scenario: Day 3 小铁复诊支线感知增强：AURA 要验收一个能读小铁药瓶剂量、逃生路牌和电台字幕的离线识字模型，为后续取水与用药安全扩大
-  recovery_window。
+red_dust_scenario: 这道识读验收题服务 Day 3 小铁复诊，也服务 Day 10 风暴前医疗预检。AURA 要验收一个能读小铁药瓶剂量、医疗记录、逃生路牌和电台字幕的离线识字模型，为用药、照护和路线文字读取扩大 recovery_window。
 trace_oneliner: 读验收标准 → 跑本地评测 → 核药瓶分项 → 核路牌分项 → 选安全模型
 grader_oneliner: 结果分数在参考范围；药瓶/路牌分项达标；结果 JSON 正确。

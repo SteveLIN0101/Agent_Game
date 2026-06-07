@@ -531,4 +531,24 @@ git submodule update --init --recursive
 
 ---
 
+## 2026-06-07 · Day10 低耗、医疗与士气后端剧情映射修订
+
+### 已完成
+- [x] 按 `red-dust-readable-script/day10-low-power-medical-morale.html` 修正 Day10 主题：终局前低耗与生活质量校验，不把非资源最优行为等同于浪费
+- [x] `D10-T02`：医疗预检成功改为消耗少量水药但降低 `medical_pressure`、提高照护质量；失败/缺失提高医疗压力并降低 `xiao_tie_health`
+- [x] `D10-T01`：低功率日程成功提高 `battery` / `power_stability`，失败提高 `dissatisfaction` / `aura_authority_risk` 并降低 `power_stability`
+- [x] `D10-T03`：一顿热饭成功提高 `morale`、降低 `dissatisfaction`，失败会使热饭变成新冲突并降低 `decision_integrity`
+- [x] `D10-T04`：标为 `event_options=["conditional", "optional", "edge_scout", "candidate_not_confirmed"]`，成功只解锁候选路线和防护物资候选，失败提高 `outside_risk` / `leakage_count`
+- [x] `D10A` / `D10B` branch scene 增加 replay-friendly 字段；Rescue 显示集合点危机，Lighthouse 显示人工 override 与“人还在”治理边界
+- [x] Day10 任务外壳同步：`RD-CS-03`、`RD-CS-04`、`RD-CS-09`、`RD-PF-06`、`RD-CI-06`、`RD-CI-04`、`RD-CI-05`
+- [x] 更新 `tasks/RED_DUST_INDEX.md`、`docs/reference/campaign-mapping/red_dust_campaign_task_mapping.md` 和 `docs/design-discussion/Memory.md`；未手改 HTML 渲染产物
+
+### 验证
+- [x] YAML/JSON 静态解析和旧 Day10 标题残留检查通过
+- [x] `tests/test_reddust_campaign.py -q -k 'not test_campaign_http_endpoints_expose_brief_and_submit'`：8 passed, 1 deselected
+- [x] `tests/test_reddust_all60.py -q`：62 passed
+- [x] `tests/test_reddust_deeplib.py tests/test_reddust_deep_remaining.py tests/test_reddust_all60.py -q`：117 passed
+
+---
+
 ## 讨论历史

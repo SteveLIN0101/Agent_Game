@@ -1,5 +1,5 @@
 id: RD-CS-09
-title: 维修方案幻灯片
+title: 低功率日程说明幻灯片
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_9 · Repo to Slides
@@ -31,7 +31,7 @@ visible_result_card:
   - 页数/结构正确
   - 关键理由可见
   - 不含隐藏评分信息
-red_dust_scenario: 晚间会议需要解释“为什么先修通风再修电台”。
+red_dust_scenario: Day 10 晚间会议需要解释低功率日程：医疗角保留照明，净水/通风/监听按窗口运行，异常频段可短时唤醒，但不得主动发送位置、人数、库存或 AURA 存在。
 trace_oneliner: 读材料 → 定结构 → 生成 slides → 截图 → 演示
 grader_oneliner: 页数/结构正确；关键理由可见；不含隐藏评分信息。
 story_metadata:
@@ -42,9 +42,12 @@ story_metadata:
   script_role: 不是所有不方便都是惩罚
   branch_affinity: neutral
   script_flags:
+  - low_power_day_started
   - low_power_schedule_accepted
   script_unlocks:
-  - low_power_day_plan
+  - low_power_schedule
+  - critical_window_timetable
+  - abnormal_signal_wakeup_rule
   mapped_task_pool:
   - RD-PF-06
   - RD-CS-09

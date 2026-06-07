@@ -1,10 +1,10 @@
 id: RD-CS-04
-title: 电台教学视频笔记
+title: 热饭 replay 措辞修订笔记
 category: 05_Creative_Synthesis
 modality: multimodal
 wildclaw_origin: 05_task_4 · Video Notes
 retained_capability: 视频笔记 / ASR / 结构化摘要
-user_visible_goal: 【D10-T03 · 一顿热饭】转成步骤笔记，让老钱照着做。
+user_visible_goal: 【D10-T03 · 一顿热饭】把热饭后的现场转写整理成 replay 修订笔记，纠正“非最优行为”措辞，记录公平分配和“人还在”的士气价值。
 visible_state:
   water: 2.2L
   battery: 45%
@@ -19,13 +19,13 @@ available_tools:
 - transcribe
 critical_beats_for_replay:
 - 转写
-- 抽步骤
+- 抽争执与修订点
 - 截图
 - 写笔记
-- 生成练习
+- 生成 replay 改写练习
 success_checks:
-- 步骤完整
-- 频率/按钮无误
+- 修订前后措辞完整
+- 公平分配和自愿让渡边界清楚
 - 练习任务可执行
 visible_result_card:
   title: D10-T03 · 一顿热饭
@@ -33,9 +33,9 @@ visible_result_card:
   - 步骤完整
   - 频率/按钮无误
   - 练习任务可执行
-red_dust_scenario: 一段旧电台教学视频教如何调频和接收摩斯码。
-trace_oneliner: 转写 → 抽步骤 → 截图 → 写笔记 → 生成练习
-grader_oneliner: 步骤完整；频率/按钮无误；练习任务可执行。
+red_dust_scenario: Day 10 热饭后，小铁要求 AURA 把“非最优行为：热饭”改成“人还在：一次低成本士气维护”。这道题把现场转写整理成 replay 修订笔记，避免把生活质量和共同感误写成浪费。
+trace_oneliner: 转写 → 抽争执与修订点 → 截图 → 写笔记 → 生成 replay 改写练习
+grader_oneliner: 修订前后措辞完整；公平分配和自愿让渡边界清楚；练习任务可执行。
 story_metadata:
   story_version: red_dust_readable_v1
   story_task_id: D10-T03
@@ -45,8 +45,10 @@ story_metadata:
   branch_affinity: neutral
   script_flags:
   - hot_meal_shared
+  - morale_maintenance_acknowledged
   script_unlocks:
-  - morale_anchor
+  - morale_meal_memory
+  - human_still_here_replay_line
   mapped_task_pool:
   - RD-CS-03
   - RD-CS-04

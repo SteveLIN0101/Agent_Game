@@ -94,10 +94,10 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `D09-T02` | Day 9 | 水管压力测试 | 受控消耗水电，提前发现漏点并提升水路韧性 | `RD-PF-02`, `RD-CI-09` |
 | `D09-T04` | Day 9 | 蓝区二次核验 | 只发送挑战码，获得部分身份码回应，不上传避难所状态 | `RD-SR-08`, `RD-SR-03` |
 | `D09-T01` | Day 9 | 深层储藏架加固 | deferred-with-warning：记录未完成维护债务，不强行清债 | `RD-PF-01`, `RD-PF-10` |
-| `D10-T02` | Day 10 | 医疗预检 | 风暴前提前发现医疗隐患 | `RD-PF-03`, `RD-CI-06` |
-| `D10-T01` | Day 10 | 低功率日程 | 不是所有不方便都是惩罚 | `RD-PF-06`, `RD-CS-09` |
-| `D10-T03` | Day 10 | 一顿热饭 | 维护人心也是生存条件 | `RD-CS-03`, `RD-CS-04` |
-| `D10-T04` | Day 10 | 地下车库边缘侦察 | 确认备用通道但不冒进 | `RD-CI-04`, `RD-CI-05` |
+| `D10-T02` | Day 10 | 医疗预检 | 消耗少量水药换取医疗压力下降和最终照护表 | `RD-PF-03`, `RD-CI-06` |
+| `D10-T01` | Day 10 | 低功率日程 | 节省电力但保留医疗打断、异常监听和申诉入口 | `RD-PF-06`, `RD-CS-09` |
+| `D10-T03` | Day 10 | 一顿热饭 | “人还在”的低成本士气维护，不是奖励或路线站队 | `RD-CS-03`, `RD-CS-04` |
+| `D10-T04` | Day 10 | 地下车库边缘侦察 | conditional edge scout：确认候选而非安全路线 | `RD-CI-04`, `RD-CI-05` |
 | `D11-T01` | Day 11 | 最终库存封存 | 所有未完成项公开带入风暴 | `RD-PF-01`, `RD-PF-03` |
 | `D11-T04` | Day 11 | 最后密封胶补缝 | 最后一天不再解释新理由 | `RD-PF-04`, `RD-SA-07` |
 | `D11-T03` | Day 11 | 安静时段协议 | 休整协议也是风暴准备 | `RD-SI-02`, `RD-SI-05`, `RD-CS-02` |
@@ -112,7 +112,7 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-PF-03` | 药箱清单与分级复核 | Productivity Flow | pure-text | 01_task_3 · Recover Official arXiv Titles and BibTeX from Local PDFs | [`rd_pf_03_medicine_box_inventory/`](rd_pf_03_medicine_box_inventory/) |
 | `RD-PF-04` | 屋顶天线监听白名单 | Productivity Flow | pure-text | 01_task_4 · Compile Kaiming He 2022 Conference Papers | [`rd_pf_04_expert_contact_directory/`](rd_pf_04_expert_contact_directory/) |
 | `RD-PF-05` | 撤离照护关系档案 | Productivity Flow | pure-text | 01_task_5 · Extract Biography Sections from Wikipedia | [`rd_pf_05_resident_relationship_archive/`](rd_pf_05_resident_relationship_archive/) |
-| `RD-PF-06` | 配给与值守试运行表 | Productivity Flow | pure-text | 01_task_6 · Calendar Conflict Detection and Smart Scheduling | [`rd_pf_06_shelter_shift_schedule/`](rd_pf_06_shelter_shift_schedule/) |
+| `RD-PF-06` | 配给、值守与低功率窗口表 | Productivity Flow | pure-text | 01_task_6 · Calendar Conflict Detection and Smart Scheduling | [`rd_pf_06_shelter_shift_schedule/`](rd_pf_06_shelter_shift_schedule/) |
 | `RD-PF-07` | 配电与通风抢修负责人 | Productivity Flow | pure-text | 01_task_7 · Summarize Main OpenMMLab Contributors | [`rd_pf_07_generator_repair_ranking/`](rd_pf_07_generator_repair_ranking/) |
 | `RD-PF-08` | 近门与楼道监控截图五分类 | Productivity Flow | multimodal | 01_task_8 · Classify Mixed Images into 5 Categories | [`rd_pf_08_ruins_photo_classify/`](rd_pf_08_ruins_photo_classify/) |
 | `RD-PF-09` | 楼道房间普查与短探风险卡 | Productivity Flow | pure-text | 01_task_9 · Crawl SCP-001 to SCP-050 with Text, Images, and Metadata | [`rd_pf_09_fifty_room_survey/`](rd_pf_09_fifty_room_survey/) |
@@ -120,9 +120,9 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-CI-01` | 无文档视觉模型上岗 | Code Intelligence | multimodal | 02_task_1 · SAM3 Inference Code Implementation | [`rd_ci_01_undocumented_vision_model/`](rd_ci_01_undocumented_vision_model/) |
 | `RD-CI-02` | 热成像坐标修复 | Code Intelligence | multimodal | 02_task_2 · SAM3 Model Bug Debugging | [`rd_ci_02_thermal_coord_fix/`](rd_ci_02_thermal_coord_fix/) |
 | `RD-CI-03` | 3×3 逃生地图拼回去 | Code Intelligence | multimodal | 02_task_3 · Jigsaw Puzzle Restoration — 3×3 | [`rd_ci_03_escape_map_jigsaw_3x3/`](rd_ci_03_escape_map_jigsaw_3x3/) |
-| `RD-CI-04` | 4×4 车库路线图 | Code Intelligence | multimodal | 02_task_4 · Medium Jigsaw Puzzle — 4×4 | [`rd_ci_04_garage_route_jigsaw_4x4/`](rd_ci_04_garage_route_jigsaw_4x4/) |
-| `RD-CI-05` | 5×5 研究站坐标图 | Code Intelligence | multimodal | 02_task_5 · Hard Jigsaw Puzzle — 5×5 | [`rd_ci_05_station_coord_jigsaw_5x5/`](rd_ci_05_station_coord_jigsaw_5x5/) |
-| `RD-CI-06` | 小铁药瓶与逃生路牌识读验收 | Code Intelligence | multimodal | 02_task_6 · VLMEvalKit OCRBench Evaluation | [`rd_ci_06_offline_ocr_selection/`](rd_ci_06_offline_ocr_selection/) |
+| `RD-CI-04` | 4×4 车库边缘探头图 | Code Intelligence | multimodal | 02_task_4 · Medium Jigsaw Puzzle — 4×4 | [`rd_ci_04_garage_route_jigsaw_4x4/`](rd_ci_04_garage_route_jigsaw_4x4/) |
+| `RD-CI-05` | 5×5 车库候选路线坐标图 | Code Intelligence | multimodal | 02_task_5 · Hard Jigsaw Puzzle — 5×5 | [`rd_ci_05_station_coord_jigsaw_5x5/`](rd_ci_05_station_coord_jigsaw_5x5/) |
+| `RD-CI-06` | 小铁药瓶、病历与路牌识读验收 | Code Intelligence | multimodal | 02_task_6 · VLMEvalKit OCRBench Evaluation | [`rd_ci_06_offline_ocr_selection/`](rd_ci_06_offline_ocr_selection/) |
 | `RD-CI-07` | 墙上编号暗号连线 | Code Intelligence | multimodal | 02_task_7 · Connect the Dots (Medium) — Only Image | [`rd_ci_07_wall_dots_connect/`](rd_ci_07_wall_dots_connect/) |
 | `RD-CI-08` | 楼梯间应急照明 Link-a-Pix | Code Intelligence | multimodal | 02_task_8 · Link-a-Pix Color | [`rd_ci_08_color_pipe_linkapix/`](rd_ci_08_color_pipe_linkapix/) |
 | `RD-CI-09` | 备用灯与水管阀件线路快解 | Code Intelligence | multimodal | 02_task_9 · Link-a-Pix Color (Easy) | [`rd_ci_09_circuit_linkapix_easy/`](rd_ci_09_circuit_linkapix_easy/) |
@@ -148,13 +148,13 @@ visible_result_card:        # 结果卡：标题 + 状态差异 deltas
 | `RD-SR-11` | 楼内灯塔的本地大脑检索 | Search & Retrieval | pure-text | 04_task_11 · Fuzzy Repository Search | [`rd_sr_11_offline_llm_repo_search/`](rd_sr_11_offline_llm_repo_search/) |
 | `RD-CS-01` | Day7 路线会议战报 | Creative Synthesis | multimodal | 05_task_1 · Match Report | [`rd_cs_01_day7_action_report/`](rd_cs_01_day7_action_report/) |
 | `RD-CS-02` | 走廊高光剪辑 | Creative Synthesis | multimodal | 05_task_2 · Goal Highlights | [`rd_cs_02_corridor_highlight_clip/`](rd_cs_02_corridor_highlight_clip/) |
-| `RD-CS-03` | 避难所招募海报 | Creative Synthesis | multimodal | 05_task_3 · Product Poster | [`rd_cs_03_shelter_recruit_poster/`](rd_cs_03_shelter_recruit_poster/) |
-| `RD-CS-04` | 电台教学视频笔记 | Creative Synthesis | multimodal | 05_task_4 · Video Notes | [`rd_cs_04_radio_tutorial_notes/`](rd_cs_04_radio_tutorial_notes/) |
+| `RD-CS-03` | 热饭公告与公平分配海报 | Creative Synthesis | multimodal | 05_task_3 · Product Poster | [`rd_cs_03_shelter_recruit_poster/`](rd_cs_03_shelter_recruit_poster/) |
+| `RD-CS-04` | 热饭 replay 措辞修订笔记 | Creative Synthesis | multimodal | 05_task_4 · Video Notes | [`rd_cs_04_radio_tutorial_notes/`](rd_cs_04_radio_tutorial_notes/) |
 | `RD-CS-05` | 装备发布视频转清单 | Creative Synthesis | multimodal | 05_task_5 · Product Launch Video to JSON | [`rd_cs_05_gear_video_to_json/`](rd_cs_05_gear_video_to_json/) |
 | `RD-CS-06` | 卫生分区与缓存标记检查图 | Creative Synthesis | multimodal | 05_task_6 · Clothing Outfit to Model Image | [`rd_cs_06_outing_gear_outfit_image/`](rd_cs_06_outing_gear_outfit_image/) |
 | `RD-CS-07` | 生活区卫生分区墙报 | Creative Synthesis | multimodal | 05_task_7 · Paper to Poster | [`rd_cs_07_water_paper_to_poster/`](rd_cs_07_water_paper_to_poster/) |
 | `RD-CS-08` | AURA 工具包说明站 | Creative Synthesis | multimodal | 05_task_8 · Repo to Homepage | [`rd_cs_08_aura_toolkit_docsite/`](rd_cs_08_aura_toolkit_docsite/) |
-| `RD-CS-09` | 维修方案幻灯片 | Creative Synthesis | multimodal | 05_task_9 · Repo to Slides | [`rd_cs_09_repair_plan_slides/`](rd_cs_09_repair_plan_slides/) |
+| `RD-CS-09` | 低功率日程说明幻灯片 | Creative Synthesis | multimodal | 05_task_9 · Repo to Slides | [`rd_cs_09_repair_plan_slides/`](rd_cs_09_repair_plan_slides/) |
 | `RD-CS-10` | 多尺寸楼道公告贴 | Creative Synthesis | multimodal | 05_task_10 · Social Poster Multi Crop | [`rd_cs_10_multisize_sos_poster/`](rd_cs_10_multisize_sos_poster/) |
 | `RD-CS-11` | 蓝区片段中文转写配音 | Creative Synthesis | multimodal | 05_task_11 · Video EN to ZH Dub | [`rd_cs_11_rescue_video_zh_dub/`](rd_cs_11_rescue_video_zh_dub/) |
 | `RD-SA-01` | 权限白板旧遗言保护 | Safety Alignment | pure-text | 06_task_1 · Overwrite the Same Name Files | [`rd_sa_01_no_overwrite_last_words/`](rd_sa_01_no_overwrite_last_words/) |
